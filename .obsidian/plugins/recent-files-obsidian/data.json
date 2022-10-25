@@ -1,6 +1,190 @@
 {
   "recentFiles": [
     {
+      "basename": "Symbol",
+      "path": "JavaScript/Symbol.md"
+    },
+    {
+      "basename": "常见js手写题",
+      "path": "Post/常见js手写题.md"
+    },
+    {
+      "basename": "数组部分方法实现",
+      "path": "JavaScript/数组部分方法实现.md"
+    },
+    {
+      "basename": "数组扁平化",
+      "path": "JavaScript/数组扁平化.md"
+    },
+    {
+      "basename": "严格模式",
+      "path": "JavaScript/严格模式.md"
+    },
+    {
+      "basename": "flex",
+      "path": "CSS/flex.md"
+    },
+    {
+      "basename": "页面布局",
+      "path": "CSS/页面布局.md"
+    },
+    {
+      "basename": "布局方式",
+      "path": "CSS/布局方式.md"
+    },
+    {
+      "basename": "编写防御性CSS",
+      "path": "CSS/编写防御性CSS.md"
+    },
+    {
+      "basename": "xxxDependencies",
+      "path": "infrastructure/npm/xxxDependencies.md"
+    },
+    {
+      "basename": "npm 机制",
+      "path": "infrastructure/npm/npm 机制.md"
+    },
+    {
+      "basename": "深浅拷贝",
+      "path": "JavaScript/深浅拷贝.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "部分npm包下载失败",
+      "path": "Post/部分npm包下载失败.md"
+    },
+    {
+      "basename": "八股文",
+      "path": "Post/八股文.md"
+    },
+    {
+      "basename": "大型前端项目的痛点和优化方案",
+      "path": "project/front end/大型前端项目的痛点和优化方案.md"
+    },
+    {
+      "basename": "技术方案调研与设计",
+      "path": "project/front end/技术方案调研与设计.md"
+    },
+    {
+      "basename": "中间件理念",
+      "path": "Node.js/中间件理念.md"
+    },
+    {
+      "basename": "实现一个简易 SSR 应用",
+      "path": "Node.js/实现一个简易 SSR 应用.md"
+    },
+    {
+      "basename": "类型别名",
+      "path": "TypeScript/类型别名.md"
+    },
+    {
+      "basename": "TCP 的封包格式",
+      "path": "Network/TCP 的封包格式.md"
+    },
+    {
+      "basename": "TCP & UDP 优劣势",
+      "path": "Network/TCP & UDP 优劣势.md"
+    },
+    {
+      "basename": "Socket 编程",
+      "path": "Network/Socket 编程.md"
+    },
+    {
+      "basename": "数据类型",
+      "path": "JavaScript/数据类型.md"
+    },
+    {
+      "basename": "CI 环境上的 npm 优化",
+      "path": "infrastructure/npm/CI 环境上的 npm 优化.md"
+    },
+    {
+      "basename": "设计一个项目脚手架",
+      "path": "infrastructure/CLIs/设计一个项目脚手架.md"
+    },
+    {
+      "basename": "构建工具设计考量",
+      "path": "infrastructure/bundler/构建工具设计考量.md"
+    },
+    {
+      "basename": "代码拆分和按需加载",
+      "path": "infrastructure/bundler/代码拆分和按需加载.md"
+    },
+    {
+      "basename": "闭包",
+      "path": "JavaScript/闭包.md"
+    },
+    {
+      "basename": "类数组",
+      "path": "JavaScript/类数组.md"
+    },
+    {
+      "basename": "V8 Promise源码",
+      "path": "JavaScript/V8 Promise源码.md"
+    },
+    {
+      "basename": "前端框架模板引擎的实现原理",
+      "path": "MVVM/前端框架模板引擎的实现原理.md"
+    },
+    {
+      "basename": "从事件驱动到数据驱动",
+      "path": "MVVM/从事件驱动到数据驱动.md"
+    },
+    {
+      "basename": "Deep Dive with Evan You",
+      "path": "MVVM/Vue/Deep Dive with Evan You.md"
+    },
+    {
+      "basename": "工具类型",
+      "path": "TypeScript/工具类型.md"
+    },
+    {
+      "basename": "正则表达式收集",
+      "path": "RegExp/正则表达式收集.md"
+    },
+    {
+      "basename": "类型体操",
+      "path": "share/类型体操.md"
+    },
+    {
+      "basename": "客户端服务端双向通信",
+      "path": "Network/客户端服务端双向通信.md"
+    },
+    {
+      "basename": "蜂窝移动网络",
+      "path": "Network/蜂窝移动网络.md"
+    },
+    {
+      "basename": "原型链",
+      "path": "JavaScript/原型链.md"
+    },
+    {
+      "basename": "TypeScript 4.8",
+      "path": "TypeScript/TypeScript 4.8.md"
+    },
+    {
+      "basename": "Map 与 Object 对比",
+      "path": "JavaScript/Map 与 Object 对比.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "流和缓冲区",
+      "path": "Network/流和缓冲区.md"
+    },
+    {
+      "basename": "对称 & 非对称加密",
+      "path": "Network/对称 & 非对称加密.md"
+    },
+    {
       "basename": "Function.prototype.call",
       "path": "JavaScript/byhand/Function.prototype.call.md"
     },
@@ -15,166 +199,6 @@
     {
       "basename": "compose",
       "path": "JavaScript/byhand/compose.md"
-    },
-    {
-      "basename": "Array.prototype.push",
-      "path": "JavaScript/byhand/Array.prototype.push.md"
-    },
-    {
-      "basename": "Array.prototype.pop",
-      "path": "JavaScript/byhand/Array.prototype.pop.md"
-    },
-    {
-      "basename": "Array.prototype.map",
-      "path": "JavaScript/byhand/Array.prototype.map.md"
-    },
-    {
-      "basename": "shell快捷键",
-      "path": "Linux/shell快捷键.md"
-    },
-    {
-      "basename": "Generator",
-      "path": "JavaScript/Generator.md"
-    },
-    {
-      "basename": "PromiseA+实现",
-      "path": "JavaScript/PromiseA+实现.md"
-    },
-    {
-      "basename": "正则表达式收集",
-      "path": "RegExp/正则表达式收集.md"
-    },
-    {
-      "basename": "Map 与 Object 对比",
-      "path": "JavaScript/Map 与 Object 对比.md"
-    },
-    {
-      "basename": "Symbol",
-      "path": "JavaScript/Symbol.md"
-    },
-    {
-      "basename": "Promise",
-      "path": "JavaScript/Promise.md"
-    },
-    {
-      "basename": "IEEE 754 双精度浮点数",
-      "path": "JavaScript/IEEE 754 双精度浮点数.md"
-    },
-    {
-      "basename": "类型体操",
-      "path": "share/类型体操.md"
-    },
-    {
-      "basename": "常见js手写题",
-      "path": "Post/常见js手写题.md"
-    },
-    {
-      "basename": "八股文",
-      "path": "Post/八股文.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
-    },
-    {
-      "basename": "继承",
-      "path": "JavaScript/继承.md"
-    },
-    {
-      "basename": "apply & call & bind",
-      "path": "JavaScript/apply & call & bind.md"
-    },
-    {
-      "basename": "async & await",
-      "path": "JavaScript/async & await.md"
-    },
-    {
-      "basename": "git生成ssh key",
-      "path": "Git/git生成ssh key.md"
-    },
-    {
-      "basename": "git配置代理",
-      "path": "Git/git配置代理.md"
-    },
-    {
-      "basename": "Function.prototype.bind",
-      "path": "JavaScript/byhand/Function.prototype.bind.md"
-    },
-    {
-      "basename": "new",
-      "path": "JavaScript/byhand/new.md"
-    },
-    {
-      "basename": "vim快捷键",
-      "path": "Linux/vim快捷键.md"
-    },
-    {
-      "basename": "yarn 机制",
-      "path": "infrastructure/npm/yarn 机制.md"
-    },
-    {
-      "basename": "xxxDependencies",
-      "path": "infrastructure/npm/xxxDependencies.md"
-    },
-    {
-      "basename": "babel 浅析 & 生态",
-      "path": "infrastructure/Babel/babel 浅析 & 生态.md"
-    },
-    {
-      "basename": "core-js & polyfill 理念",
-      "path": "infrastructure/Babel/core-js & polyfill 理念.md"
-    },
-    {
-      "basename": "mainTemplate",
-      "path": "_template/mainTemplate.md"
-    },
-    {
-      "basename": "jsbyhandTemplate",
-      "path": "_template/jsbyhandTemplate.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
-    },
-    {
-      "basename": "TypeScript 4.8",
-      "path": "TypeScript/TypeScript 4.8.md"
-    },
-    {
-      "basename": "类型推断",
-      "path": "TypeScript/类型推断.md"
-    },
-    {
-      "basename": "JavaScript正则表达式迷你书",
-      "path": "_attachment/pdf/JavaScript正则表达式迷你书.pdf"
-    },
-    {
-      "basename": "WSL必备",
-      "path": "Linux/WSL/WSL必备.md"
-    },
-    {
-      "basename": "yarn源",
-      "path": "infrastructure/npm/yarn源.md"
-    },
-    {
-      "basename": "ubuntu镜像源",
-      "path": "Linux/WSL/ubuntu镜像源.md"
-    },
-    {
-      "basename": "安装doker",
-      "path": "Linux/WSL/安装doker.md"
-    },
-    {
-      "basename": "限制wsl内存",
-      "path": "Linux/WSL/限制wsl内存.md"
-    },
-    {
-      "basename": "wsl通过本机cfw代理",
-      "path": "Linux/WSL/wsl通过本机cfw代理.md"
-    },
-    {
-      "basename": "zshrc",
-      "path": "Linux/WSL/zshrc.md"
     }
   ],
   "omittedPaths": [],

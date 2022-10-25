@@ -8,6 +8,7 @@ body {
 }
 
 .image-embed {
+  display: block;
   text-align: center;
 }
 
@@ -17,4 +18,8 @@ body {
 
 .code-block-linenum-wrap {
   top: var(--size-4-2);
+}
+
+.code-block-copy-button {
+  display: none !important;
 }

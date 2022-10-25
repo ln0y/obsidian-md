@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JavaScript','date/2022-10','year/2022','month/10']
 date: 2022-10-24-星期一 17:35:59
-update: 2022-10-24-星期一 17:37:57
+update: 2022-10-25-星期二 15:28:52
 ---
 
 ## 什么是 `Symbol`
@@ -190,4 +190,6 @@ class demo {
 
 `Symbol.hasInstance` 对应的外部方法是 `instanceof`，这个大家熟悉吧，经常用于判断类型。而在上面的代码片段中，我创建了一个 `demo` 类，并重写了 `Symbol.hasInstance`，所以其对应的 `instanceof` 行为也会发生改变，其内部的机制是这样的：当我们调用 `instanceof` 方法的时候，内部对应调用 `Symbol.hasInstance` 对应的方法即 `return item === " 猪痞恶霸"`
 
-注：更多相关的内置 `Symbol` 可以查阅相关文档😏
+[阮一峰 ES6 Symbol](https://es6.ruanyifeng.com/#docs/symbol)
+
+[MDN Symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)

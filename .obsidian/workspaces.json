@@ -1,19 +1,25 @@
 {
   "workspaces": {
-    "通用": {
+    "常用": {
       "main": {
         "id": "4141c8983190ce48",
         "type": "split",
         "children": [
           {
-            "id": "71e55a011d861db3",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "TODO看板.md"
+            "id": "c7330ad1219e4316",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "5511135e6beecc7c",
+                "type": "leaf",
+                "state": {
+                  "type": "kanban",
+                  "state": {
+                    "file": "TODO看板.md"
+                  }
+                }
               }
-            }
+            ]
           }
         ],
         "direction": "vertical"
@@ -32,7 +38,9 @@
                 "type": "leaf",
                 "state": {
                   "type": "file-explorer",
-                  "state": {}
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
                 }
               },
               {
@@ -111,8 +119,17 @@
                   "type": "dictionary-view",
                   "state": {}
                 }
+              },
+              {
+                "id": "41c2922de4ba5d06",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {}
+                }
               }
-            ]
+            ],
+            "currentTab": 3
           },
           {
             "id": "81a6546d848920aa",
@@ -183,8 +200,11 @@
         "direction": "horizontal",
         "width": 300
       },
-      "active": "71e55a011d861db3"
+      "ribbon": {
+        "mostRecentAction": ""
+      },
+      "active": "5511135e6beecc7c"
     }
   },
-  "active": "通用"
+  "active": "常用"
 }
