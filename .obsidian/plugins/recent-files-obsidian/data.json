@@ -1,0 +1,182 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Function.prototype.call",
+      "path": "JavaScript/byhand/Function.prototype.call.md"
+    },
+    {
+      "basename": "设计合适的状态管理方案",
+      "path": "MVVM/设计合适的状态管理方案.md"
+    },
+    {
+      "basename": "EventEmitter",
+      "path": "JavaScript/byhand/EventEmitter.md"
+    },
+    {
+      "basename": "compose",
+      "path": "JavaScript/byhand/compose.md"
+    },
+    {
+      "basename": "Array.prototype.push",
+      "path": "JavaScript/byhand/Array.prototype.push.md"
+    },
+    {
+      "basename": "Array.prototype.pop",
+      "path": "JavaScript/byhand/Array.prototype.pop.md"
+    },
+    {
+      "basename": "Array.prototype.map",
+      "path": "JavaScript/byhand/Array.prototype.map.md"
+    },
+    {
+      "basename": "shell快捷键",
+      "path": "Linux/shell快捷键.md"
+    },
+    {
+      "basename": "Generator",
+      "path": "JavaScript/Generator.md"
+    },
+    {
+      "basename": "PromiseA+实现",
+      "path": "JavaScript/PromiseA+实现.md"
+    },
+    {
+      "basename": "正则表达式收集",
+      "path": "RegExp/正则表达式收集.md"
+    },
+    {
+      "basename": "Map 与 Object 对比",
+      "path": "JavaScript/Map 与 Object 对比.md"
+    },
+    {
+      "basename": "Symbol",
+      "path": "JavaScript/Symbol.md"
+    },
+    {
+      "basename": "Promise",
+      "path": "JavaScript/Promise.md"
+    },
+    {
+      "basename": "IEEE 754 双精度浮点数",
+      "path": "JavaScript/IEEE 754 双精度浮点数.md"
+    },
+    {
+      "basename": "类型体操",
+      "path": "share/类型体操.md"
+    },
+    {
+      "basename": "常见js手写题",
+      "path": "Post/常见js手写题.md"
+    },
+    {
+      "basename": "八股文",
+      "path": "Post/八股文.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "继承",
+      "path": "JavaScript/继承.md"
+    },
+    {
+      "basename": "apply & call & bind",
+      "path": "JavaScript/apply & call & bind.md"
+    },
+    {
+      "basename": "async & await",
+      "path": "JavaScript/async & await.md"
+    },
+    {
+      "basename": "git生成ssh key",
+      "path": "Git/git生成ssh key.md"
+    },
+    {
+      "basename": "git配置代理",
+      "path": "Git/git配置代理.md"
+    },
+    {
+      "basename": "Function.prototype.bind",
+      "path": "JavaScript/byhand/Function.prototype.bind.md"
+    },
+    {
+      "basename": "new",
+      "path": "JavaScript/byhand/new.md"
+    },
+    {
+      "basename": "vim快捷键",
+      "path": "Linux/vim快捷键.md"
+    },
+    {
+      "basename": "yarn 机制",
+      "path": "infrastructure/npm/yarn 机制.md"
+    },
+    {
+      "basename": "xxxDependencies",
+      "path": "infrastructure/npm/xxxDependencies.md"
+    },
+    {
+      "basename": "babel 浅析 & 生态",
+      "path": "infrastructure/Babel/babel 浅析 & 生态.md"
+    },
+    {
+      "basename": "core-js & polyfill 理念",
+      "path": "infrastructure/Babel/core-js & polyfill 理念.md"
+    },
+    {
+      "basename": "mainTemplate",
+      "path": "_template/mainTemplate.md"
+    },
+    {
+      "basename": "jsbyhandTemplate",
+      "path": "_template/jsbyhandTemplate.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "TypeScript 4.8",
+      "path": "TypeScript/TypeScript 4.8.md"
+    },
+    {
+      "basename": "类型推断",
+      "path": "TypeScript/类型推断.md"
+    },
+    {
+      "basename": "JavaScript正则表达式迷你书",
+      "path": "_attachment/pdf/JavaScript正则表达式迷你书.pdf"
+    },
+    {
+      "basename": "WSL必备",
+      "path": "Linux/WSL/WSL必备.md"
+    },
+    {
+      "basename": "yarn源",
+      "path": "infrastructure/npm/yarn源.md"
+    },
+    {
+      "basename": "ubuntu镜像源",
+      "path": "Linux/WSL/ubuntu镜像源.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
+    },
+    {
+      "basename": "限制wsl内存",
+      "path": "Linux/WSL/限制wsl内存.md"
+    },
+    {
+      "basename": "wsl通过本机cfw代理",
+      "path": "Linux/WSL/wsl通过本机cfw代理.md"
+    },
+    {
+      "basename": "zshrc",
+      "path": "Linux/WSL/zshrc.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null
+}

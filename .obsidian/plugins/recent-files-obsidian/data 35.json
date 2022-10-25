@@ -1,0 +1,90 @@
+{
+  "recentFiles": [
+    {
+      "basename": "思考题",
+      "path": "Network/思考题.md"
+    },
+    {
+      "basename": "蜂窝移动网络",
+      "path": "Network/蜂窝移动网络.md"
+    },
+    {
+      "basename": "Angular & React & Vue 设计特色",
+      "path": "MVVM/Angular & React & Vue 设计特色.md"
+    },
+    {
+      "basename": "设计合适的状态管理方案",
+      "path": "MVVM/设计合适的状态管理方案.md"
+    },
+    {
+      "basename": "单页应用与前端路由库设计原理",
+      "path": "MVVM/单页应用与前端路由库设计原理.md"
+    },
+    {
+      "basename": "Vue 3 Reactivity",
+      "path": "MVVM/Vue/Vue 3 Reactivity.md"
+    },
+    {
+      "basename": "nextTick",
+      "path": "MVVM/Vue/nextTick.md"
+    },
+    {
+      "basename": "script-setup",
+      "path": "MVVM/Vue/script-setup.md"
+    },
+    {
+      "basename": "Generator",
+      "path": "JavaScript/Generator.md"
+    },
+    {
+      "basename": "Logic Reuse",
+      "path": "MVVM/Vue/Logic Reuse.md"
+    },
+    {
+      "basename": "Deep Dive with Evan You",
+      "path": "MVVM/Vue/Deep Dive with Evan You.md"
+    },
+    {
+      "basename": "学习 axios",
+      "path": "source code/学习 axios.md"
+    },
+    {
+      "basename": "core-js & polyfill 理念",
+      "path": "infrastructure/Babel/core-js & polyfill 理念.md"
+    },
+    {
+      "basename": "严格模式",
+      "path": "JavaScript/严格模式.md"
+    },
+    {
+      "basename": "Tree Shaking",
+      "path": "infrastructure/bundler/Tree Shaking.md"
+    },
+    {
+      "basename": "构建工具设计考量",
+      "path": "infrastructure/bundler/构建工具设计考量.md"
+    },
+    {
+      "basename": "代码拆分和按需加载",
+      "path": "infrastructure/bundler/代码拆分和按需加载.md"
+    },
+    {
+      "basename": "Symbol",
+      "path": "JavaScript/Symbol.md"
+    },
+    {
+      "basename": "Map 与 Object 对比",
+      "path": "JavaScript/Map 与 Object 对比.md"
+    },
+    {
+      "basename": "babel 浅析 & 生态",
+      "path": "infrastructure/Babel/babel 浅析 & 生态.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null
+}

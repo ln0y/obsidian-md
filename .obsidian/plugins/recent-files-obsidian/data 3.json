@@ -1,0 +1,34 @@
+{
+  "recentFiles": [
+    {
+      "basename": "TODO看板 2",
+      "path": "TODO看板 2.md"
+    },
+    {
+      "basename": "core-js & polyfill 理念",
+      "path": "infrastructure/Babel/core-js & polyfill 理念.md"
+    },
+    {
+      "basename": "babel 浅析 & 生态",
+      "path": "infrastructure/Babel/babel 浅析 & 生态.md"
+    },
+    {
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
+    },
+    {
+      "basename": "前端",
+      "path": "前端.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
+    },
+    {
+      "basename": "meta标签",
+      "path": "HTML/meta标签.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null
+}

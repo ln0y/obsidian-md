@@ -1,0 +1,38 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Tree Shaking",
+      "path": "infrastructure/bundler/Tree Shaking.md"
+    },
+    {
+      "basename": "构建工具设计考量",
+      "path": "infrastructure/bundler/构建工具设计考量.md"
+    },
+    {
+      "basename": "代码拆分和按需加载",
+      "path": "infrastructure/bundler/代码拆分和按需加载.md"
+    },
+    {
+      "basename": "Symbol",
+      "path": "JavaScript/Symbol.md"
+    },
+    {
+      "basename": "Map 与 Object 对比",
+      "path": "JavaScript/Map 与 Object 对比.md"
+    },
+    {
+      "basename": "core-js & polyfill 理念",
+      "path": "infrastructure/Babel/core-js & polyfill 理念.md"
+    },
+    {
+      "basename": "babel 浅析 & 生态",
+      "path": "infrastructure/Babel/babel 浅析 & 生态.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null
+}

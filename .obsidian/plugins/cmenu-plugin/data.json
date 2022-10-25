@@ -1,0 +1,101 @@
+{
+  "aestheticStyle": "glass",
+  "menuCommands": [
+    {
+      "id": "cmenu-plugin:editor:toggle-bold",
+      "name": "cMenu: Toggle bold",
+      "icon": "bold-glyph"
+    },
+    {
+      "id": "cmenu-plugin:editor:toggle-italics",
+      "name": "cMenu: Toggle italics",
+      "icon": "italic-glyph"
+    },
+    {
+      "id": "cmenu-plugin:editor:toggle-strikethrough",
+      "name": "cMenu: Toggle strikethrough",
+      "icon": "strikethrough-glyph"
+    },
+    {
+      "id": "cmenu-plugin:underline",
+      "name": "cMenu: Toggle underline",
+      "icon": "underline-glyph"
+    },
+    {
+      "id": "cmenu-plugin:editor:toggle-code",
+      "name": "cMenu: Toggle code",
+      "icon": "code-glyph"
+    },
+    {
+      "id": "cmenu-plugin:codeblock",
+      "name": "cMenu: Toggle codeblock",
+      "icon": "codeblock-glyph"
+    },
+    {
+      "id": "cmenu-plugin:editor:toggle-blockquote",
+      "name": "cMenu: Toggle blockquote",
+      "icon": "quote-glyph"
+    },
+    {
+      "id": "quickadd:choice:ee2571d5-8d5f-42fc-9908-747b55271f06",
+      "name": "QuickAdd: add new file",
+      "icon": "remix-FileAddFill"
+    },
+    {
+      "id": "quickadd:choice:9a470810-5478-4148-b529-2bba48909d03",
+      "name": "QuickAdd: add js codeblock",
+      "icon": "remix-CodeBoxFill"
+    },
+    {
+      "id": "quickadd:choice:5acec4f4-b638-4e81-8e38-b5dac3cc04e1",
+      "name": "QuickAdd: add ts codeblock",
+      "icon": "remix-CodeBoxFill"
+    },
+    {
+      "id": "obsidian-icons-plugin:open-icons-plugin-modal",
+      "name": "Icons: Insert Icon",
+      "hotkeys": [
+        {
+          "modifiers": [
+            "Ctrl",
+            "Shift"
+          ],
+          "key": "i"
+        }
+      ],
+      "icon": "feather-flag"
+    },
+    {
+      "id": "obsidian-mind-map:app:markmap-preview",
+      "name": "Mind Map: Preview the current note as a Mind Map",
+      "hotkeys": [],
+      "icon": "split"
+    },
+    {
+      "id": "quickadd:choice:c4b48408-92ae-43ea-b9cd-9571320181fb",
+      "name": "QuickAdd: add iframe",
+      "icon": "remix-WindowFill"
+    },
+    {
+      "id": "obsidian-kanban:toggle-kanban-view",
+      "name": "Kanban: 在看板和 Markdown 模式之间进行切换",
+      "icon": "remix-DashboardFill"
+    },
+    {
+      "id": "obsidian-emoji-toolbar:emoji-picker:open-picker",
+      "name": "Emoji Toolbar: Open emoji picker",
+      "hotkeys": [],
+      "icon": "remix-EmotionFill"
+    },
+    {
+      "id": "quickadd:choice:07e7f60f-f13e-4242-9326-b307ab048ea2",
+      "name": "QuickAdd: add callout",
+      "icon": "feather-info"
+    }
+  ],
+  "appendMethod": "workspace",
+  "shouldShowMenuOnSelect": false,
+  "cMenuVisibility": true,
+  "cMenuBottomValue": 4.25,
+  "cMenuNumRows": 9
+}

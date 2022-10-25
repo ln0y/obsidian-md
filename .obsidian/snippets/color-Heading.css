@@ -1,0 +1,20 @@
+body {
+  --file-line-width: 100%;
+}
+
+.theme-dark {
+  /* --divider-color */
+  --editor-font-size: var(--font-text-size);
+}
+
+.image-embed {
+  text-align: center;
+}
+
+.image-embed img {
+  max-width: var(--file-line-width);
+}
+
+.code-block-linenum-wrap {
+  top: var(--size-4-2);
+}

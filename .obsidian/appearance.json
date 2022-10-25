@@ -1,0 +1,13 @@
+{
+  "baseFontSize": 16,
+  "theme": "obsidian",
+  "cssTheme": "Things",
+  "enabledCssSnippets": [
+    "color-Heading"
+  ],
+  "translucency": false,
+  "accentColor": "#3c81e3",
+  "monospaceFontFamily": "Fira Code Retina,JetBrains Mono,JetBrainsMono Nerd Font",
+  "interfaceFontFamily": "霞鹜文楷,霞鹜文楷等宽,霞鹜文楷 GB,霞鹜文楷等宽 GB",
+  "textFontFamily": "霞鹜文楷,霞鹜文楷等宽,霞鹜文楷 GB,霞鹜文楷等宽 GB"
+}

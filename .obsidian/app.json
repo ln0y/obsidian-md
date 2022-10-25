@@ -1,0 +1,26 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showLineNumber": true,
+  "spellcheck": false,
+  "spellcheckLanguages": [
+    "zh-CN",
+    "en-US"
+  ],
+  "useTab": false,
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true,
+  "trashOption": "system",
+  "promptDelete": false,
+  "attachmentFolderPath": "_attachment",
+  "showFrontmatter": false,
+  "defaultViewMode": "preview",
+  "fileSortOrder": "byCreatedTime",
+  "tabSize": 2,
+  "userIgnoreFilters": [
+    "_script/",
+    "_template/"
+  ]
+}

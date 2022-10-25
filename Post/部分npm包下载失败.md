@@ -1,0 +1,58 @@
+---
+aliases: []
+tags: ['Post','date/2022-05','year/2022','month/05']
+date: 2022-05-22-Sunday 17:42:58
+update: 2022-05-22-Sunday 17:46:56
+---
+
+https://github.com/ineo6/hosts
+
+以下增加到 hosts 文件
+
+```txt
+# New！欢迎使用基于DNS的新方案
+# https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts
+# 地址可能会变动，请务必关注GitHub、Gitlab获取最新消息
+# 也可以关注公众号：湖中剑，保证不迷路
+# GitHub Host Start
+
+185.199.108.154              github.githubassets.com
+140.82.114.21                central.github.com
+185.199.108.133              desktop.githubusercontent.com
+185.199.108.153              assets-cdn.github.com
+185.199.108.133              camo.githubusercontent.com
+185.199.108.133              github.map.fastly.net
+199.232.69.194               github.global.ssl.fastly.net
+140.82.113.3                 gist.github.com
+185.199.108.153              github.io
+140.82.114.3                 github.com
+140.82.114.6                 api.github.com
+185.199.108.133              raw.githubusercontent.com
+185.199.108.133              user-images.githubusercontent.com
+185.199.108.133              favicons.githubusercontent.com
+185.199.108.133              avatars5.githubusercontent.com
+185.199.108.133              avatars4.githubusercontent.com
+185.199.108.133              avatars3.githubusercontent.com
+185.199.108.133              avatars2.githubusercontent.com
+185.199.108.133              avatars1.githubusercontent.com
+185.199.108.133              avatars0.githubusercontent.com
+185.199.108.133              avatars.githubusercontent.com
+140.82.113.9                 codeload.github.com
+52.216.137.116               github-cloud.s3.amazonaws.com
+52.217.203.169               github-com.s3.amazonaws.com
+52.217.105.68                github-production-release-asset-2e65be.s3.amazonaws.com
+52.217.203.169               github-production-user-asset-6210df.s3.amazonaws.com
+52.216.241.132               github-production-repository-file-5c1aeb.s3.amazonaws.com
+185.199.108.153              githubstatus.com
+64.71.144.211                github.community
+185.199.108.133              media.githubusercontent.com
+185.199.108.133              objects.githubusercontent.com
+185.199.108.133              raw.github.com
+
+# Please Star : https://github.com/ineo6/hosts
+# Mirror Repo : https://gitlab.com/ineo6/hosts
+
+# Update at: 2022-05-22 16:15:34
+
+# GitHub Host End
+```

@@ -1,0 +1,30 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Generator",
+      "path": "JavaScript/Generator.md"
+    },
+    {
+      "basename": "常见js手写题",
+      "path": "Post/常见js手写题.md"
+    },
+    {
+      "basename": "交叉类型",
+      "path": "TypeScript/交叉类型.md"
+    },
+    {
+      "basename": "函数重载",
+      "path": "TypeScript/函数重载.md"
+    },
+    {
+      "basename": "TypeScript 4.8",
+      "path": "TypeScript/TypeScript 4.8.md"
+    },
+    {
+      "basename": "装饰器",
+      "path": "TypeScript/装饰器.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null
+}
