@@ -23,3 +23,8 @@ body {
 .code-block-copy-button {
   display: none !important;
 }
+
+.markdown-source-view.mod-cm6 .code-block-flair {
+  top: 0;
+  right: 0;
+}

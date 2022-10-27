@@ -1,12 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "Symbol",
-      "path": "JavaScript/Symbol.md"
+      "basename": "Generator",
+      "path": "JavaScript/Generator.md"
+    },
+    {
+      "basename": "IEEE 754 双精度浮点数",
+      "path": "JavaScript/IEEE 754 双精度浮点数.md"
+    },
+    {
+      "basename": "apply & call & bind",
+      "path": "JavaScript/apply & call & bind.md"
     },
     {
       "basename": "常见js手写题",
       "path": "Post/常见js手写题.md"
+    },
+    {
+      "basename": "Angular & React & Vue 设计特色",
+      "path": "MVVM/Angular & React & Vue 设计特色.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "八股文",
+      "path": "Post/八股文.md"
+    },
+    {
+      "basename": "Symbol",
+      "path": "JavaScript/Symbol.md"
     },
     {
       "basename": "数组部分方法实现",
@@ -53,16 +77,8 @@
       "path": "Linux/WSL/安装doker.md"
     },
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
-    },
-    {
       "basename": "部分npm包下载失败",
       "path": "Post/部分npm包下载失败.md"
-    },
-    {
-      "basename": "八股文",
-      "path": "Post/八股文.md"
     },
     {
       "basename": "大型前端项目的痛点和优化方案",
@@ -183,22 +199,6 @@
     {
       "basename": "对称 & 非对称加密",
       "path": "Network/对称 & 非对称加密.md"
-    },
-    {
-      "basename": "Function.prototype.call",
-      "path": "JavaScript/byhand/Function.prototype.call.md"
-    },
-    {
-      "basename": "设计合适的状态管理方案",
-      "path": "MVVM/设计合适的状态管理方案.md"
-    },
-    {
-      "basename": "EventEmitter",
-      "path": "JavaScript/byhand/EventEmitter.md"
-    },
-    {
-      "basename": "compose",
-      "path": "JavaScript/byhand/compose.md"
     }
   ],
   "omittedPaths": [],
