@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/Generator.md",
+                "file": "JavaScript/IEEE 754 双精度浮点数.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/Generator.md"
+                "file": "JavaScript/IEEE 754 双精度浮点数.md"
               }
             }
           }
@@ -160,7 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/Generator.md",
+                "file": "JavaScript/IEEE 754 双精度浮点数.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/Generator.md",
+                "file": "JavaScript/IEEE 754 双精度浮点数.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -201,12 +201,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
   "active": "5511135e6beecc7c",
   "lastOpenFiles": [
     "JavaScript/IEEE 754 双精度浮点数.md",
+    "JavaScript/Generator.md",
     "JavaScript/apply & call & bind.md",
     "Post/常见js手写题.md",
     "MVVM/Angular & React & Vue 设计特色.md",
@@ -214,7 +212,6 @@
     "Post/八股文.md",
     "JavaScript/Symbol.md",
     "JavaScript/数组部分方法实现.md",
-    "JavaScript/数组扁平化.md",
-    "JavaScript/严格模式.md"
+    "JavaScript/数组扁平化.md"
   ]
 }

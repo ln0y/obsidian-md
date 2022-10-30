@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "Generator",
-      "path": "JavaScript/Generator.md"
-    },
-    {
       "basename": "IEEE 754 双精度浮点数",
       "path": "JavaScript/IEEE 754 双精度浮点数.md"
+    },
+    {
+      "basename": "Generator",
+      "path": "JavaScript/Generator.md"
     },
     {
       "basename": "apply & call & bind",
