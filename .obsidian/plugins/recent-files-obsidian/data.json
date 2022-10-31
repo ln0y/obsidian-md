@@ -5,6 +5,14 @@
       "path": "JavaScript/IEEE 754 双精度浮点数.md"
     },
     {
+      "basename": "flex",
+      "path": "CSS/flex.md"
+    },
+    {
+      "basename": "布局方式",
+      "path": "CSS/布局方式.md"
+    },
+    {
       "basename": "Generator",
       "path": "JavaScript/Generator.md"
     },
@@ -45,16 +53,8 @@
       "path": "JavaScript/严格模式.md"
     },
     {
-      "basename": "flex",
-      "path": "CSS/flex.md"
-    },
-    {
       "basename": "页面布局",
       "path": "CSS/页面布局.md"
-    },
-    {
-      "basename": "布局方式",
-      "path": "CSS/布局方式.md"
     },
     {
       "basename": "编写防御性CSS",

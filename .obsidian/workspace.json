@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "c7330ad1219e4316",
+        "id": "b135619d9b761076",
         "type": "tabs",
         "children": [
           {
-            "id": "5511135e6beecc7c",
+            "id": "d452495e40e7b158",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -201,8 +201,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "5511135e6beecc7c",
+  "active": "d452495e40e7b158",
   "lastOpenFiles": [
+    "CSS/flex.md",
+    "CSS/布局方式.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
     "JavaScript/Generator.md",
     "JavaScript/apply & call & bind.md",
@@ -210,8 +212,6 @@
     "MVVM/Angular & React & Vue 设计特色.md",
     "Post/front end.md",
     "Post/八股文.md",
-    "JavaScript/Symbol.md",
-    "JavaScript/数组部分方法实现.md",
-    "JavaScript/数组扁平化.md"
+    "JavaScript/Symbol.md"
   ]
 }

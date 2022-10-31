@@ -65,6 +65,9 @@ Flexible Box Module，通常称为flexbox被设计为一维布局模型，并作
 | space-between | 项目均匀分布，第一个项在起点线，最后一项在终点线 |
 | space-around | 项目均匀分布，第一个项目两侧有相同的留白空间，相邻项目之间的距离是两个项目之间留白的和 |
 
+> [!NOTE]+ space-around 和 space-evenly 的区别
+>  ![[14-space-around-vs-space-evenly.jpg|800]]
+
 ### align-items
 
 定义项目在交叉轴上对齐的方式。
@@ -112,7 +115,7 @@ Flexible Box Module，通常称为flexbox被设计为一维布局模型，并作
 将改`flex-grow`属性设置为正整数，弹性项目可以根据主轴进行扩展。此时该项目将扩展并占据主轴剩余空间。
 如果将所有的弹性项目设置`flex-grow: 1`，这些弹性项目将平分弹性容器的剩余空间。
 
-<div style="display: flex; width: 500px; height: 100px;">
+<div style="display: flex; width: 500px; height: 100px; color: #333;">
     <div style="height: 100px; width: 100px; background-color: khaki;">flex-grow：1</div>
     <div style="flex-grow: 3; width: 200px; background-color: pink;">flex-grow：3</div>
 </div>
