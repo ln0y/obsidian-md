@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "IEEE 754 双精度浮点数",
-      "path": "JavaScript/IEEE 754 双精度浮点数.md"
+      "basename": "正则表达式收集",
+      "path": "RegExp/正则表达式收集.md"
+    },
+    {
+      "basename": "JavaScript正则表达式迷你书",
+      "path": "_attachment/pdf/JavaScript正则表达式迷你书.pdf"
     },
     {
       "basename": "flex",
       "path": "CSS/flex.md"
+    },
+    {
+      "basename": "IEEE 754 双精度浮点数",
+      "path": "JavaScript/IEEE 754 双精度浮点数.md"
     },
     {
       "basename": "布局方式",
@@ -161,10 +169,6 @@
       "path": "TypeScript/工具类型.md"
     },
     {
-      "basename": "正则表达式收集",
-      "path": "RegExp/正则表达式收集.md"
-    },
-    {
       "basename": "类型体操",
       "path": "share/类型体操.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "流和缓冲区",
       "path": "Network/流和缓冲区.md"
-    },
-    {
-      "basename": "对称 & 非对称加密",
-      "path": "Network/对称 & 非对称加密.md"
     }
   ],
   "omittedPaths": [],

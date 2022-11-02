@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "RegExp/正则表达式收集.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md"
+                "file": "RegExp/正则表达式收集.md"
               }
             }
           }
@@ -160,7 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "RegExp/正则表达式收集.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "RegExp/正则表达式收集.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -201,17 +201,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "d452495e40e7b158",
+  "active": "41c2922de4ba5d06",
   "lastOpenFiles": [
+    "_attachment/pdf/JavaScript正则表达式迷你书.pdf",
+    "RegExp/正则表达式收集.md",
     "CSS/flex.md",
-    "CSS/布局方式.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
+    "CSS/布局方式.md",
     "JavaScript/Generator.md",
     "JavaScript/apply & call & bind.md",
     "Post/常见js手写题.md",
     "MVVM/Angular & React & Vue 设计特色.md",
-    "Post/front end.md",
-    "Post/八股文.md",
-    "JavaScript/Symbol.md"
+    "Post/front end.md"
   ]
 }
