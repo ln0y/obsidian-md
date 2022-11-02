@@ -110,5 +110,14 @@
   },
   "lintOnSave": true,
   "displayChanged": true,
-  "foldersToIgnore": []
+  "foldersToIgnore": [],
+  "linterLocale": "system-default",
+  "logLevel": 4,
+  "lintCommands": [],
+  "commonStyles": {
+    "aliasArrayStyle": "single-line",
+    "tagArrayStyle": "single-line",
+    "minimumNumberOfDollarSignsToBeAMathBlock": 2,
+    "escapeCharacter": "\""
+  }
 }
