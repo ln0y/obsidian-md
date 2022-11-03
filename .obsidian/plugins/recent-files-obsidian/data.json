@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "snippet",
+      "path": "VS code/snippet.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
       "basename": "正则表达式收集",
       "path": "RegExp/正则表达式收集.md"
     },
@@ -35,10 +43,6 @@
     {
       "basename": "Angular & React & Vue 设计特色",
       "path": "MVVM/Angular & React & Vue 设计特色.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "八股文",
@@ -195,10 +199,6 @@
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
-    },
-    {
-      "basename": "流和缓冲区",
-      "path": "Network/流和缓冲区.md"
     }
   ],
   "omittedPaths": [],
