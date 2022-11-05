@@ -20,6 +20,7 @@
   "basePath": "",
   "differentIntervalCommitAndPush": false,
   "changedFilesInStatusBar": true,
+  "username": "",
   "showedMobileNotice": true,
   "refreshSourceControlTimer": 3000,
   "showBranchStatusBar": true
