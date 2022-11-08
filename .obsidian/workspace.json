@@ -64,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "cdn",
+                "query": "html",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -219,13 +219,13 @@
   "lastOpenFiles": [
     "Post/front end.md",
     "Security/DOM Clobbering.md",
+    "CSS/布局方式.md",
+    "share/类型体操.md",
+    "RegExp/正则表达式收集.md",
     "未命名.md",
     "VS code/snippet.md",
-    "RegExp/正则表达式收集.md",
     "_attachment/pdf/JavaScript正则表达式迷你书.pdf",
     "CSS/flex.md",
-    "JavaScript/IEEE 754 双精度浮点数.md",
-    "CSS/布局方式.md",
-    "JavaScript/Generator.md"
+    "JavaScript/IEEE 754 双精度浮点数.md"
   ]
 }
