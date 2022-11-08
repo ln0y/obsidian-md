@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "a7cae693d4df402f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -143,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md"
+                "file": "conflict-files-obsidian-git.md"
               }
             }
           }
@@ -160,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "conflict-files-obsidian-git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -201,7 +215,7 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "41c2922de4ba5d06",
+  "active": "a7cae693d4df402f",
   "lastOpenFiles": [
     "JavaScript/IEEE 754 双精度浮点数.md",
     "JavaScript/Generator.md",
