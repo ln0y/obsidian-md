@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "snippet",
-      "path": "VS code/snippet.md"
+      "basename": "DOM Clobbering",
+      "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "front end",
       "path": "Post/front end.md"
+    },
+    {
+      "basename": "snippet",
+      "path": "VS code/snippet.md"
     },
     {
       "basename": "正则表达式收集",
@@ -195,10 +199,6 @@
     {
       "basename": "Map 与 Object 对比",
       "path": "JavaScript/Map 与 Object 对比.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     }
   ],
   "omittedPaths": [],

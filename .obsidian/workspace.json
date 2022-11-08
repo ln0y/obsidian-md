@@ -4,23 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "c7330ad1219e4316",
+        "id": "4d789702e2b81b91",
         "type": "tabs",
         "children": [
           {
-            "id": "5511135e6beecc7c",
+            "id": "3f37beb543098831",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "Post/front end.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
             }
+          },
+          {
+            "id": "54aae36784d3ee9c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/DOM Clobbering.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -50,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "cdn",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -143,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md"
+                "file": "Security/DOM Clobbering.md"
               }
             }
           }
@@ -160,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "Security/DOM Clobbering.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "Security/DOM Clobbering.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -201,17 +215,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "41c2922de4ba5d06",
+  "active": "54aae36784d3ee9c",
   "lastOpenFiles": [
-    "JavaScript/IEEE 754 双精度浮点数.md",
-    "JavaScript/Generator.md",
-    "JavaScript/apply & call & bind.md",
-    "Post/常见js手写题.md",
-    "MVVM/Angular & React & Vue 设计特色.md",
     "Post/front end.md",
-    "Post/八股文.md",
-    "JavaScript/Symbol.md",
-    "JavaScript/数组部分方法实现.md",
-    "JavaScript/数组扁平化.md"
+    "Security/DOM Clobbering.md",
+    "未命名.md",
+    "VS code/snippet.md",
+    "RegExp/正则表达式收集.md",
+    "_attachment/pdf/JavaScript正则表达式迷你书.pdf",
+    "CSS/flex.md",
+    "JavaScript/IEEE 754 双精度浮点数.md",
+    "CSS/布局方式.md",
+    "JavaScript/Generator.md"
   ]
 }
