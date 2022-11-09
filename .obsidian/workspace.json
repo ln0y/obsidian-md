@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4d789702e2b81b91",
+        "id": "c7330ad1219e4316",
         "type": "tabs",
         "children": [
           {
-            "id": "3f37beb543098831",
+            "id": "5511135e6beecc7c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Post/front end.md",
+                "file": "JavaScript/IEEE 754 双精度浮点数.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -21,16 +21,11 @@
             }
           },
           {
-            "id": "54aae36784d3ee9c",
+            "id": "a7cae693d4df402f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Post/front end.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -64,7 +59,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "html",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -156,9 +151,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Post/front end.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -174,7 +167,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +183,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -215,17 +206,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "54aae36784d3ee9c",
+  "active": "a7cae693d4df402f",
   "lastOpenFiles": [
-    "share/类型体操.md",
-    "Security/DOM Clobbering.md",
+    "conflict-files-obsidian-git.md",
+    "JavaScript/IEEE 754 双精度浮点数.md",
+    "JavaScript/Generator.md",
+    "JavaScript/apply & call & bind.md",
+    "Post/常见js手写题.md",
+    "MVVM/Angular & React & Vue 设计特色.md",
     "Post/front end.md",
-    "CSS/布局方式.md",
-    "RegExp/正则表达式收集.md",
-    "未命名.md",
-    "VS code/snippet.md",
-    "_attachment/pdf/JavaScript正则表达式迷你书.pdf",
-    "CSS/flex.md",
-    "JavaScript/IEEE 754 双精度浮点数.md"
+    "Post/八股文.md",
+    "JavaScript/Symbol.md",
+    "JavaScript/数组部分方法实现.md"
   ]
 }

@@ -1,28 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
-    },
-    {
-      "basename": "类型体操",
-      "path": "share/类型体操.md"
-    },
-    {
-      "basename": "DOM Clobbering",
-      "path": "Security/DOM Clobbering.md"
-    },
-    {
-      "basename": "布局方式",
-      "path": "CSS/布局方式.md"
-    },
-    {
-      "basename": "正则表达式收集",
-      "path": "RegExp/正则表达式收集.md"
+      "basename": "IEEE 754 双精度浮点数",
+      "path": "JavaScript/IEEE 754 双精度浮点数.md"
     },
     {
       "basename": "snippet",
       "path": "VS code/snippet.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "正则表达式收集",
+      "path": "RegExp/正则表达式收集.md"
     },
     {
       "basename": "JavaScript正则表达式迷你书",
@@ -33,8 +25,8 @@
       "path": "CSS/flex.md"
     },
     {
-      "basename": "IEEE 754 双精度浮点数",
-      "path": "JavaScript/IEEE 754 双精度浮点数.md"
+      "basename": "布局方式",
+      "path": "CSS/布局方式.md"
     },
     {
       "basename": "Generator",
@@ -179,6 +171,10 @@
     {
       "basename": "工具类型",
       "path": "TypeScript/工具类型.md"
+    },
+    {
+      "basename": "类型体操",
+      "path": "share/类型体操.md"
     },
     {
       "basename": "客户端服务端双向通信",
