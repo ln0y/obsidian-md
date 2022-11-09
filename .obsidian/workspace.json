@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VS code/snippet.md",
-                "mode": "preview",
+                "file": "Security/DOM Clobbering.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "VS code/snippet.md"
+                "file": "Security/DOM Clobbering.md"
               }
             }
           }
@@ -160,7 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "VS code/snippet.md",
+                "file": "Security/DOM Clobbering.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "VS code/snippet.md",
+                "file": "Security/DOM Clobbering.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -203,6 +203,7 @@
   },
   "active": "5511135e6beecc7c",
   "lastOpenFiles": [
+    "VS code/snippet.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
     "conflict-files-obsidian-git.md",
     "JavaScript/Generator.md",
@@ -211,7 +212,6 @@
     "MVVM/Angular & React & Vue 设计特色.md",
     "Post/front end.md",
     "Post/八股文.md",
-    "JavaScript/Symbol.md",
-    "JavaScript/数组部分方法实现.md"
+    "JavaScript/Symbol.md"
   ]
 }

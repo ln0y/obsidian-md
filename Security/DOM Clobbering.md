@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','date/2022-11','year/2022','month/11']
 date: 2022-11-08-星期二 17:19:29
-update: 2022-11-08-星期二 18:48:43
+update: 2022-11-09-星期三 14:46:23
 ---
 
 [原文](https://blog.huli.tw/2021/01/23/dom-clobbering/)
@@ -86,7 +86,7 @@ document.getElementById('btn')
 </script>
 ```
 
-然后因为 JS 的 scope，所以你就算直接用 btn 也可以，因为当前的 scope 找不到就会往上找，一路找到 window。
+然后因为 JS 的 scope，所以你就算直接用 `btn` 也可以，因为当前的 scope 找不到就会往上找，一路找到 window。
 
 所以开头那题，答案是：
 
@@ -102,11 +102,11 @@ btn.onclick = () => alert(1)
 
 帮大家节录两个重点：
 
-1. the value of the name content attribute for all embed, form, img, and object elements that have a non-empty name content attribute
+1. the value of the name content attribute for all `embed`, `form`, `img`, and `object` elements that have a non-empty name content attribute
 
 2. the value of the id content attribute for all HTML elements that have a non-empty id content attribute
 
-也就是说除了 id 可以直接用 window 存取到以外，embed, form, img 跟 object 这四个 tag 用 name 也可以存取到：
+也就是说除了 id 可以直接用 window 存取到以外，`embed`, `form`, `img` 跟 `object` 这四个 tag 用 name 也可以存取到：
 
 ```html
 <embed name="a"></embed>  
@@ -120,3 +120,225 @@ btn.onclick = () => alert(1)
 > 我们是有机会透过 HTML 元素来影响 JS 的
 
 而这个手法用在攻击上，就是标题的 DOM Clobbering。之前是因为这个攻击才第一次听到 clobbering 这个单字的，去查一下发现在 CS 领域中有覆盖的意思，就是透过 DOM 把一些东西覆盖掉以达成攻击的手段。
+
+## DOM Clobbering 入门
+
+那在什么场景之下有机会用 DOM Clobbering 攻击呢？
+
+首先，你必须有机会在页面上显示你自订的 HTML，否则就没有办法了。所以一个可以攻击的场景可能会像是这样：
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>留言板</h1>
+  <div>
+    你的留言：哈囉大家好
+  </div> 
+  <script>
+    if (window.TEST_MODE) {
+      // load test script
+      var script = document.createElement('script')
+      script.src = window.TEST_SCRIPT_SRC
+      document.body.appendChild(script)
+    }
+  </script>
+</body>
+</html>
+```
+
+假设现在有一个留言板，你可以输入任意内容，但是你的输入在 server 端会透过 [DOMPurify](https://github.com/cure53/DOMPurify) 来做处理，把任何可以执行 JavaScript 的东西给拿掉，所以 `<script></script>` 会被删掉，`<img src=x onerror=alert(1)>` 的 `onerror` 会被拿掉，还有许多 XSS payload 都没有办法过关。
+
+简而言之，你没办法执行 JavaScript 来达成 XSS，因为这些都被过滤掉了。
+
+但是因为种种因素，并不会过滤掉 HTML 标签，所以你可以做的事情是显示自订的 HTML。只要没有执行 JS，你想要插入什么 HTML 标签，设置什么属性都可以。
+
+所以呢，你可以这样做：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+</head>  
+<body>  
+  <h1>留言板</h1>  
+  <div>  
+    你的留言：<div id="TEST_MODE"></div>  
+    <a id="TEST_SCRIPT_SRC" href="my_evil_script"></a>  
+  </div>   
+  <script>  
+    if (window.TEST_MODE) {  
+      // load test script  
+      var script = document.createElement('script')  
+      script.src = window.TEST_SCRIPT_SRC  
+      document.body.appendChild(script)  
+    }  
+  </script>  
+</body>  
+</html>
+```
+
+根据我们上面所得到的知识，可以插入一个 id 是 TEST_MODE 的标签 `<div id="TEST_MODE"></div>`，这样底下 JS 的 `if (window.TEST_MODE)` 就会过关，因为 `window.TEST_MODE` 会是这个 div 元素。
+
+再来我们可以用 `<a id="TEST_SCRIPT_SRC" href="my_evil_script"></a>`，来让 `window.TEST_SCRIPT_SRC` 转成字串之后变成我们想要的字。
+
+在大多数的状况中，只是把一个变数覆盖成 HTML 元素是不够的，例如说你把上面那段程式码当中的 `window.TEST_MODE` 转成字串印出来：
+
+```js
+// <div id="TEST_MODE" />  
+console.log(window.TEST_MODE + '')
+```
+
+结果会是：`[object HTMLDivElement]`。
+
+把一个 HTML 元素转成字串就是这样，会变成这种形式，如果是这样的话那基本上没办法利用。但幸好在 HTML 里面有两个元素在 toString 的时候会做特殊处理：`<base>` 跟 `<a>`：
+
+![[Pasted image 20221109143255.png|800]]
+
+来源：[4.6.3 API for a and area elements](https://html.spec.whatwg.org/#api-for-a-and-area-elements)
+
+这两个元素在 toString 的时候会回传 URL，而我们可以透过 href 属性来设置 URL，就可以让 toString 之后的内容可控。
+
+所以综合以上手法，我们学到了：
+
+1. 用 HTML 搭配 id 属性影响 JS 变数
+
+2. 用 a 搭配 href 以及 id 让元素 toString 之后变成我们想要的值
+
+透过上面这两个手法再搭配适合的场景，就有机会利用 DOM Clobbering 来做攻击。
+
+不过这边要提醒大家一件事，如果你想攻击的变数已经存在的话，你用 DOM 是覆盖不掉的，例如说：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <script>  
+    TEST_MODE = 1  
+  </script>  
+</head>  
+<body>  
+  <div id="TEST_MODE"></div>   
+  <script>  
+    console.log(window.TEST_MODE) // 1  
+  </script>  
+</body>  
+</html>
+```
+
+## 多层级的 DOM Clobbering
+
+在前面的范例中，我们用 DOM 把 `window.TEST_MODE` 盖掉，创造出未预期的行为。那如果要盖掉的对象是个物件，有机会吗？
+
+例如说 `window.config.isTest`，这样也可以用 DOM clobbering 盖掉吗？
+
+有几种方法可以盖掉，第一种是利用 HTML 标签的层级关系，具有这样特性的是 form，表单这个元素：
+
+在 HTML 的 [spec](https://www.w3.org/TR/html52/sec-forms.html) 中有这样一段：
+
+![[Pasted image 20221109143517.png|800]]
+
+可以利用 `form[name]` 或是 `form[id]` 去拿它底下的元素，例如说：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <form id="config">  
+    <input name="isTest" />  
+    <button id="isProd"></button>  
+  </form>  
+  <script>  
+    console.log(config) // <form id="config">  
+    console.log(config.isTest) // <input name="isTest" />  
+    console.log(config.isProd) // <button id="isProd"></button>  
+  </script>  
+</body>  
+</html>
+```
+
+如此一来就可以构造出两层的 DOM clobbering。不过有一点要注意，那就是这边没有 a 可以用，所以 toString 之后都会变成没办法利用的形式。
+
+这边比较有可能利用的机会是，当你要覆盖的东西是用 `value` 存取的时候，例如说：`config.enviroment.value`，就可以利用 input 的 value 属性做覆盖：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <form id="config">  
+    <input name="enviroment" value="test" />  
+  </form>  
+  <script>  
+    console.log(config.enviroment.value) // test  
+  </script>  
+</body>  
+</html>
+```
+
+简单来说呢，就是只有那些内建的属性可以覆盖，其他是没有办法的。
+
+除了利用 HTML 本身的层级以外，还可以利用另外一个特性：HTMLCollection。
+
+在我们稍早看到的关于 `Named access on the Window object` 的 spec 当中，决定值是什么的段落是这样写的：
+
+![[Pasted image 20221109144207.png]]
+
+如果要回传的东西有多个，就回传 HTMLCollection。
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <a id="config"></a>  
+  <a id="config"></a>  
+  <script>  
+    console.log(config) // HTMLCollection(2)  
+  </script>  
+</body>  
+</html>
+```
+
+那有了 HTMLCollection 之后可以做什么呢？在 [4.2.10.2. Interface HTMLCollection](https://dom.spec.whatwg.org/#interface-htmlcollection) 中有写到，可以利用 name 或是 id 去拿 HTMLCollection 里面的元素。
+
+![[Pasted image 20221109144517.png]]
+
+像是这样：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <a id="config"></a>  
+  <a id="config" name="apiUrl" href="https://huli.tw"></a>  
+  <script>  
+    console.log(config.apiUrl + '')  
+    // https://huli.tw  
+  </script>  
+</body>  
+</html>
+```
+
+就可以透过同名的 id 产生出 HTMLCollection，再用 name 来抓取 HTMLCollection 的特定元素，一样可以达到两层的效果。
+
+而如果我们把 form 跟 HTMLCollection 结合在一起，就能够达成三层：
+
+```html
+<!DOCTYPE html>  
+<html>  
+<body>  
+  <form id="config"></form>  
+  <form id="config" name="prod">  
+    <input name="apiUrl" value="123" />  
+  </form>  
+  <script>  
+    console.log(config.prod.apiUrl.value) //123  
+  </script>  
+</body>  
+</html>
+```
