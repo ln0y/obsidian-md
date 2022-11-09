@@ -13,23 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/IEEE 754 双精度浮点数.md",
+                "file": "VS code/snippet.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
             }
-          },
-          {
-            "id": "a7cae693d4df402f",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -151,7 +142,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "VS code/snippet.md"
+              }
             }
           }
         ]
@@ -167,6 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "VS code/snippet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,6 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "VS code/snippet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -206,10 +201,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a7cae693d4df402f",
+  "active": "5511135e6beecc7c",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
+    "conflict-files-obsidian-git.md",
     "JavaScript/Generator.md",
     "JavaScript/apply & call & bind.md",
     "Post/常见js手写题.md",
