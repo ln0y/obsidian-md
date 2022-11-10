@@ -287,7 +287,7 @@ console.log(window.TEST_MODE + '')
 
 在我们稍早看到的关于 `Named access on the Window object` 的 spec 当中，决定值是什么的段落是这样写的：
 
-![[Pasted image 20221109144207.png]]
+![[Pasted image 20221109144207.png|800]]
 
 如果要回传的东西有多个，就回传 HTMLCollection。
 

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "c7330ad1219e4316",
+        "id": "3db074106fb65c88",
         "type": "tabs",
         "children": [
           {
-            "id": "5511135e6beecc7c",
+            "id": "a1ad386e7f8956b8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -201,8 +201,9 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "5511135e6beecc7c",
+  "active": "a1ad386e7f8956b8",
   "lastOpenFiles": [
+    "Security/DOM Clobbering.md",
     "VS code/snippet.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
     "conflict-files-obsidian-git.md",
@@ -211,7 +212,6 @@
     "Post/常见js手写题.md",
     "MVVM/Angular & React & Vue 设计特色.md",
     "Post/front end.md",
-    "Post/八股文.md",
-    "JavaScript/Symbol.md"
+    "Post/八股文.md"
   ]
 }
