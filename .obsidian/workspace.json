@@ -203,6 +203,7 @@
   },
   "active": "a1ad386e7f8956b8",
   "lastOpenFiles": [
+    "CSS/flex.md",
     "Security/DOM Clobbering.md",
     "VS code/snippet.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
@@ -211,7 +212,6 @@
     "JavaScript/apply & call & bind.md",
     "Post/常见js手写题.md",
     "MVVM/Angular & React & Vue 设计特色.md",
-    "Post/front end.md",
-    "Post/八股文.md"
+    "Post/front end.md"
   ]
 }

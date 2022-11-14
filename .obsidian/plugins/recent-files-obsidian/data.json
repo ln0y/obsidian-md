@@ -5,6 +5,10 @@
       "path": "Security/DOM Clobbering.md"
     },
     {
+      "basename": "flex",
+      "path": "CSS/flex.md"
+    },
+    {
       "basename": "snippet",
       "path": "VS code/snippet.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "JavaScript正则表达式迷你书",
       "path": "_attachment/pdf/JavaScript正则表达式迷你书.pdf"
-    },
-    {
-      "basename": "flex",
-      "path": "CSS/flex.md"
     },
     {
       "basename": "布局方式",
