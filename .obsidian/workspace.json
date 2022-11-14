@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "1323c46dea08d841",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/web 应用常见安全漏洞.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -143,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/DOM Clobbering.md"
+                "file": "Security/web 应用常见安全漏洞.md"
               }
             }
           }
@@ -160,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/DOM Clobbering.md",
+                "file": "Security/web 应用常见安全漏洞.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/DOM Clobbering.md",
+                "file": "Security/web 应用常见安全漏洞.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -201,10 +215,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a1ad386e7f8956b8",
+  "active": "1323c46dea08d841",
   "lastOpenFiles": [
-    "CSS/flex.md",
     "Security/DOM Clobbering.md",
+    "CSS/flex.md",
     "VS code/snippet.md",
     "JavaScript/IEEE 754 双精度浮点数.md",
     "conflict-files-obsidian-git.md",

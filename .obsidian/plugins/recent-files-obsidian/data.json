@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "web 应用常见安全漏洞",
+      "path": "Security/web 应用常见安全漏洞.md"
+    },
+    {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "TypeScript 4.8",
       "path": "TypeScript/TypeScript 4.8.md"
-    },
-    {
-      "basename": "Map 与 Object 对比",
-      "path": "JavaScript/Map 与 Object 对比.md"
     }
   ],
   "omittedPaths": [],
