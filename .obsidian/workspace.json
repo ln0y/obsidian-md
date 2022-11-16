@@ -217,6 +217,8 @@
   },
   "active": "1323c46dea08d841",
   "lastOpenFiles": [
+    "CSS/CSS 设置自动滚动定位的“安全”间距.md",
+    "Security/web 应用常见安全漏洞.md",
     "Security/DOM Clobbering.md",
     "CSS/flex.md",
     "VS code/snippet.md",
@@ -224,8 +226,6 @@
     "conflict-files-obsidian-git.md",
     "JavaScript/Generator.md",
     "JavaScript/apply & call & bind.md",
-    "Post/常见js手写题.md",
-    "MVVM/Angular & React & Vue 设计特色.md",
-    "Post/front end.md"
+    "Post/常见js手写题.md"
   ]
 }

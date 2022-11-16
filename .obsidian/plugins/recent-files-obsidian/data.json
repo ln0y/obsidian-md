@@ -5,6 +5,10 @@
       "path": "Security/web 应用常见安全漏洞.md"
     },
     {
+      "basename": "CSS 设置自动滚动定位的“安全”间距",
+      "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
+    },
+    {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "原型链",
       "path": "JavaScript/原型链.md"
-    },
-    {
-      "basename": "TypeScript 4.8",
-      "path": "TypeScript/TypeScript 4.8.md"
     }
   ],
   "omittedPaths": [],
