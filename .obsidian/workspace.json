@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Post/front end.md",
+                "file": "Security/web 应用常见安全漏洞.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -157,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Post/front end.md"
+                "file": "Security/web 应用常见安全漏洞.md"
               }
             }
           }
@@ -174,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
+                "file": "Security/web 应用常见安全漏洞.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
+                "file": "Security/web 应用常见安全漏洞.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -217,6 +217,7 @@
   },
   "active": "1323c46dea08d841",
   "lastOpenFiles": [
+    "Post/front end.md",
     "Security/web 应用常见安全漏洞.md",
     "CSS/CSS 设置自动滚动定位的“安全”间距.md",
     "Security/DOM Clobbering.md",
@@ -225,7 +226,6 @@
     "JavaScript/IEEE 754 双精度浮点数.md",
     "conflict-files-obsidian-git.md",
     "JavaScript/Generator.md",
-    "JavaScript/apply & call & bind.md",
-    "Post/常见js手写题.md"
+    "JavaScript/apply & call & bind.md"
   ]
 }

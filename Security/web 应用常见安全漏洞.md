@@ -39,11 +39,11 @@ select * from users where name='' or '1'='1';
 
 此外，适当的权限控制、不曝露必要的安全信息和日志也有助于预防 SQL 注入漏洞。
 
-参考 [Web 安全漏洞之 SQL 注入 - 防御方法](https://link.segmentfault.com/?enc=vnKDiPdv0geG3xElheRKbA%3D%3D.F1FbhUywPDxh9IbSjvd3%2BCy7ArImOEEOg0E5VBxBgT86sZAoyQUO2i%2FtnKJaSKOV13zr2q%2FkZ1cJ1GMEdZd4Aw%3D%3D) 了解具体的解决方案。
+参考 [Web 安全漏洞之 SQL 注入 - 防御方法](https://juejin.cn/post/6844903700901658632#heading-2) 了解具体的解决方案。
 
 #### 推荐参考
 
-- [Web 安全漏洞之 SQL 注入](https://link.segmentfault.com/?enc=RYjHHUS2atGmOLnBd7zphg%3D%3D.R35RjunjLKjQ5iIOdDPGvFGnK%2FSZmYeTeO9Q9Ni8i56KkxJClatqWnbMCVRFWTXZ)
+- [Web 安全漏洞之 SQL 注入](https://juejin.cn/post/6844903700901658632)
 - [SQL 注入详解](https://segmentfault.com/a/1190000007520556)
 
 ### 2\. XSS 攻击
@@ -69,8 +69,8 @@ XSS 攻击更偏向前端的范畴，但后端在保存数据的时候也需要�
 #### 推荐参考
 
 - [前端安全系列（一）：如何防止XSS攻击？](https://segmentfault.com/a/1190000016551188)
-- [前端防御 XSS](https://link.segmentfault.com/?enc=Hnm7XYFZD1wrmT%2BJ%2BwOd0w%3D%3D.KRfZusbV0D9vWTjGBuK43SYFOi8MwxSV8lHVA2olGzPSQJezstx8oUWwFpzBd5%2B0%2FwCCf3ytEwMZcmuWuQ900Q%3D%3D)
-- [浅说 XSS 和 CSRF](https://link.segmentfault.com/?enc=NdpH96ve4p4uBr%2B6YT6DTA%3D%3D.TcU7HWZ2Js0044sXvBQCDueQPr1IHL2EN3n77tijFImBNHBS9x3DyiwLbA2uFWGWcRoPxL0zWp3fqoWMTbJa3w%3D%3D)
+- [前端防御 XSS](https://juejin.cn/post/6844903427550478350)
+- [浅说 XSS 和 CSRF](https://juejin.cn/post/6844903638532358151)
 
 ### 3\. CSRF 攻击
 
