@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','date/2022-11','year/2022','month/11']
 date: 2022-11-14-星期一 15:56:46
-update: 2022-11-14-星期一 15:57:15
+update: 2022-11-16-星期三 20:41:22
 ---
 
 ## web 应用常见安全漏洞一览
@@ -98,8 +98,8 @@ CSRF 攻击全称跨站请求伪造（Cross-site Request Forgery），简单的�
 #### 推荐参考
 
 - [前端安全系列之二：如何防止CSRF攻击？](https://segmentfault.com/a/1190000016659945)
-- [Web安全漏洞之CSRF](https://link.segmentfault.com/?enc=fnNAPJ5%2BPkYnFbpWelGlVQ%3D%3D.aZ37S1azRM%2BX4cthr214bBNI2mHMc7AkcABle5GVRcSD15C8lEZq%2FE5ki9T9GN%2BO)
-- [浅说 XSS 和 CSRF](https://link.segmentfault.com/?enc=PtFEbOmYWDL3EGw6BhJebg%3D%3D.ep5cTln9r9ZFGRPpT7GbwlUaH%2BiYbYp2XVzEe0MKP1yUGGL1fuOgGU0aiALzz33diIW8HUzCHAzNA4axYfURyA%3D%3D)
+- [Web安全漏洞之CSRF](https://juejin.cn/post/6844903681591083015)
+- [浅说 XSS 和 CSRF](https://juejin.cn/post/6844903638532358151)
 
 ### 4\. DDoS 攻击
 
@@ -122,8 +122,7 @@ DoS 攻击全称拒绝服务（Denial of Service），简单的说就是让一�
 #### 推荐参考
 
 - [DDoS的攻击及防御](https://segmentfault.com/a/1190000016584829)
-- [浅谈 DDoS 攻击与防御](https://link.segmentfault.com/?enc=2nImo7rc8LulL3XrBhQalw%3D%3D.iG2seiNyh7ZPmzbIZJH8F8DIvf5%2BYOFYwKsiKuXaUpVnkm6kfAPvCAuwnuML7vWu9iH3dG22U6OGFnrF6%2FGdFw%3D%3D)
-- [使用 Nginx、Nginx Plus 抵御 DDOS 攻击](https://link.segmentfault.com/?enc=MU8umguonTDzPwLuJD27fg%3D%3D.DA7sZwfthNZk03IuSS3xvfMA5%2Fg3WqDi9VilwQ0Got14YYwFyNQLWhRJNyByV4MSY4VKtuL30ieLlJcUQMYo9g%3D%3D)
+- [浅谈 DDoS 攻击与防御](https://juejin.cn/post/6844903661789773832)
 
 ### 5\. XXE 漏洞
 
@@ -136,13 +135,13 @@ XXE 漏洞全称 XML 外部实体漏洞（XML External Entity），当应用程�
 1. 禁用外部实体
 2. 过滤用户提交的XML数据
 
-参考 [xxe漏洞的学习与利用总结](https://link.segmentfault.com/?enc=iHHhnTzn2ESosu1RBeQwlQ%3D%3D.OS3Y7RQSuismt0H0P6ZxL2llVR5yhh%2FQj2oINt9aALr6%2Fwgo1x9XxkUcrdBSvdkV) 了解具体的解决方案。
+参考 [xxe漏洞的学习与利用总结](https://www.cnblogs.com/r00tuser/p/7255939.html) 了解具体的解决方案。
 
 #### 推荐参考
 
-- [好刚: 6分钟视频看懂XXE漏洞攻击](https://link.segmentfault.com/?enc=IuPmi8lYmKfUs3%2FyCyknVg%3D%3D.mDFvLbQ0nPJo22Yz2g3Nobnp8B6UT1eX4Q9qR9Ex2hppTvp7u402hTS6AQ2GqQ6Fg%2Belrb0XYWCqiH5d5%2FVBPQ%3D%3D)
-- [xxe漏洞的学习与利用总结](https://link.segmentfault.com/?enc=6yhVDtDqC8Vo6QmDg%2FaZLg%3D%3D.jSSqVyAQBRni8%2Ba68NTmOpV8fEfzXbc8zJS0zTSXCHvc3JcRphEUZCzTKcVhmCMF)
-- [XXE漏洞攻防学习（上）](https://link.segmentfault.com/?enc=%2BVPjPf4jaYKg3OxyzjejJg%3D%3D.snypGKshFv20tAfpk8oLLYYN61eZbwpJlafKVknIgw7g1UpxYkzA4tFaebrlW05fIQ8EFeejSkUScy0YYf79Cw%3D%3D)
+- [好刚: 6分钟视频看懂XXE漏洞攻击](https://juejin.cn/post/6844903656211349512)
+- [xxe漏洞的学习与利用总结](https://www.cnblogs.com/r00tuser/p/7255939.html)
+- [XXE漏洞攻防学习（上）](https://www.cnblogs.com/ESHLkangi/p/9245404.html)
 
 ### 6\. JSON 劫持
 
@@ -160,21 +159,19 @@ http://www.test.com/userinfo
 
 攻击者可以在自己的虚假页面中，加入如下标签：
 
-```
+```js
 <script src="http://www.test.com/userinfo"></script>
 ```
 
 如果当前浏览器已经登录了 `www.test.com`，并且 Cookie 未过期，然后访问了攻击者的虚假页面，那么该页面就可以拿到 json 形式的用户敏感信息，因为 `script` 标签会自动解析 json 数据，生成对应的 js 对象。然后再通过：
 
-```
+```js
 Object.prototype.__defineSetter__
 ```
 
 这个函数来触发自己的恶意代码。
 
 但是这个函数在当前的新版本 Chrome 和 Firefox 中都已经失效了。
-
-注：上面的过程摘自 [JSON和JSONP劫持以及解决方法](https://link.segmentfault.com/?enc=9MVzepf24cnDHb6Fxp7QRQ%3D%3D.nbNQmc8EiGjKuMXkaw2dSIxTkvlvcrC3HqiRMCOidqbinJZq8LfnKk2KRJL98ZMi0jP43MLvAVldtG7wnI1duw%3D%3D)
 
 #### 解决方案
 
@@ -184,8 +181,7 @@ Object.prototype.__defineSetter__
 
 #### 推荐参考
 
-- [JSON和JSONP劫持以及解决方法](https://link.segmentfault.com/?enc=ui1n89H2GQ3dj%2F1Sa%2Bfewg%3D%3D.vLH2E5fE4OZ%2BGZFc2hJAlQ87vM79HCnaZ53m47Mp1TN08dGmOklKJR0MP4sQHXmjP94TLwhNneNBDoBOV6uQMg%3D%3D)
-- [JSONP 安全攻防技术（JSON劫持、 XSS漏洞）](https://link.segmentfault.com/?enc=TT1SeZC6yj%2Bmbp1U2a3t%2Bw%3D%3D.iljIdJLi3l4QBzoDtMVXxhLfMpE6WQpdI2fHA5i0V%2FI0TW2%2BcHrv3d6AR8JNsCMZ)
+- [JSONP 安全攻防技术（JSON劫持、 XSS漏洞）](https://www.cnblogs.com/52php/p/5677775.html)
 
 ### 7\. 暴力破解
 
@@ -244,8 +240,6 @@ HTTP/1.1（RFC2616）规范定义了 HTTP TRACE 方法，主要是用于客户�
 
 一般业务漏洞是跟具体的应用程序相关，比如参数篡改（连续编号 ID / 订单、1 元支付）、重放攻击（伪装支付）、权限控制（越权操作）等。
 
-另外可以参考：[6种常见web漏洞坑](https://link.segmentfault.com/?enc=XhECcxJWuAzcRGTYhjUxTw%3D%3D.yw1QJIy7tLiVEIEYj34G2i58IsLq0KsCOQTyK6Dtq%2F48xo1F%2BEq7%2B0dJPF9OXO2P5inmDWoaxddS0Iqk5aLQhA%3D%3D)
-
 ### 15\. 框架或应用漏洞
 
 - WordPress 4.7 / 4.7.1：REST API 内容注入漏洞
@@ -255,11 +249,3 @@ HTTP/1.1（RFC2616）规范定义了 HTTP TRACE 方法，主要是用于客户�
 - Oracle GlassFish Server：REST CSRF
 - QQ Browser 9.6：API 权限控制问题导致泄露隐私模式
 - Hacking Docker：Registry API 未授权访问
-
-### 后续
-
-更多博客，查看 [https://github.com/senntyou/blogs](https://link.segmentfault.com/?enc=OqNYqqFAQAWlFasJp%2B%2BLjQ%3D%3D.sPGjW3X1YSCM1wKIdVooEk5KvgNHcUyOc3b28mD537o%2B1s21U7Uyx0pNu71L3i0e)
-
-作者：[深予之 (@senntyou)](https://link.segmentfault.com/?enc=vjMMJU%2BbsCD%2BiI4u3bIR8w%3D%3D.sFLBuwLswhkdaTZqJNZdNBNxtAJ9WjYDOaXTj9PdlAs%3D)
-
-版权声明：自由转载-非商用-非衍生-保持署名（[创意共享3.0许可证](https://link.segmentfault.com/?enc=pMug2DkktAWp6HxBuwkdHQ%3D%3D.a2XrVobEDSxpgst78bDTNvQ9Ob9O64vT5icl%2BK59oKVwsL5JqZ449LOWJYytwuNwXSCPO7bbV7GPHyFXMK%2BRNA%3D%3D)）
