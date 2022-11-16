@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
       "basename": "web 应用常见安全漏洞",
       "path": "Security/web 应用常见安全漏洞.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "IEEE 754 双精度浮点数",
       "path": "JavaScript/IEEE 754 双精度浮点数.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "正则表达式收集",
