@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security/前端安全：XSS.md",
+                "file": "Post/front end.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/前端安全：XSS.md"
+                "file": "Post/front end.md"
               }
             }
           }
@@ -187,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/前端安全：XSS.md",
+                "file": "Post/front end.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/前端安全：XSS.md",
+                "file": "Post/front end.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -230,8 +230,8 @@
   },
   "active": "ff360b79b1ee986c",
   "lastOpenFiles": [
-    "TODO看板.md",
     "Security/前端安全：XSS.md",
+    "TODO看板.md",
     "Post/front end.md",
     "XSS 攻击的介绍.md",
     "Security/web 应用常见安全漏洞.md",
