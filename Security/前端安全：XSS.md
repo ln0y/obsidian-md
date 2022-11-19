@@ -1,8 +1,8 @@
 ---
 aliases: []
-tags: ['Security','date/2022-11','year/2022','month/11']
+tags: ['Security','xss','date/2022-11','year/2022','month/11']
 date: 2022-11-19-星期六 15:12:36
-update: 2022-11-19-星期六 16:22:27
+update: 2022-11-19-星期六 18:35:30
 ---
 
 ## 前端安全
@@ -140,6 +140,7 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 小明眉头一皱，想到了解决办法：
 
 ```jsx
+// 禁止 URL 以 "javascript:" 开头
 xss = getParameter("redirect_to").startsWith('javascript:');
 if (!xss) {
   <a href="<%= escapeHTML(getParameter("redirect_to"))%>">
@@ -169,6 +170,7 @@ if (!xss) {
 最终，小明选择了白名单的方法，彻底解决了这个漏洞：
 
 ```jsx
+// 根据项目情况进行过滤，禁止掉 "javascript:" 链接、非法 scheme 等
 allowSchemes = ["http", "https"];
 
 valid = isValid(getParameter("redirect_to"), allowSchemes);
@@ -410,42 +412,46 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 
 例如 Java 工程里，常用的转义库为 `org.owasp.encoder`。以下代码引用自 [org.owasp.encoder 的官方说明](https://owasp.org/www-project-java-encoder/#tab=Use_the_Java_Encoder_Project)。
 
-```java
+```html
+<!-- HTML 标签内文字内容 -->
 <div><%= Encode.forHtml(UNTRUSTED) %></div>
 
-
+<!-- HTML 标签属性值 -->
 <input value="<%= Encode.forHtml(UNTRUSTED) %>" />
 
-
+<!-- CSS 属性值 -->
 <div style="width:<= Encode.forCssString(UNTRUSTED) %>">
 
-
+<!-- CSS URL -->
 <div style="background:<= Encode.forCssUrl(UNTRUSTED) %>">
 
-
+<!-- JavaScript 内联代码块 -->
 <script>
   var msg = "<%= Encode.forJavaScript(UNTRUSTED) %>";
   alert(msg);
 </script>
 
-
+<!-- JavaScript 内联代码块内嵌 JSON -->
 <script>
 var __INITIAL_STATE__ = JSON.parse('<%= Encoder.forJavaScript(data.to_json) %>');
 </script>
 
-
+<!-- HTML 标签内联监听器 -->
 <button
   onclick="alert('<%= Encode.forJavaScript(UNTRUSTED) %>');">
   click me
 </button>
 
-
+<!-- URL 参数 -->
 <a href="/search?value=<%= Encode.forUriComponent(UNTRUSTED) %>&order=1#top">
 
-
+<!-- URL 路径 -->
 <a href="/page/<%= Encode.forUriComponent(UNTRUSTED) %>">
 
-
+<!--
+  URL.
+  注意：要根据项目情况进行过滤，禁止掉 "javascript:" 链接、非法 scheme 等
+-->
 <a href='<%=
   urlValidator.isValid(UNTRUSTED) ?
     Encode.forHtml(UNTRUSTED) :
@@ -468,20 +474,21 @@ DOM 型 XSS 攻击，实际上就是网站前端 JavaScript 代码本身不够�
 DOM 中的内联事件监听器，如 `location`、`onclick`、`onerror`、`onload`、`onmouseover` 等，`<a>` 标签的 `href` 属性，JavaScript 的 `eval()`、`setTimeout()`、`setInterval()` 等，都能把字符串作为代码运行。如果不可信的数据拼接到字符串中传递给这些 API，很容易产生安全隐患，请务必避免。
 
 ```html
+<!-- 内联事件监听器中包含恶意代码 -->
 <img onclick="UNTRUSTED" onerror="UNTRUSTED" src="data:image/png,">
 
-
+<!-- 链接内包含恶意代码 -->
 <a href="UNTRUSTED">1</a>
 
 <script>
-
+// setTimeout()/setInterval() 中调用恶意代码
 setTimeout("UNTRUSTED")
 setInterval("UNTRUSTED")
 
-
+// location 调用恶意代码
 location.href = 'UNTRUSTED'
 
-
+// eval() 中调用恶意代码
 eval("UNTRUSTED")
 </script>
 ```
@@ -494,15 +501,13 @@ eval("UNTRUSTED")
 
 #### Content Security Policy
 
-严格的 CSP 在 XSS 的防范中可以起到以下的作用：
+严格的 [[Content Security Policy|CSP]] 在 XSS 的防范中可以起到以下的作用：
 
 - 禁止加载外域代码，防止复杂的攻击逻辑。
 - 禁止外域提交，网站被攻击后，用户的数据不会泄露到外域。
 - 禁止内联脚本执行（规则较严格，目前发现 GitHub 使用）。
 - 禁止未授权的脚本执行（新特性，Google Map 移动版在使用）。
 - 合理使用上报可以及时发现 XSS，利于尽快修复问题。
-
-关于 CSP 的详情，请关注前端安全系列后续的文章。
 
 #### 输入内容长度控制
 
@@ -522,21 +527,21 @@ eval("UNTRUSTED")
 1. 使用通用 XSS 攻击字符串手动检测 XSS 漏洞。
 2. 使用扫描工具自动检测 XSS 漏洞。
 
-在[Unleashing an Ultimate XSS Polyglot](https://link.segmentfault.com/?enc=trVc7VFKoBQt4%2BBTXkRvLw%3D%3D.6qWx9VVQPhgpfxn86OalRUsmxnjZd3JGHZygy4KAYTYoNGO3WNYqYxqSE4GhKW8DhKozta%2BOupZkMJXiaStMK7ISizr2mIZ3likCLb69bYI%3D)一文中，小明发现了这么一个字符串：
+在[Unleashing an Ultimate XSS Polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot)一文中，小明发现了这么一个字符串：
 
-```
-jaVasCript:(oNcliCk=alert() )
+```js
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
 ```
 
 它能够检测到存在于 HTML 属性、HTML 文字内容、HTML 注释、跳转链接、内联 JavaScript 字符串、内联 CSS 样式表等多种上下文中的 XSS 漏洞，也能检测 `eval()`、`setTimeout()`、`setInterval()`、`Function()`、`innerHTML`、`document.write()` 等 DOM 型 XSS 漏洞，并且能绕过一些 XSS 过滤器。
 
 小明只要在网站的各输入框中提交这个字符串，或者把它拼接到 URL 参数上，就可以进行检测了。
 
-```
+```url
 http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F(%2F*%20*%2FoNcliCk%3Dalert()%20)%2F%2F%250D%250A%250d%250a%2F%2F%3C%2FstYle%2F%3C%2FtitLe%2F%3C%2FteXtarEa%2F%3C%2FscRipt%2F--!%3E%3CsVg%2F%3CsVg%2FoNloAd%3Dalert()%2F%2F%3E%3E
 ```
 
-除了手动检测之外，还可以使用自动扫描工具寻找 XSS 漏洞，例如 [Arachni](https://link.segmentfault.com/?enc=na15JAXOooRPiXNIydeDFg%3D%3D.O4d9dbVKh89KoIbCP3ZPpdkNATK9gOZyx%2F6f8GBXE%2B39S8EIfPWBEVproAoJLUeb)、[Mozilla HTTP Observatory](https://link.segmentfault.com/?enc=7p7xnafY96k879HnGj9AvQ%3D%3D.XsBVVnazmHbV3uMkJ8zCXhZ6yIzBacFs8UTFWsp9DpJRGjGo7CVLak8SwDeZtrmk)、[w3af](https://link.segmentfault.com/?enc=DnTkcj6qb88PRTr5P0rusQ%3D%3D.nfVOniFFV%2FyyYG1qjpkxkKrGienq3%2Fqk2pBXlGnxxBqxHS0Qd7BuOuqLt4PCos8C) 等。
+除了手动检测之外，还可以使用自动扫描工具寻找 XSS 漏洞，例如 [Arachni](https://github.com/Arachni/arachni)、[Mozilla HTTP Observatory](https://github.com/mozilla/http-observatory/)、[w3af](https://github.com/andresriancho/w3af) 等。
 
 ### XSS 攻击的总结
 
@@ -544,16 +549,16 @@ http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F
 
 1. XSS 防范是后端 RD 的责任，后端 RD 应该在所有用户提交数据的接口，对敏感字符进行转义，才能进行下一步操作。
 
-    > 不正确。因为：
-    >
-    > - 防范存储型和反射型 XSS 是后端 RD 的责任。而 DOM 型 XSS 攻击不发生在后端，是前端 RD 的责任。防范 XSS 是需要后端 RD 和前端 RD 共同参与的系统工程。
-    > - 转义应该在输出 HTML 时进行，而不是在提交用户输入时。
+> 不正确。因为：
+>
+> - 防范存储型和反射型 XSS 是后端 RD 的责任。而 DOM 型 XSS 攻击不发生在后端，是前端 RD 的责任。防范 XSS 是需要后端 RD 和前端 RD 共同参与的系统工程。
+> - 转义应该在输出 HTML 时进行，而不是在提交用户输入时。
 
 2. 所有要插入到页面上的数据，都要通过一个敏感字符过滤函数的转义，过滤掉通用的敏感字符后，就可以插入到页面中。
 
-    > 不正确。
-    > 不同的上下文，如 HTML 属性、HTML 文字内容、HTML 注释、跳转链接、内联 JavaScript 字符串、内联 CSS 样式表等，所需要的转义规则不一致。
-    > 业务 RD 需要选取合适的转义库，并针对不同的上下文调用不同的转义规则。
+> 不正确。
+> 不同的上下文，如 HTML 属性、HTML 文字内容、HTML 注释、跳转链接、内联 JavaScript 字符串、内联 CSS 样式表等，所需要的转义规则不一致。
+> 业务 RD 需要选取合适的转义库，并针对不同的上下文调用不同的转义规则。
 
 整体的 XSS 防范是非常复杂和繁琐的，我们不仅需要在全部需要转义的位置，对数据进行对应的转义。而且要防止多余和错误的转义，避免正常的用户输入出现乱码。
 
@@ -587,7 +592,7 @@ http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F
 
 用户点击这个 URL 时，服务端取出 URL 参数，拼接到 HTML 响应中：
 
-```
+```html
 <script>
 getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientuin=aaa"+"&t="+"&d=bbbb";return false;</script><script>alert(document.cookie)</script>"+"...
 ```
@@ -604,7 +609,7 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 
 用户点击这个 URL 时，服务端取出请求 URL，拼接到 HTML 响应中：
 
-```
+```html
 <li><a href="http://weibo.com/pub/star/g/xyyyd"><script src=//xxxx.cn/image/t.js></script>">按分类检索</a></li>
 ```
 
@@ -622,13 +627,13 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 
 这种机制工作量大，全靠人工保证，很容易造成 XSS 漏洞，安全人员也很难发现隐患。
 
-2009年，Google 提出了一个概念叫做：[Automatic Context-Aware Escaping](https://link.segmentfault.com/?enc=xOafvZJED0h3vuBZvpKMXQ%3D%3D.xOUmXi7wKLIjD9xb8FdEQwMlPjeN1FOVMRA3Q3ZK%2B3Htw2PNOxH3%2FiVQDcsIsTJvmReGB2wuCcgnq3Vvz6mo8iL%2FCuG5qWJEyPze%2BVNC4BQ%3D)。
+2009年，Google 提出了一个概念叫做：[Automatic Context-Aware Escaping](https://security.googleblog.com/2009/03/reducing-xss-by-way-of-automatic.html)。
 
 所谓 Context-Aware，就是说模板引擎在解析模板字符串的时候，就解析模板语法，分析出每个插入点所处的上下文，据此自动选用不同的转义规则。这样就减轻了业务 RD 的工作负担，也减少了人为带来的疏漏。
 
 在一个支持 Automatic Context-Aware Escaping 的模板引擎里，业务 RD 可以这样定义模板，而无需手动实施转义规则：
 
-```
+```html
 <html>
   <head>
     <meta charset="UTF-8">
@@ -642,7 +647,7 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 
 模板引擎经过解析后，得知三个插入点所处的上下文，自动选用相应的转义规则：
 
-```
+```html
 <html>
   <head>
     <meta charset="UTF-8">
@@ -656,8 +661,8 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 
 目前已经支持 Automatic Context-Aware Escaping 的模板引擎有：
 
-- [go html/template](https://link.segmentfault.com/?enc=3cEC7yZuD8DsdICAHN7g4A%3D%3D.An9FyqLUqwkNHCukQiaiXXJpXXbnJh8HRBp4PuzTASQOMNV%2BU76cSfE5WNyxfwTe)
-- [Google Closure Templates](https://link.segmentfault.com/?enc=AfwL4tLvXSkRk8SfX7PHVg%3D%3D.BNmp2%2FCiwg71NhCgds7EQua7fJZytG3rZacp6TYC7LVsPCed2GoHIfTn7YPgaXeBQv0wg1H1Lk28gGg12s9J9g%3D%3D)
+- [go html/template](https://pkg.go.dev/html/template)
+- [Google Closure Templates](https://developers.google.com/closure)
 
 ### 课后作业：XSS 攻击小游戏
 
@@ -665,28 +670,17 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 
 在玩游戏的过程中，请各位读者仔细思考和回顾本文内容，加深对 XSS 攻击的理解。
 
-[alert(1) to win](https://link.segmentfault.com/?enc=tW6dM9s6MOJP8BImAGWO6A%3D%3D.FZpFsxr4pBKF%2FlQ0y1pVVTg1GPDVHiAZZXw8FmtTWRA%3D)
+[alert(1) to win](https://alf.nu/alert1)
 
-[prompt(1) to win](https://link.segmentfault.com/?enc=pRZUuSrYh3PO2auNRSuEBQ%3D%3D.NHzmrLFZfC4ej5ECVfOvAbpUt%2F0Q0lHAtmZ7w8neWxo%3D)
+[prompt(1) to win](http://prompt.ml/0)
 
-[XSS game](https://link.segmentfault.com/?enc=6M2%2B02A4yK45R6%2FE6%2BPFRQ%3D%3D.c%2FOMV3V370AOtxo%2F79SyvC14j2NnpEcV3qjFvTfshhc%3D)
+[XSS game](https://xss-game.appspot.com/)
 
 ### 参考文献
 
-- Wikipedia. [Cross-site scripting](https://link.segmentfault.com/?enc=59ihh63KC2UFxpP3Pby6rg%3D%3D.oSic4Du%2BjN36%2Ff%2Bhq%2F%2FQbZfYQDOGvxYxhPhuf6pv8dHN5eB7njrFMSCTTaCVWWh5AB8TcgvcrrGnZOMYbPqBJA%3D%3D), Wikipedia.
-- OWASP. [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://link.segmentfault.com/?enc=0DpeYCznkZTgSw684YD2uA%3D%3D.Byp3dtI9h%2F7lw6C2HBxgMejQ8JBpqybAw4ENBjhshtjhfBUpplSET9cQWySPH2NKLxMa%2B4bLl6pBrYo4Lds2lA%3D%3D)\_Prevention\_Cheat\_Sheet), OWASP.
-- OWASP. [Use the OWASP Java Encoder](https://link.segmentfault.com/?enc=8R0jOyAJxfbyBtDsG%2FmfZg%3D%3D.SpwBomhINFqIrjFUpgkgCM0aoJDY6nWKDty1jaeF1k1mp2PK0B40U3IdK5BZV7Uwisxr21myqv9k3PtS1q%2B7Dw%3D%3D)\-Use-the-OWASP-Java-Encoder), GitHub.
-- Ahmed Elsobky. [Unleashing an Ultimate XSS Polyglot](https://link.segmentfault.com/?enc=E3K5H%2BW44Bapf3%2BzNYA9Hw%3D%3D.lwNlYxrvDLgyFsmQufS2Llz12K9K1RgU3JwizysZxSgEygU7V0N46r5G5Coh1l0f8cxhVSp5UXpu9vmq2jF3tDmIElQ45tG0g6J7oji3Ipc%3D), GitHub.
-- Jad S. Boutros. [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://link.segmentfault.com/?enc=ge0FYtPKwkO9nKC8zD9%2Btw%3D%3D.WwF%2FFoQs4FSPj8bsjd0Xwwnk4FVW1WIcbeSv6jSHCVy7IF8Fuxo3OYLuJC%2BVE3ZqqFPsD4pkLglvyejw9c1GdXfDPspcevOEru3cw0YdGN0%3D), Google Security Blog.
-- Vue.js. [v-html - Vue API docs](https://link.segmentfault.com/?enc=MwHtg4LKsL7AgUUZVYsypw%3D%3D.Z%2FF%2FZOvarNlYzu3vPJGSrntNTkuNqkFIQmLC6ZuGvveDzE47EUJk5aHXBc7qydtg), Vue.js.
-- React. [dangerouslySetInnerHTML - DOM Elements](https://link.segmentfault.com/?enc=fqZ8Ps6qTviWAh1cYlp56g%3D%3D.CHWDNCJ0X4r5EZJ7ncEdJFacYAovHAHD2%2F68WsW1p7nNFp2QfB3cNuHbKkJU1p11Calvwur4TB57CKvlok3TnHiodrLapf2l9h1JGjeyMUM%3D), React.
-
-### 下期预告
-
-前端安全系列文章将对 XSS、CSRF、网络劫持、Hybrid 安全等安全议题展开论述。下期我们要讨论的是 CSRF 攻击，敬请关注。
-
-### 作者介绍
-
-李阳，美团点评前端工程师。2016年加入美团点评，负责美团外卖 Hybrid 页面性能优化相关工作。
-
+- Wikipedia. [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting), Wikipedia.
+- Ahmed Elsobky. [Unleashing an Ultimate XSS Polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot), GitHub.
+- Jad S. Boutros. [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://security.googleblog.com/2009/03/reducing-xss-by-way-of-automatic.html), Google Security Blog.
+- Vue.js. [v-html - Vue API docs](https://vuejs.org/api/built-in-directives.html#v-html), Vue.js.
+- React. [dangerouslySetInnerHTML - DOM Elements](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml), React.
 ![](https://user-gold-cdn.xitu.io/2018/9/28/1661e011b080a5f4?w=1875&h=835&f=png&s=142461)

@@ -34,12 +34,12 @@
             }
           },
           {
-            "id": "ff360b79b1ee986c",
+            "id": "f8c25d64bf0570ae",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Post/front end.md",
+                "file": "Security/前端安全：XSS.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -77,7 +77,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "https://link.segmentfault.com",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Post/front end.md"
+                "file": "Security/前端安全：XSS.md"
               }
             }
           }
@@ -187,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
+                "file": "Security/前端安全：XSS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
+                "file": "Security/前端安全：XSS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -228,17 +228,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "ff360b79b1ee986c",
+  "active": "f8c25d64bf0570ae",
   "lastOpenFiles": [
-    "Security/前端安全：XSS.md",
-    "TODO看板.md",
-    "Post/front end.md",
-    "XSS 攻击的介绍.md",
     "Security/web 应用常见安全漏洞.md",
+    "Security/前端安全：XSS.md",
+    "Security/Content Security Policy.md",
+    "TypeScript/类型兼容.md",
+    "HTML/meta标签.md",
+    "Post/front end.md",
+    "TODO看板.md",
+    "XSS 攻击的介绍.md",
     "Security/DOM Clobbering.md",
-    "CSS/CSS 设置自动滚动定位的“安全”间距.md",
-    "CSS/flex.md",
-    "VS code/snippet.md",
-    "JavaScript/IEEE 754 双精度浮点数.md"
+    "CSS/CSS 设置自动滚动定位的“安全”间距.md"
   ]
 }

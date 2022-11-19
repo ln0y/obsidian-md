@@ -1,20 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
-    },
-    {
       "basename": "前端安全：XSS",
       "path": "Security/前端安全：XSS.md"
     },
     {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
-    },
-    {
       "basename": "web 应用常见安全漏洞",
       "path": "Security/web 应用常见安全漏洞.md"
+    },
+    {
+      "basename": "Content Security Policy",
+      "path": "Security/Content Security Policy.md"
+    },
+    {
+      "basename": "类型兼容",
+      "path": "TypeScript/类型兼容.md"
+    },
+    {
+      "basename": "meta标签",
+      "path": "HTML/meta标签.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
       "basename": "DOM Clobbering",
@@ -187,18 +199,6 @@
     {
       "basename": "Deep Dive with Evan You",
       "path": "MVVM/Vue/Deep Dive with Evan You.md"
-    },
-    {
-      "basename": "工具类型",
-      "path": "TypeScript/工具类型.md"
-    },
-    {
-      "basename": "类型体操",
-      "path": "share/类型体操.md"
-    },
-    {
-      "basename": "客户端服务端双向通信",
-      "path": "Network/客户端服务端双向通信.md"
     }
   ],
   "omittedPaths": [],

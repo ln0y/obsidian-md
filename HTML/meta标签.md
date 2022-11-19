@@ -1,8 +1,8 @@
 ---
 aliases: []
 tags: ['HTML','HTML/meta','date/2022-04','year/2022','month/04']
-date: 2022-04-11-Monday 15:35:55
-update: 2022-04-11-Monday 17:06:42
+date: 2022-11-09-星期三 10:52:56
+update: 2022-11-19-星期六 18:23:52
 ---
 
 ## meta 标签
@@ -13,7 +13,7 @@ update: 2022-04-11-Monday 17:06:42
 
 `meta`存在两个非必须的属性`http-equiv`和`name`, 用于表示要设置的项。
 
-比如`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`,设置的项是`Content-Security-Policy`设置的值是`upgrade-insecure-requests`。
+比如`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`,设置的项是 [[Content Security Policy|Content-Security-Policy]] 设置的值是`upgrade-insecure-requests`。
 
 ### scheme 属性
 
@@ -148,6 +148,7 @@ robots 用于告诉网页爬虫如何索引网页
 ```
 
 它有以下几种参数值：
+
 - `all`：对索引编制或内容显示无任何限制, 该指令为默认值
 - `noindex`: 告诉搜索引擎不要索引当前页, 等价于noindex，nofollow
 - `index`: 告诉搜索引擎索引当前页
@@ -176,6 +177,7 @@ viewport 是用户网页的可视区域。viewport 通常用于设置页面的�
 ```
 
 它主要有以下属性值：
+
 - `width`：控制 viewport 的大小，可以指定的一个值，如 600，或者特殊的值，如 device-width 为设备的宽度
 - `height`：和 width 相对应，指定高度
 - `initial-scale`：初始缩放比例，也即是当页面第一次 load 的时候缩放比例
@@ -200,6 +202,7 @@ rating 基于网站内容给出一般的年龄分级，通常用于让浏览者�
 ```
 
 它主要有以下属性值：
+
 - general
 - mature
 - restricted
