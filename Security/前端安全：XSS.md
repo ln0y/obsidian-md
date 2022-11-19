@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','date/2022-11','year/2022','month/11']
 date: 2022-11-19-星期六 15:12:36
-update: 2022-11-19-星期六 15:42:40
+update: 2022-11-19-星期六 16:22:27
 ---
 
 ## 前端安全
@@ -352,7 +352,7 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 
     - 当 `5 &lt; 7` 作为 HTML 拼接页面时，可以正常显示：
 
-        ```
+        ```html
         <div title="comment">5 &lt; 7</div>
         ```
 
@@ -386,7 +386,7 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 
 在纯前端渲染中，我们会明确的告诉浏览器：下面要设置的内容是文本（`.innerText`），还是属性（`.setAttribute`），还是样式（`.style`）等等。浏览器不会被轻易的被欺骗，执行预期外的代码了。
 
-但纯前端渲染还需注意避免 DOM 型 XSS 漏洞（例如 `onload` 事件和 `href` 中的 `javascript:xxx` 等，请参考下文”预防 DOM 型 XSS 攻击“部分）。
+但纯前端渲染还需注意避免 DOM 型 XSS 漏洞（例如 `onload` 事件和 `href` 中的 `javascript:xxx` 等，请参考下文”[[#预防 DOM 型 XSS 攻击]]“部分）。
 
 在很多内部、管理系统中，采用纯前端渲染是非常合适的。但对于性能要求高，或有 SEO 需求的页面，我们仍然要面对拼接 HTML 的问题。
 
@@ -396,21 +396,21 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 
 常用的模板引擎，如 doT.js、ejs、FreeMarker 等，对于 HTML 转义通常只有一个规则，就是把 `& < > " ' /` 这几个字符转义掉，确实能起到一定的 XSS 防护作用，但并不完善：
 
-| XSS 安全漏洞 | 简单转义是否有防护作用 |
-| --- | --- |
-| HTML 标签文字内容 | 有 |
-| HTML 属性值 | 有 |
-| CSS 内联样式 | 无 |
-| 内联 JavaScript | 无 |
-| 内联 JSON | 无 |
-| 跳转链接 | 无 |
+| XSS 安全漏洞      | 简单转义是否有防护作用 |
+| ----------------- | ---------------------- |
+| HTML 标签文字内容 | 有                     |
+| HTML 属性值       | 有                     |
+| CSS 内联样式      | 无                     |
+| 内联 JavaScript   | 无                     |
+| 内联 JSON         | 无                     |
+| 跳转链接          | 无                     |
 
 
 所以要完善 XSS 防护措施，我们要使用更完善更细致的转义策略。
 
-例如 Java 工程里，常用的转义库为 `org.owasp.encoder`。以下代码引用自 [org.owasp.encoder 的官方说明](https://link.segmentfault.com/?enc=k4i%2Fvcs%2ByNUjqGHpvlChsQ%3D%3D.K2qetpiPm8ed3lKUN92vDpkNujo2Wt7PJ0fC7GZUnjupJpLkYqKI3I7wuiOtlo8urpLvQCsq95IUABLH753dACJKlO4ByQGSgDvIMUrnWZDarwsDKMoXaRBzp%2FuoNWRz)。
+例如 Java 工程里，常用的转义库为 `org.owasp.encoder`。以下代码引用自 [org.owasp.encoder 的官方说明](https://owasp.org/www-project-java-encoder/#tab=Use_the_Java_Encoder_Project)。
 
-```
+```java
 <div><%= Encode.forHtml(UNTRUSTED) %></div>
 
 
@@ -467,7 +467,7 @@ DOM 型 XSS 攻击，实际上就是网站前端 JavaScript 代码本身不够�
 
 DOM 中的内联事件监听器，如 `location`、`onclick`、`onerror`、`onload`、`onmouseover` 等，`<a>` 标签的 `href` 属性，JavaScript 的 `eval()`、`setTimeout()`、`setInterval()` 等，都能把字符串作为代码运行。如果不可信的数据拼接到字符串中传递给这些 API，很容易产生安全隐患，请务必避免。
 
-```
+```html
 <img onclick="UNTRUSTED" onerror="UNTRUSTED" src="data:image/png,">
 
 
