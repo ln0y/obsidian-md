@@ -9,12 +9,12 @@
       "path": "Post/front end.md"
     },
     {
-      "basename": "CSS 设置自动滚动定位的“安全”间距",
-      "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
-    },
-    {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
+    },
+    {
+      "basename": "CSS 设置自动滚动定位的“安全”间距",
+      "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
     },
     {
       "basename": "flex",
