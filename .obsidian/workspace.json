@@ -32,9 +32,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "ff360b79b1ee986c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/前端安全：XSS.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -157,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/web 应用常见安全漏洞.md"
+                "file": "Security/前端安全：XSS.md"
               }
             }
           }
@@ -174,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/web 应用常见安全漏洞.md",
+                "file": "Security/前端安全：XSS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/web 应用常见安全漏洞.md",
+                "file": "Security/前端安全：XSS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -215,17 +228,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "1323c46dea08d841",
+  "active": "ff360b79b1ee986c",
   "lastOpenFiles": [
+    "TODO看板.md",
+    "Security/前端安全：XSS.md",
     "Post/front end.md",
-    "Security/DOM Clobbering.md",
+    "XSS 攻击的介绍.md",
     "Security/web 应用常见安全漏洞.md",
+    "Security/DOM Clobbering.md",
     "CSS/CSS 设置自动滚动定位的“安全”间距.md",
     "CSS/flex.md",
     "VS code/snippet.md",
-    "JavaScript/IEEE 754 双精度浮点数.md",
-    "conflict-files-obsidian-git.md",
-    "JavaScript/Generator.md",
-    "JavaScript/apply & call & bind.md"
+    "JavaScript/IEEE 754 双精度浮点数.md"
   ]
 }

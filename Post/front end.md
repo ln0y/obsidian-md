@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2022-11-16-星期三 17:24:13
+update: 2022-11-19-星期六 15:21:55
 ---
 
 ## React
@@ -257,6 +257,10 @@ https://unpkg.com/
 
 [iconify](https://iconify.design/)
 
+## Obsidian
+
+https://prismjs.com/#supported-languages
+
 ## Blog & Website
 
 [若川的博客](https://lxchuan12.gitee.io/)
@@ -356,4 +360,5 @@ https://fe.ecool.fun/topic-list
 前端面试真题，会80%直接进大厂 - 飞书云文档
 
 https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?table=tblEnSV2PNAajtWE&view=vewJHSwJVd
+
 XLbadafH
