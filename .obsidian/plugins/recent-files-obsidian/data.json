@@ -5,12 +5,16 @@
       "path": "Security/前端安全：XSS.md"
     },
     {
-      "basename": "web 应用常见安全漏洞",
-      "path": "Security/web 应用常见安全漏洞.md"
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
       "basename": "Content Security Policy",
       "path": "Security/Content Security Policy.md"
+    },
+    {
+      "basename": "web 应用常见安全漏洞",
+      "path": "Security/web 应用常见安全漏洞.md"
     },
     {
       "basename": "类型兼容",
@@ -23,10 +27,6 @@
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "DOM Clobbering",

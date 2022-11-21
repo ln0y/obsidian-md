@@ -45,6 +45,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b9fd52ba908a3b96",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/Content Security Policy.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
         "currentTab": 2
@@ -77,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "https://link.segmentfault.com",
+                "query": "only",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -230,13 +243,13 @@
   },
   "active": "f8c25d64bf0570ae",
   "lastOpenFiles": [
-    "Security/web 应用常见安全漏洞.md",
+    "TODO看板.md",
     "Security/前端安全：XSS.md",
     "Security/Content Security Policy.md",
+    "Security/web 应用常见安全漏洞.md",
     "TypeScript/类型兼容.md",
     "HTML/meta标签.md",
     "Post/front end.md",
-    "TODO看板.md",
     "XSS 攻击的介绍.md",
     "Security/DOM Clobbering.md",
     "CSS/CSS 设置自动滚动定位的“安全”间距.md"
