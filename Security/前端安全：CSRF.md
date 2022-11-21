@@ -7,13 +7,13 @@ update: 2022-11-21-星期一 15:59:38
 
 ## 背景
 
-随着互联网的高速发展，信息安全问题已经成为企业最为关注的焦点之一，而前端又是引发企业安全问题的高危据点。在移动互联网时代，前端人员除了传统的 XSS、CSRF 等安全问题之外，又时常遭遇网络劫持、非法调用 Hybrid API 等新型安全问题。当然，浏览器自身也在不断在进化和发展，不断引入 CSP、Same-Site Cookies 等新技术来增强安全性，但是仍存在很多潜在的威胁，这需要前端技术人员不断进行“查漏补缺”。
+随着互联网的高速发展，信息安全问题已经成为企业最为关注的焦点之一，而前端又是引发企业安全问题的高危据点。在移动互联网时代，前端人员除了传统的 XSS、CSRF 等安全问题之外，又时常遭遇网络劫持、非法调用 Hybrid API 等新型安全问题。当然，浏览器自身也在不断在进化和发展，不断引入 CSP、Same-Site Cookies 等新技术来增强安全性，但是仍存在很多潜在的威胁，这需要前端技术人员不断进行“查漏补缺"。
 
 ## CSRF攻击
 
 ### CSRF漏洞的发生
 
-相比XSS，CSRF的名气似乎并不是那么大，很多人都认为CSRF“不那么有破坏性”。真的是这样吗？
+相比XSS，CSRF的名气似乎并不是那么大，很多人都认为CSRF“不那么有破坏性"。真的是这样吗？
 
 接下来有请小明出场~~
 
@@ -29,7 +29,7 @@ update: 2022-11-21-星期一 15:59:38
 
 不久之后的一天，小明发现自己的域名已经被转让了。懵懂的小明以为是域名到期自己忘了续费，直到有一天，对方开出了 $650 的赎回价码，小明才开始觉得不太对劲。
 
-小明仔细查了下域名的转让，对方是拥有自己的验证码的，而域名的验证码只存在于自己的邮箱里面。小明回想起那天奇怪的链接，打开后重新查看了“空白页”的源码：
+小明仔细查了下域名的转让，对方是拥有自己的验证码的，而域名的验证码只存在于自己的邮箱里面。小明回想起那天奇怪的链接，打开后重新查看了“空白页"的源码：
 
 ```html
 <form method="POST" action="https://mail.google.com/mail/h/ewt1jmuj4ddv/?v=prf" enctype="multipart/form-data"> 
@@ -44,7 +44,7 @@ update: 2022-11-21-星期一 15:59:38
 </script>
 ```
 
-> 这个页面只要打开，就会向Gmail发送一个post请求。请求中，执行了“Create Filter”命令，将所有的邮件，转发到“hacker@hakermail\.com”。
+> 这个页面只要打开，就会向Gmail发送一个post请求。请求中，执行了“Create Filter"命令，将所有的邮件，转发到“hacker@hakermail\.com"。
 >
 > 小明由于刚刚就登陆了Gmail，所以这个请求发送时，携带着小明的登录凭证（Cookie），Gmail的后台接收到请求，验证了确实有小明的登录凭证，于是成功给小明配置了过滤器。
 >
@@ -52,7 +52,7 @@ update: 2022-11-21-星期一 15:59:38
 
 小明很快打开Gmail，找到了那条过滤器，将其删除。然而，已经泄露的邮件，已经被转让的域名，再也无法挽回了......
 
-以上就是小明的悲惨遭遇。而“点开一个黑客的链接，所有邮件都被窃取”这种事情并不是杜撰的，此事件原型是2007年Gmail的CSRF漏洞：
+以上就是小明的悲惨遭遇。而“点开一个黑客的链接，所有邮件都被窃取"这种事情并不是杜撰的，此事件原型是2007年Gmail的CSRF漏洞：
 
 https://www.davidairey.com/google-gmail-security-hijack/
 
@@ -116,7 +116,7 @@ POST类型的攻击通常比GET要求更加严格一点，但仍并不复杂。�
 
 - 攻击一般发起在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。
 - 攻击利用受害者在被攻击网站的登录凭证，冒充受害者提交操作；而不是直接窃取数据。
-- 整个过程攻击者并不能获取到受害者的登录凭证，仅仅是“冒用”。
+- 整个过程攻击者并不能获取到受害者的登录凭证，仅仅是“冒用"。
 - 跨站请求可以用各种方式：图片URL、超链接、CORS、Form提交等等。部分请求方式可以直接嵌入在第三方论坛、文章中，难以进行追踪。
 
 CSRF通常是跨域的，因为外域通常更容易被攻击者掌控。但是如果本域下有容易被利用的功能，比如可以发图和链接的论坛和评论区，攻击可以直接在本域下进行，而且这种攻击更加危险。
@@ -178,26 +178,26 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 2014年，W3C的Web应用安全工作组发布了Referrer Policy草案，对浏览器该如何发送Referer做了详细的规定。截止现在新版浏览器大部分已经支持了这份草案，我们终于可以灵活地控制自己网站的Referer策略了。新版的Referrer Policy规定了五种Referer策略：No Referrer、No Referrer When Downgrade、Origin Only、Origin When Cross-origin、和 Unsafe URL。之前就存在的三种策略：never、default和always，在新标准里换了个名称。他们的对应关系如下：
 
-| 策略名称 | 属性值（新） | 属性值（旧） |
-| --- | --- | --- |
-| No Referrer | no-Referrer | never |
-| No Referrer When Downgrade | no-Referrer-when-downgrade | default |
-| Origin Only | (same or strict) origin | origin |
-| Origin When Cross Origin | (strict) origin-when-crossorigin | \- |
-| Unsafe URL | unsafe-url | always |
+| 策略名称                   | 属性值（新）                     | 属性值（旧） |
+| -------------------------- | -------------------------------- | ------------ |
+| No Referrer                | no-Referrer                      | never        |
+| No Referrer When Downgrade | no-Referrer-when-downgrade       | default      |
+| Origin Only                | (same or strict) origin          | origin       |
+| Origin When Cross Origin   | (strict) origin-when-crossorigin | \-           |
+| Unsafe URL                 | unsafe-url                       | always       |
 
 
 根据上面的表格因此需要把Referrer Policy的策略设置成same-origin，对于同源的链接和引用，会发送Referer，referer值为Host不带Path；跨域访问则不携带Referer。例如：`aaa.com`引用`bbb.com`的资源，不会发送Referer。
 
 设置Referrer Policy的方法有三种：
 
-1. 在CSP设置
-2. 页面头部增加meta标签
+1. 在[[Content Security Policy|CSP]]设置
+2. 页面头部增加[[meta标签#referrer|meta]]标签
 3. a标签增加referrerpolicy属性
 
 上面说的这些比较多，但我们可以知道一个问题：攻击者可以在自己的请求中隐藏Referer。如果攻击者将自己的请求这样填写：
 
-```
+```html
  <img src="http://bank.example/withdraw?amount=10000&for=hacker" referrerpolicy="no-referrer"> 
 ```
 
@@ -215,7 +215,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 ##### 无法确认来源域名情况
 
-当Origin和Referer头文件不存在时该怎么办？如果Origin和Referer都不存在，建议直接进行阻止，特别是如果您没有使用随机CSRF Token（参考下方）作为第二次检查。
+当Origin和Referer头文件不存在时该怎么办？如果Origin和Referer都不存在，建议直接进行阻止，特别是如果您没有使用随机 [[#CSRF Token]]（参考下方）作为第二次检查。
 
 ##### 如何阻止外域请求
 
@@ -260,10 +260,10 @@ CSRF Token的防护策略分为三个步骤：
 
 2.页面提交的请求携带这个Token
 
-对于GET请求，Token将附在请求地址之后，这样URL 就变成 [http://url?csrftoken=tokenvalue](https://link.segmentfault.com/?enc=UZQh57ioG5L12JpZxB013w%3D%3D.OE8sOBs4EYZoq2jU6Fxy0ddiVNZeVvZnHstnmhi14eI%3D)。 而对于 POST 请求来说，要在 form 的最后加上：
+对于GET请求，Token将附在请求地址之后，这样URL 就变成 `http://url?csrftoken=tokenvalue`。 而对于 POST 请求来说，要在 form 的最后加上：
 
-```
- <input type=”hidden” name=”csrftoken” value=”tokenvalue”/>
+```html
+ <input type="hidden" name="csrftoken" value="tokenvalue"/>
 ```
 
 这样，就把Token以参数的形式加入请求了。
@@ -276,21 +276,21 @@ CSRF Token的防护策略分为三个步骤：
 
 下面将以Java为例，介绍一些CSRF Token的服务端校验逻辑，代码如下：
 
-```
+```java
 HttpServletRequest req = (HttpServletRequest)request; 
 HttpSession s = req.getSession(); 
  
-
+// 从 session 中得到 csrftoken 属性
 String sToken = (String)s.getAttribute(“csrftoken”); 
 if(sToken == null){ 
-   
+   // 产生新的 token 放入 session 中
    sToken = generateToken(); 
    s.setAttribute(“csrftoken”,sToken); 
    chain.doFilter(request, response); 
 } else{ 
-   
+   // 从 HTTP 头中取得 csrftoken 
    String xhrToken = req.getHeader(“csrftoken”); 
-   
+   // 从请求参数中取得 csrftoken 
    String pToken = req.getParameter(“csrftoken”); 
    if(sToken != null && xhrToken != null && sToken.equals(xhrToken)){ 
        chain.doFilter(request, response); 
@@ -367,7 +367,7 @@ Token是一个比较有效的CSRF防护方法，只要页面没有XSS漏洞泄�
 
 #### Samesite Cookie属性
 
-防止CSRF攻击的办法已经有上面的预防措施。为了从源头上解决这个问题，Google起草了一份草案来改进HTTP协议，那就是为Set-Cookie响应头新增Samesite属性，它用来标明这个 Cookie是个“同站 Cookie”，同站Cookie只能作为第一方Cookie，不能作为第三方Cookie，Samesite 有两个属性值，分别是 Strict 和 Lax，下面分别讲解：
+防止CSRF攻击的办法已经有上面的预防措施。为了从源头上解决这个问题，Google起草了一份草案来改进HTTP协议，那就是为Set-Cookie响应头新增Samesite属性，它用来标明这个 Cookie是个“同站 Cookie"，同站Cookie只能作为第一方Cookie，不能作为第三方Cookie，Samesite 有两个属性值，分别是 Strict 和 Lax，下面分别讲解：
 
 ##### Samesite=Strict
 
@@ -395,12 +395,12 @@ Set-Cookie: baz=3
 
 生成Token放到Cookie中并且设置Cookie的Samesite，Java代码如下：
 
-```
+```java
  private void addTokenCookieAndHeader(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
-        
+        //生成token
         String sToken = this.generateToken();
-        
-        
+        //手动添加Cookie实现支持“Samesite=strict”
+        //Cookie添加双重验证
         String CookieSpec = String.format("%s=%s; Path=%s; HttpOnly; Samesite=Strict", this.determineCookieName(httpRequest), sToken, httpRequest.getRequestURI());
         httpResponse.addHeader("Set-Cookie", CookieSpec);
         httpResponse.setHeader(CSRF_TOKEN_NAME, token);
@@ -455,7 +455,7 @@ CSRFTester默认使用Localhost上的端口8008作为其代理，如果代理配
 
 - 步骤2：使用合法账户访问网站开始测试
 
-我们需要找到一个我们想要为CSRF测试的特定业务Web页面。找到此页面后，选择CSRFTester中的“开始录制”按钮并执行业务功能；完成后，点击CSRFTester中的“停止录制”按钮；正常情况下，该软件会全部遍历一遍当前页面的所有请求。
+我们需要找到一个我们想要为CSRF测试的特定业务Web页面。找到此页面后，选择CSRFTester中的“开始录制"按钮并执行业务功能；完成后，点击CSRFTester中的“停止录制"按钮；正常情况下，该软件会全部遍历一遍当前页面的所有请求。
 
 - 步骤3：通过CSRF修改并伪造请求
 
@@ -463,7 +463,7 @@ CSRFTester默认使用Localhost上的端口8008作为其代理，如果代理配
 
 - 步骤4：拿到结果如有漏洞进行修复
 
-首先必须选择“报告类型”。报告类型决定了我们希望受害者浏览器如何提交先前记录的请求。目前有5种可能的报告：表单、iFrame、IMG、XHR和链接。一旦选择了报告类型，我们可以选择在浏览器中启动新生成的报告，最后根据报告的情况进行对应的排查和修复。
+首先必须选择“报告类型"。报告类型决定了我们希望受害者浏览器如何提交先前记录的请求。目前有5种可能的报告：表单、iFrame、IMG、XHR和链接。一旦选择了报告类型，我们可以选择在浏览器中启动新生成的报告，最后根据报告的情况进行对应的排查和修复。
 
 #### CSRF监控
 
@@ -515,7 +515,7 @@ CSRF攻击有着比较明显的特征：
 
 那么这个漏洞实际上就是攻击者引导用户先进入目标的WordPress，然后点击其钓鱼站点上的某个按钮，该按钮实际上是表单提交按钮，其会触发表单的提交工作，添加某个具有管理员权限的用户，实现的码如下：
 
-```
+```html
 <html> 
 <body onload="javascript:document.forms[0].submit()"> 
 <H2>CSRF Exploit to add Administrator</H2> 
@@ -539,18 +539,18 @@ CSRF攻击有着比较明显的特征：
 
 #### YouTube的CSRF漏洞
 
-2008年，有安全研究人员发现，YouTube上几乎所有用户可以操作的动作都存在CSRF漏洞。如果攻击者已经将视频添加到用户的“Favorites”，那么他就能将他自己添加到用户的“Friend”或者“Family”列表，以用户的身份发送任意的消息，将视频标记为不宜的，自动通过用户的联系人来共享一个视频。例如，要把视频添加到用户的“Favorites”，攻击者只需在任何站点上嵌入如下所示的IMG标签：
+2008年，有安全研究人员发现，YouTube上几乎所有用户可以操作的动作都存在CSRF漏洞。如果攻击者已经将视频添加到用户的“Favorites"，那么他就能将他自己添加到用户的“Friend"或者“Family"列表，以用户的身份发送任意的消息，将视频标记为不宜的，自动通过用户的联系人来共享一个视频。例如，要把视频添加到用户的“Favorites"，攻击者只需在任何站点上嵌入如下所示的IMG标签：
 
-```
+```html
 <img src="http://youtube.com/watch_ajax?action_add_favorite_playlist=1&video_
 id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
 ```
 
-攻击者也许已经利用了该漏洞来提高视频的流行度。例如，将一个视频添加到足够多用户的“Favorites”，YouTube就会把该视频作为“Top Favorites”来显示。除提高一个视频的流行度之外，攻击者还可以导致用户在毫不知情的情况下将一个视频标记为“不宜的”，从而导致YouTube删除该视频。
+攻击者也许已经利用了该漏洞来提高视频的流行度。例如，将一个视频添加到足够多用户的“Favorites"，YouTube就会把该视频作为“Top Favorites"来显示。除提高一个视频的流行度之外，攻击者还可以导致用户在毫不知情的情况下将一个视频标记为“不宜的"，从而导致YouTube删除该视频。
 
-这些攻击还可能已被用于侵犯用户隐私。YouTube允许用户只让朋友或亲属观看某些视频。这些攻击会导致攻击者将其添加为一个用户的“Friend”或“Family”列表，这样他们就能够访问所有原本只限于好友和亲属表中的用户观看的私人的视频。
+这些攻击还可能已被用于侵犯用户隐私。YouTube允许用户只让朋友或亲属观看某些视频。这些攻击会导致攻击者将其添加为一个用户的“Friend"或“Family"列表，这样他们就能够访问所有原本只限于好友和亲属表中的用户观看的私人的视频。
 
-攻击者还可以通过用户的所有联系人名单（“Friends”、“Family”等等）来共享一个视频，“共享”就意味着发送一个视频的链接给他们，当然还可以选择附加消息。这条消息中的链接已经并不是真正意义上的视频链接，而是一个具有攻击性的网站链接，用户很有可能会点击这个链接，这便使得该种攻击能够进行病毒式的传播。
+攻击者还可以通过用户的所有联系人名单（“Friends"、“Family"等等）来共享一个视频，“共享"就意味着发送一个视频的链接给他们，当然还可以选择附加消息。这条消息中的链接已经并不是真正意义上的视频链接，而是一个具有攻击性的网站链接，用户很有可能会点击这个链接，这便使得该种攻击能够进行病毒式的传播。
 
 ### 参考文献
 
@@ -559,13 +559,3 @@ id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
 - Gmail Security Hijack Case.[Google-Gmail-Security-Hijack](https://link.segmentfault.com/?enc=OtBRRa6xNU4QnU1SrW3qUw%3D%3D.whFTquhGU6z%2FMsNfkxIsjeJcv8P%2BAlHzed9A8rBMNMiviyTIBeGa10pGEeGjS17%2FoDZHy3qTYCQR3SdoEgeaPA%3D%3D).
 - Netsparker Blog.[Same-Site-Cookie-Attribute-Prevent-Cross-site-Request-Forgery](https://link.segmentfault.com/?enc=o3J%2BduOoISiRZwwpw%2BP3uw%3D%3D.0Bm%2BSK33OQuOJiDEP0OZEwUCVB2SB174fHagRJI%2FizIjnqhB2mXbd6SIGGHvZ%2F2cg8IUbULrpHD6MENjLgTxJHsN5MeDE9m9vxJ%2FbPiVCv%2FUX6BxTpzz4dpClNUwEJHC0rEjxrirf6dvCgvG7yTrdA%3D%3D)
 - MDN.[Same-origin\_policy#IE\_Exceptions](https://link.segmentfault.com/?enc=gMEEKCqwfEOODybM6v5yUQ%3D%3D.KyRU7gjvCV5hin9xFduDq9r4fKW%2FMqCnQboYgiG%2FSMen4L8bxHsG3H0sPqmmGOtxM8VvKHQhxXHc9xADH6MQn%2FPo6L1ORUyMA0yoUnusYHHAUp9WQYymzG5Waqo5JAMA)
-
-## 下期预告
-
-前端安全系列文章将对XSS、CSRF、网络劫持、Hybrid安全等安全议题展开论述。下期我们要讨论的是网络劫持，敬请期待。
-
-## 作者简介
-
-刘烨，美团点评前端开发工程师，负责外卖用户端前端业务。
-
-![](https://segmentfault.com/img/remote/1460000016659949?w=1875&h=835)
