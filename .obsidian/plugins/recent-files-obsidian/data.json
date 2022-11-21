@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
       "basename": "前端安全：XSS",
       "path": "Security/前端安全：XSS.md"
     },
     {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
       "basename": "Content Security Policy",
@@ -195,10 +199,6 @@
     {
       "basename": "从事件驱动到数据驱动",
       "path": "MVVM/从事件驱动到数据驱动.md"
-    },
-    {
-      "basename": "Deep Dive with Evan You",
-      "path": "MVVM/Vue/Deep Dive with Evan You.md"
     }
   ],
   "omittedPaths": [],
