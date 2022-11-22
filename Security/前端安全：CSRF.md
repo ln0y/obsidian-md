@@ -250,7 +250,7 @@ GET https://example.com/addComment?comment=XXX&dest=orderId
 
 而CSRF攻击之所以能够成功，是因为服务器误把攻击者发送的请求当成了用户自己的请求。那么我们可以要求所有的用户请求都携带一个CSRF攻击者无法获取到的Token。服务器通过校验请求是否携带正确的Token，来把正常的请求和攻击的请求区分开，也可以防范CSRF的攻击。
 
-###### 原理
+##### 原理
 
 CSRF Token的防护策略分为三个步骤：
 
@@ -287,7 +287,7 @@ if(sToken == null){
    sToken = generateToken(); 
    s.setAttribute(“csrftoken”,sToken); 
    chain.doFilter(request, response); 
-} else{ 
+} else { 
    // 从 HTTP 头中取得 csrftoken 
    String xhrToken = req.getHeader(“csrftoken”); 
    // 从请求参数中取得 csrftoken 
