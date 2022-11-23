@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','date/2022-11','year/2022','month/11']
 date: 2022-11-21-星期一 15:31:55
-update: 2022-11-21-星期一 15:59:38
+update: 2022-11-23-星期三 19:31:49
 ---
 
 ## 背景
@@ -167,7 +167,8 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 - **IE11同源策略：** IE 11 不会在跨站CORS请求上添加Origin标头，Referer头将仍然是唯一的标识。最根本原因是因为IE 11对同源的定义和其他浏览器有不同，有两个主要的区别，可以参考[MDN Same-origin\_policy#IE\_Exceptions](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#IE_Exceptions)
 - **302重定向：** 在302重定向之后Origin不包含在重定向的请求中，因为Origin可能会被认为是其他来源的敏感信息。对于302重定向的情况来说都是定向到新的服务器上的URL，因此浏览器不想将Origin泄漏到新的服务器上。
- 
+
+
 ##### 使用Referer Header确定来源域名
 
 根据HTTP协议，在HTTP头中有一个字段叫Referer，记录了该HTTP请求的来源地址。
@@ -550,8 +551,7 @@ id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
 
 ### 参考文献
 
-- Mozilla wiki.[Security-Origin](https://link.segmentfault.com/?enc=nyuSO9oGtSRpT3MruvYbXA%3D%3D.%2BcyXsMNR9JlOAuv8qbtKVGt5611nGHDLSg6cdn6QLllC6lQ6yNMMAcI7dV7JmSMX)
-- OWASP.[Cross-Site\_Request\_Forgery\_(CSRF)\_Prevention\_Cheat\_Sheet](https://link.segmentfault.com/?enc=HPyV0VWh5eKCcFSsMXzRiw%3D%3D.tqb1xbKUHOPkaAyN43rgwavTMcS6Rsw8s4WUKaw7KXm8bZgkCZKx1RSBEXXAm2lNKmANRTk8oIFgOwTHOlG1a%2Foxe7EeD1cDmBHPRcPZm5Q%3D)\_Prevention\_Cheat\_Sheet).
-- Gmail Security Hijack Case.[Google-Gmail-Security-Hijack](https://link.segmentfault.com/?enc=OtBRRa6xNU4QnU1SrW3qUw%3D%3D.whFTquhGU6z%2FMsNfkxIsjeJcv8P%2BAlHzed9A8rBMNMiviyTIBeGa10pGEeGjS17%2FoDZHy3qTYCQR3SdoEgeaPA%3D%3D).
-- Netsparker Blog.[Same-Site-Cookie-Attribute-Prevent-Cross-site-Request-Forgery](https://link.segmentfault.com/?enc=o3J%2BduOoISiRZwwpw%2BP3uw%3D%3D.0Bm%2BSK33OQuOJiDEP0OZEwUCVB2SB174fHagRJI%2FizIjnqhB2mXbd6SIGGHvZ%2F2cg8IUbULrpHD6MENjLgTxJHsN5MeDE9m9vxJ%2FbPiVCv%2FUX6BxTpzz4dpClNUwEJHC0rEjxrirf6dvCgvG7yTrdA%3D%3D)
-- MDN.[Same-origin\_policy#IE\_Exceptions](https://link.segmentfault.com/?enc=gMEEKCqwfEOODybM6v5yUQ%3D%3D.KyRU7gjvCV5hin9xFduDq9r4fKW%2FMqCnQboYgiG%2FSMen4L8bxHsG3H0sPqmmGOtxM8VvKHQhxXHc9xADH6MQn%2FPo6L1ORUyMA0yoUnusYHHAUp9WQYymzG5Waqo5JAMA)
+- Mozilla wiki.[Security-Origin](https://wiki.mozilla.org/Security/Origin)
+- Gmail Security Hijack Case.[Google-Gmail-Security-Hijack](https://www.davidairey.com/google-gmail-security-hijack/)
+- Netsparker Blog.[Same-Site-Cookie-Attribute-Prevent-Cross-site-Request-Forgery](https://www.invicti.com/blog/web-security/same-site-cookie-attribute-prevent-cross-site-request-forgery/)
+- MDN.[Same-origin\_policy#IE\_Exceptions](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#IE_Exceptions)

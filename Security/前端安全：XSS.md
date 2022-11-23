@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','xss','date/2022-11','year/2022','month/11']
 date: 2022-11-19-星期六 15:12:36
-update: 2022-11-19-星期六 18:35:30
+update: 2022-11-23-星期三 19:52:23
 ---
 
 ## 前端安全
@@ -509,6 +509,26 @@ eval("UNTRUSTED")
 - 禁止未授权的脚本执行（新特性，Google Map 移动版在使用）。
 - 合理使用上报可以及时发现 XSS，利于尽快修复问题。
 
+#### 浏览器自带防御（X-XSS-Protection）
+
+HTTP [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection) 响应头是 Internet Explorer，Chrome 和 Safari 的一个功能，当检测到跨站脚本攻击(XSS)时，浏览器将停止加载页面。
+
+他可以设置4个值：
+
+> X-XSS-Protection: 0
+> 禁止XSS过滤。
+>
+> X-XSS-Protection: 1
+> 启用XSS过滤（通常浏览器是默认的）。 如果检测到跨站脚本攻击，浏览器将清除页面（删除不安全的部分）。
+>
+> X-XSS-Protection: 1; mode=block
+> 启用XSS过滤。 如果检测到攻击，浏览器将不会清除页面，而是阻止页面加载。
+>
+> X-XSS-Protection: 1; report=\<reporting-uri>
+> 启用XSS过滤。 如果检测到跨站脚本攻击，浏览器将清除页面并使用CSP report-uri指令的功能发送违规报告。
+
+这种浏览器自带的防御功能只对反射型 XSS 有一定的防御力，其原理是检查 URL 和 DOM 中元素的相关性，但这并不能完全防止反射型 XSS，而且也并不是所有浏览器都支持 X-XSS-Protection。
+
 #### 输入内容长度控制
 
 对于不受信任的输入，都应该限定一个合理的长度。虽然无法完全防止 XSS 发生，但可以增加 XSS 攻击的难度。
@@ -582,7 +602,7 @@ http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F
 
 ### XSS 攻击案例
 
-##### QQ 邮箱 m.exmail.qq.com 域名反射型 XSS 漏洞
+#### QQ 邮箱 m.exmail.qq.com 域名反射型 XSS 漏洞
 
 攻击者发现 `http://m.exmail.qq.com/cgi-bin/login?uin=aaaa&domain=bbbb` 这个 URL 的参数 `uin`、`domain` 未经转义直接输出到 HTML 中。
 
@@ -599,7 +619,7 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 
 浏览器接收到响应后就会执行 `alert(document.cookie)`，攻击者通过 JavaScript 即可窃取当前用户在 QQ 邮箱域名下的 Cookie ，进而危害数据安全。
 
-##### 新浪微博名人堂反射型 XSS 漏洞
+#### 新浪微博名人堂反射型 XSS 漏洞
 
 攻击者发现 `http://weibo.com/pub/star/g/xyyyd` 这个 URL 的内容未经过滤直接输出到 HTML 中。
 
@@ -614,6 +634,9 @@ getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientu
 ```
 
 浏览器接收到响应后就会加载执行恶意脚本 `//xxxx.cn/image/t.js`，在恶意脚本中利用用户的登录状态进行关注、发微博、发私信等操作，发出的微博和私信可再带上攻击 URL，诱导更多人点击，不断放大攻击范围。这种窃用受害者身份发布恶意内容，层层放大攻击范围的方式，被称为“XSS 蠕虫”。
+
+-   [站酷](https://www.cnblogs.com/chyingp/archive/2013/06/06/zcool-xss.html)
+-   [百度网盘](https://zhuanlan.zhihu.com/p/24249045)
 
 ### 扩展阅读：Automatic Context-Aware Escaping
 
