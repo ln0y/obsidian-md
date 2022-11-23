@@ -5,6 +5,10 @@
       "path": "Security/前端安全：CSRF.md"
     },
     {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
       "basename": "meta标签",
       "path": "HTML/meta标签.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "前端框架模板引擎的实现原理",
       "path": "MVVM/前端框架模板引擎的实现原理.md"
-    },
-    {
-      "basename": "从事件驱动到数据驱动",
-      "path": "MVVM/从事件驱动到数据驱动.md"
     }
   ],
   "omittedPaths": [],

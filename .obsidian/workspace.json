@@ -60,6 +60,19 @@
             }
           },
           {
+            "id": "16f32deeb5fd3c10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "browser/跨域.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "b9fd52ba908a3b96",
             "type": "leaf",
             "state": {
@@ -103,7 +116,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "跨域",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -247,8 +260,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -256,15 +268,15 @@
   },
   "active": "15f0b8e74a87287e",
   "lastOpenFiles": [
-    "HTML/meta标签.md",
+    "browser/跨域.md",
     "Security/前端安全：CSRF.md",
+    "HTML/meta标签.md",
     "Security/前端安全：XSS.md",
     "TODO看板.md",
     "Post/front end.md",
     "Security/Content Security Policy.md",
     "Security/web 应用常见安全漏洞.md",
     "TypeScript/类型兼容.md",
-    "XSS 攻击的介绍.md",
-    "Security/DOM Clobbering.md"
+    "XSS 攻击的介绍.md"
   ]
 }

@@ -405,8 +405,6 @@ Set-Cookie: baz=3
     }
 ```
 
-代码源自[OWASP Cross-Site\_Request\_Forgery #Implementation example](https://link.segmentfault.com/?enc=%2FSldst9x9I4uGw7mDMXYUA%3D%3D.VtpFeijA8mTz0t6ilVMzN3%2F8RmjUa%2B6n9pFejLC11Xnmpm8sudtK40%2FBLOUf4SiatH%2F2BGrCMhTaUHSJBwiYid3e%2BtUOnnmdV535OYgofgHkl8qcJOHyaTUbIv1jCfg1pe2FRzreH6%2B70KNU0Nenta%2Fx9JLOTm0O2yMolX10ruY%3D)
-
 ##### 我们应该如何使用SamesiteCookie
 
 如果SamesiteCookie被设置为Strict，浏览器在任何跨域请求中都不会携带Cookie，新标签重新打开也不携带，所以说CSRF攻击基本没有机会。
