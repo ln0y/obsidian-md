@@ -86,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -209,7 +209,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/前端安全：CSRF.md"
+                "file": "browser/跨域.md"
               }
             }
           }
@@ -226,7 +226,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
+                "file": "browser/跨域.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +243,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
+                "file": "browser/跨域.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -266,17 +266,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "15f0b8e74a87287e",
+  "active": "16f32deeb5fd3c10",
   "lastOpenFiles": [
-    "browser/跨域.md",
     "Security/前端安全：CSRF.md",
+    "Post/front end.md",
+    "CSS/flex.md",
+    "browser/跨域.md",
     "HTML/meta标签.md",
     "Security/前端安全：XSS.md",
     "TODO看板.md",
-    "Post/front end.md",
     "Security/Content Security Policy.md",
     "Security/web 应用常见安全漏洞.md",
-    "TypeScript/类型兼容.md",
-    "XSS 攻击的介绍.md"
+    "TypeScript/类型兼容.md"
   ]
 }
