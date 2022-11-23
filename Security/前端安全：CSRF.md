@@ -302,8 +302,6 @@ if(sToken == null){
 }
 ```
 
-代码源自[IBM developerworks CSRF](https://link.segmentfault.com/?enc=4pvbrlcz1pxcsdQiKtYgwQ%3D%3D.mU7C57%2FQqAVOIKsezzukxiXc1tcJOlYz47nbENF2qESUwr0bbAsY5gqgaxy2paYsgAxv0yFHYFsvbnuuoCoK8w%3D%3D)
-
 这个Token的值必须是随机生成的，这样它就不会被攻击者猜到，考虑利用Java应用程序的java.security.SecureRandom类来生成足够长的随机标记，替代生成算法包括使用256位BASE64编码哈希，选择这种生成算法的开发人员必须确保在散列数据中使用随机性和唯一性来生成随机标识。通常，开发人员只需为当前会话生成一次Token。在初始生成此Token之后，该值将存储在会话中，并用于每个后续请求，直到会话过期。当最终用户发出请求时，服务器端必须验证请求中Token的存在性和有效性，与会话中找到的Token相比较。如果在请求中找不到Token，或者提供的值与会话中的值不匹配，则应中止请求，应重置Token并将事件记录为正在进行的潜在CSRF攻击。
 
 #### 分布式校验
