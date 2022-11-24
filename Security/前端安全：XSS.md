@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security', 'xss', 'date/2022-11', 'year/2022', 'month/11']
 date: 2022-11-19-星期六 15:12:36
-update: 2022-11-24-星期四 19:32:02
+update: 2022-11-24-星期四 19:39:45
 ---
 
 # 前端安全
@@ -306,7 +306,7 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 
 这是一个可以评论的文章的页面
 
-[https://www.kkkk1000.com/xss/Stored/index.html](https://link.segmentfault.com/?enc=3iVLjOUQ4Nyi%2BPe3OBh62w%3D%3D.0iJG%2BGVRINErUgGkRua2PKikkizCYcjgIL2brLjvSTZqgHFiLb2IPtOGvrgBxG5g)
+https://www.kkkk1000.com/xss/Stored/index.html
 
 ![[1078298436-5d8038215d577.gif]]
 
@@ -319,6 +319,7 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 #### 反射型 XSS
 
 攻击者诱导用户访问一个带有恶意代码的 URL 后，服务器端接收数据后处理，然后把带有恶意代码的数据发送到浏览器端，浏览器端解析这段带有 XSS 代码的数据后当做脚本执行，最终完成 XSS 攻击。
+
 因为这个过程就像一次反射，故称为反射型 XSS。
 
 反射型 XSS 的攻击步骤：
@@ -328,6 +329,8 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 3. 用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。
 4. 恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。
 
+![[2046831836-5d80381fe27b4_fix732.png]]
+
 反射型 XSS 跟存储型 XSS 的区别是：存储型 XSS 的恶意代码存在数据库里，反射型 XSS 的恶意代码存在 URL 里。
 
 反射型 XSS 漏洞常见于通过 URL 传递参数的功能，如网站搜索、跳转等。
@@ -336,7 +339,53 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 
 POST 的内容也可以触发反射型 XSS，只不过其触发条件比较苛刻（需要构造表单提交页面，并引导用户点击），所以非常少见。
 
+##### 举例
+
+下面是一个正常的搜索流程
+
+1、打开首页，输入搜索内容
+
+https://www.kkkk1000.com/xss/Reflected/index.html
+
+![[581581443-5d80381fba7e8_fix732.png]]
+
+2、开始搜索，查看结果
+
+https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=斗罗大陆
+
+![[1353191088-5d8038205e3d4_fix732.png]]
+
+但是如果没有搜索到结果，后端也会返回用户输入的内容，然后显示在页面上。
+
+https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=xxx
+
+![[712162921-5d80381b295d9_fix732.png]]
+
+![[3372158597-5d80381ae9bbb_fix732.png]]
+
+因为这里没有对用户输入的数据做处理，所以我们构造这样一个链接：
+
+`https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=<script>alert("xss")</script>`
+
+然后诱导他人点击这个链接，就可以完成一次反射型 XSS 攻击。
+
+![[3549805835-5d80381ac8d20_fix732.png]]
+
+而对于这么长的链接，我们还可以伪装伪装，转为短网址或者二维码。
+
+短网址：
+
+http://i6q.cn/4TJcII
+
+二维码：
+
+![[1795780813-5d80381a922a3_fix732.png]]
+
+也许你觉得只是一个弹框而已，问题不大，但如果我们把攻击代码变为加载一个第三方的 js 文件呢？变为用 `document.cookie` 盗取 cookie 的代码呢？总之如果是真的攻击的话，就不会只是一个弹框这么简单了。
+
 #### DOM 型 XSS
+
+DOM 型 XSS 形成原因是通过修改页面的 DOM 节点形成的 XSS。
 
 DOM 型 XSS 的攻击步骤：
 
@@ -345,7 +394,25 @@ DOM 型 XSS 的攻击步骤：
 3. 用户浏览器接收到响应后解析执行，前端 JavaScript 取出 URL 中的恶意代码并执行。
 4. 恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。
 
+![[923801078-5d80381c9eaef_fix732.png]]
+
 DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行恶意代码由浏览器端完成，属于前端 JavaScript 自身的安全漏洞，而其他两种 XSS 都属于服务端的安全漏洞。
+
+##### 举例
+
+下面是一个物流详情的页面，在 URL 上有快递编号这个参数，通过这个参数来获取数据。
+
+https://www.kkkk1000.com/xss/dom/index.html?serialNumber=YT40359134268305
+
+![[503693168-5d80381a34f1e_fix732.png]]
+
+因为在源码中可以看到，页面上显示的快递编号，是直接取的 URL 上的参数显示的。所以我们构造这样一个网址：
+
+`https://www.kkkk1000.com/xss/dom/index.html?serialNumber=<script>alert("xss")</script>`
+
+然后诱导他人点击这个链接，就可以完成一次 DOM 型 XSS 攻击。
+
+![[3697970561-5d80381a32cb2_fix732.png]]
 
 ## XSS 攻击的预防
 
