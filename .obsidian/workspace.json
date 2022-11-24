@@ -21,32 +21,6 @@
             }
           },
           {
-            "id": "1323c46dea08d841",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Security/web 应用常见安全漏洞.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f8c25d64bf0570ae",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Security/前端安全：XSS.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "15f0b8e74a87287e",
             "type": "leaf",
             "state": {
@@ -78,15 +52,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security/Content Security Policy.md",
-                "mode": "preview",
+                "file": "Security/前端安全：XSS.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -266,17 +240,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "f8c25d64bf0570ae",
+  "active": "b9fd52ba908a3b96",
   "lastOpenFiles": [
-    "Security/前端安全：CSRF.md",
+    "Security/前端安全：XSS.md",
+    "CSS/布局方式.md",
     "browser/跨域.md",
+    "Security/Content Security Policy.md",
+    "Security/web 应用常见安全漏洞.md",
+    "Security/前端安全：CSRF.md",
     "Post/front end.md",
     "CSS/flex.md",
     "HTML/meta标签.md",
-    "Security/前端安全：XSS.md",
-    "TODO看板.md",
-    "Security/Content Security Policy.md",
-    "Security/web 应用常见安全漏洞.md",
-    "TypeScript/类型兼容.md"
+    "TODO看板.md"
   ]
 }
