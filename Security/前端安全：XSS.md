@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security', 'xss', 'date/2022-11', 'year/2022', 'month/11']
 date: 2022-11-19-星期六 15:12:36
-update: 2022-11-24-星期四 09:22:16
+update: 2022-11-24-星期四 19:32:02
 ---
 
 # 前端安全
@@ -37,7 +37,9 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 ```html
 <input type="text" value="<%= getParameter("keyword") %>">
 <button>搜索</button>
-<div>您搜索的关键词是：<%= getParameter("keyword") %></div>
+<div>
+  您搜索的关键词是：<%= getParameter("keyword") %>
+</div>
 ```
 
 然而，在上线后不久，小明就接到了安全组发来的一个神秘链接：
@@ -51,20 +53,10 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 当浏览器请求 `http://xxx/search?keyword="><script>alert('XSS');</script>` 时，服务端会解析出请求参数 `keyword`，得到 `"><script>alert('XSS');</script>`，拼接到 HTML 中返回给浏览器。形成了如下的 HTML：
 
 ```html
-<input
-  type="text"
-  value=""
-/>
-<script>
-  alert('XSS')
-</script>
-">
+<input type="text" value=""><script>alert('XSS');</script>">
 <button>搜索</button>
 <div>
-  您搜索的关键词是：">
-  <script>
-    alert('XSS')
-  </script>
+  您搜索的关键词是："><script>alert('XSS');</script>
 </div>
 ```
 
@@ -81,7 +73,9 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 ```html
 <input type="text" value="<%= escapeHTML(getParameter("keyword")) %>">
 <button>搜索</button>
-<div>您搜索的关键词是：<%= escapeHTML(getParameter("keyword")) %></div>
+<div>
+  您搜索的关键词是：<%= escapeHTML(getParameter("keyword")) %>
+</div>
 ```
 
 `escapeHTML()` 按照如下规则进行转义：
@@ -95,13 +89,11 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 | `'`  | `&#x27;`     |
 | `/`  | `&#x2F;`     |
 
+
 经过了转义函数的处理后，最终浏览器接收到的响应为：
 
 ```html
-<input
-  type="text"
-  value='"&gt;&lt;script&gt;alert(&#x27;XSS&#x27;);&lt;&#x2F;script&gt;'
-/>
+<input type="text" value="&quot;&gt;&lt;script&gt;alert(&#x27;XSS&#x27;);&lt;&#x2F;script&gt;">
 <button>搜索</button>
 <div>
   您搜索的关键词是：&quot;&gt;&lt;script&gt;alert(&#x27;XSS&#x27;);&lt;&#x2F;script&gt;
@@ -205,7 +197,7 @@ if (valid) {
 
 ```html
 <script>
-  var initData = <%= data.toJSON() %>
+var initData = <%= data.toJSON() %>
 </script>
 ```
 
@@ -226,11 +218,12 @@ if (valid) {
 | `U+2029` | `\u2029`     |
 | `<`      | `\u003c`     |
 
+
 修复后的代码如下：
 
 ```html
 <script>
-  var initData = <%= escapeEmbedJSON(data.toJSON()) %>
+var initData = <%= escapeEmbedJSON(data.toJSON()) %>
 </script>
 ```
 
@@ -290,6 +283,7 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 | 反射型 XSS | URL                     | HTML            |
 | DOM 型 XSS | 后端数据库/前端存储/URL | 前端 JavaScript |
 
+
 - 存储区：恶意代码存放的位置。
 - 插入点：由谁取得恶意代码，并插入到网页上。
 
@@ -311,12 +305,21 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 ##### 举例
 
 这是一个可以评论的文章的页面
+
 [https://www.kkkk1000.com/xss/Stored/index.html](https://link.segmentfault.com/?enc=3iVLjOUQ4Nyi%2BPe3OBh62w%3D%3D.0iJG%2BGVRINErUgGkRua2PKikkizCYcjgIL2brLjvSTZqgHFiLb2IPtOGvrgBxG5g)
+
 ![[1078298436-5d8038215d577.gif]]
+
 但是，评论的内容是没有处理过的，所以我们如果输入这样的内容：`<script>alert("xss")</script>` 同样是可以作为评论的。
+
 我们用这样的内容作为评论后，所有打开[这篇文章](https://www.kkkk1000.com/xss/Stored/index.html)的用户都会遭到存储型 XSS 攻击。
 
+![[3197862807-5d80381a35c01_fix732.png]]
+
 #### 反射型 XSS
+
+攻击者诱导用户访问一个带有恶意代码的 URL 后，服务器端接收数据后处理，然后把带有恶意代码的数据发送到浏览器端，浏览器端解析这段带有 XSS 代码的数据后当做脚本执行，最终完成 XSS 攻击。
+因为这个过程就像一次反射，故称为反射型 XSS。
 
 反射型 XSS 的攻击步骤：
 
@@ -425,6 +428,7 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 | 内联 JSON         | 无                     |
 | 跳转链接          | 无                     |
 
+
 所以要完善 XSS 防护措施，我们要使用更完善更细致的转义策略。
 
 例如 Java 工程里，常用的转义库为 `org.owasp.encoder`。以下代码引用自 [org.owasp.encoder 的官方说明](https://owasp.org/www-project-java-encoder/#tab=Use_the_Java_Encoder_Project)。
@@ -438,43 +442,44 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 
 <!-- CSS 属性值 -->
 <div style="width:<= Encode.forCssString(UNTRUSTED) %>">
-  <!-- CSS URL -->
-  <div style="background:<= Encode.forCssUrl(UNTRUSTED) %>">
-    <!-- JavaScript 内联代码块 -->
-    <script>
-      var msg = '<%= Encode.forJavaScript(UNTRUSTED) %>'
-      alert(msg)
-    </script>
 
-    <!-- JavaScript 内联代码块内嵌 JSON -->
-    <script>
-      var __INITIAL_STATE__ = JSON.parse('<%= Encoder.forJavaScript(data.to_json) %>')
-    </script>
+<!-- CSS URL -->
+<div style="background:<= Encode.forCssUrl(UNTRUSTED) %>">
 
-    <!-- HTML 标签内联监听器 -->
-    <button onclick="alert('<%= Encode.forJavaScript(UNTRUSTED) %>');">click me</button>
+<!-- JavaScript 内联代码块 -->
+<script>
+  var msg = "<%= Encode.forJavaScript(UNTRUSTED) %>";
+  alert(msg);
+</script>
 
-    <!-- URL 参数 -->
-    <a href="/search?value=<%= Encode.forUriComponent(UNTRUSTED) %>&order=1#top">
-      <!-- URL 路径 -->
-      <a href="/page/<%= Encode.forUriComponent(UNTRUSTED) %>">
-        <!--
+<!-- JavaScript 内联代码块内嵌 JSON -->
+<script>
+var __INITIAL_STATE__ = JSON.parse('<%= Encoder.forJavaScript(data.to_json) %>');
+</script>
+
+<!-- HTML 标签内联监听器 -->
+<button
+  onclick="alert('<%= Encode.forJavaScript(UNTRUSTED) %>');">
+  click me
+</button>
+
+<!-- URL 参数 -->
+<a href="/search?value=<%= Encode.forUriComponent(UNTRUSTED) %>&order=1#top">
+
+<!-- URL 路径 -->
+<a href="/page/<%= Encode.forUriComponent(UNTRUSTED) %>">
+
+<!--
   URL.
   注意：要根据项目情况进行过滤，禁止掉 "javascript:" 链接、非法 scheme 等
 -->
-        <a
-          href='<%=
+<a href='<%=
   urlValidator.isValid(UNTRUSTED) ?
     Encode.forHtml(UNTRUSTED) :
     "/404"
-%>'
-        >
-          link
-        </a></a
-      ></a
-    >
-  </div>
-</div>
+%>'>
+  link
+</a>
 ```
 
 可见，HTML 的编码是十分复杂的，在不同的上下文里要使用相应的转义规则。
@@ -491,25 +496,21 @@ DOM 中的内联事件监听器，如 `location`、`onclick`、`onerror`、`onlo
 
 ```html
 <!-- 内联事件监听器中包含恶意代码 -->
-<img
-  onclick="UNTRUSTED"
-  onerror="UNTRUSTED"
-  src="data:image/png,"
-/>
+<img onclick="UNTRUSTED" onerror="UNTRUSTED" src="data:image/png,">
 
 <!-- 链接内包含恶意代码 -->
 <a href="UNTRUSTED">1</a>
 
 <script>
-  // setTimeout()/setInterval() 中调用恶意代码
-  setTimeout('UNTRUSTED')
-  setInterval('UNTRUSTED')
+// setTimeout()/setInterval() 中调用恶意代码
+setTimeout("UNTRUSTED")
+setInterval("UNTRUSTED")
 
-  // location 调用恶意代码
-  location.href = 'UNTRUSTED'
+// location 调用恶意代码
+location.href = 'UNTRUSTED'
 
-  // eval() 中调用恶意代码
-  eval('UNTRUSTED')
+// eval() 中调用恶意代码
+eval("UNTRUSTED")
 </script>
 ```
 
@@ -570,7 +571,7 @@ HTTP [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Heade
 在[Unleashing an Ultimate XSS Polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot)一文中，小明发现了这么一个字符串：
 
 ```js
-jaVasCript: /*-/*`/*\`/*'/*"/**/ /* */ oNcliCk = alert() //%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
 ```
 
 它能够检测到存在于 HTML 属性、HTML 文字内容、HTML 注释、跳转链接、内联 JavaScript 字符串、内联 CSS 样式表等多种上下文中的 XSS 漏洞，也能检测 `eval()`、`setTimeout()`、`setInterval()`、`Function()`、`innerHTML`、`document.write()` 等 DOM 型 XSS 漏洞，并且能绕过一些 XSS 过滤器。
@@ -634,14 +635,7 @@ http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F
 
 ```html
 <script>
-  getTop().location.href =
-    '/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientuin=aaa' + '&t=' + '&d=bbbb'
-  return false
-</script>
-<script>
-  alert(document.cookie)
-</script>
-"+"...
+getTop().location.href="/cgi-bin/loginpage?autologin=n&errtype=1&verify=&clientuin=aaa"+"&t="+"&d=bbbb";return false;</script><script>alert(document.cookie)</script>"+"...
 ```
 
 浏览器接收到响应后就会执行 `alert(document.cookie)`，攻击者通过 JavaScript 即可窃取当前用户在 QQ 邮箱域名下的 Cookie ，进而危害数据安全。
@@ -686,7 +680,7 @@ http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F
 ```html
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>{{.title}}</title>
   </head>
   <body>
@@ -700,7 +694,7 @@ http://xxx/search?keyword=jaVasCript%3A%2F*-%2F*%60%2F*%60%2F*%27%2F*%22%2F**%2F
 ```html
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>{{.title | htmlescaper}}</title>
   </head>
   <body>

@@ -47,7 +47,7 @@
             }
           },
           {
-            "id": "b9fd52ba908a3b96",
+            "id": "ad875dcc81beb519",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -240,11 +240,11 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "b9fd52ba908a3b96",
+  "active": "ad875dcc81beb519",
   "lastOpenFiles": [
+    "browser/跨域.md",
     "Security/前端安全：XSS.md",
     "CSS/布局方式.md",
-    "browser/跨域.md",
     "Security/Content Security Policy.md",
     "Security/web 应用常见安全漏洞.md",
     "Security/前端安全：CSRF.md",
