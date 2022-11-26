@@ -1,12 +1,44 @@
 {
   "recentFiles": [
     {
-      "basename": "Vue 3 Reactivity",
-      "path": "MVVM/Vue/Vue 3 Reactivity.md"
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "DOM Clobbering",
+      "path": "Security/DOM Clobbering.md"
+    },
+    {
+      "basename": "类型体操",
+      "path": "share/类型体操.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
     },
     {
       "basename": "前端安全：XSS",
       "path": "Security/前端安全：XSS.md"
+    },
+    {
+      "basename": "Vue 3 Reactivity",
+      "path": "MVVM/Vue/Vue 3 Reactivity.md"
+    },
+    {
+      "basename": "前端监控体系",
+      "path": "browser/前端监控体系.md"
+    },
+    {
+      "basename": "性能分析的自动化",
+      "path": "browser/性能分析的自动化.md"
+    },
+    {
+      "basename": "网络请求的过程",
+      "path": "browser/网络请求的过程.md"
+    },
+    {
+      "basename": "页面加载过程",
+      "path": "browser/页面加载过程.md"
     },
     {
       "basename": "增强类型系统",
@@ -27,14 +59,6 @@
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
     },
     {
       "basename": "712162921-5d80381b295d9_fix732",
@@ -67,10 +91,6 @@
     {
       "basename": "类型兼容",
       "path": "TypeScript/类型兼容.md"
-    },
-    {
-      "basename": "DOM Clobbering",
-      "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "CSS 设置自动滚动定位的“安全”间距",
@@ -179,26 +199,6 @@
     {
       "basename": "TCP 的封包格式",
       "path": "Network/TCP 的封包格式.md"
-    },
-    {
-      "basename": "TCP & UDP 优劣势",
-      "path": "Network/TCP & UDP 优劣势.md"
-    },
-    {
-      "basename": "Socket 编程",
-      "path": "Network/Socket 编程.md"
-    },
-    {
-      "basename": "数据类型",
-      "path": "JavaScript/数据类型.md"
-    },
-    {
-      "basename": "CI 环境上的 npm 优化",
-      "path": "infrastructure/npm/CI 环境上的 npm 优化.md"
-    },
-    {
-      "basename": "设计一个项目脚手架",
-      "path": "infrastructure/CLIs/设计一个项目脚手架.md"
     }
   ],
   "omittedPaths": [],
