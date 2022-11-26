@@ -58,9 +58,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "24658b2b9fec6786",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MVVM/Vue/Vue 3 Reactivity.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -183,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/前端安全：CSRF.md"
+                "file": "MVVM/Vue/Vue 3 Reactivity.md"
               }
             }
           }
@@ -200,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
+                "file": "MVVM/Vue/Vue 3 Reactivity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
+                "file": "MVVM/Vue/Vue 3 Reactivity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -240,17 +253,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "15f0b8e74a87287e",
+  "active": "24658b2b9fec6786",
   "lastOpenFiles": [
-    "browser/跨域.md",
     "Security/前端安全：XSS.md",
-    "Security/前端安全：CSRF.md",
-    "_attachment/img/712162921-5d80381b295d9_fix732.png",
-    "CSS/布局方式.md",
-    "Security/Content Security Policy.md",
-    "Security/web 应用常见安全漏洞.md",
+    "TypeScript/增强类型系统.md",
+    "TypeScript/tsconfig.json.md",
+    "TypeScript/函数重载.md",
+    "TypeScript/自定义工具类型.md",
+    "MVVM/Vue/Vue 3 Reactivity.md",
     "Post/front end.md",
-    "CSS/flex.md",
-    "HTML/meta标签.md"
+    "Security/前端安全：CSRF.md",
+    "browser/跨域.md",
+    "_attachment/img/712162921-5d80381b295d9_fix732.png"
   ]
 }
