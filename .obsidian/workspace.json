@@ -34,6 +34,19 @@
             }
           },
           {
+            "id": "b954d49e7bc88a3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/前端安全：CSRF.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "ad875dcc81beb519",
             "type": "leaf",
             "state": {
@@ -242,9 +255,9 @@
   },
   "active": "a95b01c3cd4112f5",
   "lastOpenFiles": [
-    "XSS.md",
-    "browser/跨域.md",
     "Security/前端安全：CSRF.md",
+    "browser/跨域.md",
+    "XSS.md",
     "Security/DOM Clobbering.md",
     "share/类型体操.md",
     "Security/前端安全：XSS.md",
