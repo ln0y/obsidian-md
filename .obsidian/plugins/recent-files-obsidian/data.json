@@ -5,12 +5,12 @@
       "path": "browser/跨域.md"
     },
     {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
+    },
+    {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
     },
     {
       "basename": "类型体操",
@@ -198,5 +198,6 @@
     }
   ],
   "omittedPaths": [],
-  "maxLength": null
+  "maxLength": null,
+  "openType": "tab"
 }

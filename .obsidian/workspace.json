@@ -255,10 +255,10 @@
   },
   "active": "a95b01c3cd4112f5",
   "lastOpenFiles": [
+    "Security/DOM Clobbering.md",
     "Security/前端安全：CSRF.md",
     "browser/跨域.md",
     "XSS.md",
-    "Security/DOM Clobbering.md",
     "share/类型体操.md",
     "Security/前端安全：XSS.md",
     "MVVM/Vue/Vue 3 Reactivity.md",

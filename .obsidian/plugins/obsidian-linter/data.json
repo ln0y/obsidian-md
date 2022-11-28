@@ -101,12 +101,10 @@
     "Line Break at Document End": {
       "Ensures that there is exactly one line break at the end of a document.": true
     },
-    "Space between Chinese and English or numbers": {
-      "Ensures that Chinese and English or numbers are separated by a single space. Follow this [guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines)": true
-    },
     "Remove link spacing": {
       "Removes spacing around link text.": false
-    }
+    },
+    "Space between Chinese Japanese or Korean and English or numbers": {}
   },
   "lintOnSave": true,
   "displayChanged": true,
@@ -114,6 +112,7 @@
   "linterLocale": "system-default",
   "logLevel": 4,
   "lintCommands": [],
+  "customRegexes": [],
   "commonStyles": {
     "aliasArrayStyle": "single-line",
     "tagArrayStyle": "single-line",
