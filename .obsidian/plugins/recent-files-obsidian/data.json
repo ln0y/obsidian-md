@@ -195,10 +195,6 @@
     {
       "basename": "类型别名",
       "path": "TypeScript/类型别名.md"
-    },
-    {
-      "basename": "TCP 的封包格式",
-      "path": "Network/TCP 的封包格式.md"
     }
   ],
   "omittedPaths": [],

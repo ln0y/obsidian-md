@@ -26,19 +26,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
-                "mode": "preview",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "16f32deeb5fd3c10",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "browser/跨域.md",
                 "mode": "source",
                 "backlinks": true,
@@ -73,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -253,17 +240,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3ea1e65f243393f0",
+  "active": "a95b01c3cd4112f5",
   "lastOpenFiles": [
+    "XSS.md",
+    "browser/跨域.md",
     "Security/前端安全：CSRF.md",
     "Security/DOM Clobbering.md",
     "share/类型体操.md",
-    "browser/跨域.md",
     "Security/前端安全：XSS.md",
     "MVVM/Vue/Vue 3 Reactivity.md",
     "browser/前端监控体系.md",
     "browser/性能分析的自动化.md",
-    "browser/网络请求的过程.md",
-    "browser/页面加载过程.md"
+    "browser/网络请求的过程.md"
   ]
 }
