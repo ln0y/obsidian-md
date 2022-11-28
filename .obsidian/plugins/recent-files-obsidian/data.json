@@ -1,24 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
       "basename": "跨域",
       "path": "browser/跨域.md"
+    },
+    {
+      "basename": "前端安全：XSS",
+      "path": "Security/前端安全：XSS.md"
     },
     {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
     },
     {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
       "basename": "类型体操",
       "path": "share/类型体操.md"
-    },
-    {
-      "basename": "前端安全：XSS",
-      "path": "Security/前端安全：XSS.md"
     },
     {
       "basename": "Vue 3 Reactivity",

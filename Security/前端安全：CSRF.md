@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','CSRF','date/2022-11','year/2022','month/11']
 date: 2022-11-21-星期一 15:31:55
-update: 2022-11-23-星期三 19:31:49
+update: 2022-11-28-星期一 19:49:11
 ---
 
 # 背景
@@ -168,7 +168,6 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 - **IE11同源策略：** IE 11 不会在跨站CORS请求上添加Origin标头，Referer头将仍然是唯一的标识。最根本原因是因为IE 11对同源的定义和其他浏览器有不同，有两个主要的区别，可以参考[MDN Same-origin\_policy#IE\_Exceptions](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#IE_Exceptions)
 - **302重定向：** 在302重定向之后Origin不包含在重定向的请求中，因为Origin可能会被认为是其他来源的敏感信息。对于302重定向的情况来说都是定向到新的服务器上的URL，因此浏览器不想将Origin泄漏到新的服务器上。
 
-
 #### 使用Referer Header确定来源域名
 
 根据HTTP协议，在HTTP头中有一个字段叫Referer，记录了该HTTP请求的来源地址。
@@ -244,6 +243,10 @@ GET https://example.com/addComment?comment=XXX&dest=orderId
 另外，前面说过，CSRF大多数情况下来自第三方域名，但并不能排除本域发起。如果攻击者有权限在本域发布评论（含链接、图片等，统称UGC），那么它可以直接在本域发起攻击，这种情况下同源策略无法达到防护的作用。
 
 综上所述：同源验证是一个相对简单的防范方法，能够防范绝大多数的CSRF攻击。但这并不是万无一失的，对于安全性要求较高，或者有较多用户输入内容的网站，我们就要对关键的接口做额外的防护措施。
+
+### 浏览器同源策略（SOP）
+
+**[[跨域#同源策略（SOP，Same-origin policy）|同源策略]]限制了不同源之间如何进行资源交互，是用于隔离潜在恶意文件的重要安全机制。 是否同源由URL决定，URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。**
 
 ### CSRF Token
 
@@ -555,3 +558,6 @@ id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
 - Gmail Security Hijack Case.[Google-Gmail-Security-Hijack](https://www.davidairey.com/google-gmail-security-hijack/)
 - Netsparker Blog.[Same-Site-Cookie-Attribute-Prevent-Cross-site-Request-Forgery](https://www.invicti.com/blog/web-security/same-site-cookie-attribute-prevent-cross-site-request-forgery/)
 - MDN.[Same-origin\_policy#IE\_Exceptions](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#IE_Exceptions)
+- [JSONP劫持CORS跨源资源共享漏洞](https://www.freebuf.com/articles/web/207802.html)
+- [浅谈跨域威胁与安全](https://www.freebuf.com/articles/web/208672.html)
+- [从跨域与同源策略谈CSRF防御与绕过](https://www.cnblogs.com/lcxblogs/p/14453996.html)
