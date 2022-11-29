@@ -22,5 +22,6 @@
   "userIgnoreFilters": [
     "_script/",
     "_template/"
-  ]
+  ],
+  "newFileLocation": "current"
 }
