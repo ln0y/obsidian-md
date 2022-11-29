@@ -16,6 +16,10 @@ body {
   max-width: var(--file-line-width);
 }
 
+.theme-dark .image-embed img {
+  background-color: #fff;
+}
+
 .code-block-linenum-wrap {
   top: var(--size-4-2);
 }
