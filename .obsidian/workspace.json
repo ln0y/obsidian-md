@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -196,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "browser/跨域.md"
+                "file": "Security/前端安全：CSRF.md"
               }
             }
           }
@@ -213,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "Security/前端安全：CSRF.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "Security/前端安全：CSRF.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,10 +253,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a95b01c3cd4112f5",
+  "active": "29516d44dd649687",
   "lastOpenFiles": [
-    "Security/前端安全：CSRF.md",
     "browser/跨域.md",
+    "Security/前端安全：CSRF.md",
     "Security/前端安全：XSS.md",
     "Security/DOM Clobbering.md",
     "XSS.md",
