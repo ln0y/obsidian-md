@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
       "basename": "前端安全：CSRF",
       "path": "Security/前端安全：CSRF.md"
     },
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
+      "basename": "鉴权方案",
+      "path": "project/front end/鉴权方案.md"
     },
     {
       "basename": "DOM Clobbering",
@@ -195,10 +199,6 @@
     {
       "basename": "大型前端项目的痛点和优化方案",
       "path": "project/front end/大型前端项目的痛点和优化方案.md"
-    },
-    {
-      "basename": "技术方案调研与设计",
-      "path": "project/front end/技术方案调研与设计.md"
     }
   ],
   "omittedPaths": [],
