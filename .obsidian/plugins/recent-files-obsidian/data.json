@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
+      "basename": "DOM Clobbering",
+      "path": "Security/DOM Clobbering.md"
+    },
+    {
       "basename": "TypeScript 4.9",
       "path": "TypeScript/TypeScript 4.9.md"
     },
@@ -25,20 +37,8 @@
       "path": "Security/Content Security Policy.md"
     },
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
-    },
-    {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
       "basename": "前端安全：XSS",
       "path": "Security/前端安全：XSS.md"
-    },
-    {
-      "basename": "DOM Clobbering",
-      "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "类型体操",

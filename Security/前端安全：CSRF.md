@@ -589,7 +589,7 @@ id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
 
 攻击者还可以通过用户的所有联系人名单（“Friends"、“Family"等等）来共享一个视频，“共享"就意味着发送一个视频的链接给他们，当然还可以选择附加消息。这条消息中的链接已经并不是真正意义上的视频链接，而是一个具有攻击性的网站链接，用户很有可能会点击这个链接，这便使得该种攻击能够进行病毒式的传播。
 
-## 参考文献
+# 参考文献
 
 - Mozilla wiki.[Security-Origin](https://wiki.mozilla.org/Security/Origin)
 - Gmail Security Hijack Case.[Google-Gmail-Security-Hijack](https://www.davidairey.com/google-gmail-security-hijack/)

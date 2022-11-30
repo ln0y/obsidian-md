@@ -2,22 +2,22 @@
 aliases: []
 tags: ['TypeScript','date/2022-11','year/2022','month/11']
 date: 2022-11-30-星期三 14:23:15
-update: 2022-11-30-星期三 14:23:20
+update: 2022-11-30-星期三 15:36:18
 ---
 
 原文链接： https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/
 
 这里是 TypeScript 4.9 更新的内容
 
--   satifies 操作符
--   in 操作符中未列举的属性收束
--   Class 的 Auto-Accessor
--   对于 NaN 进行检查
--   通过文件系统事件检测文件
--   编辑器增强：“Remove Unused Imports” 和 “Sort Imports”
--   编辑器增强：对于 return 关键字的 Go-to-Definition
--   性能增强
--   正确性修复和破坏性改变
+- satifies 操作符
+- in 操作符中未列举的属性收束
+- Class 的 Auto-Accessor
+- 对于 NaN 进行检查
+- 通过文件系统事件检测文件
+- 编辑器增强：“Remove Unused Imports” 和 “Sort Imports”
+- 编辑器增强：对于 return 关键字的 Go-to-Definition
+- 性能增强
+- 正确性修复和破坏性改变
 
 ## 从 Beta 和 RC 版本依赖的更新
 
@@ -220,11 +220,9 @@ TypeScript 也会对 in 操作符两端做检查，确保左边是 string | numb
 
 更多的信息请查看 [pr](https://github.com/microsoft/TypeScript/pull/50666)。
 
-（Hugo 注，这个功能虽然简单，但是让 TypeScript 的断言能力进一步提升，在核心关键点写出更安全的代码提供了方便。）
-
 ## **Auto-Accessors in Classes**
 
-TypeScript 只吃了 ECMAScript 的新功能 auto-accessors。auto-accessors 就和 class 的属性一样， ch
+TypeScript 支持了 ECMAScript 的新功能 auto-accessors。auto-accessors 就和 class 的属性一样，只是它们是用`accessor`关键字声明的
 
 ```ts
 class Person {
@@ -246,7 +244,7 @@ class Person {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -283,7 +281,7 @@ console.log(NaN !== NaN) // true
 
 这个奇怪的行为并不是 JavaScript 独有的，任何语言只要实现了 IEEE-754 floats 标准，就会有这个行为。但是 JavaScript 的原生数字类型是一个浮点数型数字值，并且 JavaScript 的数字解析经常会出现 NaN。检查和 NaN 在处理数字相关的代码时，是非常常见的。通常使用 Number.isNaN，但是就像上面提到的，很多开发者实际使用 someValue === NaN 来实现这个功能。
 
-TypeScript 会对 NaN 的直接比较进行报错，提示开发者使用 Number.isNaN（Hugo 注：多么贴心的功能。）。
+TypeScript 会对 NaN 的直接比较进行报错，提示开发者使用 Number.isNaN。
 
 ```ts
 function validate(someValue: number) {
@@ -300,9 +298,9 @@ function validate(someValue: number) {
 
 ## 通过文件系统事件检测文件
 
-在早期的版本里，TypeScript 非常依赖轮询来检测单个文件。使用轮询的机制表示，TypeScript 需要周期的检查一个文件。在 Node.js 里， fs.watchFIle 时内置的获取轮询文件检测器的内置方法。因为轮询的机制在不同的平台和文件系统中是比较确定的，它会时不时终端 CPU 来看这个文件的状态，即便这个文件啥也没做，也要发生中断。如果文件不多，这个机制是合适的。但是如果文件特别多，比如 node\_modules 里的那么多文件，这种机制会造成一些资源占用浪费。
+在早期的版本里，TypeScript 非常依赖轮询来检测单个文件。使用轮询的机制表示，TypeScript 需要周期的检查一个文件。在 Node.js 里， fs.watchFIle 时内置的获取轮询文件检测器的内置方法。因为轮询的机制在不同的平台和文件系统中是比较确定的，它会时不时中断 CPU 来看这个文件的状态，即便这个文件啥也没做，也要发生中断。如果文件不多，这个机制是合适的。但是如果文件特别多，比如 node\_modules 里的那么多文件，这种机制会造成一些资源占用浪费。
 
-通常来说，比较好的方法是通过文件系统事件来实现上面的机制。不再使用轮询的机制，我们可以关注关心的文件，然后通过事件触发的回调来实现。绝大部分现代平台提供了`CreateIoCompletionPort`, `kqueue`, `epoll`, 和 `inotify`。Node.js 提供了`[fs.watch](<https://nodejs.org/docs/latest-v18.x/api/fs.html#fswatchfilename-options-listener>)` ，这个接口抽象了这些实现方式。使用 [fs.watch](https://link.zhihu.com/?target=http%3A//fs.watch/) 接口来使用文件系统事件通常工作很好，但是也有一些[缺陷](https://nodejs.org/docs/latest-v18.x/api/fs.html%23caveats)。一个检测者要小心考虑 [inode watching](https://nodejs.org/docs/latest-v18.x/api/fs.html%23inodes)，在一[些文件系统不可用](https://nodejs.org/docs/latest-v18.x/api/fs.html%23availability)（比如网络文件系统）。是否有递归文件检测是可用的，文件夹改名是否触发事件， 还有文件检测者耗尽的问题。换句话说，使用这个机制，需要考虑非常多的问题，尤其是在跨平台使用时。
+通常来说，比较好的方法是通过文件系统事件来实现上面的机制。不再使用轮询的机制，我们可以关注关心的文件，然后通过事件触发的回调来实现。绝大部分现代平台提供了`CreateIoCompletionPort`, `kqueue`, `epoll`, 和 `inotify`。Node.js 提供了[fs.watch](https://nodejs.org/docs/latest-v18.x/api/fs.html#fswatchfilename-options-listener) ，这个接口抽象了这些实现方式。使用 `fs.watch` 接口来使用文件系统事件通常工作很好，但是也有一些[缺陷](https://nodejs.org/docs/latest-v18.x/api/fs.html#Caveats)。观察者要小心考虑 [inode watching](https://nodejs.org/docs/latest-v18.x/api/fs.html#inodes)，在一[些文件系统不可用](https://nodejs.org/docs/latest-v18.x/api/fs.html#availability)（比如网络文件系统）。是否有递归文件检测是可用的，文件夹改名是否触发事件， 还有文件检测者耗尽的问题。换句话说，使用这个机制，需要考虑非常多的问题，尤其是在跨平台使用时。
 
 所以目前的解决方案时，我们默认的方法是在绝大部分时间使用轮询。
 
@@ -310,7 +308,7 @@ function validate(someValue: number) {
 
 在 TypeScript 4.9， 文件检测默认使用文件系统事件，只有在设置事件检测者失败时回退成轮询的机制。对于绝大部份开发者，使用 —watch 模式可以消耗更少的资源，在使用 TypeScript 强化的编辑器例如 Visual Studio 或者 VS Code 时也会使用更少的资源。
 
-使用 [watchOptions](https://www.typescriptlang.org/docs/handbook/configuring-watch.html) 可以改变这个机制。VS Co[de 也提供了改变这个](https://code.visualstudio.com/docs/getstarted/settings%23%3A~%3Atext%3Dtypescript%252etsserver%252ewatchOptions)参数的方法。如果开发者使用网络文件系统（例如 NFS 和 SMB），需要把这个参数回退成轮询的机制，当然直接在服务器端使用 TypeScript 也是一个不错的选择，这样就是使用本地文件系统了。VS Code 有很多关于远程[开发的插件](https://marketplace.visualstudio.com/search%3Fterm%3Dremote%26target%3DVSCode%26category%3DAll%2520categories%26sortBy%3DRelevance)来帮助这个过程。
+使用 [watchOptions](https://www.typescriptlang.org/docs/handbook/configuring-watch.html) 可以改变这个机制。[VS Code 也提供了改变这个](https://code.visualstudio.com/docs/getstarted/settings#:~:text=typescript%2etsserver%2ewatchOptions)参数的方法。如果开发者使用网络文件系统（例如 NFS 和 SMB），需要把这个参数回退成轮询的机制，当然直接在服务器端使用 TypeScript 也是一个不错的选择，这样就是使用本地文件系统了。VS Code 有很多关于远程[开发的插件](https://marketplace.visualstudio.com/search?term=remote&target=VSCode&category=All%20categories&sortBy=Relevance)来帮助这个过程。
 
 你可以在这篇[文章](https://github.com/microsoft/TypeScript/pull/50366)看到关于这个问题更多的信息。
 
@@ -390,9 +388,9 @@ TypeScript 在检查 `Zoo<A>` 是合法时需要知道 A 是一个 Animal。在�
 
 你可以阅读下面的 PR 来了解更详细的信息
 
--   `[forEachChild` as a jump-table\]([https://github.com/microsoft/TypeScript/pull/50225](https://github.com/microsoft/TypeScript/pull/50225))
--   `[visitEachChild` as a jump-table\]([https://github.com/microsoft/TypeScript/pull/50266](https://github.com/microsoft/TypeScript/pull/50266))
--   [Optimize substitition types](https://github.com/microsoft/TypeScript/pull/50397)
+- [`forEachChild` as a jump-table](https://github.com/microsoft/TypeScript/pull/50225)
+- [`visitEachChild` as a jump-table](https://github.com/microsoft/TypeScript/pull/50266)
+- [Optimize substitition types](https://github.com/microsoft/TypeScript/pull/50397)
 
 ## 正确性修复和破坏性改变
 
@@ -454,20 +452,10 @@ let val = someValue;
   }
 ```
 
-更多信息[参考](https://github.com/microsoft/TypeScript/pull/50890)。（Hugo 注：这种类型的功能，建议等三个版本再上生产。）
+更多信息[参考](https://github.com/microsoft/TypeScript/pull/50890)。
 
 ### **对于 `SubstitutionType` 的 `substitute` 替换为 `constraint`**
 
 对于替换类型的优化，SubstitutionType 对象不在包含 substitute 属性，substitute 属性代表高效替换，通常是基础类型和隐式限制的交集。现在 SubstitutionType 值包含 **`constraint`** 属性。
 
 更多信息，[参考](https://github.com/microsoft/TypeScript/pull/50397)。
-
-## 下一步
-
-我们目前发布了了 5.0 版本的迭代计划，里面有很多有趣的功能！如果你感兴趣，我们期望你们能来[看看](https://github.com/microsoft/TypeScript/issues/51362)。
-
-期望 4.9 让你的代码旅途更快乐。
-
-Happy Hacking!
-
-– Daniel Rosenwasser and the TypeScript Team

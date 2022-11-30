@@ -8,19 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b7b0d722c35a17fb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TypeScript/TypeScript 4.9.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a1ad386e7f8956b8",
             "type": "leaf",
             "state": {
@@ -85,7 +72,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -208,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TypeScript/TypeScript 4.9.md"
+                "file": "Security/前端安全：CSRF.md"
               }
             }
           }
@@ -225,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TypeScript/TypeScript 4.9.md",
+                "file": "Security/前端安全：CSRF.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -242,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TypeScript/TypeScript 4.9.md",
+                "file": "Security/前端安全：CSRF.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -265,17 +253,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "b7b0d722c35a17fb",
+  "active": "29516d44dd649687",
   "lastOpenFiles": [
+    "browser/跨域.md",
+    "Security/前端安全：CSRF.md",
+    "Security/DOM Clobbering.md",
+    "TypeScript/TypeScript 4.9.md",
     "TypeScript/TypeScript 4.8.md",
     "TypeScript/TypeScript 4.5-4.6.md",
     "TypeScript/TypeScript 4.7.md",
-    "TypeScript/TypeScript 4.9.md",
     "TODO看板.md",
     "Security/Content Security Policy.md",
-    "browser/跨域.md",
-    "Security/前端安全：CSRF.md",
-    "Security/前端安全：XSS.md",
-    "Security/DOM Clobbering.md"
+    "Security/前端安全：XSS.md"
   ]
 }
