@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
-    },
-    {
       "basename": "前端安全：CSRF",
       "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "前端安全：JSONP劫持",
+      "path": "Security/前端安全：JSONP劫持.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
     },
     {
       "basename": "鉴权方案",
@@ -195,10 +199,6 @@
     {
       "basename": "部分npm包下载失败",
       "path": "Post/部分npm包下载失败.md"
-    },
-    {
-      "basename": "大型前端项目的痛点和优化方案",
-      "path": "project/front end/大型前端项目的痛点和优化方案.md"
     }
   ],
   "omittedPaths": [],
