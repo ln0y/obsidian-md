@@ -8,6 +8,19 @@
         "type": "tabs",
         "children": [
           {
+            "id": "b7b0d722c35a17fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TypeScript/TypeScript 4.9.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a1ad386e7f8956b8",
             "type": "leaf",
             "state": {
@@ -72,8 +85,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,7 +208,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "browser/跨域.md"
+                "file": "TypeScript/TypeScript 4.9.md"
               }
             }
           }
@@ -213,7 +225,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "TypeScript/TypeScript 4.9.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +242,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "TypeScript/TypeScript 4.9.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,17 +265,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a95b01c3cd4112f5",
+  "active": "b7b0d722c35a17fb",
   "lastOpenFiles": [
-    "Security/前端安全：CSRF.md",
-    "browser/跨域.md",
-    "Security/前端安全：XSS.md",
+    "TypeScript/TypeScript 4.8.md",
+    "TypeScript/TypeScript 4.5-4.6.md",
+    "TypeScript/TypeScript 4.7.md",
+    "TypeScript/TypeScript 4.9.md",
     "TODO看板.md",
-    "Security/DOM Clobbering.md",
-    "XSS.md",
-    "share/类型体操.md",
-    "MVVM/Vue/Vue 3 Reactivity.md",
-    "browser/前端监控体系.md",
-    "browser/性能分析的自动化.md"
+    "Security/Content Security Policy.md",
+    "browser/跨域.md",
+    "Security/前端安全：CSRF.md",
+    "Security/前端安全：XSS.md",
+    "Security/DOM Clobbering.md"
   ]
 }

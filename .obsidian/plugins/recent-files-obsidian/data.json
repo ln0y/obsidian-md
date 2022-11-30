@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "TypeScript 4.9",
+      "path": "TypeScript/TypeScript 4.9.md"
+    },
+    {
+      "basename": "TypeScript 4.8",
+      "path": "TypeScript/TypeScript 4.8.md"
+    },
+    {
+      "basename": "TypeScript 4.5-4.6",
+      "path": "TypeScript/TypeScript 4.5-4.6.md"
+    },
+    {
+      "basename": "TypeScript 4.7",
+      "path": "TypeScript/TypeScript 4.7.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "Content Security Policy",
+      "path": "Security/Content Security Policy.md"
+    },
+    {
       "basename": "跨域",
       "path": "browser/跨域.md"
     },
@@ -11,10 +35,6 @@
     {
       "basename": "前端安全：XSS",
       "path": "Security/前端安全：XSS.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "DOM Clobbering",
@@ -71,10 +91,6 @@
     {
       "basename": "布局方式",
       "path": "CSS/布局方式.md"
-    },
-    {
-      "basename": "Content Security Policy",
-      "path": "Security/Content Security Policy.md"
     },
     {
       "basename": "web 应用常见安全漏洞",
@@ -183,18 +199,6 @@
     {
       "basename": "技术方案调研与设计",
       "path": "project/front end/技术方案调研与设计.md"
-    },
-    {
-      "basename": "中间件理念",
-      "path": "Node.js/中间件理念.md"
-    },
-    {
-      "basename": "实现一个简易 SSR 应用",
-      "path": "Node.js/实现一个简易 SSR 应用.md"
-    },
-    {
-      "basename": "类型别名",
-      "path": "TypeScript/类型别名.md"
     }
   ],
   "omittedPaths": [],
