@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
       "basename": "前端安全：JSONP劫持",
       "path": "Security/前端安全：JSONP劫持.md"
+    },
+    {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
     },
     {
       "basename": "跨域",
