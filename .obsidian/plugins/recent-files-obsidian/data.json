@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
+      "basename": "Cookie",
+      "path": "Network/Cookie.md"
     },
     {
       "basename": "前端安全：CSRF",
       "path": "Security/前端安全：CSRF.md"
     },
     {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
       "basename": "front end",
       "path": "Post/front end.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
+      "basename": "DOM Clobbering",
+      "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "前端安全：JSONP劫持",
@@ -19,10 +31,6 @@
     {
       "basename": "鉴权方案",
       "path": "project/front end/鉴权方案.md"
-    },
-    {
-      "basename": "DOM Clobbering",
-      "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "TypeScript 4.9",
@@ -39,10 +47,6 @@
     {
       "basename": "TypeScript 4.7",
       "path": "TypeScript/TypeScript 4.7.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "Content Security Policy",
@@ -195,10 +199,6 @@
     {
       "basename": "安装doker",
       "path": "Linux/WSL/安装doker.md"
-    },
-    {
-      "basename": "部分npm包下载失败",
-      "path": "Post/部分npm包下载失败.md"
     }
   ],
   "omittedPaths": [],

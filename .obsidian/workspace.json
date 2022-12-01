@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a1ad386e7f8956b8",
+            "id": "ca25af6bf4b9ed34",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security/DOM Clobbering.md",
+                "file": "Network/Cookie.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -58,22 +58,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "24658b2b9fec6786",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MVVM/Vue/Vue 3 Reactivity.md",
-                "mode": "preview",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "browser/跨域.md"
+                "file": "Network/Cookie.md"
               }
             }
           }
@@ -213,7 +199,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "Network/Cookie.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +216,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "Network/Cookie.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,17 +239,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a95b01c3cd4112f5",
+  "active": "ca25af6bf4b9ed34",
   "lastOpenFiles": [
     "Security/前端安全：CSRF.md",
-    "browser/跨域.md",
+    "TODO看板.md",
+    "Network/Cookie.md",
     "Post/front end.md",
+    "browser/跨域.md",
+    "Security/DOM Clobbering.md",
     "Security/前端安全：JSONP劫持.md",
     "project/front end/鉴权方案.md",
-    "Security/DOM Clobbering.md",
     "TypeScript/TypeScript 4.9.md",
-    "TypeScript/TypeScript 4.8.md",
-    "TypeScript/TypeScript 4.5-4.6.md",
-    "TypeScript/TypeScript 4.7.md"
+    "TypeScript/TypeScript 4.8.md"
   ]
 }
