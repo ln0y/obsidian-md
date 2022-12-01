@@ -303,6 +303,8 @@ https://prismjs.com/#supported-languages
 
 [VLeeDesignTheory](https://vleedesigntheory.site/)
 
+https://blog.huli.tw/archives/
+
 https://www.samanthaming.com/
 
 https://github.com/metroluffy/fe-learning/issues/29

@@ -34,19 +34,6 @@
             }
           },
           {
-            "id": "73bfc3e95fb338a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Security/前端安全：JSONP劫持.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "29516d44dd649687",
             "type": "leaf",
             "state": {
@@ -86,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/前端安全：JSONP劫持.md"
+                "file": "browser/跨域.md"
               }
             }
           }
@@ -226,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/前端安全：JSONP劫持.md",
+                "file": "browser/跨域.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/前端安全：JSONP劫持.md",
+                "file": "browser/跨域.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -266,17 +253,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "73bfc3e95fb338a3",
+  "active": "a95b01c3cd4112f5",
   "lastOpenFiles": [
-    "browser/跨域.md",
-    "Security/前端安全：JSONP劫持.md",
     "Security/前端安全：CSRF.md",
+    "browser/跨域.md",
+    "Post/front end.md",
+    "Security/前端安全：JSONP劫持.md",
     "project/front end/鉴权方案.md",
     "Security/DOM Clobbering.md",
     "TypeScript/TypeScript 4.9.md",
     "TypeScript/TypeScript 4.8.md",
     "TypeScript/TypeScript 4.5-4.6.md",
-    "TypeScript/TypeScript 4.7.md",
-    "TODO看板.md"
+    "TypeScript/TypeScript 4.7.md"
   ]
 }

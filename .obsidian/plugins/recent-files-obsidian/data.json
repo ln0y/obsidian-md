@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "前端安全：JSONP劫持",
-      "path": "Security/前端安全：JSONP劫持.md"
-    },
-    {
       "basename": "跨域",
       "path": "browser/跨域.md"
     },
     {
       "basename": "前端安全：CSRF",
       "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "前端安全：JSONP劫持",
+      "path": "Security/前端安全：JSONP劫持.md"
     },
     {
       "basename": "鉴权方案",
@@ -87,10 +91,6 @@
     {
       "basename": "自定义工具类型",
       "path": "TypeScript/自定义工具类型.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "712162921-5d80381b295d9_fix732",

@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','CSRF','date/2022-11','year/2022','month/11']
 date: 2022-11-21-星期一 15:31:55
-update: 2022-11-29-星期二 10:33:54
+update: 2022-12-01-星期四 17:58:57
 ---
 
 # 背景
@@ -598,3 +598,4 @@ id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
 - [JSONP劫持CORS跨源资源共享漏洞](https://www.freebuf.com/articles/web/207802.html)
 - [浅谈跨域威胁与安全](https://www.freebuf.com/articles/web/208672.html)
 - [从跨域与同源策略谈CSRF防御与绕过](https://www.cnblogs.com/lcxblogs/p/14453996.html)
+- [CORS介绍及其漏洞检测](https://zhuanlan.zhihu.com/p/83099266)
