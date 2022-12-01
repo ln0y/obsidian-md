@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security','date/2022-11','year/2022','month/11']
 date: 2022-11-30-星期三 19:56:15
-update: 2022-11-30-星期三 19:58:19
+update: 2022-12-01-星期四 14:36:58
 ---
 
 ## JSONP介绍
@@ -14,6 +14,8 @@ JSONP全称是JSON with Padding ，是基于JSON格式的为解决跨域请求�
 JSONP原理就是动态插入带有跨域url的script标签，然后调用回调函数，把我们需要的json数据作为参数传入，通过一些逻辑把数据显示在页面上。
 
 比如通过script访问`http://www.test.com/index.html?jsonpcallback=callback`, 执行完script后，会调用callback函数，参数就是获取到的数据。
+
+JSONP劫持，实质上算是一种读类型的CSRF，在恶意的网页中构造恶意的JS代码，当合法用户点击该网页，由于目标站点存在JSONP劫持漏洞的接口，因此会将用户的该接口对应的信息劫持，并将其发送到攻击者的服务器。
 
 ## JSONP劫持
 
