@@ -196,6 +196,8 @@ Set-Cookie: key=value; SameSite=Strict
 >
 > 大多数主流浏览器正在将 `SameSite` 的默认值迁移至 `Lax`。如果想要指定 `Cookies` 在同站、跨站请求都被发送，现在需要明确指定 `SameSite` 为 `None`。
 
+### SameParty
+
 ### Cookie prefixes
 
 `Cookie` 机制的使得服务器无法确认 `Cookie` 是在安全来源上设置的，甚至无法确定 `Cookie` 最初是在哪里设置的。
