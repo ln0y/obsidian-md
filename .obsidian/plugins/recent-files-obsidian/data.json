@@ -5,20 +5,40 @@
       "path": "Network/Cookie.md"
     },
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
-    },
-    {
       "basename": "前端安全：CSRF",
       "path": "Security/前端安全：CSRF.md"
     },
     {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
+      "basename": "前端安全：XSS",
+      "path": "Security/前端安全：XSS.md"
     },
     {
       "basename": "跨域",
       "path": "browser/跨域.md"
+    },
+    {
+      "basename": "cookie工作流程",
+      "path": "_attachment/draw/cookie工作流程.svg"
+    },
+    {
+      "basename": "Untitled Diagram",
+      "path": "_attachment/draw/Untitled Diagram.svg"
+    },
+    {
+      "basename": "Pasted image 20221202112620",
+      "path": "_attachment/img/Pasted image 20221202112620.png"
+    },
+    {
+      "basename": "Pasted image 20220906180653",
+      "path": "_attachment/img/Pasted image 20220906180653.png"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
       "basename": "DOM Clobbering",
@@ -51,10 +71,6 @@
     {
       "basename": "Content Security Policy",
       "path": "Security/Content Security Policy.md"
-    },
-    {
-      "basename": "前端安全：XSS",
-      "path": "Security/前端安全：XSS.md"
     },
     {
       "basename": "类型体操",
@@ -179,26 +195,6 @@
     {
       "basename": "页面布局",
       "path": "CSS/页面布局.md"
-    },
-    {
-      "basename": "编写防御性CSS",
-      "path": "CSS/编写防御性CSS.md"
-    },
-    {
-      "basename": "xxxDependencies",
-      "path": "infrastructure/npm/xxxDependencies.md"
-    },
-    {
-      "basename": "npm 机制",
-      "path": "infrastructure/npm/npm 机制.md"
-    },
-    {
-      "basename": "深浅拷贝",
-      "path": "JavaScript/深浅拷贝.md"
-    },
-    {
-      "basename": "安装doker",
-      "path": "Linux/WSL/安装doker.md"
     }
   ],
   "omittedPaths": [],

@@ -406,7 +406,7 @@ Token是一个比较有效的CSRF防护方法，只要页面没有XSS漏洞泄�
 
 ### Samesite Cookie属性
 
-防止CSRF攻击的办法已经有上面的预防措施。为了从源头上解决这个问题，Google起草了一份草案来改进HTTP协议，那就是为Set-Cookie响应头新增Samesite属性，它用来标明这个 Cookie是个“同站 Cookie"，同站Cookie只能作为第一方Cookie，不能作为第三方Cookie，Samesite 有两个属性值，分别是 Strict 和 Lax，下面分别讲解：
+防止CSRF攻击的办法已经有上面的预防措施。为了从源头上解决这个问题，Google起草了一份草案来改进HTTP协议，那就是为Set-Cookie响应头新增[[Cookie#SameSite|Samesite]]属性，它用来标明这个 Cookie是个“同站 Cookie"，同站Cookie只能作为第一方Cookie，不能作为第三方Cookie，Samesite 有两个属性值，分别是 Strict 和 Lax，下面分别讲解：
 
 #### Samesite=Strict
 

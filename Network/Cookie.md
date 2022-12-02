@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Network','date/2022-03','year/2022','month/03']
 date: 2022-11-09-星期三 10:52:57
-update: 2022-12-02-星期五 11:26:21
+update: 2022-12-02-星期五 15:54:33
 ---
 
 ## Cookie 简介
@@ -67,34 +67,41 @@ window.navigator.cookieEnabled
 
 > 本文所有的讨论都是在浏览器的 `window.navigator.cookieEnabled` 为 true 的前提下进行的。
 
-## 3\. `Cookie` 的工作流程
+## Cookie 的工作流程
 
-![Cookie的工作原理](https://segmentfault.com/img/bVbRFCS "Cookie的工作原理")
+![[cookie工作流程.svg]]
 
-## 4\. Cookie 的限制
+## Cookie 的限制
 
-### 4.1 格式限制
+### 格式限制
 
 `Cookie` 只能存储纯文本格式，因为：
 
 - 每条 `Cookie` 的大小有限制
 - 为用户信息安全考虑，`Cookie` 中存储的是不可执行语句
 
-### 4.2 大小和条数限制
+### 大小和条数限制
 
 由于 `Cookie` 是保存在客户端上的，所以浏览器加入了一些限制确保 `Cookie` 不会被恶意使用，同时不会占据太多磁盘空间，所以 `Cookie` 的数量和大小是有限的。
 
 不同浏览器对 `Cookie` 数量和大小的限制，是不一样的。一般来说，单个域设置的 `Cookie` 不应超过 50个，每个 Cookie 的大小不能超过 4KB 。超过限制以后，`Cookie` 将被忽略，不会被设置。
 
+> 每个特定域名下的cookie数量有限：
+> IE6或IE6-(IE6以下版本)：最多20个cookie
+> IE7或IE7+(IE7以上版本)：最多50个cookie
+> FF:最多50个cookie
+> Opera:最多30个cookie
+> Chrome和safari没有硬性限制
+>
 > 其限制的原因，主要在于阻止 `Cookie` 的滥用，而且 `Cookie` 会被发送到服务器端，如果数量太大的话，会严重影响请求的性能。以上这两个限制条件，就是 `Cookie` 为什么会被浏览器自动删除的原因了。
 
-### 4.3 域限制
+### 域限制
 
 不可跨域读取，`Cookie` 是被哪个域写入的，就只能被这个域及其子域读取。比如：
 
 由 `test.com` 写入的 `Cookie` 可以被 `test.com` 和 `test.com/child` 读取，而不能被 `example.com` 读取。
 
-### 4.4 路径限制
+### 路径限制
 
 存储 `Cookie` 时会指定路径，该路径的子级可以读取该 `Cookie`，但是它的父级却读取不到——子可以读取父，但父不能拿到子，例如：
 
@@ -102,19 +109,21 @@ window.navigator.cookieEnabled
 
 > 一般会将 `Cookie` 存在根路径下，可以避免这种情况的发生。
 
-### 4.5 时效限制
+### 时效限制
 
 每个 `Cookie` 都有时效性，默认的有效期是会话级别（ `Seesion Cookie` ）：就是当浏览器关闭，那么 `Cookie` 立即销毁，但是我们也可以在存储的时候手动设置 `Cookie` 的过期时间，具体设置方法会在下文讲到。
 
-## 5\. Cookie 的属性
+## Cookie 的属性
 
-![Cookie的属性](https://segmentfault.com/img/bVbRFCT "Cookie的属性")
+| Name | Value | Domain | Path | Expires/Max-Age | Size | HTTPOnly | Secure | SameSite | SameParty | Partition Key | Priority |
+| ---- | ----- | ------ | ---- | --------------- | ---- | -------- | ------ | -------- | --------- | ------------- | -------- |
 
-### 5.1 Name/Value
+
+### Name/Value
 
 设置 `Cookie` 的名称及相对应的值，对于认证 `Cookie`，`Value` 值包括 `Web` 服务器所提供的访问令牌 。
 
-### 5.2 Domain
+### Domain
 
 指定了可以访问该 `Cookie` 的 Web 站点或域。
 
@@ -122,17 +131,17 @@ window.navigator.cookieEnabled
 
 当需要实现单点登录方案时，`Cookie` 的上述特性非常有用，然而也增加了 `Cookie` 受攻击的危险，比如攻击者可以借此发动会话定置攻击。因而，浏览器禁止在 `Domain` 属性中设置 .org、.com 等通用顶级域名、以及在国家及地区顶级域下注册的二级域名，以减小攻击发生的范围。
 
-### 5.3 Path
+### Path
 
 `Path` 标识指定了主机下的哪些路径可以接受 `Cookie`（该 URL 路径必须存在于请求 URL 中）。以字符 `%x2F ("/")` 作为路径分隔符，子路径也会被匹配。
 
-### 5.4 Expires/Max-Age
+### Expires/Max-Age
 
 设置 `Cookie` 的生存期。有两种存储类型的 `Cookie` ：会话性与持久性。
 
 `Expires` 属性指定一个具体的到期时间，到了这个指定的时间之后，浏览器就不再保留这个 `Cookie` ,它的值是 UTC 格式，可以使用 `Date.prototype.toUTCString()` 格式进行转换。
 
-`Max-Age` 属性制定了从现在开始 `Cookie` 存在的秒数，比如 60 _60_ 24 \* 365（即一年）。过了这个时间以后，浏览器就不再保留这个 `Cookie`
+`Max-Age` 属性制定了从现在开始 `Cookie` 存在的秒数，比如 60 \* 60 \* 24 \* 365（即一年）。过了这个时间以后，浏览器就不再保留这个 `Cookie`
 
 > 如果没有设置这两个选项，则会使用默认值。 `domain` 的默认值为设置该 `Cookie` 的网页所在的域名， `path` 默认值为设置该 `Cookie` 的网页所在的目录。
 
@@ -141,27 +150,35 @@ window.navigator.cookieEnabled
 
 > 当 `Cookie` 的过期时间被设定时，设定的日期和时间只与客户端相关，而不是服务端。
 
-### 5.5 HTTPOnly
+### Size
+
+Cookie的大小
+
+### HTTPOnly
 
 这个选项用来设置 `Cookie` 是否能通过 `JavaScript` 去访问。默认情况下， `Cookie` 不会带 `HTTPOnly` 选项(即为空)，所以默认情况下，客户端是可以通过 `JavaScript` 代码去访问（包括读取、修改、删除等）这个 `Cookie` 的。当 `Cookie` 带 `HTTPOnly` 选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个 `Cookie` 。
 
-用于防止客户端脚本通过 `document.cookie` 属性访问 `Cookie` ，有助于保护 `Cookie` 不被跨站脚本攻击窃取或篡改。但是，`HTTPOnly` 的应用仍存在局限性，一些浏览器可以阻止客户端脚本对 `Cookie` 的读操作，但允许写操作；此外大多数浏览器仍允许通过 `XMLHTTP` 对象读取 `HTTP` 响应中的 `Set-Cookie` 头 。
+用于防止客户端脚本通过 `document.cookie` 属性访问 `Cookie` ，有助于保护 `Cookie` 不被[[前端安全：XSS|跨站脚本攻击]]窃取或篡改。但是，`HTTPOnly` 的应用仍存在局限性，一些浏览器可以阻止客户端脚本对 `Cookie` 的读操作，但允许写操作；此外大多数浏览器仍允许通过 `XMLHTTP` 对象读取 `HTTP` 响应中的 `Set-Cookie` 头 。
 
 > 在客户端是不能通过 `JAvaScript` 代码去设置一个 `httpOnly` 类型的 `Cookie` 的，这种类型的 `Cookie` 只能通过服务端来设置。
 
-### 5.6 Secure
+### Secure
 
 指定是否使用 `HTTPS` 安全协议发送 `Cookie` 。
 
 使用 `HTTPS` 安全协议，可以保护 `Cookie` 在浏览器和 `Web` 服务器间的传输过程中不被窃取和篡改。该方法也可用于 `Web` 站点的身份鉴别，即在 `HTTPS` 的连接建立阶段，浏览器会检查 `Web` 网站的 `SSL` 证书的有效性。
 
+默认情况下，cookie不会带Secure选项(即为空)。所以默认情况下，不管是HTTPS协议还是HTTP协议的请求，cookie 都会被发送至服务端。但要注意一点，Secure选项只是限定了在安全情况下才可以传输给服务端，但并不代表你不能看到这个 cookie。
+
+>如果想在客户端即网页中通过 js 去设置Secure类型的 cookie，必须保证网页是https协议的。在http协议的网页中是无法设置secure类型cookie的。
+
 但是基于兼容性的原因（比如有些网站使用自签署的证书）在检测到 `SSL` 证书无效时，浏览器并不会立即终止用户的连接请求，而是显示安全风险信息，用户仍可以选择继续访问该站点。由于许多用户缺乏安全意识，因而仍可能连接到 `Pharming` 攻击所伪造的网站 。
 
 > 如果当前协议是 HTTP，浏览器会自动忽略服务器发来的 Secure。
 
-### 5.7 SameSite
+### SameSite
 
-`Cookie` 允许服务器要求某个 `Cookie` 在跨站请求时不会被发送，（其中 `Site` 由可注册域定义），从而可以阻止跨站请求伪造攻击（`CSRF`）。
+`Cookie` 允许服务器要求某个 `Cookie` 在跨站请求时不会被发送，（其中 `Site` 由可注册域定义），从而可以阻止[[前端安全：CSRF|跨站请求伪造攻击（`CSRF`）]]。
 
 `SameSite cookies` 是相对较新的一个字段，所有主流浏览器都已经得到支持。下面是例子：
 
@@ -171,15 +188,15 @@ Set-Cookie: key=value; SameSite=Strict
 
 `SameSite` 可以有下面三种值：
 
-- **`None`**。浏览器会在同站请求、跨站请求下继续发送 `Cookies`，不区分大小写。
-- **`Strict`。**浏览器将只在访问相同站点时发送 `Cookie`。（在原有 `Cookies` 的限制条件上的加强）。
-- **`Lax`。**与 **`Strict`** 类似，但用户从外部站点导航至URL时（例如通过链接）除外。 在新版本浏览器中，为默认选项，`Same-site cookies` 将会为一些跨站子请求保留，如图片加载或者 `frames` 的调用，但只有当用户从外部站点导航到 `URL` 时才会发送。如 link 链接。
+- **`None`** 浏览器会在同站请求、跨站请求下继续发送 `Cookies`，不区分大小写。
+- **`Strict`** 浏览器将只在访问相同站点时发送 `Cookie`。（在原有 `Cookies` 的限制条件上的加强）。
+- **`Lax`** 与 **`Strict`** 类似，但用户从外部站点导航至URL时（例如通过链接）除外。 在新版本浏览器中，为默认选项，`Same-site cookies` 将会为一些跨站子请求保留，如图片加载或者 `frames` 的调用，但只有当用户从外部站点导航到 `URL` 时才会发送。如 link 链接。
 
 > 以前，如果 `SameSite` 属性没有设置，或者没有得到运行浏览器的支持，那么它的行为等同于 `None`，`Cookies` 会被包含在任何请求中——包括跨站请求。
 >
 > 大多数主流浏览器正在将 `SameSite` 的默认值迁移至 `Lax`。如果想要指定 `Cookies` 在同站、跨站请求都被发送，现在需要明确指定 `SameSite` 为 `None`。
 
-### 5.8 Cookie prefixes
+### Cookie prefixes
 
 `Cookie` 机制的使得服务器无法确认 `Cookie` 是在安全来源上设置的，甚至无法确定 `Cookie` 最初是在哪里设置的。
 

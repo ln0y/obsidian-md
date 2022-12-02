@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ca25af6bf4b9ed34",
+            "id": "b51c6d981f28d000",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -74,7 +74,7 @@
         "dimension": 71.42857142857143,
         "children": [
           {
-            "id": "3ea1e65f243393f0",
+            "id": "a510c88b15af9cae",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -125,7 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 286.5
   },
   "right": {
     "id": "9a16d7dc01ffded8",
@@ -239,17 +239,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "ca25af6bf4b9ed34",
+  "active": "b51c6d981f28d000",
   "lastOpenFiles": [
-    "Post/front end.md",
-    "Network/Cookie.md",
     "Security/前端安全：CSRF.md",
-    "TODO看板.md",
+    "Network/Cookie.md",
+    "Security/前端安全：XSS.md",
     "browser/跨域.md",
-    "Security/DOM Clobbering.md",
-    "Security/前端安全：JSONP劫持.md",
-    "project/front end/鉴权方案.md",
-    "TypeScript/TypeScript 4.9.md",
-    "TypeScript/TypeScript 4.8.md"
+    "_attachment/draw/test.svg",
+    "_attachment/draw/cookie工作流程.svg",
+    "_attachment/draw/Untitled Diagram.svg",
+    "_attachment/Untitled Diagram.svg",
+    "_attachment/img/Pasted image 20221202112620.png",
+    "_attachment/img/Pasted image 20220906180653.png"
   ]
 }
