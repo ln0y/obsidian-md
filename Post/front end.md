@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2022-11-23-星期三 16:52:14
+update: 2022-12-03-星期六 15:05:45
 ---
 
 ## React
@@ -357,6 +357,21 @@ format = " [$duration](bold yellow)"
         height: '100%',
       })
     }, 500)
+  }
+})()
+```
+
+```js
+;(function () {
+  'use strict'
+  const sleep = n => new Promise(r => setTimeout(r, n))
+  window.onload = async function () {
+    await sleep(0)
+    const $$ = document.querySelectorAll.bind(document)
+    Array.from(
+      $$('.article-content img'),
+      i => (i.src = i.src.replace('in-crop-mark:4536:0:0:0.awebp', '1.image'))
+    )
   }
 })()
 ```
