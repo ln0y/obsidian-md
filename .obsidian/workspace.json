@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "91e106cbe424cfff",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Network/Cookie SameParty.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a95b01c3cd4112f5",
             "type": "leaf",
             "state": {
@@ -72,8 +59,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/Cookie SameParty.md"
+                "file": "Network/Cookie.md"
               }
             }
           }
@@ -213,7 +199,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network/Cookie SameParty.md",
+                "file": "Network/Cookie.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +216,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/Cookie SameParty.md",
+                "file": "Network/Cookie.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,11 +239,11 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "91e106cbe424cfff",
+  "active": "b51c6d981f28d000",
   "lastOpenFiles": [
+    "Post/front end.md",
     "Network/Cookie.md",
     "Network/Cookie SameParty.md",
-    "Post/front end.md",
     "browser/跨域.md",
     "Security/未命名.md",
     "Security/前端安全：CSRF.md",

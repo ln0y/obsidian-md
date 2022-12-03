@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2022-12-03-星期六 15:05:45
+update: 2022-12-03-星期六 18:31:52
 ---
 
 ## React
@@ -364,11 +364,13 @@ format = " [$duration](bold yellow)"
 ```js
 ;(function () {
   'use strict'
+  const sleep = n => new Promise(r => setTimeout(r, n))
   window.onload = async function () {
+    await sleep(500)
     const $$ = document.querySelectorAll.bind(document)
     Array.from(
       $$('.article img'),
-      i => (i.src = i.src.replace(/(?<=zoom-)(.*)awebp$/g, '1.png'))
+      i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png'))
     )
   }
 })()

@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Network','date/2022-12','year/2022','month/12']
 date: 2022-12-03-星期六 13:53:43
-update: 2022-12-03-星期六 17:22:40
+update: 2022-12-03-星期六 18:13:38
 ---
 
 ## 第一方Cookie 与第三方Cookie
@@ -98,17 +98,39 @@ update: 2022-12-03-星期六 17:22:40
 
 好了，上面介绍了一大堆，终于回到本文的主题 `Cookie SameParty` 属性了，这个属性就是为了配合 `First-Party Sets` 使用的。
 
-所有开启了 `First-Party Sets` 域名下需要共享的 `Cookie` 都需要增加 `SameParty` 属性，例如，如果我在 `conardli.top` 下设置了下面的 `Cookie` ：
+所有开启了 `First-Party Sets` 域名下需要共享的 `Cookie` 都需要增加 `SameParty` 属性，例如，如果我在 `https://fps-owner.example` 下设置了下面的 `Cookie` ：
 
 ```
 Set-Cookie: name=tasty; Secure; SameSite=Lax; SameParty
 ```
 
-这时我在 `conardli.cn` 下发送 `conardli.top` 域名的请求，`Cookie` 也可以被携带了，但是如果我在另外一个网站，例如 `eval.site` 下发送这个请求， `Cookie` 就不会被携带。
+这时我在 `https://fps-member1.example` 下发送 `https://fps-owner.example` 域名的请求，`Cookie` 也可以被携带了，但是如果我在另外一个网站，例如 `eval.site` 下发送这个请求， `Cookie` 就不会被携带。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb2c7d9fa26d464fbcb069e026eba8b8~tplv-k3u1fbpfcp-zoom-1.png)
+![[bb2c7d9fa26d464fbcb069e026eba8b8_tplv-k3u1fbpfcp-zoom-1.png|800]]
 
 在 `SameParty` 被广泛支持之前，你可以把它和 `SameSite` 属性一起定义来确保 `Cookie` 的行为降级，另外还有一些额外的要求：
 
 - SameParty Cookie 必须包含 Secure.
 - SameParty Cookie 不得包含 SameSite=Strict.
+
+## 总结
+
+SameParty 属性看来有点类似于SameSite=Strict 的延伸版，也有对CSRF 做处理，具体的Cookie 传送规则可以参考这张图片。
+
+`owner.example`拥有这两个网域`member1.example`, `member2.example`，`member1.example`，在设定了SameParty 的情况下，`member1.example`的Cookie 不会传送到非SameParty 的网域。
+
+![[same_party_table.png|800]]
+
+同时，`member1.example`也不会把Cookie 传给`member2.example`
+
+![[same_party_sop.png]]
+
+## 参考
+
+- https://www.chromestatus.com/feature/5280634094223360
+- https://github.com/cfredric/sameparty
+- https://developer.chrome.com/blog/first-party-sets-sameparty/
+- [SameSite 那些事](https://segmentfault.com/a/1190000040161207)
+- [详解Cookie 新增的SameParty 属性](https://juejin.cn/post/7002011181221167118#heading-5)
+- [SFirst-Party Sets](https://github.com/privacycg/first-party-sets7)
+- [SameParty cookie attribute explainer](https://github.com/cfredric/sameparty)
