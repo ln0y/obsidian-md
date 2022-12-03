@@ -364,13 +364,11 @@ format = " [$duration](bold yellow)"
 ```js
 ;(function () {
   'use strict'
-  const sleep = n => new Promise(r => setTimeout(r, n))
   window.onload = async function () {
-    await sleep(0)
     const $$ = document.querySelectorAll.bind(document)
     Array.from(
-      $$('.article-content img'),
-      i => (i.src = i.src.replace('in-crop-mark:4536:0:0:0.awebp', '1.image'))
+      $$('.article img'),
+      i => (i.src = i.src.replace(/(?<=zoom-)(.*)awebp$/g, '1.png'))
     )
   }
 })()

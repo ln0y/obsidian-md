@@ -198,7 +198,7 @@ Set-Cookie: key=value; SameSite=Strict
 
 ### SameParty
 
-![[cookie SameParty]]
+![[Cookie SameParty]]
 
 ### Cookie prefixes
 
