@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "91e106cbe424cfff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Network/cookie SameParty.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a95b01c3cd4112f5",
             "type": "leaf",
             "state": {
@@ -59,7 +72,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -182,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/Cookie.md"
+                "file": "Network/cookie SameParty.md"
               }
             }
           }
@@ -199,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network/Cookie.md",
+                "file": "Network/cookie SameParty.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -216,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/Cookie.md",
+                "file": "Network/cookie SameParty.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -239,17 +253,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "b51c6d981f28d000",
+  "active": "91e106cbe424cfff",
   "lastOpenFiles": [
-    "browser/跨域.md",
-    "Security/前端安全：CSRF.md",
     "Network/Cookie.md",
+    "Network/cookie SameParty.md",
+    "browser/跨域.md",
+    "Security/未命名.md",
+    "Security/前端安全：CSRF.md",
     "Security/前端安全：XSS.md",
     "_attachment/draw/test.svg",
     "_attachment/draw/cookie工作流程.svg",
     "_attachment/draw/Untitled Diagram.svg",
-    "_attachment/Untitled Diagram.svg",
-    "_attachment/img/Pasted image 20221202112620.png",
-    "_attachment/img/Pasted image 20220906180653.png"
+    "_attachment/Untitled Diagram.svg"
   ]
 }

@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Network','date/2022-03','year/2022','month/03']
 date: 2022-11-09-星期三 10:52:57
-update: 2022-12-02-星期五 15:54:33
+update: 2022-12-03-星期六 13:54:23
 ---
 
 ## Cookie 简介
@@ -197,6 +197,8 @@ Set-Cookie: key=value; SameSite=Strict
 > 大多数主流浏览器正在将 `SameSite` 的默认值迁移至 `Lax`。如果想要指定 `Cookies` 在同站、跨站请求都被发送，现在需要明确指定 `SameSite` 为 `None`。
 
 ### SameParty
+
+![[cookie SameParty]]
 
 ### Cookie prefixes
 
