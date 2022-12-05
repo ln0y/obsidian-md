@@ -1,20 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "Cookie",
-      "path": "Network/Cookie.md"
+      "basename": "Session",
+      "path": "Network/Session.md"
     },
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
-      "basename": "前端安全：XSS",
-      "path": "Security/前端安全：XSS.md"
+      "basename": "鉴权方案",
+      "path": "project/front end/鉴权方案.md"
     },
     {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
+      "basename": "垃圾回收",
+      "path": "JavaScript/engine/垃圾回收.md"
+    },
+    {
+      "basename": "web 应用常见安全漏洞",
+      "path": "Security/web 应用常见安全漏洞.md"
+    },
+    {
+      "basename": "npm 机制",
+      "path": "infrastructure/npm/npm 机制.md"
+    },
+    {
+      "basename": "loader和plugin的区别",
+      "path": "infrastructure/bundler/Webpack/loader和plugin的区别.md"
     },
     {
       "basename": "front end",
@@ -23,6 +35,22 @@
     {
       "basename": "Cookie SameParty",
       "path": "Network/Cookie SameParty.md"
+    },
+    {
+      "basename": "Cookie",
+      "path": "Network/Cookie.md"
+    },
+    {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "前端安全：XSS",
+      "path": "Security/前端安全：XSS.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
     },
     {
       "basename": "cookie工作流程",
@@ -41,20 +69,12 @@
       "path": "_attachment/img/Pasted image 20220906180653.png"
     },
     {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
-    },
-    {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "前端安全：JSONP劫持",
       "path": "Security/前端安全：JSONP劫持.md"
-    },
-    {
-      "basename": "鉴权方案",
-      "path": "project/front end/鉴权方案.md"
     },
     {
       "basename": "TypeScript 4.9",
@@ -125,10 +145,6 @@
       "path": "CSS/布局方式.md"
     },
     {
-      "basename": "web 应用常见安全漏洞",
-      "path": "Security/web 应用常见安全漏洞.md"
-    },
-    {
       "basename": "flex",
       "path": "CSS/flex.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "Symbol",
       "path": "JavaScript/Symbol.md"
-    },
-    {
-      "basename": "数组部分方法实现",
-      "path": "JavaScript/数组部分方法实现.md"
-    },
-    {
-      "basename": "数组扁平化",
-      "path": "JavaScript/数组扁平化.md"
-    },
-    {
-      "basename": "严格模式",
-      "path": "JavaScript/严格模式.md"
-    },
-    {
-      "basename": "页面布局",
-      "path": "CSS/页面布局.md"
     }
   ],
   "omittedPaths": [],

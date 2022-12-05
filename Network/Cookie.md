@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Network','date/2022-03','year/2022','month/03']
 date: 2022-11-09-星期三 10:52:57
-update: 2022-12-05-星期一 15:23:44
+update: 2022-12-05-星期一 20:15:17
 ---
 
 ## Cookie 简介
@@ -97,7 +97,7 @@ window.navigator.cookieEnabled
 
 ### 域限制
 
-不可跨域读取，`Cookie` 是被哪个域写入的，就只能被这个域及其子域读取。比如：
+不可跨域 (这里特指跨域，不是 [[跨域#^e8b9dc|跨源]]，即使不同端口也不会限制) 读取，`Cookie` 是被哪个域写入的，就只能被这个域及其子域读取。比如：
 
 由 `test.com` 写入的 `Cookie` 可以被 `test.com` 和 `test.com/child` 读取，而不能被 `example.com` 读取。
 
@@ -160,7 +160,7 @@ Cookie 的大小
 
 这个选项用来设置 `Cookie` 是否能通过 `JavaScript` 去访问。默认情况下， `Cookie` 不会带 `HTTPOnly` 选项 (即为空)，所以默认情况下，客户端是可以通过 `JavaScript` 代码去访问（包括读取、修改、删除等）这个 `Cookie` 的。当 `Cookie` 带 `HTTPOnly` 选项时，客户端则无法通过 js 代码去访问（包括读取、修改、删除等）这个 `Cookie` 。
 
-用于防止客户端脚本通过 `document.cookie` 属性访问 `Cookie` ，有助于保护 `Cookie` 不被 [[前端安全：XSS|跨站脚本攻击]] 窃取或篡改。但是，`HTTPOnly` 的应用仍存在局限性，一些浏览器可以阻止客户端脚本对 `Cookie` 的读操作，但允许写操作；此外大多数浏览器仍允许通过 `XMLHTTP` 对象读取 `HTTP` 响应中的 `Set-Cookie` 头 。
+用于防止客户端脚本通过 `document.cookie` 属性访问 `Cookie` ，有助于保护 `Cookie` 不被 [[前端安全：XSS|跨站脚本攻击]] 窃取或篡改 (`但这并不能阻止 XSS 使用 cookie。因为 XSS 向第一方发送恶意请求依旧可以携带 cookie，只是 XSS 恶意代码不知道 cookie 其中的内容罢了`)。但是，`HTTPOnly` 的应用仍存在局限性，一些浏览器可以阻止客户端脚本对 `Cookie` 的读操作，但允许写操作；此外大多数浏览器仍允许通过 `XMLHTTP` 对象读取 `HTTP` 响应中的 `Set-Cookie` 头 。
 
 > 在客户端是不能通过 `JavaScript` 代码去设置一个 `httpOnly` 类型的 `Cookie` 的，这种类型的 `Cookie` 只能通过服务端来设置。
 
@@ -168,7 +168,7 @@ Cookie 的大小
 
 指定是否使用 `HTTPS` 安全协议发送 `Cookie` 。
 
-使用 `HTTPS` 安全协议，可以保护 `Cookie` 在浏览器和 `Web` 服务器间的传输过程中不被窃取和篡改。该方法也可用于 `Web` 站点的身份鉴别，即在 `HTTPS` 的连接建立阶段，浏览器会检查 `Web` 网站的 `SSL` 证书的有效性。
+使用 `HTTPS` 安全协议，可以保护 `Cookie` 在浏览器和 `Web` 服务器间的传输过程中不被窃取和篡改 (`防止中间人直接获得未加密的 cookie`)。该方法也可用于 `Web` 站点的身份鉴别，即在 `HTTPS` 的连接建立阶段，浏览器会检查 `Web` 网站的 `SSL` 证书的有效性。
 
 默认情况下，cookie 不会带 Secure 选项 (即为空)。所以默认情况下，不管是 HTTPS 协议还是 HTTP 协议的请求，cookie 都会被发送至服务端。但要注意一点，Secure 选项只是限定了在安全情况下才可以传输给服务端，但并不代表你不能看到这个 cookie。
 
@@ -192,7 +192,7 @@ Set-Cookie: key=value; SameSite=Strict
 
 - **`None`** 浏览器会在同站请求、跨站请求下继续发送 `Cookies`，不区分大小写。
 - **`Strict`** 浏览器将只在访问相同站点时发送 `Cookie`。（在原有 `Cookies` 的限制条件上的加强）。
-- **`Lax`** 与 **`Strict`** 类似，但用户从外部站点导航至 URL 时（例如通过链接）除外。 在新版本浏览器中，为默认选项，`Same-site cookies` 将会为一些跨站子请求保留，如图片加载或者 `frames` 的调用，但只有当用户从外部站点导航到 `URL` 时才会发送。如 link 链接。
+- **`Lax`** 与 **`Strict`** 类似，但用户从外部站点导航至 URL 时（例如通过链接）除外。 在新版本浏览器中，为 [默认选项](https://web.dev/samesite-cookies-explained/#%E9%BB%98%E8%AE%A4%E4%B8%BAsamesite=lax)，`Same-site cookies` 将会为一些跨站子请求保留，如图片加载或者 `frames` 的调用，但只有当用户从外部站点导航到 `URL` 时才会发送。如 link 链接。
 
 > 以前，如果 `SameSite` 属性没有设置，或者没有得到运行浏览器的支持，那么它的行为等同于 `None`，`Cookies` 会被包含在任何请求中——包括跨站请求。
 >
@@ -208,6 +208,8 @@ Set-Cookie: key=value; SameSite=Strict
 | AJAX      | $.get("…")                        | 发送 Cookie | 不发送      |
 | Image     | \<img src="…">                    | 发送 Cookie | 不发送      |
 
+
+[SameSite Updates](https://www.chromium.org/updates/same-site/)
 
 ### SameParty
 
@@ -396,6 +398,10 @@ Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用�
 标记为 `Secure` 的 `Cookie` 只应通过被 `HTTPS` 协议加密过的请求发送给服务端，因此可以预防 `man-in-the-middle` 攻击者的攻击。但即便设置了 `Secure` 标记，敏感信息也不应该通过 `Cookie` 传输，因为 `Cookie` 有其固有的不安全性，`Secure` 标记也无法提供确实的安全保障, 例如，可以访问客户端硬盘的人可以读取它。
 
 `JavaScript Document.cookie API` 无法访问带有 `HttpOnly` 属性的 `Cookie`；此类 `Cookie` 仅作用于服务器。例如，例如，持久化服务器端会话的 `Cookie` 不需要对 `JavaScript` 可用，而应具有 `HttpOnly` 属性。此预防措施有助于缓解跨站点脚本（`XSS`）攻击。
+
+## SPA 不使用 cookie
+
+SPA 的出现改变了传统的方式，身份凭证可以不存储在 cookie 中。SPA 的 JS 通过 API 获取 token，然后将 token 存储在 localStorage 中。SPA 的 token 不通过 cookie 发送给服务器后端，可以选择将 token 放在自定义的请求头部，或是请求体中。然后服务器后端相应地检测这个位置。
 
 ## Cookie 的替代方案
 

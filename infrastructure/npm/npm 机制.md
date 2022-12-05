@@ -1,8 +1,8 @@
 ---
 aliases: []
 tags: ['infrastructure/npm','date/2022-03','year/2022','month/03']
-date: 2022-03-08-Tuesday 16:42:35
-update: 2022-03-16-Wednesday 16:45:51
+date: 2022-11-09-星期三 10:52:57
+update: 2022-12-05-星期一 20:28:18
 ---
 
 前端工程化离不开 npm（node package manager） 或者 Yarn 这些管理工具。npm 或 Yarn 在工程项目中，除了负责依赖的安装和维护以外，还能通过 npm scripts 串联起各个职能部分，让独立的环节自动运转起来。
@@ -56,7 +56,7 @@ npm install 执行之后，首先，检查并获取 npm 配置，**这里的优�
 
 **你要格外注意图中标明的 npm 不同版本的不同处理情况，并学会从这种“历史问题”中总结 npm 使用的团队最佳实践：同一个项目团队，应该保证 npm 版本的一致**。
 
-前端工程中，依赖嵌套依赖，一个中型项目中 node\_moduels 安装包可能就已经是海量的了。如果安装包每次都通过网络下载获取，无疑会增加安装时间成本。对于这个问题，**缓存**始终是一个好的解决思路。
+前端工程中，依赖嵌套依赖，一个中型项目中 node\_moduels 安装包可能就已经是海量的了。如果安装包每次都通过网络下载获取，无疑会增加安装时间成本。对于这个问题，**缓存** 始终是一个好的解决思路。
 
 ### npm 缓存机制
 
@@ -66,7 +66,7 @@ npm install 执行之后，首先，检查并获取 npm 配置，**这里的优�
 npm config get cache
 ```
 
-得到配置缓存的根目录在 /Users/xxx/.npm（ Mac OS 中，npm 默认的缓存位置，windows在C:\\Users\\xxx\\AppData\\Roaming\\npm-cache） 当中。我们 cd 进入 /Users/xxx/.npm 中可以发现`_cacache`文件。事实上，在 npm v5 版本之后，缓存数据均放在根目录中的`_cacache`文件夹中。
+得到配置缓存的根目录在 /Users/xxx/.npm（ Mac OS 中，npm 默认的缓存位置，windows 在 C:\\Users\\xxx\\AppData\\Roaming\\npm-cache） 当中。我们 cd 进入 /Users/xxx/.npm 中可以发现 `_cacache` 文件。事实上，在 npm v5 版本之后，缓存数据均放在根目录中的 `_cacache` 文件夹中。
 
 我们可以使用以下命令清除 /Users/cehou/.npm/\_cacache 中的文件：
 
@@ -74,9 +74,9 @@ npm config get cache
 npm cache clean --force
 ```
 
-> 你可以点击[这里](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)看看其中对应的 npm 源码。
+> 你可以点击 [这里](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) 看看其中对应的 npm 源码。
 
-接下来打开`_cacache`文件，看看 npm 缓存了哪些东西，一共有 3 个目录：
+接下来打开 `_cacache` 文件，看看 npm 缓存了哪些东西，一共有 3 个目录：
 
 - content-v2
 - index-v5
@@ -88,21 +88,21 @@ npm cache clean --force
 
 这些缓存如何被储存并被利用的呢？
 
-这就和 npm install 机制联系在了一起。当 npm install 执行时，通过[pacote](https://www.npmjs.com/package/pacote)把相应的包解压在对应的 node\_modules 下面。npm 在下载依赖时，先下载到缓存当中，再解压到项目 node\_modules 下。pacote 依赖[npm-registry-fetch](https://github.com/npm/npm-registry-fetch#npm-registry-fetch)来下载包，npm-registry-fetch 可以通过设置 cache 属性，在给定的路径下根据[IETF RFC 7234](https://datatracker.ietf.org/doc/rfc7234/)生成缓存数据。
+这就和 npm install 机制联系在了一起。当 npm install 执行时，通过 [pacote](https://www.npmjs.com/package/pacote) 把相应的包解压在对应的 node\_modules 下面。npm 在下载依赖时，先下载到缓存当中，再解压到项目 node\_modules 下。pacote 依赖 [npm-registry-fetch](https://github.com/npm/npm-registry-fetch#npm-registry-fetch) 来下载包，npm-registry-fetch 可以通过设置 cache 属性，在给定的路径下根据 [IETF RFC 7234](https://datatracker.ietf.org/doc/rfc7234/) 生成缓存数据。
 
-npm主要有会有三个地方用到 `pacote`:
+npm 主要有会有三个地方用到 `pacote`:
 
-- 当你执行 npm install xxx (这时候会通过 `pacote.extract` 把对应的包解压到对应的`node_modules` 下面, `pacote`源码地址: [extract.js](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fzkat%2Fpacote%2Fblob%2Flatest%2Fextract.js%23L19 "https://github.com/zkat/pacote/blob/latest/extract.js#L19"))
-- 当你执行 npm cache add xxx (这时候会通过 `pacote.tarball 下的 tarballStream`往我们之前看到的 `_cacache`文件下去添加缓存, `pacote`源码地址: [tarballStream](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fnpm%2Fpacote%2Fblob%2F2ddf67f7c4e084ffec315f94e30bb24f944403e3%2Flib%2Ffetcher.js%23L292 "https://github.com/npm/pacote/blob/2ddf67f7c4e084ffec315f94e30bb24f944403e3/lib/fetcher.js#L292")）
-- 当你执行 [npm pack xxx](https://link.juejin.cn?target=https%3A%2F%2Fdocs.npmjs.com%2Fcli%2Fv8%2Fcommands%2Fnpm-pack "https://docs.npmjs.com/cli/v8/commands/npm-pack") 通过 `pacote.tarball 下的 _toFile`在当前路径生成对应的压缩文件, 源码地址:[\_toFile](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fnpm%2Fpacote%2Fblob%2F2ddf67f7c4e084ffec315f94e30bb24f944403e3%2Flib%2Ffetcher.js%23L383 "https://github.com/npm/pacote/blob/2ddf67f7c4e084ffec315f94e30bb24f944403e3/lib/fetcher.js#L383") )
+- 当你执行 npm install xxx (这时候会通过 `pacote.extract` 把对应的包解压到对应的 `node_modules` 下面, `pacote` 源码地址: [extract.js](https://github.com/zkat/pacote/blob/latest/extract.js#L19))
+- 当你执行 npm cache add xxx (这时候会通过 `pacote.tarball 下的 tarballStream` 往我们之前看到的 `_cacache` 文件下去添加缓存, `pacote` 源码地址: [tarballStream](https://github.com/npm/pacote/blob/2ddf67f7c4e084ffec315f94e30bb24f944403e3/lib/fetcher.js#L292)）
+- 当你执行 [npm pack xxx](https://docs.npmjs.com/cli/v8/commands/npm-pack) 通过 `pacote.tarball 下的 _toFile` 在当前路径生成对应的压缩文件, 源码地址:[\_toFile](https://github.com/npm/pacote/blob/2ddf67f7c4e084ffec315f94e30bb24f944403e3/lib/fetcher.js#L383) )
 
-接着，在每次安装资源时，根据 package-lock.json 中存储的 integrity、version、name 信息生成一个唯一的 key，这个 key 能够对应到 index-v5 目录下的缓存记录。如果发现有缓存资源，就会找到 tar 包的 hash，根据 hash 再去找缓存的 tar 包，并再次通过[pacote](https://www.npmjs.com/package/pacote)把对应的二进制文件解压到相应的项目 node\_modules 下面，省去了网络下载资源的开销。
+接着，在每次安装资源时，根据 package-lock.json 中存储的 integrity、version、name 信息生成一个唯一的 key，这个 key 能够对应到 index-v5 目录下的缓存记录。如果发现有缓存资源，就会找到 tar 包的 hash，根据 hash 再去找缓存的 tar 包，并再次通过 [pacote](https://www.npmjs.com/package/pacote) 把对应的二进制文件解压到相应的项目 node\_modules 下面，省去了网络下载资源的开销。
 
 **注意，这里提到的缓存策略是从 npm v5 版本开始的。在 npm v5 版本之前，每个缓存的模块在 ~/.npm 文件夹中以模块名的形式直接存储，储存结构是：{cache}/{name}/{version}**。
 
 ## npm 不完全指南
 
-接下来，介绍几个实用的 npm 小技巧，这些技巧并不包括“npm 快捷键”等常见内容，主要是从工程开发角度，聚焦更广泛的内容。npm 命令你可以直接通过 [npm cli 官方文档](https://docs.npmjs.com/cli-documentation/)获得。
+接下来，介绍几个实用的 npm 小技巧，这些技巧并不包括“npm 快捷键”等常见内容，主要是从工程开发角度，聚焦更广泛的内容。npm 命令你可以直接通过 [npm cli 官方文档](https://docs.npmjs.com/cli-documentation/) 获得。
 
 下面，将从 npm 使用技巧以及一些常见使用误区来展开。
 
@@ -157,11 +157,11 @@ npm config set init.license "MIT"
 
 当我们开发一个公共包时，总会有这样的困扰：假如我开发一个组件库，某个组件开发完成之后，如何验证该组件能在我的业务项目中正常运行呢？
 
-除了写一个完备的测试以外，常见的思路就是**在组件库开发中，设计 examples 目录或者一个 playground，启动一个开发服务，以验证组件的运行情况**。
+除了写一个完备的测试以外，常见的思路就是 **在组件库开发中，设计 examples 目录或者一个 playground，启动一个开发服务，以验证组件的运行情况**。
 
 然而真实应用场景是多种多样的，如果能在某个项目中率先尝试就太好了。但我们又不能发布一个不安全的包版本供业务项目使用。另一个“笨”方法是，手动复制粘贴组件并打包产出到业务项目的 node\_modules 中进行验证，但是这种做法既不安全也会使得项目混乱，变得难以维护，同时过于依赖手工执行，这种操作非常原始。
 
-那么如何**高效率在本地调试以验证包的可用性**呢？这个时候，我们就可以**使用 npm link**。简单来说，它可以**将模块链接到对应的业务项目中运行**。
+那么如何 **高效率在本地调试以验证包的可用性** 呢？这个时候，我们就可以 **使用 npm link**。简单来说，它可以 **将模块链接到对应的业务项目中运行**。
 
 我们来看一个具体场景，假设你正在开发项目 project 1，其中有个包 package 1，对应 npm 模块包名称是 npm-package-1，我们在 package 1 项目中加入了新功能 feature A，现在要验证在 project 1 项目中能否正常使用 package 1 的 feature A，你应该怎么做？
 
@@ -216,7 +216,7 @@ npx eslint yourfile.js
 npx create-react-app cra-project
 ```
 
-更多关于 npx 的介绍你可以去[官网](https://www.npmjs.com/package/npx)进一步查看。
+更多关于 npx 的介绍你可以去 [官网](https://www.npmjs.com/package/npx) 进一步查看。
 
 现在，你已经对 npm 有了一个初步了解，我们接下来一同看看 npm 实操部分：多源镜像和企业级部署私服原理。
 
@@ -224,7 +224,7 @@ npx create-react-app cra-project
 
 **npm 中的源（registry），其实就是一个查询服务**。以 npmjs.org 为例，它的查询服务网址是 [https://registry.npmjs.org/](https://registry.npmjs.org/)。这个网址后面跟上模块名，就会得到一个 JSON 对象，里面是该模块所有版本的信息。比如，访问 [https://registry.npmjs.org/react](https://registry.npmjs.org/react)，就会看到 react 模块所有版本的信息。
 
-我们可以通过`npm config set`命令来设置安装源或者某个 scope 对应的安装源，很多企业也会搭建自己的 npm 源。我们常常会碰到需要使用多个安装源的项目，这时就可以通过 npm-preinstall 的钩子，通过 npm 脚本，在安装公共依赖前自动进行源切换：
+我们可以通过 `npm config set` 命令来设置安装源或者某个 scope 对应的安装源，很多企业也会搭建自己的 npm 源。我们常常会碰到需要使用多个安装源的项目，这时就可以通过 npm-preinstall 的钩子，通过 npm 脚本，在安装公共依赖前自动进行源切换：
 
 ```json
 "scripts": {
@@ -232,7 +232,7 @@ npx create-react-app cra-project
 }
 ```
 
-其中 preinstall.js 脚本内容，具体逻辑为通过 node.js 执行`npm config set`命令，代码如下：
+其中 preinstall.js 脚本内容，具体逻辑为通过 node.js 执行 `npm config set` 命令，代码如下：
 
 ```js
 require(' child_process').exec('npm config get registry', function(error, stdout, stderr) {
@@ -246,7 +246,7 @@ if (!stdout.toString().match(/registry\.x\.com/)) {
 
 你的公司是否也正在部署一个私有 npm 镜像呢？你有没有想过公司为什么要这样做呢？
 
-虽然 npm 并没有被屏蔽，但是下载第三方依赖包的速度依然较缓慢，这严重影响 CI/CD 流程或本地开发效率。部署镜像后，一般可以**确保高速、稳定的 npm 服务**，而且**使发布私有模块更加安全**。除此之外，审核机制也可以**保障私服上的 npm 模块质量和安全**。
+虽然 npm 并没有被屏蔽，但是下载第三方依赖包的速度依然较缓慢，这严重影响 CI/CD 流程或本地开发效率。部署镜像后，一般可以 **确保高速、稳定的 npm 服务**，而且 **使发布私有模块更加安全**。除此之外，审核机制也可以 **保障私服上的 npm 模块质量和安全**。
 
 那么，如何部署一个私有 npm 镜像呢？
 
@@ -270,6 +270,6 @@ npm 可以通过默认配置帮助我们预设好 npm 对项目的影响动作�
 
 **npm 镜像和安装问题**
 
-另外一个常见的问题就是 npm 镜像和依赖安装，关于 npm 镜像和依赖安装问题，归根到底还是网络环境导致的，建议有条件的情况下还是**从网络层面解决问题**。
+另外一个常见的问题就是 npm 镜像和依赖安装，关于 npm 镜像和依赖安装问题，归根到底还是网络环境导致的，建议有条件的情况下还是 **从网络层面解决问题**。
 
 如果没有条件，也不要紧，办法总比困难多，可以通过设置安装源镜像来解决，这就需要紧跟社区方案，刨根究底了。这里推荐一篇文章：[聊聊 npm 镜像那些险象环生的坑](https://mp.weixin.qq.com/s/2ntKGIkR3Uiy9cQfITg2NQ)，文章中有更详细的内容，你可以看看。

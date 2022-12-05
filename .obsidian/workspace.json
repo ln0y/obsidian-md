@@ -8,12 +8,48 @@
         "type": "tabs",
         "children": [
           {
+            "id": "9309dd891447c431",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "TODO看板.md"
+              }
+            }
+          },
+          {
+            "id": "3369b95337261f02",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Network/Session.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "b51c6d981f28d000",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network/Cookie.md",
+                "file": "project/front end/鉴权方案.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "97fd47d2e51667b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/前端安全：CSRF.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -46,7 +82,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +113,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "sso",
+                "query": "juejin",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -169,7 +206,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/Cookie.md"
+                "file": "Network/Session.md"
               }
             }
           }
@@ -186,7 +223,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network/Cookie.md",
+                "file": "Network/Session.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -203,7 +240,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/Cookie.md",
+                "file": "Network/Session.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -226,17 +263,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "b51c6d981f28d000",
+  "active": "3369b95337261f02",
   "lastOpenFiles": [
-    "browser/跨域.md",
-    "Security/前端安全：XSS.md",
-    "Network/Cookie.md",
-    "Security/前端安全：CSRF.md",
+    "TODO看板.md",
+    "project/front end/鉴权方案.md",
+    "JavaScript/engine/垃圾回收.md",
+    "Security/web 应用常见安全漏洞.md",
+    "infrastructure/npm/npm 机制.md",
+    "infrastructure/bundler/Webpack/loader和plugin的区别.md",
     "Post/front end.md",
     "Network/Cookie SameParty.md",
-    "Security/未命名.md",
-    "_attachment/draw/test.svg",
-    "_attachment/draw/cookie工作流程.svg",
-    "_attachment/draw/Untitled Diagram.svg"
+    "Network/Cookie.md",
+    "Security/前端安全：CSRF.md"
   ]
 }

@@ -154,7 +154,7 @@
       "Makes sure that two spaces are added to the ends of lines with content continued on the next line for paragraphs, blockquotes, and list items": true
     },
     "Unordered List Style": {
-      "Makes sure that unordered lists follow the style specified.": true,
+      "Makes sure that unordered lists follow the style specified.": false,
       "List item style": "consistent"
     },
     "Empty Line Around Blockquotes": {

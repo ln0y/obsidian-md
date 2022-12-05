@@ -111,7 +111,7 @@ rules: [
 - 然后执行 `inline loader`
 - 最后执行 `postLoader`
 
-`inline loader`的使用方式不同，也会改变 loader 的顺序，这又引入了新的复杂度，可以点击[这里](https://link.juejin.cn/?target=https%3A%2F%2Fwebpack.js.org%2Fconcepts%2Floaders%2F%23inline "https://webpack.js.org/concepts/loaders/#inline")查看
+`inline loader`的使用方式不同，也会改变 loader 的顺序，这又引入了新的复杂度，可以点击[这里](https://webpack.js.org/concepts/loaders/#inline)查看
 
 - 如果`inline loader`前面只有`!`号，则文件不会再通过配置的`normal loader`解析
 
