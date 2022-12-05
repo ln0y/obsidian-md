@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Security', 'xss', 'date/2022-11', 'year/2022', 'month/11']
 date: 2022-11-19-星期六 15:12:36
-update: 2022-11-24-星期四 19:39:45
+update: 2022-12-05-星期一 13:56:08
 ---
 
 # 前端安全
@@ -13,7 +13,7 @@ update: 2022-11-24-星期四 19:39:45
 
 1. [[#XSS 攻击的介绍]]
 2. [[#XSS 攻击的分类]]
-3. [[#XSS 攻击的预防]]和[[#XSS 的检测|检测]]
+3. [[#XSS 攻击的预防]] 和 [[#XSS 的检测|检测]]
 4. [[#XSS 攻击的总结]]
 5. [[#XSS 攻击案例]]
 
@@ -46,7 +46,7 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 
 `http://xxx/search?keyword="><script>alert('XSS');</script>`
 
-小明带着一种不祥的预感点开了这个链接<span style="color:red">\[请勿模仿，确认安全的链接才能点开\]</span>。果然，页面中弹出了写着"XSS"的对话框。
+小明带着一种不祥的预感点开了这个链接<span style="color:red">\[请勿模仿，确认安全的链接才能点开\]</span>。果然，页面中弹出了写着 "XSS" 的对话框。
 
 > 可恶，中招了！小明眉头一皱，发现了其中的奥秘：
 
@@ -131,7 +131,7 @@ XSS 攻击是页面被注入了恶意的代码，为了更形象的介绍，我�
 
 虽然代码不会立即执行，但一旦用户点击 `a` 标签时，浏览器会就会弹出“XSS”。
 
-> 可恶，又失策了...
+> 可恶，又失策了…
 
 在这里，用户的数据并没有在位置上突破我们的限制，仍然是正确的 href 属性。但其内容并不是我们所预期的类型。
 
@@ -157,7 +157,7 @@ if (!xss) {
 
 安全组随手又扔了一个连接：`http://xxx/?redirect_to=jAvascRipt:alert('XSS')`
 
-> 这也能执行？.....好吧，浏览器就是这么强大。
+> 这也能执行？…..好吧，浏览器就是这么强大。
 
 小明欲哭无泪，在判断 URL 开头是否为 `javascript:` 时，先把用户输入转成了小写，然后再进行比对。
 
@@ -241,8 +241,8 @@ var initData = <%= escapeEmbedJSON(data.toJSON()) %>
 - 在标签属性中，恶意内容包含引号，从而突破属性值的限制，注入其他属性或者标签。
 - 在标签的 href、src 等属性中，包含 `javascript:` 等可执行代码。
 - 在 onload、onerror、onclick 等事件中，注入不受控制代码。
-- 在 style 属性和标签中，包含类似 `background-image:url("javascript:...");` 的代码（新版本浏览器已经可以防范）。
-- 在 style 属性和标签中，包含类似 `expression(...)` 的 CSS 表达式代码（新版本浏览器已经可以防范）。
+- 在 style 属性和标签中，包含类似 `background-image:url("javascript:…");` 的代码（新版本浏览器已经可以防范）。
+- 在 style 属性和标签中，包含类似 `expression(…)` 的 CSS 表达式代码（新版本浏览器已经可以防范）。
 
 总之，如果开发者没有将用户输入的文本进行合适的过滤，就贸然插入到 HTML 中，这很容易造成注入漏洞。攻击者可以利用漏洞，构造出恶意的代码指令，进而利用恶意代码危害数据安全。
 
@@ -306,13 +306,13 @@ XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一�
 
 这是一个可以评论的文章的页面
 
-https://www.kkkk1000.com/xss/Stored/index.html
+<https://www.kkkk1000.com/xss/Stored/index.html>
 
 ![[1078298436-5d8038215d577.gif]]
 
 但是，评论的内容是没有处理过的，所以我们如果输入这样的内容：`<script>alert("xss")</script>` 同样是可以作为评论的。
 
-我们用这样的内容作为评论后，所有打开[这篇文章](https://www.kkkk1000.com/xss/Stored/index.html)的用户都会遭到存储型 XSS 攻击。
+我们用这样的内容作为评论后，所有打开 [这篇文章](https://www.kkkk1000.com/xss/Stored/index.html) 的用户都会遭到存储型 XSS 攻击。
 
 ![[3197862807-5d80381a35c01_fix732.png]]
 
@@ -345,19 +345,19 @@ POST 的内容也可以触发反射型 XSS，只不过其触发条件比较苛�
 
 1、打开首页，输入搜索内容
 
-https://www.kkkk1000.com/xss/Reflected/index.html
+<https://www.kkkk1000.com/xss/Reflected/index.html>
 
 ![[581581443-5d80381fba7e8_fix732.png]]
 
 2、开始搜索，查看结果
 
-https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=斗罗大陆
+<https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=斗罗大陆>
 
 ![[1353191088-5d8038205e3d4_fix732.png]]
 
 但是如果没有搜索到结果，后端也会返回用户输入的内容，然后显示在页面上。
 
-https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=xxx
+<https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=xxx>
 
 ![[712162921-5d80381b295d9_fix732.png]]
 
@@ -375,7 +375,7 @@ https://www.kkkk1000.com/xss/Reflected/searchResult.html?kw=xxx
 
 短网址：
 
-http://i6q.cn/4TJcII
+<http://i6q.cn/4TJcII>
 
 二维码：
 
@@ -402,7 +402,7 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 
 下面是一个物流详情的页面，在 URL 上有快递编号这个参数，通过这个参数来获取数据。
 
-https://www.kkkk1000.com/xss/dom/index.html?serialNumber=YT40359134268305
+<https://www.kkkk1000.com/xss/dom/index.html?serialNumber=YT40359134268305>
 
 ![[503693168-5d80381a34f1e_fix732.png]]
 
@@ -437,7 +437,7 @@ https://www.kkkk1000.com/xss/dom/index.html?serialNumber=YT40359134268305
 
 这里的“并不确定内容要输出到哪里”有两层含义：
 
-1. 用户的输入内容可能同时提供给前端和客户端，而一旦经过了 `escapeHTML()`，客户端显示的内容就变成了乱码( `5 &lt; 7` )。
+1. 用户的输入内容可能同时提供给前端和客户端，而一旦经过了 `escapeHTML()`，客户端显示的内容就变成了乱码 ( `5 &lt; 7` )。
 2. 在前端中，不同的位置所需的编码也不同。
 
    - 当 `5 &lt; 7` 作为 HTML 拼接页面时，可以正常显示：
@@ -599,7 +599,7 @@ eval("UNTRUSTED")
 
 ### 浏览器自带防御（X-XSS-Protection）
 
-HTTP [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection)  响应头是 Internet Explorer，Chrome 和 Safari 的一个功能，当检测到跨站脚本攻击(XSS)时，浏览器将停止加载页面。
+HTTP [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection)  响应头是 Internet Explorer，Chrome 和 Safari 的一个功能，当检测到跨站脚本攻击 (XSS) 时，浏览器将停止加载页面。
 
 他可以设置 4 个值：
 
@@ -623,7 +623,7 @@ HTTP [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Heade
 
 ### 其他安全措施
 
-- HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。
+- [[Cookie#HTTPOnly|HTTP-only Cookie]]: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。
 - 验证码：防止脚本冒充用户提交危险操作。
 
 ## XSS 的检测
@@ -635,7 +635,7 @@ HTTP [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Heade
 1. 使用通用 XSS 攻击字符串手动检测 XSS 漏洞。
 2. 使用扫描工具自动检测 XSS 漏洞。
 
-在[Unleashing an Ultimate XSS Polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot)一文中，小明发现了这么一个字符串：
+在 [Unleashing an Ultimate XSS Polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot) 一文中，小明发现了这么一个字符串：
 
 ```js
 jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e

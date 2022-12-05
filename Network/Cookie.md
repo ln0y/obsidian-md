@@ -2,14 +2,14 @@
 aliases: []
 tags: ['Network','date/2022-03','year/2022','month/03']
 date: 2022-11-09-星期三 10:52:57
-update: 2022-12-05-星期一 11:42:45
+update: 2022-12-05-星期一 14:30:05
 ---
 
 ## Cookie 简介
 
 HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发起的请求之间没有任何关系。这给服务端带来了挑战：用户在同一个网站中进行连续的操作，服务端无法知道这些操作来自哪里。
 
-使用 HTTP Cookie 可以解决这个问题。当服务端将 HTTP 响应返回给客户端时，通过在响应头里面添加一个`Set-Cookie`信息，浏览器收到带`Set-Cookie`信息的响应后会将 Cookie 保存，在后面发送给该服务端的每个请求中，都会自动带上 Cookie 信息。服务端根据 Cookie 信息，就能取得客户端的数据信息。
+使用 HTTP Cookie 可以解决这个问题。当服务端将 HTTP 响应返回给客户端时，通过在响应头里面添加一个 `Set-Cookie` 信息，浏览器收到带 `Set-Cookie` 信息的响应后会将 Cookie 保存，在后面发送给该服务端的每个请求中，都会自动带上 Cookie 信息。服务端根据 Cookie 信息，就能取得客户端的数据信息。
 
 由于 Cookie 信息是被浏览器识别并自动保存和发送的，因此在默认情况下，浏览器关闭之后它就会被自动删除。但我们也可以通过指定过期时间（Expires）或者有效期（Max-Age），来让 Cookie 获得更久的有效期。
 
@@ -17,7 +17,7 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 
 利用这一漏洞，攻击者可通过一些技术手段（图片地址、超链接等）欺骗用户的浏览器访问曾经认证过的网站，并利用用户的登录态进行一些操作，可能导致用户信息泄露、资产被转移、在不知情的情况下发送信息等，带来了恶劣的后果。这便是我们常说的 Web 安全问题之一：[[前端安全：CSRF|跨站请求伪造（CSRF）]]。
 
-为了应对这种情况，我们可以校验 HTTP 请求头中的Referer字段，这个字段用以标明请求来源于哪个地址。但由于该字段可能会被篡改，因此只能作为辅助校验手段。
+为了应对这种情况，我们可以校验 HTTP 请求头中的 Referer 字段，这个字段用以标明请求来源于哪个地址。但由于该字段可能会被篡改，因此只能作为辅助校验手段。
 
 防范跨站请求伪造攻击的有效方法，就是避免依赖浏览器自动带上的 Cookie 信息。我们可以使用其他方式校验用户登录态，比如将用户登录态保存在浏览器缓存中，在发送请求的时候添加用于标识用户的参数值，现在大多数应用也是使用 Token 来进行用户标识。
 
@@ -25,7 +25,7 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 
 ## Cookie 产生的背景
 
-我们都知道，`HTTP 协议`是无状态的，服务器无法知道两个请求是否来自同一个浏览器，也不知道用户上一次做了什么，每次请求都是完全相互独立，这严重阻碍了`交互式 Web` 应用程序的实现。例子：
+我们都知道，`HTTP 协议` 是无状态的，服务器无法知道两个请求是否来自同一个浏览器，也不知道用户上一次做了什么，每次请求都是完全相互独立，这严重阻碍了 `交互式 Web` 应用程序的实现。例子：
 
 - 购物车：在典型的网上购物场景中，用户浏览了几个页面，买了一盒饼干和两瓶饮料。最后结帐时，由于 `HTTP` 的无状态性，不通过额外的手段，服务器并不知道用户到底买了什么。
 - 登录状态：我们常用的“记住密码”功能，在以前如果不是用 `Cookie` 记住了登录凭据，想要实现该功能将会很复杂。
@@ -34,11 +34,11 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 
 ## Cookie 概述
 
-> `Cookie`（ 也叫 `Web Cookie` 或`浏览器 Cookie` ）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。
+> `Cookie`（ 也叫 `Web Cookie` 或 `浏览器 Cookie` ）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。
 
 存储 `Cookie` 是浏览器提供的功能。`Cookie` 其实是存储在浏览器中的纯文本，浏览器的安装目录下会专门有一个 `Cookie` 文件夹来存放各个域下设置的 `Cookie`（非内存 `Cookie`）。
 
->新版chrome cookies会保存在 `%LocalAppData%\Google\Chrome\User Data\Default\Network\Cookies` 文件，是一个 SQLite 数据库文件
+>新版 chrome cookies 会保存在 `%LocalAppData%\Google\Chrome\User Data\Default\Network\Cookies` 文件，是一个 SQLite 数据库文件
 
 ![[Pasted image 20221202112620.png]]
 
@@ -59,7 +59,7 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 
 客户端储存应该更多的考虑使用 `localStorage` 、`sesseionStorage` 和 `IndexedDB`。
 
-当然，浏览器可以设置不接受 `Cookie`，也可以设置不向服务器发送 `Cookie`。`window.navigator.cookieEnabled`属性返回一个布尔值，表示浏览器是否打开 `Cookie` 功能。
+当然，浏览器可以设置不接受 `Cookie`，也可以设置不向服务器发送 `Cookie`。`window.navigator.cookieEnabled` 属性返回一个布尔值，表示浏览器是否打开 `Cookie` 功能。
 
 ```js
 window.navigator.cookieEnabled 
@@ -84,14 +84,14 @@ window.navigator.cookieEnabled
 
 由于 `Cookie` 是保存在客户端上的，所以浏览器加入了一些限制确保 `Cookie` 不会被恶意使用，同时不会占据太多磁盘空间，所以 `Cookie` 的数量和大小是有限的。
 
-不同浏览器对 `Cookie` 数量和大小的限制，是不一样的。一般来说，单个域设置的 `Cookie` 不应超过 50个，每个 Cookie 的大小不能超过 4KB 。超过限制以后，`Cookie` 将被忽略，不会被设置。
+不同浏览器对 `Cookie` 数量和大小的限制，是不一样的。一般来说，单个域设置的 `Cookie` 不应超过 50 个，每个 Cookie 的大小不能超过 4KB 。超过限制以后，`Cookie` 将被忽略，不会被设置。
 
-> 每个特定域名下的cookie数量有限：
-> IE6或IE6-(IE6以下版本)：最多20个cookie
-> IE7或IE7+(IE7以上版本)：最多50个cookie
-> FF:最多50个cookie
-> Opera:最多30个cookie
-> Chrome和safari没有硬性限制
+> 每个特定域名下的 cookie 数量有限：
+> IE6 或 IE6-(IE6 以下版本)：最多 20 个 cookie
+> IE7 或 IE7+(IE7 以上版本)：最多 50 个 cookie
+> FF: 最多 50 个 cookie
+> Opera: 最多 30 个 cookie
+> Chrome 和 safari 没有硬性限制
 >
 > 其限制的原因，主要在于阻止 `Cookie` 的滥用，而且 `Cookie` 会被发送到服务器端，如果数量太大的话，会严重影响请求的性能。以上这两个限制条件，就是 `Cookie` 为什么会被浏览器自动删除的原因了。
 
@@ -152,15 +152,15 @@ window.navigator.cookieEnabled
 
 ### Size
 
-Cookie的大小
+Cookie 的大小
 
 ### HTTPOnly
 
-这个选项用来设置 `Cookie` 是否能通过 `JavaScript` 去访问。默认情况下， `Cookie` 不会带 `HTTPOnly` 选项(即为空)，所以默认情况下，客户端是可以通过 `JavaScript` 代码去访问（包括读取、修改、删除等）这个 `Cookie` 的。当 `Cookie` 带 `HTTPOnly` 选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个 `Cookie` 。
+这个选项用来设置 `Cookie` 是否能通过 `JavaScript` 去访问。默认情况下， `Cookie` 不会带 `HTTPOnly` 选项 (即为空)，所以默认情况下，客户端是可以通过 `JavaScript` 代码去访问（包括读取、修改、删除等）这个 `Cookie` 的。当 `Cookie` 带 `HTTPOnly` 选项时，客户端则无法通过 js 代码去访问（包括读取、修改、删除等）这个 `Cookie` 。
 
-用于防止客户端脚本通过 `document.cookie` 属性访问 `Cookie` ，有助于保护 `Cookie` 不被[[前端安全：XSS|跨站脚本攻击]]窃取或篡改。但是，`HTTPOnly` 的应用仍存在局限性，一些浏览器可以阻止客户端脚本对 `Cookie` 的读操作，但允许写操作；此外大多数浏览器仍允许通过 `XMLHTTP` 对象读取 `HTTP` 响应中的 `Set-Cookie` 头 。
+用于防止客户端脚本通过 `document.cookie` 属性访问 `Cookie` ，有助于保护 `Cookie` 不被 [[前端安全：XSS|跨站脚本攻击]] 窃取或篡改。但是，`HTTPOnly` 的应用仍存在局限性，一些浏览器可以阻止客户端脚本对 `Cookie` 的读操作，但允许写操作；此外大多数浏览器仍允许通过 `XMLHTTP` 对象读取 `HTTP` 响应中的 `Set-Cookie` 头 。
 
-> 在客户端是不能通过 `JAvaScript` 代码去设置一个 `httpOnly` 类型的 `Cookie` 的，这种类型的 `Cookie` 只能通过服务端来设置。
+> 在客户端是不能通过 `JavaScript` 代码去设置一个 `httpOnly` 类型的 `Cookie` 的，这种类型的 `Cookie` 只能通过服务端来设置。
 
 ### Secure
 
@@ -168,9 +168,9 @@ Cookie的大小
 
 使用 `HTTPS` 安全协议，可以保护 `Cookie` 在浏览器和 `Web` 服务器间的传输过程中不被窃取和篡改。该方法也可用于 `Web` 站点的身份鉴别，即在 `HTTPS` 的连接建立阶段，浏览器会检查 `Web` 网站的 `SSL` 证书的有效性。
 
-默认情况下，cookie不会带Secure选项(即为空)。所以默认情况下，不管是HTTPS协议还是HTTP协议的请求，cookie 都会被发送至服务端。但要注意一点，Secure选项只是限定了在安全情况下才可以传输给服务端，但并不代表你不能看到这个 cookie。
+默认情况下，cookie 不会带 Secure 选项 (即为空)。所以默认情况下，不管是 HTTPS 协议还是 HTTP 协议的请求，cookie 都会被发送至服务端。但要注意一点，Secure 选项只是限定了在安全情况下才可以传输给服务端，但并不代表你不能看到这个 cookie。
 
->如果想在客户端即网页中通过 js 去设置Secure类型的 cookie，必须保证网页是https协议的。在http协议的网页中是无法设置secure类型cookie的。
+>如果想在客户端即网页中通过 js 去设置 Secure 类型的 cookie，必须保证网页是 https 协议的。在 http 协议的网页中是无法设置 secure 类型 cookie 的。
 
 但是基于兼容性的原因（比如有些网站使用自签署的证书）在检测到 `SSL` 证书无效时，浏览器并不会立即终止用户的连接请求，而是显示安全风险信息，用户仍可以选择继续访问该站点。由于许多用户缺乏安全意识，因而仍可能连接到 `Pharming` 攻击所伪造的网站 。
 
@@ -178,7 +178,7 @@ Cookie的大小
 
 ### SameSite
 
-`Cookie` 允许服务器要求某个 `Cookie` 在跨站请求时不会被发送，（其中 `Site` 由可注册域定义），从而可以阻止[[前端安全：CSRF|跨站请求伪造攻击（`CSRF`）]]。
+`Cookie` 允许服务器要求某个 `Cookie` 在跨站请求时不会被发送，（其中 `Site` 由可注册域定义），从而可以阻止 [[前端安全：CSRF|跨站请求伪造攻击（`CSRF`）]]。
 
 `SameSite cookies` 是相对较新的一个字段，所有主流浏览器都已经得到支持。下面是例子：
 
@@ -190,15 +190,32 @@ Set-Cookie: key=value; SameSite=Strict
 
 - **`None`** 浏览器会在同站请求、跨站请求下继续发送 `Cookies`，不区分大小写。
 - **`Strict`** 浏览器将只在访问相同站点时发送 `Cookie`。（在原有 `Cookies` 的限制条件上的加强）。
-- **`Lax`** 与 **`Strict`** 类似，但用户从外部站点导航至URL时（例如通过链接）除外。 在新版本浏览器中，为默认选项，`Same-site cookies` 将会为一些跨站子请求保留，如图片加载或者 `frames` 的调用，但只有当用户从外部站点导航到 `URL` 时才会发送。如 link 链接。
+- **`Lax`** 与 **`Strict`** 类似，但用户从外部站点导航至 URL 时（例如通过链接）除外。 在新版本浏览器中，为默认选项，`Same-site cookies` 将会为一些跨站子请求保留，如图片加载或者 `frames` 的调用，但只有当用户从外部站点导航到 `URL` 时才会发送。如 link 链接。
 
 > 以前，如果 `SameSite` 属性没有设置，或者没有得到运行浏览器的支持，那么它的行为等同于 `None`，`Cookies` 会被包含在任何请求中——包括跨站请求。
 >
 > 大多数主流浏览器正在将 `SameSite` 的默认值迁移至 `Lax`。如果想要指定 `Cookies` 在同站、跨站请求都被发送，现在需要明确指定 `SameSite` 为 `None`。
 
+| 请求类型  | 示例                              | 正常情况    | Lax         |
+| --------- | --------------------------------- | ----------- | ----------- |
+| 链接      | \<a href="…">\</a>                | 发送 Cookie | 发送 Cookie |
+| 预加载    | \<link rel="prerender" href="…"/> | 发送 Cookie | 发送 Cookie |
+| GET 表单  | \<form method="GET" action="…">   | 发送 Cookie | 发送 Cookie |
+| POST 表单 | \<form method="POST" action="…">  | 发送 Cookie | 不发送      |
+| iframe    | \<iframe src="…">\</iframe>       | 发送 Cookie | 不发送      |
+| AJAX      | $.get("…")                        | 发送 Cookie | 不发送      |
+| Image     | \<img src="…">                    | 发送 Cookie | 不发送      |
+
+
 ### SameParty
 
 ![[Cookie SameParty]]
+
+### Partition Key
+
+<https://developer.chrome.com/docs/privacy-sandbox/chips/>
+<https://www.chromium.org/updates/chips/>
+<https://github.com/privacycg/CHIPS>
 
 ### Cookie prefixes
 
@@ -222,7 +239,7 @@ Set-Cookie: key=value; SameSite=Strict
 
 ### HTTP Cookie
 
-服务器如果希望在浏览器保存 `Cookie`，就要在 `HTTP` 回应的头信息里面，放置一个`Set-Cookie`字段。
+服务器如果希望在浏览器保存 `Cookie`，就要在 `HTTP` 回应的头信息里面，放置一个 `Set-Cookie` 字段。
 
 ![[545397776-5f707e306a5fe.png|800]]
 
@@ -239,7 +256,7 @@ Set-Cookie: tasty_cookie=strawberry
 [page content]
 ```
 
-除了 `Cookie` 的值，`Set-Cookie`字段还可以附加 `Cookie` 的属性。
+除了 `Cookie` 的值，`Set-Cookie` 字段还可以附加 `Cookie` 的属性。
 
 ```
 Set-Cookie: <cookie-name>=<cookie-value>; Expires=<date>
@@ -274,7 +291,7 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 
 上图从 `document.cookie` 一次性读出多个 `Cookie`，它们之间使用分号分隔。必须手动还原，才能取出每一个 `Cookie` 的值。
 
-cookie不像`web Storage`有`setItem`，`getItem`，`removeItem`，`clear`等方法，需要自己封装。写入的时候，`Cookie` 的值必须写成 `key=value` 的形式。注意，等号两边不能有空格。另外，写入 `Cookie` 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 `Cookie` 的值），这可以用 `encodeURIComponent` 方法达到。比如，我们要存储一个对象到 `Cookie`中，可以通过下面代码实现：
+cookie 不像 `web Storage` 有 `setItem`，`getItem`，`removeItem`，`clear` 等方法，需要自己封装。写入的时候，`Cookie` 的值必须写成 `key=value` 的形式。注意，等号两边不能有空格。另外，写入 `Cookie` 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 `Cookie` 的值），这可以用 `encodeURIComponent` 方法达到。比如，我们要存储一个对象到 `Cookie` 中，可以通过下面代码实现：
 
 ```js
 const people = {
@@ -319,7 +336,7 @@ const people = JSON.parse(decodeURIComponent(peopleCookie))
 
 > 信息被存在 `Cookie` 中时，需要明白 `Cookie` 的值时可以被访问，且可以被终端用户所修改的。根据应用程序的不同，可能需要使用服务器查找的不透明标识符，或者研究诸如 `JSON Web Tokens` 之类的替代身份验证/机密机制。
 >
-> 当机器处于不安全环境时，切记_不能_通过 `HTTP Cookie` 存储、传输敏感信息。
+> 当机器处于不安全环境时，切记 _ 不能 _ 通过 `HTTP Cookie` 存储、传输敏感信息。
 
 ### Cookie 捕获/重放
 
@@ -327,9 +344,9 @@ const people = JSON.parse(decodeURIComponent(peopleCookie))
 
 - 在不安全的局域网中被动地监听网络通信；
 - 通过攻击网络用户的路由器，或通过搭建恶意的无线路由器等手法，控制路由基础设施，将网络流量重定向到攻击者控制的主机；
-- 发动 `DNSPharming` (域欺骗)攻击，通过 `DNS 缓存中毒`、`DNS 应答欺骗`、或修改用户端的本地域名解析文件等方法攻击 `DNS` 系统，导致用户对合法网站的访问请求被重定向到恶意网站等等，同样可能窃取 `Cookie`。
+- 发动 `DNSPharming` (域欺骗) 攻击，通过 `DNS 缓存中毒`、`DNS 应答欺骗`、或修改用户端的本地域名解析文件等方法攻击 `DNS` 系统，导致用户对合法网站的访问请求被重定向到恶意网站等等，同样可能窃取 `Cookie`。
 
-对于捕获到的认证 `Cookie`，攻击者往往会猜测其中的访问令牌，试图获取会话ID、用户名与口令、用户角色、时间戳等敏感信息；或者直接重放该 `Cookie`，假冒受害者的身份发动攻击 。
+对于捕获到的认证 `Cookie`，攻击者往往会猜测其中的访问令牌，试图获取会话 ID、用户名与口令、用户角色、时间戳等敏感信息；或者直接重放该 `Cookie`，假冒受害者的身份发动攻击 。
 
 ### 恶意 Cookies
 
@@ -337,22 +354,22 @@ const people = JSON.parse(decodeURIComponent(peopleCookie))
 
 ### 会话定置
 
-会话定置(`Session Fixation`)攻击是指，攻击者向受害者主机注入自己控制的认证 `Cookie` 等信息，使得受害者以攻击者的身份登录网站，从而窃取受害者的会话信息。
+会话定置 (`Session Fixation`) 攻击是指，攻击者向受害者主机注入自己控制的认证 `Cookie` 等信息，使得受害者以攻击者的身份登录网站，从而窃取受害者的会话信息。
 
 注入 `Cookie` 的方法包括：
 
 - 使用跨站脚本或木马等恶意程序；
-- 或伪造与合法网站同域的站点，并利用各种方法欺骗用户访问该仿冒网站，从而通过HTTP响应中的Set-Cookie头将攻击者拥有的该域Cookie发送给用户等。
+- 或伪造与合法网站同域的站点，并利用各种方法欺骗用户访问该仿冒网站，从而通过 HTTP 响应中的 Set-Cookie 头将攻击者拥有的该域 Cookie 发送给用户等。
 
 ### CSRF 攻击
 
-跨站请求伪造（`Cross-Site Request Forgery`，简称`CSRF`）是指：
+跨站请求伪造（`Cross-Site Request Forgery`，简称 `CSRF`）是指：
 
 攻击者可能利用网页中的恶意代码强迫受害者浏览器向被攻击的 `Web` 站点发送伪造的请求，篡夺受害者的认证 `Cookie` 等身份信息，从而假冒受害者对目标站点执行指定的操作。
 
-Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用同一个进程，共享 `Cookie` 等会话数据。IE 则混合使用单进程与多进程模式，一个窗口中的多个标签，以及使用 “CTRL+N” 或单击网页中的链接打开的新窗口使用同一进程，共享会话数据；只有直接运行IE可执行程序打开窗口时，才会创建新的进程。Chrome 虽然使用多进程机制，然而经测试发现，其不同的窗口或标签之间仍会共享会话数据，除非使用隐身访问方式。
+Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用同一个进程，共享 `Cookie` 等会话数据。IE 则混合使用单进程与多进程模式，一个窗口中的多个标签，以及使用 “CTRL+N” 或单击网页中的链接打开的新窗口使用同一进程，共享会话数据；只有直接运行 IE 可执行程序打开窗口时，才会创建新的进程。Chrome 虽然使用多进程机制，然而经测试发现，其不同的窗口或标签之间仍会共享会话数据，除非使用隐身访问方式。
 
-因而，用户同时打开多个浏览器窗口或标签访问互联网资源时，就为 `CSRF` 攻击篡夺用户的会话 `Cookie` 创造了条件。另外，如果一个Web 站点提供持久化 `Cookie`，则 `CSRF` 攻击将更直接、更容易。
+因而，用户同时打开多个浏览器窗口或标签访问互联网资源时，就为 `CSRF` 攻击篡夺用户的会话 `Cookie` 创造了条件。另外，如果一个 Web 站点提供持久化 `Cookie`，则 `CSRF` 攻击将更直接、更容易。
 
 > 缓解 Cookie 攻击的方法如下：
 >
@@ -376,7 +393,7 @@ Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用�
 
 - **Web Storage、window.localStorage**
 
-在浏览器中存储数据的另一种方法是 Web Storage API。`window.sessionStorage` 和 `window.localStorage` 属性与持续时间中的会话和永久 `Cookie` 相对应，但是存储限制比 `Cookie`大，并且永远不会发送到服务器。
+在浏览器中存储数据的另一种方法是 Web Storage API。`window.sessionStorage` 和 `window.localStorage` 属性与持续时间中的会话和永久 `Cookie` 相对应，但是存储限制比 `Cookie` 大，并且永远不会发送到服务器。
 
 - **IndexedDB**
 
