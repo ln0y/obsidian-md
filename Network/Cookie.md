@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Network','date/2022-03','year/2022','month/03']
 date: 2022-11-09-星期三 10:52:57
-update: 2022-12-05-星期一 14:30:05
+update: 2022-12-05-星期一 15:23:44
 ---
 
 ## Cookie 简介
@@ -123,6 +123,8 @@ window.navigator.cookieEnabled
 
 设置 `Cookie` 的名称及相对应的值，对于认证 `Cookie`，`Value` 值包括 `Web` 服务器所提供的访问令牌 。
 
+从 document.cookie 中我们可以看到，存在 **等于号、冒号、分号、空格、逗号、斜杠** 等特殊字符，因此当 cookie 的 key 和 value 中存在这几种符号时，需要对其进行编码，一般会用 encodeURIComponent/decodeURIComponent 进行操作。
+
 ### Domain
 
 指定了可以访问该 `Cookie` 的 Web 站点或域。
@@ -234,6 +236,16 @@ Set-Cookie: key=value; SameSite=Strict
     如果 `Cookie` 名称具有此前缀，则仅当它也用 `Secure` 属性标记，是从安全来源发送的，它才在 `Set-Cookie` 标头中接受。该前缀限制要弱于 `__Host-` 前缀。
 
 带有这些前缀点 `Cookie`， 如果不符合其限制的会被浏览器拒绝。请注意，这确保了如果子域要创建带有前缀的 `Cookie`，那么它将要么局限于该子域，要么被完全忽略。由于应用服务器仅在确定用户是否已通过身份验证或 CSRF 令牌正确时才检查特定的 `Cookie` 名称，因此，这有效地充当了针对会话劫持的防御措施。
+
+### Priority
+
+chrome 的提案（firefox 不支持），定义了三种优先级，Low/Medium/High，当 cookie 数量超出时，低优先级的 cookie 会被优先清除。
+
+```
+Set-Cookie: key=value; Priority=High
+```
+
+[更多信息](https://code.google.com/p/chromium/issues/detail?id=232693)
 
 ## HTTP Cookie 和 document.cookie
 
