@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Network','date/2022-03','year/2022','month/03']
 date: 2022-11-09-星期三 10:52:57
-update: 2022-12-03-星期六 13:54:23
+update: 2022-12-05-星期一 11:42:45
 ---
 
 ## Cookie 简介
@@ -218,23 +218,19 @@ Set-Cookie: key=value; SameSite=Strict
 
 带有这些前缀点 `Cookie`， 如果不符合其限制的会被浏览器拒绝。请注意，这确保了如果子域要创建带有前缀的 `Cookie`，那么它将要么局限于该子域，要么被完全忽略。由于应用服务器仅在确定用户是否已通过身份验证或 CSRF 令牌正确时才检查特定的 `Cookie` 名称，因此，这有效地充当了针对会话劫持的防御措施。
 
-`Cookie` 各个属性的兼容性如下图所示：
+## HTTP Cookie 和 document.cookie
 
-![Cookie属性的兼容性](https://segmentfault.com/img/bVbRFC3 "Cookie属性的兼容性")
-
-## 6\. HTTP Cookie 和 document.cookie
-
-### 6.1 HTTP Cookie
+### HTTP Cookie
 
 服务器如果希望在浏览器保存 `Cookie`，就要在 `HTTP` 回应的头信息里面，放置一个`Set-Cookie`字段。
 
-![HTTP设置Cookie](https://segmentfault.com/img/bVbRFC9 "HTTP设置Cookie")
+![[545397776-5f707e306a5fe.png|800]]
 
 浏览器收到响应后通常会保存下 `Cookie`，之后对该服务器每一次请求中都通过 `Cookie` 请求头部将 `Cookie` 信息发送给服务器。另外，`Cookie` 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。
 
 `HTTP` 回应可以包含多个 `Set-Cookie` 字段，即在浏览器生成多个 `Cookie`。下面是一个例子。
 
-```
+```http
 HTTP/1.0 200 OK
 Content-type: text/html
 Set-Cookie: yummy_cookie=choco
@@ -260,49 +256,72 @@ Set-Cookie: <cookie-name>=<cookie-value>; HttpOnly
 
 浏览器接收了响应头提供的 `Cookie` 之后，每一次访问该域时，都会携带该 `Cookie` 值：
 
-![HTTP的请求头中携带Cookie](https://segmentfault.com/img/bVbRFDa "HTTP的请求头中携带Cookie")
+![[2196786716-5f707e4a1bf3c.png|800]]
 
 `Cookie` 字段可以包含多个 Cookie，使用分号（`;`）分隔。
 
-```
+```http
 GET /sample_page.html HTTP/1.1
 Host: www.example.org
 Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 ```
 
-### 6.2 document.cookie
+### document.cookie
 
 通过 `document.cookie` 属性可创建新的 `Cookie`，也可通过该属性访问非 HttpOnly 标记的 `Cookie`。
 
-![Document获取Cookie](https://segmentfault.com/img/bVbRFDn "Document获取Cookie")
+![[4046693869-5f707e731773e.png|800]]
 
 上图从 `document.cookie` 一次性读出多个 `Cookie`，它们之间使用分号分隔。必须手动还原，才能取出每一个 `Cookie` 的值。
 
-写入的时候，`Cookie` 的值必须写成 `key=value` 的形式。注意，等号两边不能有空格。另外，写入 `Cookie` 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 `Cookie` 的值），这可以用 `encodeURIComponent` 方法达到。比如，我们要存储一个对象到 `Cookie`中，可以通过下面代码实现：
+cookie不像`web Storage`有`setItem`，`getItem`，`removeItem`，`clear`等方法，需要自己封装。写入的时候，`Cookie` 的值必须写成 `key=value` 的形式。注意，等号两边不能有空格。另外，写入 `Cookie` 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 `Cookie` 的值），这可以用 `encodeURIComponent` 方法达到。比如，我们要存储一个对象到 `Cookie`中，可以通过下面代码实现：
 
-![document.cookie设置](https://segmentfault.com/img/bVbRFDp "document.cookie设置")
+```js
+const people = {
+  name: 'peopleName',
+  age: 'age',
+  family: ['child1', 'child2'],
+}
+
+let peopleCookie = encodeURIComponent(JSON.stringify(people))
+
+// 失效时间设为一周之后
+let expires = new Date(new Date().getTime() + 3600 * 1000 * 24 * 7).toGMTString()
+document.cookie = `people=${peopleCookie};expires=${expires}`
+```
 
 设置完成后，在浏览器查看：
 
-![查看设置的Cookie](https://segmentfault.com/img/bVbRFDs "查看设置的Cookie")
+![[Pasted image 20221205111636.png]]
 
 那要怎么才能读取到这次设置的 `Cookie` 呢？方法如下：
 
-![读取设置的cookie_people](https://segmentfault.com/img/bVbRFDu "读取设置的cookie_people")
+```js
+//将所有的cookie转换成对象的格式
+const cookieObj = {}
+document.cookie.split(';').forEach(cookie => {
+  const nameValue = cookie.split('=')
+  cookieObj[nameValue[0].trim()] = nameValue[1].trim()
+})
+
+// 读取key为 people 的cookie的值
+const peopleCookie = cookieObj['people']
+const people = JSON.parse(decodeURIComponent(peopleCookie))
+```
 
 读取到的结果如下：
 
-![读取设置的cookie](https://segmentfault.com/img/bVbRFDz "读取设置的cookie")
+![[Pasted image 20221205112307.png]]
 
 > `document.cookie` 一次只能写入一个 `Cookie`，而且写入并不是覆盖，而是添加。
 
-## 7\. Cookie 的安全隐患
+## Cookie 的安全隐患
 
 > 信息被存在 `Cookie` 中时，需要明白 `Cookie` 的值时可以被访问，且可以被终端用户所修改的。根据应用程序的不同，可能需要使用服务器查找的不透明标识符，或者研究诸如 `JSON Web Tokens` 之类的替代身份验证/机密机制。
 >
 > 当机器处于不安全环境时，切记_不能_通过 `HTTP Cookie` 存储、传输敏感信息。
 
-### 7.1 Cookie 捕获/重放
+### Cookie 捕获/重放
 
 攻击者可以通过木马等恶意程序，或使用跨站脚本攻击等手段偷窃存放在用户硬盘或内存中的 `Cookie`。借助网络攻击手段，包括：
 
@@ -312,11 +331,11 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 
 对于捕获到的认证 `Cookie`，攻击者往往会猜测其中的访问令牌，试图获取会话ID、用户名与口令、用户角色、时间戳等敏感信息；或者直接重放该 `Cookie`，假冒受害者的身份发动攻击 。
 
-### 7.2 恶意 Cookies
+### 恶意 Cookies
 
 `Cookies` 是文本文件， 一般情况下认为它不会造成安全威胁。 但是，如果在 `Cookies` 中通过特殊标记语言，引入可执行代码，就很可能给用户造成严重的安全隐患。`HTML` 为区别普通文本和标记语言，用符号 `“<>”` 来指示 `HTML` 代码。 这些 `HTML` 代码或者定义 `Web` 网页格式，或者引入 `Web` 浏览器可执行代码段。 `Web` 服务 器可以使用 `Cookies` 信息创建动态网页。假使 `Cookies` 包含可执行恶意代码段，那么在显示合成有该 `Cookies` 的网页时，就会自动执行这段恶意代码。当然，恶意代码能否真正造成危害，还取决于 `Web` 站点的安全配置策略 。
 
-### 7.3 会话定置
+### 会话定置
 
 会话定置(`Session Fixation`)攻击是指，攻击者向受害者主机注入自己控制的认证 `Cookie` 等信息，使得受害者以攻击者的身份登录网站，从而窃取受害者的会话信息。
 
@@ -325,7 +344,7 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 - 使用跨站脚本或木马等恶意程序；
 - 或伪造与合法网站同域的站点，并利用各种方法欺骗用户访问该仿冒网站，从而通过HTTP响应中的Set-Cookie头将攻击者拥有的该域Cookie发送给用户等。
 
-### 7.4 CSRF 攻击
+### CSRF 攻击
 
 跨站请求伪造（`Cross-Site Request Forgery`，简称`CSRF`）是指：
 
@@ -341,7 +360,7 @@ Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用�
 > - 任何敏感操作都需要确认；
 > - 用于敏感信息的 Cookie 只能拥有较短的生命周期；
 
-## 8\. 安全使用 Cookie
+## 安全使用 Cookie
 
 有两种方法可以确保 `Cookie` 被安全发送，并且不会被意外的参与者或脚本访问：`Secure` 属性和 `HttpOnly` 属性。
 
@@ -349,11 +368,11 @@ Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用�
 
 `JavaScript Document.cookie API` 无法访问带有 `HttpOnly` 属性的 `Cookie`；此类 `Cookie` 仅作用于服务器。例如，例如，持久化服务器端会话的 `Cookie` 不需要对 `JavaScript` 可用，而应具有 `HttpOnly` 属性。此预防措施有助于缓解跨站点脚本（`XSS`）攻击。
 
-## 9\. Cookie 的替代方案
+## Cookie 的替代方案
 
 由于 `Cookie` 在使用上存在较多限制，近年来，随着技术的发展成熟，出现了几种可替代 `Cookie` 的方案，且已被大多数主流浏览器支持。
 
-![Cookie的替代方案](https://segmentfault.com/img/bVbRFDI "Cookie的替代方案")
+![[2586362555-5f707f08957c8.png|800]]
 
 - **Web Storage、window.localStorage**
 
@@ -366,11 +385,3 @@ Firefox、Opera 等浏览器使用单进程机制，多个窗口或标签使用�
 - **Web SQL**
 
 `Web SQL` 是一种利用数据库进行数据存储并利用 SQL 处理检索任务的 API。
-
-___
-
-> 欢迎大家来到我的「山头」，我是「前端三昧」的作者 _隐逸王_ —— 一个想要做山大王的男人！
->
-> 愿和你一起领略前端三昧，发现前端之美！
-
-___
