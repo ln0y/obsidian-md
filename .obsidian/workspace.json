@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -206,7 +206,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/Session.md"
+                "file": "project/front end/鉴权方案.md"
               }
             }
           }
@@ -223,7 +223,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network/Session.md",
+                "file": "project/front end/鉴权方案.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -240,7 +240,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/Session.md",
+                "file": "project/front end/鉴权方案.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -263,8 +263,9 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3369b95337261f02",
+  "active": "b51c6d981f28d000",
   "lastOpenFiles": [
+    "Network/Session.md",
     "TODO看板.md",
     "project/front end/鉴权方案.md",
     "JavaScript/engine/垃圾回收.md",
@@ -273,7 +274,6 @@
     "infrastructure/bundler/Webpack/loader和plugin的区别.md",
     "Post/front end.md",
     "Network/Cookie SameParty.md",
-    "Network/Cookie.md",
-    "Security/前端安全：CSRF.md"
+    "Network/Cookie.md"
   ]
 }
