@@ -8,38 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9309dd891447c431",
+            "id": "f7eb84c311400a8c",
             "type": "leaf",
             "state": {
               "type": "kanban",
               "state": {
                 "file": "TODO看板.md"
-              }
-            }
-          },
-          {
-            "id": "3369b95337261f02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Network/Session.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "82107acf44f76d14",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "project/front end/鉴权方案.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
               }
             }
           },
@@ -83,12 +57,12 @@
             }
           },
           {
-            "id": "a95b01c3cd4112f5",
+            "id": "8ee28ce34e568319",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "browser/跨域.md",
+                "file": "project/front end/鉴权方案.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -96,7 +70,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -277,17 +251,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "82107acf44f76d14",
+  "active": "8ee28ce34e568319",
   "lastOpenFiles": [
-    "Network/Cookie.md",
+    "Security/前端安全：CSRF.md",
     "project/front end/鉴权方案.md",
-    "Network/Session.md",
+    "browser/跨域.md",
     "TODO看板.md",
-    "JavaScript/engine/垃圾回收.md",
-    "Security/web 应用常见安全漏洞.md",
-    "infrastructure/npm/npm 机制.md",
-    "infrastructure/bundler/Webpack/loader和plugin的区别.md",
-    "Post/front end.md",
-    "Network/Cookie SameParty.md"
+    "TypeScript/复杂基础类型.md",
+    "TypeScript/函数类型.md",
+    "TypeScript/函数重载.md",
+    "TypeScript/工具类型.md",
+    "TypeScript/枚举类型.md",
+    "TypeScript/常见错误.md"
   ]
 }

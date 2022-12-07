@@ -5,16 +5,52 @@
       "path": "project/front end/鉴权方案.md"
     },
     {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "复杂基础类型",
+      "path": "TypeScript/复杂基础类型.md"
+    },
+    {
+      "basename": "函数类型",
+      "path": "TypeScript/函数类型.md"
+    },
+    {
+      "basename": "函数重载",
+      "path": "TypeScript/函数重载.md"
+    },
+    {
+      "basename": "工具类型",
+      "path": "TypeScript/工具类型.md"
+    },
+    {
+      "basename": "枚举类型",
+      "path": "TypeScript/枚举类型.md"
+    },
+    {
+      "basename": "常见错误",
+      "path": "TypeScript/常见错误.md"
+    },
+    {
+      "basename": "字面量类型",
+      "path": "TypeScript/字面量类型.md"
+    },
+    {
       "basename": "Cookie",
       "path": "Network/Cookie.md"
     },
     {
       "basename": "Session",
       "path": "Network/Session.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "垃圾回收",
@@ -41,16 +77,8 @@
       "path": "Network/Cookie SameParty.md"
     },
     {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
       "basename": "前端安全：XSS",
       "path": "Security/前端安全：XSS.md"
-    },
-    {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
     },
     {
       "basename": "cookie工作流程",
@@ -129,10 +157,6 @@
       "path": "TypeScript/tsconfig.json.md"
     },
     {
-      "basename": "函数重载",
-      "path": "TypeScript/函数重载.md"
-    },
-    {
       "basename": "自定义工具类型",
       "path": "TypeScript/自定义工具类型.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "JavaScript正则表达式迷你书",
       "path": "_attachment/pdf/JavaScript正则表达式迷你书.pdf"
-    },
-    {
-      "basename": "Generator",
-      "path": "JavaScript/Generator.md"
-    },
-    {
-      "basename": "apply & call & bind",
-      "path": "JavaScript/apply & call & bind.md"
-    },
-    {
-      "basename": "常见js手写题",
-      "path": "Post/常见js手写题.md"
-    },
-    {
-      "basename": "Angular & React & Vue 设计特色",
-      "path": "MVVM/Angular & React & Vue 设计特色.md"
-    },
-    {
-      "basename": "八股文",
-      "path": "Post/八股文.md"
-    },
-    {
-      "basename": "Symbol",
-      "path": "JavaScript/Symbol.md"
     }
   ],
   "omittedPaths": [],
