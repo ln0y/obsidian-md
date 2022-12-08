@@ -40,7 +40,7 @@
               "type": "markdown",
               "state": {
                 "file": "Post/front end.md",
-                "mode": "preview",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "project/front end/鉴权方案.md"
+                "file": "Post/front end.md"
               }
             }
           }
@@ -200,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "project/front end/鉴权方案.md",
+                "file": "Post/front end.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "project/front end/鉴权方案.md",
+                "file": "Post/front end.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -241,13 +241,13 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "8ee28ce34e568319",
+  "active": "2ade2eda5e982234",
   "lastOpenFiles": [
-    "browser/跨域.md",
+    "TODO看板.md",
     "Post/front end.md",
     "project/front end/鉴权方案.md",
+    "browser/跨域.md",
     "Security/前端安全：CSRF.md",
-    "TODO看板.md",
     "TypeScript/复杂基础类型.md",
     "TypeScript/函数类型.md",
     "TypeScript/函数重载.md",

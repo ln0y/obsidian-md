@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2022-12-03-星期六 18:31:52
+update: 2022-12-08-星期四 17:08:30
 ---
 
 ## React
@@ -62,6 +62,7 @@ update: 2022-12-03-星期六 18:31:52
 ## Webpack
 
 [硬核解析 Webpack 事件流核心！](https://mp.weixin.qq.com/s/vjvObaCvmGugj3Mmwxmayw)
+[深入浅出 Webpack](http://webpack.wuhaolin.cn/)
 
 ## Jest
 
@@ -121,7 +122,7 @@ update: 2022-12-03-星期六 18:31:52
 
 [JSBEN.CH](https://jsben.ch/)
 
-https://perf.link/
+<https://perf.link/>
 
 ## 浏览器
 
@@ -172,10 +173,6 @@ https://perf.link/
 ## Babel
 
 [Babel 插件手册](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md)
-
-## Webpack
-
-[深入浅出 Webpack](http://webpack.wuhaolin.cn/)
 
 ## RegExp
 
@@ -237,19 +234,19 @@ https://perf.link/
 
 ## 小项目
 
-https://macos-web.app/
+<https://macos-web.app/>
 
-https://winxp.vercel.app/
+<https://winxp.vercel.app/>
 
-https://win11.blueedge.me/
+<https://win11.blueedge.me/>
 
 ## CDN
 
-https://www.jsdelivr.com/
+<https://www.jsdelivr.com/>
 
-https://www.bootcdn.cn/
+<https://www.bootcdn.cn/>
 
-https://unpkg.com/
+<https://unpkg.com/>
 
 ## Design
 
@@ -259,7 +256,7 @@ https://unpkg.com/
 
 ## Obsidian
 
-https://prismjs.com/#supported-languages
+<https://prismjs.com/#supported-languages>
 
 ## Blog & Website
 
@@ -303,15 +300,15 @@ https://prismjs.com/#supported-languages
 
 [VLeeDesignTheory](https://vleedesigntheory.site/)
 
-https://blog.huli.tw/archives/
+<https://blog.huli.tw/archives/>
 
-https://www.samanthaming.com/
+<https://www.samanthaming.com/>
 
-https://github.com/metroluffy/fe-learning/issues/29
+<https://github.com/metroluffy/fe-learning/issues/29>
 
-https://mp.weixin.qq.com/s/XbmfSpPE-3bPGlddqO2IGQ
+<https://mp.weixin.qq.com/s/XbmfSpPE-3bPGlddqO2IGQ>
 
-https://www.nerdfonts.com/cheat-sheet
+<https://www.nerdfonts.com/cheat-sheet>
 
 ```toml
 # https://github.com/devblackops/Terminal-Icons
@@ -378,10 +375,10 @@ format = " [$duration](bold yellow)"
 
 面试题列表 - 前端面试题宝典
 
-https://fe.ecool.fun/topic-list
+<https://fe.ecool.fun/topic-list>
 
-前端面试真题，会80%直接进大厂 - 飞书云文档
+前端面试真题，会 80% 直接进大厂 - 飞书云文档
 
-https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?table=tblEnSV2PNAajtWE&view=vewJHSwJVd
+<https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?table=tblEnSV2PNAajtWE&view=vewJHSwJVd>
 
 XLbadafH
