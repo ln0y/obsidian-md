@@ -8,16 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f7eb84c311400a8c",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "TODO看板.md"
-              }
-            }
-          },
-          {
             "id": "ff87faf3e04297b3",
             "type": "leaf",
             "state": {
@@ -25,32 +15,6 @@
               "state": {
                 "file": "Network/Cookie.md",
                 "mode": "preview",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "97fd47d2e51667b7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Security/前端安全：CSRF.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b447bb6705e2ff7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Security/前端安全：XSS.md",
-                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -68,9 +32,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "2ade2eda5e982234",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Post/front end.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a413c9fffcc36d36",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "browser/跨域.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -253,15 +243,15 @@
   },
   "active": "8ee28ce34e568319",
   "lastOpenFiles": [
-    "Security/前端安全：CSRF.md",
-    "project/front end/鉴权方案.md",
     "browser/跨域.md",
+    "Post/front end.md",
+    "project/front end/鉴权方案.md",
+    "Security/前端安全：CSRF.md",
     "TODO看板.md",
     "TypeScript/复杂基础类型.md",
     "TypeScript/函数类型.md",
     "TypeScript/函数重载.md",
     "TypeScript/工具类型.md",
-    "TypeScript/枚举类型.md",
-    "TypeScript/常见错误.md"
+    "TypeScript/枚举类型.md"
   ]
 }
