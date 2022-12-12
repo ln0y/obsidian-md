@@ -5,6 +5,10 @@
       "path": "project/front end/鉴权方案.md"
     },
     {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
       "basename": "uuid",
       "path": "JavaScript/byhand/uuid.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "跨域",
