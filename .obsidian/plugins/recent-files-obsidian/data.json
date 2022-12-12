@@ -5,6 +5,10 @@
       "path": "project/front end/鉴权方案.md"
     },
     {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
       "basename": "TODO看板",
       "path": "TODO看板.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
     },
     {
       "basename": "前端安全：CSRF",

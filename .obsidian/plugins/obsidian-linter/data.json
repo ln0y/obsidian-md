@@ -60,7 +60,7 @@
       "Replaces three consecutive dots with an ellipsis.": true
     },
     "Emphasis Style": {
-      "Makes sure the emphasis style is consistent.": true,
+      "Makes sure the emphasis style is consistent.": false,
       "Style": "consistent"
     },
     "Strong Style": {
@@ -198,6 +198,20 @@
     },
     "Remove Multiple Blank Lines on Paste": {
       "Condenses multiple blank lines down into one blank line for the text to paste": false
+    },
+    "Headings Start Line": {
+      "Headings that do not start a line will have their preceding whitespace removed to make sure they get recognized as headers.": false
+    },
+    "Remove Trailing Punctuation in Heading": {
+      "Removes the specified punctuation from the end of headings making sure to ignore the semicolon at the end of [HTML entity references](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references).": true,
+      "Trailing Punctuation": ".,;:!。，；：！"
+    },
+    "Remove Space around Characters": {
+      "Ensures that certain characters are not surrounded by whitespace (either single spaces or a tab). Note that this may causes issues with markdown format in some cases.": false,
+      "Include Fullwidth Forms": true,
+      "Include CJK Symbols and Punctuation": true,
+      "Include Dashes": true,
+      "Other symbols": ""
     }
   },
   "lintOnSave": true,
