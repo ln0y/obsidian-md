@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "Cookie",
+      "path": "Network/Cookie.md"
+    },
+    {
       "basename": "鉴权方案",
       "path": "project/front end/鉴权方案.md"
+    },
+    {
+      "basename": "snippet",
+      "path": "VS code/snippet.md"
     },
     {
       "basename": "跨域",
@@ -19,10 +31,6 @@
     {
       "basename": "hook 简介",
       "path": "MVVM/React/hook 简介.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "前端安全：CSRF",
@@ -55,10 +63,6 @@
     {
       "basename": "字面量类型",
       "path": "TypeScript/字面量类型.md"
-    },
-    {
-      "basename": "Cookie",
-      "path": "Network/Cookie.md"
     },
     {
       "basename": "Session",
@@ -191,10 +195,6 @@
     {
       "basename": "CSS 设置自动滚动定位的“安全”间距",
       "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
-    },
-    {
-      "basename": "snippet",
-      "path": "VS code/snippet.md"
     },
     {
       "basename": "IEEE 754 双精度浮点数",
