@@ -243,15 +243,15 @@
   },
   "active": "7f6b572e62ab65be",
   "lastOpenFiles": [
+    "RegExp/正则表达式收集.md",
+    "project/front end/鉴权方案.md",
     "Post/front end.md",
     "Network/Cookie.md",
-    "project/front end/鉴权方案.md",
     "VS code/snippet.md",
     "browser/跨域.md",
     "TODO看板.md",
     "JavaScript/byhand/uuid.md",
     "MVVM/React/hook 简介.md",
-    "Security/前端安全：CSRF.md",
-    "TypeScript/复杂基础类型.md"
+    "Security/前端安全：CSRF.md"
   ]
 }

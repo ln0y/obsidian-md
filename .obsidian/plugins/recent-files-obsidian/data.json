@@ -5,6 +5,10 @@
       "path": "project/front end/鉴权方案.md"
     },
     {
+      "basename": "正则表达式收集",
+      "path": "RegExp/正则表达式收集.md"
+    },
+    {
       "basename": "front end",
       "path": "Post/front end.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "CSS 设置自动滚动定位的“安全”间距",
       "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
-    },
-    {
-      "basename": "IEEE 754 双精度浮点数",
-      "path": "JavaScript/IEEE 754 双精度浮点数.md"
     }
   ],
   "omittedPaths": [],
