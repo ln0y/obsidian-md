@@ -73,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -196,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security/前端安全：CSRF.md"
+                "file": "project/front end/鉴权方案.md"
               }
             }
           }
@@ -213,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
+                "file": "project/front end/鉴权方案.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security/前端安全：CSRF.md",
+                "file": "project/front end/鉴权方案.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -254,15 +254,15 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "5c5b3f65f0bdd9aa",
+  "active": "7f6b572e62ab65be",
   "lastOpenFiles": [
+    "Post/front end.md",
     "project/front end/鉴权方案.md",
     "Security/前端安全：CSRF.md",
     "browser/跨域.md",
     "JavaScript/继承 Date.md",
     "JavaScript/继承.md",
     "RegExp/正则表达式收集.md",
-    "Post/front end.md",
     "Network/Cookie.md",
     "VS code/snippet.md",
     "TODO看板.md"

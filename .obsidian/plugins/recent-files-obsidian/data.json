@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
       "basename": "鉴权方案",
       "path": "project/front end/鉴权方案.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
     },
     {
       "basename": "跨域",
@@ -23,10 +27,6 @@
     {
       "basename": "正则表达式收集",
       "path": "RegExp/正则表达式收集.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "Cookie",
