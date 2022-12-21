@@ -1,8 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
       "basename": "鉴权方案",
       "path": "project/front end/鉴权方案.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
+    },
+    {
+      "basename": "继承 Date",
+      "path": "JavaScript/继承 Date.md"
+    },
+    {
+      "basename": "继承",
+      "path": "JavaScript/继承.md"
     },
     {
       "basename": "正则表达式收集",
@@ -21,10 +37,6 @@
       "path": "VS code/snippet.md"
     },
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
-    },
-    {
       "basename": "TODO看板",
       "path": "TODO看板.md"
     },
@@ -35,10 +47,6 @@
     {
       "basename": "hook 简介",
       "path": "MVVM/React/hook 简介.md"
-    },
-    {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
     },
     {
       "basename": "复杂基础类型",
@@ -191,14 +199,6 @@
     {
       "basename": "meta标签",
       "path": "HTML/meta标签.md"
-    },
-    {
-      "basename": "类型兼容",
-      "path": "TypeScript/类型兼容.md"
-    },
-    {
-      "basename": "CSS 设置自动滚动定位的“安全”间距",
-      "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
     }
   ],
   "omittedPaths": [],

@@ -47,6 +47,19 @@
             }
           },
           {
+            "id": "5c5b3f65f0bdd9aa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Security/前端安全：CSRF.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a413c9fffcc36d36",
             "type": "leaf",
             "state": {
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -90,7 +103,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "uuid",
+                "query": "幂等",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -183,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "project/front end/鉴权方案.md"
+                "file": "Security/前端安全：CSRF.md"
               }
             }
           }
@@ -200,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "project/front end/鉴权方案.md",
+                "file": "Security/前端安全：CSRF.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "project/front end/鉴权方案.md",
+                "file": "Security/前端安全：CSRF.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -241,17 +254,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "7f6b572e62ab65be",
+  "active": "5c5b3f65f0bdd9aa",
   "lastOpenFiles": [
-    "RegExp/正则表达式收集.md",
     "project/front end/鉴权方案.md",
+    "Security/前端安全：CSRF.md",
+    "browser/跨域.md",
+    "JavaScript/继承 Date.md",
+    "JavaScript/继承.md",
+    "RegExp/正则表达式收集.md",
     "Post/front end.md",
     "Network/Cookie.md",
     "VS code/snippet.md",
-    "browser/跨域.md",
-    "TODO看板.md",
-    "JavaScript/byhand/uuid.md",
-    "MVVM/React/hook 简介.md",
-    "Security/前端安全：CSRF.md"
+    "TODO看板.md"
   ]
 }
