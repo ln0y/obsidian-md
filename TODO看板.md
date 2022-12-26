@@ -42,7 +42,6 @@ update: 2022-03-13-Sunday 15:43:53
 - [ ] webpack @{2022-05-12}
 - [ ] docker @{2022-04-17}
 - [ ] Nginx @{2022-05-14}
-- [ ] RegExp @{2022-04-14}
 
 
 ## 👌Done
@@ -57,6 +56,7 @@ update: 2022-03-13-Sunday 15:43:53
 - [x] Content-Security-Policy @{2022-04-11}
 - [x] cookie @{2022-11-21}
 - [x] session @{2022-11-28}
+- [x] RegExp @{2022-04-14}
 
 
 

@@ -151,7 +151,7 @@
       "Ordered List Indicator End Style": "."
     },
     "Two Spaces Between Lines with Content": {
-      "Makes sure that two spaces are added to the ends of lines with content continued on the next line for paragraphs, blockquotes, and list items": true
+      "Makes sure that two spaces are added to the ends of lines with content continued on the next line for paragraphs, blockquotes, and list items": false
     },
     "Unordered List Style": {
       "Makes sure that unordered lists follow the style specified.": false,
@@ -212,6 +212,10 @@
       "Include CJK Symbols and Punctuation": true,
       "Include Dashes": true,
       "Other symbols": ""
+    },
+    "Auto-correct Common Misspellings": {
+      "Uses a dictionary of common misspellings to automatically convert them to their proper spellings. See [auto-correct map](https://github.com/platers/obsidian-linter/tree/master/src/utils/auto-correct-misspellings.ts) for the full list of auto-corrected words.": false,
+      "Ignore Words": ""
     }
   },
   "lintOnSave": true,

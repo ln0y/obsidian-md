@@ -18,7 +18,7 @@
             }
           },
           {
-            "id": "f21d37ef4181cf48",
+            "id": "41257c0fa7ddf356",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -43,7 +43,7 @@
       {
         "id": "b006e962a02f8d68",
         "type": "tabs",
-        "dimension": 71.42857142857143,
+        "dimension": 70.15544041450778,
         "children": [
           {
             "id": "a510c88b15af9cae",
@@ -83,7 +83,7 @@
       {
         "id": "c9eb5b6f0e924845",
         "type": "tabs",
-        "dimension": 28.57142857142857,
+        "dimension": 29.844559585492224,
         "children": [
           {
             "id": "bf3cda95a3bd0f13",
@@ -228,17 +228,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "f21d37ef4181cf48",
+  "active": "41257c0fa7ddf356",
   "lastOpenFiles": [
     "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf",
     "RegExp/正则表达式.md",
-    "_attachment/pdf/JavaScript正则表达式迷你书.pdf",
     "TODO看板.md",
-    "Post/front end.md",
-    "CSS/flex.md",
-    "Network/Cookie.md",
+    "RegExp/[.md",
+    "Network/怎样实现 RPC 框架.md",
+    "Network/Session.md",
+    "Network/Cookie SameParty.md",
+    "browser/未命名.canvas",
     "browser/跨域.md",
-    "Security/前端安全：CSRF.md",
-    "project/front end/鉴权方案.md"
+    "_attachment/pdf/JavaScript正则表达式迷你书.pdf"
   ]
 }
