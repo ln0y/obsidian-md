@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
+    },
+    {
       "basename": "JavaScript正则表达式迷你书（1.1版）",
       "path": "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "712162921-5d80381b295d9_fix732",
       "path": "_attachment/img/712162921-5d80381b295d9_fix732.png"
-    },
-    {
-      "basename": "布局方式",
-      "path": "CSS/布局方式.md"
     }
   ],
   "omittedPaths": [],
