@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "鉴权方案",
-      "path": "project/front end/鉴权方案.md"
-    },
-    {
       "basename": "front end",
       "path": "Post/front end.md"
+    },
+    {
+      "basename": "Cookie",
+      "path": "Network/Cookie.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "browser/跨域.md"
     },
     {
       "basename": "前端安全：CSRF",
       "path": "Security/前端安全：CSRF.md"
     },
     {
-      "basename": "跨域",
-      "path": "browser/跨域.md"
+      "basename": "鉴权方案",
+      "path": "project/front end/鉴权方案.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
       "basename": "继承 Date",
@@ -29,16 +37,8 @@
       "path": "RegExp/正则表达式收集.md"
     },
     {
-      "basename": "Cookie",
-      "path": "Network/Cookie.md"
-    },
-    {
       "basename": "snippet",
       "path": "VS code/snippet.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "uuid",
