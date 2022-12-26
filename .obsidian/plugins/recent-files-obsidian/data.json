@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "JavaScript正则表达式迷你书（1.1版）",
+      "path": "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
       "basename": "front end",
       "path": "Post/front end.md"
+    },
+    {
+      "basename": "flex",
+      "path": "CSS/flex.md"
     },
     {
       "basename": "Cookie",
@@ -19,10 +31,6 @@
     {
       "basename": "鉴权方案",
       "path": "project/front end/鉴权方案.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "继承 Date",
@@ -191,14 +199,6 @@
     {
       "basename": "布局方式",
       "path": "CSS/布局方式.md"
-    },
-    {
-      "basename": "flex",
-      "path": "CSS/flex.md"
-    },
-    {
-      "basename": "meta标签",
-      "path": "HTML/meta标签.md"
     }
   ],
   "omittedPaths": [],
