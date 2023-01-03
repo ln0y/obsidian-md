@@ -1,8 +1,6 @@
 [
-  "cm-editor-syntax-highlight-obsidian",
   "calendar",
   "table-editor-obsidian",
-  "obsidian-extract-pdf-highlights",
   "open-vscode",
   "templater-obsidian",
   "obsidian-linter",
@@ -10,9 +8,7 @@
   "dataview",
   "sliding-panes-obsidian",
   "oz-image-plugin",
-  "obsidian-code-block-enhancer",
   "cm-chs-patch",
-  "obsidian-mind-map",
   "url-into-selection",
   "tag-wrangler",
   "obsidian-dictionary-plugin",
@@ -29,5 +25,7 @@
   "media extended bilibili plugin",
   "media-extended",
   "mx-bili-plugin",
-  "obsidian-git"
+  "obsidian-git",
+  "cm-editor-syntax-highlight-obsidian",
+  "better-pdf-plugin"
 ]

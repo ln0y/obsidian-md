@@ -161,6 +161,40 @@
       },
       "openFile": false,
       "openFileInMode": "default"
+    },
+    {
+      "id": "21e605d5-c314-4d37-b7d2-01645b314b31",
+      "name": "add pdf",
+      "type": "Capture",
+      "command": true,
+      "appendLink": false,
+      "captureTo": "",
+      "captureToActiveFile": true,
+      "createFileIfItDoesntExist": {
+        "enabled": false,
+        "createWithTemplate": false,
+        "template": ""
+      },
+      "format": {
+        "enabled": true,
+        "format": "```pdf\n{\n  \"url\": \"/_attachment/pdf/{{VALUE:pdf name}}.pdf\",\n  \"scale\": 0.5\n}\n```\n"
+      },
+      "insertAfter": {
+        "enabled": false,
+        "after": "",
+        "insertAtEnd": false,
+        "createIfNotFound": false,
+        "createIfNotFoundLocation": "top"
+      },
+      "prepend": false,
+      "task": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": false,
+      "openFileInMode": "default"
     }
   ],
   "macros": [],

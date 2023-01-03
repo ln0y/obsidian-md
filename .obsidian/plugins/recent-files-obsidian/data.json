@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "正则表达式",
-      "path": "RegExp/正则表达式.md"
-    },
-    {
-      "basename": "JavaScript正则表达式迷你书（1.1版）",
-      "path": "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf"
+      "basename": "curry & uncurry",
+      "path": "JavaScript/fp/curry & uncurry.md"
     },
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
+    },
+    {
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
+    },
+    {
+      "basename": "前端安全：CSRF",
+      "path": "Security/前端安全：CSRF.md"
+    },
+    {
+      "basename": "JavaScript正则表达式迷你书（1.1版）",
+      "path": "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf"
     },
     {
       "basename": "怎样实现 RPC 框架",
@@ -39,10 +47,6 @@
     {
       "basename": "Cookie",
       "path": "Network/Cookie.md"
-    },
-    {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
     },
     {
       "basename": "鉴权方案",

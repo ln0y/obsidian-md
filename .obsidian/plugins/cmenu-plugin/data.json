@@ -66,12 +66,6 @@
       "icon": "feather-flag"
     },
     {
-      "id": "obsidian-mind-map:app:markmap-preview",
-      "name": "Mind Map: Preview the current note as a Mind Map",
-      "hotkeys": [],
-      "icon": "split"
-    },
-    {
       "id": "quickadd:choice:c4b48408-92ae-43ea-b9cd-9571320181fb",
       "name": "QuickAdd: add iframe",
       "icon": "remix-WindowFill"
@@ -91,6 +85,11 @@
       "id": "quickadd:choice:07e7f60f-f13e-4242-9326-b307ab048ea2",
       "name": "QuickAdd: add callout",
       "icon": "feather-info"
+    },
+    {
+      "id": "quickadd:choice:21e605d5-c314-4d37-b7d2-01645b314b31",
+      "name": "QuickAdd: add pdf",
+      "icon": "remix-FilePdfLine"
     }
   ],
   "appendMethod": "workspace",
