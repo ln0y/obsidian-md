@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "适配器模式",
+      "path": "JavaScript/design pattern/适配器模式.md"
+    },
+    {
+      "basename": "装饰器模式",
+      "path": "JavaScript/design pattern/装饰器模式.md"
+    },
+    {
+      "basename": "Logic Reuse",
+      "path": "MVVM/Vue/Logic Reuse.md"
+    },
+    {
+      "basename": "装饰器",
+      "path": "TypeScript/装饰器.md"
+    },
+    {
+      "basename": "装饰器",
+      "path": "JavaScript/装饰器.md"
+    },
+    {
+      "basename": "原型模式",
+      "path": "JavaScript/design pattern/原型模式.md"
+    },
+    {
+      "basename": "深浅拷贝",
+      "path": "JavaScript/深浅拷贝.md"
+    },
+    {
+      "basename": "原型链",
+      "path": "JavaScript/原型链.md"
+    },
+    {
+      "basename": "继承",
+      "path": "JavaScript/继承.md"
+    },
+    {
       "basename": "单例模式",
       "path": "JavaScript/design pattern/单例模式.md"
     },
@@ -75,10 +111,6 @@
     {
       "basename": "继承 Date",
       "path": "JavaScript/继承 Date.md"
-    },
-    {
-      "basename": "继承",
-      "path": "JavaScript/继承.md"
     },
     {
       "basename": "正则表达式收集",
@@ -167,38 +199,6 @@
     {
       "basename": "前端安全：JSONP劫持",
       "path": "Security/前端安全：JSONP劫持.md"
-    },
-    {
-      "basename": "TypeScript 4.9",
-      "path": "TypeScript/TypeScript 4.9.md"
-    },
-    {
-      "basename": "TypeScript 4.8",
-      "path": "TypeScript/TypeScript 4.8.md"
-    },
-    {
-      "basename": "TypeScript 4.5-4.6",
-      "path": "TypeScript/TypeScript 4.5-4.6.md"
-    },
-    {
-      "basename": "TypeScript 4.7",
-      "path": "TypeScript/TypeScript 4.7.md"
-    },
-    {
-      "basename": "Content Security Policy",
-      "path": "Security/Content Security Policy.md"
-    },
-    {
-      "basename": "类型体操",
-      "path": "share/类型体操.md"
-    },
-    {
-      "basename": "Vue 3 Reactivity",
-      "path": "MVVM/Vue/Vue 3 Reactivity.md"
-    },
-    {
-      "basename": "前端监控体系",
-      "path": "browser/前端监控体系.md"
     }
   ],
   "omittedPaths": [],
