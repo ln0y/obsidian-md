@@ -42,9 +42,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "587d9dec03a6f86d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/design pattern/代理模式.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -167,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/design pattern/适配器模式.md"
+                "file": "JavaScript/design pattern/代理模式.md"
               }
             }
           }
@@ -184,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/design pattern/适配器模式.md",
+                "file": "JavaScript/design pattern/代理模式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/design pattern/适配器模式.md",
+                "file": "JavaScript/design pattern/代理模式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -240,8 +253,9 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "3f54dc35b2bb7538",
+  "active": "587d9dec03a6f86d",
   "lastOpenFiles": [
+    "JavaScript/design pattern/适配器模式.md",
     "JavaScript/design pattern/装饰器模式.md",
     "MVVM/Vue/Logic Reuse.md",
     "TypeScript/装饰器.md",
@@ -250,7 +264,6 @@
     "JavaScript/深浅拷贝.md",
     "JavaScript/原型链.md",
     "JavaScript/继承.md",
-    "JavaScript/design pattern/单例模式.md",
-    "JavaScript/design pattern/工厂模式.md"
+    "JavaScript/design pattern/单例模式.md"
   ]
 }

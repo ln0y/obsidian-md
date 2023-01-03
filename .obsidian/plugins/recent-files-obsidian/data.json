@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "代理模式",
+      "path": "JavaScript/design pattern/代理模式.md"
+    },
+    {
       "basename": "适配器模式",
       "path": "JavaScript/design pattern/适配器模式.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
-    },
-    {
-      "basename": "前端安全：JSONP劫持",
-      "path": "Security/前端安全：JSONP劫持.md"
     }
   ],
   "omittedPaths": [],
