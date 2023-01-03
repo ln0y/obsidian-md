@@ -1,12 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "curry & uncurry",
-      "path": "JavaScript/fp/curry & uncurry.md"
+      "basename": "单例模式",
+      "path": "JavaScript/design pattern/单例模式.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "JavaScript/design pattern/工厂模式.md"
+    },
+    {
+      "basename": "设计模式之道",
+      "path": "JavaScript/design pattern/设计模式之道.md"
     },
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "curry & uncurry",
+      "path": "JavaScript/functional programming/curry & uncurry.md"
+    },
+    {
+      "basename": "学习 axios",
+      "path": "source code/学习 axios.md"
+    },
+    {
+      "basename": "apply & call & bind",
+      "path": "JavaScript/apply & call & bind.md"
     },
     {
       "basename": "正则表达式",
@@ -35,10 +59,6 @@
     {
       "basename": "跨域",
       "path": "browser/跨域.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "flex",
@@ -179,26 +199,6 @@
     {
       "basename": "前端监控体系",
       "path": "browser/前端监控体系.md"
-    },
-    {
-      "basename": "性能分析的自动化",
-      "path": "browser/性能分析的自动化.md"
-    },
-    {
-      "basename": "网络请求的过程",
-      "path": "browser/网络请求的过程.md"
-    },
-    {
-      "basename": "页面加载过程",
-      "path": "browser/页面加载过程.md"
-    },
-    {
-      "basename": "增强类型系统",
-      "path": "TypeScript/增强类型系统.md"
-    },
-    {
-      "basename": "tsconfig.json",
-      "path": "TypeScript/tsconfig.json.md"
     }
   ],
   "omittedPaths": [],

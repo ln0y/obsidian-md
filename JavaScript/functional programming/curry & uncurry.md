@@ -1,6 +1,6 @@
 ---
 aliases: []
-tags: ['JavaScript/fp','date/2022-03','year/2022','month/03']
+tags: ['JavaScript/functional_programming','date/2022-03','year/2022','month/03']
 date: 2022-03-15-Tuesday 15:15:48
 update: 2022-05-15-Sunday 18:40:47
 ---

@@ -368,7 +368,7 @@ format = " [$duration](bold yellow)"
     await sleep(500)
     const $$ = document.querySelectorAll.bind(document)
     Array.from(
-      $$('.article img'),
+      $$('.article img, .section-page img'),
       i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png'))
     )
   }

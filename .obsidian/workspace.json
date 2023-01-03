@@ -8,19 +8,56 @@
         "type": "tabs",
         "children": [
           {
-            "id": "84eb997476a035eb",
+            "id": "4a9852171243b035",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "TODO看板.md"
+              }
+            }
+          },
+          {
+            "id": "405fb72641ff84be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/fp/curry & uncurry.md",
-                "mode": "preview",
+                "file": "Post/front end.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "69f6b073952b6e83",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/design pattern/工厂模式.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f25dbda0aff577ee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/design pattern/单例模式.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -50,7 +87,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "SOLID",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -143,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/fp/curry & uncurry.md"
+                "file": "JavaScript/design pattern/单例模式.md"
               }
             }
           }
@@ -160,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/fp/curry & uncurry.md",
+                "file": "JavaScript/design pattern/单例模式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/fp/curry & uncurry.md",
+                "file": "JavaScript/design pattern/单例模式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -216,17 +253,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "84eb997476a035eb",
+  "active": "f25dbda0aff577ee",
   "lastOpenFiles": [
+    "JavaScript/design pattern/工厂模式.md",
+    "JavaScript/design pattern/设计模式之道.md",
     "TODO看板.md",
+    "JavaScript/functional programming/设计模式之道.md",
+    "Post/front end.md",
+    "JavaScript/functional programming/curry & uncurry.md",
+    "source code/学习 axios.md",
+    "JavaScript/apply & call & bind.md",
     "RegExp/正则表达式.md",
-    "Security/前端安全：CSRF.md",
-    "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf",
-    "RegExp/[.md",
-    "Network/怎样实现 RPC 框架.md",
-    "Network/Session.md",
-    "Network/Cookie SameParty.md",
-    "browser/未命名.canvas",
-    "browser/跨域.md"
+    "Security/前端安全：CSRF.md"
   ]
 }
