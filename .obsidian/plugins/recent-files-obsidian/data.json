@@ -1,16 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "策略模式",
+      "path": "JavaScript/design pattern/策略模式.md"
+    },
+    {
       "basename": "代理模式",
       "path": "JavaScript/design pattern/代理模式.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "JavaScript/design pattern/工厂模式.md"
+    },
+    {
+      "basename": "单例模式",
+      "path": "JavaScript/design pattern/单例模式.md"
+    },
+    {
+      "basename": "原型模式",
+      "path": "JavaScript/design pattern/原型模式.md"
+    },
+    {
+      "basename": "装饰器模式",
+      "path": "JavaScript/design pattern/装饰器模式.md"
     },
     {
       "basename": "适配器模式",
       "path": "JavaScript/design pattern/适配器模式.md"
     },
     {
-      "basename": "装饰器模式",
-      "path": "JavaScript/design pattern/装饰器模式.md"
+      "basename": "事件委托",
+      "path": "JavaScript/事件委托.md"
     },
     {
       "basename": "Logic Reuse",
@@ -25,10 +45,6 @@
       "path": "JavaScript/装饰器.md"
     },
     {
-      "basename": "原型模式",
-      "path": "JavaScript/design pattern/原型模式.md"
-    },
-    {
       "basename": "深浅拷贝",
       "path": "JavaScript/深浅拷贝.md"
     },
@@ -39,14 +55,6 @@
     {
       "basename": "继承",
       "path": "JavaScript/继承.md"
-    },
-    {
-      "basename": "单例模式",
-      "path": "JavaScript/design pattern/单例模式.md"
-    },
-    {
-      "basename": "工厂模式",
-      "path": "JavaScript/design pattern/工厂模式.md"
     },
     {
       "basename": "设计模式之道",
@@ -191,14 +199,6 @@
     {
       "basename": "Pasted image 20221202112620",
       "path": "_attachment/img/Pasted image 20221202112620.png"
-    },
-    {
-      "basename": "Pasted image 20220906180653",
-      "path": "_attachment/img/Pasted image 20220906180653.png"
-    },
-    {
-      "basename": "DOM Clobbering",
-      "path": "Security/DOM Clobbering.md"
     }
   ],
   "omittedPaths": [],
