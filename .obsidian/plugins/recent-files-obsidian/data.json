@@ -1,8 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "观察者模式(发布-订阅模式)",
+      "path": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
+    },
+    {
+      "basename": "单例模式",
+      "path": "JavaScript/design pattern/单例模式.md"
+    },
+    {
+      "basename": "垃圾回收",
+      "path": "JavaScript/engine/垃圾回收.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "JavaScript/design pattern/工厂模式.md"
+    },
+    {
+      "basename": "设计模式之道",
+      "path": "JavaScript/design pattern/设计模式之道.md"
+    },
+    {
       "basename": "迭代器模式",
       "path": "JavaScript/design pattern/迭代器模式.md"
+    },
+    {
+      "basename": "Symbol",
+      "path": "JavaScript/Symbol.md"
     },
     {
       "basename": "front end",
@@ -13,24 +37,12 @@
       "path": "JavaScript/design pattern/状态模式.md"
     },
     {
-      "basename": "观察者模式(发布-订阅模式)",
-      "path": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
-    },
-    {
       "basename": "策略模式",
       "path": "JavaScript/design pattern/策略模式.md"
     },
     {
-      "basename": "工厂模式",
-      "path": "JavaScript/design pattern/工厂模式.md"
-    },
-    {
       "basename": "代理模式",
       "path": "JavaScript/design pattern/代理模式.md"
-    },
-    {
-      "basename": "单例模式",
-      "path": "JavaScript/design pattern/单例模式.md"
     },
     {
       "basename": "原型模式",
@@ -71,10 +83,6 @@
     {
       "basename": "继承",
       "path": "JavaScript/继承.md"
-    },
-    {
-      "basename": "设计模式之道",
-      "path": "JavaScript/design pattern/设计模式之道.md"
     },
     {
       "basename": "TODO看板",
@@ -181,10 +189,6 @@
       "path": "TypeScript/字面量类型.md"
     },
     {
-      "basename": "垃圾回收",
-      "path": "JavaScript/engine/垃圾回收.md"
-    },
-    {
       "basename": "web 应用常见安全漏洞",
       "path": "Security/web 应用常见安全漏洞.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "loader和plugin的区别",
       "path": "infrastructure/bundler/Webpack/loader和plugin的区别.md"
-    },
-    {
-      "basename": "前端安全：XSS",
-      "path": "Security/前端安全：XSS.md"
     }
   ],
   "omittedPaths": [],

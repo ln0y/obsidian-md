@@ -42,22 +42,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "79c2d37ddfca6781",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript/design pattern/迭代器模式.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -87,7 +74,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "SOLID",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -180,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/design pattern/迭代器模式.md"
+                "file": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
               }
             }
           }
@@ -197,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/design pattern/迭代器模式.md",
+                "file": "JavaScript/design pattern/观察者模式(发布-订阅模式).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -214,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/design pattern/迭代器模式.md",
+                "file": "JavaScript/design pattern/观察者模式(发布-订阅模式).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,17 +240,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "79c2d37ddfca6781",
+  "active": "111ba69b55e91e39",
   "lastOpenFiles": [
+    "JavaScript/design pattern/单例模式.md",
+    "JavaScript/engine/垃圾回收.md",
+    "JavaScript/design pattern/工厂模式.md",
+    "JavaScript/design pattern/设计模式之道.md",
+    "JavaScript/design pattern/迭代器模式.md",
+    "JavaScript/Symbol.md",
     "Post/front end.md",
     "JavaScript/design pattern/状态模式.md",
     "JavaScript/design pattern/观察者模式(发布-订阅模式).md",
-    "JavaScript/design pattern/迭代器模式.md",
-    "JavaScript/design pattern/策略模式.md",
-    "JavaScript/design pattern/工厂模式.md",
-    "JavaScript/design pattern/代理模式.md",
-    "JavaScript/design pattern/单例模式.md",
-    "JavaScript/design pattern/原型模式.md",
-    "JavaScript/design pattern/装饰器模式.md"
+    "JavaScript/design pattern/策略模式.md"
   ]
 }
