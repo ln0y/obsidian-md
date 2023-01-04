@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "状态模式",
+      "path": "JavaScript/design pattern/状态模式.md"
+    },
+    {
       "basename": "策略模式",
       "path": "JavaScript/design pattern/策略模式.md"
     },
     {
-      "basename": "代理模式",
-      "path": "JavaScript/design pattern/代理模式.md"
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
       "basename": "工厂模式",
       "path": "JavaScript/design pattern/工厂模式.md"
+    },
+    {
+      "basename": "代理模式",
+      "path": "JavaScript/design pattern/代理模式.md"
     },
     {
       "basename": "单例模式",
@@ -63,10 +71,6 @@
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "curry & uncurry",
@@ -195,10 +199,6 @@
     {
       "basename": "Untitled Diagram",
       "path": "_attachment/draw/Untitled Diagram.svg"
-    },
-    {
-      "basename": "Pasted image 20221202112620",
-      "path": "_attachment/img/Pasted image 20221202112620.png"
     }
   ],
   "omittedPaths": [],

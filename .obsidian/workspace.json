@@ -31,32 +31,6 @@
             }
           },
           {
-            "id": "3f54dc35b2bb7538",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript/design pattern/工厂模式.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "587d9dec03a6f86d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript/design pattern/代理模式.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "b73e221c3e9f0e5c",
             "type": "leaf",
             "state": {
@@ -68,9 +42,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "c1219ed56993e264",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/design pattern/状态模式.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -193,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/design pattern/策略模式.md"
+                "file": "JavaScript/design pattern/状态模式.md"
               }
             }
           }
@@ -210,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/design pattern/策略模式.md",
+                "file": "JavaScript/design pattern/状态模式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -227,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/design pattern/策略模式.md",
+                "file": "JavaScript/design pattern/状态模式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -266,17 +253,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "b73e221c3e9f0e5c",
+  "active": "c1219ed56993e264",
   "lastOpenFiles": [
-    "JavaScript/design pattern/代理模式.md",
+    "JavaScript/design pattern/策略模式.md",
+    "Post/front end.md",
     "JavaScript/design pattern/工厂模式.md",
+    "JavaScript/design pattern/代理模式.md",
     "JavaScript/design pattern/单例模式.md",
     "JavaScript/design pattern/原型模式.md",
     "JavaScript/design pattern/装饰器模式.md",
     "JavaScript/design pattern/适配器模式.md",
     "JavaScript/事件委托.md",
-    "MVVM/Vue/Logic Reuse.md",
-    "TypeScript/装饰器.md",
-    "JavaScript/装饰器.md"
+    "MVVM/Vue/Logic Reuse.md"
   ]
 }
