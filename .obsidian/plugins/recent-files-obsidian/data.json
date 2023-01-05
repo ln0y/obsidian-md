@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "Vue 3 Reactivity",
+      "path": "MVVM/Vue/Vue 3 Reactivity.md"
+    },
+    {
+      "basename": "Logic Reuse",
+      "path": "MVVM/Vue/Logic Reuse.md"
+    },
+    {
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
+    },
+    {
       "basename": "观察者模式(发布-订阅模式)",
       "path": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
     },
@@ -27,10 +47,6 @@
     {
       "basename": "Symbol",
       "path": "JavaScript/Symbol.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "状态模式",
@@ -61,10 +77,6 @@
       "path": "JavaScript/事件委托.md"
     },
     {
-      "basename": "Logic Reuse",
-      "path": "MVVM/Vue/Logic Reuse.md"
-    },
-    {
       "basename": "装饰器",
       "path": "TypeScript/装饰器.md"
     },
@@ -85,10 +97,6 @@
       "path": "JavaScript/继承.md"
     },
     {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
-    },
-    {
       "basename": "curry & uncurry",
       "path": "JavaScript/functional programming/curry & uncurry.md"
     },
@@ -99,10 +107,6 @@
     {
       "basename": "apply & call & bind",
       "path": "JavaScript/apply & call & bind.md"
-    },
-    {
-      "basename": "正则表达式",
-      "path": "RegExp/正则表达式.md"
     },
     {
       "basename": "前端安全：CSRF",
@@ -195,10 +199,6 @@
     {
       "basename": "npm 机制",
       "path": "infrastructure/npm/npm 机制.md"
-    },
-    {
-      "basename": "loader和plugin的区别",
-      "path": "infrastructure/bundler/Webpack/loader和plugin的区别.md"
     }
   ],
   "omittedPaths": [],
