@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
-    },
-    {
       "basename": "front end",
       "path": "Post/front end.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
     },
     {
       "basename": "Vue 3 Reactivity",

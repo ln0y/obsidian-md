@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2022-12-16-星期五 14:10:00
+update: 2023-01-05-星期四 17:40:08
 ---
 
 ## React
@@ -62,6 +62,7 @@ update: 2022-12-16-星期五 14:10:00
 ## Webpack
 
 [硬核解析 Webpack 事件流核心！](https://mp.weixin.qq.com/s/vjvObaCvmGugj3Mmwxmayw)
+
 [深入浅出 Webpack](http://webpack.wuhaolin.cn/)
 
 ## Jest
@@ -364,14 +365,16 @@ format = " [$duration](bold yellow)"
 ;(function () {
   'use strict'
   const sleep = n => new Promise(r => setTimeout(r, n))
-  window.onload = async function () {
+  const $$ = document.querySelectorAll.bind(document)
+
+  async function replaceImg() {
     await sleep(500)
-    const $$ = document.querySelectorAll.bind(document)
-    Array.from(
-      $$('.article img, .section-page img'),
-      i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png'))
-    )
+    const dom = $$('.article img, .section-page img')
+    Array.from(dom, i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png')))
   }
+
+  navigation.addEventListener('navigate', replaceImg)
+  window.onload = replaceImg
 })()
 ```
 

@@ -30,7 +30,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -153,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO看板.md"
+                "file": "Post/front end.md"
               }
             }
           }
@@ -170,7 +171,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO看板.md",
+                "file": "Post/front end.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,7 +188,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO看板.md",
+                "file": "Post/front end.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -226,8 +227,9 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "4a9852171243b035",
+  "active": "405fb72641ff84be",
   "lastOpenFiles": [
+    "TODO看板.md",
     "Post/front end.md",
     "MVVM/Vue/Vue 3 Reactivity.md",
     "MVVM/Vue/Logic Reuse.md",
@@ -236,7 +238,6 @@
     "JavaScript/design pattern/单例模式.md",
     "JavaScript/engine/垃圾回收.md",
     "JavaScript/design pattern/工厂模式.md",
-    "JavaScript/design pattern/设计模式之道.md",
-    "JavaScript/design pattern/迭代器模式.md"
+    "JavaScript/design pattern/设计模式之道.md"
   ]
 }
