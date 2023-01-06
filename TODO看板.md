@@ -31,6 +31,7 @@ update: 2022-03-13-Sunday 15:43:53
 - [ ] vscode image comment @{2022-06-09}
 - [ ] rxjs @{2022-06-10}
 - [ ] indexDB @{2022-12-08}
+- [ ] 多继承 @{2023-01-06}
 
 
 ## ⏳Working
