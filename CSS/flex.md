@@ -337,7 +337,7 @@ CSS 中有很多简写属性，简写属性可以包含多个子属性。 如果
 
 Web 页面是由多个 HTML 元素组建而成，HTML 文档中的元素是按照其在文档中出现的先后顺序决定的，比如下面这样的一个 HTML 文档：
 
-```css
+```html
 <body>
     <header></header>
     <main></main>

@@ -28,5 +28,6 @@
   "obsidian-git",
   "cm-editor-syntax-highlight-obsidian",
   "better-pdf-plugin",
-  "obsidian-local-images-plus"
+  "obsidian-local-images-plus",
+  "oz-clear-unused-images"
 ]
