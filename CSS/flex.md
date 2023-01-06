@@ -1,5 +1,5 @@
 ---
-aliases: []
+aliases: ['flexbox']
 tags: ['CSS','date/2022-05','year/2022','month/05']
 date: 2022-05-12-Thursday 14:44:56
 update: 2022-05-12-Thursday 15:20:10

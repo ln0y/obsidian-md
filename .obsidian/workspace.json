@@ -23,7 +23,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Post/front end.md",
+                "file": "CSS/页面布局.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ff2d644d93f377e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/布局技术术语.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -31,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -61,7 +74,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "vary",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -154,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Post/front end.md"
+                "file": "CSS/布局技术术语.md"
               }
             }
           }
@@ -171,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
+                "file": "CSS/布局技术术语.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
+                "file": "CSS/布局技术术语.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -227,17 +240,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "405fb72641ff84be",
+  "active": "6ff2d644d93f377e",
   "lastOpenFiles": [
-    "TODO看板.md",
+    "browser/跨域.md",
+    "CSS/布局技术术语.md",
+    "CSS/页面布局.md",
+    "CSS/布局方式.md",
+    "CSS/编写防御性CSS.md",
+    "CSS/flex.md",
+    "CSS/CSS 设置自动滚动定位的“安全”间距.md",
     "Post/front end.md",
-    "MVVM/Vue/Vue 3 Reactivity.md",
-    "MVVM/Vue/Logic Reuse.md",
-    "RegExp/正则表达式.md",
-    "JavaScript/design pattern/观察者模式(发布-订阅模式).md",
-    "JavaScript/design pattern/单例模式.md",
-    "JavaScript/engine/垃圾回收.md",
-    "JavaScript/design pattern/工厂模式.md",
-    "JavaScript/design pattern/设计模式之道.md"
+    "TODO看板.md",
+    "MVVM/Vue/Vue 3 Reactivity.md"
   ]
 }
