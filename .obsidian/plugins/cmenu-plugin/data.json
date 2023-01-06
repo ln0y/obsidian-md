@@ -90,6 +90,11 @@
       "id": "quickadd:choice:21e605d5-c314-4d37-b7d2-01645b314b31",
       "name": "QuickAdd: add pdf",
       "icon": "remix-FilePdfLine"
+    },
+    {
+      "id": "obsidian-local-images-plus:download-images",
+      "name": "Local Images Plus: Download images locally",
+      "icon": "remix-ImageAddLine"
     }
   ],
   "appendMethod": "workspace",

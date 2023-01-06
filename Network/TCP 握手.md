@@ -15,7 +15,7 @@ update: 2022-04-15-Friday 11:29:10
 
 **TCP 提供的是 Host-To-Host 传输，一台主机通过 TCP 发送数据给另一台主机**。这里的主机（Host）是一个抽象的概念，可以是手机、平板、手表等。收发数据的设备都是主机，所以双方是平等的。
 
-![[Cgp9HWB5RAmAZRwzAACtAP-CPWs242.png|800]]
+![[Cgp9HWB5RAmAZRwzAACtAP-CPWs242.png]]
 
 **TCP 协议往上是应用到应用（Application-To-Application）的协议**。什么是应用到应用的协议呢？比如你用微信发信息给张三，你的微信客户端、微信聊天服务都是应用。微信有自己的聊天协议，微信的聊天协议是应用到应用的协议；如果微信的聊天协议想要工作，就需要一个主机到主机的协议帮助它实现通信。
 
@@ -75,7 +75,7 @@ TCP 协议有这样几个基本操作：
 
 按照这个思路，你可以看看建立连接是不是需要 3 次握手：
 
-![[CioPOWB-RYSASfPkAAEen4ZR3gw297.png|800]]
+![[CioPOWB-RYSASfPkAAEen4ZR3gw297.png]]
 
 1. 客户端发消息给服务端（SYN）
 2. 服务端准备好进行连接
@@ -99,7 +99,7 @@ TCP 协议有这样几个基本操作：
 
 为了方便你理解步骤 3 和步骤 4，这里画了一张图。可以看到下图中 SYN 和 ACK 被合并了，因此建立连接一共需要 3 次握手，过程如下图所示：
 
-![[Cgp9HWB5RCqAVfhiAADJmfGn2O0616.png|800]]
+![[Cgp9HWB5RCqAVfhiAADJmfGn2O0616.png]]
 
 从上面的例子中，你可以进一步思考 SYN、ACK、PSH 这些常见的标识位（Flag）在传输中如何表示。
 
@@ -117,7 +117,7 @@ TCP 协议有这样几个基本操作：
 
 经过以上分析，就可以回答上面这个问题了。是不是刚刚好 4 次挥手？过程如下图所示：
 
-![[CioPOWCTwu-AD9PgAABp1yJqsPI439.png|800]]
+![[CioPOWCTwu-AD9PgAABp1yJqsPI439.png]]
 
 ### 总结
 

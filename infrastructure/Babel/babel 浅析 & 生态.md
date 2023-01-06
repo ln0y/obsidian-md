@@ -39,7 +39,7 @@ Babel 其实就是一个 JavaScript 的“编译器”。但是一个简单的�
 
 为了以最完美的方式支撑上述职责，Babel 的“家族”可谓枝繁叶茂。Babel 是一个使用 Lerna 构建的 Monorepo 风格的仓库，在其[`./packages`](https://github.com/babel/babel/tree/main/packages)目录下有 140 多个包，这些包我经过整合分类，并按照重要性筛选出来，可以用下面这张图片简单概括：
 
-![[CgqCHl_toZGAYAFJAAFicXOL898453.png|800]]
+![[CgqCHl_toZGAYAFJAAFicXOL898453.png]]
 
 其中 Babel 部分包你可能见过或者使用过，但并不确定它们起到了什么作用；有些包，你可能都没有听说过。总的来说，可以分为两种情况：
 
@@ -233,7 +233,7 @@ const output = generate(
 
 这样一个典型的 Babel 底层编译流程就出来了，如下图：
 
-![[CgqCHl_u4niAOtOmAAEw7EQpjEI596.png|800]]
+![[CgqCHl_u4niAOtOmAAEw7EQpjEI596.png]]
 
 上图也是 Babel 插件运作实现的基础。基于 AST 的操作，Babel 将上述所有能力开放给插件，让第三方能够更方便地操作 AST，并聚合成最后编译产出的代码。
 
@@ -495,7 +495,7 @@ var bar = createReactClass({
 
 在 Webpack 编译生命周期中，babel-loader 作为一个 Webpack loader，承担着文件编译职责。我们暂且将 babel-loader 放到 Babel 家族中，先来看看下面这张“全家福”。
 
-![[Cip5yF_tojyAfvQeAAMW8bbGBAY698.png|800]]
+![[Cip5yF_tojyAfvQeAAMW8bbGBAY698.png]]
 
 如上图所示，Babel 生态基本按照：辅助层 → 基础层 → 胶水层 → 应用层，四级结构完成。其中部分环节角色的界定有些模糊，比如 @babel/highlight 也可以作为应用层工具出现。
 

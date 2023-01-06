@@ -13,8 +13,8 @@ body {
   text-align: center;
 }
 
-.image-embed img {
-  max-width: var(--file-line-width);
+.workspace-leaf-content .image-embed img {
+  max-width: 800px;
 }
 
 .theme-dark .image-embed img {

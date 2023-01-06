@@ -70,7 +70,7 @@ npm 独有的命令是：`npm rebuild`。
 
 检测（checking）→ 解析包（Resolving Packages） → 获取包（Fetching Packages）→ 链接包（Linking Packages）→ 构建包（Building Packages）
 
-![[CgqCHl_ZflCANVu8AAJJZZYzwhs026.png|800]]
+![[CgqCHl_ZflCANVu8AAJJZZYzwhs026.png]]
 
 ### 检测包（checking）
 
@@ -89,7 +89,7 @@ npm 独有的命令是：`npm rebuild`。
 
 总之，在经过解析包这一步之后，我们就确定了所有依赖的具体版本信息以及下载地址。
 
-![[CgqCHl_TbimACnDOAAFMC14gP8I289.png|800]]
+![[CgqCHl_TbimACnDOAAFMC14gP8I289.png]]
 
 ### 获取包（Fetching Packages）
 
@@ -99,7 +99,7 @@ npm 独有的命令是：`npm rebuild`。
 
 对于没有命中缓存的包，Yarn 会维护一个 fetch 队列，按照规则进行网络请求。如果下载包地址是一个 file 协议，或者是相对路径，就说明其指向一个本地目录，此时调用 Fetch From Local 从离线缓存中获取包；否则调用 Fetch From External 获取包。最终获取结果使用 fs.createWriteStream 写入到缓存目录下。
 
-![[Ciqc1F_TbjKAThkOAAEsp0sOHUc622.png|800]]
+![[Ciqc1F_TbjKAThkOAAEsp0sOHUc622.png]]
 
 ### 链接包（Linking Packages）
 
@@ -107,7 +107,7 @@ npm 独有的命令是：`npm rebuild`。
 
 这里提到的扁平化原则是核心原则。
 
-![[Ciqc1F_Tbj2AWiPOAADyaZB-wGw502.png|800]]
+![[Ciqc1F_Tbj2AWiPOAADyaZB-wGw502.png]]
 
 ### 构建包（Building Packages）
 
@@ -128,15 +128,15 @@ npm 独有的命令是：`npm rebuild`。
 
 因此 npm v3 之后，node\_modules 的结构改成了扁平结构，按照上面的例子（项目直接依赖模块 A，A 还依赖其他模块 B），我们得到下面的图示：
 
-![[Ciqc1F_ZfoKACluCAADJ2SvodGg411.png|800]]
+![[Ciqc1F_ZfoKACluCAADJ2SvodGg411.png]]
 
 当项目新添加了 C 依赖，而它依赖另一个版本的 B v2.0。这时候版本要求不一致导致冲突，B v2.0 没办法放在项目平铺目录下的 node\_moduls 文件当中，npm v3 会把 C 依赖的 B v2.0 安装在 C 的 node\_modules 下：
 
-![[Ciqc1F_Zf1eAWVhcAADO_4H0sjA082.png|800]]
+![[Ciqc1F_Zf1eAWVhcAADO_4H0sjA082.png]]
 
 接下来，在 npm v3 中，假如我们的 App 现在还需要依赖一个 D，而 D 也依赖 B v2.0 ，我们会得到如下结构：
 
-![[Cip5yF_Zf2mABSwEAAC-YH5jkcQ965.png|800]]
+![[Cip5yF_Zf2mABSwEAAC-YH5jkcQ965.png]]
 
 这里我想请你思考一个问题：**为什么 B v1.0 出现在项目顶层 node\_modules，而不是 B v2.0 出现在 node\_modules 顶层呢**？
 
@@ -144,7 +144,7 @@ npm 独有的命令是：`npm rebuild`。
 
 假设这时候项目又添加了一个依赖 E ，E 依赖了 B v1.0 ，安装 E 之后，我们会得到这样一个结构：
 
-![[CgpVE1_Zf4aADdDJAADNnUsWnlc423.png|800]]
+![[CgpVE1_Zf4aADdDJAADNnUsWnlc423.png]]
 
 此时对应的 package.json 中，依赖包的顺序如下：
 
@@ -168,7 +168,7 @@ npm 独有的命令是：`npm rebuild`。
 
 它的结构如下：
 
-![[Cip5yF_Zf6iAClRIAADSW-XFvzA495.png|800]]
+![[Cip5yF_Zf6iAClRIAADSW-XFvzA495.png]]
 
 这时模块 B v2.0 分别出现在了 A、C、D 模块下——重复存在了。
 
@@ -176,7 +176,7 @@ npm 独有的命令是：`npm rebuild`。
 
 这里一个更理想的依赖结构理应是：
 
-![[CgpVE1_Zf76ADk3NAADVWLHAHTo908.png|800]]
+![[CgpVE1_Zf76ADk3NAADVWLHAHTo908.png]]
 
 过了一段时间，模块 E v2.0 发布了，并且 E v2.0 也依赖了模块 B v2.0 ，npm v3 更新 E 时会怎么做呢？
 
@@ -187,12 +187,12 @@ npm 独有的命令是：`npm rebuild`。
 
 此时得到图：
 
-![[Ciqc1F_Zf82Abr7LAADYStAX7VU318.png|800]]
+![[Ciqc1F_Zf82Abr7LAADYStAX7VU318.png]]
 
 这时候，你可以明显看到出现了较多重复的依赖模块 B v2.0。我们可以删除 node\_modules，重新安装，利用 npm 的依赖分析能力，得到一个更清爽的结构。
 
 实际上，更优雅的方式是使用 `npm dedupe` 命令，得到：
 
-![[CgqCHl_Zf-WAb-BnAADAe1GD0YY021.png|800]]
+![[CgqCHl_Zf-WAb-BnAADAe1GD0YY021.png]]
 
 实际上，Yarn 在安装依赖时会自动执行 dedupe 命令。**整个优化的安装过程，就是之前提到的扁平化安装模式，也是需要掌握的关键内容**。

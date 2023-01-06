@@ -112,7 +112,7 @@ class Queue {
 - 单链表：单链表是维护一系列节点的数据结构，其特点是：每个节点包含了数据，同时包含指向链表中下一个节点的指针。
 - 双向链表：不同于单链表，双向链表特点：每个节点分支除了包含其数据以外，还包含了分别指向其前驱和后继节点的指针。
 
-![[CioPOWAvYtuAEfl-AAIhGegvMJU666.png|800]]
+![[CioPOWAvYtuAEfl-AAIhGegvMJU666.png]]
 
 首先，根据双向链表的特点，我们实现一个节点构造函数（节点类），如下代码：
 
@@ -342,9 +342,9 @@ length() {
 ```js
 traverse(fn) {
   let current = this.head
-  
+
   while(current !== null) {
-    // 执行遍历时回调 
+    // 执行遍历时回调
     fn(current)
     current = current.next
   }
@@ -396,13 +396,13 @@ find(item) {
 根据其特性，我们实现二叉搜索树还是应该先构造一个节点类，如下代码：
 
 ```js
-class Node { 
-  constructor(data) { 
+class Node {
+  constructor(data) {
     this.left = null
     this.right = null
     this.value = data
-  } 
-} 
+  }
+}
 ```
 
 然后我们实现二叉搜索树的以下方法。
@@ -452,7 +452,7 @@ removeNode(root, value) {
     root.right = tis.removeNode(root.right, value)
     return root
   } else {
-    // 找到了需要删除的节点 
+    // 找到了需要删除的节点
     // 如果当前 root 节点无左右子节点
     if (!root.left && !root.right) {
       root = null

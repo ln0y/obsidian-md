@@ -1,0 +1,10 @@
+{
+  "saveAttNextToNote": false,
+  "realTimeUpdate": true,
+  "realTimeUpdateInterval": 2,
+  "addNameOfFile": true,
+  "showNotifications": true,
+  "include": ".*\\.md",
+  "mediaRootDirectory": "_attachment\\img",
+  "useWikilinks": true
+}

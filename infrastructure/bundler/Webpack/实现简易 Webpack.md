@@ -150,7 +150,7 @@ function webpackBundle({ modules, entry }) {
 
 我们通过下图来总结一下 Webpack 风格的打包器原理和流程：
 
-![[Ciqc1GAOlIOAYZLfAAFmQUf14uQ501.png|800]]
+![[Ciqc1GAOlIOAYZLfAAFmQUf14uQ501.png]]
 
 讲到这里，再扩充一下另一个打包器——Rollup 的打包原理，针对上述代码，Rollup 打包过后的产出为：
 

@@ -62,7 +62,7 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 当然，浏览器可以设置不接受 `Cookie`，也可以设置不向服务器发送 `Cookie`。`window.navigator.cookieEnabled` 属性返回一个布尔值，表示浏览器是否打开 `Cookie` 功能。
 
 ```js
-window.navigator.cookieEnabled 
+window.navigator.cookieEnabled
 ```
 
 > 本文所有的讨论都是在浏览器的 `window.navigator.cookieEnabled` 为 true 的前提下进行的。
@@ -255,7 +255,7 @@ Set-Cookie: key=value; Priority=High
 
 服务器如果希望在浏览器保存 `Cookie`，就要在 `HTTP` 回应的头信息里面，放置一个 `Set-Cookie` 字段。
 
-![[545397776-5f707e306a5fe.png|800]]
+![[545397776-5f707e306a5fe.png]]
 
 浏览器收到响应后通常会保存下 `Cookie`，之后对该服务器每一次请求中都通过 `Cookie` 请求头部将 `Cookie` 信息发送给服务器。另外，`Cookie` 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。
 
@@ -287,7 +287,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; HttpOnly
 
 浏览器接收了响应头提供的 `Cookie` 之后，每一次访问该域时，都会携带该 `Cookie` 值：
 
-![[2196786716-5f707e4a1bf3c.png|800]]
+![[2196786716-5f707e4a1bf3c.png]]
 
 `Cookie` 字段可以包含多个 Cookie，使用分号（`;`）分隔。
 
@@ -301,7 +301,7 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 
 通过 `document.cookie` 属性可创建新的 `Cookie`，也可通过该属性访问非 HttpOnly 标记的 `Cookie`。
 
-![[4046693869-5f707e731773e.png|800]]
+![[4046693869-5f707e731773e.png]]
 
 上图从 `document.cookie` 一次性读出多个 `Cookie`，它们之间使用分号分隔。必须手动还原，才能取出每一个 `Cookie` 的值。
 
@@ -407,7 +407,7 @@ SPA 的出现改变了传统的方式，身份凭证可以不存储在 cookie �
 
 由于 `Cookie` 在使用上存在较多限制，近年来，随着技术的发展成熟，出现了几种可替代 `Cookie` 的方案，且已被大多数主流浏览器支持。
 
-![[2586362555-5f707f08957c8.png|800]]
+![[2586362555-5f707f08957c8.png]]
 
 - **Web Storage、window.localStorage**
 

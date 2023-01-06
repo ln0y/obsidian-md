@@ -43,7 +43,7 @@ read(A).then(data => {
 
 关于 Promise 的状态流转情况，有一点值得注意的是，**内部状态改变之后不可逆**，你需要在编程过程中加以注意。文字描述比较晦涩，我们直接通过一张图就能很清晰地看出 Promise 内部状态流转的情况，如下所示。
 
-![[Cgp9HWAvhIyAH1WgAAES_06spV4639.png|800]]
+![[Cgp9HWAvhIyAH1WgAAES_06spV4639.png]]
 
 从上图可以看出，我们最开始创建一个新的 Promise 返回给 p1 ，然后开始执行，状态是 pending，当执行 resolve 之后状态就切换为 fulfilled，执行 reject 之后就变为 rejected 的状态。
 

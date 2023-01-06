@@ -31,12 +31,12 @@
             }
           },
           {
-            "id": "6ff2d644d93f377e",
+            "id": "3cbe76fe0c9a6004",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/布局技术术语.md",
+                "file": "CSS/flex.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -74,7 +74,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "vary",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/布局技术术语.md"
+                "file": "CSS/flex.md"
               }
             }
           }
@@ -184,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/布局技术术语.md",
+                "file": "CSS/flex.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/布局技术术语.md",
+                "file": "CSS/flex.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -240,17 +240,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "6ff2d644d93f377e",
+  "active": "3cbe76fe0c9a6004",
   "lastOpenFiles": [
-    "browser/跨域.md",
-    "CSS/布局技术术语.md",
+    "CSS/flex.md",
+    "_attachment/img/da7843e2a96139e89725fbe75cae7018_MD5.png",
     "CSS/页面布局.md",
+    "CSS/布局技术术语.md",
+    "browser/跨域.md",
     "CSS/布局方式.md",
     "CSS/编写防御性CSS.md",
-    "CSS/flex.md",
     "CSS/CSS 设置自动滚动定位的“安全”间距.md",
     "Post/front end.md",
-    "TODO看板.md",
-    "MVVM/Vue/Vue 3 Reactivity.md"
+    "TODO看板.md"
   ]
 }
