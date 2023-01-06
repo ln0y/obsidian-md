@@ -1,8 +1,8 @@
 ---
 aliases: []
-tags: ['algorithm','date/2022-03','year/2022','month/03']
-date: 2022-03-15-Tuesday 16:26:08
-update: 2022-03-15-Tuesday 16:28:01
+tags: ['algorithm', 'date/2022-03', 'year/2022', 'month/03']
+date: 2022-11-09-星期三 10:52:56
+update: 2023-01-06-星期五 18:22:36
 ---
 
 ## 数据结构介绍
@@ -21,41 +21,39 @@ update: 2022-03-15-Tuesday 16:28:01
 我们可以先大体感知一下各种数据结构之间的关系：
 
 - 栈和队列是类似数组的结构，非常多的初级题目要求用数组实现栈和队列，它们在插入和删除的方式上和数组有所差异，但是实现还是非常简单的；
-- 链表、树和图这种数据结构的特点是，其节点需要引用其他节点，因此在增/删时，需要注意对**相关前驱和后继节点**的影响；
+- 链表、树和图这种数据结构的特点是，其节点需要引用其他节点，因此在增/删时，需要注意对 **相关前驱和后继节点** 的影响；
 - 可以从堆栈和队列出发，构建出链表；
 - 树和图最为复杂，但它们本质上扩展了链表的概念；
-- 散列表的关键是**理解散列函数**，明白依赖散列函数实现保存和定位数据的过程；
+- 散列表的关键是 **理解散列函数**，明白依赖散列函数实现保存和定位数据的过程；
 - 直观上认为，链表适合记录和存储数据；哈希表和字典树在检索数据以及搜索方面有更大的应用场景。
 
 ## 堆栈和队列
 
-栈和队列是一种**操作受限的线性结构**，它们非常简单，虽然 JavaScript 并没有原生内置这样的数据结构，但是我们可以轻松地模拟出来。
+栈和队列是一种 **操作受限的线性结构**，它们非常简单，虽然 JavaScript 并没有原生内置这样的数据结构，但是我们可以轻松地模拟出来。
 
 栈的实现，后进先出 LIFO（Last in、First out）：
 
 ```js
 class Stack {
-  constructor (...args) {
+  constructor(...args) {
     // 使用数组进行模拟
     this.stack = [...args]
   }
-  push (...items) {
+  push(...items) {
     // 入栈
     return this.stack.push(...items)
   }
-  pop () {
+  pop() {
     // 出栈，从数组尾部弹出一项
     return this.stack.pop()
   }
-  peek () {
-    return this.isEmpty()
-      ? undefined
-      : this.stack[this.size() - 1]
+  peek() {
+    return this.isEmpty() ? undefined : this.stack[this.size() - 1]
   }
-  isEmpty () {
+  isEmpty() {
     return this.size() == 0
   }
-  size () {
+  size() {
     return this.stack.length
   }
 }
@@ -65,32 +63,28 @@ class Stack {
 
 ```js
 class Queue {
-  constructor (...args) {
+  constructor(...args) {
     // 使用数组进行模拟
     this.queue = [...args]
   }
-  enqueue (...items) {
+  enqueue(...items) {
     // 入队
     return this.queue.push(...items)
   }
-  dequeue () {
+  dequeue() {
     // 出队
     return this.queue.shift()
   }
-  front () {
-    return this.isEmpty()
-      ? undefined
-      : this.queue[0]
+  front() {
+    return this.isEmpty() ? undefined : this.queue[0]
   }
-  back () {
-    return this.isEmpty()
-      ? undefined
-      : this.queue[this.size() - 1]
+  back() {
+    return this.isEmpty() ? undefined : this.queue[this.size() - 1]
   }
-  isEmpty () {
+  isEmpty() {
     return this.size() == 0
   }
-  size () {
+  size() {
     return this.queue.length
   }
 }
@@ -100,14 +94,14 @@ class Queue {
 
 ## 链表（单向链表和双向链表）
 
-堆栈和队列都可以利用数组实现，链表和数组一样，也实现了按照一定的顺序存储元素，不同的地方在于链表不能像数组一样通过下标访问，而是**每一个元素都能够通过“指针”指向下一个元素**。我们可以直观地得出结论：**链表不需要一段连续的存储空间**，“指向下一个元素”的方式能够更大限度地利用内存。
+堆栈和队列都可以利用数组实现，链表和数组一样，也实现了按照一定的顺序存储元素，不同的地方在于链表不能像数组一样通过下标访问，而是 **每一个元素都能够通过“指针”指向下一个元素**。我们可以直观地得出结论：**链表不需要一段连续的存储空间**，“指向下一个元素”的方式能够更大限度地利用内存。
 
 根据上述内容，我们可以总结出链表的优点在于：
 
 - 链表的插入和删除操作的时间复杂度是常数级的，我们只需要改变相关节点的指针指向即可；
 - 链表可以像数组一样顺序访问，查找元素的时间复杂度是线性的。
 
-要想实现链表，我们需要先对链表进行分类，常见的有**单链表和双向链表**。
+要想实现链表，我们需要先对链表进行分类，常见的有 **单链表和双向链表**。
 
 - 单链表：单链表是维护一系列节点的数据结构，其特点是：每个节点包含了数据，同时包含指向链表中下一个节点的指针。
 - 双向链表：不同于单链表，双向链表特点：每个节点分支除了包含其数据以外，还包含了分别指向其前驱和后继节点的指针。
@@ -118,7 +112,7 @@ class Queue {
 
 ```js
 class Node {
-  constructor (data) {
+  constructor(data) {
     // data 为当前节点储存的数据
     this.data = data
     // next 指向下一个节点
@@ -133,7 +127,7 @@ class Node {
 
 ```js
 class DoublyLinkedList {
-  constructor () {
+  constructor() {
     // 双向链表开头
     this.head = null
     // 双向链表结尾
@@ -561,7 +555,7 @@ postOrder(root) {
 }
 ```
 
-上述前、中、后序遍历的区别其实就在于**console.log(root.value) 方法执行的位置**。
+上述前、中、后序遍历的区别其实就在于 **console.log(root.value) 方法执行的位置**。
 
 ## 图
 
@@ -569,6 +563,7 @@ postOrder(root) {
 
 - 节点：Node
 - 边：Edge
+
 - |V|：图中顶点（节点）的总数
 - |E|：图中的连接总数（边）
 
@@ -576,7 +571,7 @@ postOrder(root) {
 
 ```js
 class Graph {
-  constructor () {
+  constructor() {
     // 使用 Map 数据结构表述图中顶点关系
     this.AdjList = new Map()
   }
@@ -629,7 +624,7 @@ Map {
 
 - 添加边：addEdge，如下代码：
 
-```js
+```javascript
 addEdge(vertex, node) {
   if (this.AdjList.has(vertex)) {
     if (this.AdjList.has(node)) {
@@ -650,7 +645,7 @@ addEdge(vertex, node) {
 
 - 打印图：print，如下代码：
 
-```
+```js
 print() {
 // 使用 for of 遍历并打印 this.AdjList
 for (let [key, value] of this.AdjList) {
@@ -663,7 +658,7 @@ for (let [key, value] of this.AdjList) {
 
 广度优先算法遍历，如下代码：
 
-```
+```js
 createVisitedObject() {
   let map = {}
 for (let key of this.AdjList.keys()) {
@@ -696,7 +691,7 @@ if (!visited[elem]) {
 }
 ```
 
-如上代码所示，我们来进行简单总结。广度优先算法（BFS），是一种**利用队列实现的搜索算法**。对于图来说，就是从起点出发，对于每次出队列的点，都要遍历其四周的点。
+如上代码所示，我们来进行简单总结。广度优先算法（BFS），是一种 **利用队列实现的搜索算法**。对于图来说，就是从起点出发，对于每次出队列的点，都要遍历其四周的点。
 
 因此 BFS 的实现步骤：
 
@@ -712,7 +707,7 @@ if (!visited[elem]) {
 
 深度优先算法，如下代码：
 
-```
+```js
 createVisitedObject() {
   let map = {}
 for (let key of this.AdjList.keys()) {
@@ -746,13 +741,3 @@ this.dfsHelper(elem, visited)
 - 调用辅助函数递归起始节点。
 
 BFS 的实现重点在于队列，而 DFS 的重点在于递归，这是它们的本质区别。
-
-## 总结
-
-这一讲我们介绍了和前端最为贴合的几种数据结构，事实上数据结构更重要的是应用，我希望你能够做到：在需要的场景，能够想到最为适合的数据结构处理问题。请你务必掌握好这些内容，接下来的几讲都需要对数据结构有一个较为熟练的掌握和了解。我们马上进入数据结构的应用学习。
-
-本讲内容总结如下：
-
-![如何利用 JavaScript 实现经典数据结构？.png](https://s0.lgstatic.com/i/image6/M00/04/F5/CioPOWAvYweAUX2mAAHhvq_M9XU847.png)
-
-随着需求的复杂度上升，前端工程师越来越离不开数据结构。是否能够掌握这个难点内容，将是进阶的重要考量。下一讲，我们将解析数据结构在前端中的具体应用场景，来帮助你加深理解，做到灵活应用。
