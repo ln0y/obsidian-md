@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "46827ad443e78cbd",
+            "id": "21f8bfd474439629",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/flex.md",
-                "mode": "source",
+                "file": "todo query.md",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -32,8 +32,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b9854ff879e4715d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/flex.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -63,7 +77,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "task-todo:/\\s*1\\s*$/",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -219,7 +233,6 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "open-vscode:VSCode": false,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
@@ -227,20 +240,21 @@
       "command-palette:打开命令面板": false,
       "random-note:开始漫游笔记": false,
       "workspaces:管理工作区布局": false,
-      "oz-clear-unused-images:Clear Unused Images": false
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "46827ad443e78cbd",
+  "active": "b9854ff879e4715d",
   "lastOpenFiles": [
-    "Post/front end.md",
+    "todo query.md",
     "CSS/flex.md",
+    "TODO看板.md",
+    "Post/front end.md",
     "CSS/布局技术术语.md",
     "CSS/布局方式.md",
     "CSS/页面布局.md",
     "algorithm/JavaScript 实现经典数据结构.md",
     "CSS/编写防御性CSS.md",
-    "_attachment/img/da7843e2a96139e89725fbe75cae7018_MD5.png",
-    "browser/跨域.md",
-    "CSS/CSS 设置自动滚动定位的“安全”间距.md"
+    "_attachment/img/da7843e2a96139e89725fbe75cae7018_MD5.png"
   ]
 }

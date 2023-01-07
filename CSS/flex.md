@@ -1,8 +1,8 @@
 ---
 aliases: ['flexbox']
-tags: ['CSS','date/2022-05','year/2022','month/05']
+tags: ['CSS', 'date/2022-05', 'year/2022', 'month/05']
 date: 2022-11-09-星期三 10:52:56
-update: 2023-01-07-星期六 16:32:52
+update: 2023-01-07-星期六 18:13:07
 ---
 
 自 2009 年 W3C 发布 **Flexible Box Layout Module** （WD 版本）至今已有十多年了，在近十年来，该模块得到了快速发展，现已成为最流行的 Web 布局技术之一。在 Web 开发者中，该模块也常称为 **Flexbox 布局** 。
@@ -175,7 +175,6 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
     flex-direction: var(--direction);
   }
 </style>
-
 ```
 
 > Demo 地址：<https://codepen.io/airen/full/MWGeeLo>
@@ -197,7 +196,7 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
 `flex-direction` 中的 `row` 和 `row-reverse` （或 `column` 和 `column-reverse`）可以让主轴的起点和终点（或侧轴的起点和终点）互换。它们在一些布局中也是非常有用的，比如像下图这样的效果，希望双数的卡片的缩略图靠右，单数的缩略图居左。我们只需要一行代码即可：
 
 ```css
-.card-child(2n) {
+.card:nth-child(2n) {
   flex-direction: row-reverse;
 }
 ```
@@ -231,7 +230,7 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
 ```css
 .flex-container {
   flex-wrap: wrap;
- }
+}
 ```
 
 > Demo 地址：<https://codepen.io/airen/full/XWqKNrL>
@@ -279,8 +278,8 @@ CSS 中有很多简写属性，简写属性可以包含多个子属性。 如果
 
 ```css
 .flex-container {
- display: flex;
- flex-flow: column wrap;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 /* 等同于 */
@@ -457,16 +456,16 @@ main:hover aside {
 
 ```css
 :root {
- --gap: 1rem;
- --columns: 5;
+  --gap: 1rem;
+  --columns: 5;
 }
 
 .container {
- gap: var(--gap);
+  gap: var(--gap);
 }
 
 .item {
- flex-basis: calc((100% - (var(--columns) - 1) * var(--gap)) / var(--columns));
+  flex-basis: calc((100% - (var(--columns) - 1) * var(--gap)) / var(--columns));
 }
 ```
 
@@ -514,32 +513,38 @@ main:hover aside {
 
 ```html
 <div class="container">
- <div class="flex__container flex__container--margin" data-gutter="margin">
-  <div class="flex__item">Flex Item 1</div>
-  <div class="flex__item">Flex Item 2</div>
-  <div class="flex__item">Flex Item 3</div>
-  <div class="flex__item">Flex Item 4</div>
-  <div class="flex__item">Flex Item 5</div>
-  <div class="flex__item">Flex Item 1</div>
-  <div class="flex__item">Flex Item 2</div>
-  <div class="flex__item">Flex Item 3</div>
-  <div class="flex__item">Flex Item 4</div>
-  <div class="flex__item">Flex Item 5</div>
- </div>
+  <div
+    class="flex__container flex__container--margin"
+    data-gutter="margin"
+  >
+    <div class="flex__item">Flex Item 1</div>
+    <div class="flex__item">Flex Item 2</div>
+    <div class="flex__item">Flex Item 3</div>
+    <div class="flex__item">Flex Item 4</div>
+    <div class="flex__item">Flex Item 5</div>
+    <div class="flex__item">Flex Item 1</div>
+    <div class="flex__item">Flex Item 2</div>
+    <div class="flex__item">Flex Item 3</div>
+    <div class="flex__item">Flex Item 4</div>
+    <div class="flex__item">Flex Item 5</div>
+  </div>
 </div>
 <div class="container">
- <div class="flex__container flex__container--gap" data-gutter="gap">
-  <div class="flex__item">Flex Item 1</div>
-  <div class="flex__item">Flex Item 2</div>
-  <div class="flex__item">Flex Item 3</div>
-  <div class="flex__item">Flex Item 4</div>
-  <div class="flex__item">Flex Item 5</div>
-  <div class="flex__item">Flex Item 1</div>
-  <div class="flex__item">Flex Item 2</div>
-  <div class="flex__item">Flex Item 3</div>
-  <div class="flex__item">Flex Item 4</div>
-  <div class="flex__item">Flex Item 5</div>
- </div>
+  <div
+    class="flex__container flex__container--gap"
+    data-gutter="gap"
+  >
+    <div class="flex__item">Flex Item 1</div>
+    <div class="flex__item">Flex Item 2</div>
+    <div class="flex__item">Flex Item 3</div>
+    <div class="flex__item">Flex Item 4</div>
+    <div class="flex__item">Flex Item 5</div>
+    <div class="flex__item">Flex Item 1</div>
+    <div class="flex__item">Flex Item 2</div>
+    <div class="flex__item">Flex Item 3</div>
+    <div class="flex__item">Flex Item 4</div>
+    <div class="flex__item">Flex Item 5</div>
+  </div>
 </div>
 ```
 
@@ -554,7 +559,7 @@ main:hover aside {
 
 .container {
   width: calc(
-   var(--item-basis) * var(--columns) + var(--gap) * (var(--columns) - 1) + 6px
+    var(--item-basis) * var(--columns) + var(--gap) * (var(--columns) - 1) + 6px
   );
 }
 
@@ -621,7 +626,7 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 | **Flex 项目自对齐**( `*-self`) | ~~`justify-self`~~     | `align-self`         |
 | 空间分配 ( `*-content`)        | `justify-content`      | `align-content`      |
 
-需要提醒一下的是，Flex 容器的主轴和侧轴的方向是可以改变的，用于 Flex 容器上的 `flex-direction` ，CSS 的书写模式 `writing-mode` 属性，CSS 阅读模式 `dirction` 和 HTML 元素的 `dir` 属性都可以改变。另外，**在 Flexbox 布局中是没有** **`justify-self` 属性的** ！
+需要提醒一下的是，Flex 容器的主轴和侧轴的方向是可以改变的，用于 Flex 容器上的 `flex-direction` ，CSS 的书写模式 `writing-mode` 属性，CSS 阅读模式 `dirction` 和 HTML 元素的 `dir` 属性都可以改变。另外，**在 Flexbox 布局中是没有** **`justify-self` 和 `justify-items` 属性的**，是用在 grid 布局中的 ！
 
 > 这里提到的对齐相关的属性，最早是出于 Flexbox 布局模块的，但也可以用于 CSS Grid 布局中。因此，在后来 W3C 的 CSS 工作小组，将这些属性纳入到一个独立的功能模块中，即 **CSS Box Alignment Module** ，到目前为止该 [模块最新版本是 Level 3](https://www.w3.org/TR/css-align-3)。
 
@@ -641,15 +646,15 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 
 ```html
 <div class="flex-container">
-  <div class="item"> 1 </div>
+  <div class="item">1</div>
   <!-- 中间省略 两个 Item -->
-  <div class="item"> 4 </div>
+  <div class="item">4</div>
 </div>
 
 <div class="flex-container">
-  <div class="item"> 1 </div>
+  <div class="item">1</div>
   <!-- 中间省略 7个 Item -->
-  <div class="item"> 8 </div>
+  <div class="item">8</div>
 </div>
 ```
 
@@ -685,9 +690,17 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 
 ![[_attachment/img/3a2ee86a69b0cb7f18aa77bfa22eb370_MD5.png]]
 
-## 沿主轴分配空间
+### 沿主轴分配空间 (justify-content)
 
 在上面这个初始化示例中，Flex 项目在主轴上排成一行，而且主轴方向有一定的剩余空间。这是因为，所有 Flex 项目的宽度总和小于 Flex 容器宽度，无法完全填满 Flex 容器。由于 `justify-content` 的初始值为 `flex-start` ，所以你看到的效果是，“Flex 项目向主轴起点位置靠齐（即行上第一个 Flex 项目的起始位置和 Flex 容器主轴起点位置平齐），Flex 容器的剩余空间都位于结尾处（即行上最后 Flex 项目终点处与 Flex 容器主轴终点处之间的距离）”：
+
+| 值            | 描述                                                                                   |
+| ------------- | -------------------------------------------------------------------------------------- |
+| flex-start    | (默认) 从起点开始顺序排列                                                              |
+| flex-end      | 相对终点顺序排列                                                                       |
+| space-evenly  | 项目均匀分布，所有项目之间及项目与边框之间距离相等                                     |
+| space-between | 项目均匀分布，第一个项在起点线，最后一项在终点线                                       |
+| space-around  | 项目均匀分布，第一个项目两侧有相同的留白空间，相邻项目之间的距离是两个项目之间留白的和 |
 
 ![[_attachment/img/f2016575f2dca43fc62e98bd21f0b3b4_MD5.png]]
 
@@ -773,9 +786,18 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 
 事实上，不管 `flex-direction` 属性的值是什么，`justify-content` 属性 **只作用于 Flex 容器主轴上，它会让 Flex 项目在主轴上进行排列或分配主轴方向的 Flex 容器剩余空间** 。不过，当 `flex-direction` 属性取值为 `column` 或 `column-reverse` 时，需要在代码中使用 `height` 或 `block-size` 显式指定容器的高度，只有这样才能让 Flex 容器有一定的剩余空间。否则，Flex 容器不会有任何剩余空间可供分配。这主要是因为，CSS 在计算块容器（Flex 容器）高度（或块方向尺寸）时，默认以其内容或所有后代元素高度来计算。
 
-## 沿侧轴分配空间
+### 沿侧轴分配空间 (align-content)
 
 > **沿侧轴分配空间，又可以看作是 Flexbox 布局中多行（或多列）的对齐方式** ！
+
+| 值            | 描述                                           |
+| ------------- | ---------------------------------------------- |
+| stretch       | (默认) 拉伸显示                                |
+| flex-start    | 从起点线开始顺序排列                           |
+| flex-end      | 相对终点先顺序排列                             |
+| center        | 剧种排列                                       |
+| space-between | 项目均匀分布，第一个在起点线，最后一项在终点线 |
+| space-around  | 项目均匀分布，每个项目两侧都有相同的留白空间   |
 
 在 Flexbox 布局中，当 Flex 容器没有足够多的空间来容纳 Flex 项目时，且 Flex 容器上显式设置了 `flex-wrap` 属性的值为 `wrap` （或 `wrap-reverse`），Flex 项目会换行排列：
 
@@ -914,11 +936,19 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 > **最后再次提醒，`align-content` 属性只有在** **`flex-wrap`** **取值为** **`wrap`** **或** **`wrap-reverse`** **时才有效** ！
 
-## 沿侧轴对齐 Flex 项目
+### 沿侧轴对齐 Flex 项目 (align-items & align-self)
 
 > **沿侧轴对齐 Flex 项目，指的是 Flex 容器中单行（或单例）以及单个 Flex 项目的对齐方式** ！
 
 构建 Web 布局时，总有不需要断行（只是单行）的状态，即 `flex-wrap` 属性的值为 `nowrap` 。此时，要控制 Flex 项目在 Flex 容器侧轴上的对齐方式，就不能使用 `align-content` 属性了，但你可以使用 `align-items` 或 `align-self` 来控制整行 Flex 项目，或单个 Flex 项目在侧轴上的对齐方式：
+
+| 值         | 描述                           |
+| ---------- | ------------------------------ |
+| stretch    | (默认) 交叉轴方向拉伸显示      |
+| flex-start | 项目按交叉轴起点线对齐         |
+| flex-end   | 项目按交叉轴终点线对           |
+| center     | 交叉轴方向项目中间对齐         |
+| baseline   | 交叉轴方向按第一行文字极鲜对齐 |
 
 - `align-items` 用于 Flex 容器上，控制 Flex 行（所有 Flex 项目所在行）在侧轴上对齐方式；
 
@@ -1029,7 +1059,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 }
 
 .item {
-  align-self: var(--algin-self, auto)
+  align-self: var(--algin-self, auto);
 }
 ```
 
@@ -1062,18 +1092,31 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 ```html
 <div class="card">
- <div class="card__thumb">
-  <svg t="1662879804494" class="icon" viewBox="0 0 1445 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5503" width="200" height="200">
-   <path d="M0.005421 131.312941V584.282353a30.117647 30.117647 0 0 0 49.995294 22.889412l271.661177-236.724706a60.235294 60.235294 0 0 1 77.101176 0l259.011765 207.209412 142.757647-142.757647a60.235294 60.235294 0 0 1 80.112941-4.216471l301.176471 240.941176a60.235294 60.235294 0 1 1-75.294118 93.967059l-259.011765-207.209412-142.757647 142.757648a60.235294 60.235294 0 0 1-80.112941 4.21647L361.417186 493.929412l-301.176471 262.625882a180.705882 180.705882 0 0 0-60.235294 136.131765A131.312941 131.312941 0 0 0 131.318362 1024h1183.021177A131.312941 131.312941 0 0 0 1445.65248 892.687059V131.312941A131.312941 131.312941 0 0 0 1314.339539 0H131.318362A131.312941 131.312941 0 0 0 0.005421 131.312941zM1114.358362 421.647059a144.564706 144.564706 0 1 1 144.564706-144.564706A144.564706 144.564706 0 0 1 1114.358362 421.647059z" fill="currentColor" p-id="5504"></path>
-  </svg>
- </div>
- <div class="card__content">
-  <h3 class="title">
-   <small>UX Design</small>
-    Make it easier to search and filter
-  </h3>
-  <button>Read More</button>
- </div>
+  <div class="card__thumb">
+    <svg
+      t="1662879804494"
+      class="icon"
+      viewBox="0 0 1445 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="5503"
+      width="200"
+      height="200"
+    >
+      <path
+        d="M0.005421 131.312941V584.282353a30.117647 30.117647 0 0 0 49.995294 22.889412l271.661177-236.724706a60.235294 60.235294 0 0 1 77.101176 0l259.011765 207.209412 142.757647-142.757647a60.235294 60.235294 0 0 1 80.112941-4.216471l301.176471 240.941176a60.235294 60.235294 0 1 1-75.294118 93.967059l-259.011765-207.209412-142.757647 142.757648a60.235294 60.235294 0 0 1-80.112941 4.21647L361.417186 493.929412l-301.176471 262.625882a180.705882 180.705882 0 0 0-60.235294 136.131765A131.312941 131.312941 0 0 0 131.318362 1024h1183.021177A131.312941 131.312941 0 0 0 1445.65248 892.687059V131.312941A131.312941 131.312941 0 0 0 1314.339539 0H131.318362A131.312941 131.312941 0 0 0 0.005421 131.312941zM1114.358362 421.647059a144.564706 144.564706 0 1 1 144.564706-144.564706A144.564706 144.564706 0 0 1 1114.358362 421.647059z"
+        fill="currentColor"
+        p-id="5504"
+      ></path>
+    </svg>
+  </div>
+  <div class="card__content">
+    <h3 class="title">
+      <small>UX Design</small>
+      Make it easier to search and filter
+    </h3>
+    <button>Read More</button>
+  </div>
 </div>
 ```
 
@@ -1122,6 +1165,8 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 > 注意，有关于 `justify-self` 和 `justify-items` ，将会在后面的 CSS Grid 布局的课程中介绍。
 
+- [ ] 1
+
 虽然在 Flexbox 布局中，无法在 Flex 容器的主轴上，直接使用 `justify-self` 和 `justify-items` 将 Flex 项目从一个组中分离出来，但我们可以在 Flex 项目中使用 `margin: auto` 将 Flex 项目在 Flex 容器的主轴上进行分组。
 
 ![[_attachment/img/9f4e2729d9b89c1ec8b5dbdd30da7f2b_MD5.png]]
@@ -1157,12 +1202,12 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 ```css
 .header {
- display: flex;
- gap: var(--gap, 1rem);
+  display: flex;
+  gap: var(--gap, 1rem);
 }
 
 .section {
- margin-inline-start: auto;
+  margin-inline-start: auto;
 }
 ```
 
@@ -1170,7 +1215,7 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 需要注意的是，**在 Flex 项目上使用** **`margin: auto`，会致使 Flex 项目上的** **`align-self`** **属性失效**。
 
-## Flexbox 中的溢出对齐
+## Flexbox 中的溢出对齐 (safe)
 
 使用 CSS 来构建 Web 布局时，有一个最大的目标，即 **保持 Web 页面的内容和元素对访问者（用户）是可见的** 。容器会根据其内容自动扩展到右侧或底部。当内容溢出时，容器变为可滚动的，用户可以滚动来访问“不可见的内容”。除非你在容器上使用 `overflow:hidden`，禁止容器因内容溢出出现滚动条的行为。
 
@@ -1209,9 +1254,9 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 ```css
 .container {
- display: flex;
- flex-direction: column;
- align-items: safe center;
+  display: flex;
+  flex-direction: column;
+  align-items: safe center;
 }
 ```
 
@@ -1219,7 +1264,7 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 如果你确实想要对齐（即使它会导致溢出），那么你可以指定 `align-items` 属性的值为 `unsafe center` 。然后，你已请求浏览器执行你选择的对齐方式，无论内容随后发生什么。
 
-溢出对齐对于防止数据丢失是非常有益的，可惜的是，直到写本课程时，仅有 Firefox 浏览器支持该特性。不过，可以使用 `margin: auto` 来达到相似的效果。
+溢出对齐对于防止数据丢失是非常有益的，可惜的是，目前仅有 Firefox 浏览器 [支持该特性](https://caniuse.com/?search=CSS%20property%20safe%20unsafe)。不过，可以使用 `margin: auto` 来达到相似的效果。
 
 ![[_attachment/img/8d3345dd93c78da65537b332ed0495d2_MD5.png]]
 
@@ -1247,11 +1292,7 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 ## 小结
 
-在社区中也有很多小游戏，帮助我们用趣味性来理解这些属性在 Flexbox 布局中的使用。这里也简单构建一个小 [Demo](https://codepen.io/airen/full/NWMpyYd)，希望能更好地帮助大家理解上面的相关属性：
-
-![[_attachment/img/29c5821736cb74b8fd74a5e7c2df17a9_MD5.png]]
-
-> Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/NWMpyYd)
+在社区中也有很多小游戏，帮助我们用趣味性来理解这些属性在 Flexbox 布局中的使用。这里也简单构建一个小 [Demo](https://codepen.io/airen/full/NWMpyYd)，希望能更好地帮助大家理解上面的相关属性。
 
 ## 弹性容器
 
@@ -1263,79 +1304,6 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 - 这些项目将拉伸填充交叉轴的大小
 - `flex-basis: auto`
 - `felx-wrap: nowrap`
-
-### flex-direction 主轴
-
-该属性设置弹性项目在弹性容器的分布方式。
-
-| 值 | 描述 |
-| --- | --- |
-| row | 默认属性，一行中从左到右排列（可以多行） |
-| row-reverse | 一行中从右到左排列 (可以多行) |
-| column | 从上至下排列 |
-| column-reverse | 从下至上排列 |
-
-### flex-wrap
-
-设置 flex item 在一行内或者多行展示
-
-| 值 | 描述 |
-| --- | --- |
-| nowrap | 默认值，在一行展示 |
-| wrap | 多行展示 |
-| wrap-reverse | 倒序，多行展示 |
-
-### justify-content
-
-决定了 flex container 中剩余空间与 flex items 之间的关系
-
-| 值 | 描述 |
-| --- | --- |
-| flex-start | (默认) 从起点开始顺序排列 |
-| flex-end | 相对终点顺序排列 |
-| space-evenly | 项目均匀分布，所有项目之间及项目与边框之间距离相等 |
-| space-between | 项目均匀分布，第一个项在起点线，最后一项在终点线 |
-| space-around | 项目均匀分布，第一个项目两侧有相同的留白空间，相邻项目之间的距离是两个项目之间留白的和 |
-
-> [!NOTE]+ space-around 和 space-evenly 的区别
->  ![[14-space-around-vs-space-evenly.jpg]]
-
-### align-items
-
-定义项目在交叉轴上对齐的方式。
-
-| 值 | 描述 |
-| --- | --- |
-| stretch | (默认) 交叉轴方向拉伸显示 |
-| flex-start | 项目按交叉轴起点线对齐 |
-| flex-end | 项目按交叉轴终点线对 |
-| center | 交叉轴方向项目中间对齐 |
-| baseline | 交叉轴方向按第一行文字极鲜对齐 |
-
-### align-content
-
-属性定义了交叉轴方向的对齐方式及额外空间分配，类似于主轴 `justify-content` 的作用
-
-| 值 | 描述 |
-| --- | --- |
-| stretch | (默认) 拉伸显示 |
-| flex-start | 从起点线开始顺序排列 |
-| flex-end | 相对终点先顺序排列 |
-| center | 剧种排列 |
-| space-between | 项目均匀分布，第一个在起点线，最后一项在终点线 |
-| space-around | 项目均匀分布，每个项目两侧都有相同的留白空间 |
-
-## 应用于弹性项目的属性
-
-为了更好的控制弹性项目，我们呢可以直接改变他们的一些属行，例如下面这三个属性：
-
-- flex-grow
-- flex-shrink
-- flex-basis
-
-### order
-
-缺省情况下，flex item 是按照在代码中出现的先后顺序排列的，然后 order 属性可以控制项目在容器中的先后顺序。
 
 ### flex-basis
 
@@ -1370,12 +1338,12 @@ flex 是 flex-grow flex-shrink flex-basis 的简写。 可以使用一个，两�
 - 一个有效的宽度 (width) 值：它会被当作 `<flex-basis>` 的值
 - 关键字 `none`,`auto` 或 `initial`。
 
-| 值 | 等价于 |
-| --- | --- |
-| initial | 0 1 auto |
-| auto | 1 1 auto |
-| none | 0 0 auto |
-| number | number 1 0 |
+| 值      | 等价于     |
+| ------- | ---------- |
+| initial | 0 1 auto   |
+| auto    | 1 1 auto   |
+| none    | 0 0 auto   |
+| number  | number 1 0 |
 
 **双值语法：** 第一个值必须为一个无单位数，并且它会被作为 `<flex-grow>` 的值。第二个值必须为一下之一
 
@@ -1407,7 +1375,7 @@ flex 是 flex-grow flex-shrink flex-basis 的简写。 可以使用一个，两�
 
 子项增长宽度A = 100 * 1/3 = 33.333, 则实际宽度 = 333.333
 子项增长宽度B = 100 * 2/3 = 66.667, 则实际宽度 = 266.667
-````
+```
 
 <div style="width:600px; height:80px; display:flex;">
   <div style="background-color: red; width:300px; flex-grow:1;">A</div>
