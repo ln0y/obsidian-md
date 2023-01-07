@@ -366,15 +366,15 @@ format = " [$duration](bold yellow)"
   'use strict'
   const sleep = n => new Promise(r => setTimeout(r, n))
   const $$ = document.querySelectorAll.bind(document)
-
-  async function replaceImg() {
+  async function replaceLink() {
     await sleep(500)
-    const dom = $$('.article img, .section-page img')
-    Array.from(dom, i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png')))
+    const domImg = $$('.article img, .section-page img')
+    Array.from(domImg, i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png')))
+    const domA = $$('.article a,.article-content a')
+    Array.from(domA, i => ((i.href = i.title), i.removeAttribute('title')))
   }
-
-  navigation.addEventListener('navigate', replaceImg)
-  window.onload = replaceImg
+  navigation.addEventListener('navigate', replaceLink)
+  window.onload = replaceLink
 })()
 ```
 
