@@ -364,17 +364,49 @@ format = " [$duration](bold yellow)"
 ```js
 ;(function () {
   'use strict'
+
   const sleep = n => new Promise(r => setTimeout(r, n))
   const $$ = document.querySelectorAll.bind(document)
+
+  fetch = new Proxy(fetch, {
+    async apply(target, thisArg, argArray) {
+      const [input, init] = argArray
+      if (input.includes('section/get')) {
+        const res = await Reflect.apply(...arguments)
+        replaceLink()
+        return res
+      } else {
+        return Reflect.apply(...arguments)
+      }
+    },
+  })
+
+  XMLHttpRequest.prototype.open = new Proxy(XMLHttpRequest.prototype.open, {
+    apply(target, thisArg, argArray) {
+      const [method, url] = argArray
+      const blackList = ['https://mcs.snssdk.com', 'https://mon.zijieapi.com']
+      if (!blackList.some(black => url.includes(black)))
+        return Reflect.apply(...arguments)
+    },
+  })
+
   async function replaceLink() {
     await sleep(500)
     const domImg = $$('.article img, .section-page img')
-    Array.from(domImg, i => (i.src = i.src.replace(/(?<=zoom-)(.*)$/g, '1.png')))
+    Array.from(domImg, async i => {
+      const mimes = ['gif', 'png']
+      let url
+      for (const mime of mimes) {
+        url = i.src.replace(/(?<=zoom-)(.*)$/g, `1.${mime}`)
+        const res = await fetch(url).catch()
+        if (res.ok) break
+      }
+      i.src = url
+    })
     const domA = $$('.article a,.article-content a')
     Array.from(domA, i => ((i.href = i.title), i.removeAttribute('title')))
   }
   navigation.addEventListener('navigate', replaceLink)
-  window.onload = replaceLink
 })()
 ```
 

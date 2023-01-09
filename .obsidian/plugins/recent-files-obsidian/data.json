@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
       "basename": "flex 布局",
       "path": "CSS/flex 布局.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "布局技术术语",
