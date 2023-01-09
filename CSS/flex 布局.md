@@ -1,8 +1,8 @@
 ---
-aliases: ['flexbox']
+aliases: ['flex','flexbox']
 tags: ['CSS', 'date/2022-05', 'year/2022', 'month/05']
 date: 2022-11-09-星期三 10:52:56
-update: 2023-01-07-星期六 18:13:07
+update: 2023-01-09-星期一 16:52:41
 ---
 
 自 2009 年 W3C 发布 **Flexible Box Layout Module** （WD 版本）至今已有十多年了，在近十年来，该模块得到了快速发展，现已成为最流行的 Web 布局技术之一。在 Web 开发者中，该模块也常称为 **Flexbox 布局** 。
@@ -989,6 +989,8 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 从示例的结果我们还可以发现，**当 Flex 容器有多行出现时，使用** **`align-items: center`** **无法让它们在 Flex 容器中垂直居中（只能在所在 Flex 行中垂直居中）** 。
 
+#### `align-content` 和 `align-items` 区别
+
 现在我们知道了，使用 Flexbox 布局的时候，在 Flex 容器的侧轴方向，我们可以使用 `align-content` 和 `align-items` 来控制 Flex 项目的对齐方式和分配 Flex 容器侧轴的剩余空间。
 
 这两个属性在一些特定条件之下表现出来的结果是相似的。比如，当 Flex 容器中仅有一行（即 Flex 容器有足够多的空间容纳所有 Flex 项目），且显式将 `flex-wrap` 属性值设置为 `wrap` 或 `wrap-reverse` 时，`align-content` 属性取值 `flex-start` 、`center` 、`stretch`、`flex-end` 、`start` 和 `end` 表现的结果将和 `align-items` 属性取值 `flex-start` 、`center` 、`stretch`、`flex-end` 、`start` 和 `end` 相同。
@@ -1088,7 +1090,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 我们在实际生产时，在 Flexbox 中，不管是使用 `align-content` 、 `align-items` 还是 `justify-content` 时，总是不太好实现我们所期望的布局效果，但在 Flex 项目中使用 `align-self` 会让你变得容易很多，比如下面这个示例中的按钮居右显示：
 
-![[_attachment/img/62e7c246c287b440eca972a16f08fb75_MD5.png|400]]
+![[07a8ac6c08b9414cb21fac43cbe208b2_tplv-k3u1fbpfcp-zoom-1.png|400]]
 
 ```html
 <div class="card">
@@ -1192,7 +1194,7 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 示例中的 `<Logo />` 、`<Nav />` 和 `<UserProfile />` 三个组件都是 Flex 项目：
 
-![[_attachment/img/4d5e491fe229701f6db3299be8934f10_MD5.png]]
+![[405c8fb9fa174b398f7631e92ff42355_tplv-k3u1fbpfcp-zoom-1.png]]
 
 就这个示例而言，在 Flex 容器上 `<header>` 使用 `justify-content: space-between` 无法达到预期的效果：
 
@@ -1293,17 +1295,6 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 ## 小结
 
 在社区中也有很多小游戏，帮助我们用趣味性来理解这些属性在 Flexbox 布局中的使用。这里也简单构建一个小 [Demo](https://codepen.io/airen/full/NWMpyYd)，希望能更好地帮助大家理解上面的相关属性。
-
-## 弹性容器
-
-使用 flexbox 布局的文档区域称为 **flex 容器**。为了创建一个弹性容器，我们将区域容器的 `display` 属性值设置为 `flex` 或 `inline-flex`。当我们这么做了，这个容器的元素直接变成 flex items。与 css 中的所有属性一样，定义了一些初始值，因此在创建 flex 容器时，所有包含的 flex 项都将按照一下方式运行
-
-- 项目显示在一行中（`flex-direction: row`）
-- 项目不会从主轴的起始边缘开始。
-- 项目不会从主维度上拉伸，但可以收缩
-- 这些项目将拉伸填充交叉轴的大小
-- `flex-basis: auto`
-- `felx-wrap: nowrap`
 
 ### flex-basis
 

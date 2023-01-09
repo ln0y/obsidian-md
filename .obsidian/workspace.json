@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/flex.md",
+                "file": "CSS/flex 布局.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/flex.md"
+                "file": "CSS/flex 布局.md"
               }
             }
           }
@@ -187,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex.md",
+                "file": "CSS/flex 布局.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex.md",
+                "file": "CSS/flex 布局.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -222,7 +222,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -244,10 +244,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "b9854ff879e4715d",
+  "active": "b7869658114d4984",
   "lastOpenFiles": [
     "todo query.md",
-    "CSS/flex.md",
+    "CSS/flex 布局.md",
     "TODO看板.md",
     "Post/front end.md",
     "CSS/布局技术术语.md",

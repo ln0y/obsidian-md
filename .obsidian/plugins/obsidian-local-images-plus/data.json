@@ -1,6 +1,6 @@
 {
   "saveAttNextToNote": false,
-  "realTimeUpdate": true,
+  "realTimeUpdate": false,
   "realTimeUpdateInterval": 2,
   "addNameOfFile": true,
   "showNotifications": true,
