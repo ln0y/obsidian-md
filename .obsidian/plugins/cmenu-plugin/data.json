@@ -95,6 +95,11 @@
       "id": "obsidian-local-images-plus:download-images",
       "name": "Local Images Plus: Download images locally",
       "icon": "remix-ImageAddLine"
+    },
+    {
+      "id": "quickadd:choice:2ceeac45-117f-4de9-bd10-01f99a774631",
+      "name": "QuickAdd: add todo mark",
+      "icon": "remix-TornadoLine"
     }
   ],
   "appendMethod": "workspace",
