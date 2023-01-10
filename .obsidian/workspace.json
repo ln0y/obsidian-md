@@ -222,7 +222,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -244,7 +244,7 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "b9854ff879e4715d",
+  "active": "dc1f06505d9d572c",
   "lastOpenFiles": [
     "Post/front end.md",
     "CSS/flex 布局.md",

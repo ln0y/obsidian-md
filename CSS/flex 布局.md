@@ -2,7 +2,7 @@
 aliases: ['flex','flexbox']
 tags: ['CSS', 'date/2022-05', 'year/2022', 'month/05']
 date: 2022-11-09-星期三 10:52:56
-update: 2023-01-09-星期一 16:52:41
+update: 2023-01-10-星期二 11:07:21
 ---
 
 自 2009 年 W3C 发布 **Flexible Box Layout Module** （WD 版本）至今已有十多年了，在近十年来，该模块得到了快速发展，现已成为最流行的 Web 布局技术之一。在 Web 开发者中，该模块也常称为 **Flexbox 布局** 。
@@ -149,7 +149,7 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
 
 尝试改变 Demo 中 `flex-direction` 属性的值，你将看到的效果如下：
 
-![[_attachment/img/da7843e2a96139e89725fbe75cae7018_MD5.png]]
+![[_attachment/img/f71000fb7bc87ae7e32adc8d37258259_MD5.gif]]
 
 前面我们说过，默认情况下，Flex 项目排成一行，这一行与书写模式（或阅读模式）的方向是相同的，比如上面示例，使用的是英文，它的阅读模式是 `ltr` ，Flex 项目紧挨着 Flex 容器左侧边缘（左对齐）。这意味着，如果我们使用的是阿拉伯语系，即书写模式是 `rtl` ，则 Flex 项目将紧挨着 Flex 容器的右侧边缘（右侧对齐）：
 
@@ -179,11 +179,11 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
 
 > Demo 地址：<https://codepen.io/airen/full/MWGeeLo>
 
-![[_attachment/img/2038ffe4e3871e192bebbdfbb0544ab4_MD5.png]]
+![[_attachment/img/0e5f8bb383b66f4561059c2b139ca066_MD5.gif]]
 
-另外，CSS 的 `writing-mode` 属性的值也将影响 `flex-direction` 属性最终呈现的效果：
+另外，CSS 的 `writing-mode` 属性的值也将影响 `flex-direction` 属性最终呈现的效果：
 
-![[_attachment/img/da2a7d8714e3ea29f8135d8b9d840871_MD5.png]]
+![[_attachment/img/2453f6bc940b6a444ca5769dc69d5adb_MD5.gif]]
 
 > Demo 地址：<https://codepen.io/airen/full/rNvLLgJ>
 
@@ -201,7 +201,7 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
 }
 ```
 
-![[_attachment/img/62e7c246c287b440eca972a16f08fb75_MD5.png|400]]
+![[c3b45f29e8744b02baa24c9cf26c6a39_tplv-k3u1fbpfcp-zoom-1.png|400]]
 
 > Demo 地址： <https://codepen.io/airen/full/oNdLzov>
 
@@ -235,7 +235,7 @@ Flexbox 布局模块除了概念多之外，就是可用于 Flexbox 布局的属
 
 > Demo 地址：<https://codepen.io/airen/full/XWqKNrL>
 
-![[_attachment/img/093530341c606207ca76629a3d951137_MD5.png]]
+![[_attachment/img/00a45808c2bdc8d274f16660a3c929ad_MD5.gif]]
 
 Flex 容器在换行后会创建多个 **Flex 行** 。在空间分布方面，每一行就像一个新的 Flex 容器。因此，如果你要换行，则无法让第 2 行中的某些内容与它上面第 1 行中的某些内容对齐。这就是所谓的 Flex 容器是一维框（盒子）。你只可以在独立的轴上（主轴或侧轴）也就是一行或一列上对齐 Flex 项目，但不能像 CSS Grid 那样同时在两个轴上控制 Grid 项目。
 
@@ -256,11 +256,11 @@ Flex 容器在换行后会创建多个 **Flex 行** 。在空间分布方面，�
 
 当然，如果你的布局不需要换行，那么 Flex 容器的 `flex-wrap` 采用默认值 `nowrap` 更理想。如下图所示：
 
-![[_attachment/img/8b26e1671fa410aa74f8a990a59911ff_MD5.png]]
+![[_attachment/img/1b1eca388127f1fa81bb1c0fa766c549_MD5.gif]]
 
-事实上它并不是我们所期望的效果，我们所期望的效果是下图这样的，布局需要换行，就需要显式的设置 `flex-wrap` 为 `wrap` 。
+事实上它并不是我们所期望的效果，我们所期望的效果是下图这样的，布局需要换行，就需要显式的设置 `flex-wrap` 为 `wrap` 。
 
-![[_attachment/img/ec9560093b53f1d8f0d5f12ddb9217a0_MD5.png]]
+![[_attachment/img/b25f7b4d9164ccd13d18902d9ae0063b_MD5.gif]]
 
 `flex-wrap` 属性除了取值为 `wrap` 会让 Flex 项目换行排列之外，其另一个属性 `wrap-reverse` 也会让 Flex 项目换行排列，只不过行的排列方向和 `wrap` 相反。假如你使用的语言是英文，即书写模式和阅读模式都是 `ltr` ，那么 `flex-wrap` 取值为 `wrap` 时，Flex 行的排列将会沿着 Flex 容器侧轴方向从开始处（Flex 容器顶部）向下排列；反之 `flex-wrap` 取值为 `wrap-reverse` 时， Flex 行的排列将会沿着 Flex 容器侧轴方向从终点处（Flex 容器底部）向上排列：
 
@@ -268,7 +268,7 @@ Flex 容器在换行后会创建多个 **Flex 行** 。在空间分布方面，�
 
 `flex-wrap: wrap-reverse` 同样也受 `flex-direction` 属性取值的影响：
 
-![[_attachment/img/50e048e6143987dc2d125068e1989835_MD5.png]]
+![[_attachment/img/7f2692e5eacc84afb32eca2a0566a6b5_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/KKRadzb>
 
@@ -405,7 +405,7 @@ Web 页面是由多个 HTML 元素组建而成，HTML 文档中的元素是按�
 
 示例中我们显式指定了第二个 Flex 项目的 `order` 值为 `-1` ，第四个 Flex 项目的 `order` 值为 `3` ，并且动态调整第三个 Flex 项目的 `order` 值，你将看到的效果如下：
 
-![[_attachment/img/6772f9e865b0340acd521c8be7d4de63_MD5.png]]
+![[_attachment/img/ab1d335e5489a91654164786ff8d0b9d_MD5.gif]]
 
 在 Flexbox 布局中，在 Flex 项目上使用 `order` 属性可以和在 Flex 容器上使用 `flex-direction` 的 `row-reverse` （或 `column-reverse` ）等同的效果：
 
@@ -442,7 +442,7 @@ main:hover aside {
 
 > Demo 地址：<https://codepen.io/airen/full/MWGeBKa>
 
-![[_attachment/img/081b644cfb14a224a8fac5d24bef0c09_MD5.png]]
+![[_attachment/img/4d53bdb7cbc0b79467a9cf8a08a0c018_MD5.gif]]
 
 需要注意的是，`order` 在使用时与 `flex-direction` 的值 `row-reverse` 和 `column-reverse` 存在相同的问题。它对 Web 可访问性是不友好的。请勿使用 `order`，因为你需要修复文档中的乱序问题。
 
@@ -473,7 +473,7 @@ main:hover aside {
 
 效果如下：
 
-![[_attachment/img/7ec847f89c420a1c9ca14b103528d93d_MD5.png]]
+![[_attachment/img/598804fa1401626f5d5b9caa6d7baeb8_MD5.gif]]
 
 `gap` 属性可接受一个值，也可以接受两个值，当只显式设置一个值时，那么第二个值和第一个值等同，如果显式设置两个值，第一个值是 `row-gap` 属性的值，第二个则是 `column-gap` 属性的值：
 
@@ -746,7 +746,7 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 
 > 注意，在 Flexbox 布局中，可以用于 `justify-content` 属性的值，除了上述提到的（`flex-start`、`flex-end` 、`center` 、`space-around` 、`space-between` 和 `space-evenly`）之外，还可以使用 `start` （等同于 `flex-start`）和 `end` （等同于 `flex-end`）。另外，CSS 的关键词 `inherit` 、`initial` 、`revert` 和 `unset` 也可以用于 `justify-content` 属性。
 
-![[_attachment/img/7bddbff99832674656cadaf967889861_MD5.png]]
+![[_attachment/img/4de766ce2c9c8b8a952ff562f41aa65e_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/rNvMdEw)
 
@@ -780,7 +780,7 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 }
 ```
 
-![[_attachment/img/e2db470c69076b455d9b6a4951164d3b_MD5.png]]
+![[_attachment/img/f8f5b60862213ffbb55f9b1295e28937_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/mdLrLQe)
 
@@ -829,13 +829,13 @@ Flexbox 布局中提供了多个用于对齐 Flex 项目以及 Flex 项目之间
 
 Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相比多出了一个 `stretch` 值。这些值的表现行为和 `justify-content` 属性值相同，不同的是 **`align-content`** **用来分配 Flex 容器侧轴方向的剩余空间。**
 
-![[_attachment/img/a69e05c87059bc380ab7991cb8d8c91f_MD5.png]]
+![[_attachment/img/264f602f682c419337864527787c65ae_MD5.gif]]
 
 > 注意，`align-content` 属性可接受的值有 `flex-start` 、`flex-end` 、`center` 、`space-around` 、`space-between` 、`space-evenly` 、`start` 、`end` 和 `strecth` 。
 
 如果 Flex 项目未显式设置 `height` 或 `block-size` 时，改变 `align-content` 属性值时，Flex 项目的高度将会作出相应改变，即它的高度将会是 Flex 项目内容的最大高度：
 
-![[_attachment/img/be69cdbdb9fb95b691f075cd39143346_MD5.png]]
+![[_attachment/img/4e8d1d4d44b33ad806556e02a77d75fc_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/RwyoVWW)
 
@@ -843,7 +843,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 `align-content` 属性同样会受 `flex-direction` 属性值的影响：
 
-![[_attachment/img/b0e5b60c0987d4c11c030fa30faf2d4e_MD5.png]]
+![[_attachment/img/78417bdd05e06a2f1da796a6635d2b82_MD5.gif]]
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/WNJReYz)
 
@@ -924,7 +924,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 大家需要知道的是，**`align-content`** **只有当** **`flex-wrap`** **属性的值为非** **`nowrap`** **（即** **`wrap`** **或** **`wrap-reverse`** **）时才能生效** 。
 
-![[_attachment/img/3ee48dd74087dd64a41383620b6a77f7_MD5.png]]
+![[_attachment/img/0f6f6a2c93bacd09cda2188ddf33ac7d_MD5.gif]]
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/RwyKPLr)
 
@@ -967,7 +967,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 `align-items` 属性和 `justify-content` 一样，也会受 `flex-direction` 属性值的影响：
 
-![[_attachment/img/b9e46f971b387ee174790de4bfd62ff7_MD5.png]]
+![[_attachment/img/ba72197f336f1fca61bffa1395018f0e_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/jOxyWyb)
 
@@ -983,7 +983,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 使用 `flex-direction` 改变主轴和侧轴方向时，它们的表现形式是相同的，只不过当 `flex-direction` 属性的值是 `column` （或 `column-reverse`）时，`align-items` 属性取值为 `baseline` 时产生的结果与 `flex-start` 或 `start` 相同。
 
-![[_attachment/img/99a448792298f2e336eda5be98fec031_MD5.png]]
+![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b0d835bbc73467f80a39de4452c7b1d~tplv-k3u1fbpfcp-zoom-1.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/eYrgxJy)
 
@@ -1065,7 +1065,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 }
 ```
 
-![[_attachment/img/74e9b05ca90b8f41edbc5171f6d48a32_MD5.png]]
+![[_attachment/img/1753803e52f758b9968e759f63f6b14e_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/xxjgoWZ)
 
@@ -1084,7 +1084,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 }
 ```
 
-![[_attachment/img/def6160469c7100516b055122f820490_MD5.png]]
+![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bcaeb5950a6434b84bd7560d610afde~tplv-k3u1fbpfcp-zoom-1.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/xxjgoWZ)
 
@@ -1268,7 +1268,7 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 溢出对齐对于防止数据丢失是非常有益的，可惜的是，目前仅有 Firefox 浏览器 [支持该特性](https://caniuse.com/?search=CSS%20property%20safe%20unsafe)。不过，可以使用 `margin: auto` 来达到相似的效果。
 
-![[_attachment/img/8d3345dd93c78da65537b332ed0495d2_MD5.png]]
+![[_attachment/img/b31c17b15b516f6909bbeeea84639997_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/KKRWZMO)
 
@@ -1288,7 +1288,7 @@ Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 
 
 但在 CSS 中，CSS 的书写模式 `writing-mode` 或阅读模式 `direction` （HTML 的 `dir`）也会影响 Web 布局，即 **Web 排版的方向** 。同样的，CSS 的 `writing-mode` 、`dirction` 和 HTML 的 `dir` 对 Flexbox 布局中对齐属性也会产生不同的结果。
 
-![[_attachment/img/3e50fc87a41e6ac6b4b6a00f33db0c01_MD5.png]]
+![[_attachment/img/27319f86ed19ef9877ed2a76b7dd93f1_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/BaxWYLN)
 
