@@ -460,7 +460,7 @@ Flex 项目 E 计算后的宽度 =  ((1000px - 237.56px - 190.61px - 190.61px - 
 
 如果你使用的是 Firefox 浏览器，使用开发者调试工具，可以很清楚看到每个 Flex 项目的计算前后的几个重要参数，比如内容宽度 `flex-basis` （未显式设置都是 `0`）、每个 Flex 项目的弹性量（**Flexibility**）和每个 Flex 项目计算后的宽度：
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86092ce71b004e4f8a39e3746f491ab2~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/2d6daecb13c4afad8daab53a879f1bf0_MD5.gif]]
 
 你可能认为，你已经知道 Flex 项目如何根据 `flex-grow` 来扩展 Flex 项目的尺寸（`width` 或 `inline-size`）了。如果你这么认为，那就太小看 Flex 项目计算了。上面仅仅是其中一种情况，即 `flex-grow:1` 和 `flex-basis: 0%` 且未在 Flex 项目上显式设置任何与尺寸有关的属性（比如 `width` 或 `inline-size` ）。
 
@@ -501,7 +501,7 @@ Flex 项目 D 计算后的宽度 =  ((1000px - 237.56px - 190.61px - 190.61px) -
 Flex 项目 E 计算后的宽度 =  ((1000px - 237.56px - 190.61px - 190.61px - 190.61px) - 160px × 1) ÷ 1 × 1 + 160px = 190.61px
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bf461b8f46743b3a42e2ef4811f90e6~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/4eed0f7d385e078ea4acc41a5a3dfe83_MD5.gif]]
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/NWMjvym)
 
@@ -536,7 +536,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = ((1000px - 200px - 200px - 20
 
 这个示例中和前面只在 Flex 项目上显式设置 `flex:1` 有一点不同之处，那就是显式设置了 Flex 项目的宽度是 `160px` ，所以 Flex 项目 A 的 `flex-basis` 计算出来之后等于 `200px` ，它比 `160px` 大，这个时候浏览器将 `flex-basis` 计算后的值视为其宽度值。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7917659136d4bb1b245d85e27468e0c~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/3f41b3a900f168100b78a8f0ee746992_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/WNJjZao)
 
@@ -573,7 +573,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = ((1000px - 200px - 200px - 20
 
 最终它的效果和在 Flex 项目上设置 `flex:1` 和 `width: 160px` 是等同的，只是计算出来的弹性量不同，但最终计算出来的 `flex-basis` 是一样的，它们都忽略了 Flex 项目的 `width` 。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f14ab4d12eef4adf823ee614e2b51fd4~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/afaf0e88fe7339276c1699cc99dfeda2_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/XWqRVZd)
 
@@ -639,7 +639,7 @@ Flex 项目 D 计算后的宽度（flex-basis） = (1000px - 287.18px - 119.88px
 Flex 项目 E 计算后的宽度（flex-basis） = (1000px - 287.18px - 119.88px - 292.92px - 150.31px - 100.11px) ÷ 1 × 1 + 100.11px = 149.73px
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb88624ff40545ba83034854ba4130d4~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/499a73e0570cde03affcf5e5b19ebd9c_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/XWqREWP)
 
@@ -672,7 +672,7 @@ Flex 项目 D 计算后的宽度（flex-basis） = (1000px - 200px - 200px - 200
 Flex 项目 E 计算后的宽度（flex-basis） = (1000px - 200px - 200px - 200px - 200px - 160px × 1) ÷ 1 × 1 + 160px = 200px
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdf52e512a05401d8c5894d2f7c8dfb6~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/29dd7ce08867946fbe48636215356e77_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/poVPLQx)
 
@@ -704,7 +704,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = (1000px - 200px - 200px - 200
 
 **仅在 Flex 项目显式设置** **`flex-grow`** **一个属性时，它的计算方式类似于** **`flex: auto`** ：
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c5c19b912244037902604b93b63847a~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/69cdebc74decbad4178c6259b4e05d26_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/ZEoKoJY)
 
@@ -928,7 +928,7 @@ Flex 项目 E 的弹性值 =  248.12px × 0.1 = 24.81px
 Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 24.81px = 124.92px
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f5effcec26c445fb75f2f0cc9cad404~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/bac62351cfe20ab5f26c73f87b8b6798_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/eYrRdLN)
 
@@ -979,7 +979,7 @@ Flex 项目 E 的弹性值 =  248.12px × 0.3 = 74.44px
 Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 74.44px = 174.55px
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9695a7a1068c49e0956646511a53bd97~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/4c94f03e8a0298c45651b25e2e9c49ee_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/oNdwBWK)
 
@@ -1031,7 +1031,7 @@ Flex 项目 E 的弹性值 =  (1000px - 254.06px - 103.34px - 292.93px - 166.85p
 Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 82.71px = 182.82px
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/508097eafd90488f8e464bdb8bcc53be~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/b091cb4e97362d2966d28996b718f019_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/NWMgdza)
 

@@ -983,7 +983,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 
 使用 `flex-direction` 改变主轴和侧轴方向时，它们的表现形式是相同的，只不过当 `flex-direction` 属性的值是 `column` （或 `column-reverse`）时，`align-items` 属性取值为 `baseline` 时产生的结果与 `flex-start` 或 `start` 相同。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b0d835bbc73467f80a39de4452c7b1d~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/284f19a19f5fab471dfe92b383f16de6_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/eYrgxJy)
 
@@ -1084,7 +1084,7 @@ Flexbox 布局中的 `align-content` 属性值和 `justify-content` 属性值相
 }
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bcaeb5950a6434b84bd7560d610afde~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/9fac58bd08b5ea6bed44e78d6a03819a_MD5.gif]]
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/xxjgoWZ)
 
