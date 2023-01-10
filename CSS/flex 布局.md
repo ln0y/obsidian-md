@@ -272,7 +272,7 @@ Flex 容器在换行后会创建多个 **Flex 行** 。在空间分布方面，�
 
 > Demo 地址： <https://codepen.io/airen/full/KKRadzb>
 
-还有一点需要特别的注意，**`flex-wrap: wrap`** **(或** **`flex-wrap: wrap-reverse`) 碰到了设置 `flex:1` 项目时，只有在 Flex 容器没有足够空间容纳 Flex 项目时（即，同一 Flex 行所有 Flex 项目最小内容宽度总和小于 Flex 容器宽度），才会让 Flex 项目换行（或列），另外使用** **`flex-wrap: wrap`** **要有一个心理预判，不然也有可能会让** **UI** **视觉上不美，但不会撑破布局（如上例所示）！** 选择总是痛苦的。
+还有一点需要特别的注意，**`flex-wrap: wrap`** **(或** **`flex-wrap: wrap-reverse`) 碰到了设置 `flex:1` 项目时，只有在 Flex 容器没有足够空间容纳 Flex 项目时（即，同一 Flex 行所有 Flex 项目最小内容宽度总和大于 Flex 容器宽度），才会让 Flex 项目换行（或列），另外使用** **`flex-wrap: wrap`** **要有一个心理预判，不然也有可能会让** **UI** **视觉上不美，但不会撑破布局（如上例所示）！** 选择总是痛苦的。
 
 CSS 中有很多简写属性，简写属性可以包含多个子属性。 如果你在编写 CSS 的时候，需要同时显式设置 `flex-direction` 和 `flex-wrap` 属性时，那么可以使用它们的简写属性 **`flex-flow`** :
 

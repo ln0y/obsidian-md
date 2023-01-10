@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Post/front end.md"
+                "file": "CSS/flex 布局.md"
               }
             }
           }
@@ -187,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
+                "file": "CSS/flex 布局.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
+                "file": "CSS/flex 布局.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,12 +244,12 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "a8bc755722985795",
+  "active": "b9854ff879e4715d",
   "lastOpenFiles": [
+    "Post/front end.md",
     "CSS/flex 布局.md",
     "todo query.md",
     "TODO看板.md",
-    "Post/front end.md",
     "CSS/布局技术术语.md",
     "CSS/布局方式.md",
     "CSS/页面布局.md",
