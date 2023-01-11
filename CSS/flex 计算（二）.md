@@ -2,7 +2,7 @@
 aliases: []
 tags: ['CSS', 'date/2023-01', 'year/2023', 'month/01']
 date: 2023-01-10-星期二 15:42:33
-update: 2023-01-10-星期二 17:45:39
+update: 2023-01-11-星期三 15:44:16
 ---
 
 Flexbox 的设计目的是在包含元素（Flex 容器）中沿着行或列分配元素（Flex 项目）和空间。而它的最大特性就是 Flex 项目可伸缩，也就是让 Flex 项目的宽度（或高度）可以自动填充 Flex 容器剩余空间或 Flex 项目适配 Flex 容器不足的空间。而这一切都依赖于 Flexbox 模块中的 `flex` 属性来完成。
@@ -260,9 +260,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 
 ![[_attachment/img/8dcf88474cb9f4d34d1a347a0673d794_MD5.png]]
 
-如果要真的实现所有 Flex 项目宽度相等，除了在 Flex 项目上设置为 `flex:1` 之外，还需要显式设置 `min-width` 值为 `0` (其中原委我们将在后面的课程中介绍)：
-
-- [ ] 1
+如果要真的实现所有 Flex 项目宽度相等，除了在 Flex 项目上设置为 `flex:1` 之外，还需要显式设置 `min-width` 值为 `0` ([[#^386ac5|原因]])：
 
 ```css
 .item {
@@ -581,7 +579,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = ((1000px - 200px - 200px - 20
 
 > By default, flex items won’t shrink below their minimum content size (the length of the longest word or fixed-size element). To change this, set the min-width or min-height property.
 
-大致的意思就是说，**默认情况之下，Flex 项目（即设置了** **`flex:1`** **）在收缩的时候，其宽度也不会小于其最小内容尺寸（\*\***`min-content`\***\*）或固定尺寸元素。如果要改变这一点，需要在 Flex 项目上显示设置最小宽度** **`min-width`** **(或** **`min-inline-size`\*\***)\***\*，\*\*** 或最小高度\***\*`min-height`\*\***（或\***\*`min-block-size`\*\***）的值，一般将其设置为\***\*`0`** 。
+大致的意思就是说，**默认情况之下，Flex 项目（即设置了 `flex:1` ）在收缩的时候，其宽度也不会小于其最小内容尺寸（`min-content`）或固定尺寸元素。如果要改变这一点，需要在 Flex 项目上显示设置最小宽度 `min-width` (或 `min-inline-size`)， 或最小高度 `min-height`（或 `min-block-size`）的值，一般将其设置为 `0`** 。 ^386ac5
 
 你可能已经发现了，前面的示例有一个共同的特性，那就是 `flex-basis` 的值为 `0` ，或者一个指定的长度值（`<length-perentage>`）。比如：
 
@@ -893,7 +891,7 @@ Flex 项目 E 计算后的 flex-basis 值 = 160px + 80px = 240px
 }
 ```
 
-上面两个示例中，第一个示例中的所有 Flex 项目的 `flex-grow` 属性的值和是 `0.5`（即 `0.1 + 0.1 + 0.1 + 0.1 + 0.1 = 0.5` ），**它们（`flex-grow`** **）的总和小于** **`1`** ；第二个示例中的所有 Flex 项目的 `flex-grow` 属性的值和是 `1.5` （即 `0.1 + 0.2 + 0.3 + 0.4 + 0.5 = 1.5`），**它们（\*\***`flex-grow`\***\*）的总和大于** **`1`** 。
+上面两个示例中，第一个示例中的所有 Flex 项目的 `flex-grow` 属性的值和是 `0.5`（即 `0.1 + 0.1 + 0.1 + 0.1 + 0.1 = 0.5` ），**它们（`flex-grow`** **）的总和小于** **`1`** ；第二个示例中的所有 Flex 项目的 `flex-grow` 属性的值和是 `1.5` （即 `0.1 + 0.2 + 0.3 + 0.4 + 0.5 = 1.5`），**它们（`flex-grow`）的总和大于** **`1`** 。
 
 两者最大的差异就是 **所有 Flex 项目的** **`flex-grow`** **总和如果小于** **`1`** **，Flex 容器剩余空间还会有余留； `flex-grow`** **大于或等于**`1`**时，Flex 容器的剩余空间不会有余留** ：
 
