@@ -77,7 +77,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "task-todo:/\\s*1\\s*$/",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
