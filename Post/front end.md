@@ -371,8 +371,8 @@ format = " [$duration](bold yellow)"
   const $$ = document.querySelectorAll.bind(document)
 
   fetch = new Proxy(fetch, {
-    async apply(target, thisArg, argArray) {
-      const [input, init] = argArray
+    async apply(target, object, args) {
+      const [input, init] = args
       if (input.includes('section/get')) {
         const res = await Reflect.apply(...arguments)
         replaceLink()
@@ -392,18 +392,25 @@ format = " [$duration](bold yellow)"
     },
   })
 
+  // const map = {
+  //   default: 'tplv-'.concat(e, '-zoom-mark-crop-v2'),
+  //   mark: 'tplv-'.concat(e, '-watermark'),
+  //   noMark: 'tplv-'.concat(e, '-no-mark'),
+  //   zoomCrop: 'tplv-'.concat(e, '-zoom-crop-mark'),
+  //   zoomInCrop: 'tplv-'.concat(e, '-zoom-in-crop-mark'),
+  //   original: 'tplv-'.concat(e, '-zoom-1'),
+  // }
+
   async function replaceLink() {
     await sleep(500)
     const domImg = $$('.article img, .section-page img')
     Array.from(domImg, async i => {
-      const mimes = ['gif', 'png']
-      let url
-      for (const mime of mimes) {
-        url = i.src.replace(/(?<=zoom-)(.*)$/g, `1.${mime}`)
-        const res = await fetch(url).catch()
-        if (res.ok) break
-      }
-      i.src = url
+      const url = i.src.replace(/(?<=zoom-)(.*)$/g, `1.image`)
+      const res = await fetch(url).catch()
+      if (!res.ok) return i.src = 'none'
+      const mime = res.headers.get('content-type')
+      const ext = mime.split('/').at(-1)
+      i.src = url.replace(/\.image/, `.${ext}`)
     })
     const domA = $$('.article a,.article-content a')
     Array.from(domA, i => ((i.href = i.title), i.removeAttribute('title')))
