@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "flex-basis（三）",
+      "path": "CSS/flex-basis（三）.md"
+    },
+    {
       "basename": "todo query",
       "path": "todo query.md"
+    },
+    {
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
+    },
+    {
+      "basename": "DOM Clobbering",
+      "path": "Security/DOM Clobbering.md"
     },
     {
       "basename": "flex 计算（二）",
@@ -59,10 +71,6 @@
     {
       "basename": "Logic Reuse",
       "path": "MVVM/Vue/Logic Reuse.md"
-    },
-    {
-      "basename": "正则表达式",
-      "path": "RegExp/正则表达式.md"
     },
     {
       "basename": "观察者模式(发布-订阅模式)",
@@ -191,14 +199,6 @@
     {
       "basename": "snippet",
       "path": "VS code/snippet.md"
-    },
-    {
-      "basename": "uuid",
-      "path": "JavaScript/byhand/uuid.md"
-    },
-    {
-      "basename": "hook 简介",
-      "path": "MVVM/React/hook 简介.md"
     }
   ],
   "omittedPaths": [],

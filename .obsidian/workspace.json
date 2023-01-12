@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "379a4bf052d38bee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/flex-basis（三）.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "a8bc755722985795",
             "type": "leaf",
             "state": {
@@ -56,7 +69,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +100,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "![img]",
+                "query": "via",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -179,7 +193,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "todo query.md"
+                "file": "CSS/flex-basis（三）.md"
               }
             }
           }
@@ -196,7 +210,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "todo query.md",
+                "file": "CSS/flex-basis（三）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -213,7 +227,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "todo query.md",
+                "file": "CSS/flex-basis（三）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,17 +267,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "21f8bfd474439629",
+  "active": "379a4bf052d38bee",
   "lastOpenFiles": [
+    "todo query.md",
+    "RegExp/正则表达式.md",
+    "Security/DOM Clobbering.md",
     "CSS/flex 计算（二）.md",
     "TODO看板.md",
     "Post/front end.md",
     "前端.md",
-    "todo query.md",
     "CSS/flex 布局（一）.md",
     "CSS/^386ac5.md",
-    "CSS/布局技术术语.md",
-    "CSS/布局方式.md",
-    "CSS/页面布局.md"
+    "CSS/布局技术术语.md"
   ]
 }
