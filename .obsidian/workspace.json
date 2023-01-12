@@ -45,9 +45,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "022e4b652e692115",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "TODO看板.md"
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -170,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/flex 计算（二）.md"
+                "file": "TODO看板.md"
               }
             }
           }
@@ -187,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "TODO看板.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "TODO看板.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,10 +254,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "9614536692739b37",
+  "active": "022e4b652e692115",
   "lastOpenFiles": [
-    "Post/front end.md",
     "CSS/flex 计算（二）.md",
+    "Post/front end.md",
     "前端.md",
     "todo query.md",
     "CSS/flex 布局（一）.md",
