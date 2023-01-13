@@ -5,6 +5,10 @@
       "path": "CSS/flex-basis（三）.md"
     },
     {
+      "basename": "todo query",
+      "path": "todo query.md"
+    },
+    {
       "basename": "front end",
       "path": "Post/front end.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "Tree Shaking",
       "path": "infrastructure/bundler/Tree Shaking.md"
-    },
-    {
-      "basename": "todo query",
-      "path": "todo query.md"
     },
     {
       "basename": "DOM Clobbering",

@@ -37,12 +37,10 @@
             "id": "d163dbb808f1f7f8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "diff-view",
               "state": {
-                "file": "CSS/flex-basis（三）.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": ".obsidian/core-plugins-migration.json",
+                "staged": false
               }
             }
           }
@@ -113,7 +111,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 286.5
+    "width": 212.5
   },
   "right": {
     "id": "9a16d7dc01ffded8",
@@ -169,9 +167,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "CSS/flex-basis（三）.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -187,7 +183,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex-basis（三）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +199,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex-basis（三）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -226,13 +220,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 229.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "open-vscode:VSCode": false,
-      "templater-obsidian:Templater": false,
+      "oz-clear-unused-images:Clear Unused Images": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
@@ -240,21 +232,23 @@
       "command-palette:打开命令面板": false,
       "random-note:开始漫游笔记": false,
       "workspaces:管理工作区布局": false,
-      "oz-clear-unused-images:Clear Unused Images": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "open-vscode:VSCode": false,
+      "templater-obsidian:Templater": false,
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
   "active": "d163dbb808f1f7f8",
   "lastOpenFiles": [
-    "Post/front end.md",
     "CSS/flex-basis（三）.md",
+    "todo query.md",
+    "Post/front end.md",
     "JavaScript/design pattern/策略模式.md",
     "RegExp/正则表达式.md",
     "_attachment/img/229a23e478a071e244c4accee2715b26_MD5.gif",
     "JavaScript/byhand/memoize.md",
     "JavaScript/byhand/Array.prototype.map.md",
     "infrastructure/bundler/Tree Shaking.md",
-    "todo query.md",
     "Security/DOM Clobbering.md"
   ]
 }
