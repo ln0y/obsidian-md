@@ -364,57 +364,140 @@ format = " [$duration](bold yellow)"
 ```
 
 ```js
-;(function () {
+;(async function () {
   'use strict'
 
   const sleep = n => new Promise(r => setTimeout(r, n))
   const $$ = document.querySelectorAll.bind(document)
 
-  fetch = new Proxy(fetch, {
-    async apply(target, object, args) {
-      const [input, init] = args
-      if (input.includes('section/get')) {
-        const res = await Reflect.apply(...arguments)
-        replaceLink()
-        return res
-      } else {
-        return Reflect.apply(...arguments)
+  const MD_MEDIA_LINK = /(?<anchor>.{0,1}\!\[.+\()(?<link>(htt(p|s)|file).+[^\)])\)/g
+  const MD_MEDIA_EMBED = /(?<anchor>\!\[.+\()(?<link>(http[s]{0,1}|file).*)/g
+  const MD_ANCHOR = /\!\[(?<anchor>.*?)\]/g
+  const MD_LINK = /\((?<link>(htt(p|s).+?[ |\)]{1}|file.+\){1}))/g
+
+  const XHRBlackList = ['https://mcs.snssdk.com', 'https://mon.zijieapi.com']
+  const hookApi = new Map()
+
+  function memoize(func, resolver) {
+    if (
+      typeof func != 'function' ||
+      (resolver != null && typeof resolver != 'function')
+    ) {
+      throw new TypeError('Expected a function')
+    }
+
+    const memoized = function () {
+      const args = arguments
+      const key = resolver ? resolver.apply(this, args) : args[0]
+      const cache = memoized.cache
+
+      if (cache.has(key)) {
+        return cache.get(key)
       }
-    },
-  })
+      const result = func.apply(this, args)
+      memoized.cache = cache.set(key, result) || cache
+      return result
+    }
+    memoized.cache = new Map()
+    return memoized
+  }
+
+  fetch = memoize(
+    new Proxy(fetch, {
+      async apply(target, object, args) {
+        const [input, init] = args
+        const apiKey = [...hookApi.keys()].find(apiKey => input?.includes(apiKey))
+        if (apiKey) {
+          const res = await Reflect.apply(...arguments)
+          hookApi.get(apiKey)?.(res.clone())
+          return res
+        } else {
+          return Reflect.apply(...arguments)
+        }
+      },
+    })
+  )
 
   XMLHttpRequest.prototype.open = new Proxy(XMLHttpRequest.prototype.open, {
     apply(target, thisArg, argArray) {
       const [method, url] = argArray
-      const blackList = ['https://mcs.snssdk.com', 'https://mon.zijieapi.com']
-      if (!blackList.some(black => url.includes(black)))
+      if (!XHRBlackList.some(black => url.includes(black)))
         return Reflect.apply(...arguments)
     },
   })
 
-  // const map = {
-  //   default: 'tplv-'.concat(e, '-zoom-mark-crop-v2'),
-  //   mark: 'tplv-'.concat(e, '-watermark'),
-  //   noMark: 'tplv-'.concat(e, '-no-mark'),
-  //   zoomCrop: 'tplv-'.concat(e, '-zoom-crop-mark'),
-  //   zoomInCrop: 'tplv-'.concat(e, '-zoom-in-crop-mark'),
-  //   original: 'tplv-'.concat(e, '-zoom-1'),
-  // }
+  async function getRealImgUrl(url) {
+    const res = await fetch(url).catch()
+    if (!res.ok) return url
+    const mime = res.headers.get('content-type')
+    const ext = mime.split('/').at(-1)
+    return url.replace(/\.image/, `.${ext}`)
+  }
 
   async function replaceLink() {
     await sleep(500)
     const domImg = $$('.article img, .section-page img')
-    Array.from(domImg, async i => {
-      const url = i.src.replace(/(?<=zoom-)(.*)$/g, `1.image`)
-      const res = await fetch(url).catch()
-      if (!res.ok) return i.src = 'none'
-      const mime = res.headers.get('content-type')
-      const ext = mime.split('/').at(-1)
-      i.src = url.replace(/\.image/, `.${ext}`)
-    })
     const domA = $$('.article a,.article-content a')
+
+    Array.from(domImg, async i => {
+      i.src = await getRealImgUrl(i.src.replace(/(?<=zoom-)(.*)$/g, `1.image`))
+    })
     Array.from(domA, i => ((i.href = i.title), i.removeAttribute('title')))
   }
+
+  async function processImageTag(anc, lnk) {
+    const realLink = await getRealImgUrl(lnk)
+    return {
+      anc,
+      lnk: realLink,
+      repl: `![${anc}](${realLink})`,
+    }
+  }
+
+  async function replaceAsync(str, regex, asyncFn) {
+    const promises = []
+    str.replace(regex, function () {
+      promises.push(asyncFn.apply(null, arguments))
+    })
+    const data = await Promise.all(promises)
+    return str.replace(regex, () => data.shift())
+  }
+
+  async function getMarkdown(res) {
+    const {
+      data: {
+        section: { markdown_show: markdown },
+      },
+    } = await res.json()
+
+    const str = await replaceAsync(markdown, MD_MEDIA_LINK, async (match, ...args) => {
+      let rr
+      try {
+        const link = match
+          .match(MD_MEDIA_LINK)[0]
+          .match(MD_MEDIA_EMBED)[0]
+          .match(MD_LINK)[0]
+          .replace(/(\)$|^\()/g, '')
+        const anchor = match
+          .match(MD_MEDIA_LINK)[0]
+          .match(MD_MEDIA_EMBED)[0]
+          .match(MD_ANCHOR)[0]
+          .replace(/(\]$|^\!\[)/g, '')
+        rr = { anc: anchor, lnk: link }
+      } catch (e) {
+        console.error('Error in regex: ' + e)
+      }
+      return (await processImageTag(rr?.anc, rr?.lnk)).repl
+    })
+
+    console.log(str)
+  }
+
+  hookApi.set('/section/get', function (res) {
+    replaceLink()
+    getMarkdown(res.clone())
+  })
+
   navigation.addEventListener('navigate', replaceLink)
 })()
 ```

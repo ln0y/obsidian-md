@@ -246,15 +246,15 @@
   },
   "active": "379a4bf052d38bee",
   "lastOpenFiles": [
-    "infrastructure/bundler/Tree Shaking.md",
+    "Post/front end.md",
+    "JavaScript/byhand/memoize.md",
+    "JavaScript/byhand/Array.prototype.map.md",
     "CSS/flex-basis（三）.md",
+    "infrastructure/bundler/Tree Shaking.md",
     "todo query.md",
     "RegExp/正则表达式.md",
     "Security/DOM Clobbering.md",
     "CSS/flex 计算（二）.md",
-    "TODO看板.md",
-    "Post/front end.md",
-    "前端.md",
-    "CSS/flex 布局（一）.md"
+    "TODO看板.md"
   ]
 }

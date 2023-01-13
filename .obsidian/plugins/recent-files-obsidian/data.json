@@ -5,6 +5,18 @@
       "path": "CSS/flex-basis（三）.md"
     },
     {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "memoize",
+      "path": "JavaScript/byhand/memoize.md"
+    },
+    {
+      "basename": "Array.prototype.map",
+      "path": "JavaScript/byhand/Array.prototype.map.md"
+    },
+    {
       "basename": "Tree Shaking",
       "path": "infrastructure/bundler/Tree Shaking.md"
     },
@@ -27,10 +39,6 @@
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "前端",
@@ -191,14 +199,6 @@
     {
       "basename": "鉴权方案",
       "path": "project/front end/鉴权方案.md"
-    },
-    {
-      "basename": "继承 Date",
-      "path": "JavaScript/继承 Date.md"
-    },
-    {
-      "basename": "正则表达式收集",
-      "path": "RegExp/正则表达式收集.md"
     }
   ],
   "omittedPaths": [],
