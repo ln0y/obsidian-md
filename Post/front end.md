@@ -370,13 +370,10 @@ format = " [$duration](bold yellow)"
   const sleep = n => new Promise(r => setTimeout(r, n))
   const $$ = document.querySelectorAll.bind(document)
 
-  const MD_MEDIA_LINK = /(?<anchor>.{0,1}\!\[.+\()(?<link>(htt(p|s)|file).+[^\)])\)/g
-  const MD_MEDIA_EMBED = /(?<anchor>\!\[.+\()(?<link>(http[s]{0,1}|file).*)/g
-  const MD_ANCHOR = /\!\[(?<anchor>.*?)\]/g
-  const MD_LINK = /\((?<link>(htt(p|s).+?[ |\)]{1}|file.+\){1}))/g
+  const MD_MEDIA_LINK = /\!\[(?<anchor>(.{0}|.+?))\]\((?<link>((http(s){0,1}).+?))\)/g
 
   const XHRBlackList = ['https://mcs.snssdk.com', 'https://mon.zijieapi.com']
-  const hookApi = new Map()
+  const hookFetchApi = new Map()
 
   function memoize(func, resolver) {
     if (
@@ -406,16 +403,20 @@ format = " [$duration](bold yellow)"
     new Proxy(fetch, {
       async apply(target, object, args) {
         const [input, init] = args
-        const apiKey = [...hookApi.keys()].find(apiKey => input?.includes(apiKey))
+        const apiKey = [...hookFetchApi.keys()].find(apiKey => input?.includes(apiKey))
         if (apiKey) {
           const res = await Reflect.apply(...arguments)
-          hookApi.get(apiKey)?.(res.clone())
+          hookFetchApi.get(apiKey)?.(res.clone())
           return res
         } else {
           return Reflect.apply(...arguments)
         }
       },
-    })
+    }),
+    function (input, init) {
+      const { body } = init
+      return `${input}${body || ''}`
+    }
   )
 
   XMLHttpRequest.prototype.open = new Proxy(XMLHttpRequest.prototype.open, {
@@ -446,7 +447,7 @@ format = " [$duration](bold yellow)"
   }
 
   async function processImageTag(anc, lnk) {
-    const realLink = await getRealImgUrl(lnk)
+    const realLink = lnk && (await getRealImgUrl(lnk))
     return {
       anc,
       lnk: realLink,
@@ -456,9 +457,12 @@ format = " [$duration](bold yellow)"
 
   async function replaceAsync(str, regex, asyncFn) {
     const promises = []
-    str.replace(regex, function () {
-      promises.push(asyncFn.apply(null, arguments))
-    })
+    const matches = str.matchAll(regex)
+
+    for (const match of matches) {
+      promises.push(asyncFn(match))
+    }
+
     const data = await Promise.all(promises)
     return str.replace(regex, () => data.shift())
   }
@@ -470,35 +474,29 @@ format = " [$duration](bold yellow)"
       },
     } = await res.json()
 
-    const str = await replaceAsync(markdown, MD_MEDIA_LINK, async (match, ...args) => {
-      let rr
-      try {
-        const link = match
-          .match(MD_MEDIA_LINK)[0]
-          .match(MD_MEDIA_EMBED)[0]
-          .match(MD_LINK)[0]
-          .replace(/(\)$|^\()/g, '')
-        const anchor = match
-          .match(MD_MEDIA_LINK)[0]
-          .match(MD_MEDIA_EMBED)[0]
-          .match(MD_ANCHOR)[0]
-          .replace(/(\]$|^\!\[)/g, '')
-        rr = { anc: anchor, lnk: link }
-      } catch (e) {
-        console.error('Error in regex: ' + e)
-      }
-      return (await processImageTag(rr?.anc, rr?.lnk)).repl
-    })
+    const str = await replaceAsync(
+      markdown,
+      MD_MEDIA_LINK,
+      async ({ groups: { anchor, link } }) => (await processImageTag(anchor, link)).repl
+    )
 
     console.log(str)
   }
 
-  hookApi.set('/section/get', function (res) {
-    replaceLink()
-    getMarkdown(res.clone())
-  })
+  const origin = {
+    'https://juejin.cn/book'() {
+      hookFetchApi.set('/section/get', res => {
+        replaceLink()
+        getMarkdown(res)
+      })
+    },
+    'https://juejin.cn/post'() {
+      navigation.addEventListener('navigate', replaceLink)
+    },
+  }
 
-  navigation.addEventListener('navigate', replaceLink)
+  const path = location.origin + location.pathname.replace(/(\/\w+)(.*)/, '$1')
+  origin[path]?.()
 })()
 ```
 

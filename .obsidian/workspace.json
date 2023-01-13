@@ -47,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,7 +77,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "memo",
+                "query": "![img]",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/flex-basis（三）.md"
+                "file": "Post/front end.md"
               }
             }
           }
@@ -187,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex-basis（三）.md",
+                "file": "Post/front end.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex-basis（三）.md",
+                "file": "Post/front end.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,17 +244,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "d163dbb808f1f7f8",
+  "active": "a8bc755722985795",
   "lastOpenFiles": [
-    "RegExp/正则表达式.md",
     "CSS/flex-basis（三）.md",
+    "JavaScript/design pattern/策略模式.md",
+    "RegExp/正则表达式.md",
     "Post/front end.md",
     "_attachment/img/229a23e478a071e244c4accee2715b26_MD5.gif",
     "JavaScript/byhand/memoize.md",
     "JavaScript/byhand/Array.prototype.map.md",
     "infrastructure/bundler/Tree Shaking.md",
     "todo query.md",
-    "Security/DOM Clobbering.md",
-    "CSS/flex 计算（二）.md"
+    "Security/DOM Clobbering.md"
   ]
 }

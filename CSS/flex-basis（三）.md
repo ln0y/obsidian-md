@@ -122,7 +122,7 @@ flex-basis: content | <width>;
 
 暂时无法在飞书文档外展示此内容
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a38b58a0fbfd4372a77d465f55998f3b~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/a470ad734fcad946fa8f2db3efed97ab_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/ZEoJjEK>
 
@@ -467,7 +467,7 @@ h1 {
 }
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c8405d734b64c45b731265411ad7d62~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/5f86e2bc6ad82fedaf376acd65310902_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/VwxMPPq>
 
@@ -483,7 +483,7 @@ h1 {
 
 - 内在尺寸：`min-content` 、`max-content` 和 `fit-content` 。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7a52d47cfd141c7a7f35d32edcf90fb~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/8077526caca31cdcced1333ef56ddfdf_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/JjvrEVx>
 
@@ -659,7 +659,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 上面代码中，Flex 项目初始化的假想主尺寸都会是 `100px` ，也就是说，浏览器在根据 Flex 容器剩余空间（或不足空间）、Flex 项目的 `flex-grow` 或 `flex-shrink` 计算 `flex-basis` 最终值时，它（`flex-basis`）的最初基础都将是 `100px` ：
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51db131223a543f1b2a364f305effd68~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/a9231d4aaf10558fbc9dc18cc75da498_MD5.gif]]
 
 这也就是，**Flex 项目的总宽度（`width` 属性值总和）大于 Flex 容器空间（即 Flex 容器产生不足空间），但 Flex 项目的** **`flex-basis`** **显式设置了** **`0`** **或** **`0%`** **时，即使 Flex 项目的** **`flex-shrink`** **（收缩因子）是非** **`0`** **的值，比如** **`1`** **或大于** **`1`** **的其他值，Flex 项目也不会按收缩比例分配 Flex 容器的不足空间。最终** **Flex 项目的** **`flex-basis`** **值等于 Flex 项目的内容最小尺寸（`min-content`）** 。
 
@@ -802,7 +802,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0989b0b716ed416aa4fbadbf7d39af28~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/f19b53c72b621b0619190aa640bedeef_MD5.gif]]
 
 或者输入了恶意的内容，比如带下划线的 URL 或没有空格的数字，字母等：
 
@@ -889,7 +889,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6c92d60bd0f4fe586469870cffa0333~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/5044e4f8f06063d67b2435beb60bd954_MD5.gif]]
 
 另一种解法是在显式设置了 `width` 或 `height` 的 Flex 项目上重置 `flex-shrink` 的值为 `0`，告诉浏览器，即使 Flexbox 容器没有足够的剩余空间，你也不能来挤压我的空间：
 

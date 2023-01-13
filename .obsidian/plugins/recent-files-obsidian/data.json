@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
       "basename": "flex-basis（三）",
       "path": "CSS/flex-basis（三）.md"
     },
     {
-      "basename": "正则表达式",
-      "path": "RegExp/正则表达式.md"
+      "basename": "策略模式",
+      "path": "JavaScript/design pattern/策略模式.md"
     },
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
     },
     {
       "basename": "229a23e478a071e244c4accee2715b26_MD5",
@@ -119,10 +123,6 @@
     {
       "basename": "状态模式",
       "path": "JavaScript/design pattern/状态模式.md"
-    },
-    {
-      "basename": "策略模式",
-      "path": "JavaScript/design pattern/策略模式.md"
     },
     {
       "basename": "代理模式",
