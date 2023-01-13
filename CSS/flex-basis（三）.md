@@ -104,7 +104,7 @@ flex-basis: content | <width>;
 }
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98764f2b62374bb2b2d943661f0f33f0~tplv-k3u1fbpfcp-zoom-1.gif)
+![[_attachment/img/626d8e9a78640503842846a9c3631e86_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/wvjqXrZ>
 

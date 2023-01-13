@@ -5,6 +5,10 @@
       "path": "CSS/flex-basis（三）.md"
     },
     {
+      "basename": "正则表达式",
+      "path": "RegExp/正则表达式.md"
+    },
+    {
       "basename": "front end",
       "path": "Post/front end.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "todo query",
       "path": "todo query.md"
-    },
-    {
-      "basename": "正则表达式",
-      "path": "RegExp/正则表达式.md"
     },
     {
       "basename": "DOM Clobbering",
