@@ -9,6 +9,10 @@
       "path": "Post/front end.md"
     },
     {
+      "basename": "229a23e478a071e244c4accee2715b26_MD5",
+      "path": "_attachment/img/229a23e478a071e244c4accee2715b26_MD5.gif"
+    },
+    {
       "basename": "memoize",
       "path": "JavaScript/byhand/memoize.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Cookie",
       "path": "Network/Cookie.md"
-    },
-    {
-      "basename": "鉴权方案",
-      "path": "project/front end/鉴权方案.md"
     }
   ],
   "omittedPaths": [],
