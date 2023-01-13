@@ -152,7 +152,7 @@ flex-basis: content | <width>;
 
 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c4f78dd7f6748b994140ae370e262ac~tplv-k3u1fbpfcp-zoom-1.jpeg)
 
-<img> 比它的父容器更大。通常给 img 设置 max-width 的值为 100% ，图像的宽度就不会超过容器的宽度。如果图像比父容器小，则 max-width: 100% 不会对图像产生实际影响，因为它比容器小。
+\<img\> 比它的父容器更大。通常给 img 设置 max-width 的值为 100% ，图像的宽度就不会超过容器的宽度。如果图像比父容器小，则 max-width: 100% 不会对图像产生实际影响，因为它比容器小。
 
 也就是说，CSS 中的 `width` 、`min-width` 和 `max-width` 都可以用来设置元素的宽度。很多时候，在实际的使用过程中，可能会在同一个元素上使用多个属性来设置容器的宽度。比如：
 

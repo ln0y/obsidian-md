@@ -5,6 +5,10 @@
       "path": "CSS/flex-basis（三）.md"
     },
     {
+      "basename": "Tree Shaking",
+      "path": "infrastructure/bundler/Tree Shaking.md"
+    },
+    {
       "basename": "todo query",
       "path": "todo query.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "正则表达式收集",
       "path": "RegExp/正则表达式收集.md"
-    },
-    {
-      "basename": "snippet",
-      "path": "VS code/snippet.md"
     }
   ],
   "omittedPaths": [],

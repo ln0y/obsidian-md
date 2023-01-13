@@ -21,19 +21,6 @@
             }
           },
           {
-            "id": "379a4bf052d38bee",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/flex-basis（三）.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a8bc755722985795",
             "type": "leaf",
             "state": {
@@ -47,30 +34,20 @@
             }
           },
           {
-            "id": "9614536692739b37",
+            "id": "379a4bf052d38bee",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "CSS/flex-basis（三）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
-          },
-          {
-            "id": "022e4b652e692115",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "TODO看板.md"
-              }
-            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -100,10 +77,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "via",
+                "query": "memo",
                 "matchingCase": false,
                 "explainSearch": true,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
@@ -269,6 +246,8 @@
   },
   "active": "379a4bf052d38bee",
   "lastOpenFiles": [
+    "infrastructure/bundler/Tree Shaking.md",
+    "CSS/flex-basis（三）.md",
     "todo query.md",
     "RegExp/正则表达式.md",
     "Security/DOM Clobbering.md",
@@ -276,8 +255,6 @@
     "TODO看板.md",
     "Post/front end.md",
     "前端.md",
-    "CSS/flex 布局（一）.md",
-    "CSS/^386ac5.md",
-    "CSS/布局技术术语.md"
+    "CSS/flex 布局（一）.md"
   ]
 }
