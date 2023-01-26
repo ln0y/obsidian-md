@@ -13,10 +13,9 @@ update: 2022-08-22-星期一 11:20:38
 export hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
 
 # 一直启动代理
-export all_proxy="socks5://${hostip}:64399"
-export all_proxy="socks5://${hostip}:64399"
-export https_proxy="http://${hostip}:64399"
-export http_proxy="http://${hostip}:64399"
+export all_proxy="socks5://${hostip}:7890"
+export https_proxy="http://${hostip}:7890"
+export http_proxy="http://${hostip}:7890"
 
 # 手动启动代理
 # alias setss='export https_proxy="http://${hostip}:64399";export http_proxy="http://${hostip}:64399";export all_proxy="socks5://${hostip}:64399";'

@@ -1,28 +1,44 @@
 {
   "recentFiles": [
     {
-      "basename": "WSL必备",
-      "path": "Linux/WSL/WSL必备.md"
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
-      "basename": "ubuntu镜像源",
-      "path": "Linux/WSL/ubuntu镜像源.md"
+      "basename": "vim快捷键",
+      "path": "Linux/vim快捷键.md"
     },
     {
-      "basename": "限制wsl内存",
-      "path": "Linux/WSL/限制wsl内存.md"
+      "basename": "shell快捷键",
+      "path": "Linux/shell快捷键.md"
     },
     {
       "basename": "zshrc",
       "path": "Linux/WSL/zshrc.md"
     },
     {
-      "basename": "todo query",
-      "path": "todo query.md"
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
     },
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
+      "basename": "限制wsl内存",
+      "path": "Linux/WSL/限制wsl内存.md"
+    },
+    {
+      "basename": "ubuntu镜像源",
+      "path": "Linux/WSL/ubuntu镜像源.md"
+    },
+    {
+      "basename": "wsl通过本机cfw代理",
+      "path": "Linux/WSL/wsl通过本机cfw代理.md"
+    },
+    {
+      "basename": "WSL必备",
+      "path": "Linux/WSL/WSL必备.md"
+    },
+    {
+      "basename": "todo query",
+      "path": "todo query.md"
     },
     {
       "basename": "flex-basis（三）",
@@ -183,22 +199,6 @@
     {
       "basename": "curry & uncurry",
       "path": "JavaScript/functional programming/curry & uncurry.md"
-    },
-    {
-      "basename": "学习 axios",
-      "path": "source code/学习 axios.md"
-    },
-    {
-      "basename": "apply & call & bind",
-      "path": "JavaScript/apply & call & bind.md"
-    },
-    {
-      "basename": "前端安全：CSRF",
-      "path": "Security/前端安全：CSRF.md"
-    },
-    {
-      "basename": "JavaScript正则表达式迷你书（1.1版）",
-      "path": "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf"
     }
   ],
   "omittedPaths": [],
