@@ -33,8 +33,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Post/front end.md"
+                "file": "todo query.md"
               }
             }
           }
@@ -174,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
+                "file": "todo query.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
+                "file": "todo query.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -231,10 +230,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "9ea4b96c365afdba",
+  "active": "21f8bfd474439629",
   "lastOpenFiles": [
-    "todo query.md",
     "Post/front end.md",
+    "todo query.md",
     "CSS/flex-basis（三）.md",
     "JavaScript/design pattern/策略模式.md",
     "RegExp/正则表达式.md",
