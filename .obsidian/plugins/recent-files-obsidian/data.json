@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "WSL必备",
+      "path": "Linux/WSL/WSL必备.md"
+    },
+    {
+      "basename": "ubuntu镜像源",
+      "path": "Linux/WSL/ubuntu镜像源.md"
+    },
+    {
+      "basename": "限制wsl内存",
+      "path": "Linux/WSL/限制wsl内存.md"
+    },
+    {
+      "basename": "zshrc",
+      "path": "Linux/WSL/zshrc.md"
+    },
+    {
       "basename": "todo query",
       "path": "todo query.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "JavaScript正则表达式迷你书（1.1版）",
       "path": "_attachment/pdf/JavaScript正则表达式迷你书（1.1版）.pdf"
-    },
-    {
-      "basename": "怎样实现 RPC 框架",
-      "path": "Network/怎样实现 RPC 框架.md"
-    },
-    {
-      "basename": "Session",
-      "path": "Network/Session.md"
-    },
-    {
-      "basename": "Cookie SameParty",
-      "path": "Network/Cookie SameParty.md"
-    },
-    {
-      "basename": "Cookie",
-      "path": "Network/Cookie.md"
     }
   ],
   "omittedPaths": [],

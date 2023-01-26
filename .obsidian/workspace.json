@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "todo query.md",
+                "file": "Linux/WSL/WSL必备.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "todo query.md"
+                "file": "Linux/WSL/WSL必备.md"
               }
             }
           }
@@ -173,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "todo query.md",
+                "file": "Linux/WSL/WSL必备.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -190,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "todo query.md",
+                "file": "Linux/WSL/WSL必备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -232,15 +232,15 @@
   },
   "active": "21f8bfd474439629",
   "lastOpenFiles": [
-    "Post/front end.md",
+    "Linux/WSL/ubuntu镜像源.md",
+    "Linux/WSL/WSL必备.md",
+    "Linux/WSL/限制wsl内存.md",
+    "Linux/WSL/zshrc.md",
     "todo query.md",
+    "Post/front end.md",
     "CSS/flex-basis（三）.md",
     "JavaScript/design pattern/策略模式.md",
     "RegExp/正则表达式.md",
-    "_attachment/img/229a23e478a071e244c4accee2715b26_MD5.gif",
-    "JavaScript/byhand/memoize.md",
-    "JavaScript/byhand/Array.prototype.map.md",
-    "infrastructure/bundler/Tree Shaking.md",
-    "Security/DOM Clobbering.md"
+    "_attachment/img/229a23e478a071e244c4accee2715b26_MD5.gif"
   ]
 }
