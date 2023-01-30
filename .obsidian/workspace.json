@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3d045d171776f9dd",
+        "id": "2189dfb7140ecc1c",
         "type": "tabs",
         "children": [
           {
-            "id": "9ea4b96c365afdba",
+            "id": "0ac7de8fc67d5630",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Post/front end.md",
-                "mode": "source",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -199,7 +199,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 270.5
+    "width": 292.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,8 +217,9 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "9ea4b96c365afdba",
+  "active": "0ac7de8fc67d5630",
   "lastOpenFiles": [
+    "Post/front end.md",
     "Linux/vim快捷键.md",
     "Linux/shell快捷键.md",
     "Linux/WSL/zshrc.md",
@@ -227,7 +228,6 @@
     "Linux/WSL/ubuntu镜像源.md",
     "Linux/WSL/wsl通过本机cfw代理.md",
     "Linux/WSL/WSL必备.md",
-    "todo query.md",
-    "Post/front end.md"
+    "todo query.md"
   ]
 }
