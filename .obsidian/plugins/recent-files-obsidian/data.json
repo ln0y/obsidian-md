@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "flex 经典布局（四）",
+      "path": "CSS/flex 经典布局（四）.md"
+    },
+    {
+      "basename": "前端",
+      "path": "前端.md"
+    },
+    {
+      "basename": "todo query",
+      "path": "todo query.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
       "basename": "flex-basis（三）",
       "path": "CSS/flex-basis（三）.md"
     },
     {
       "basename": "flex 计算（二）",
       "path": "CSS/flex 计算（二）.md"
+    },
+    {
+      "basename": "flex 布局（一）",
+      "path": "CSS/flex 布局（一）.md"
     },
     {
       "basename": "zshrc",
@@ -45,10 +65,6 @@
       "path": "Linux/WSL/WSL必备.md"
     },
     {
-      "basename": "todo query",
-      "path": "todo query.md"
-    },
-    {
       "basename": "策略模式",
       "path": "JavaScript/design pattern/策略模式.md"
     },
@@ -75,18 +91,6 @@
     {
       "basename": "DOM Clobbering",
       "path": "Security/DOM Clobbering.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
-    },
-    {
-      "basename": "前端",
-      "path": "前端.md"
-    },
-    {
-      "basename": "flex 布局（一）",
-      "path": "CSS/flex 布局（一）.md"
     },
     {
       "basename": "布局技术术语",
@@ -195,10 +199,6 @@
     {
       "basename": "继承",
       "path": "JavaScript/继承.md"
-    },
-    {
-      "basename": "curry & uncurry",
-      "path": "JavaScript/functional programming/curry & uncurry.md"
     }
   ],
   "omittedPaths": [],

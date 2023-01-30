@@ -260,7 +260,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 
 ![[_attachment/img/8dcf88474cb9f4d34d1a347a0673d794_MD5.png]]
 
-如果要真的实现所有 Flex 项目宽度相等，除了在 Flex 项目上设置为 `flex:1` 之外，还需要显式设置 `min-width` 值为 `0` ([[#^386ac5|原因]])：
+如果要真的实现所有 Flex 项目宽度相等，除了在 Flex 项目上设置为 `flex:1` 之外，还需要显式设置 `min-width` 值为 `0` ([[flex-basis（三）#Flex 项目的最小值（min-size）|原因]])：
 
 ```css
 .item {
@@ -579,7 +579,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = ((1000px - 200px - 200px - 20
 
 > By default, flex items won’t shrink below their minimum content size (the length of the longest word or fixed-size element). To change this, set the min-width or min-height property.
 
-大致的意思就是说，**默认情况之下，Flex 项目（即设置了 `flex:1` ）在收缩的时候，其宽度也不会小于其最小内容尺寸（`min-content`）或固定尺寸元素。如果要改变这一点，需要在 Flex 项目上显示设置最小宽度 `min-width` (或 `min-inline-size`)， 或最小高度 `min-height`（或 `min-block-size`）的值，一般将其设置为 `0`** 。 ^386ac5
+大致的意思就是说，**默认情况之下，Flex 项目（即设置了 `flex:1` ）在收缩的时候，其宽度也不会小于其最小内容尺寸（`min-content`）或固定尺寸元素。如果要改变这一点，需要在 Flex 项目上显示设置最小宽度 `min-width` (或 `min-inline-size`)， 或最小高度 `min-height`（或 `min-block-size`）的值，一般将其设置为 `0`** 。
 
 你可能已经发现了，前面的示例有一个共同的特性，那就是 `flex-basis` 的值为 `0` ，或者一个指定的长度值（`<length-perentage>`）。比如：
 
@@ -1218,8 +1218,6 @@ Flex 项目 E 计算后的 flex-basis 值 = -109.38px + 300px = 190.62px
 
 如果大家在开发过程中，碰到在 Flex 项目上设置了 `width` ，`inline-size` 、`height` 或 `block-size` 无效时，就要先排查 Flex 项目的 `flex-basis` 是否设置了一个非 `auto` 的值，比如 `0` 。
 
-至于其中原委，这里先不聊（后面专门介绍 `flex-basis` 课程中会有介绍）。我们接着来看 `flex-shrink` 。
-- [ ] 1
 前面聊 `flex-grow` 属性时，可以给其设置不同的值，浏览器在计算时，会根据不同的扩展比例来扩展 Flex 项目的尺寸。同样的，可以给 Flex 项目设置不同的 `flex-shrink` 值，浏览器在计算时会根据不同的收缩比例来收缩 Flex 项目的尺寸。比如：
 
 ```css
