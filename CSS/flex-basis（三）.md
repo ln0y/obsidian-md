@@ -62,7 +62,7 @@ Web 上的每一个元素都被视为一个盒子，它相当于一个容器，�
 
 `flex-basis` 属性在 Flexbox 中对 Flex 项目尺寸起着决定性的作用。简单地说，**`flex-basis`** **属性在任何空间分配发生之前，会对 Flex 项目的尺寸大小进行初始化** 。即，**在任何 Flex 容器空间（剩余空间或不足空间）分配发生之前初始化 Flex 项目尺寸** 。
 
-> Flexbox 中 Flex 容器的空间是由 `flex-grow` 、`flex-shrink` 和 Flex 容器的对齐方式来分配的。详细请参阅前面的课程：《[04 | Flexbox 布局中的对齐方式](https://juejin.cn/book/7161370789680250917/section/7161623670622781471) 》、 《[06 ｜ Flexbox 中的计算：通过扩展因子比例来扩展 Flex 项目](https://juejin.cn/book/7161370789680250917/section/7161623797794078750)》和《[07 ｜ Flexbox 中的计算：通过收缩因子比例收缩 Flex 项目](https://juejin.cn/book/7161370789680250917/section/7164357320367931399)》。
+> Flexbox 中 Flex 容器的空间是由 `flex-grow` 、`flex-shrink` 和 Flex 容器的对齐方式来分配的。
 
 `flex-basis` 属性的语法规则很简单：
 
@@ -120,7 +120,12 @@ flex-basis: content | <width>;
 
 在上面的示例中，我们知道容器 `width` 设置的值小于内容宽度的时候，会造成一定的缺陷（我们不希望看到的效果）。如果在上面的示例中，在 `.item` 上添加一个 `min-width` 就可以较好避免这种现象：
 
-暂时无法在飞书文档外展示此内容
+```css
+.item {
+  width: var(--width);
+  min-width: 250px;
+}
+```
 
 ![[_attachment/img/a470ad734fcad946fa8f2db3efed97ab_MD5.gif]]
 
@@ -344,7 +349,7 @@ CSS 中给元素设置一个尺寸时，除了设置具体值之外，还可以�
 }
 ```
 
-这几个函数是非常有用的，它们同样也可以用于 `flex-basis` 属性上。而且使用它们可以帮助 Web 开发者构建 **响应式** **UI** 。有关于这方面更详细的介绍，将单独放到后面的课程中，这里你只需要知道，我们可以在尺寸属性上使用这些函数，做一些简单的四则运算即可。
+这几个函数是非常有用的，它们同样也可以用于 `flex-basis` 属性上。而且使用它们可以帮助 Web 开发者构建 **响应式** **UI** 。我们可以在尺寸属性上使用这些函数，做一些简单的四则运算即可。
 
 除了上面提到这些方式可以给一个容器设置宽度之外，你还可以给 `width` 属性显式设置 `min-content` 、`max-content` 和 `fit-content` 值。即能根据元素内容来决定元素大小，因此它们统称为 **内部尺寸** 。
 
@@ -493,7 +498,7 @@ h1 {
 
 简单地说，`flex-basis` 的计算分为两个部分。
 
-- 由 Flex 容器空间（剩余空间或不足空间），`flex-grow` 、`flex-shink` 以及初始化 `flex-basis` 相关参数计算后的 `flex-basis` 值。这部分我们在前面的课程中介绍过了，可以阅读《[06 ｜ Flexbox 中的计算：通过扩展因子比例来扩展 Flex 项目](https://juejin.cn/book/7161370789680250917/section/7161623797794078750)》和《[07 ｜ Flexbox 中的计算：通过收缩因子比例收缩 Flex 项目](https://juejin.cn/book/7161370789680250917/section/7164357320367931399)》。
+- 由 Flex 容器空间（剩余空间或不足空间），`flex-grow` 、`flex-shink` 以及初始化 `flex-basis` 相关参数计算后的 `flex-basis` 值。
 
 - 指定 Flex 项目尺寸大小的相关属性权重的计算。
 

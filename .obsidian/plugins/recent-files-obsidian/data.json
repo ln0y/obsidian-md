@@ -5,16 +5,16 @@
       "path": "CSS/flex-basis（三）.md"
     },
     {
+      "basename": "flex 计算（二）",
+      "path": "CSS/flex 计算（二）.md"
+    },
+    {
       "basename": "zshrc",
       "path": "Linux/WSL/zshrc.md"
     },
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "flex 计算（二）",
-      "path": "CSS/flex 计算（二）.md"
     },
     {
       "basename": "vim快捷键",
