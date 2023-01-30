@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "CSS/flex-basis（三）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/flex 计算（二）.md"
+                "file": "CSS/flex-basis（三）.md"
               }
             }
           }
@@ -160,7 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "CSS/flex-basis（三）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "CSS/flex-basis（三）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -217,17 +217,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "0ac7de8fc67d5630",
+  "active": "a510c88b15af9cae",
   "lastOpenFiles": [
-    "CSS/flex-basis（三）.md",
+    "Linux/WSL/zshrc.md",
     "Post/front end.md",
+    "CSS/flex 计算（二）.md",
+    "CSS/flex-basis（三）.md",
     "Linux/vim快捷键.md",
     "Linux/shell快捷键.md",
-    "Linux/WSL/zshrc.md",
     "Linux/WSL/安装doker.md",
     "Linux/WSL/限制wsl内存.md",
     "Linux/WSL/ubuntu镜像源.md",
-    "Linux/WSL/wsl通过本机cfw代理.md",
-    "Linux/WSL/WSL必备.md"
+    "Linux/WSL/wsl通过本机cfw代理.md"
   ]
 }

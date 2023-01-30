@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "flex 计算（二）",
-      "path": "CSS/flex 计算（二）.md"
-    },
-    {
       "basename": "flex-basis（三）",
       "path": "CSS/flex-basis（三）.md"
     },
     {
+      "basename": "zshrc",
+      "path": "Linux/WSL/zshrc.md"
+    },
+    {
       "basename": "front end",
       "path": "Post/front end.md"
+    },
+    {
+      "basename": "flex 计算（二）",
+      "path": "CSS/flex 计算（二）.md"
     },
     {
       "basename": "vim快捷键",
@@ -19,10 +23,6 @@
     {
       "basename": "shell快捷键",
       "path": "Linux/shell快捷键.md"
-    },
-    {
-      "basename": "zshrc",
-      "path": "Linux/WSL/zshrc.md"
     },
     {
       "basename": "安装doker",

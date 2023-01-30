@@ -95,6 +95,8 @@ plugins=(
   alias-finder
   minikube
   web-search
+  docker
+  z
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -131,13 +133,16 @@ alias cdc="cd /mnt/c"
 alias cdh="cd /mnt/h"
 alias cde="cd /mnt/e"
 alias cdew="cd /mnt/e/workspace"
-
+alias ep="explorer.exe"
+alias updg="sudo apt update && sudo apt upgrade -y"
 alias rmnode="rm -rf ./node_modules"
 
 ## 获取主机 IP
 ## 主机 IP 保存在 /etc/resolv.conf 中
 export hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
 export all_proxy="socks5://${hostip}:64399"
+export https_proxy="http://${hostip}:64399"
+export http_proxy="http://${hostip}:64399"
 # alias setss='export https_proxy="http://${hostip}:64399";export http_proxy="http://${hostip}:64399";export all_proxy="socks5://${hostip}:64399";'
 # alias unsetss='unset all_proxy'
 

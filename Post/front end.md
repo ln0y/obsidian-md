@@ -375,7 +375,7 @@ format = " [$duration](bold yellow)"
   const XHRBlackList = ['https://mcs.snssdk.com', 'https://mon.zijieapi.com']
   const hookFetchApi = new Map()
 
-  function memoize(func, resolver) {
+  function memoizeFetch(func, resolver) {
     if (
       typeof func != 'function' ||
       (resolver != null && typeof resolver != 'function')
@@ -385,21 +385,25 @@ format = " [$duration](bold yellow)"
 
     const memoized = function () {
       const args = arguments
+      const [, { method = 'get' }] = args
+      if (method !== 'get') return func.apply(this, args)
+
       const key = resolver ? resolver.apply(this, args) : args[0]
       const cache = memoized.cache
 
       if (cache.has(key)) {
-        return cache.get(key)
+        return cache.get(key).then(res => res.clone())
       }
+
       const result = func.apply(this, args)
       memoized.cache = cache.set(key, result) || cache
-      return result
+      return result.then(res => res.clone())
     }
     memoized.cache = new Map()
     return memoized
   }
 
-  fetch = memoize(
+  fetch = memoizeFetch(
     new Proxy(fetch, {
       async apply(target, object, args) {
         const [input, init] = args
