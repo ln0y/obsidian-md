@@ -786,7 +786,7 @@ Flex 项目 A 的弹性值 = 1000 ÷ (0 + 1 + 2 + 3 + 4) × 0 = 0px
 Flex 项目 A 计算后的 flex-basis 值 = 237.5px + 0 = 237.5px (Flex 项目 A 的 min-content)
 
 Flex 项目 B 的弹性值 = (1000px - 237.5px) ÷ (1 + 2 + 3 + 4) × 1  = 76.25px
-Flex 项目 B 计算后的 flex-basis 值 = 70.25px + 0 = 70.25px
+Flex 项目 B 计算后的 flex-basis 值 = 76.25px + 0 = 76.25px
 
 Flex 项目 C 的弹性值 = (1000px - 237.5px - 76.25px) ÷ (2 + 3 + 4) × 2  = 152.5px
 Flex 项目 C 计算后的 flex-basis 值 = 152.5px + 0 = 152.5px
