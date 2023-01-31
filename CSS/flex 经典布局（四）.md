@@ -2,7 +2,7 @@
 aliases: []
 tags: ['CSS', 'date/2023-01', 'year/2023', 'month/01']
 date: 2023-01-30-星期一 17:24:06
-update: 2023-01-30-星期一 17:25:42
+update: 2023-01-31-星期二 10:46:41
 ---
 
 Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的方式来 **定位** 、**排序** 和 **分布** 元素，即使在视窗或元素大小不明确或动态变化时亦是如此。Flexbox 的优势可以用一句话来表达：“**在不需要复杂的计算之下，元素的大小和顺序可以灵活排列** ”，即“Flexbox 为您提供了元素大小和顺序的灵活性”。如此一来，可以让 Web 的布局变得简单地多。
@@ -182,7 +182,7 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 
 对于多个 Flex 项目时，需要在 Flex 容器显式设置 `flex-direction: column` 。其实它和前面的 `justify-content` 和 `align-items` 取值 `center` 是一样的原理，只不过这里使用了其简写属性。
 
-我们前面的课程有介绍过，在 Flexbox 布局中，你可以在 Flex 项目上设置 `margin` 的值为 `auto` 来控制 Flex 项目位置：
+在 Flexbox 布局中，你可以在 Flex 项目上设置 `margin` 的值为 `auto` 来控制 Flex 项目位置：
 
 ![[_attachment/img/b97a2bcf1d1df947ab4cc7a4d03deb79_MD5.jpeg]]
 
@@ -424,7 +424,7 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 </style>
 ```
 
-![[_attachment/img/efab0788c1422f3c371cff9a7a0a9418_MD5.jpeg]]
+![[_attachment/img/efab0788c1422f3c371cff9a7a0a9418_MD5.jpeg|500]]
 
 > Demo 地址： <https://codepen.io/airen/full/GRdQZYv>
 
@@ -444,7 +444,7 @@ flex-basis: 0%;
 
 正如上图所示，最后一个 Flex 项目的宽度要更大，它的 `max-content` 都比其他 Flex 项目大（它有四个汉字宽）。
 
-事实上，**默认情况之下，设置了** **`flex:1`** **的 Flex 项目在收缩的时候，其宽度不会小于其最小内容尺寸（\*\***`min-content`\***\*）。如果要改变这一点，需要显式设置** **`min-width`** **（或** **`min-inline-size`）或** **`min-height`** **（或** **`min-block-size`）的值**。
+事实上，**默认情况之下，设置了 `flex:1` 的 Flex 项目在收缩的时候，其宽度不会小于其最小内容尺寸（`min-content`）。如果要改变这一点，需要显式设置 `min-width` （或 `min-inline-size`）或 `min-height` （或 `min-block-size`）的值**。
 
 CSS 中它们的值为 `auto` 时，会被浏览器计算为 `0` 。但在 Flexbox 中，Flex 项目的 `min-width` 或 `min-height` 的值又不会被计算为 `0` ，它的值被计算为 `max-content` 。
 
@@ -807,7 +807,7 @@ modal-content {
 
 > Demo 地址： <https://codepen.io/airen/full/JjvpzPY>
 
-关键部分是 **设置** **`flex:1`** **的 Flex 项目需要显式设置** **`min-height`** **的值为** **`0`** **，即滚动容器的父元素** 。即， **在设置了** **`flex:1`** **的 Flex 项目上应该尽可能\*\***地\***\*重置它的最小尺寸值，当主轴在水平方向时（\*\***`flex-direction: row`\***\*），设置 `min-width`** **（或** **`min-inline-size`）的值为** **`0`** **；当主轴在垂直方向时（\*\***`flex-direction: column`\***\*），设置** **`min-height`** **（或** **`min-block-size`）的值为** **`0`** 。
+关键部分是 **设置** **`flex:1`** **的 Flex 项目需要显式设置** **`min-height`** **的值为** **`0`** **，即滚动容器的父元素** 。即， **在设置了** **`flex:1`** **的 Flex 项目上应该尽可能\*\*** 地\***\* 重置它的最小尺寸值，当主轴在水平方向时（\*\***`flex-direction: row`\***\*），设置 `min-width`** **（或** **`min-inline-size`）的值为** **`0`** **；当主轴在垂直方向时（\*\***`flex-direction: column`\***\*），设置** **`min-height`** **（或** **`min-block-size`）的值为** **`0`** 。
 
 小作业，使用 Flexbox 构建一个弹窗（Modal）的布局效果：
 
@@ -1518,7 +1518,7 @@ main {
 
 ![[_attachment/img/0f49a97fd96426fa6016a13544166904_MD5.jpeg]]
 
-达到上图的效果，在 CSS 中有两种方式可以实现，先来看第一种，即 **使用 `line-clamp`\*\***替代\***\*`text-overflow`** ：
+达到上图的效果，在 CSS 中有两种方式可以实现，先来看第一种，即 **使用 `line-clamp`\*\*** 替代\***\*`text-overflow`** ：
 
 ```css
 .badges {

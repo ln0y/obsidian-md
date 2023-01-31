@@ -21,6 +21,16 @@
             }
           },
           {
+            "id": "e8df78f4a6e2abf7",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "TODO看板.md"
+              }
+            }
+          },
+          {
             "id": "4ec66ff7c4fdbef4",
             "type": "leaf",
             "state": {
@@ -34,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -231,12 +241,12 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "a510c88b15af9cae",
+  "active": "4ec66ff7c4fdbef4",
   "lastOpenFiles": [
-    "前端.md",
-    "todo query.md",
     "TODO看板.md",
     "CSS/flex 经典布局（四）.md",
+    "前端.md",
+    "todo query.md",
     "CSS/flex-basis（三）.md",
     "CSS/flex 计算（二）.md",
     "CSS/flex 布局（一）.md",
