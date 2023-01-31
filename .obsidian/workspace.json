@@ -42,19 +42,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "8ab96826b7e6ddf0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/flex 计算（二）.md",
-                "mode": "preview",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
         ],
         "currentTab": 2
@@ -87,10 +74,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "![img]",
+                "query": "内容溢容器",
                 "matchingCase": false,
                 "explainSearch": true,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
@@ -104,7 +91,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "c9eb5b6f0e924845",
@@ -256,13 +244,13 @@
   },
   "active": "4ec66ff7c4fdbef4",
   "lastOpenFiles": [
+    "CSS/flex-basis（三）.md",
     "CSS/flex 计算（二）.md",
     "CSS/flex 经典布局（四）.md",
     "Post/front end.md",
     "TODO看板.md",
     "前端.md",
     "todo query.md",
-    "CSS/flex-basis（三）.md",
     "CSS/flex 布局（一）.md",
     "Linux/WSL/zshrc.md",
     "Linux/vim快捷键.md"

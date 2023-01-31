@@ -5,6 +5,10 @@
       "path": "CSS/flex 经典布局（四）.md"
     },
     {
+      "basename": "flex-basis（三）",
+      "path": "CSS/flex-basis（三）.md"
+    },
+    {
       "basename": "flex 计算（二）",
       "path": "CSS/flex 计算（二）.md"
     },
@@ -23,10 +27,6 @@
     {
       "basename": "todo query",
       "path": "todo query.md"
-    },
-    {
-      "basename": "flex-basis（三）",
-      "path": "CSS/flex-basis（三）.md"
     },
     {
       "basename": "flex 布局（一）",
