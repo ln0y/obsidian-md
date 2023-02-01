@@ -5,6 +5,14 @@
       "path": "CSS/grid 布局（一）.md"
     },
     {
+      "basename": "代理模式",
+      "path": "JavaScript/design pattern/代理模式.md"
+    },
+    {
+      "basename": "布局方式",
+      "path": "CSS/布局方式.md"
+    },
+    {
       "basename": "TODO看板",
       "path": "TODO看板.md"
     },
@@ -101,10 +109,6 @@
       "path": "CSS/布局技术术语.md"
     },
     {
-      "basename": "布局方式",
-      "path": "CSS/布局方式.md"
-    },
-    {
       "basename": "页面布局",
       "path": "CSS/页面布局.md"
     },
@@ -163,10 +167,6 @@
     {
       "basename": "状态模式",
       "path": "JavaScript/design pattern/状态模式.md"
-    },
-    {
-      "basename": "代理模式",
-      "path": "JavaScript/design pattern/代理模式.md"
     },
     {
       "basename": "原型模式",

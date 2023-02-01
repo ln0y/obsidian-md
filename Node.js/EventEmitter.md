@@ -32,11 +32,11 @@ eventEmitter.emit('say', 'Jonh')
 
 除了上面的那段代码中已经使用的 on 和emit 这两个 API，EventEmitter还提供了其他的 API 方法，下方表格简单整理了一下对应的方法和功能总结。
 
-![[Cgp9HWA8LMiAEVlGAAJEpecSYyo071.png]]
+![[_attachment/img/Cgp9HWA8LMiAEVlGAAJEpecSYyo071.png]]
 
 除此之外，还有两个特殊的事件，不需要额外手动添加，下表所示的就是 Node.js 的 EventEmitter 模块自带的特殊事件。
 
-![[Cgp9HWA8LLaAdnhdAADOmTg9zw8428.png]]
+![[_attachment/img/Cgp9HWA8LLaAdnhdAADOmTg9zw8428.png]]
 
 ### addListener 和 removeListener、on 和 off 方法对比
 

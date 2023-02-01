@@ -72,19 +72,19 @@ JSPromise 描述 `Promise` 的基本信息，[源码如下](https://chromium.goo
 ```cpp
 bitfield struct JSPromiseFlags extends uint31 {
   // Promise 的状态，kPending/kFulfilled/kRejected
-  status: PromiseState: 2 bit; 
+  status: PromiseState: 2 bit;
   // 是否有onFulfilled/onRejected处理函数，
   // 没有调用过 then 方法的 Promise 没有处理函数
   //（catch方法的本质是then方法，后面会介绍）
-  has_handler: bool: 1 bit; 
-  handled_hint: bool: 1 bit; 
+  has_handler: bool: 1 bit;
+  handled_hint: bool: 1 bit;
   async_task_id: int32: 22 bit;
 }
 
 @generateCppClass
 extern class JSPromise extends JSObject {
   macro Status(): PromiseState {
-    // 获取 Promise 的状态，返回 
+    // 获取 Promise 的状态，返回
     // kPending/kFulfilled/kRejected 中的一个
     return this.flags.status;
   }
@@ -271,7 +271,7 @@ PerformPromiseThenImpl [源码如下](https://chromium.googlesource.com/v8/v8.gi
 
 ```cpp
 transitioning macro PerformPromiseThenImpl(implicit context: Context)(
-    promise: JSPromise, 
+    promise: JSPromise,
   onFulfilled: Callable|Undefined,
     onRejected: Callable|Undefined,
     resultPromiseOrCapability: JSPromise|PromiseCapability|Undefined): void {
@@ -338,7 +338,7 @@ PerformPromiseThenImpl 有三个分支，分别对应 Promise 的三个状态，
 ```js
 const p = new Promise((resolve, reject) => {
   setTimeout(_ => {
-    resolve('my code delay 2000 ms') 
+    resolve('my code delay 2000 ms')
   }, 2000)
 })
 
@@ -378,7 +378,7 @@ macro NewPromiseReaction(implicit context: Context)(
 
 > **下图不是 microtask 队列，下图不是 microtask 队列，下图不是 microtask 队列。**
 
-![[zoom-in-crop-mark.webp]]
+![[_attachment/img/zoom-in-crop-mark.webp]]
 
 > 图中使用 onFulfilled 代替 fulfill\_handler 是为了方便理解，onRejected也是如此，且只包含于当前内容相关的字段，不用太过于纠结。
 
@@ -591,7 +591,7 @@ MorphAndEnqueuePromiseReaction 的功能很简单，就是根据 Promise 的状�
 ```js
 const myPromise4 = new Promise((resolve, reject) => {
   setTimeout(_ => {
-    resolve('my code delay 1000') 
+    resolve('my code delay 1000')
   }, 1000)
 })
 
@@ -654,7 +654,7 @@ RejectPromise(implicit context: Context)(
       !promise.HasHandler()) {
     return runtime::RejectPromise(promise, reason, debugEvent);
   }
- 
+
   // 取出 Promise 的处理对象 PromiseReaction
   const reactions =
       UnsafeCast<(Zero | PromiseReaction)>(promise.reactions_or_result);
@@ -762,7 +762,7 @@ FulfillPromise(){
 const myPromise1 = new Promise((resolve, reject) => {
     // 同步执行
     reject()
-    // 会向 microtask 队列中插入一个检查 myPromise1 
+    // 会向 microtask 队列中插入一个检查 myPromise1
     // 是否绑定了新的 onRejected 处理函数的 microtask
 })
 
@@ -952,7 +952,7 @@ p1.then(_ => {
 // 取  microtask 队列 第一个执行，
 // handler 为 reason => {console.log(reason)}，
 
-// 成功执行 handler, 所以调用 FuflfillPromiseReactionJob 
+// 成功执行 handler, 所以调用 FuflfillPromiseReactionJob
 // 执行 p1 的 resolve
 ```
 
@@ -1088,7 +1088,7 @@ NewPromiseResolveThenableJobTask 的目的是调用 resolution 的 then 方法�
 ```js
 microtask(() => {
   resolution.then((value) => {
-    ReslovePromise(promise, value) 
+    ReslovePromise(promise, value)
   })
 })
 ```
@@ -1213,25 +1213,25 @@ let p1 = p0.then(_ => {console.log('p0 onFulfilled')})
 
 let p2 = p1.then(_ => {console.log('p1 onFulfilled')})
 /*
-为p1绑定 
+为p1绑定
 PromiseReaction{
-  onFulfilled:_ => {console.log('p1 onFulfilled')}, 
+  onFulfilled:_ => {console.log('p1 onFulfilled')},
   onRejected:undefined
 }
 */
 let p3 = p2.then(_ => {console.log('p2 onFulfilled')}, _ => {console.log('p2 onRejected')})
 /*
-为p2绑定 
+为p2绑定
 PromiseReaction{
-  onFulfilled:_ => {console.log('p2 onFulfilled')}, 
+  onFulfilled:_ => {console.log('p2 onFulfilled')},
   onRejected:_ => {console.log('p2 onRejected')
 }
 */
 let p4 = p3.then(_ => {console.log('p3 onFulfilled')}, _ => {console.log('p3 onRejected')})
 /*
-为p3绑定 
+为p3绑定
 PromiseReaction{
-  onFulfilled:_ => {console.log('p3 onFulfilled')}, 
+  onFulfilled:_ => {console.log('p3 onFulfilled')},
   onRejected:_ => {console.log('p3 onRejected')
 }
 */
@@ -1410,7 +1410,7 @@ let p10 = p9.then(() => {
 ```js
 let promiseResolveThenableJobTask = () => {
     p3.then((value) => { // p3的value是4
-        ReslovePromise(p2, value) 
+        ReslovePromise(p2, value)
     })
 }
 ```
@@ -1433,7 +1433,7 @@ let promiseResolveThenableJobTask = () => {
 
 ```js
 let promiseResolveThenableJobTask = () => {
-    p3.then((value) => { 
+    p3.then((value) => {
         ReslovePromise(p2, value) // ReslovePromise 的作用上面有介绍
     })
 }
@@ -1542,37 +1542,37 @@ console.log(2);
 为什么 async1 end 输出在 promise3 之后？
 
 ```js
-async function async1() { 
-    console.log("async1 start"); 
-    await async2(); 
-    console.log("async1 end"); 
-} 
-async function async2() { 
-    console.log("async2"); 
-    return Promise.resolve().then(() => { 
-        console.log("async2-inner"); 
-    }); 
-} 
+async function async1() {
+    console.log("async1 start");
+    await async2();
+    console.log("async1 end");
+}
+async function async2() {
+    console.log("async2");
+    return Promise.resolve().then(() => {
+        console.log("async2-inner");
+    });
+}
 
-console.log("script start"); 
-setTimeout(function () { 
-    console.log("settimeout"); 
-}); 
+console.log("script start");
+setTimeout(function () {
+    console.log("settimeout");
+});
 
-async1(); 
-new Promise(function (resolve) { 
-    console.log("promise1"); 
-    resolve(); 
-}) 
-.then(function () { 
-    console.log("promise2"); 
-}) 
-.then(function () { 
-    console.log("promise3"); 
-}) 
-.then(function () { 
-    console.log("promise4"); 
-}); 
+async1();
+new Promise(function (resolve) {
+    console.log("promise1");
+    resolve();
+})
+.then(function () {
+    console.log("promise2");
+})
+.then(function () {
+    console.log("promise3");
+})
+.then(function () {
+    console.log("promise4");
+});
 console.log("script end");
 ```
 
@@ -1632,7 +1632,7 @@ console.log("script end");
 
 ```js
 let promiseResolveThenableJobTask = () => {
-    p2.then((value) => { 
+    p2.then((value) => {
         ReslovePromise(a2, value) // ReslovePromise 的作用上面有介绍
     })
 }
@@ -1683,7 +1683,7 @@ function (resolve) {
 
 ```js
 let promiseResolveThenableJobTask = () => {
-    p2.then((value) => { 
+    p2.then((value) => {
         ReslovePromise(a2, value) // ReslovePromise 的作用上面有介绍
     })
 }
@@ -1704,7 +1704,7 @@ let promiseResolveThenableJobTask = () => {
 7. p2.onFulfilled 出队列执行， p2.onFulfilled 的内容如下，这个上面说过
 
 ```js
-(value) => { 
+(value) => {
     ReslovePromise(a2, value) // 也就是 a2 的 resolve(value)
 }
 ```

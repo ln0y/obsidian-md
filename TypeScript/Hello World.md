@@ -13,7 +13,7 @@ TypeScript 其实就是类型化的 JavaScript，它不仅支持 JavaScript 的�
 
 因此，从某种意义上来说，**TypeScript 其实就是 JavaScript 的超集**，如下图所示：
 
-![[Snipaste_2022-02-11_18-01-50.png]]
+![[_attachment/img/Snipaste_2022-02-11_18-01-50.png]]
 
 在 TypeScript 中，我们不仅可以轻易复用 JavaScript 的代码、最新特性，还能使用可选的静态类型进行检查报错，使得编写的代码更健壮、更易于维护。比如在开发阶段，我们通过 TypeScript 代码转译器就能快速消除很多低级错误（如 type、类型等）。
 

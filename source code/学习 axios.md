@@ -81,7 +81,7 @@ fetch('https://xxx')
 
 这里我们稍微展开，以一个请求库的分层封装为例，其实任何一种通用能力的封装都可以参考下图：
 
-![[Cgp9HWAdGnOAEUmTAADzvClHn5k247.png]]
+![[_attachment/img/Cgp9HWAdGnOAEUmTAADzvClHn5k247.png]]
 
 如图所示，底层能力部分，对应请求库中宿主提供的 XMLHttpRequest 或 Fetch 能力，以及项目中已经内置的框架/类库能力。这一部分对于一个已有项目来说，往往是较难改变或重构的，也是不同项目中可以复用的；而业务层，比如依赖 axios 请求库的更上层封装，我们一般可以分为：
 

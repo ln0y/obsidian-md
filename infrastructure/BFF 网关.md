@@ -11,7 +11,7 @@ update: 2022-03-16-Wednesday 15:19:47
 
 我们结合下图进行拆解：
 
-![[Cgp9HWBURl6AGdLyAAGLpDcAPtI043.png]]
+![[_attachment/img/Cgp9HWBURl6AGdLyAAGLpDcAPtI043.png]]
 
 如图所示，我们把用户体验适配和 API 网关聚合层合称为广义的 BFF 层，在 BFF 层的上游是各种后端业务微服务，在 BFF 下游就是各端应用。从职责上看，BFF 层向下给端提供 HTTP 接口，向上通过调用 HTTP 或 RPC 获取数据进行加工，最终完成整个 BFF 层的闭环。
 

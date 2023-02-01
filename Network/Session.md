@@ -9,7 +9,7 @@ update: 2022-12-05-星期一 21:53:31
 
 客户端请求服务端，服务端会为这次请求开辟一块 `内存空间`，这个对象便是 Session 对象，存储结构为 `ConcurrentHashMap`。Session 弥补了 HTTP 无状态特性，服务器可以利用 Session 存储客户端在同一个会话期间的一些操作记录。session 是基于 [[cookie]] 实现的，session 存储在服务器端，sessionId 会被存储到客户端的 cookie 中。
 
-![[16f523a04d0b3cf5_tplv-t2oaga2asx-zoom-1.png]]
+![[_attachment/img/16f523a04d0b3cf5_tplv-t2oaga2asx-zoom-1.png]]
 
 ### Session 如何判断是否是同一会话
 

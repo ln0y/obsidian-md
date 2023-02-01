@@ -250,7 +250,7 @@ GET https://example.com/addComment?comment=XXX&dest=orderId
 
 浏览器出于安全原因，需要判断一个请求是否 [[跨域#^e8b9dc|跨源]]，这是浏览器的 **强制行为**。现代浏览器为了保障用户的安全，必须检查跨源请求是否安全。
 
-![[15640407221503.png]]
+![[_attachment/img/15640407221503.png]]
 
 #### 浏览器判断哪些请求会跨源？
 

@@ -192,6 +192,6 @@ function sum (a,b) {
 
 由 Ignition 解释器收集的分析数据被 TurboFan 编译器使用，主要是通过一种推测优化的技术，生成已经优化的机器码来执行。这个过程我只是通过文字描述，可能你很难理解，你通过一张图来看下整个生成抽象语法树，再到转换成字节码以及机器码的一个过程。
 
-![[Cgp9HWBPFDuAS9GdAAGqbvfuWtc433.png]]
+![[_attachment/img/Cgp9HWBPFDuAS9GdAAGqbvfuWtc433.png]]
 
 上面这张图可以很清晰地看到整个 V8 引擎编译和解析代码的流程。因为 V8 涉及的内容实在太多，想要将它理解深刻，你就需要反复琢磨其中的流程。

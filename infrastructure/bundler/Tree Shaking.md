@@ -332,9 +332,9 @@ function init(options) {
 
 PostCSS 原理如下图：
 
-![[Cip5yGABPraACuJCAAGHB98AwXg855.png]]
+![[_attachment/img/Cip5yGABPraACuJCAAGHB98AwXg855.png]]
 
-![[Ciqc1GABPsGAfsSVAAGgxx7GqrU331.png]]
+![[_attachment/img/Ciqc1GABPsGAfsSVAAGgxx7GqrU331.png]]
 
 这里给大家推荐 [purgecss-webpack-plugin](https://github.com/FullHuman/purgecss/tree/master/packages/purgecss-webpack-plugin)，其原理也很简单：
 
@@ -353,9 +353,9 @@ export default class PurgeCSSPlugin {
       this.initializePlugin.bind(this)
     );
   }
-  
+
   //...
-  
+
 }
 ```
 

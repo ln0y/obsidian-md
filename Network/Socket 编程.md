@@ -17,7 +17,7 @@ update: 2022-04-16-Saturday 15:42:30
 
 下图中，从编程的角度来看，客户端将数据发送给在客户端侧的**Socket 对象**，然后客户端侧的 Socket 对象将数据发送给服务端侧的 Socket 对象。**Socket 对象负责提供通信能力，并处理底层的 TCP 连接/UDP 连接**。对服务端而言，每一个客户端接入，就会形成一个和客户端对应的 Socket 对象，如果服务器要读取客户端发送的信息，或者向客户端发送信息，就需要通过这个客户端 Socket 对象。
 
-![[Cgp9HWCZ8deAY_UqAAFeGtcsKIg099.png]]
+![[_attachment/img/Cgp9HWCZ8deAY_UqAAFeGtcsKIg099.png]]
 
 **但是如果从另一个角度去分析，Socket 还是一种文件，准确来说是一种双向管道文件**。什么是管道文件呢？管道会将一个程序的输出，导向另一个程序的输入。那么什么是双向管道文件呢？双向管道文件连接的程序是对等的，都可以作为输入和输出。
 
@@ -32,7 +32,7 @@ serverSocket.bind(new InetSocketAddress(80));
 
 当一个客户端连接到服务端的时候，操作系统就会创建一个客户端 Socket 的文件。然后操作系统将这个文件的文件描述符写入服务端程序创建的服务端 Socket 文件中。服务端 Socket 文件，是一个管道文件。如果读取这个文件的内容，就相当于从管道中取走了一个客户端文件描述符。
 
-![[Cgp9HWCZ8eSANiNKAAHGwf-mH5U069.png]]
+![[_attachment/img/Cgp9HWCZ8eSANiNKAAHGwf-mH5U069.png]]
 
 如上图所示，服务端 Socket 文件相当于一个客户端 Socket 的目录，线程可以通过 accept() 操作每次拿走一个客户端文件描述符。拿到客户端文件描述符，就相当于拿到了和客户端进行通信的接口。
 
@@ -54,11 +54,11 @@ serverSocket.bind(new InetSocketAddress(80));
 
 对于一个服务端程序，可以定期扫描服务端 Socket 文件的变更，来了解有哪些客户端想要连接进来。如果在服务端 Socket 文件中读取到一个客户端的文件描述符，就可以将这个文件描述符实例化成一个 Socket 对象。
 
-![[CioPOWCZ8fOAaVwEAAJ4CITeHSs003.png]]
+![[_attachment/img/CioPOWCZ8fOAaVwEAAJ4CITeHSs003.png]]
 
 之后，服务端可以将这个 Socket 对象加入一个容器（集合），通过定期遍历所有的客户端 Socket 对象，查看背后 Socket 文件的状态，从而确定是否有新的数据从客户端传输过来。
 
-![[Cgp9HWCZ8fyAJIK7AAFzaGqyFsw603.png]]
+![[_attachment/img/Cgp9HWCZ8fyAJIK7AAFzaGqyFsw603.png]]
 
 上述的过程，我们通过一个线程就可以响应多个客户端的连接，也被称作**I/O 多路复用技术**。
 
@@ -68,7 +68,7 @@ serverSocket.bind(new InetSocketAddress(80));
 
 从程序设计的角度来看，像这样主动遍历，比如遍历一个 Socket 集合看看有没有发生写入（有数据从网卡传过来），称为**命令式的程序**。这样的程序设计就好像在执行一条条命令一样，程序主动地去查看每个 Socket 的状态。
 
-![[CioPOWCZ8gOAF9JRAAGL-Tmkapc159.png]]
+![[_attachment/img/CioPOWCZ8gOAF9JRAAGL-Tmkapc159.png]]
 
 命令式会让负责下命令的程序负载过重，例如，在高并发场景下，上述讨论中循环遍历 Socket 集合的线程，会因为负担过重导致系统吞吐量下降。
 
@@ -76,7 +76,7 @@ serverSocket.bind(new InetSocketAddress(80));
 
 从响应式的角度去看 Socket 编程，应该是有某个观察者会观察到 Socket 文件状态的变化，从而通知处理线程响应。线程不再需要遍历 Socket 集合，而是等待观察程序的通知。
 
-![[Cgp9HWCZ8g6AGZmTAAFsEY8h8Ho635.png]]
+![[_attachment/img/Cgp9HWCZ8g6AGZmTAAFsEY8h8Ho635.png]]
 
 当然，最合适的观察者其实是操作系统本身，因为只有操作系统非常清楚每一个 Socket 文件的状态。原因是对 Socket 文件的读写都要经过操作系统。在实现这个模型的时候，有几件事情要注意。
 

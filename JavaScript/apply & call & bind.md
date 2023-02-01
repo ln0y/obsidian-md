@@ -104,9 +104,9 @@ console.log(min)  // 6
 
 由于 apply 和 call 基本原理是差不多的，只是参数存在区别。
 
-![[Function.prototype.apply]]
+![[_attachment/img/Function.prototype.apply]]
 
-![[Function.prototype.call]]
+![[_attachment/img/Function.prototype.call]]
 
 从上面的代码可以看出，实现 call 和 apply 的关键就在参数。其中显示了用 context 这个临时变量来指定上下文，然后还是通过执行 eval （可以用扩展运算符...代替）来执行 context.fn 这个函数，最后返回 result。
 
@@ -116,7 +116,7 @@ console.log(min)  // 6
 
 结合上面两个方法的实现，bind 的实现思路基本和 apply 一样，但是在最后实现返回结果这里，bind 和 apply 有着比较大的差异，bind 不需要直接执行，因此不再需要用 eval ，而是需要通过返回一个函数的方式将结果返回，之后再通过执行这个结果，得到想要的执行效果。
 
-![[Function.prototype.bind]]
+![[_attachment/img/Function.prototype.bind]]
 
 从上面的代码中可以看到，实现 bind 的核心在于返回的时候需要返回一个函数，故这里的 fbound 需要返回，但是在返回的过程中原型链对象上的属性不能丢失。因此这里需要用Object.create 方法，将 this.prototype 上面的属性挂到 fbound 的原型上面，最后再返回 fbound。这样调用 bind 方法接收到函数的对象，再通过执行接收的函数，即可得到想要的结果。
 

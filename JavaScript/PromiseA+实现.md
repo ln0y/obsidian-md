@@ -1425,13 +1425,13 @@ npm run test
 
 迫不及待了吧 😄 看看我们的结果如何，走起 🐱🏍
 
-![[Pasted image 20220510162025.png]]
+![[_attachment/img/Pasted image 20220510162025.png]]
 
 虽然功能上没啥问题，但是测试却失败了 😥
 
 针对提示信息，我翻看了一下 Promise A+ 规范，发现我们应该是在 2.3.x 上出现了问题，这里规范使用了不同的方式进行了 then 的返回值判断。
 
-![[Pasted image 20220510161832.png]]
+![[_attachment/img/Pasted image 20220510161832.png]]
 
 自红线向下的细节，我们都没有处理，这里要求判断 x 是否为 object 或者 function，满足则接着判断 x.then 是否存在，这里可以理解为判断 x 是否为 promise，这里都功能实际与我们手写版本中 `x instanceof MyPromise` 功能相似。
 

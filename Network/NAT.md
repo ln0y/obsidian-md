@@ -17,7 +17,7 @@ IPv4 的地址不够，因此需要设计子网。当一个公司申请得到一
 
 对一个组织、机构、家庭来说，我们通常把内部网络称为局域网，外部网络就叫作外网。下图是一个公司多个部门的网络架构。
 
-![[Cgp9HWCJIMaACsQqAAKt__fEo9U561.png]]
+![[_attachment/img/Cgp9HWCJIMaACsQqAAKt__fEo9U561.png]]
 
 我们会看到外网通过路由器接入整个公司的局域网，和路由器关联的是三台交换机，代表公司的三个部门。**交换机，或者称为链路层交换机，通常工作在链路层；而路由器通常也具有交换机的能力，工作在网络层和链路层**。
 
@@ -33,7 +33,7 @@ IPv4 的地址不够，因此需要设计子网。当一个公司申请得到一
 
 然后，我们再明确另一个基本的概念。**在一个局域网中，我们不可以将消息从一个接口（网卡）发送到另一个接口（网卡），而是要通过交换机**。为什么是这样呢？因为两个网卡间没有线啊！所以数据交换，必须经过交换机，毕竟线路都是由网卡连接交换机的。
 
-![[CioPOWCJINCAWTthAACzGJa966I160.png]]
+![[_attachment/img/CioPOWCJINCAWTthAACzGJa966I160.png]]
 
 总结下，数据的发送方，将自己的 MAC 地址、目的地 MAC 地址，以及数据作为一个分组（Packet），也称作 Frame 或者封包，发送给交换机。交换机再根据目的地 MAC 地址，将数据转发到目的地的网络接口（网卡）。
 
@@ -63,17 +63,17 @@ MTU = MSS + TCP Header + IP Header
 
 整个工作过程和 DNS 非常类似，如果一个网络接口已经知道目标 IP 地址对应的 MAC 地址了，它会将数据直接发送给交换机，交换机将数据转发给目的地，这个过程如下图所示：
 
-![[Cgp9HWCJIN6ALcIOAAGvaaKiqtM412.png]]
+![[_attachment/img/Cgp9HWCJIN6ALcIOAAGvaaKiqtM412.png]]
 
 已知目的地 MAC 可以直接发送
 
 那么如果网络接口不知道目的地地址呢？这个时候，地址解析协议就开始工作了。发送接口会发送一个广播查询给到交换机，交换机将查询转发给所有接口。
 
-![[CioPOWCJIOaAWL2vAAIjZo8-JVY343.png]]
+![[_attachment/img/CioPOWCJIOaAWL2vAAIjZo8-JVY343.png]]
 
 如果某个接口发现自己就是对方要查询的接口，则会将自己的 MAC 地址回传。接下来，会在交换机和发送接口的 ARP 表中，增加一个缓存条目。也就是说，接下来发送接口再次向 IP 地址 2.2.2.2 发送数据时，不需要再广播一次查询了。
 
-![[Cgp9HWCJIO-ASE1gAAIXUxAepRs289.png]]
+![[_attachment/img/Cgp9HWCJIO-ASE1gAAIXUxAepRs289.png]]
 
 **前面提到这个过程和 DNS 非常相似，采用的是逐级缓存的设计减少 ARP 请求**。发送接口先查询本地的 ARP 表，如果本地没有数据，然后广播 ARP 查询。这个时候如果交换机中有数据，那么查询交换机的 ARP 表；如果交换机中没有数据，才去广播消息给其他接口。**注意，ARP 表是一种缓存，也要考虑缓存的设计**。通常缓存的设计要考虑缓存的失效时间、更新策略、数据结构等。
 
@@ -95,7 +95,7 @@ MTU = MSS + TCP Header + IP Header
 
 有时候，公司内部有多个子网。这个时候一个子网如果要访问另一个子网，就需要通过路由器。
 
-![[CioPOWCJIPqACRqBAAJZJ8-Xz9M520.png]]
+![[_attachment/img/CioPOWCJIPqACRqBAAJZJ8-Xz9M520.png]]
 
 也就是说，图中的路由器，其实充当了两个子网通信的桥梁。在上述过程中，发送接口不能直接通过 MAC 地址发送数据到接收接口，因为子网 1 的交换机不知道子网 2 的接口。这个时候，发送接口需要通过 IP 协议，将数据发送到路由器，再由路由器转发信息到子网 2 的交换机。这里提一个问题，**子网 2 的交换机如何根据 IP 地址找到接收接口呢**？答案是通过查询 ARP 表。
 
@@ -105,11 +105,11 @@ MTU = MSS + TCP Header + IP Header
 
 IPv4 协议因为存在网络地址耗尽的问题，不能为一个公司提供足够的地址，因此内网 IP 可能会和外网重复。比如内网 IP 地址`192.168.0.1`发送信息给`22.22.22.22`，这个时候，其实是跨着网络的。
 
-![[Cgp9HWCJIQWATnKCAAJiZ0IiUQw856.png]]
+![[_attachment/img/Cgp9HWCJIQWATnKCAAJiZ0IiUQw856.png]]
 
 跨网络必然会通过多次路由，最终将消息转发到目的地。但是这里存在一个问题，寻找的目标 IP 地址`22.22.22.22`是一个公网 IP，可以通过正常的寻址 + 路由算法定位。当`22.22.22.22`寻找`192.168.0.1`的时候，是寻找一个私网 IP，这个时候是找不到的。解决方案就是网络地址转换技术（Network Address Translation）。
 
-![[Cgp9HWCJIQ6AX2bSAAF-MBsPxPo191.png]]
+![[_attachment/img/Cgp9HWCJIQ6AX2bSAAF-MBsPxPo191.png]]
 
 NAT 技术转换的是 IP 地址，私有 IP 通过 NAT 转换为公网 IP 发送到服务器。服务器的响应，通过 NAT 转换为私有 IP，返回给客户端。通过这种方式，就解决了内网和外网的通信问题。
 

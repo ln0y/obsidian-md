@@ -24,7 +24,7 @@ export http_proxy="http://${hostip}:7890"
 
 端口根据 clash 上的一样（默认是 7890，我这里改为 64399）
 
-![[Pasted image 20220822103022.png |700]]
+![[_attachment/img/Pasted image 20220822103022.png|700]]
 
 更新配置
 

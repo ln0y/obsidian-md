@@ -15,7 +15,7 @@ IPv4 用 32 位整数描述地址，最多只能支持 43 亿设备，显然是�
 
 IPv6 的工作原理和 IPv4 类似，分成切片（Segmentation）、增加封包头、路由（寻址）这样几个阶段去工作。IPv6 同样接收上方主机到主机（Host-to-Host）协议传递来的数据，比如一个 TCP 段（Segment），然后将 TCP 段再次切片做成一个个的 IPv6 封包（Datagram or Packet），再调用底层局域网能力（数据链路层）传输数据。具体的过程如下图所示：
 
-![[CioPOWCH4u-AWVEAAAH_xR5D6lU716.png]]
+![[_attachment/img/CioPOWCH4u-AWVEAAAH_xR5D6lU716.png]]
 
 **作为网络层协议的 IPv6，最核心的能力是确保数据可以从发送主机到达接收主机**。因此，和 IPv4 类似，IPv6同样需要定义地址的格式，以及路由算法如何工作。
 
@@ -56,7 +56,7 @@ IPv6 的地址用`:`分割，如`0123:4567:89ab:cdef:0123:4567:89ab:cdef`，总�
 - Most significant：最高有效位
 - Binary notation：二进制表示
 
-![[CioPOWCH4wGAT3bUAALH_YQ0Q-U502.png]]
+![[_attachment/img/CioPOWCH4wGAT3bUAALH_YQ0Q-U502.png]]
 
 上图中的地址是一个 IPv6 地址的完全态，其实也有简写的方式。比如:
 
@@ -93,7 +93,7 @@ IPv6 的寻址分成了几种类型：
 
 ### 全局单播
 
-![[Cgp9HWCH4w-AEinAAAHIfeF4_II848.png]]
+![[_attachment/img/Cgp9HWCH4w-AEinAAAHIfeF4_II848.png]]
 
 全局单播，就是将消息从一个设备传到另一个设备，这和 IPv4 发送/接收消息大同小异。而全局单播地址，目标就是定位网络中的设备，这个地址和 IPv4 的地址作用相同，只不过格式略有差异。**总的来说，IPv6 地址太多，因此不再需要子网掩码，而是直接将 IPv6 的地址分区即可**。
 
@@ -113,7 +113,7 @@ IPv6 的寻址分成了几种类型：
 
 在局域网络中，实现设备到设备的通信，就是本地单播。IPv6 的本地单播地址组成如下图所示：
 
-![[Cgp9HWCH4x6AJJxNAAEMhuOKNmY768.png]]
+![[_attachment/img/Cgp9HWCH4x6AJJxNAAEMhuOKNmY768.png]]
 
 这种协议比较简单，本地单播地址必须以`fe80`开头，后面 64 位的 0，然后接上 54 位的设备编号。上图中的 Interface 可以理解成网络接口，其实就是网卡。
 
@@ -144,7 +144,7 @@ IPv6 中设计了分组多播，来实现广播的能力。当 IP 地址以 8 �
 
 例如一个 IPv6 的客户端，想要访问 IPv4 的服务器，步骤如下图所示：
 
-![[CioPOWCH4y-AUMRWAAMbF03aDqY454.png]]
+![[_attachment/img/CioPOWCH4y-AUMRWAAMbF03aDqY454.png]]
 
 1. 客户端通过 DNS64 服务器查询 AAAA 记录。DNS64 是国际互联网工程任务组（IETF）提供的一种解决 IPv4 和 IPv6 兼容问题的 DNS 服务。这个 DNS 查询服务会把 IPv4 地址和 IPv6 地址同时返回。
 2. DNS64 服务器返回含 IPv4 地址的 AAAA 记录。
@@ -158,7 +158,7 @@ IPv6 中设计了分组多播，来实现广播的能力。当 IP 地址以 8 �
 
 不知道你有没有联想到坐火车穿越隧道的感觉，连接两个孤岛 IPv6 网络，其实就是在 IPv4 网络中建立一条隧道。如下图所示：
 
-![[Cgp9HWCH4ziAD-hYAAMdJ6IgvWE780.png]]
+![[_attachment/img/Cgp9HWCH4ziAD-hYAAMdJ6IgvWE780.png]]
 
 **隧道的本质就是在两个 IPv6 的网络出口网关处，实现一段地址转换的程序**。
 

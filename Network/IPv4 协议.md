@@ -9,7 +9,7 @@ update: 2022-04-15-Friday 18:22:36
 
 **IP 协议**（**Internet Protocol**）是一个处于垄断地位的网络层协议。 IPv4 就是 IP 协议的第 4 个版本，是目前互联网的主要网络层协议。IPv4 为传输层提供 Host-To-Host 的能力，IPv4 需要底层数据链路层的支持。
 
-![[CioPOWCKhIKAEjAaAAA-0cJYHuU062.png]]
+![[_attachment/img/CioPOWCKhIKAEjAaAAA-0cJYHuU062.png]]
 
 IP 协议并不负责数据的可靠性。传输数据时，数据被切分成一个个数据封包。IP 协议上层的传输层协议会对数据进行一次拆分，IP 协议还会进一步进行拆分。进行两次拆分是为了适配底层的设备。
 
@@ -44,7 +44,7 @@ IP 协议并不负责数据的可靠性。传输数据时，数据被切分成�
 
 切片完成之后，IP 协议会为每个切片（数据封包 Datagram）增加一个协议头。一个 IPv4 的协议头看上去就是如下图所示的样子：
 
-![[Cgp9HWCKhJaAKKEhAABhmC7udP0409.png]]
+![[_attachment/img/Cgp9HWCKhJaAKKEhAABhmC7udP0409.png]]
 
 其中分成 4 个部分。
 
@@ -96,13 +96,13 @@ IPv4 地址是 4 个 8 位（Octet）排列而成，总共可以编址 43 亿个
 
 你可以观察一下`103.16.3.1`的二进制，如下图所示：
 
-![[CioPOWCKhKKAXD3PAAAvHpywmcc109.png]]
+![[_attachment/img/CioPOWCKhKKAXD3PAAAvHpywmcc109.png]]
 
 **寻址过程**
 
 寻址就是如何根据 IP 地址找到设备。因为 IPv4 的世界中，网络是一个树状模型。顶层有多个平行的网络，每个网络有自己的网络号。然后顶层网络下方又有多个子网，子网下方还有子网，最后才是设备。
 
-![[CioPOWCKhKqAPvolAABl3y5ucLM593.png]]
+![[_attachment/img/CioPOWCKhKqAPvolAABl3y5ucLM593.png]]
 
 IP 协议的寻址过程需要逐级找到网络，最后定位设备。下面我们具体分析下这个过程。
 
@@ -142,7 +142,7 @@ IP 协议的寻址过程需要逐级找到网络，最后定位设备。下面�
 
 由于网络和网络间是网关在连接，因此如果目的地 IP 不在局域网中，就需要为 IP 封包选择通往下一个网络的路径，其实就是选择其中一个网关。你可能会问：网关有多个吗？如果一个网络和多个网络接壤，那自然需要多个网关了。下图中，路由器在选择 IP 封包下一个应该是去往哪个 Gateway？
 
-![[CioPOWCKhLKAJ_MVAAB0Y3Ri3XU165.png]]
+![[_attachment/img/CioPOWCKhLKAJ_MVAAB0Y3Ri3XU165.png]]
 
 假如，我们要为 IP 地址 14.215.177.38 寻址，当前路由器所在的网络的编号是16.0.0.0。那么我们就需要知道去往 14.0.0.0 网络的 Gateway IP 地址。
 

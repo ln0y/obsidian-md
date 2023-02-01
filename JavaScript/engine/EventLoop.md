@@ -11,17 +11,17 @@ Eventloop 是 JavaScript 引擎异步编程背后需要特别关注的知识点�
 
 **1.调用堆栈（call stack）负责跟踪所有要执行的代码**。每当一个函数执行完成时，就会从堆栈中弹出（pop）该执行完成函数；如果有代码需要进去执行的话，就进行 push 操作，如下图所示：
 
-![[CioPOWBHazGAfzOQAAIO77agDbw772.png]]
+![[_attachment/img/CioPOWBHazGAfzOQAAIO77agDbw772.png]]
 
 **2.事件队列（event queue）负责将新的 function 发送到队列中进行处理**。它遵循 queue 的数据结构特性，先进先出，在该顺序下发送所有操作以进行执行。如下图所示：
 
-![[Cgp9HWBHa0uAO5oEAAIrTDhci3M926.png]]
+![[_attachment/img/Cgp9HWBHa0uAO5oEAAIrTDhci3M926.png]]
 
 **3.每当调用事件队列（event queue）中的异步函数时，都会将其发送到浏览器 API**。根据从调用堆栈收到的命令，API 开始自己的单线程操作。其中 setTimeout 方法就是一个比较典型的例子，在堆栈中处理 setTimeout 操作时，会将其发送到相应的 API，该 API 一直等到指定的时间将此操作送回进行处理。它将操作发送到哪里去呢？答案是事件队列（event queue）。这样，就有了一个循环系统，用于在 JavaScript 中运行异步操作。
 
 **4.JavaScript 语言本身是单线程的，而浏览器 API 充当单独的线程**。事件循环（Eventloop）促进了这一过程，它会不断检查调用堆栈是否为空。如果为空，则从事件队列中添加新的函数进入调用栈（call stack）；如果不为空，则处理当前函数的调用。我们把整个过程串起来就是这样的一个循环执行流程，如下图所示：
 
-![[CioPOWBHaz-AIvXzAAMjXUqLjBw024.png]]
+![[_attachment/img/CioPOWBHaz-AIvXzAAMjXUqLjBw024.png]]
 
 通过上面这张图就能很清晰地看出调用栈、事件队列以及 Eventloop 和它们之间相互配合的关系。
 
@@ -50,7 +50,7 @@ process.nextTick, Promises, Object.observe, MutationObserver
 
 简单翻译过来就是：当 Node.js 开始启动时，会初始化一个 Eventloop，处理输入的代码脚本，这些脚本会进行 API 异步调用，process.nextTick() 方法会开始处理事件循环。下面就是 Node.js 官网提供的 Eventloop 事件循环参考流程。
 
-![[Cgp9HWBHaxyAMv7yAAC2Vr6vRw4319.png]]
+![[_attachment/img/Cgp9HWBHaxyAMv7yAAC2Vr6vRw4319.png]]
 
 整个流程分为六个阶段，当这六个阶段执行完一次之后，才可以算得上执行了一次 Eventloop 的循环过程。我们来分别看下这六个阶段都做了哪些事情。
 
@@ -58,7 +58,7 @@ process.nextTick, Promises, Object.observe, MutationObserver
 - **I/O callbacks 阶段**：这个阶段主要执行系统级别的回调函数，比如 TCP 连接失败的回调。
 - **idle，prepare 阶段**：只是 Node.js 内部闲置、准备，可以忽略。
 - **poll 阶段**：poll 阶段是一个重要且复杂的阶段，几乎所有 I/O 相关的回调，都在这个阶段执行（除了setTimeout、setInterval、setImmediate 以及一些因为 exception 意外关闭产生的回调），这个阶段的主要流程如下图所示。
-![[CioPOWBHawOAK71oAAFclaJ2RLA602.png]]
+![[_attachment/img/CioPOWBHawOAK71oAAFclaJ2RLA602.png]]
 - **check 阶段**：执行 setImmediate() 设定的 callbacks。
 - **close callbacks 阶段**：执行关闭请求的回调函数，比如 socket.on('close', ...)。
 
@@ -92,6 +92,6 @@ Node.js 和浏览器端宏任务队列的另一个很重要的不同点是，浏
 
 但是 requestIdlecallback 却是一个更好理解的概念。当宏任务队列中没有任务可以处理时，浏览器可能存在“空闲状态”。这段空闲时间可以被 requestIdlecallback 利用起来执行一些优先级不高、不必立即执行的任务，如下图所示：
 
-![[Cgp9HWBHavCAdApzAACc58yaa0Q304.png]]
+![[_attachment/img/Cgp9HWBHavCAdApzAACc58yaa0Q304.png]]
 
 当然为了防止浏览器一直处于繁忙状态，导致 requestIdlecallback 可能永远无法执行回调，它还提供了一个额外的 timeout 参数，为这个任务设置一个截止时间。浏览器就可以根据这个截止时间规划这个任务的执行。

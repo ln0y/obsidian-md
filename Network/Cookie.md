@@ -40,7 +40,7 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 
 >新版 chrome cookies 会保存在 `%LocalAppData%\Google\Chrome\User Data\Default\Network\Cookies` 文件，是一个 SQLite 数据库文件
 
-![[Pasted image 20221202112620.png]]
+![[_attachment/img/Pasted image 20221202112620.png]]
 
 通常，它用于告知服务端两个请求是否来自同一浏览器，或者用来保存一些状态信息，`Cookie` 使基于无状态的 `HTTP` 协议记录稳定的状态信息成为了可能。常用的有以下方面：
 
@@ -69,7 +69,7 @@ window.navigator.cookieEnabled
 
 ## Cookie 的工作流程
 
-![[cookie工作流程.svg]]
+![[_attachment/img/cookie工作流程.svg]]
 
 ## Cookie 的限制
 
@@ -255,7 +255,7 @@ Set-Cookie: key=value; Priority=High
 
 服务器如果希望在浏览器保存 `Cookie`，就要在 `HTTP` 回应的头信息里面，放置一个 `Set-Cookie` 字段。
 
-![[545397776-5f707e306a5fe.png]]
+![[_attachment/img/545397776-5f707e306a5fe.png]]
 
 浏览器收到响应后通常会保存下 `Cookie`，之后对该服务器每一次请求中都通过 `Cookie` 请求头部将 `Cookie` 信息发送给服务器。另外，`Cookie` 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。
 
@@ -287,7 +287,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; HttpOnly
 
 浏览器接收了响应头提供的 `Cookie` 之后，每一次访问该域时，都会携带该 `Cookie` 值：
 
-![[2196786716-5f707e4a1bf3c.png]]
+![[_attachment/img/2196786716-5f707e4a1bf3c.png]]
 
 `Cookie` 字段可以包含多个 Cookie，使用分号（`;`）分隔。
 
@@ -301,7 +301,7 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 
 通过 `document.cookie` 属性可创建新的 `Cookie`，也可通过该属性访问非 HttpOnly 标记的 `Cookie`。
 
-![[4046693869-5f707e731773e.png]]
+![[_attachment/img/4046693869-5f707e731773e.png]]
 
 上图从 `document.cookie` 一次性读出多个 `Cookie`，它们之间使用分号分隔。必须手动还原，才能取出每一个 `Cookie` 的值。
 
@@ -323,7 +323,7 @@ document.cookie = `people=${peopleCookie};expires=${expires}`
 
 设置完成后，在浏览器查看：
 
-![[Pasted image 20221205111636.png]]
+![[_attachment/img/Pasted image 20221205111636.png]]
 
 那要怎么才能读取到这次设置的 `Cookie` 呢？方法如下：
 
@@ -342,7 +342,7 @@ const people = JSON.parse(decodeURIComponent(peopleCookie))
 
 读取到的结果如下：
 
-![[Pasted image 20221205112307.png]]
+![[_attachment/img/Pasted image 20221205112307.png]]
 
 > `document.cookie` 一次只能写入一个 `Cookie`，而且写入并不是覆盖，而是添加。
 
@@ -407,7 +407,7 @@ SPA 的出现改变了传统的方式，身份凭证可以不存储在 cookie �
 
 由于 `Cookie` 在使用上存在较多限制，近年来，随着技术的发展成熟，出现了几种可替代 `Cookie` 的方案，且已被大多数主流浏览器支持。
 
-![[2586362555-5f707f08957c8.png]]
+![[_attachment/img/2586362555-5f707f08957c8.png]]
 
 - **Web Storage、window.localStorage**
 
