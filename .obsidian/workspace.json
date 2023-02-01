@@ -31,13 +31,13 @@
             }
           },
           {
-            "id": "8b749ede8d89e984",
+            "id": "104d0b4fb2c9f460",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "CSS/grid 布局（一）.md",
-                "mode": "source",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -241,17 +241,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "8b749ede8d89e984",
+  "active": "104d0b4fb2c9f460",
   "lastOpenFiles": [
-    "JavaScript/design pattern/代理模式.md",
-    "CSS/grid 布局（一）.md",
-    "CSS/布局方式.md",
     "TODO看板.md",
+    "_attachment/Pasted image 20230201112938.png",
+    "CSS/grid 布局（一）.md",
+    "Linux/WSL/wsl通过本机cfw代理.md",
+    "JavaScript/design pattern/代理模式.md",
+    "CSS/布局方式.md",
     "CSS/flex 经典布局（四）.md",
     "CSS/flex-basis（三）.md",
     "CSS/flex 计算（二）.md",
-    "Post/front end.md",
-    "前端.md",
-    "todo query.md"
+    "Post/front end.md"
   ]
 }

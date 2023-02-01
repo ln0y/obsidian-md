@@ -5,16 +5,20 @@
       "path": "CSS/grid 布局（一）.md"
     },
     {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "wsl通过本机cfw代理",
+      "path": "Linux/WSL/wsl通过本机cfw代理.md"
+    },
+    {
       "basename": "代理模式",
       "path": "JavaScript/design pattern/代理模式.md"
     },
     {
       "basename": "布局方式",
       "path": "CSS/布局方式.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "flex 经典布局（四）",
@@ -67,10 +71,6 @@
     {
       "basename": "ubuntu镜像源",
       "path": "Linux/WSL/ubuntu镜像源.md"
-    },
-    {
-      "basename": "wsl通过本机cfw代理",
-      "path": "Linux/WSL/wsl通过本机cfw代理.md"
     },
     {
       "basename": "WSL必备",
@@ -195,10 +195,6 @@
     {
       "basename": "深浅拷贝",
       "path": "JavaScript/深浅拷贝.md"
-    },
-    {
-      "basename": "原型链",
-      "path": "JavaScript/原型链.md"
     }
   ],
   "omittedPaths": [],
