@@ -13493,13 +13493,13 @@ function chooseFileName(adapter, dir, link, contentData, downUnknown) {
             }
         }
         var enc = new TextDecoder("utf-8");
-        const baseName = md5(enc.decode(contentData.slice(0, 15000))).toString();
+        const baseName = md5(enc.decode(contentData.slice())).toString();
         let needWrite = true;
         let fileName = "";
         const suggestedName = pathJoin(dir, cleanFileName(`${baseName}` + "_MD5" + `.${fileExt}`));
         if (yield adapter.exists(suggestedName, false)) {
             const fileData = yield adapter.readBinary(suggestedName);
-            const existing_file_md5 = md5(enc.decode(fileData.slice(0, 15000))).toString();
+            const existing_file_md5 = md5(enc.decode(fileData.slice())).toString();
             if (existing_file_md5 === baseName) {
                 fileName = suggestedName;
                 needWrite = false;
