@@ -36,7 +36,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/flex 经典布局（四）.md",
+                "file": "CSS/grid 布局（一）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -91,8 +91,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "c9eb5b6f0e924845",
@@ -168,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/flex 经典布局（四）.md"
+                "file": "CSS/grid 布局（一）.md"
               }
             }
           }
@@ -185,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex 经典布局（四）.md",
+                "file": "CSS/grid 布局（一）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex 经典布局（四）.md",
+                "file": "CSS/grid 布局（一）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,15 +243,15 @@
   },
   "active": "4ec66ff7c4fdbef4",
   "lastOpenFiles": [
+    "TODO看板.md",
+    "CSS/grid 布局（一）.md",
+    "CSS/flex 经典布局（四）.md",
     "CSS/flex-basis（三）.md",
     "CSS/flex 计算（二）.md",
-    "CSS/flex 经典布局（四）.md",
     "Post/front end.md",
-    "TODO看板.md",
     "前端.md",
     "todo query.md",
     "CSS/flex 布局（一）.md",
-    "Linux/WSL/zshrc.md",
-    "Linux/vim快捷键.md"
+    "Linux/WSL/zshrc.md"
   ]
 }

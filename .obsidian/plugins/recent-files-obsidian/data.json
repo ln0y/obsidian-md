@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "grid 布局（一）",
+      "path": "CSS/grid 布局（一）.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
       "basename": "flex 经典布局（四）",
       "path": "CSS/flex 经典布局（四）.md"
     },
@@ -15,10 +23,6 @@
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "前端",
@@ -195,10 +199,6 @@
     {
       "basename": "原型链",
       "path": "JavaScript/原型链.md"
-    },
-    {
-      "basename": "继承",
-      "path": "JavaScript/继承.md"
     }
   ],
   "omittedPaths": [],
