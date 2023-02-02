@@ -62,8 +62,6 @@ CSS 中定义一个网格非常简单，只需要在一个元素上显式设置 
 - 关键词，比如 `none` 、`auto` 、` min-content ` 和 `max-content` 等；
 - CSS 函数，比如 `min()` 、`max()` 、`clamp()` 、`clac()` 、`fit-content()` 、`minmax()` 和 `repeat()` 等。
 
-> 注意，其中有些类型值会涉及到网格布局中的计算，那么这部分将会单独放到一节课程中来介绍！
-
 你也看到了，默认情况下，`grid-tempate-columns` 会根据值的数量来创建相应数量的列网格轨道，即使在没有相应数量的网格项目存在时，也一样会构建 `grid-tempate-columns` 属性指定的列数。比如上面的示例，如果网格容器中只有四个网格项目时，`grid-template-columns:  180px 20% auto 1fr 10vw` 同样会创建一个五列的网格，只不过最后一列是空的，因为没有相应的网格项目自动放置：
 
 ![[_attachment/img/7f27608fce4f1f652c529fcdad6ce5a8_MD5.jpeg]]

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "todo query",
+      "path": "todo query.md"
+    },
+    {
       "basename": "grid 定义网格（二）",
       "path": "CSS/grid 定义网格（二）.md"
     },
@@ -43,10 +47,6 @@
     {
       "basename": "前端",
       "path": "前端.md"
-    },
-    {
-      "basename": "todo query",
-      "path": "todo query.md"
     },
     {
       "basename": "flex 布局（一）",
