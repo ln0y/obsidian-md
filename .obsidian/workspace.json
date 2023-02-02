@@ -43,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -166,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "todo query.md"
+                "file": "CSS/grid 定义网格（二）.md"
               }
             }
           }
@@ -183,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "todo query.md",
+                "file": "CSS/grid 定义网格（二）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -200,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "todo query.md",
+                "file": "CSS/grid 定义网格（二）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -240,8 +241,9 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "9e277c8e8364a646",
+  "active": "677dd1a27a325711",
   "lastOpenFiles": [
+    "todo query.md",
     "CSS/grid 定义网格（二）.md",
     "TODO看板.md",
     "CSS/grid 布局（一）.md",
@@ -250,7 +252,6 @@
     "JavaScript/design pattern/代理模式.md",
     "CSS/布局方式.md",
     "CSS/flex 经典布局（四）.md",
-    "CSS/flex-basis（三）.md",
-    "CSS/flex 计算（二）.md"
+    "CSS/flex-basis（三）.md"
   ]
 }
