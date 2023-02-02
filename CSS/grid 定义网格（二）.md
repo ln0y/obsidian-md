@@ -59,7 +59,7 @@ CSS 中定义一个网格非常简单，只需要在一个元素上显式设置 
 也就是说，可用于 `grid-template-columns` 的值类型大致可分为三种：
 
 - 带有不同单位的长度值，比如 `px` 、`em` 、`rem` 、`vw` 、`vh` 、`%` 、`ch` 、`ex` 和 `fr` 等；
-- 关键词，比如 `none` 、`auto` 、` min``-content ` 和 `max-content` 等；
+- 关键词，比如 `none` 、`auto` 、` min-content ` 和 `max-content` 等；
 - CSS 函数，比如 `min()` 、`max()` 、`clamp()` 、`clac()` 、`fit-content()` 、`minmax()` 和 `repeat()` 等。
 
 > 注意，其中有些类型值会涉及到网格布局中的计算，那么这部分将会单独放到一节课程中来介绍！
