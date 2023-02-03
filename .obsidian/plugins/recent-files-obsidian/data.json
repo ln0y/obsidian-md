@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "grid 计算（三）",
+      "path": "CSS/grid 计算（三）.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
       "basename": "grid 定义网格（二）",
       "path": "CSS/grid 定义网格（二）.md"
     },
@@ -43,10 +51,6 @@
     {
       "basename": "flex 计算（二）",
       "path": "CSS/flex 计算（二）.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "前端",
@@ -195,10 +199,6 @@
     {
       "basename": "装饰器",
       "path": "JavaScript/装饰器.md"
-    },
-    {
-      "basename": "深浅拷贝",
-      "path": "JavaScript/深浅拷贝.md"
     }
   ],
   "omittedPaths": [],

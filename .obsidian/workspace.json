@@ -31,12 +31,12 @@
             }
           },
           {
-            "id": "677dd1a27a325711",
+            "id": "7c57cb4da77e93a0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/grid 定义网格（二）.md",
+                "file": "CSS/grid 计算（三）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/grid 定义网格（二）.md"
+                "file": "CSS/grid 计算（三）.md"
               }
             }
           }
@@ -184,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/grid 定义网格（二）.md",
+                "file": "CSS/grid 计算（三）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/grid 定义网格（二）.md",
+                "file": "CSS/grid 计算（三）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -241,8 +241,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "677dd1a27a325711",
+  "active": "7c57cb4da77e93a0",
   "lastOpenFiles": [
+    "Post/front end.md",
+    "CSS/grid 计算（三）.md",
     "CSS/grid 定义网格（二）.md",
     "MVVM/Vue/Logic Reuse.md",
     "todo query.md",
@@ -250,8 +252,6 @@
     "CSS/grid 布局（一）.md",
     "_attachment/Pasted image 20230201112938.png",
     "Linux/WSL/wsl通过本机cfw代理.md",
-    "JavaScript/design pattern/代理模式.md",
-    "CSS/布局方式.md",
-    "CSS/flex 经典布局（四）.md"
+    "JavaScript/design pattern/代理模式.md"
   ]
 }
