@@ -5,6 +5,10 @@
       "path": "CSS/grid 定义网格（二）.md"
     },
     {
+      "basename": "Logic Reuse",
+      "path": "MVVM/Vue/Logic Reuse.md"
+    },
+    {
       "basename": "todo query",
       "path": "todo query.md"
     },
@@ -135,10 +139,6 @@
     {
       "basename": "Vue 3 Reactivity",
       "path": "MVVM/Vue/Vue 3 Reactivity.md"
-    },
-    {
-      "basename": "Logic Reuse",
-      "path": "MVVM/Vue/Logic Reuse.md"
     },
     {
       "basename": "观察者模式(发布-订阅模式)",
