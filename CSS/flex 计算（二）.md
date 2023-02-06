@@ -1037,7 +1037,7 @@ Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 82.71px = 182.82px
 
 ![[_attachment/img/ab1b42940792ba30ccc5927ac3acd8d2_MD5.png]]
 
-再次强制一下，**当所有 Flex 项目的** **`flex-grow`** **属性值总和小于** **`1`** **时，Flex 容器剩余空间是分不完的** :
+再次强调一下，**当所有 Flex 项目的** **`flex-grow`** **属性值总和小于** **`1`** **时，Flex 容器剩余空间是分不完的** :
 
 ![[_attachment/img/1858fdab32840e2123cece0d0f83c2af_MD5.png]]
 

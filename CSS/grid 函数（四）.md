@@ -296,7 +296,7 @@ grid-template-columns: minmax(300px, 50%);
 
 > Demo 地址：<https://codepen.io/airen/full/QWrXOJm>
 
-当 `minmax(MIN, MAX)` 的值为百分比值时（示例中的 `MAX=50%`），那么它们就是一个动态值。上一节课程中我们聊到过，网格轨道的值是一个百分比值时：
+当 `minmax(MIN, MAX)` 的值为百分比值时（示例中的 `MAX=50%`），那么它们就是一个动态值。[[grid 计算（三）#网格中百分比的计算|上一节]]中我们聊到过，网格轨道的值是一个百分比值时：
 
 - `grid-template-columns` 或 `grid-auto-columns` 值是百分比值时，它相对于网格容器内联轴（`inline-size`）尺寸计算；
 - `grid-template-rows` 或 `grid-auto-rows` 值是百分比值时，它相对于网格容器块轴（`block-size`）尺寸计算。

@@ -9,6 +9,10 @@
       "path": "CSS/grid 计算（三）.md"
     },
     {
+      "basename": "flex 计算（二）",
+      "path": "CSS/flex 计算（二）.md"
+    },
+    {
       "basename": "flex 布局（一）",
       "path": "CSS/flex 布局（一）.md"
     },
@@ -55,10 +59,6 @@
     {
       "basename": "flex-basis（三）",
       "path": "CSS/flex-basis（三）.md"
-    },
-    {
-      "basename": "flex 计算（二）",
-      "path": "CSS/flex 计算（二）.md"
     },
     {
       "basename": "前端",
