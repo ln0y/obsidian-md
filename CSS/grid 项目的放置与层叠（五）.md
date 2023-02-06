@@ -237,8 +237,8 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 
 在这个示例中，虽然没有在 `grid-row-end` 和 `grid-column-end` 显式指定网格线的名称（数字编号），但其值 `span 2` 以及 `grid-row-start` 和 `grid-column-start` 隐式决定了相应的网格线位置：
 
-- ` grid-row: 2 ``/`` span 2 ` 会告诉浏览器，网格项目一放置的位置，行起始位置是行 `2`，并向下合并两行（`span 2`）；
-- ` grid-column: 2 ``/`` span 2 ` 会告诉浏览器，网格项目一放置的位置，列起始位置是列 `2` ，并向右合并两列（`span 2`）。
+- ` grid-row: 2 / span 2 ` 会告诉浏览器，网格项目一放置的位置，行起始位置是行 `2`，并向下合并两行（`span 2`）；
+- ` grid-column: 2 / span 2 ` 会告诉浏览器，网格项目一放置的位置，列起始位置是列 `2` ，并向右合并两列（`span 2`）。
 
 在使用 `span` 关键词来合并网格单元格时，`span` 和其后面的正整数值 `<integer>` 之间要使用 **空隔符** 分开。另外，在 `grid-row` 和 `grid-column` 中使用 `span` 来合并网格单元格时，`span` 关键词都放置在 `/` 之后，并且需要和它之间用空隔分隔。
 
@@ -419,7 +419,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 
 前面有不少示例是使用这四个属性指定的网格线名称来放置网格项目，其实你还可以使用一个更简单的属性，即 **`grid-area`** 属性。该属性也可以显式指定网格线名称来放置网格项目。
 
-`grid-area` 属性可以接受 **斜杠（\*\***`/`\***\*）** 分隔的 `1 ~ 4` 个值，但它始终是 `grid-row-start` 、`grid-column-start` 、`grid-row-end` 和 `grid-column-end` 四个属性的简写，即：
+`grid-area` 属性可以接受 **斜杠（`/`）** 分隔的 `1 ~ 4` 个值，但它始终是 `grid-row-start` 、`grid-column-start` 、`grid-row-end` 和 `grid-column-end` 四个属性的简写，即：
 
 ```css
 grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end;

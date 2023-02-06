@@ -31,25 +31,12 @@
             }
           },
           {
-            "id": "7c57cb4da77e93a0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/grid 函数（四）.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "3c9ce71786aa3e46",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/gird 项目的放置与层叠（五）.md",
+                "file": "CSS/grid 项目的放置与层叠（五）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -57,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -180,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/gird 项目的放置与层叠（五）.md"
+                "file": "CSS/grid 项目的放置与层叠（五）.md"
               }
             }
           }
@@ -197,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/gird 项目的放置与层叠（五）.md",
+                "file": "CSS/grid 项目的放置与层叠（五）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -214,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/gird 项目的放置与层叠（五）.md",
+                "file": "CSS/grid 项目的放置与层叠（五）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -254,7 +241,7 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "41c2922de4ba5d06",
+  "active": "3c9ce71786aa3e46",
   "lastOpenFiles": [
     "CSS/grid 函数（四）.md",
     "CSS/flex 计算（二）.md",
