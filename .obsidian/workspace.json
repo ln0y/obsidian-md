@@ -37,6 +37,19 @@
               "type": "markdown",
               "state": {
                 "file": "CSS/grid 计算（三）.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "232252ea8c34c097",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/grid 函数（四）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -44,7 +57,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -167,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/grid 计算（三）.md"
+                "file": "CSS/grid 函数（四）.md"
               }
             }
           }
@@ -184,7 +197,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/grid 计算（三）.md",
+                "file": "CSS/grid 函数（四）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +214,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/grid 计算（三）.md",
+                "file": "CSS/grid 函数（四）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -241,17 +254,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "7c57cb4da77e93a0",
+  "active": "232252ea8c34c097",
   "lastOpenFiles": [
-    "Post/front end.md",
     "CSS/grid 计算（三）.md",
+    "CSS/flex 布局（一）.md",
+    "Post/front end.md",
     "CSS/grid 定义网格（二）.md",
     "MVVM/Vue/Logic Reuse.md",
     "todo query.md",
     "TODO看板.md",
     "CSS/grid 布局（一）.md",
     "_attachment/Pasted image 20230201112938.png",
-    "Linux/WSL/wsl通过本机cfw代理.md",
-    "JavaScript/design pattern/代理模式.md"
+    "Linux/WSL/wsl通过本机cfw代理.md"
   ]
 }
