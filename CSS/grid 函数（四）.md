@@ -711,7 +711,7 @@ fit-content(<length-percentage>) = max(minimum, min(limit, max-content))
 
 ## 小结
 
-在这一节课程中，主要和大家一起探讨了可用于网格轨道尺寸设置的 CSS 函数，其中 `repeat()` 、`minmax()` 和 `fit-content()` 函数是 CSS 网格布局中独有的，而 `min()` 、`max()` 和 `clamp()` 函数（**CSS 比较函数** ）类似于 CSS 的 `calc()` 函数，除了可以用来设置网格轨道尺寸之外，还可以用于其他长度属性上，比如 `padding` 、`margin` 、`width` 和 `font-size` 等。
+在这一节中，主要和大家一起探讨了可用于网格轨道尺寸设置的 CSS 函数，其中 `repeat()` 、`minmax()` 和 `fit-content()` 函数是 CSS 网格布局中独有的，而 `min()` 、`max()` 和 `clamp()` 函数（**CSS 比较函数** ）类似于 CSS 的 `calc()` 函数，除了可以用来设置网格轨道尺寸之外，还可以用于其他长度属性上，比如 `padding` 、`margin` 、`width` 和 `font-size` 等。
 
 除了 `repeat()` 函数之外，其他函数都可以用于 `grid-template-columns` 、`grid-template-rows` 、`grid-auto-columns` 和 `grid-auto-rows` 属性上。 `repeat()` 函数只用于 `grid-template-columns` 和 `grid-template-rows` 属性上设置显式网格轨道尺寸。
 

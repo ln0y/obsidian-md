@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "gird 项目的放置与层叠（五）",
+      "path": "CSS/gird 项目的放置与层叠（五）.md"
+    },
+    {
       "basename": "grid 函数（四）",
       "path": "CSS/grid 函数（四）.md"
     },
     {
-      "basename": "grid 计算（三）",
-      "path": "CSS/grid 计算（三）.md"
-    },
-    {
       "basename": "flex 计算（二）",
       "path": "CSS/flex 计算（二）.md"
+    },
+    {
+      "basename": "grid 计算（三）",
+      "path": "CSS/grid 计算（三）.md"
     },
     {
       "basename": "flex 布局（一）",
@@ -195,10 +199,6 @@
     {
       "basename": "事件委托",
       "path": "JavaScript/事件委托.md"
-    },
-    {
-      "basename": "装饰器",
-      "path": "TypeScript/装饰器.md"
     }
   ],
   "omittedPaths": [],

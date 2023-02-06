@@ -2,7 +2,7 @@
 aliases: []
 tags: ['CSS', 'date/2023-01', 'year/2023', 'month/01']
 date: 2023-01-10-星期二 15:42:33
-update: 2023-01-11-星期三 16:47:27
+update: 2023-02-06-星期一 17:41:27
 ---
 
 Flexbox 的设计目的是在包含元素（Flex 容器）中沿着行或列分配元素（Flex 项目）和空间。而它的最大特性就是 Flex 项目可伸缩，也就是让 Flex 项目的宽度（或高度）可以自动填充 Flex 容器剩余空间或 Flex 项目适配 Flex 容器不足的空间。而这一切都依赖于 Flexbox 模块中的 `flex` 属性来完成。
@@ -1126,7 +1126,7 @@ Flex 项目 A 计算后的 flex-basis 值 = -100px + 300px = 200px
 
 根据公式计算出来 Flex 项目 A 的 `flex-basis` 值（其宽度）是 `200px` ，但这个示例中，因为其内容是一个长单词，它的最小内容长度（`min-content`）大约是 `237.52px` 。计算出来的值小于该值（`200px < 237.52px`），这个时候会取该 Flex 项目内容的最小长度值。
 
-> **在 Flex 项目的计算中，不管是使用 `flex-grow` 还是 `flex-shrink`对 Flex 项目进收缩扩展计算，计算出来的值不能比 Flex 项目的内容的最小长度（`min-content`）或内部固定元素的长度值还小** 。
+> **在 Flex 项目的计算中，不管是使用 `flex-grow` 还是 `flex-shrink` 对 Flex 项目进收缩扩展计算，计算出来的值不能比 Flex 项目的内容的最小长度（`min-content`）或内部固定元素的长度值还小** 。
 
 因此，Flex 项目 A 计算之后的 `flex-basis` 值为 `237.52px` 。
 
@@ -1359,7 +1359,7 @@ Flex 项目 C 计算后的 flex-basis 值 = -156.05px + 300px = 143.95px
 ```
 Flex 项目的 flex-shrink 总和 =  (0.1 + 0.1 + 0.1 + 0.1 + 0.1) = 0.5 < 1
 Flex 项目的灵活性 = (Flex 容器的不足空间  × 当前 Flex 项目自身的扩展因子 flex-shrink
-Flex 容器的剩余空间 = 1000px - 300px - 300px - 300px - 300px - 300px = -500px
+Flex 容器的不足空间 = 1000px - 300px - 300px - 300px - 300px - 300px = -500px
 
 Flex 项目 A 的弹性值 = -500px × 0.1 = -50px
 Flex 项目 A 计算后的 flex-basis 值 = -50px + 300px = 250px
