@@ -841,7 +841,7 @@ place-content: <align-content> <justify-content>;
 - `place-items` （它的子属性 `align-items` 和 `justify-items` ）控制所有网格项目在网格区域的块轴和内联轴方向的对齐；
 - `place-self` （它的子属性 `align-self` 和 `justify-self` ）控制单个网格项目在网格区域的块轴和内联轴方向的对齐。
 
-它的 Flexbox 布局的 `align-content` 、`justify-content` 、` alig``n-items ` 以及 `align-self` 还是有所差异的：
+它的 Flexbox 布局的 `align-content` 、`justify-content` 、`align-items` 以及 `align-self` 还是有所差异的：
 
 | **对齐属性**          | **Flexbox 布局中的对齐**                                | **Grid 布局中的对齐**                         | **备注**                                                                                                                |
 | --------------------- | ------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -873,4 +873,4 @@ place-content: <align-content> <justify-content>;
 
 需要注意的是，因为 Flexbox 布局是一种一维布局，所以在 Flexbox 布局中没有 `justify-items` 和 `justify-self` 两个属性！
 
-到这里，小册分了两节课分别介绍了 Flexbox 和 Grid 布局中的对齐。两个布局模块中都有相同的属性以及值，但所起的作用是略有差异的，但也有互通的。因此，在 CSS 规范中，将它们都纳入了 CSS Box Alignment 模块中。不过，在我们小册中不做展开性的阐述。因此，有关于对齐的部分我们就介绍到这里了。
+ Flexbox 和 Grid 布局模块中都有相同的属性以及值，但所起的作用是略有差异的，但也有互通的。因此，在 CSS 规范中，将它们都纳入了 CSS Box Alignment 模块中。

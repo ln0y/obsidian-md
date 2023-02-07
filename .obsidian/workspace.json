@@ -31,12 +31,12 @@
             }
           },
           {
-            "id": "369e3312a34c879d",
+            "id": "791f74a2868f384c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/grid 对齐方式（六）.md",
+                "file": "CSS/grid 子网格与嵌套网格（七）.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/grid 对齐方式（六）.md"
+                "file": "CSS/grid 子网格与嵌套网格（七）.md"
               }
             }
           }
@@ -184,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/grid 对齐方式（六）.md",
+                "file": "CSS/grid 子网格与嵌套网格（七）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/grid 对齐方式（六）.md",
+                "file": "CSS/grid 子网格与嵌套网格（七）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -241,17 +241,17 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "369e3312a34c879d",
+  "active": "791f74a2868f384c",
   "lastOpenFiles": [
-    "Linux/WSL/WSL必备.md",
+    "CSS/grid 布局（一）.md",
+    "CSS/grid 子网格与嵌套网格（七）.md",
     "CSS/grid 对齐方式（六）.md",
+    "Linux/WSL/WSL必备.md",
     "CSS/flex 布局（一）.md",
     "CSS/grid 项目的放置与层叠（五）.md",
     "CSS/grid 函数（四）.md",
     "CSS/flex 计算（二）.md",
     "CSS/grid 计算（三）.md",
-    "Post/front end.md",
-    "CSS/grid 定义网格（二）.md",
-    "MVVM/Vue/Logic Reuse.md"
+    "Post/front end.md"
   ]
 }

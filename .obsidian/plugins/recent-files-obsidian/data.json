@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "grid 子网格与嵌套网格（七）",
+      "path": "CSS/grid 子网格与嵌套网格（七）.md"
+    },
+    {
+      "basename": "grid 布局（一）",
+      "path": "CSS/grid 布局（一）.md"
+    },
+    {
       "basename": "grid 对齐方式（六）",
       "path": "CSS/grid 对齐方式（六）.md"
     },
@@ -47,10 +55,6 @@
     {
       "basename": "TODO看板",
       "path": "TODO看板.md"
-    },
-    {
-      "basename": "grid 布局（一）",
-      "path": "CSS/grid 布局（一）.md"
     },
     {
       "basename": "wsl通过本机cfw代理",
@@ -195,10 +199,6 @@
     {
       "basename": "装饰器模式",
       "path": "JavaScript/design pattern/装饰器模式.md"
-    },
-    {
-      "basename": "适配器模式",
-      "path": "JavaScript/design pattern/适配器模式.md"
     }
   ],
   "omittedPaths": [],
