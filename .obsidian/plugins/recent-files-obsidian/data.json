@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "grid 对齐方式（六）",
+      "path": "CSS/grid 对齐方式（六）.md"
+    },
+    {
+      "basename": "flex 布局（一）",
+      "path": "CSS/flex 布局（一）.md"
+    },
+    {
       "basename": "grid 项目的放置与层叠（五）",
       "path": "CSS/grid 项目的放置与层叠（五）.md"
     },
@@ -15,10 +23,6 @@
     {
       "basename": "grid 计算（三）",
       "path": "CSS/grid 计算（三）.md"
-    },
-    {
-      "basename": "flex 布局（一）",
-      "path": "CSS/flex 布局（一）.md"
     },
     {
       "basename": "front end",
@@ -195,10 +199,6 @@
     {
       "basename": "适配器模式",
       "path": "JavaScript/design pattern/适配器模式.md"
-    },
-    {
-      "basename": "事件委托",
-      "path": "JavaScript/事件委托.md"
     }
   ],
   "omittedPaths": [],
