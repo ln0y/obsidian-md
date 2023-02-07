@@ -74,7 +74,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 ```html
 <div class="container">
   <div class="item"></div>
-  <!-- 此处省略四个 item -->
+  <!-- 此处省略三个 item -->
   <div class="item"></div>
 </div>
 <style>
@@ -157,7 +157,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 
 /* 等同于 */
 .container > * {
-  align-self: var(--align-items, stretch) ；;
+  align-self: var(--align-items, stretch);
 }
 ```
 

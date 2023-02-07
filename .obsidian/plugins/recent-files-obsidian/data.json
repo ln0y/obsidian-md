@@ -5,6 +5,10 @@
       "path": "CSS/grid 对齐方式（六）.md"
     },
     {
+      "basename": "WSL必备",
+      "path": "Linux/WSL/WSL必备.md"
+    },
+    {
       "basename": "flex 布局（一）",
       "path": "CSS/flex 布局（一）.md"
     },
@@ -95,10 +99,6 @@
     {
       "basename": "ubuntu镜像源",
       "path": "Linux/WSL/ubuntu镜像源.md"
-    },
-    {
-      "basename": "WSL必备",
-      "path": "Linux/WSL/WSL必备.md"
     },
     {
       "basename": "策略模式",
