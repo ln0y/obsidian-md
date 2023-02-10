@@ -2,7 +2,7 @@
 aliases: []
 tags: ['CSS', 'date/2023-02', 'year/2023', 'month/02']
 date: 2023-02-03-星期五 17:09:24
-update: 2023-02-06-星期一 10:25:38
+update: 2023-02-10-星期五 16:48:52
 ---
 
 通过前面的学习，我们可以使用 `grid-templte-rows` 和 `grid-template-columns` 设置显式网格轨道数量和尺寸，也可以使用 `grid-auto-rows` 和 `grid-auto-columns` 来设置隐式网格轨道尺寸。虽然它们服务的对象有所差异，但是使用方法几乎是相似的，只有个别函数不能用于 `grid-auto-rows` 和 `grid-auto-columns` 属性上，比如 `repeat()` 函数。
@@ -824,7 +824,7 @@ gap: 20px;
 
 从这两个示例展示的效果中不难发现，`fr` 会自动设置 **最小值（**`min-width`**）** ，这将尊重里面的内容，相当于 `min-width` 的值为 `min-content`。对于 `fr` 来说：
 
-> **最小值（`min-width`）是自动设置的（相当于`min-content`）；最大值（`max-width`）就是显式设置的值（比如 `1fr`、 `2fr`、 `3fr` 等）。**
+> **最小值（`min-width`）是自动设置的（相当于 `min-content`）；最大值（`max-width`）就是显式设置的值（比如 `1fr`、 `2fr`、 `3fr` 等）。**
 
 `1fr` 的底层实现逻辑其实就是 `minmax(auto,1fr)` （`minmax()` 是用来设置网格轨道尺寸一个 CSS 函数），意味着 `min=auto`（即 `min-width: min-content`），`max=1fr`。
 
@@ -920,6 +920,10 @@ gap: 20px;
 ```
 
 > Demo 地址： <https://codepen.io/airen/full/VwxOYVd>
+
+## 网格轨道中的 auto
+
+![[grid 构建经典布局（九）#网格轨道 auto]]
 
 ## 小结
 

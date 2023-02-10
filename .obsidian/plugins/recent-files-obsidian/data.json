@@ -1,16 +1,52 @@
 {
   "recentFiles": [
     {
-      "basename": "grid 子网格与嵌套网格（七）",
-      "path": "CSS/grid 子网格与嵌套网格（七）.md"
+      "basename": "grid 构建经典布局（九）",
+      "path": "CSS/grid 构建经典布局（九）.md"
+    },
+    {
+      "basename": "TODO看板",
+      "path": "TODO看板.md"
+    },
+    {
+      "basename": "flex 构建经典布局（四）",
+      "path": "CSS/flex 构建经典布局（四）.md"
+    },
+    {
+      "basename": "flex-basis（三）",
+      "path": "CSS/flex-basis（三）.md"
     },
     {
       "basename": "grid 布局（一）",
       "path": "CSS/grid 布局（一）.md"
     },
     {
+      "basename": "grid 定义网格（二）",
+      "path": "CSS/grid 定义网格（二）.md"
+    },
+    {
+      "basename": "grid 计算（三）",
+      "path": "CSS/grid 计算（三）.md"
+    },
+    {
+      "basename": "grid 函数（四）",
+      "path": "CSS/grid 函数（四）.md"
+    },
+    {
+      "basename": "grid 项目的放置与层叠（五）",
+      "path": "CSS/grid 项目的放置与层叠（五）.md"
+    },
+    {
       "basename": "grid 对齐方式（六）",
       "path": "CSS/grid 对齐方式（六）.md"
+    },
+    {
+      "basename": "grid 子网格与嵌套网格（七）",
+      "path": "CSS/grid 子网格与嵌套网格（七）.md"
+    },
+    {
+      "basename": "grid 子网格构建布局（八）",
+      "path": "CSS/grid 子网格构建布局（八）.md"
     },
     {
       "basename": "WSL必备",
@@ -21,28 +57,12 @@
       "path": "CSS/flex 布局（一）.md"
     },
     {
-      "basename": "grid 项目的放置与层叠（五）",
-      "path": "CSS/grid 项目的放置与层叠（五）.md"
-    },
-    {
-      "basename": "grid 函数（四）",
-      "path": "CSS/grid 函数（四）.md"
-    },
-    {
       "basename": "flex 计算（二）",
       "path": "CSS/flex 计算（二）.md"
     },
     {
-      "basename": "grid 计算（三）",
-      "path": "CSS/grid 计算（三）.md"
-    },
-    {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "grid 定义网格（二）",
-      "path": "CSS/grid 定义网格（二）.md"
     },
     {
       "basename": "Logic Reuse",
@@ -51,10 +71,6 @@
     {
       "basename": "todo query",
       "path": "todo query.md"
-    },
-    {
-      "basename": "TODO看板",
-      "path": "TODO看板.md"
     },
     {
       "basename": "wsl通过本机cfw代理",
@@ -67,14 +83,6 @@
     {
       "basename": "布局方式",
       "path": "CSS/布局方式.md"
-    },
-    {
-      "basename": "flex 经典布局（四）",
-      "path": "CSS/flex 经典布局（四）.md"
-    },
-    {
-      "basename": "flex-basis（三）",
-      "path": "CSS/flex-basis（三）.md"
     },
     {
       "basename": "前端",
@@ -191,14 +199,6 @@
     {
       "basename": "状态模式",
       "path": "JavaScript/design pattern/状态模式.md"
-    },
-    {
-      "basename": "原型模式",
-      "path": "JavaScript/design pattern/原型模式.md"
-    },
-    {
-      "basename": "装饰器模式",
-      "path": "JavaScript/design pattern/装饰器模式.md"
     }
   ],
   "omittedPaths": [],
