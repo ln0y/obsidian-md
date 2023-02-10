@@ -438,11 +438,10 @@ format = " [$duration](bold yellow)"
     if (!res.ok) return url
     const mime = res.headers.get('content-type')
     const ext = mime.split('/').at(-1)
-    return url.replace(/\.image/, `.${ext}`)
+    return url.replace(/\.image/, `.${ext.replace(/jpeg|jpg/, 'png')}`)
   }
 
   async function replaceLink() {
-    await sleep(500)
     const domImg = $$('.article img, .section-page img')
     const domA = $$('.article a,.article-content a')
 
@@ -491,9 +490,10 @@ format = " [$duration](bold yellow)"
 
   const origin = {
     'https://juejin.cn/book'() {
-      hookFetchApi.set('/section/get', res => {
-        replaceLink()
-        getMarkdown(res)
+      hookFetchApi.set('/section/get', async res => {
+        await sleep(1000)
+        await getMarkdown(res)
+        await replaceLink()
       })
     },
     'https://juejin.cn/post'() {

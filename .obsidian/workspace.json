@@ -36,8 +36,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/grid 构建经典布局（九）.md",
-                "mode": "preview",
+                "file": "Post/front end.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/grid 构建经典布局（九）.md"
+                "file": "Post/front end.md"
               }
             }
           }
@@ -184,7 +184,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/grid 构建经典布局（九）.md",
+                "file": "Post/front end.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +201,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/grid 构建经典布局（九）.md",
+                "file": "Post/front end.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -243,15 +243,15 @@
   },
   "active": "215465a04b356458",
   "lastOpenFiles": [
+    "CSS/flex-basis（三）.md",
+    "CSS/flex 计算（二）.md",
+    "CSS/grid 函数（四）.md",
+    "CSS/grid 构建经典布局（九）.md",
     "TODO看板.md",
     "CSS/flex 构建经典布局（四）.md",
-    "CSS/flex-basis（三）.md",
     "CSS/grid 布局（一）.md",
     "CSS/grid 定义网格（二）.md",
     "CSS/grid 计算（三）.md",
-    "CSS/grid 构建经典布局（九）.md",
-    "CSS/grid 函数（四）.md",
-    "CSS/grid 项目的放置与层叠（五）.md",
-    "CSS/grid 对齐方式（六）.md"
+    "CSS/grid 项目的放置与层叠（五）.md"
   ]
 }
