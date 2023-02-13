@@ -26,7 +26,33 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "Post/front end.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "96a7f3ea8ec8d2a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/grid 构建创意性布局（十）.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a6f13631e66ebb01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/Flexbox or Grid.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -34,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -157,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/flex 计算（二）.md"
+                "file": "CSS/Flexbox or Grid.md"
               }
             }
           }
@@ -174,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "CSS/Flexbox or Grid.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/flex 计算（二）.md",
+                "file": "CSS/Flexbox or Grid.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -231,17 +257,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "e8df78f4a6e2abf7",
+  "active": "a6f13631e66ebb01",
   "lastOpenFiles": [
+    "CSS/grid 构建创意性布局（十）.md",
+    "CSS/grid 构建经典布局（九）.md",
+    "Post/front end.md",
+    "CSS/flex 计算（二）.md",
     "CSS/flex-basis（三）.md",
     "CSS/flex 构建经典布局（四）.md",
     "CSS/grid 布局（一）.md",
     "CSS/grid 定义网格（二）.md",
     "CSS/grid 计算（三）.md",
-    "CSS/grid 函数（四）.md",
-    "TODO看板.md",
-    "CSS/grid 项目的放置与层叠（五）.md",
-    "CSS/grid 对齐方式（六）.md",
-    "CSS/grid 子网格与嵌套网格（七）.md"
+    "CSS/grid 函数（四）.md"
   ]
 }
