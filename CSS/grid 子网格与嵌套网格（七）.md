@@ -19,7 +19,7 @@ update: 2023-02-07-星期二 17:14:10
 
 如果你是一名经历过早期表格布局的 Web 开发者，那么对于嵌套网格就比较好理解。在 Web 布局技术匮乏的年代，要实现一个复杂的 Web 布局，往往需要在一个表格中嵌套一个或多个表格，比如下面这个 Web 页面：
 
-![[_attachment/img/8cd482d1fe0009a66600bd5c654d4f91_MD5.jpeg]]
+![[_attachment/img/6b7129a24192b0f215bc92c2a5cd470c_MD5.png]]
 
 上图中是一张 2003 年的 Web 页面，这张 Web 页面对于现在而言并不复杂，但在当初那个年代只能使用表格（HTML 的 `<table>`）构建布局时，算是复杂的了，尤其是右侧的导航部分。因此使用了表格嵌套表格的技术来实现。
 
@@ -75,7 +75,7 @@ update: 2023-02-07-星期二 17:14:10
 
 如果用 DOM 树来描述的话，它们的关系如下图所示：
 
-![[_attachment/img/c1f4758565a25d9323566e8e2a0b2d69_MD5.jpeg]]
+![[_attachment/img/27ecb7c77d65ebb6eaa5cf6b2a54ad3c_MD5.png]]
 
 我们来看一个嵌套网格的真实示例：
 
@@ -108,7 +108,7 @@ update: 2023-02-07-星期二 17:14:10
 }
 ```
 
-![[_attachment/img/947e3440fe0f676b2b2989856857d5ee_MD5.jpeg]]
+![[_attachment/img/6bd73a90379f35a897ecadaf79dee936_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/MWXyqmW>
 
@@ -158,7 +158,7 @@ update: 2023-02-07-星期二 17:14:10
 }
 ```
 
-![[_attachment/img/1732ea16e9f59e9f046754552e514149_MD5.jpeg]]
+![[_attachment/img/5d1a64117cb0df9b59170ff6964f775c_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/QWxNZqE>
 
@@ -172,7 +172,7 @@ update: 2023-02-07-星期二 17:14:10
 
 比如，你有下面这样的一个 Web 布局，它是一个 `12` 列网格，其中父网格中分成 `A` 和 `B` 相等的两列；但是 `B` 列里又包含了个子网格，它被为 `B1` 和 `B2` 两列，而且 `B2` 列的宽度是 `B1` 列的两倍：
 
-![[_attachment/img/36bc0fe391333bf080a0fc0f2c5c2f15_MD5.jpeg]]
+![[_attachment/img/64777ffbdbcfcd3372242e10ef003e45_MD5.png]]
 
 使用嵌套网格很容易就能实现：
 
@@ -258,7 +258,7 @@ update: 2023-02-07-星期二 17:14:10
 
 就这个示例而言，父网格和子网格的网格轨道尺寸的比率刚好相匹配，它们的网格轨道看上去重叠在一起（有点像是子网格继承了父网格的网格轨道），但很多时候构建的嵌套网格，父网格轨道和子网格轨道尺寸不是这么相匹配的，比如上面示例，将子网格的 `grid-template-colums` 设置为 `3fr 5fr` ，这个时候，子网格轨道和父网格轨道就不怎么相互匹配了：
 
-![[_attachment/img/e9fbb98298b47cc46dfe57fbc5a39934_MD5.jpeg]]
+![[_attachment/img/7a45dcf522f515d18ac893d31ab1a6fe_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/ZEROeZQ>
 
@@ -286,7 +286,7 @@ body {
 }
 ```
 
-![[_attachment/img/c6d71a076409f995a171ed04ddb39cf0_MD5.jpeg]]
+![[_attachment/img/0b800f114f716bad813c00ef5a64735a_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/JjZKNNp>
 
@@ -314,7 +314,7 @@ body {
 
 只不过，到目前为止，网格布局中的 `subgrid` 只得到了 [Firefox 71+ 和 Safari 16 支持](https://caniuse.com/?search=subgrid)：
 
-![[_attachment/img/093346161e40be9721e9685ae6e7644e_MD5.jpeg]]
+![[_attachment/img/791c084b42b82673b28761faedc51f2e_MD5.png]]
 
 所以接下来的示例，都以在 Firefox 71+ 浏览器渲染的效果为最终结果。对于不支持 `subgrid` 的浏览器，可以使用 ` @supports ` 来做降级处理。只不过，我们的示例将不做任何降级处理。
 
@@ -348,7 +348,7 @@ body {
 }
 ```
 
-![[_attachment/img/6e00d2128365551cefa9c1fdb985327c_MD5.jpeg]]
+![[_attachment/img/fe70f0c0d15a918a81fb74998e0f46fc_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/BaVzeOa>
 
@@ -377,7 +377,7 @@ body {
 }
 ```
 
-![[_attachment/img/2bbe458004a69aa7a3af4e14efb7b55a_MD5.jpeg]]
+![[_attachment/img/2c61bf485dafbbeb15dd61a311f27491_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/GRGqaeV>
 
@@ -403,7 +403,7 @@ body {
 }
 ```
 
-![[_attachment/img/9df245c3e20a4bbff503c9f12409af64_MD5.jpeg]]
+![[_attachment/img/4a5f6bdabfdbdbf2174afb98522b0032_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/zYaBVxj>
 
@@ -411,7 +411,7 @@ body {
 
 虽然嵌套网格仍然独立于父网格 (我们有两个网格)，但子网格是父网格的一部分 (我们有一个网格)，因为子网格包含在相同的网格布局中——使用相同的行、列和间距。
 
-![[_attachment/img/c41a17999d20865668b3d6dc44929cb1_MD5.jpeg]]
+![[_attachment/img/6e230bbebe57980417ded9bf33e0e11d_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/WNyxqrR>
 
@@ -499,7 +499,7 @@ body {
 
 你将在浏览器看到的效果像下面这样：
 
-![[_attachment/img/13ce8e084070f254d0a6b89361a87def_MD5.jpeg]]
+![[_attachment/img/01107bd4d94f4dc11b35be228ebd4303_MD5.png]]
 
 你可能会认为上图中网格线是用于卡片（卡片是一个网格项目）上的（卡片的标题、缩略图和描述）。但是，这些网格线是用于网格容器 `.container` 的，只有网格项目 `.card` 可以使用它们，可以在卡片 `.card` 通过 `grid-row` 、`grid-column` 或 `grid-area` 使用这些网格线名称。比如：
 
@@ -513,7 +513,7 @@ body {
 
 而我们期望的是父网格（`.container`）的行网格轨道能传递给卡片的“标题”、“缩略图”和“描述”使用：
 
-![[_attachment/img/30d0388d5305699ba82c7f6f6836721f_MD5.jpeg]]
+![[_attachment/img/61042925fdff6b11bd125db825ec4899_MD5.png]]
 
 要达到这个诉求，你需要在 `.card` 上使用下面的代码：
 
@@ -532,7 +532,7 @@ body {
 
 当使用子网格时，相当于卡片 `.card` 继承父网格 `.container` 的相关特性，即继承 `grid-template-columns` 、 `grid-template-rows` 和 `gap` 属性的值。有了它，网格看起来像这样：
 
-![[_attachment/img/a031cb856433cc7f3e566f85254a7857_MD5.jpeg]]
+![[_attachment/img/269d5e8ac98e7920a618532f3038217c_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/OJEXerm>
 
@@ -564,13 +564,13 @@ body {
 }
 ```
 
-![[_attachment/img/158aa24081bb9df64c5d4d664b0ccb7e_MD5.jpeg]]
+![[_attachment/img/879c09369a500cfcdf42c4214ba6e5ea_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/ExRgmYg>
 
 这意味着父网格中的网格轨道（或网格项目）尺寸的任何改变都会延伸到其子网格相应的网格轨道（网格项目）；同样子，子网格的网格轨道的尺寸改变也会影响父网格轨道的尺寸。
 
-![[_attachment/img/9df1cb690719a7fc17e7bfb387fcee6e_MD5.jpeg]]
+![[_attachment/img/3623f62f19a25f3fd1c6836e1eda4392_MD5.png]]
 
 你还可以只在一个维度中使用子网格，并在另一个维度中指定网格轨道数量和尺寸。意思是说，你只在 `grid-template-columns` 或 `grid-template-rows` 中的一个属性显式设置值为 `subgrid` ，另一个未显式设置 `subgrid` 值的属性可以设置其他的值。
 
@@ -593,7 +593,7 @@ body {
 }
 ```
 
-![[_attachment/img/d3ff9967e9ff27ddf910af777aa456cf_MD5.jpeg]]
+![[_attachment/img/2832f10c24555cfcd24c0e2213eb4e11_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/xxzEdeW>
 
@@ -618,7 +618,7 @@ body {
 }
 ```
 
-![[_attachment/img/abcb6b39a63bc44ac31b869f944dcc62_MD5.jpeg]]
+![[_attachment/img/399ac40112c18e5727d187d8b4295f19_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/dyKpRXr>
 
@@ -641,7 +641,7 @@ body {
 }
 ```
 
-![[_attachment/img/ce6a0d1ef9c2e88215f47912b6ef2a39_MD5.jpeg]]
+![[_attachment/img/6de30ca26a6396750bab403481433008_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/dyKpRVB>
 
@@ -666,7 +666,7 @@ body {
 }
 ```
 
-![[_attachment/img/f7786623228c2ba60eef51251d6d4a45_MD5.jpeg]]
+![[_attachment/img/764b1d9bab616b774cdc17468c186a6e_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/xxzErme>
 
@@ -726,7 +726,7 @@ body {
 }
 ```
 
-![[_attachment/img/5aa1a26cb767df7c17bb4ca09c9c966a_MD5.jpeg]]
+![[_attachment/img/5d35bd2bcbf2ac6604b75b573c52c5c3_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/MWXjodB>
 
@@ -753,7 +753,7 @@ body {
 }
 ```
 
-![[_attachment/img/10ae7eace3218c4a78f8bfcc3982bc4d_MD5.jpeg]]
+![[_attachment/img/d6e7ed24d0a0ccfa255c04bbc8398a58_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/zYaKENN>
 
@@ -780,7 +780,7 @@ body {
 }
 ```
 
-![[_attachment/img/ac49386fabfa200f8846791a8b68d9af_MD5.jpeg]]
+![[_attachment/img/00a4a962a85d793f4f305425a7bd47f7_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/gOKwGGZ>
 

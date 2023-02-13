@@ -516,7 +516,6 @@ format = " [$duration](bold yellow)"
   const path = location.origin + location.pathname.replace(/(\/\w+)(.*)/, '$1')
   origin[path]?.()
 })()
-
 ```
 
 面试题列表 - 前端面试题宝典
