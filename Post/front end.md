@@ -366,6 +366,18 @@ format = " [$duration](bold yellow)"
 ```
 
 ```js
+// ==UserScript==
+// @name         掘金图片去水印去中转页
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://juejin.cn/post/*
+// @match        https://juejin.cn/book/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=juejin.cn
+// @grant        none
+// ==/UserScript==
+
 ;(async function () {
   'use strict'
 
@@ -377,53 +389,53 @@ format = " [$duration](bold yellow)"
   const XHRBlackList = ['https://mcs.snssdk.com', 'https://mon.zijieapi.com']
   const hookFetchApi = new Map()
 
-  function memoizeFetch(func, resolver) {
-    if (
-      typeof func != 'function' ||
-      (resolver != null && typeof resolver != 'function')
-    ) {
-      throw new TypeError('Expected a function')
-    }
+  // function memoizeFetch(func, resolver) {
+  //   if (
+  //     typeof func != 'function' ||
+  //     (resolver != null && typeof resolver != 'function')
+  //   ) {
+  //     throw new TypeError('Expected a function')
+  //   }
 
-    const memoized = function () {
-      const args = arguments
-      const [, { method = 'get' }] = args
-      if (method !== 'get') return func.apply(this, args)
+  //   const memoized = function () {
+  //     const args = arguments
+  //     const [, { method = 'get' }] = args
+  //     if (method !== 'get') return func.apply(this, args)
 
-      const key = resolver ? resolver.apply(this, args) : args[0]
-      const cache = memoized.cache
+  //     const key = resolver ? resolver.apply(this, args) : args[0]
+  //     const cache = memoized.cache
 
-      if (cache.has(key)) {
-        return cache.get(key).then(res => res.clone())
+  //     if (cache.has(key)) {
+  //       return cache.get(key).then(res => res.clone())
+  //     }
+
+  //     const result = func.apply(this, args)
+  //     memoized.cache = cache.set(key, result) || cache
+  //     return result.then(res => res.clone())
+  //   }
+  //   memoized.cache = new Map()
+  //   return memoized
+  // }
+
+  // fetch = memoizeFetch(
+  fetch = new Proxy(fetch, {
+    async apply(target, object, args) {
+      const [input, init] = args
+      const apiKey = [...hookFetchApi.keys()].find(apiKey => input?.includes(apiKey))
+      if (apiKey) {
+        const res = await Reflect.apply(...arguments)
+        hookFetchApi.get(apiKey)?.(res.clone())
+        return res
+      } else {
+        return Reflect.apply(...arguments)
       }
-
-      const result = func.apply(this, args)
-      memoized.cache = cache.set(key, result) || cache
-      return result.then(res => res.clone())
-    }
-    memoized.cache = new Map()
-    return memoized
-  }
-
-  fetch = memoizeFetch(
-    new Proxy(fetch, {
-      async apply(target, object, args) {
-        const [input, init] = args
-        const apiKey = [...hookFetchApi.keys()].find(apiKey => input?.includes(apiKey))
-        if (apiKey) {
-          const res = await Reflect.apply(...arguments)
-          hookFetchApi.get(apiKey)?.(res.clone())
-          return res
-        } else {
-          return Reflect.apply(...arguments)
-        }
-      },
-    }),
-    function (input, init) {
-      const { body } = init
-      return `${input}${body || ''}`
-    }
-  )
+    },
+  })
+  //   function (input, init) {
+  //     const { body } = init
+  //     return `${input}${body || ''}`
+  //   }
+  // )
 
   XMLHttpRequest.prototype.open = new Proxy(XMLHttpRequest.prototype.open, {
     apply(target, thisArg, argArray) {
@@ -504,6 +516,7 @@ format = " [$duration](bold yellow)"
   const path = location.origin + location.pathname.replace(/(\/\w+)(.*)/, '$1')
   origin[path]?.()
 })()
+
 ```
 
 面试题列表 - 前端面试题宝典
