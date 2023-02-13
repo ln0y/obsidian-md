@@ -7,7 +7,7 @@ update: 2023-02-07-星期二 10:51:36
 
 CSS 网格布局除了提供定义网格和放置网格项目的相关属性之外，也提供了一些控制对齐方式的属性。这些控制对齐方式的属性，和 Flexbox 布局中的对齐属性 `justify-*` 、`align-*` 、`*-items` 、`*-content` 、 `*-self` 等是相似的：
 
-![[_attachment/img/abe5e167cafb7417d012b2dea01e592d_MD5.jpeg]]
+![[_attachment/img/9dd0b5148f9996904776498c02d4d1b5_MD5.png]]
 
 在网格布局中可以用它们来控制网格项目在内联轴（Inline Axis）和块轴（Block Axis）的对齐方式；也可以用来控制网格轨道在内联轴（Inline Axis）和块轴（Block Axis）的对齐方式。
 
@@ -17,7 +17,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 
 对于大多数开发者来说，他们都知道 Web 有两根轴线：水平方向的 `x` 轴和垂直方向的 `y` 轴。只不过，在 Flexbox 布局中，不再称 `x` 轴和 `y` 轴了，它由 Flexbox 中的主轴（Main Axis）和侧轴（Cross Axis）替代了，并且 Flexbox 的主轴不再绝对的是 `x` 轴，侧轴也不再绝对的是 `y` 轴，它由 `flex-direction` 属性的值来决定：
 
-![[_attachment/img/e30eae2c4fd2b82fdf016c173883047e_MD5.jpeg]]
+![[_attachment/img/03b199bcbb3865982617e54caeba0886_MD5.png]]
 
 由于网格布局是唯一的二维布局，因此，网格布局中也有两条轴线，这两条轴线既不称为水平的 `x` 轴和垂直方向的 `y` 轴，也不像 Flexbox 布局中称为主轴和侧轴。它们有着新命名的两条轴线，即内联轴（Inline Axis）和块轴（Block Axis）：
 
@@ -26,15 +26,15 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 
 即，内联轴和块轴会受 CSS 的 `direction` 、`writing-mode` 和 HTML 的 `dir` 属性值的影响，这个有点类似于 Flexbox 布局的主轴和侧轴，不是固定不变的：
 
-![[_attachment/img/6e21c517c97f38c1c800b7fd05abe994_MD5.jpeg]]
+![[_attachment/img/81f1b19c19a0e2bf4f6c2117a9f30a76_MD5.png]]
 
 网格布局中的内联轴（Inline Axis）和块轴（Block Axis）可以和网格中的行与列相映射，比如书写模式和阅读模式是 `ltr`（Left-To-Right）时，内联轴也称为行轴（Row Axis），块轴也称为列轴（Column Axis）：
 
-![[_attachment/img/f4d25657e0f396d55dc520dbb40d21a1_MD5.jpeg]]
+![[_attachment/img/7c3fa0ed4ab12ba5e6e0df46964d8cb1_MD5.png]]
 
 需要注意的是，虽然内联轴（Inline Axis）和块轴（Block Axis）会因 CSS 的书写模式或文档的阅读模式改变，但网格中的行轴和列轴是始终不变的：
 
-![[_attachment/img/a52fd7a452cc0a2206e8e1fe43f75c1b_MD5.jpeg]]
+![[_attachment/img/e1dae15c54e612082088a9d89cd1c984_MD5.png]]
 
 网格布局中，你就可以沿着这两条轴线来控制网格项目或网格轨道的对齐方式。
 
@@ -65,7 +65,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 
 这几个属性都可以接受 `auto` 、`normal` 、`start` 、`end` 、`center` 、`stretch` 、 `baseline` 、`first baseline` 和 `last baseline` 值，但常用的值只有 `start` 、`end` 、`center` 和 `stretch` （默认值）。其中 `start` 、`center` 和 `end` 表示相应轴的起点位置，中心位置和终点位置：
 
-![[_attachment/img/f16242fe6de00eca776dddface1eef6c_MD5.jpeg]]
+![[_attachment/img/5faa462f6ef1dcfd2531906713d92ed8_MD5.png]]
 
 注意，这几个属性都是用来控制网格项目在所处网格区域内的内联轴或块轴方向的对齐，如果没有跨网格单元格，则在对应的网格单元格内的内联轴或块轴方向的对齐。
 
@@ -123,7 +123,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 
 使用 `grid-row` 和 `grid-column` 将网格项目五放置指定的区域内（合并四行两列），相当于放置在 `grid-area: 1  /  9  / 5 / 11` 区域内：
 
-![[_attachment/img/06af0f6d633155382683f1a1bfaa4f4e_MD5.jpeg]]
+![[_attachment/img/50825cb8a1c206db60c052f813aeba7b_MD5.png]]
 
 你可以在网格容器上显式设置 `align-items` 属性的值，比如：
 
@@ -133,7 +133,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 }
 ```
 
-![[_attachment/img/cc0896c360b78084f05c340ec189ae24_MD5.jpeg]]
+![[_attachment/img/d05e8763b9a6369081a910ac6924d6c8_MD5.png]]
 
 正如上图所示：
 
@@ -177,7 +177,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 }
 ```
 
-![[_attachment/img/7176cae30464172b8cb18379c65d73f1_MD5.jpeg]]
+![[_attachment/img/04eada4df3986f31ec0b1bb956bad817_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/VwdvELO>
 
@@ -207,7 +207,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 }
 ```
 
-![[_attachment/img/268831761504c49c6648edf0134afbca_MD5.jpeg]]
+![[_attachment/img/a56f16c6db7aab06e5c01338cd269268_MD5.png]]
 
 正如上图所示：
 
@@ -251,7 +251,7 @@ CSS 网格布局除了提供定义网格和放置网格项目的相关属性之�
 }
 ```
 
-![[_attachment/img/8aecc28eb241a62dcc6e35c37c077a14_MD5.jpeg]]
+![[_attachment/img/18537044d08af2e91865f07ea317a7f5_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/qBKOJLW>
 
@@ -372,7 +372,7 @@ place-self:  <align-self>  <justify-self>
 
 用下面这张图来总结网格项目在内联轴和块轴上对齐方式的效果：
 
-![[_attachment/img/8b9d72a90b63a06d0f4e7cf3b6b0ea1c_MD5.jpeg]]
+![[_attachment/img/088d28f0a4e9008e9ad65385810f700b_MD5.png]]
 
 ### 网格轨道对齐
 
@@ -409,7 +409,7 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 }
 ```
 
-![[_attachment/img/4d4edd2ae85e81b68bb8ee19bbf0a85f_MD5.jpeg]]
+![[_attachment/img/ef35396d8c4f99401b94ddf75d489bef_MD5.png]]
 
 可以像 Flexbox 布局中的 `justify-content` 和 `align-content` 一样，将剩余空间分配到网格轨道之间。
 
@@ -421,7 +421,7 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 }
 ```
 
-![[_attachment/img/3e405ee835588fa85e9bdb2c9337b25b_MD5.jpeg]]
+![[_attachment/img/1ec0cc1c245797648f3997cebb64f6a3_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/MWXKjVj>
 
@@ -433,21 +433,21 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 
 `align-content` 取值为 `center` 时，网格容器的剩余空间将一分为二，第一行网格轨道在块轴的起始位置与网格容器块轴方向超始位置的距离等于最后一行网格轨道在块轴的结束位置与网格容器块轴方向结束位置的距离：
 
-![[_attachment/img/23cac6dc7905674fd1ca8811ac455740_MD5.jpeg]]
+![[_attachment/img/c4d96971bde65d3d8c6c06f6e7acba57_MD5.png]]
 
 > **如果网格容器只有一行行网格轨道时，可以实现垂直居中的效果** 。
 
 `align-content` 取值为 `space-around` 时，分配给相邻两行网格道之间的网格容器的剩余空间，是第一行网格轨道块轴起始位置距网格容器块轴方向起始位置之间距离的两倍，也是最后一行网格轨道块轴结束位置距网格容器块轴方向结束位置之间距离的两倍。
 
-![[_attachment/img/1731b3320ac92079983f9b22f6ed885e_MD5.jpeg]]
+![[_attachment/img/cefb32ba4b24de436070beecaa6a2b17_MD5.png]]
 
 `align-content` 取值 `space-evenly` 的效果和 `space-around` 有点相似，只不过，分配给相邻两行网格轨道之间的网格容器的剩余空间，和第一行网格轨道块轴方向起始位置与网格容器块轴方向起始位置之间的距离相等，也和最后一行网格轨道块轴方向结束位置与网格容器块轴方向结束位置之间的距离相等：
 
-![[_attachment/img/dad597542878d4ab904887b51081d3e1_MD5.jpeg]]
+![[_attachment/img/75c6f109d36ba1b335f7ed6695405d05_MD5.png]]
 
 `align-content` 取值为 `space-between` 会令行网格轨道在网格容器块轴方向两端对齐，即网格容器的剩余空间会平均分配到相邻两行行网格轨道之间：
 
-![[_attachment/img/b6ccb3dfff1f13e8327c4c2067205bb1_MD5.jpeg]]
+![[_attachment/img/401f6f5bbd99b4f9376854c466de6ded_MD5.png]]
 
 需要注意的是，当行网格轨道的尺寸是 `fr` 值时，`align-content` 取任何值的效果都和其默认值 `start` 等同。比如：
 
@@ -493,7 +493,7 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 - `space-between` 与 `start` 等同；
 - `space-evenly` 与 `center` 等同。
 
-![[_attachment/img/bb33ac2a3d272ee5086a45986a098fe9_MD5.jpeg]]
+![[_attachment/img/3847eb1b939dd6430fc695046033f070_MD5.png]]
 
 在网格容器上显式设置 `align-content` 值时，还有可能会造成网格区域变大。比如下面这个示例，网格项目一合并了两行两列。当 `align-content` 取值 `space-around` 、`sapce-evenly` 和 `space-between` 时，行网格轨道之间的间距就会产生变化，这样对于合并多行的网格项目一来说，尺寸（块轴方向尺寸，`block-size`）也会产生相应变化：
 
@@ -529,13 +529,13 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 
 不难发现，`justify-content` 取值和 `align-content` 值效果是相同的，唯一不同的是， **`justify-content`** **是用来控制列网格轨道在网格容器的内联轴方向的对齐方式，即 分配网格容器内联轴方向的剩余空间** ：
 
-![[_attachment/img/569cfce3b1df05c510ae124fde26400b_MD5.jpeg]]
+![[_attachment/img/df6662e48d03e0ba900d70f3729120e6_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/eYKJWer>
 
 `justify-content` 取值为 `center` 、`space-around` 、`space-evenly` 和 `space-between` 分配网格容器内联轴方向剩余空间如下：
 
-![[_attachment/img/9474b302eb7d086f71449e663a8bcc1e_MD5.jpeg]]
+![[_attachment/img/38fb0ec905589b208cd2943ce3a33fad_MD5.png]]
 
 > **注意，如果网格只有一列，`justify-content`** **取值** **`center`** **可以实现水平居中效果** 。
 
@@ -567,7 +567,7 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 }
 ```
 
-![[_attachment/img/8286a255506e4ca8c32db1e4db7c0cbb_MD5.jpeg]]
+![[_attachment/img/76a37f8cc2193dd09ee980de6e2f2e8f_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/oNybwWx>
 
@@ -593,7 +593,7 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 - 当 `justify-content` 取值为 `stretch` 时，设置内在尺寸的列网格轨道在内联轴方向会被拉伸，网格项目会沿着网格容器的内联轴方向填满（整个网格容器内联轴方向可用空间）；
 - 当 `align-content` 取值为 `stretch` 时，设置内在尺寸的行网格轨道在块轴方向被拉伸，网格项目会沿着网格容器块轴方向填满（整个网格容器块轴方向可用空间）。
 
-![[_attachment/img/434ee3cd66caac7db55d8c3cf902b213_MD5.jpeg]]
+![[_attachment/img/516665b575965d9b1a65d79732174ba1_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/GRGoEwQ>
 
@@ -625,7 +625,7 @@ CSS Grid 布局中的对齐方式和 Flexbox 布局中的对齐方式最大的�
 }
 ```
 
-![[_attachment/img/a5ca69f11295ed8eabe91ec8048e32f3_MD5.jpeg]]
+![[_attachment/img/15f291d2fe9f22fd68c2569e06c7b60d_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/GRGoEwQ>
 
@@ -671,7 +671,7 @@ place-content: <align-content> <justify-content>;
 
 用下图简单地总结一下，网格容器上设置 `justify-content` 或 `align-content` 属性的值，网格轨道的对齐方式如下：
 
-![[_attachment/img/cfbb20194ead93927e34178da57f9eca_MD5.jpeg]]
+![[_attachment/img/51f1dd521abdb2a5f794e5f85c66977b_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/RwJrXrQ>
 
@@ -727,7 +727,7 @@ place-content: <align-content> <justify-content>;
 
 使用上面的代码，构建了一个像下面这样的网格，其中网格项目一合并了两行两列：
 
-![[_attachment/img/393e0b5f7b6770420fac133f13aa8bcd_MD5.jpeg]]
+![[_attachment/img/9af9fecf4dd4bc72933fe71f8d0c9504_MD5.png]]
 
 目前为止，并没有显式地设置任何与对齐有关的属性。事实上，它相当于在网格容器上显式设置了 `place-items` 的值为 `stretch` ，即：
 
@@ -761,7 +761,7 @@ place-content: <align-content> <justify-content>;
 }
 ```
 
-![[_attachment/img/16d61f2414db43a7bf98e41e0a27236f_MD5.jpeg]]
+![[_attachment/img/0485aa631bf6850e8f51e41803e3445a_MD5.png]]
 
 单个设置 `place-self` 的权重要大于在网格容器上设置的 `place-items`。正如你所看到的，网格项目一最终以自身 `place-self` 的值来控制对齐方式：
 
@@ -769,7 +769,7 @@ place-content: <align-content> <justify-content>;
 
 需要注意的是，`place-content` 的默认值是 `start` ，但这并不意味着网格容器默认就是 `place-content` 取值 `start` 的效果。就拿上面这个示例来说，在网格容器上设置 `place-content` 属性值为 `start` 前后的效果是不一样的：
 
-![[_attachment/img/c9a47ab90377b58248627f37030acbc5_MD5.jpeg]]
+![[_attachment/img/22187ef67ca8030b046bde1799ea44b9_MD5.png]]
 
 也就是说，**如果网格容器上未显式设置** **`place-content`** **时，并不会以默认的** **`place-content: start`** **来控制网格轨道的对齐** 。
 
@@ -793,7 +793,7 @@ place-content: <align-content> <justify-content>;
 
 网格布局中，在网格项目上设置 `margin` 的值为 `auto` 时也能达到相似的效果。比如：
 
-![[_attachment/img/243988fe84297067a552c805c22bb83d_MD5.jpeg]]
+![[_attachment/img/d9b4491263fafc5131831c9587dbeffc_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/YzvqKgz>
 
@@ -819,7 +819,7 @@ place-content: <align-content> <justify-content>;
 - `gap` 是用来设置网格轨道之间的间距；
 - `margin` 是用来设置网格项目外侧边缘和网格区域边缘之间的间距。
 
-![[_attachment/img/173fc155bd5e5b1dfc19452da38b7ea8_MD5.jpeg]]
+![[_attachment/img/c2258956c9ddb812079c8e18fa8a2b2b_MD5.png]]
 
 你会发现，网格项目上设置 `margin` 值时，网格项目会向里收缩！另外，网格布局中网格项目或网格轨道的对齐都是沿着网格容器的块轴方向或内联轴方向，所以使用 `margin` 值为 `auto` 达到对齐效果时，更建议采用相应的逻辑属性，比如：
 

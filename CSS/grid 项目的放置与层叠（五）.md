@@ -7,7 +7,7 @@ update: 2023-02-06-星期一 17:43:21
 
 通过前面的学习，我想你已经会使用 `grid-template-*` 、`grid-auto-*` 等属性定义一个符合 Web 布局的网格，但仅仅这样是不够的，我们还需要将网格项目放置到需要的（正确的）位置。那么在这节中，我们主要一起来探讨 CSS 网格布局中的网格项目是如何被放置的。
 
-![[_attachment/img/f91df5c9347cafefd30b1715c2e9c176_MD5.jpeg]]
+![[_attachment/img/7e31794ef9eb488403004d9cafbbfe2c_MD5.png]]
 
 ## 放置网格项目
 
@@ -122,7 +122,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 
 使用 `grid-template-columns` 和 `grid-template-rows` 创建了一个三行三列（`3 x 3`）的网格（显式网格），相应的也就给对应的网格线赋予了数字编号：
 
-![[_attachment/img/d76e9bf6017e72403eee195382ef3257_MD5.jpeg]]
+![[_attachment/img/4dd16996c30c28b3bc3f0bcc183522ba_MD5.png]]
 
 这样一来，你就可以在 `grid-row` （它的子属性 `grid-row-start` 或 `grid-row-end` ）、`grid-column` （它的子属性 `grid-column-start` 或 `grid-column-end`）或 `grid-area` 指定相应的网格线数字编号（即默认的网格线名称）。比如：
 
@@ -163,7 +163,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 - `grid-column-start` 表示列网格线的起始位置；
 - `grid-column-end` 表示列网格线的结束（或终点）位置。
 
-![[_attachment/img/d266f82afebe53a05ca8e860d9cf6a89_MD5.jpeg]]
+![[_attachment/img/5588c0938207257fdfee5979a8ceeeac_MD5.png]]
 
 当然，你也可以把 `-start` 和 `-end` 的网格线编号互换，也能达到相同的效果：
 
@@ -176,7 +176,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 }
 ```
 
-![[_attachment/img/f8153e0ae2dbdc87493e28eac39d3ece_MD5.jpeg]]
+![[_attachment/img/3c846d9d266aacb0f2cc2eabd7f7b679_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/gOKOPKm>
 
@@ -191,7 +191,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 }
 ```
 
-![[_attachment/img/718792eadf21e0cf52b91b72c528336b_MD5.jpeg]]
+![[_attachment/img/0d9219e2f0d617575df84f49a00329fd_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/jOKOWvx>
 
@@ -210,7 +210,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 }
 ```
 
-![[_attachment/img/f926f3b814c4dc7aa0fcf11155ec33a3_MD5.jpeg]]
+![[_attachment/img/2280c7a35e1412613ac4aa91ab6c28dd_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/LYrYZPe>
 
@@ -231,7 +231,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 }
 ```
 
-![[_attachment/img/cf2d178731257e39dba515d38345b532_MD5.jpeg]]
+![[_attachment/img/4786e5860670283cffcbd5be8c77f31a_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/vYrYKjP>
 
@@ -253,7 +253,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 }
 ```
 
-![[_attachment/img/aeb8107d0f2900314abeb9b8822ae9ce_MD5.jpeg]]
+![[_attachment/img/465d76a9b9c75873d3acdb5dca959ef9_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/JjZjRbV>
 
@@ -356,7 +356,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 
 这个示例中的 `grid-template-rows` 和 `grid-template-columns` 定义的只是一个三行三列（`3 x 3`）的网格，但由于网格项目一和网格项目二合并的行与列已经超出显式网格的范围，此时就会在显式网格基础上进行延伸，创建一个新的网格，也就是一个隐式网格，最终这个网格是一个六行四列（`6 x 4`）的网格，而且对应的隐式列网格轨道由 `grid-auto-columns` 属性指定大小（`150px`），隐式行网格轨道由 `grid-auto-rows` 属性指定大小（`150px`）：
 
-![[_attachment/img/58da701284a9d289db686862c33d5e88_MD5.jpeg]]
+![[_attachment/img/2365123b682a5f1b627c03f72fe35773_MD5.png]]
 
 有意思的是，下面这两种组合方式都会被视为有效的：
 
@@ -409,7 +409,7 @@ CSS 网格布局中，网格项目的放置主要分为两种，第一种是由�
 }
 ```
 
-![[_attachment/img/cc847d0f0535e64743fff32a477d72c9_MD5.jpeg]]
+![[_attachment/img/5d5bfc7603757fcd90f8a18dc2f148e9_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/qBKBvOP>
 
@@ -496,7 +496,7 @@ grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end;
 }
 ```
 
-![[_attachment/img/5ce2c6d9feb62b3791c26a2d7a15c6e1_MD5.jpeg]]
+![[_attachment/img/c688c46025664d412efa5ee7c7137206_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/KKeKEYa>
 
@@ -529,7 +529,7 @@ body {
 
 这样除了会有默认的数字编码的网格线名称，还会有 `header-start` 、`header-end` 等命名的网格线名称：
 
-![[_attachment/img/9b43234e7aca481be7637261d64e83a4_MD5.jpeg]]
+![[_attachment/img/110a62b66e6e17253335463af62b70ae_MD5.png]]
 
 如此一来，就可以在 `grid-row` 、`grid-column` 或 `grid-area` 属性上使用已命名的网格线名称来放置网格项目：
 
@@ -635,7 +635,7 @@ footer {
 }
 ```
 
-![[_attachment/img/71aec230615047f36d0212e70d1d20c9_MD5.jpeg]]
+![[_attachment/img/895ff12df7b49889f646c2144bae98af_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/RwJwmYx>
 
@@ -730,7 +730,7 @@ footer {
 
 现在你可以使用 CSS 网格布局技术构建你想要的 Web 布局了：
 
-![[_attachment/img/5d261e604d87b1019bf90f0345825c34_MD5.jpeg]]
+![[_attachment/img/97ade87effd64a741f2ee7ecbe110be8_MD5.png]]
 
 简单地说，使用 CSS 网格布局分两步：
 
@@ -739,7 +739,7 @@ footer {
 
 以一个经典 Web 布局为例，即 **Full-Bleed 布局** ：
 
-![[_attachment/img/f9646a5f9fbfd57eb94e38f3b1b23c0e_MD5.jpeg]]
+![[_attachment/img/8fdf2e619d8ab3ca3f3a2c7a8150b97d_MD5.png]]
 
 ```css
 body {
@@ -769,7 +769,7 @@ body > * {
 }
 ```
 
-![[_attachment/img/894b706c087fff03a9395da69ec1313b_MD5.jpeg]]
+![[_attachment/img/b25edbcc8a6918f845b27d765d51336d_MD5.png]]
 
 代码就不解释了，最终你将看到的效果如下：
 
@@ -779,7 +779,7 @@ body > * {
 
 你也可以结合 CSS 媒体查询特性，可以很轻易实现 Web 布局框架的响应，比如：
 
-![[_attachment/img/3264df94467baf2b22ed566134cac3b9_MD5.jpeg]]
+![[_attachment/img/69c974ee4ebf01749f4add8fb8f32e8f_MD5.png]]
 
 ```html
 <body>
@@ -838,7 +838,7 @@ footer {
 }
 ```
 
-![[_attachment/img/aef530cb857e1fe4074fdc6a33467bee_MD5.jpeg]]
+![[_attachment/img/131c2d4e4da2b712b5dea8d4ee65c204_MD5.png]]
 
 在平板端（Tablet），Web 页面由移动端的一列变成两列，六行变成四行，因此我们要在平板端调整 `grid-template-areas` 和 `grid-template-rows` 属性的值，并且新增 `grid-template-columns` 属性控制列网格轨道尺寸，构建一个四行两列的网格：
 
@@ -856,7 +856,7 @@ footer {
 }
 ```
 
-![[_attachment/img/c8cf3f84e4c886d23f626bed0ddf9e9f_MD5.jpeg]]
+![[_attachment/img/04b50fef0b8cec79572b34609db879f4_MD5.png]]
 
 按同样的方式，在浏览器视窗 `1024px` 断点下调整 `grid-template-rows` 、`grid-template-columns` 和 `grid-template-areas` 属性的值，构建符合桌面端（Desktop）的网格（四行三列）：
 
@@ -873,7 +873,7 @@ footer {
 }
 ```
 
-![[_attachment/img/dc5bc80de15412f12436fcb93896c1b9_MD5.jpeg]]
+![[_attachment/img/80e59d7452d179350e4a1585b948bbe1_MD5.png]]
 
 最终效果如下：
 
@@ -946,7 +946,7 @@ footer {
 
 > **注意，网格容器的伪元素** **`::before`** **和** **`::after`** **生成的内容也被称为网格项目** ，但它们不是匿名网格项目。
 
-![[_attachment/img/f4d634dba97747314861a4c436bc817d_MD5.jpeg]]
+![[_attachment/img/6951895d597e6b6287bfcb5463babbdd_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/zYaxaWY>
 
@@ -973,7 +973,7 @@ CSS 中是没有相关的选择器可以选中网格容器中的“文本节点�
 
 即 **`网格项目 ①`** 和 **`网格项目 ②`** 被放置到指定位置，其他网格项目未显式指定位置，它们会按自动放置算法来放置。
 
-![[_attachment/img/585c320003c7eafedc9e365001b4baf9_MD5.jpeg]]
+![[_attachment/img/aad372978bcf96320a7c641b457f61fb_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/PoawBoB>
 
@@ -993,7 +993,7 @@ CSS 中是没有相关的选择器可以选中网格容器中的“文本节点�
 
 `::before` 伪元素和 `网格项目④` 使用 `grid-row` 指定了行网格线的起始和结束位置。
 
-![[_attachment/img/33d6e26b06e91539f3d2a1693b01761f_MD5.jpeg]]
+![[_attachment/img/225d67778d74e0533524c5ff234c3d9c_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/ZERYjdK>
 
@@ -1039,7 +1039,7 @@ CSS 中是没有相关的选择器可以选中网格容器中的“文本节点�
 }
 ```
 
-![[_attachment/img/1ab52faf96f921e3ff0dc7e5190ca8f6_MD5.jpeg]]
+![[_attachment/img/c5c49387189d259d3cb38a74504e9e3b_MD5.png]]
 
 而“**密集算法（Dense）**”不会出现该现象。如果你在使用网格布局时，不想出现网格洞的现象，可以使用 `grid-auto-flow` 来改变，只需要使用 `row  dense` 来替代 `row` ，`column dense` 替代 `column` 即可：
 
@@ -1111,7 +1111,7 @@ CSS 中是没有相关的选择器可以选中网格容器中的“文本节点�
 
 示例中 **`网格项目④`** 明确指定了起始列网格线位置，即网格线编号是 `4` （`grid-column-start: 4`），同时使用 `span 2` 向右合并两列（`grid-column-end: span 2`）。这意味着 **`网格项目④`** 放置在显式网格之外，也会因该网格项目新增两列隐式列网格轨道。
 
-![[_attachment/img/3bc8426fd37a1e84310d51566ade80c3_MD5.jpeg]]
+![[_attachment/img/ff46f8125566b8f696fdc4624c2924ee_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/dyKopPq>
 
@@ -1182,7 +1182,7 @@ footer {
 - 网格项目 `main` 放置在第二行第二列；
 - 网格项目 `sidebar` 放置在第三列，它和网格项目 `header` 在第一行和第三列的位置相互重叠，和网格项目 `footer` 在第三行第三列相互重叠。
 
-![[_attachment/img/1940578052164a670be30ce80de71fb4_MD5.jpeg]]
+![[_attachment/img/0f81a2d8ef486b2b6269163012208550_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/dyKopwB>
 
@@ -1200,7 +1200,7 @@ header {
 
 因此，使用 CSS 网格布局，可以轻易实现一些重叠的 Web 布局效果，比如下面这个效果：
 
-![[_attachment/img/9b7df751d5d53bd55d6ea5e3ffc0696a_MD5.jpeg]]
+![[_attachment/img/3e31e425c0a7e52b117bbef8fff28296_MD5.png]]
 
 具体实现的代码如下：
 
@@ -1254,13 +1254,13 @@ figure {
 }
 ```
 
-![[_attachment/img/c7ce4e7c1c5489ae15c0268f6c70b4a5_MD5.jpeg]]
+![[_attachment/img/38d247f692ac5608c1dc40c82a507b2c_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/OJEVWRo>
 
 你还可以利用网格项目重叠的特性，实现类似下图杂志排版的布局：
 
-![[_attachment/img/378933c751b452594c7614ae0ed5d5db_MD5.jpeg]]
+![[_attachment/img/6817e3bf34a7f677b8c7b580084e2a1f_MD5.png]]
 
 可以将上图这样的杂类效果的布局分解成一个网格，如下图所示：
 
@@ -1278,7 +1278,7 @@ figure {
 
 使用 `grid-template-rows` 和 `grid-template-columns` 定义了一个 `3 x 4` 的网格（三行四列）。外侧的列比内侧的列要宽一些。第一行高度为 `130px`，第二行是第三行的两倍高。不过内容（即 HTML 的结构有点让你感到蛋疼）拆分有点小细节需要注意：
 
-![[_attachment/img/ec707fbca9a4bdb928ed7dddebb63d35_MD5.jpeg]]
+![[_attachment/img/ee8361a4144cdcf6b81b87796a5ca944_MD5.png]]
 
 对应的 HTML：
 
@@ -1339,7 +1339,7 @@ figure {
 
 添加额外的样式，我们就实现了一个类似杂志的布局效果：
 
-![[_attachment/img/b0880586811b99a94d4cd2c3b8aec702_MD5.jpeg]]
+![[_attachment/img/2009ecfc9a5e7ebf353068d842054b86_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/vYrOgwV>
 

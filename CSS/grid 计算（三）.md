@@ -41,7 +41,7 @@ update: 2023-02-10-星期五 16:48:52
 
 `grid-template-columns` 和 `grid-template-rows` 分别相对于网格容器的 `width` 和 `height` ，可以计算出网格轨道（列轨道和行轨道）尺寸。如下所示：
 
-![[_attachment/img/f0ecfdb3dd9232ee01280ded86177b74_MD5.jpeg]]
+![[_attachment/img/0499742c0c3cd4bea88ff0a089d833be_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/ZEoVxNe>
 
@@ -62,7 +62,7 @@ update: 2023-02-10-星期五 16:48:52
 
 众所周知，当 `width` 值为 `100%` 且该元素显式设置了 `padding` 或 `border-width` 值时，并且 `box-sizing` 不是 `border-box` 时，设置宽度为 `100%` 的元素就会溢出容器；或者 `width` 为 `100%` 的元素碰到外边距 `margin` 也会引起元素溢出容器：
 
-![[_attachment/img/5dacbbb2f4fd9b077a991eb68f76ab58_MD5.jpeg]]
+![[_attachment/img/5d5ac8cc234cff7ec9a2930a8611d21f_MD5.png]]
 
 在网格布局中同样会有类似的现象。当网格轨道的值都是百分比值，而且总值是 `100%` 时，要是加上 `gap` 设置网格轨道间距，就会造成总值超过网格容器，网格就会溢出。这是因为，网格轨道取值百分比时，它是基于网格容器的大小计算，并不会关心网格容中的其他情况。
 
@@ -81,7 +81,7 @@ update: 2023-02-10-星期五 16:48:52
 }
 ```
 
-![[_attachment/img/7f9306059c15216a4f096e64c3a4f1be_MD5.jpeg]]
+![[_attachment/img/3fe6651fb0c87ab3540b9ea5b0364187_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/bGMzVgz>
 
@@ -110,7 +110,7 @@ update: 2023-02-10-星期五 16:48:52
 }
 ```
 
-![[_attachment/img/c10195eb1e8e98a18b62b98f2c7ab466_MD5.jpeg]]
+![[_attachment/img/b297ab26226969f83c86cdf3696214bd_MD5.png]]
 
 不过，这一现象在网格中的表现却有所不同。网格轨道的尺寸值总和是 `100%` ，这个时候在网格项目上设置 `margin` 值时，并不会致使网格溢出容器，只会让网格项目距所在单元格（或网格区域）四边有一定的间距（`margin` 值）。它表现出来的现象就像是网格项目向内收缩一样：
 
@@ -147,7 +147,7 @@ update: 2023-02-10-星期五 16:48:52
 }
 ```
 
-![[_attachment/img/7f9306059c15216a4f096e64c3a4f1be_MD5.jpeg]]
+![[_attachment/img/3fe6651fb0c87ab3540b9ea5b0364187_MD5.png]]
 
 正如你所看到的，网格溢出了容器。
 
@@ -164,7 +164,7 @@ update: 2023-02-10-星期五 16:48:52
 
 你将看到，使用 `fr` 单位的网格，即 `gap` 设置的值为 `20px` 也不会让网格溢出容器：
 
-![[_attachment/img/9c2f4392f316ae9110f0b0c5b85c6016_MD5.jpeg]]
+![[_attachment/img/bb541a12e2327471cf6b4c898ea1bd3c_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/xxjMOKV>
 
@@ -197,7 +197,7 @@ update: 2023-02-10-星期五 16:48:52
 
 网格轨道使用 `fr` 单位时，一般会按下面公式来计算：
 
-![[_attachment/img/5664048d237cefc53ced2a2b1c2dc1d8_MD5.jpeg]]
+![[_attachment/img/ff8590bfef40232d373345720cc3b524_MD5.png]]
 
 公式中所谓的 **弹性系数指的就是设置了** **`fr`** **单位的值** ，即：
 
@@ -253,7 +253,7 @@ update: 2023-02-10-星期五 16:48:52
 
 所有列网格轨道的尺寸都设置为 `min-content` 。在 Flexbox 的文章中我们介绍过 `min-content` 值，放到网格布局中是一样的，它对应的就是所在网格项目最小内容的长度。在我们这个示例中，这个时候网格容器会有一定的剩余空间出现：
 
-![[_attachment/img/5a9b8de808d2b65b2ac89de460169eb3_MD5.jpeg]]
+![[_attachment/img/3b3557dda69f5fcfcef2349b6e83306e_MD5.png]]
 
 前面说了，设置了 `fr` 单位的网格轨道就是弹性网格轨道，它能像 Flexbox 布局中的设置了 `flex:auto` 的 Flex 项目一样，按照相应的弹性系数来分配空间（在网格中分配的是可用空间）。比如每个列网格轨道都显式设置是 `1fr` ：
 
@@ -288,7 +288,7 @@ update: 2023-02-10-星期五 16:48:52
 
 但事实上并非如此，浏览器计算出来的结果不是你想象的那样，每个列网格轨道尺寸是 `200px` ，实际计算出来的如下图所示：
 
-![[_attachment/img/5111c01268fe834908688b275848b51a_MD5.jpeg]]
+![[_attachment/img/3efaca32e5fd1b8cda9a6316fe92a577_MD5.png]]
 
 造成这种现象，是因为第三列网格轨道触发了最小尺寸的现象（它的最小尺寸是 `220px`）。简单地说，计算出来的网格轨道尺寸不能小于其内容的最小尺寸（即计算出来的 `1fr` 尺寸 `200px` 小于 `min-content` 的尺寸 `220px`），即 **计算出来的值不能小于 `min-content`** 。
 
@@ -300,7 +300,7 @@ update: 2023-02-10-星期五 16:48:52
 
 这就是为什么浏览器计算出来的第一、二和四列网格轨道尺寸是 `193.33px` ：
 
-![[_attachment/img/f556ca386336760d5976407fdbb21014_MD5.jpeg]]
+![[_attachment/img/447ee9658c916407130e0386e54b24af_MD5.png]]
 
 浏览器在计算网格轨道的尺寸时是循环遍历的一个过程。要是重新计算出来的网格轨道尺寸小于其最小尺寸，就需要再次按照上面的方式进行计算，直到符合要求为止。
 
@@ -327,7 +327,7 @@ update: 2023-02-10-星期五 16:48:52
 网格列轨道4尺寸 = 1fr × 800px ÷ 5fr = 1 × 800 ÷ 5 = 160px
 ```
 
-![[_attachment/img/5cdebf0a35cd26b49859528b515ddab1_MD5.jpeg]]
+![[_attachment/img/9a1cb7588c188b1a79a2723db21d7ab9_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/wvjNWYb>
 
@@ -364,7 +364,7 @@ grid-template-columns: 1fr 1fr 220px 1fr;
 网格列轨道4尺寸 = 1fr × (800px - 220px) ÷ 3fr = 1 × 580 ÷ 3 = 193.33px
 ```
 
-![[_attachment/img/b10b44b8f224a62719e1919861289122_MD5.jpeg]]
+![[_attachment/img/d9b10c448ab8a2ac324a01048979bacc_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/wvjNReB>
 
@@ -404,7 +404,7 @@ gap: 20px;
 网格列轨道4尺寸 = 1fr × (800px - 220px - 20px × 3) ÷ 3fr = 1 × 520 ÷ 3 = 173.33px
 ```
 
-![[_attachment/img/b7cd078f67a55a778548943ba86929b1_MD5.jpeg]]
+![[_attachment/img/6ed543bd37c919f1ef6740d139d0865f_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/YzLBBXz>
 
@@ -443,13 +443,13 @@ gap: 20px;
 网格列轨道4尺寸 = 0.5fr × (800px - 220px - 20px × 3) ÷ 1.5fr = 0.5 × 520 ÷ 1.5 = 173.33px
 ```
 
-![[_attachment/img/1ae67000fc5accc771cb5e53f581ebd1_MD5.jpeg]]
+![[_attachment/img/c6e57ccead7a9b30ad402b956ba31cb3_MD5.png]]
 
 该示例的所有弹性列网格轨道总系数是 `1.5fr` ，它大于 `1fr` 。网格布局中 **`1` 个 `fr` （即 `1fr`）就是 `100%`** 网格容器可用空间，也正因为如此，弹性列网格轨道把网格容器可用空间都按弹性系数分完了，**网格容器也就不会有任何的剩余空间产生**。
 
 既然弹性总和会有大于等于 `1` 的情况，那也有可能会是小于 `1` 的情景。在网格布局中，如果弹性网格系数总和小于 `1` ，那计算 `fr` 的值就不能再使用前面的计算公式了，它需要按照下面的公式来计算网格轨道尺寸：
 
-![[_attachment/img/12ca802adb117f8991bf2fa8564f1005_MD5.jpeg]]
+![[_attachment/img/57147b854ae32fb7d2a4df15d41bfe89_MD5.png]]
 
 > **注意，你可以不改变计算公式，只不过当弹性系数小于 `1`** **时，那么** **`1fr`** **就是网格容器可用空间** !
 
@@ -488,7 +488,7 @@ gap: 20px;
 
 计算之后的所有列网格轨道的尺寸总和是 `584px` （即 `156px + 104px + 220px + 104px = 584px`），即使加上列网格轨道之间的间距，总占用网格容器的空间是 `644px` （`584px + 20px × 3 = 644px`），都小于网格容器的可用空间 `800px` 。也就是说，**当所有网格轨道弹性系数（**`fr`**）之和小于** **`1`** **时，它们将占用小于** **`100%`** **的网格容器的可用空间，即网格容器会有剩余空间出现** 。
 
-![[_attachment/img/7e8b626ab34e09c391904d8f828f762c_MD5.jpeg]]
+![[_attachment/img/58bb74a0ba5610bee37f51e340ac1375_MD5.png]]
 
 值得注意的是，当网格轨道的弹性系数是一个小于 `1` 的值时，更易于触及网格轨道最小尺寸的边缘。
 
@@ -565,7 +565,7 @@ gap: 20px;
 网格列轨道4尺寸 = min-content = 75.38px
 ```
 
-![[_attachment/img/61a13bfee0879b5b9c566744897ae4be_MD5.jpeg]]
+![[_attachment/img/17982a48ce61adb67268b7060cd398af_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/XWqOOpy>
 
@@ -577,7 +577,7 @@ gap: 20px;
 
 使用饼图可以很形象地描述 `fr`：
 
-![[_attachment/img/1e3ee4f12c9c5ace9c06101356da623a_MD5.jpeg]]
+![[_attachment/img/d06deadc0b7263f0a3823736ceb7da5d_MD5.png]]
 
 **注意，一个饼图（圆）就相当于网格容器的可用空间，分割的份数就相当于设置了弹性系数的网格轨道** 。
 
@@ -601,7 +601,7 @@ gap: 20px;
 
 每列网格轨道宽度都是网格容器可用空间（`800px`）的 `25%`，即：`800px × 25% = 200px`：
 
-![[_attachment/img/dadd3ca372b801aa3724017ed19f20e2_MD5.jpeg]]
+![[_attachment/img/acd67c8c50fd9321ba676c3ecd3cc1e5_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/mdLvYME>
 
@@ -615,7 +615,7 @@ gap: 20px;
 
 网格“Nick”列轨道溢出了网格容器：
 
-![[_attachment/img/026dde2289c827dfb17058173402d484_MD5.jpeg]]
+![[_attachment/img/fbb3daeaae02f3a3545daa2737736dd5_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/rNvPgRg>
 
@@ -638,7 +638,7 @@ gap: 20px;
 
 重新计算并设置网格列轨道值之后，网格列不会溢出网格容器了，但每列的列宽就变了，但还是保持了“Tom”列宽是其他列宽的两倍：
 
-![[_attachment/img/0c0202bb6c828e41fad4823f2a6fc02a_MD5.jpeg]]
+![[_attachment/img/7fd64539d838b40a6faf49e2030545b0_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/NWMoZGL>
 
@@ -652,7 +652,7 @@ gap: 20px;
 
 新增的“Tony”列将会溢出网格容器：
 
-![[_attachment/img/42b33011e10eadd098a03d5f6204ce47_MD5.jpeg]]
+![[_attachment/img/e0fb30d65d3a09dea93731bd2d11274f_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/QWrYXvY>
 
@@ -677,13 +677,13 @@ gap: 20px;
 }
 ```
 
-![[_attachment/img/dcda177e6806af76520f2bdfec22c18d_MD5.jpeg]]
+![[_attachment/img/6df758df2caccf1ea2ee887192d4b2d4_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/wvjNLjR>
 
 我们可以使用饼图来拆分上图中 `fr` 的计算。把网格容器可用空间（`800px`）当作是一张饼，它被网格列轨道（“Tom”，“Jack”，“Lucy”和“Nick”）分成了四份（即 `4` 个 `1fr`），每份（`1fr`）等于 `1 ÷ 4 = 0.25`（即 `25%`）：
 
-![[_attachment/img/8f876c525f168d4d39193fd30e3757c8_MD5.jpeg]]
+![[_attachment/img/57b5449b89b841d6100cbae9cad2e619_MD5.png]]
 
 和 `%` 有点类似，如果你想“Tom”列是其他列的两倍，只需要将这一列设置为 `2fr`。
 
@@ -693,17 +693,17 @@ gap: 20px;
 }
 ```
 
-![[_attachment/img/788b239084f8ee4b3a7bbf6b72e3565b_MD5.jpeg]]
+![[_attachment/img/bd99be5b601e6894a13be4fad2ee73ac_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/GRdLqVd>
 
 同样的，网格容器的可用空间这张饼图（`800px`）分成了四份，其中“Tom”列是 `2fr`，等于 `2` 个 `fr`，而且是其他列（“Jack”，“Lucy”和“Nick”）的两倍（`1fr`）。所以 `1fr` 的值是 `1 ÷ 5 = 20%`（`2fr + 1fr + 1fr + 1fr = 5fr`）。因此，“Tom”列的 `2fr` 是 `2/5`（`40%`）：
 
-![[_attachment/img/ed5407702f77a576176385ffd25cda49_MD5.jpeg]]
+![[_attachment/img/9118525ee52d46182afee891a9c0df07_MD5.png]]
 
 网格轨道使用 `fr` 单位时，如果饼图大小改变了（网格容器可用空间改变了），我们也不需要重新调整网格轨道的值：
 
-![[_attachment/img/f3983f5ae6ca388088b1ff4ed2db3491_MD5.jpeg]]
+![[_attachment/img/4fe38ae69c6821a4e7546868ec0615c1_MD5.png]]
 
 网格容器 `.container` 从 `800px` 宽度变到 `1200px` 时，`fr` 单位会根据网格容器可用空间自动调整网格项目大小：
 
@@ -720,7 +720,7 @@ gap: 20px;
 }
 ```
 
-![[_attachment/img/d1297bf0e5564e097a7ce4a80b336c50_MD5.jpeg]]
+![[_attachment/img/68815db99e877dd1608882a4882fae95_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/Poegbrp>
 
@@ -757,11 +757,11 @@ gap: 20px;
 
 > **将所有网格列（或行）轨道的值为** **`1fr`** **，并不一定能让所有网格列（或行）轨道相等** 。
 
-![[_attachment/img/1c55120a9c272bd46e47eab587ad93bb_MD5.jpeg]]
+![[_attachment/img/f693312303a3efbaeff713fca12a59bc_MD5.png]]
 
 碰到这种现象并不等于无解，还是可以通过一些技术手段来规避这种现象产生的：
 
-![[_attachment/img/d9b5705d3fb4e00710f9463632094bfc_MD5.jpeg]]
+![[_attachment/img/b9a50157a8274f17a2a00d9bd8ebfd1f_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/eYrovrg>
 
@@ -798,13 +798,13 @@ gap: 20px;
 </div>
 ```
 
-![[_attachment/img/8306bc54327e0387cac5a378c27bc3dc_MD5.jpeg]]
+![[_attachment/img/a78694fab6ed2579d52fa67bdd489ed0_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/zYjXwbe>
 
 如果你在 “Tom” 列加入一张 `480px` 宽的图片时，并且样式中没有对 `img` 设置 `max-width: 100%` 或者 `aspect-ratio` 相关的样式（假设没有设置其他与该图片尺寸有关的任何 CSS 样式规则），你将看到的效果如下：
 
-![[_attachment/img/9c9025aec12612650698a3669ce39ada_MD5.jpeg]]
+![[_attachment/img/0ea2d000b175efe625058a1f1b96452d_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/vYjMZLX>
 
@@ -814,7 +814,7 @@ gap: 20px;
 
 如果在网格项目中有长单词，或没有任何连字符（`-`）和空格的字符，比如一个 URL，也有可能会致使所在网格列轨道变宽（比计算出来的 `1fr` 值要大）。比如，你 “Tom” 列中的 ` <img /> ` 换成长字符，你会发现，它所在列轨道也要比其他列宽，即三列不相等：
 
-![[_attachment/img/9fed0dab25ae87c430affa39458b309a_MD5.jpeg]]
+![[_attachment/img/1d0dac10ce23749c18b213a82b26edcb_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/NWMmVRN>
 
@@ -828,7 +828,7 @@ gap: 20px;
 
 `1fr` 的底层实现逻辑其实就是 `minmax(auto,1fr)` （`minmax()` 是用来设置网格轨道尺寸一个 CSS 函数），意味着 `min=auto`（即 `min-width: min-content`），`max=1fr`。
 
-![[_attachment/img/4f67be75726253818a827923d8a52479_MD5.jpeg]]
+![[_attachment/img/dcf3a2f9bf6248c7fe679ad8407aac42_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/VwxNOqZ>
 
@@ -840,7 +840,7 @@ gap: 20px;
 
 但是，请注意，如果网格轨道中有元素内容最小尺寸大于 `1fr` 计算出来的网格轨道尺寸时，这将导致内容溢出，比如上面示例中的图片和长字符单词。如果需要避免内容溢出，则需要通过其他的 CSS 来处理，比如在 `img` 上设置 `max-width: 100%` ，对长字符设置 `word-break` 或在包裹它们的网格项目上设置 `overflow` 的值为 `scroll` 或 `hidden` ：
 
-![[_attachment/img/7a7288357ea29476644151024979ecd1_MD5.jpeg]]
+![[_attachment/img/bb42e63d8c1e2a7c9510d2c507c0795d_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/eYraOey>
 

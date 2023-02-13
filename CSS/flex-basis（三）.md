@@ -15,7 +15,7 @@ update: 2023-01-13-星期五 10:04:47
 
 Web 上的每一个元素都被视为一个盒子，它相当于一个容器，就好比我们生活中的器皿，通过格式化（CSS 的 `display` 属性的值）之后有着不同的形态：
 
-![[_attachment/img/5dacfaaacdb5bf6ea44de2938ddd2196_MD5.png]]
+![[_attachment/img/08023217573c9a67caef26504d9f5c58_MD5.png]]
 
 不同的器皿都有着自己的大小。在 CSS 中，这些容器的大小可以是由容器的内容来决定，也可以显式地通过属性来控制。大家最为熟知的应该是 **CSS 盒模型中的属性来决定一个容器（元素）的大小** 。
 
@@ -104,13 +104,13 @@ flex-basis: content | <width>;
 }
 ```
 
-![[_attachment/img/626d8e9a78640503842846a9c3631e86_MD5.gif]]
+![[_attachment/img/19d14c961c3a7e1c3d628aecead4971e_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/wvjqXrZ>
 
 正如上图所示，当给一个容器的 `width` 属性设置一个固定值时，有一个极大的缺陷，即 **内容断行** 或 **内容溢出容器** ，尤其是内容溢出，它很有可能就会打破布局的美观。
 
-![[_attachment/img/d439e8d67a53f01e6213ec69bc51ee1a_MD5.jpeg]]
+![[_attachment/img/0252b2f431dc20b9b261567c5f30b4e4_MD5.png]]
 
 **很多时候，Web 开发者并不知道容器的内容是什么，所占的宽度是多少，就会造成上图的现象。哪怕是使用了** **`min-content`** **、`max-content` 和** **`fit-content`** **也会面临类似现象** 。
 
@@ -127,7 +127,7 @@ flex-basis: content | <width>;
 }
 ```
 
-![[_attachment/img/a470ad734fcad946fa8f2db3efed97ab_MD5.gif]]
+![[_attachment/img/9ec40e4eda5a2c57f368c11ec0512d93_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/ZEoJjEK>
 
@@ -137,7 +137,7 @@ flex-basis: content | <width>;
 
 当你从中文切换到阿位伯文（或英文切换到阿位伯文）时，文本内容的所占宽度并不一致。如果未显式给容器设置 `width` 或 `min-width` 属性的值，就会造成按钮大小不一致，这也有可能会影响 Web 布局或整体的视觉效果。如果显式加上 `width` 就有可能会在某个语种下造成内容溢出或断行，那么这个时候显式设置一个 `min-width` 就会有一个较好的视觉效果：
 
-![[_attachment/img/f076d456ff7d5d5a699b666375388ad3_MD5.jpeg]]
+![[_attachment/img/de78c3617676a7eccdab580a74a18f49_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/dyezjZL>
 
@@ -145,17 +145,17 @@ flex-basis: content | <width>;
 
 `min-width` 除了在一些多语言版本网站上可见之外，也适用于像“徽标”（Badge）这样的组件：
 
-![[_attachment/img/3126c398069a0c6f96f6f1212b8bc597_MD5.png]]
+![[_attachment/img/38e14ecfee93c783218aa75c62c37498_MD5.png]]
 
 在构建这样的标签列表时，建议限制一个标签的最小宽度（即显式设置 `min-width` 属性的值），这样就可以保证标签列表项内容很短（少）时，它的外观不会受到影响：
 
-![[_attachment/img/1b824051c9179300470096b04c667fa6_MD5.jpeg]]
+![[_attachment/img/3aa13bdd166eef27a74c9ab90b648beb_MD5.png]]
 
 有了这种灵活性，无论标签内容有多短，标签在视觉上看起来都不错。另外，除了考虑内容过短之外，我们还需要考虑内容过长时对 UI 的视觉影响，这时候我们可以考虑使用 `max-width` 属性。
 
 在容器（或元素）上显式设置 `max-width` 属性值时，可以防止 `width` 属性值超过了 `max-width` 指定的值，造成内容溢出。`max-width` 的一个常见而简单的用例是将它与图像一起使用。考虑下面的例子：
 
-![[_attachment/img/43b794c31888f0ec9f375e43bcce8799_MD5.jpeg]]
+![[_attachment/img/444cb3f71db97e9b7b759772addcb08e_MD5.png]]
 
 \<img\> 比它的父容器更大。通常给 img 设置 max-width 的值为 100% ，图像的宽度就不会超过容器的宽度。如果图像比父容器小，则 max-width: 100% 不会对图像产生实际影响，因为它比容器小。
 
@@ -224,7 +224,7 @@ button {
 }
 ```
 
-![[_attachment/img/c5bd8b82cb9bc22e93d8f4fed118d3b8_MD5.jpeg]]
+![[_attachment/img/9ce84a33540d2eda302422a1e8e25347_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/qBYXJWq>
 
@@ -265,7 +265,7 @@ button {
 }
 ```
 
-![[_attachment/img/0416a507c967f98b1d80a74e243207d8_MD5.jpeg]]
+![[_attachment/img/2768d4b11401bdebfdc6e76a3660a4dc_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/WNJEaOq>
 
@@ -285,7 +285,7 @@ if (width =< max-width) {
 
 也有时候，在同一个元素上显式设置 `width` 、`min-width` 和 `max-width` ，或者只在元素上显式设置 `min-width` 和 `max-width` ：
 
-![[_attachment/img/c17c237f72f5e3e7090deea920a63c75_MD5.jpeg]]
+![[_attachment/img/6ecb10e1c23409da34287c7d5098205c_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/GRdvYdw>
 
@@ -363,7 +363,7 @@ h1 {
 }
 ```
 
-![[_attachment/img/b6f6a438c13d9ce1b12c79dd0fc1a45e_MD5.gif]]
+![[_attachment/img/860b904fd608350b9ac19d0c492e4050_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/RwyLGmg>
 
@@ -383,7 +383,7 @@ h1 {
 }
 ```
 
-![[_attachment/img/229a23e478a071e244c4accee2715b26_MD5.gif]]
+![[_attachment/img/6059ad464853ec34cb8989230fd7ce8d_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/gOzGLYo>
 
@@ -409,7 +409,7 @@ h1 {
 }
 ```
 
-![[_attachment/img/0ce36d661b72d53421911982bcd15c58_MD5.gif]]
+![[_attachment/img/dd599ce3a318293058839041305fad6e_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/jOxGVEd>
 
@@ -435,7 +435,7 @@ h1 {
 }
 ```
 
-![[_attachment/img/548aff209a63d2241a5dc23701e1abc1_MD5.gif]]
+![[_attachment/img/194cd297a325f4694aad5351219f1da9_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/pen/zYZvGrY>
 
@@ -462,7 +462,7 @@ h1 {
 
 使用下图来描述它们之间的关系：
 
-![[_attachment/img/1e08939df1b1b43297539a9d3204b30f_MD5.png]]
+![[_attachment/img/4a1eae588736fbd1b892f0156204dba6_MD5.png]]
 
 `min-content` 、`max-content` 和 `fit-content` 它们是属性值，可以被运用于 CSS 的尺寸属性上，比如 `width` 、 `height` 、`inline-size` 和 `block-size` 。同样的，它们也可以用在 `flex-basis` 属性上。
 
@@ -472,7 +472,7 @@ h1 {
 }
 ```
 
-![[_attachment/img/5f86e2bc6ad82fedaf376acd65310902_MD5.gif]]
+![[_attachment/img/d9d08de5ecc8040a35aa4504ba2c3f59_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/VwxMPPq>
 
@@ -488,7 +488,7 @@ h1 {
 
 - 内在尺寸：`min-content` 、`max-content` 和 `fit-content` 。
 
-![[_attachment/img/8077526caca31cdcced1333ef56ddfdf_MD5.gif]]
+![[_attachment/img/8a62785f2a9c3e45833e20ff42b2e3c5_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/JjvrEVx>
 
@@ -568,7 +568,7 @@ h1 {
 
 Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
-![[_attachment/img/610f2e5f5ad00f59b7e6acbf7b72c58e_MD5.jpeg]]
+![[_attachment/img/ab35c794fae5e31a0459561fe254c1c2_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/BaxwRBx>
 
@@ -587,7 +587,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 不过，要是在 Flex 项目上重置了 `flex-shrink` 属性的值（显式设置为 `0` ），Flex 项目不可收缩，那么 `flex-basis` 和 `width` 取值为 `auto` 时，它的表现和 `flex-basis` 或 `width` 设置为 `max-content` 是相同的。
 
-![[_attachment/img/50e54406539e1dccbd30ca5d02374d90_MD5.gif]]
+![[_attachment/img/25e34fe5af5ba6d2e7139eb2efa09644_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/NWMagjx>
 
@@ -608,7 +608,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 将所有宽度为 `150px` 的 Flex 项目放到一个宽度为 `1000px` 的 Flex 容器中，Flex 容器有一定的剩余空间出现（即 `250px`）：
 
-![[_attachment/img/f887eabd65f6c6b70eb2cf8f77b657dd_MD5.jpeg]]
+![[_attachment/img/154aebf85a4f5341a8732b33536ce8c5_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/VwxMWVO>
 
@@ -634,7 +634,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![[_attachment/img/d7bb7901cf2d1f6efcef0369c90c38b1_MD5.jpeg]]
+![[_attachment/img/7d3b7e401558bbd4671458f9171d47df_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/MWGOGwE>
 
@@ -664,11 +664,11 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 上面代码中，Flex 项目初始化的假想主尺寸都会是 `100px` ，也就是说，浏览器在根据 Flex 容器剩余空间（或不足空间）、Flex 项目的 `flex-grow` 或 `flex-shrink` 计算 `flex-basis` 最终值时，它（`flex-basis`）的最初基础都将是 `100px` ：
 
-![[_attachment/img/a9231d4aaf10558fbc9dc18cc75da498_MD5.gif]]
+![[_attachment/img/67ab7253aa8b55646763d10423af65ff_MD5.gif]]
 
 这也就是，**Flex 项目的总宽度（`width` 属性值总和）大于 Flex 容器空间（即 Flex 容器产生不足空间），但 Flex 项目的** **`flex-basis`** **显式设置了** **`0`** **或** **`0%`** **时，即使 Flex 项目的** **`flex-shrink`** **（收缩因子）是非** **`0`** **的值，比如** **`1`** **或大于** **`1`** **的其他值，Flex 项目也不会按收缩比例分配 Flex 容器的不足空间。最终** **Flex 项目的** **`flex-basis`** **值等于 Flex 项目的内容最小尺寸（`min-content`）** 。
 
-![[_attachment/img/6601ddf5c73fdf0b1e138c3046f3e224_MD5.gif]]
+![[_attachment/img/f22af2c6f7fecdbd2bb14d961a8cbd98_MD5.gif]]
 
 > Demo 地址： <https://codepen.io/airen/full/YzLELvX>
 
@@ -706,7 +706,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 最终所有 Flex 项目的初始化值（Base Size）是 `100px` ，最小值（Minimum Size）是 `180px` ，浏览器最终计算出来的 `flex-basis` 值也会是 `min-width` 值，即 `180px` ：
 
-![[_attachment/img/e3162558f165858f0b987e3ef1c82b55_MD5.jpeg]]
+![[_attachment/img/8a435cf700106de4e61fa5e48fba5ca2_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/jOxaxjK>
 
@@ -728,7 +728,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 最终所有 Flex 项目的初始化值（Base Size）是 `300px` ，最大值（Maximum Size）是 `100px` ，浏览器最终计算出来的 `flex-basis` 值也会是 `max-width` 值，即 `100px` ：
 
-![[_attachment/img/e3162558f165858f0b987e3ef1c82b55_MD5.jpeg]]
+![[_attachment/img/5d4476782ec710010ffc116a0bf0d0ed_MD5.png]]
 
 > Demo 地址： <https://codepen.io/airen/full/XWqzBJj>
 
@@ -749,7 +749,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![[_attachment/img/e3162558f165858f0b987e3ef1c82b55_MD5.jpeg]]
+![[_attachment/img/3193e9b3fa6f0c67124ebcbdd81a1b57_MD5.png]]
 
 > Demo 地址：<https://codepen.io/airen/full/WNJXKGe>
 
@@ -759,13 +759,13 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 我们可以用一个简单的流程图来描述：
 
-![[_attachment/img/4233cbd0ec649102ab53a08a43d8db11_MD5.png]]
+![[_attachment/img/677b40d7e7306720a120c50c0bdfad5d_MD5.png]]
 
 ## Flex 项目的最小值（min-size）
 
 在使用 Flexbox 布局的时候，很有可能其中某个 Flex 项目的文本内容很长，最终导致内容溢出：
 
-![[_attachment/img/27e2b05913b88dea0354a1ba06fedabc_MD5.jpeg]]
+![[_attachment/img/471678217d6c5f2bb22e753c0d2347ec_MD5.png]]
 
 你可能想到了在文本节点容器（它也是一个 Flex 项目）上设置：
 
@@ -795,7 +795,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 诸如此类的操作，我们只是希望防止内容（或长单词破坏页面布局）。如下图所示：
 
-![[_attachment/img/f58fe53be87f24e3d094b2a6812b30c8_MD5.jpeg]]
+![[_attachment/img/0b90a46d6d489c4ec584be0b980c161c_MD5.png]]
 
 设计师期望卡片标题在同一行，不能因为内容过长而让设计效果失去一致性。为此，我们可以使用上面代码 ② 来截取文本，并且在文本末尾出现三个点的省略号：
 
@@ -807,11 +807,11 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![[_attachment/img/f19b53c72b621b0619190aa640bedeef_MD5.gif]]
+![[_attachment/img/280805edadcfbed3a6a0814b065f62dc_MD5.gif]]
 
 或者输入了恶意的内容，比如带下划线的 URL 或没有空格的数字，字母等：
 
-![[_attachment/img/e498378649bb28e665735503381a7730_MD5.jpeg]]
+![[_attachment/img/20abbe5558a7435d4dae2b6168ae459f_MD5.png]]
 
 在这样的布局中，即使我们的标题元素是一个 Flex 项目，并且已显式设置了 `flex`：
 
@@ -823,7 +823,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 你会发现，卡片右侧的 Icon 还是被长内容挤出容器（溢出）：
 
-![[_attachment/img/b44b798a3f5dc0a44464350608f5466c_MD5.jpeg]]
+![[_attachment/img/22f996d2ab5bccb71c5157cd6a6ae57b_MD5.png]]
 
 你可能会想到，使用上面代码 ① 让长词断行显示：
 
@@ -835,7 +835,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 你会发现，并未起效果：
 
-![[_attachment/img/70da2e75ccb72d3258105fb3989539ce_MD5.jpeg]]
+![[_attachment/img/bac283a8a05a3dff029840ad96e1b35d_MD5.png]]
 
 即使你加了 `hyphens` 为 `auto` 也未生效。
 
@@ -874,7 +874,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 
 你会发现，后面三张卡片的左右两侧的 Flex 项目尺寸被挤压，甚至还会造成视觉上的变形：
 
-![[_attachment/img/113a035647a0e1375e8a8a92b73dd298_MD5.jpeg]]
+![[_attachment/img/0161937db2a9c5be79b08648f55095fc_MD5.png]]
 
 造成这个现象是由于标题（它也是一个 Flex 项目）内容过长（`max-content`），Flexbox 容器无剩余空间来放置它，这个时候将会对同一轴上的其他 Flex 项目进行挤压。大家知道，Flex 项目的 `flex` 的默认值为：
 
@@ -894,7 +894,7 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![[_attachment/img/5044e4f8f06063d67b2435beb60bd954_MD5.gif]]
+![[_attachment/img/25f7e5a4a942a4f81f1d462ecf13aa5f_MD5.gif]]
 
 另一种解法是在显式设置了 `width` 或 `height` 的 Flex 项目上重置 `flex-shrink` 的值为 `0`，告诉浏览器，即使 Flexbox 容器没有足够的剩余空间，你也不能来挤压我的空间：
 
@@ -905,11 +905,11 @@ Flex 容器 `.container` 有足够多的空间来放置这些 Flex 项目：
 }
 ```
 
-![[_attachment/img/771d3f874dc007529b9ed64cfde9af1c_MD5.jpeg]]
+![[_attachment/img/508c7b729344b1ef313144f6d5d0cf94_MD5.png]]
 
 相对而言，或者一劳永逸的方案是 **在显式设置了 `flex: 1` 的 Flex 项目的同时，也显式设置 `min-width` 的值为 `0`** 。
 
-![[_attachment/img/4fbd3a1f3ec70a267519676b1d68c9cd_MD5.gif]]
+![[_attachment/img/d67b85e6663e79bf7e3e3d3b3b454e79_MD5.gif]]
 
 > Demo 地址：<https://codepen.io/airen/full/NWMwLmX>
 
