@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "Flexbox or Grid",
-      "path": "CSS/Flexbox or Grid.md"
-    },
-    {
       "basename": "grid 构建创意性布局（十）",
       "path": "CSS/grid 构建创意性布局（十）.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
+    },
+    {
+      "basename": "Flexbox or Grid",
+      "path": "CSS/Flexbox or Grid.md"
     },
     {
       "basename": "grid 构建经典布局（九）",
@@ -119,10 +123,6 @@
     {
       "basename": "shell快捷键",
       "path": "Linux/shell快捷键.md"
-    },
-    {
-      "basename": "安装doker",
-      "path": "Linux/WSL/安装doker.md"
     },
     {
       "basename": "限制wsl内存",
