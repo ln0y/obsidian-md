@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "未命名",
-      "path": "Git/未命名.md"
+      "basename": "Git飞行规则(Flight Rules)",
+      "path": "Git/Git飞行规则(Flight Rules).md"
+    },
+    {
+      "basename": "批量修改历史 commit 信息",
+      "path": "Git/批量修改历史 commit 信息.md"
+    },
+    {
+      "basename": "git常用技巧",
+      "path": "Git/git常用技巧.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
       "basename": "Flexbox or Grid",
@@ -11,10 +23,6 @@
     {
       "basename": "flex 构建经典布局（四）",
       "path": "CSS/flex 构建经典布局（四）.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "grid 构建经典布局（九）",
@@ -71,10 +79,6 @@
     {
       "basename": "grid 子网格构建布局（八）",
       "path": "CSS/grid 子网格构建布局（八）.md"
-    },
-    {
-      "basename": "批量修改历史 commit 信息",
-      "path": "Git/批量修改历史 commit 信息.md"
     },
     {
       "basename": "编写防御性CSS",
@@ -195,10 +199,6 @@
     {
       "basename": "工厂模式",
       "path": "JavaScript/design pattern/工厂模式.md"
-    },
-    {
-      "basename": "设计模式之道",
-      "path": "JavaScript/design pattern/设计模式之道.md"
     }
   ],
   "omittedPaths": [],
