@@ -1,36 +1,40 @@
 {
   "recentFiles": [
     {
-      "basename": "grid 构建创意性布局（十）",
-      "path": "CSS/grid 构建创意性布局（十）.md"
-    },
-    {
-      "basename": "安装doker",
-      "path": "Linux/WSL/安装doker.md"
+      "basename": "未命名",
+      "path": "Git/未命名.md"
     },
     {
       "basename": "Flexbox or Grid",
       "path": "CSS/Flexbox or Grid.md"
     },
     {
-      "basename": "grid 构建经典布局（九）",
-      "path": "CSS/grid 构建经典布局（九）.md"
+      "basename": "flex 构建经典布局（四）",
+      "path": "CSS/flex 构建经典布局（四）.md"
     },
     {
       "basename": "front end",
       "path": "Post/front end.md"
     },
     {
-      "basename": "flex 计算（二）",
-      "path": "CSS/flex 计算（二）.md"
+      "basename": "grid 构建经典布局（九）",
+      "path": "CSS/grid 构建经典布局（九）.md"
+    },
+    {
+      "basename": "安装doker",
+      "path": "Linux/WSL/安装doker.md"
     },
     {
       "basename": "flex-basis（三）",
       "path": "CSS/flex-basis（三）.md"
     },
     {
-      "basename": "flex 构建经典布局（四）",
-      "path": "CSS/flex 构建经典布局（四）.md"
+      "basename": "grid 构建创意性布局（十）",
+      "path": "CSS/grid 构建创意性布局（十）.md"
+    },
+    {
+      "basename": "flex 计算（二）",
+      "path": "CSS/flex 计算（二）.md"
     },
     {
       "basename": "grid 布局（一）",
@@ -195,10 +199,6 @@
     {
       "basename": "设计模式之道",
       "path": "JavaScript/design pattern/设计模式之道.md"
-    },
-    {
-      "basename": "迭代器模式",
-      "path": "JavaScript/design pattern/迭代器模式.md"
     }
   ],
   "omittedPaths": [],

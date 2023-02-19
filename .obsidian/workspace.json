@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/grid 构建创意性布局（十）.md",
+                "file": "CSS/Flexbox or Grid.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/WSL/安装doker.md",
+                "file": "Post/front end.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -90,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "ellipsis",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -183,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/grid 构建创意性布局（十）.md"
+                "file": "CSS/Flexbox or Grid.md"
               }
             }
           }
@@ -200,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/grid 构建创意性布局（十）.md",
+                "file": "CSS/Flexbox or Grid.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/grid 构建创意性布局（十）.md",
+                "file": "CSS/Flexbox or Grid.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -253,20 +253,20 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "open-vscode:VSCode": false,
       "templater-obsidian:Templater": false,
-      "oz-clear-unused-images:Clear Unused Images": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "oz-clear-unused-images:Clear Unused Images": false
     }
   },
   "active": "96a7f3ea8ec8d2a3",
   "lastOpenFiles": [
-    "Linux/WSL/安装doker.md",
-    "CSS/Flexbox or Grid.md",
-    "CSS/grid 构建创意性布局（十）.md",
-    "CSS/grid 构建经典布局（九）.md",
-    "Post/front end.md",
-    "CSS/flex 计算（二）.md",
-    "CSS/flex-basis（三）.md",
     "CSS/flex 构建经典布局（四）.md",
+    "Post/front end.md",
+    "CSS/grid 构建经典布局（九）.md",
+    "Linux/WSL/安装doker.md",
+    "CSS/flex-basis（三）.md",
+    "CSS/grid 构建创意性布局（十）.md",
+    "CSS/Flexbox or Grid.md",
+    "CSS/flex 计算（二）.md",
     "CSS/grid 布局（一）.md",
     "CSS/grid 定义网格（二）.md"
   ]
