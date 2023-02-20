@@ -940,7 +940,7 @@ gap: 20px;
 - `minmax(min, max)` ： 是一个来定义大小范围的函数，大于等于 min 值，并且小于等于 max 值。如果 max 值小于 min 值，则该值会被视为 min 值。最大值可以设置为网格轨道系数值 `<flex>`，但最小值则不行。
 - `fit-content([<length> | <percentage>])` ： 相当于 `min(max-content, max(auto, argument))`，类似于 `auto` 的计算（即 `minmax(auto, max-content)`），除非网格轨道大小值是确定下来的，否则该值都大于 `auto` 的最小值。
 - `repeat([<positive-integer> | auto-fill | auto-fit], <track-list>) `： 表示网格轨道的重复部分，以一种更简洁的方式去表示大量而且重复列的表达式
-- [ ] 1
-你会发现，这些尺寸的计算大多会和内容有关，因此有关于这方面更详细的介绍，将放到内在尺寸 Web 设计这节课程中介绍。
+
+你会发现，这些尺寸的计算大多会和内容有关，因此有关于这方面更详细的介绍，将放到[[内在 Web 设计|内在尺寸 Web 设计]]中介绍。
 
 这里要提醒大家的是，**虽然本节中的示例大都以** **`grid-template-columns`** **属性为例，但不代表这些计算只存在于该属性上，相关的理论与细节也同样存在于** **`grid-template-rows`** **、`grid-auto-rows`** **和** **`grid-auto-columns`，只不过部分 CSS 的函数可以运用于** **`grid-auto-rows`** **和** **`grid-auto-columns`** **属性上，比如** **`repeat()`** **函数** 。

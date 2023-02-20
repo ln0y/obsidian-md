@@ -1,6 +1,8 @@
 body {
   --file-line-width: 100%;
   --embed-max-height: 700px;
+  --grid-bg-color1: rgba(255, 255, 255, 0.1);
+  --grid-bg-color2: transparent;
 }
 
 .theme-dark {
@@ -18,7 +20,19 @@ body {
 }
 
 .theme-dark .image-embed img {
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-image: linear-gradient(45deg,
+        var(--grid-bg-color1) 25%,
+        var(--grid-bg-color2) 0,
+        var(--grid-bg-color2) 75%,
+        var(--grid-bg-color1) 0),
+      linear-gradient(45deg,
+        var(--grid-bg-color1) 25%,
+        var(--grid-bg-color2) 0,
+        var(--grid-bg-color2) 75%,
+        var(--grid-bg-color1) 0);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
 }
 
 .code-block-linenum-wrap {

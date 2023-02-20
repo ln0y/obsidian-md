@@ -1165,9 +1165,7 @@ h3 small {
 
 Flex 容器不存在 `justify-items` 和 `justify-self` ，主要是因为 Flex 项目在 Flex 容器的主轴上被当作一个组。因此，没有将单个 Flex 项目从该组中分离出来的概念，但它们却存在于 CSS Grid 布局中。`justify-self` 和 `justify-items` 属性作用于内联轴（Inline Axis），以沿该轴将网格区域内的项目对齐。由于 Flexbox 布局是将 Flex 项目视为一个组，因此，这些属性未在 Flexbox 上下文（FFC）中实现。
 
-> 注意，有关于 `justify-self` 和 `justify-items` ，将会在后面的 CSS Grid 布局的课程中介绍。
-
-- [ ] 1
+> 注意，有关于 `justify-self` 和 `justify-items` ，将会在后面的 [[grid 对齐方式（六）#网格布局中的对齐方式|CSS Grid 布局]]中介绍。
 
 虽然在 Flexbox 布局中，无法在 Flex 容器的主轴上，直接使用 `justify-self` 和 `justify-items` 将 Flex 项目从一个组中分离出来，但我们可以在 Flex 项目中使用 `margin: auto` 将 Flex 项目在 Flex 容器的主轴上进行分组。
 

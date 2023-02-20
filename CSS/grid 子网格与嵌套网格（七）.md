@@ -290,8 +290,8 @@ body {
 
 > Demo 地址： <https://codepen.io/airen/full/JjZKNNp>
 
-然而，在现代 Web 布局中并不是无法可解，上图中 Web 设计师所期待的效果，我们还是有办法的，比如接下来要介绍的 **子网格** 就是一种很好的解决方案。除此之外， `display: contents` 也是一种解决方案，这种方案我们将在后面详细介绍！
-- [ ] 1
+然而，在现代 Web 布局中并不是无法可解，上图中 Web 设计师所期待的效果，我们还是有办法的，比如接下来要介绍的 **子网格** 就是一种很好的解决方案。除此之外， `display: contents` 也是一种解决方案，这种方案我们将在[[display contents]]中详细介绍！
+
 ## 什么是子网格（`subgrid`）？
 
 由于嵌套网格布局存在一定的缺陷，同时为了避免嵌套网格给布局带来的不利因素，[CSS Grid 布局模块 Level 2](https://www.w3.org/TR/css-grid-2/#subgrids) 新增了一个 `subgrid` （子网格）的新功能。
