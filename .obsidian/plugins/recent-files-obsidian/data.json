@@ -1,8 +1,44 @@
 {
   "recentFiles": [
     {
+      "basename": "内在 Web 设计",
+      "path": "CSS/内在 Web 设计.md"
+    },
+    {
+      "basename": "LTR 切换到 RTL 的常见错误",
+      "path": "CSS/LTR 切换到 RTL 的常见错误.md"
+    },
+    {
+      "basename": "grid 函数（四）",
+      "path": "CSS/grid 函数（四）.md"
+    },
+    {
+      "basename": "grid 子网格与嵌套网格（七）",
+      "path": "CSS/grid 子网格与嵌套网格（七）.md"
+    },
+    {
+      "basename": "grid 子网格构建布局（八）",
+      "path": "CSS/grid 子网格构建布局（八）.md"
+    },
+    {
+      "basename": "grid 构建经典布局（九）",
+      "path": "CSS/grid 构建经典布局（九）.md"
+    },
+    {
+      "basename": "Flexbox or Grid",
+      "path": "CSS/Flexbox or Grid.md"
+    },
+    {
       "basename": "web 中的 LTR 和 RTL",
       "path": "CSS/web 中的 LTR 和 RTL.md"
+    },
+    {
+      "basename": "Git飞行规则(Flight Rules)",
+      "path": "Git/Git飞行规则(Flight Rules).md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
       "basename": "布局技术术语",
@@ -13,16 +49,8 @@
       "path": "CSS/display contents.md"
     },
     {
-      "basename": "front end",
-      "path": "Post/front end.md"
-    },
-    {
       "basename": "vbs无窗口运行cmd",
       "path": "batch script/vbs无窗口运行cmd.md"
-    },
-    {
-      "basename": "Git飞行规则(Flight Rules)",
-      "path": "Git/Git飞行规则(Flight Rules).md"
     },
     {
       "basename": "批量修改历史 commit 信息",
@@ -33,16 +61,8 @@
       "path": "Git/git常用技巧.md"
     },
     {
-      "basename": "Flexbox or Grid",
-      "path": "CSS/Flexbox or Grid.md"
-    },
-    {
       "basename": "flex 构建经典布局（四）",
       "path": "CSS/flex 构建经典布局（四）.md"
-    },
-    {
-      "basename": "grid 构建经典布局（九）",
-      "path": "CSS/grid 构建经典布局（九）.md"
     },
     {
       "basename": "安装doker",
@@ -73,10 +93,6 @@
       "path": "CSS/grid 计算（三）.md"
     },
     {
-      "basename": "grid 函数（四）",
-      "path": "CSS/grid 函数（四）.md"
-    },
-    {
       "basename": "TODO看板",
       "path": "TODO看板.md"
     },
@@ -87,14 +103,6 @@
     {
       "basename": "grid 对齐方式（六）",
       "path": "CSS/grid 对齐方式（六）.md"
-    },
-    {
-      "basename": "grid 子网格与嵌套网格（七）",
-      "path": "CSS/grid 子网格与嵌套网格（七）.md"
-    },
-    {
-      "basename": "grid 子网格构建布局（八）",
-      "path": "CSS/grid 子网格构建布局（八）.md"
     },
     {
       "basename": "编写防御性CSS",
@@ -191,14 +199,6 @@
     {
       "basename": "CSS 设置自动滚动定位的“安全”间距",
       "path": "CSS/CSS 设置自动滚动定位的“安全”间距.md"
-    },
-    {
-      "basename": "Vue 3 Reactivity",
-      "path": "MVVM/Vue/Vue 3 Reactivity.md"
-    },
-    {
-      "basename": "观察者模式(发布-订阅模式)",
-      "path": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
     }
   ],
   "omittedPaths": [],

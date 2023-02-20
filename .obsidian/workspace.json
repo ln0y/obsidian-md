@@ -34,12 +34,12 @@
             }
           },
           {
-            "id": "96a7f3ea8ec8d2a3",
+            "id": "55a86fff7df4a13d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/Git飞行规则(Flight Rules).md",
+                "file": "CSS/LTR 切换到 RTL 的常见错误.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -47,25 +47,12 @@
             }
           },
           {
-            "id": "46b54fe65f1fc7b5",
+            "id": "6687489a5dbce702",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/web 中的 LTR 和 RTL.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a6f13631e66ebb01",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Post/front end.md",
+                "file": "CSS/内在 Web 设计.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -103,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ellipsis",
+                "query": "/\\bRAM\\b/",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -196,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/web 中的 LTR 和 RTL.md"
+                "file": "CSS/内在 Web 设计.md"
               }
             }
           }
@@ -213,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/web 中的 LTR 和 RTL.md",
+                "file": "CSS/内在 Web 设计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/web 中的 LTR 和 RTL.md",
+                "file": "CSS/内在 Web 设计.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -270,17 +257,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "46b54fe65f1fc7b5",
+  "active": "6687489a5dbce702",
   "lastOpenFiles": [
-    "CSS/布局技术术语.md",
-    "CSS/web 中的 LTR 和 RTL.md",
-    "CSS/display contents.md",
-    "Post/front end.md",
-    "batch script/vbs无窗口运行cmd.md",
-    "Git/Git飞行规则(Flight Rules).md",
-    "Git/批量修改历史 commit 信息.md",
-    "Git/git常用技巧.md",
+    "CSS/LTR 切换到 RTL 的常见错误.md",
+    "CSS/grid 函数（四）.md",
+    "CSS/grid 子网格与嵌套网格（七）.md",
+    "CSS/grid 子网格构建布局（八）.md",
+    "CSS/grid 构建经典布局（九）.md",
     "CSS/Flexbox or Grid.md",
-    "CSS/flex 构建经典布局（四）.md"
+    "CSS/web 中的 LTR 和 RTL.md",
+    "Git/Git飞行规则(Flight Rules).md",
+    "Post/front end.md",
+    "CSS/布局技术术语.md"
   ]
 }
