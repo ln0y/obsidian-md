@@ -2,7 +2,7 @@
 aliases: []
 tags: ['CSS', 'date/2023-02', 'year/2023', 'month/02']
 date: 2023-02-20-星期一 10:31:41
-update: 2023-02-20-星期一 10:31:56
+update: 2023-02-20-星期一 11:40:30
 ---
 
 在响应式 Web 设计（Responsive Web Design）诞生八周年之际，曾任 Mozilla 的设计师（现任苹果 Safari Web 开发者体验团队的布道者） [@Jen Simmons ](https://twitter.com/jensimmons) 在美国马萨诸塞州波士顿举办的 **An Event Apart Boston** 大会上分享的《[Designing Intrinsic Layouts](https://talks.jensimmons.com/15TjNW)》话题中，首次提出了 **内在 Web 设计** 的概念。在过去的几年里，@Jen Simmons 也称之为“**响应式网页设计 +** ”。但它到底是什么？它与响应式网页设计有什么不同？内在 Web 设计又将会用到哪些 CSS 技术？接下来，我们就一起来探讨这方向的话题！
@@ -292,13 +292,13 @@ h1[data-width='fit-content'] {
 
 很多时候我们并不知道容器的内容会是什么，所占宽度是多少，这就会造成上图的现象。所以我们设置元素尺寸大小时，使用 `min-content`、`max-content` 和 `fit-content` 就可以让元素的大小取决于它的内容大小。避免内容溢出或断行等现象。
 
-`min-content` 、`max-content` 和 `fit-content` 除了可以当作元素的 `width` 值之外，也可以作为 `flex-basis` 的值。当然，我们通过 《[08 | Flexbox 布局中的 flex-basis：谁能决定 Flex 项目的大小？](https://juejin.cn/book/7161370789680250917/section/7161623717074698247)》学习知道，Flexbox 中的 `flex-basis` 计算是复杂的。有关于它的计算这里不再重复累述。我们来看看 `min-content` 、`max-content` 和 `fit-content` 在 Flex 项目上的使用。分两种情况。
+`min-content` 、`max-content` 和 `fit-content` 除了可以当作元素的 `width` 值之外，也可以作为 `flex-basis` 的值。当然，我们通过 [[flex-basis（三）]] 学习知道，Flexbox 中的 `flex-basis` 计算是复杂的。有关于它的计算这里不再重复累述。我们来看看 `min-content` 、`max-content` 和 `fit-content` 在 Flex 项目上的使用。分两种情况。
 
 当 Flex 容器有足够空间时容纳所有 Flex 项目（Flex 项目未显式设置具体的宽度值），那么 Flex 项目的 `flex-basis` 值为 `max-content` 和 `fit-content` 的效果等同于 `auto` ：
 
 ![[_attachment/img/f5facbcde3110741c699b89815bb9468_MD5.png]]
 
-当 Flex 容器空间不足时，由于 `flex-shrink` 的默认值为 `1` ，Flex 项目会按照 `flex-shrink` 的计算公式（《[07 | Flexbox 中的计算：通过收缩因子比例收缩 Flex 项目](https://juejin.cn/book/7161370789680250917/section/7164357320367931399)》）对 Flex 项目的 `flex-basis` 进行计算，直到 Flex 项目的 `flex-basis` 计算值等于 `min-content` 为止（不再进行收缩）：
+当 Flex 容器空间不足时，由于 `flex-shrink` 的默认值为 `1` ，Flex 项目会按照 `flex-shrink` 的[[flex 计算（二）|计算公式]]对 Flex 项目的 `flex-basis` 进行计算，直到 Flex 项目的 `flex-basis` 计算值等于 `min-content` 为止（不再进行收缩）：
 
 ![[_attachment/img/62f51a4ab5ced1bebf7a72344f2cdf10_MD5.png]]
 
@@ -316,17 +316,17 @@ h1[data-width='fit-content'] {
 
 > Demo 地址：<https://codepen.io/airen/full/eYKaXEp>
 
-注意，上面示例中的 `flex-grow` 值是默认值 `0` ，而且前面关于 Flexbox 的课程中有多次提到过，Flex 项目的 `flex-basis` 最终计算值会受 Flex 容器大小（剩余空间和不足空间）、Flex 项目扩展因子（`flex-grow`）和 Flex 项目的收缩因子（`flex-shrink`）等参数影响。
+注意，上面示例中的 `flex-grow` 值是默认值 `0` ，而且前面关于 Flexbox 的文章中有多次提到过，Flex 项目的 `flex-basis` 最终计算值会受 Flex 容器大小（剩余空间和不足空间）、Flex 项目扩展因子（`flex-grow`）和 Flex 项目的收缩因子（`flex-shrink`）等参数影响。
 
 同样的，`min-content` 、`max-content` 也可以用于 CSS Grid 的布局中，可以用来设置网格轨道的尺寸。它们可以用于 `grid-template-columns` 、`grid-template-rows` 、`grid-auto-columns` 和 `grid-auto-rows` 属性上。它们运用于网格轨道的设置上要比用于 CSS Flexbox 布局中的 `flex-basis` 简单得多。
 
 另外，**CSS 的** **`fit-content`** **用于网格轨道尺寸设置时会被视为一个无效值** ，但在网格布局中，有一个 `fit-content(<length-percentage>)` 函数可用于设置网格轨道尺寸。我们需要注意的是 `fit-content` 和 `fit-content(<length-percentage>)` 是完全不同的特性。
 
-有关于 `fit-content()` 函数在网格中的使用，更详细的介绍可以阅读前面的课程《[13 | 可用于 Grid 布局中的函数](https://juejin.cn/book/7161370789680250917/section/7161624041885958151) 》。除此之外，`min-content` 和 `max-content` 还可以和 `minmax(MIN, MAX)` 函数结合起来使用，有关于这方面更详细的介绍，也在前面的课程（《[13 | 可用于 Grid 布局中的函数](https://juejin.cn/book/7161370789680250917/section/7161624041885958151) 》）中详细介绍，这里不再重复阐述。
+有关于 `fit-content()` 函数在网格中的使用，更详细的介绍可以阅读 [[grid 函数（四）#fit-content() 函数|前面的内容]]。除此之外，`min-content` 和 `max-content` 还可以和 `minmax(MIN, MAX)` 函数结合起来使用，有关于这方面更详细的介绍，也在 [[grid 函数（四）#minmax() 函数|前面的内容]] 中详细介绍，这里不再重复阐述。
 
 接下来，将 `grid-template-columns` 分别取 `auto` 、 `min-content` 和 `max-content` 值，来设置列网格轨道尺寸为例。
 
-记得在 《[18 | 使用 Grid 构建经典布局：10 种经典布局](https://juejin.cn/book/7161370789680250917/section/7161624078397210638) 》这节课中，介绍网格轨道尺寸设置为 `auto` 和 `1fr` 差别时介绍过，`grid-template-rows` 和 `grid-template-columns` 属性取值为 `auto` 时，意味着网格轨道占用可用空间来容纳内容。如果网格容器有剩余空间，那么 `auto` 是很“贪婪的”，它将占用容纳内容的空间加上它可以占用的最大剩余空间。
+记得在 [[grid 构建经典布局（九）]] 中，介绍网格轨道尺寸设置为 `auto` 和 `1fr` 差别时介绍过，`grid-template-rows` 和 `grid-template-columns` 属性取值为 `auto` 时，意味着网格轨道占用可用空间来容纳内容。如果网格容器有剩余空间，那么 `auto` 是很“贪婪的”，它将占用容纳内容的空间加上它可以占用的最大剩余空间。
 
 - **作为最大值** ：将是以网格轨道的网格项目的最大内容为最终计算值，与 `max-content` 不同的是，它允许通过对齐属性来扩展网格轨道尺寸。
 - **作为最小值** ：将是以网格轨道中的最大网格项目的最小尺寸为最终计算值，这主要由网格项目的 `min-width` 、`min-height` 或它们对应的逻辑属性 `min-inline-size` 或 `min-block-size` 指定。
@@ -358,7 +358,7 @@ h1[data-width='fit-content'] {
 
 `max-content` 它代表了单元格“最理想的大小”。单元格最小的宽度围绕着它的内容。例如，如果单元格的内容是一个句子，理想的单元格的宽度是整个句子的长度，无论长度是多少，单元格的内容都不会断行。
 
-正如前面课程《[13 | 可用于 Grid 布局中的函数](https://juejin.cn/book/7161370789680250917/section/7161624041885958151) 》中所述，在 `minmax()` 函数中的最小值和最大值都设置 `min-content` ，也更好地说明了 `min-content` 和 `max-content` 的差异：
+正如前面 [[grid 函数（四）]] 中所述，在 `minmax()` 函数中的最小值和最大值都设置 `min-content` ，也更好地说明了 `min-content` 和 `max-content` 的差异：
 
 ![[_attachment/img/a57e57a1b9a87031c7c54f2bf266d315_MD5.gif]]
 
@@ -675,7 +675,7 @@ main {
 
 ### 图片的适配处理
 
-响应式 Web 设计（RWD）其中有一个最大的特色，那就它具有灵活的图片（Flexible Images）。事实上，接触过响应式设计的同学都知道，在构建响应式 Web 设计时，图片的适配处理是较为麻烦的，时常令 Web 开发者感到头痛。其中原委这里不展开了，后面关于响应式 Web 设计的课程中会有相关的阐述。
+响应式 Web 设计（RWD）其中有一个最大的特色，那就它具有灵活的图片（Flexible Images）。事实上，接触过响应式设计的同学都知道，在构建响应式 Web 设计时，图片的适配处理是较为麻烦的，时常令 Web 开发者感到头痛。
 
 对于大多数 Web 开发者，处理响应式 Web 布局中的图片适配，最简单粗暴的方式就是：
 
@@ -699,7 +699,7 @@ img {
 
 > `background-size` 取值为 `cover` 和 `contain` 的表现与 `object-fit` 取值为 `cover` 和 `contain` 相同。但 `object-fit` 不能像 `background-size` 那样，取 `<length-percentage>` 值。
 
-大家需要注意的是，`background-size` 、`object-fit` 包括从未介绍过的 `mask-size` 取 `cover` 和 `contain` 值时，它的计算都是复杂的。它们如何计算已经超出我们这个课程的范畴了，这里不详细阐述。但是为了满足大家的好奇心，我把 `cover` 和 `contain` 计算所涉及到的公式告诉大家。就拿 `background-size` 为例吧：
+大家需要注意的是，`background-size` 、`object-fit` 包括从未介绍过的 `mask-size` 取 `cover` 和 `contain` 值时，它的计算都是复杂的。但是为了满足大家的好奇心，我把 `cover` 和 `contain` 计算所涉及到的公式告诉大家。就拿 `background-size` 为例吧：
 
 ![[_attachment/img/39027c6be0f7e524dd9074da29a4046d_MD5.png]]
 
@@ -765,7 +765,7 @@ if (Rimage ≥ Rcontainer) {
 
 ![[_attachment/img/7f4744f7f07bc6d490fcb5cd76cba5f1_MD5.png]]
 
-> **注意，有关于** **`<img>`** **的** **`srcset`** **和** **`sizes`** **特性以及** **`<picture>`** **已超出本节课的范畴，因此不在这里做过多阐述。感兴趣的同学，可以自己搜索相应关键词进行扩展阅读！**
+> **注意，有关于 `<img>` 的 `srcset` 和 `sizes` 特性以及 `<picture>` 不在这里做过多阐述。感兴趣的同学，可以自己搜索相应关键词进行扩展阅读！**
 
 对于内在 Web 设计，上述图片适配（用于 RWD 中灵活的图片）相关技术同样也可以用于内在 Web 设计（IWD）中。而且根据情况，**IWD 除了允许你使用灵活的图片之外**，**还可以使用固定尺寸的图片**。
 
@@ -845,7 +845,7 @@ header {
 
 > Demo 地址： <https://codepen.io/airen/full/ExRqgOo>
 
-我想再次提醒 Web 开发者的是，不管是 RWD 还是 IWD 中，图片的处理都不仅局限于课程中提到的相关的技术，要较好地处理图片的适配处理，我们所要涉及到的知识点是很多的，只不过这些知识点不适合于这里跟大家展开讨论。如果大家感兴趣，我们可以私下讨论。
+我想再次提醒 Web 开发者的是，不管是 RWD 还是 IWD 中，图片的处理都不仅局限于本文中提到的相关的技术，要较好地处理图片的适配处理，我们所要涉及到的知识点是很多的，只不过这些知识点不适合于这里跟大家展开讨论。
 
 ### 不依赖 CSS 媒体查询让 Web 具备响应式能力
 
@@ -871,7 +871,7 @@ header {
 
 > Demo 地址：<https://codepen.io/airen/full/WNyVRrJ>
 
-如果你掌握了前面的 CSS Flexbox 课程的知识，构建上面的效果，对你来说是件非常容易的事情：
+如果你掌握了前面的 CSS Flexbox 的知识，构建上面的效果，对你来说是件非常容易的事情：
 
 ```html
 <div class="card">
@@ -1002,6 +1002,7 @@ body {
 
 > 注意，这是有关于 `min()` 、`max()` 和 `clamp()` 函数最基本的使用，但这里不深入介绍，更详细的内容将会放在后面的“响应式 UI”的课程中介绍。
 
+- [ ] 1
 先抛开 `min()` 、`max()` 和 `clamp()` 更深入的介绍不说。事实上，它们都是内在 Web 设计中很重要的一部分。另外，到目前为止，我们所讨论的是如何影响元素尺寸（它如何占用空间的和大小）。还未讨论如何影响元素之间的间距，比如：
 
 - 相邻元素之间的间距，对应 CSS 中 `margin` 的使用；
@@ -1078,6 +1079,8 @@ body {
 
 > **注意，上图这个效果是响应 UI 的最终效果，将会在后面花一节课来专门介绍，CSS 如何构建上图这种响应 UI 的布局技术** 。
 
+- [ ] 1
+
 ### CSS 容器查询
 
 内在 Web 设计还有一个可用的 CSS 特性就是 **CSS 容器查询特性** 。该特性一直以来都是 Web 开发者最为期待的特性：
@@ -1110,13 +1113,15 @@ body {
 
 你可能现在不知道 CSS 容器查询 `@container` 特性是怎么一回事，那也不用担心，因为我们在介绍下一代响应式 Web 设计的时候有专门一节课会介绍该特性。如果你实在等不及，可以先行了解 CSS 容器查询特性是什么东东！
 
+- [ ] 1
+
 ## 案例
 
 [@Jen Simmons 在她分享的 PPT](https://talks.jensimmons.com/15TjNW/slides) 中介绍了一些如何使用 CSS Flexbox 和 CSS Grid 布局技术实现内在 Web 设计的案例。你可以从 labs.jensimmons.com 中获取到相关的案例：
 
 ![[_attachment/img/c21e59c509ce1886ca5fe716f95f389c_MD5.png]]
 
-另外，使用课程中介绍的 CSS 技术，你还可以实现类似上图中这种杂志封面的布局效果：
+另外，你还可以实现类似上图中这种杂志封面的布局效果：
 
 ![[_attachment/img/b1db5aad97fa397eec6b929f0a40f970_MD5.png]]
 

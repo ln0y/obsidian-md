@@ -5,6 +5,10 @@
       "path": "CSS/内在 Web 设计.md"
     },
     {
+      "basename": "flex 计算（二）",
+      "path": "CSS/flex 计算（二）.md"
+    },
+    {
       "basename": "LTR 切换到 RTL 的常见错误",
       "path": "CSS/LTR 切换到 RTL 的常见错误.md"
     },
@@ -75,10 +79,6 @@
     {
       "basename": "grid 构建创意性布局（十）",
       "path": "CSS/grid 构建创意性布局（十）.md"
-    },
-    {
-      "basename": "flex 计算（二）",
-      "path": "CSS/flex 计算（二）.md"
     },
     {
       "basename": "grid 布局（一）",
