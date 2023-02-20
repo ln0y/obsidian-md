@@ -34,25 +34,12 @@
             }
           },
           {
-            "id": "72194e4146e50eb6",
+            "id": "7684005524075dbc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/grid 子网格与嵌套网格（七）.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "553ffd7a4b5ecffb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/组件驱动式 Web 设计.md",
+                "file": "JavaScript/functional programming/命令式 vs 函数式.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -60,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/组件驱动式 Web 设计.md"
+                "file": "JavaScript/functional programming/命令式 vs 函数式.md"
               }
             }
           }
@@ -200,7 +187,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/组件驱动式 Web 设计.md",
+                "file": "JavaScript/functional programming/命令式 vs 函数式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +204,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/组件驱动式 Web 设计.md",
+                "file": "JavaScript/functional programming/命令式 vs 函数式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -257,10 +244,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "553ffd7a4b5ecffb",
+  "active": "7684005524075dbc",
   "lastOpenFiles": [
-    "CSS/grid 对齐方式（六）.md",
     "CSS/组件驱动式 Web 设计.md",
+    "CSS/grid 对齐方式（六）.md",
     "Post/front end.md",
     "todo query.md",
     "CSS/grid 子网格与嵌套网格（七）.md",

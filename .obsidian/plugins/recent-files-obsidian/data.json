@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "命令式 vs 函数式",
+      "path": "JavaScript/functional programming/命令式 vs 函数式.md"
+    },
+    {
       "basename": "组件驱动式 Web 设计",
       "path": "CSS/组件驱动式 Web 设计.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Array.prototype.map",
       "path": "JavaScript/byhand/Array.prototype.map.md"
-    },
-    {
-      "basename": "Tree Shaking",
-      "path": "infrastructure/bundler/Tree Shaking.md"
     }
   ],
   "omittedPaths": [],
