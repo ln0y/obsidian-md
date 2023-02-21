@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "todo query",
-      "path": "todo query.md"
+      "basename": "不可变数据",
+      "path": "JavaScript/functional programming/不可变数据.md"
+    },
+    {
+      "basename": "数据类型",
+      "path": "JavaScript/数据类型.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
+      "basename": "函数是一等公民",
+      "path": "JavaScript/functional programming/函数是一等公民.md"
     },
     {
       "basename": "纯函数 & 副作用",
@@ -13,16 +25,32 @@
       "path": "JavaScript/functional programming/命令式 vs 函数式.md"
     },
     {
+      "basename": "设计模式之道",
+      "path": "JavaScript/design pattern/设计模式之道.md"
+    },
+    {
+      "basename": "观察者模式(发布-订阅模式)",
+      "path": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
+    },
+    {
+      "basename": "单例模式",
+      "path": "JavaScript/design pattern/单例模式.md"
+    },
+    {
+      "basename": "原型模式",
+      "path": "JavaScript/design pattern/原型模式.md"
+    },
+    {
+      "basename": "todo query",
+      "path": "todo query.md"
+    },
+    {
       "basename": "组件驱动式 Web 设计",
       "path": "CSS/组件驱动式 Web 设计.md"
     },
     {
       "basename": "grid 对齐方式（六）",
       "path": "CSS/grid 对齐方式（六）.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "grid 子网格与嵌套网格（七）",
@@ -171,34 +199,6 @@
     {
       "basename": "zshrc",
       "path": "Linux/WSL/zshrc.md"
-    },
-    {
-      "basename": "vim快捷键",
-      "path": "Linux/vim快捷键.md"
-    },
-    {
-      "basename": "shell快捷键",
-      "path": "Linux/shell快捷键.md"
-    },
-    {
-      "basename": "限制wsl内存",
-      "path": "Linux/WSL/限制wsl内存.md"
-    },
-    {
-      "basename": "ubuntu镜像源",
-      "path": "Linux/WSL/ubuntu镜像源.md"
-    },
-    {
-      "basename": "策略模式",
-      "path": "JavaScript/design pattern/策略模式.md"
-    },
-    {
-      "basename": "正则表达式",
-      "path": "RegExp/正则表达式.md"
-    },
-    {
-      "basename": "memoize",
-      "path": "JavaScript/byhand/memoize.md"
     }
   ],
   "omittedPaths": [],

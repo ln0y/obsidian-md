@@ -445,6 +445,10 @@ format = " [$duration](bold yellow)"
     },
   })
 
+  function removeURLWartermark(url) {
+    return url.replace(/((zoom-)|watermark)(.*)$/g, `zoom-1.image`)
+  }
+
   async function getRealImgUrl(url) {
     const res = await fetch(url).catch()
     if (!res.ok) return url
@@ -458,13 +462,13 @@ format = " [$duration](bold yellow)"
     const domA = $$('.article a,.article-content a')
 
     Array.from(domImg, async i => {
-      i.src = await getRealImgUrl(i.src.replace(/(?<=zoom-)(.*)$/g, `1.image`))
+      i.src = await getRealImgUrl(removeURLWartermark(i.src))
     })
     Array.from(domA, i => ((i.href = i.title), i.removeAttribute('title')))
   }
 
   async function processImageTag(anc, lnk) {
-    const realLink = lnk && (await getRealImgUrl(lnk))
+    const realLink = lnk && (await getRealImgUrl(removeURLWartermark(lnk)))
     return {
       anc,
       lnk: realLink,
