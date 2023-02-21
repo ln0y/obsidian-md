@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "todo query",
+      "path": "todo query.md"
+    },
+    {
       "basename": "纯函数 & 副作用",
       "path": "JavaScript/functional programming/纯函数 & 副作用.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "front end",
       "path": "Post/front end.md"
-    },
-    {
-      "basename": "todo query",
-      "path": "todo query.md"
     },
     {
       "basename": "grid 子网格与嵌套网格（七）",

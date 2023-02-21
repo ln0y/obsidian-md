@@ -183,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/functional programming/纯函数 & 副作用.md"
+                "file": "todo query.md"
               }
             }
           }
@@ -200,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/functional programming/纯函数 & 副作用.md",
+                "file": "todo query.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/functional programming/纯函数 & 副作用.md",
+                "file": "todo query.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
