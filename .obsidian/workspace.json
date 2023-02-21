@@ -45,9 +45,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "92c0c2a70e270321",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/functional programming/纯函数 & 副作用.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -77,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "task-todo:/\\s*1\\s*$/",
+                "query": "tag:#2：姓名处理函数",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -170,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/functional programming/命令式 vs 函数式.md"
+                "file": "JavaScript/functional programming/纯函数 & 副作用.md"
               }
             }
           }
@@ -187,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/functional programming/命令式 vs 函数式.md",
+                "file": "JavaScript/functional programming/纯函数 & 副作用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/functional programming/命令式 vs 函数式.md",
+                "file": "JavaScript/functional programming/纯函数 & 副作用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,8 +257,9 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "7684005524075dbc",
+  "active": "a510c88b15af9cae",
   "lastOpenFiles": [
+    "JavaScript/functional programming/命令式 vs 函数式.md",
     "CSS/组件驱动式 Web 设计.md",
     "CSS/grid 对齐方式（六）.md",
     "Post/front end.md",
@@ -254,7 +268,6 @@
     "CSS/grid 子网格构建布局（八）.md",
     "CSS/grid 计算（三）.md",
     "CSS/flex 布局（一）.md",
-    "CSS/grid 定义网格（二）.md",
-    "CSS/grid 布局（一）.md"
+    "CSS/grid 定义网格（二）.md"
   ]
 }

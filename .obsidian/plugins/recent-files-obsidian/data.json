@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "纯函数 & 副作用",
+      "path": "JavaScript/functional programming/纯函数 & 副作用.md"
+    },
+    {
       "basename": "命令式 vs 函数式",
       "path": "JavaScript/functional programming/命令式 vs 函数式.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "memoize",
       "path": "JavaScript/byhand/memoize.md"
-    },
-    {
-      "basename": "Array.prototype.map",
-      "path": "JavaScript/byhand/Array.prototype.map.md"
     }
   ],
   "omittedPaths": [],
