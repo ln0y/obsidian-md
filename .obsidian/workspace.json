@@ -45,9 +45,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f2edb82706b66e17",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/functional programming/Immutability.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -170,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/functional programming/不可变数据.md"
+                "file": "JavaScript/functional programming/Immutability.md"
               }
             }
           }
@@ -187,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/functional programming/不可变数据.md",
+                "file": "JavaScript/functional programming/Immutability.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/functional programming/不可变数据.md",
+                "file": "JavaScript/functional programming/Immutability.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,10 +257,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "22817d8421832758",
+  "active": "f2edb82706b66e17",
   "lastOpenFiles": [
-    "JavaScript/数据类型.md",
     "JavaScript/functional programming/不可变数据.md",
+    "JavaScript/数据类型.md",
     "Post/front end.md",
     "JavaScript/functional programming/函数是一等公民.md",
     "JavaScript/functional programming/纯函数 & 副作用.md",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Immutability",
+      "path": "JavaScript/functional programming/Immutability.md"
+    },
+    {
       "basename": "不可变数据",
       "path": "JavaScript/functional programming/不可变数据.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "前端",
       "path": "前端.md"
-    },
-    {
-      "basename": "zshrc",
-      "path": "Linux/WSL/zshrc.md"
     }
   ],
   "omittedPaths": [],
