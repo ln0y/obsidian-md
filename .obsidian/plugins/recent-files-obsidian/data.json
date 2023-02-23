@@ -1,16 +1,64 @@
 {
   "recentFiles": [
     {
+      "basename": "偏函数 & 柯里化",
+      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
+    },
+    {
+      "basename": "curry & uncurry",
+      "path": "JavaScript/functional programming/curry & uncurry.md"
+    },
+    {
       "basename": "深入函数组合(Composition)思想",
       "path": "JavaScript/functional programming/深入函数组合(Composition)思想.md"
     },
     {
-      "basename": "Reduce：函数式语言的“万金油”",
-      "path": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md"
+      "basename": "装饰器模式",
+      "path": "JavaScript/design pattern/装饰器模式.md"
+    },
+    {
+      "basename": "工厂模式",
+      "path": "JavaScript/design pattern/工厂模式.md"
+    },
+    {
+      "basename": "设计模式之道",
+      "path": "JavaScript/design pattern/设计模式之道.md"
+    },
+    {
+      "basename": "代理模式",
+      "path": "JavaScript/design pattern/代理模式.md"
+    },
+    {
+      "basename": "单例模式",
+      "path": "JavaScript/design pattern/单例模式.md"
+    },
+    {
+      "basename": "原型模式",
+      "path": "JavaScript/design pattern/原型模式.md"
+    },
+    {
+      "basename": "状态模式",
+      "path": "JavaScript/design pattern/状态模式.md"
+    },
+    {
+      "basename": "适配器模式",
+      "path": "JavaScript/design pattern/适配器模式.md"
+    },
+    {
+      "basename": "迭代器模式",
+      "path": "JavaScript/design pattern/迭代器模式.md"
+    },
+    {
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
       "basename": "声明式数据流：从链式调用到“回调地狱”",
       "path": "JavaScript/functional programming/声明式数据流：从链式调用到“回调地狱”.md"
+    },
+    {
+      "basename": "Reduce：函数式语言的“万金油”",
+      "path": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md"
     },
     {
       "basename": "Git飞行规则(Flight Rules)",
@@ -35,10 +83,6 @@
     {
       "basename": "Immutability",
       "path": "JavaScript/functional programming/Immutability.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "不可变数据",
@@ -69,20 +113,8 @@
       "path": "JavaScript/functional programming/命令式 vs 函数式.md"
     },
     {
-      "basename": "设计模式之道",
-      "path": "JavaScript/design pattern/设计模式之道.md"
-    },
-    {
       "basename": "观察者模式(发布-订阅模式)",
       "path": "JavaScript/design pattern/观察者模式(发布-订阅模式).md"
-    },
-    {
-      "basename": "单例模式",
-      "path": "JavaScript/design pattern/单例模式.md"
-    },
-    {
-      "basename": "原型模式",
-      "path": "JavaScript/design pattern/原型模式.md"
     },
     {
       "basename": "组件驱动式 Web 设计",
@@ -167,38 +199,6 @@
     {
       "basename": "display contents",
       "path": "CSS/display contents.md"
-    },
-    {
-      "basename": "vbs无窗口运行cmd",
-      "path": "batch script/vbs无窗口运行cmd.md"
-    },
-    {
-      "basename": "批量修改历史 commit 信息",
-      "path": "Git/批量修改历史 commit 信息.md"
-    },
-    {
-      "basename": "git常用技巧",
-      "path": "Git/git常用技巧.md"
-    },
-    {
-      "basename": "flex 构建经典布局（四）",
-      "path": "CSS/flex 构建经典布局（四）.md"
-    },
-    {
-      "basename": "安装doker",
-      "path": "Linux/WSL/安装doker.md"
-    },
-    {
-      "basename": "flex-basis（三）",
-      "path": "CSS/flex-basis（三）.md"
-    },
-    {
-      "basename": "grid 构建创意性布局（十）",
-      "path": "CSS/grid 构建创意性布局（十）.md"
-    },
-    {
-      "basename": "编写防御性CSS",
-      "path": "CSS/编写防御性CSS.md"
     }
   ],
   "omittedPaths": [],

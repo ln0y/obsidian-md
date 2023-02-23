@@ -34,46 +34,33 @@
             }
           },
           {
-            "id": "50e2375a5e3d16b0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "96ee04599d9ebec5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript/functional programming/声明式数据流：从链式调用到“回调地狱”.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "f03d117cda8895b4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/functional programming/深入函数组合(Composition)思想.md",
+                "file": "JavaScript/functional programming/偏函数 & 柯里化.md",
                 "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cb498dfd309c90e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/functional programming/curry & uncurry.md",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#2：姓名处理函数",
+                "query": "开放封闭",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -196,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/functional programming/深入函数组合(Composition)思想.md"
+                "file": "JavaScript/functional programming/偏函数 & 柯里化.md"
               }
             }
           }
@@ -213,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/functional programming/深入函数组合(Composition)思想.md",
+                "file": "JavaScript/functional programming/偏函数 & 柯里化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/functional programming/深入函数组合(Composition)思想.md",
+                "file": "JavaScript/functional programming/偏函数 & 柯里化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -272,15 +259,15 @@
   },
   "active": "f03d117cda8895b4",
   "lastOpenFiles": [
-    "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md",
+    "JavaScript/functional programming/curry & uncurry.md",
+    "JavaScript/functional programming/偏函数 & 柯里化.md",
     "JavaScript/functional programming/深入函数组合(Composition)思想.md",
-    "JavaScript/functional programming/声明式数据流：从链式调用到“回调地狱”.md",
-    "Git/Git飞行规则(Flight Rules).md",
-    "JavaScript/byhand/Array.prototype.reduce.md",
-    "JavaScript/PromiseA+实现.md",
-    "JavaScript/functional programming/DRY.md",
-    "MVVM/Vue/Logic Reuse.md",
-    "JavaScript/functional programming/Immutability.md",
-    "Post/front end.md"
+    "JavaScript/design pattern/装饰器模式.md",
+    "JavaScript/design pattern/工厂模式.md",
+    "JavaScript/design pattern/设计模式之道.md",
+    "JavaScript/design pattern/代理模式.md",
+    "JavaScript/design pattern/单例模式.md",
+    "JavaScript/design pattern/原型模式.md",
+    "JavaScript/design pattern/状态模式.md"
   ]
 }

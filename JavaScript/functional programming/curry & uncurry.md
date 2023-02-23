@@ -1,6 +1,6 @@
 ---
 aliases: []
-tags: ['JavaScript/functional_programming','date/2022-03','year/2022','month/03']
+tags: ['JavaScript/functional_programming', 'date/2022-03', 'year/2022', 'month/03']
 date: 2022-03-15-Tuesday 15:15:48
 update: 2022-05-15-Sunday 18:40:47
 ---
@@ -49,13 +49,15 @@ const filterNaN = array => {
 
 ```js
 const lowerThan10 = value => value < 10
-[12, 3, 4, 89].filter(lowerThan10)
+;[(12, 3, 4, 89)].filter(lowerThan10)
 ```
 
 继续延伸我们的场景，如果输入比较复杂，想先过滤出小于 10 的项目，需要先保证数组中每一项都是 Number 类型，那么可以使用下面的代码：
 
 ```js
-[12, 'sd', null, undefined, {}, 23, 45, 3, 6].filter(value=> !isNaN(value) && value !== null).filter(lowerThan10)
+;[12, 'sd', null, undefined, {}, 23, 45, 3, 6]
+  .filter(value => !isNaN(value) && value !== null)
+  .filter(lowerThan10)
 ```
 
 我们通过组合，实现了更多的场景。
@@ -96,8 +98,7 @@ const addEvent = (function () {
     return function (type, element, handler, capture) {
       element.addEventListener(type, handler, capture)
     }
-  }
-  else if (window.attachEvent) {
+  } else if (window.attachEvent) {
     return function (type, element, fn) {
       element.attachEvent('on' + type, fn)
     }
@@ -130,16 +131,16 @@ const curry = (fn, length) => {
 
 ```js
 const curry = fn =>
-  judge = (...arg1) => // judge暴露至全局
+  (judge = (
+    ...arg1 // judge暴露至全局
+  ) =>
     // 判断参数是否已满
     arg1.length >= fn.length
       ? fn(...arg1) // 执行函数
-      : (...arg2) => judge(...arg1, ...arg2) // 将参数合并，继续递归调用
+      : (...arg2) => judge(...arg1, ...arg2)) // 将参数合并，继续递归调用
 
 const currying = (fn, ...arg) =>
-  arg.length >= fn.length
-    ? fn(...arg)
-    : (...args) => currying(fn, ...arg, ...args)
+  arg.length >= fn.length ? fn(...arg) : (...args) => currying(fn, ...arg, ...args)
 ```
 
 ### uncurry
@@ -149,20 +150,20 @@ const currying = (fn, ...arg) =>
 有一个 UI 组件 Toast，如下代码简化为：
 
 ```js
-function Toast (options) {
+function Toast(options) {
   this.message = ''
 }
 Toast.prototype = {
   showMessage: function () {
     console.log(this.message)
-  }
+  },
 }
 ```
 
 这样的代码，使得 Toast 实例均可使用 ShowMessage 方法，使用方式如下：
 
 ```js
-new Toast({message: 'show me'}).showMessage()
+new Toast({ message: 'show me' }).showMessage()
 ```
 
 如果脱离组件场景，我们不想实现 Toast 实例，而使用`Toast.prototype.showMessage`方法，预期通过反 curry 化实现，如下代码：
@@ -170,9 +171,13 @@ new Toast({message: 'show me'}).showMessage()
 ```js
 // 反 curry 化通用函数
 // 核心实现思想是：先取出要执行 fn 方法的对象，标记为 obj1，同时从 arguments 中删除，在调用 fn 时，将 fn 执行上下文环境改为 obj1
-const unCurry = fn => (...args) => fn.call(...args)
+const unCurry =
+  fn =>
+  (...args) =>
+    fn.call(...args)
+
 const obj = {
-  message: 'uncurry test'
+  message: 'uncurry test',
 }
 const unCurryShowMessaage = unCurry(Toast.prototype.showMessage)
 unCurryShowMessaage(obj) // Toast.prototype.showMessage.call(obj)
@@ -182,18 +187,20 @@ unCurryShowMessaage(obj) // Toast.prototype.showMessage.call(obj)
 
 ```js
 // 反 curry 化通用函数挂载在函数原型上
-Function.prototype.unCurry = Function.prototype.unCurry || function () {
-  const self = this
-  return function () {
-    return Function.prototype.call.apply(self, arguments)
+Function.prototype.unCurry =
+  Function.prototype.unCurry ||
+  function () {
+    const self = this
+    return function () {
+      return Function.prototype.call.apply(self, arguments)
+    }
   }
-}
 ```
 
 当然，我们可以借助 bind 实现：
 
 ```js
-Function.prototype.unCurry = function() {
+Function.prototype.unCurry = function () {
   return this.call.bind(this)
 }
 ```
@@ -216,5 +223,5 @@ console.log(test)
 ```js
 // 利用反 curry 化，创建一个检测数据类型的函数 checkType
 let checkType = uncurring(Object.prototype.toString)
-checkType('foo'); // [object String]
+checkType('foo') // [object String]
 ```
