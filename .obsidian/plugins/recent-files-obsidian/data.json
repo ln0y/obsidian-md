@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Git飞行规则(Flight Rules)",
+      "path": "Git/Git飞行规则(Flight Rules).md"
+    },
+    {
+      "basename": "声明式数据流：从链式调用到“回调地狱”",
+      "path": "JavaScript/functional programming/声明式数据流：从链式调用到“回调地狱”.md"
+    },
+    {
       "basename": "Reduce：函数式语言的“万金油”",
       "path": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md"
     },
@@ -149,10 +157,6 @@
       "path": "CSS/web 中的 LTR 和 RTL.md"
     },
     {
-      "basename": "Git飞行规则(Flight Rules)",
-      "path": "Git/Git飞行规则(Flight Rules).md"
-    },
-    {
       "basename": "布局技术术语",
       "path": "CSS/布局技术术语.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "页面布局",
       "path": "CSS/页面布局.md"
-    },
-    {
-      "basename": "WSL必备",
-      "path": "Linux/WSL/WSL必备.md"
     }
   ],
   "omittedPaths": [],

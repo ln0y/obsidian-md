@@ -47,12 +47,25 @@
             }
           },
           {
-            "id": "2144748ef1459edb",
+            "id": "96ee04599d9ebec5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/byhand/Array.prototype.reduce.md",
+                "file": "JavaScript/functional programming/声明式数据流：从链式调用到“回调地狱”.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ef15ee7fe9b3969e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git/Git飞行规则(Flight Rules).md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -60,7 +73,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -183,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md"
+                "file": "Git/Git飞行规则(Flight Rules).md"
               }
             }
           }
@@ -200,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md",
+                "file": "Git/Git飞行规则(Flight Rules).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md",
+                "file": "Git/Git飞行规则(Flight Rules).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -257,17 +270,17 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "50e2375a5e3d16b0",
+  "active": "ef15ee7fe9b3969e",
   "lastOpenFiles": [
-    "JavaScript/byhand/Array.prototype.reduce.md",
+    "JavaScript/functional programming/声明式数据流：从链式调用到“回调地狱”.md",
     "JavaScript/functional programming/Reduce：函数式语言的“万金油”.md",
+    "JavaScript/byhand/Array.prototype.reduce.md",
     "JavaScript/PromiseA+实现.md",
     "JavaScript/functional programming/DRY.md",
     "MVVM/Vue/Logic Reuse.md",
     "JavaScript/functional programming/Immutability.md",
     "Post/front end.md",
     "JavaScript/functional programming/不可变数据.md",
-    "todo query.md",
-    "TODO看板.md"
+    "todo query.md"
   ]
 }
