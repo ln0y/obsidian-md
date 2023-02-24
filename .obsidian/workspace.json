@@ -34,12 +34,25 @@
             }
           },
           {
-            "id": "f03d117cda8895b4",
+            "id": "b3c44e70c4a9e0b3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/functional programming/偏函数 & 柯里化.md",
+                "file": "JavaScript/functional programming/范畴论.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5344481b9d4a2879",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/functional programming/Monad.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -47,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -77,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "开放封闭",
+                "query": "修言",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -170,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Post/front end.md"
+                "file": "JavaScript/functional programming/Monad.md"
               }
             }
           }
@@ -187,7 +200,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Post/front end.md",
+                "file": "JavaScript/functional programming/Monad.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +217,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Post/front end.md",
+                "file": "JavaScript/functional programming/Monad.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -244,11 +257,24 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "e8df78f4a6e2abf7",
+  "active": "5344481b9d4a2879",
   "lastOpenFiles": [
-    "JavaScript/functional programming/偏函数 & 柯里化.md",
-    "JavaScript/functional programming/curry & uncurry.md",
+    "_attachment/img/6a1125b9d57bae71916fe3b9bce1844c_MD5.png",
+    "_attachment/img/db3b70abf53ca73ef794e2a02a943693_MD5.png",
+    "JavaScript/functional programming/范畴论.md",
+    "JavaScript/functional programming/Monad.md",
+    "JavaScript/functional programming/Functor.md",
+    "_attachment/img/bf392dc1375e51109cc75c709ceeb2bd_MD5.png",
+    "_attachment/img/180d80a5785c7d7ce4601c2116c4e8cb_MD5.png",
+    "_attachment/img/5734f395d4ae961420977098a3a12b5d_MD5.png",
+    "Post/front end.md",
+    "JavaScript/functional programming/函数是一等公民.md",
     "JavaScript/functional programming/深入函数组合(Composition)思想.md",
+    "_attachment/img/f00c51914b12b394890903b47fdce138_MD5.png",
+    "_attachment/img/7927b26ccec3c3c29692e23443cb2211_MD5.png",
+    "JavaScript/functional programming/偏函数 & 柯里化.md",
+    "todo query.md",
+    "JavaScript/functional programming/curry & uncurry.md",
     "JavaScript/design pattern/装饰器模式.md",
     "JavaScript/design pattern/工厂模式.md",
     "JavaScript/design pattern/设计模式之道.md",
