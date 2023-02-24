@@ -17,14 +17,15 @@
         "createInSameFolderAsActiveFile": false
       },
       "appendLink": false,
-      "incrementFileName": true,
       "openFileInNewTab": {
         "enabled": false,
         "direction": "vertical",
         "focus": true
       },
       "openFile": true,
-      "openFileInMode": "source"
+      "openFileInMode": "source",
+      "setFileExistsBehavior": true,
+      "fileExistsMode": "Increment the file name"
     },
     {
       "id": "9a470810-5478-4148-b529-2bba48909d03",
@@ -233,5 +234,12 @@
   ],
   "macros": [],
   "inputPrompt": "single-line",
-  "devMode": false
+  "devMode": false,
+  "templateFolderPath": "_template",
+  "migrations": {
+    "migrateToMacroIDFromEmbeddedMacro": true,
+    "useQuickAddTemplateFolder": true,
+    "incrementFileNameSettingMoveToDefaultBehavior": true,
+    "mutualExclusionInsertAfterAndWriteToBottomOfFile": true
+  }
 }

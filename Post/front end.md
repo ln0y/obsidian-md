@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2023-02-03-星期五 17:32:56
+update: 2023-02-24-星期五 15:51:51
 ---
 
 ## React
@@ -316,6 +316,8 @@ update: 2023-02-03-星期五 17:32:56
 <https://wangchujiang.com/reference/>
 
 <https://missing-semester-cn.github.io/>
+
+<https://beta.character.ai/chat?char=mwBfO4Qi28yBAjuguplW4hQjzUErO40QLL_FwknfKto>
 
 ```toml
 # https://github.com/devblackops/Terminal-Icons

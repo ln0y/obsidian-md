@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "front end",
+      "path": "Post/front end.md"
+    },
+    {
       "basename": "偏函数 & 柯里化",
       "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
     },
@@ -47,10 +51,6 @@
     {
       "basename": "迭代器模式",
       "path": "JavaScript/design pattern/迭代器模式.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "声明式数据流：从链式调用到“回调地狱”",
