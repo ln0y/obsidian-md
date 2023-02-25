@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "Monoid",
+      "path": "JavaScript/functional programming/Monoid.md"
+    },
+    {
       "basename": "Semigroup",
       "path": "JavaScript/functional programming/Semigroup.md"
     },
     {
-      "basename": "偏函数 & 柯里化",
-      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
+      "basename": "front end",
+      "path": "Post/front end.md"
     },
     {
       "basename": "范畴论",
       "path": "JavaScript/functional programming/范畴论.md"
+    },
+    {
+      "basename": "偏函数 & 柯里化",
+      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
     },
     {
       "basename": "Monad",
@@ -19,10 +27,6 @@
     {
       "basename": "Functor",
       "path": "JavaScript/functional programming/Functor.md"
-    },
-    {
-      "basename": "front end",
-      "path": "Post/front end.md"
     },
     {
       "basename": "函数是一等公民",
@@ -195,10 +199,6 @@
     {
       "basename": "LTR 切换到 RTL 的常见错误",
       "path": "CSS/LTR 切换到 RTL 的常见错误.md"
-    },
-    {
-      "basename": "grid 构建经典布局（九）",
-      "path": "CSS/grid 构建经典布局（九）.md"
     }
   ],
   "omittedPaths": [],

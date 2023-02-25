@@ -192,15 +192,15 @@ console.log(isAndAssociative, isOrAssociative, isAndClosed, isOrClosed)
 示例字符串拼接（取并集）运算如下：
 
 ```js
-'xiuyan' + 'is' + 'handsome'
+'hello' + 'world' + '!'
 ```
 
 验证结合律&闭合原则代码如下：
 
 ```js
-const a = 'xiuyan'
-const b = 'is'
-const c = 'handsome'
+const a = 'hello'
+const b = 'world'
+const c = '!'
 
 const res = a + b + c
 
@@ -219,9 +219,9 @@ console.log(isAssociative, isClosed)
 上面的 + 运算符示例可以用 `String.prototype.concat()` 改写如下：
 
 ```js
-const a = 'xiuyan'
-const b = 'is'
-const c = 'handsome'
+const a = 'hello'
+const b = 'world'
+const c = '!'
 
 // 等价于 a + b + c
 const res = a.concat(b).concat(c)
@@ -238,7 +238,7 @@ console.log(isAssociative, isClosed)
 
 对于 JS 字符串来说，要想达到“取并集”的目的，使用 + 运算符和 `concat()` 都是可行的。
 
-> 作者注：字符串“取并集”本身也是一道经典的笔试题，它的解法并不止 + 和 concat() 这两种。考虑到其它解法和本文主题的关联度不高，此处不多赘述。
+> 字符串“取并集”本身也是一道经典的笔试题，它的解法并不止 + 和 concat() 这两种。考虑到其它解法和本文主题的关联度不高，此处不多赘述。
 
 但是对于数组来说，`+` 运算符是走不通的。实现数组的“取并集”，我们可以借助 `…` 运算符，也可以借助 `Array.prototype.reduce()`。但是最为直接的解法，还得是 `Array.prototype.concat()` 。
 
@@ -247,7 +247,7 @@ console.log(isAssociative, isClosed)
 考虑这样一个数组拼接（取并集）的算式：
 
 ```js
-;[1, 2] + [3, 4] + [5, 6]
+[1, 2] + [3, 4] + [5, 6]
 ```
 
 验证结合律&闭合原则代码如下：
@@ -333,81 +333,3 @@ Multi(3).concat(Multi(4)).concat(Multi(5))
 ```
 
 形如 Add 盒子、Multi 盒子这样，实现了 `concat()` 接口的盒子，就是 **Semigroup**（半群）盒子。
-
-## 由 Semigroup 推导 Monoid
-
-理解了 Semigroup（半群），也就理解了 Monoid（幺半群）。
-
-> A _monoid_ is an algebraic structure intermediate between _semigroups_ and groups, and is a _semigroup_ having an identity element. ——Wikipedia
-> 修言直译：Monoid 是一种介于 Semigroup 和 group 之间的代数结构，它是一个拥有了 identity element 的半群。
-
-【划重点】：Monoid 是一个拥有了 identity element 的半群——**Monoid = Semigroup + identity element**
-
-那么什么是 identity element 呢？
-
-这个东西在数学上叫做“单位元”。 单位元的特点在于，**它和任何运算数相结合时，都不会改变那个运算数**。
-
-在函数式编程中，单位元也是一个函数，我们一般把它记为“`empty()` 函数”。
-
-**也就是说，Monoid = Semigroup + `empty()` 函数。**
-
-`empty()` 函数的实现取决于运算符的特征。比如说，加法运算的单位元，就是一个恒定返回 Add(0) 的函数：
-
-```js
-// 定义一个类型为 Add 的 Semigroup 盒子
-const Add = value => ({
-  value,
-  // concat 接收一个类型为 Add 的 Semigroup 盒子作为入参
-  concat: box => Add(value + box.value),
-})
-
-// 这个 empty() 函数就是加法运算的单位元
-Add.empty = () => Add(0)
-
-// 输出一个 value=3 的 Add 盒子
-Add.empty().concat(Add(1)).concat(Add(2))
-```
-
-`empty()` 是单位元的代码形态。单位元的特点在于，**它和任何运算数相结合时，都不会改变那个运算数**。 也就是说，`empty()`**函数的返回值和任何运算数相结合时，也都不会改变那个运算数。**
-
-以加法运算为例，无论我是把 `empty()` 放在 `concat()` 运算符的右边：
-
-```js
-const testValue = 1
-const testBox = Add(testValue)
-
-// 验证右侧的 identity（恒等性），rightIdentity 结果为 true
-const rightIdentity = testBox.concat(Add.empty()).value === testValue
-```
-
-还是把 `empty()` 放在 `concat()` 运算符的左边：
-
-```js
-const testValue = 1
-const testBox = Add(testValue)
-
-// 验证左侧的 identity（恒等性），leftIdentity 结果为 true
-const leftIdentity = Add.empty().concat(testBox).value === testValue
-```
-
-`empty()` 总是不会改变运算符另一侧的 `testBox` 盒子的值，这就是“单位元”特征的体现。
-
-**任意一个 Semigroup 盒子与** `empty()`**一起进行 `concat()` 二元运算时，其运算结果都一定恒等于那个 Semigroup 盒子本身的值。**
-
-**形如这样的** `empty()`**函数，就是“单位元”思想在函数式编程中的实践。**
-
-**而实现了** `empty()`**函数的 Semigroup 盒子，就是 Monoid 盒子。**
-
-## 小结
-
-本节，我们从最简单的小学数学算式开始，一步一步地从数学中的“群论”推导出了 Semigroup 盒子，接着又基于 Semigroup 推导出了 Monoid 这个更为强大的盒子。相信学到这里，你已经对“Semigroup 和 Monoid **是什么**”的问题了然于胸了。
-
-不过，此时此刻，你脑海中一定还有许多新的问题。
-
-比如：`concat()` 接口除了能做做加法乘法、求个并集之外，还有什么别的神通吗？
-
-再比如：Monoid 盒子比起 Semigroup 仅仅是多了一个 `empty()` 函数，这个单薄的 `empty()` 函数真的有存在的必要吗？
-
-以及，本文中首次提到了盒子模式下的“二元运算”，这“二元运算”背后又有着什么样的玄机呢？
-
-要想理解到这个层面，我们还需要从实践的角度出发，对 Monoid 作更进一步的探讨。
