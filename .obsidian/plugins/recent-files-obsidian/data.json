@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Monad",
-      "path": "JavaScript/functional programming/Monad.md"
+      "basename": "Semigroup",
+      "path": "JavaScript/functional programming/Semigroup.md"
+    },
+    {
+      "basename": "偏函数 & 柯里化",
+      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
     },
     {
       "basename": "范畴论",
       "path": "JavaScript/functional programming/范畴论.md"
+    },
+    {
+      "basename": "Monad",
+      "path": "JavaScript/functional programming/Monad.md"
     },
     {
       "basename": "Functor",
@@ -23,10 +31,6 @@
     {
       "basename": "深入函数组合(Composition)思想",
       "path": "JavaScript/functional programming/深入函数组合(Composition)思想.md"
-    },
-    {
-      "basename": "偏函数 & 柯里化",
-      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
     },
     {
       "basename": "todo query",
@@ -195,10 +199,6 @@
     {
       "basename": "grid 构建经典布局（九）",
       "path": "CSS/grid 构建经典布局（九）.md"
-    },
-    {
-      "basename": "Flexbox or Grid",
-      "path": "CSS/Flexbox or Grid.md"
     }
   ],
   "omittedPaths": [],
