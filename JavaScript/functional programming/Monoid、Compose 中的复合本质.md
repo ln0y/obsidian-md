@@ -287,7 +287,7 @@ compose(compose(func1, func2), func3)= compose(func1, compose(func2, func3))
 
 这个规律不是我说的，是数学家说的，他们是这样说的：
 
-> All properties of composition of relations are true of composition of functions, such as the property of associativity. ——wikipedia "Function Composition" 词条
+> All properties of composition of relations are true of composition of functions, such as the property of associativity. ——[wikipedia](https://en.wikipedia.org/wiki/Function_composition) "Function Composition" 词条
 > 直译：所有“关系组合”的属性都是适用于函数组合的，比如结合律。
 
 他们也曾这样说过：
@@ -301,7 +301,7 @@ compose(compose(func1, func2), func3)= compose(func1, compose(func2, func3))
 
 分析至此，`compose()` 已经命中了 Semigroup 的全部特征：闭合、结合律、二元运算。它与 Monoid，只差一个 `empty()` 单位元函数了。
 
-其实，`compose()` 的单位元函数，咱们早在 [第 18 节](https://juejin.cn/book/7173591403639865377/section/7175423056620290103) 就见过啦。没错，我说的就是 `Identity Function`（恒等函数）：
+其实，`compose()` 的单位元函数，咱们早在 [[Functor#拓展：Functor 的“生存法则”]] 就见过啦。没错，我说的就是 `Identity Function`（恒等函数）：
 
 ```js
 const identity = x => x
@@ -311,7 +311,7 @@ const identity = x => x
 
 至此我们发现，当我们把 `compose()` 的最小计算单元视作一个运算符、把函数组合视作一个代数运算后，我们竟能从中挖掘出 `Monoid` 的所有特征。
 
-这也使我忍不住联想起了前几年在社区听到过的一种声音——“函数组合是一种 Monoid”。那之后我查了很多的资料，始终也没能为这个观点找到什么强有力的学术理论支撑。因此，上文的推导，并不是为了佐证这个观点，而是为了凸显我们在 [第 17 节](https://juejin.cn/book/7173591403639865377/section/7175422979646423098) 就阐述过的一个思路——**范畴的本质是复合。**
+这也使我忍不住联想起了前几年在社区听到过的一种声音——“函数组合是一种 Monoid”。那之后我查了很多的资料，始终也没能为这个观点找到什么强有力的学术理论支撑。因此，上文的推导，并不是为了佐证这个观点，而是为了凸显我们在 [[范畴论]] 就阐述过的一个思路——**范畴的本质是复合。**
 
 ## 范畴的本质是复合
 
