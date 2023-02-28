@@ -244,7 +244,7 @@ OOP 思想起源于对自然界的观察和抽象，它是对现实世界的一�
 
 ## 代码重用：组合 vs 继承
 
-在 [第 14 节](https://juejin.cn/book/7173591403639865377/section/7175422922192846907) 我们说过，面向对象（OOP）的核心在于继承，而函数式编程（FP）的核心在于组合。
+面向对象（OOP）的核心在于继承，而函数式编程（FP）的核心在于组合。
 
 本节的两个编码案例中，FP 案例借助 `pipe` 函数实现了函数组合，OOP 案例借助 `extends` 关键字实现了类的继承。我们可以看到：组合的过程是一个两两结合、聚沙成塔的过程；而继承则意味着子类在父类的基础上重写/增加一些内容，通过创造一个新的数据结构来满足的新的需求。
 
@@ -330,12 +330,12 @@ const SuperPlayer = (name, money) => {
   return Object.assign({}, getSlamDunk(player), getShot(player), getFly(player))
 }
 
-const superPlayer = SuperPlayer('xiuyan', 20)
-// 'xiuyan just dunked a basketball'
+const superPlayer = SuperPlayer('Tony', 20)
+// 'Tony just dunked a basketball'
 superPlayer.slamDunk()
-// 'xiuyan just shot the goal'
+// 'Tony just shot the goal'
 superPlayer.shot()
-// 'xiuyan is flying!So handsome!'
+// 'Tony is flying!So handsome!'
 superPlayer.fly()
 ```
 
