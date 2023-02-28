@@ -5,6 +5,14 @@
       "path": "JavaScript/functional programming/Monoid、Compose 中的复合本质.md"
     },
     {
+      "basename": "页面布局",
+      "path": "CSS/页面布局.md"
+    },
+    {
+      "basename": "偏函数 & 柯里化",
+      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
+    },
+    {
       "basename": "Monoid",
       "path": "JavaScript/functional programming/Monoid.md"
     },
@@ -13,20 +21,16 @@
       "path": "JavaScript/functional programming/Semigroup.md"
     },
     {
-      "basename": "Monad",
-      "path": "JavaScript/functional programming/Monad.md"
-    },
-    {
       "basename": "front end",
       "path": "Post/front end.md"
     },
     {
-      "basename": "范畴论",
-      "path": "JavaScript/functional programming/范畴论.md"
+      "basename": "Monad",
+      "path": "JavaScript/functional programming/Monad.md"
     },
     {
-      "basename": "偏函数 & 柯里化",
-      "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
+      "basename": "范畴论",
+      "path": "JavaScript/functional programming/范畴论.md"
     },
     {
       "basename": "Functor",
@@ -195,10 +199,6 @@
     {
       "basename": "创建不规则 Web 布局",
       "path": "CSS/创建不规则 Web 布局.md"
-    },
-    {
-      "basename": "flex 计算（二）",
-      "path": "CSS/flex 计算（二）.md"
     }
   ],
   "omittedPaths": [],
