@@ -196,7 +196,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/functional programming/Monoid、Compose 中的复合本质.md"
+                "file": "todo query.md"
               }
             }
           }
@@ -213,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/functional programming/Monoid、Compose 中的复合本质.md",
+                "file": "todo query.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -230,7 +230,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/functional programming/Monoid、Compose 中的复合本质.md",
+                "file": "todo query.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -270,13 +270,13 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "781636b8c6446151",
+  "active": "41c2922de4ba5d06",
   "lastOpenFiles": [
-    "CSS/页面布局.md",
-    "JavaScript/functional programming/Monoid、Compose 中的复合本质.md",
-    "JavaScript/functional programming/偏函数 & 柯里化.md",
-    "JavaScript/functional programming/Monoid.md",
     "JavaScript/functional programming/Semigroup.md",
+    "JavaScript/functional programming/Monoid.md",
+    "JavaScript/functional programming/Monoid、Compose 中的复合本质.md",
+    "CSS/页面布局.md",
+    "JavaScript/functional programming/偏函数 & 柯里化.md",
     "Post/front end.md",
     "_attachment/img/6c27d4b5736a5927befe557185d7b946_MD5.png",
     "_attachment/img/bb1a9f4560ca737f79e46b3ea7b6e9f9_MD5.png",

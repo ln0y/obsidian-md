@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "todo query",
+      "path": "todo query.md"
+    },
+    {
       "basename": "Monoid、Compose 中的复合本质",
       "path": "JavaScript/functional programming/Monoid、Compose 中的复合本质.md"
+    },
+    {
+      "basename": "Semigroup",
+      "path": "JavaScript/functional programming/Semigroup.md"
+    },
+    {
+      "basename": "Monoid",
+      "path": "JavaScript/functional programming/Monoid.md"
     },
     {
       "basename": "页面布局",
@@ -11,14 +23,6 @@
     {
       "basename": "偏函数 & 柯里化",
       "path": "JavaScript/functional programming/偏函数 & 柯里化.md"
-    },
-    {
-      "basename": "Monoid",
-      "path": "JavaScript/functional programming/Monoid.md"
-    },
-    {
-      "basename": "Semigroup",
-      "path": "JavaScript/functional programming/Semigroup.md"
     },
     {
       "basename": "front end",
@@ -43,10 +47,6 @@
     {
       "basename": "深入函数组合(Composition)思想",
       "path": "JavaScript/functional programming/深入函数组合(Composition)思想.md"
-    },
-    {
-      "basename": "todo query",
-      "path": "todo query.md"
     },
     {
       "basename": "curry & uncurry",
