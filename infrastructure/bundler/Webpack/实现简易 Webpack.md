@@ -1,7 +1,6 @@
 ---
 aliases: []
-tags:
-  ['Rollup', 'infrastructure/bundler/Webpack', 'date/2022-03', 'year/2022', 'month/03']
+tags: ['Rollup', 'infrastructure/bundler/Webpack', 'date/2022-03', 'year/2022', 'month/03']
 date: 2022-03-10-Thursday 16:11:34
 update: 2022-03-10-Thursday 17:04:40
 ---

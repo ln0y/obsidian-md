@@ -200,8 +200,8 @@ const compute = compose(divide2, multiply3, add4)
 
 **正序是 pipe，倒序是 compose。**
 
-> 作者注：为什么 pipe 是正序，compose 是倒序？关于这个问题，我们在 [第17节](https://juejin.cn/book/7173591403639865377/section/7175422979646423098) 还有更进一步的讨论，感兴趣的同学可以关注第 17 节的“复合运算：范畴论在编程中最核心的应用”这个 section
-- [ ] 1
+> 为什么 pipe 是正序，compose 是倒序？关于这个问题，感兴趣的同学可以关注[[范畴论#复合运算：范畴论在编程中最核心的应用|这个 section]]
+
 ## 知其所以然：Why Compose?
 
 面向对象的核心在于继承，而 **函数式编程的核心则在于组合**。
