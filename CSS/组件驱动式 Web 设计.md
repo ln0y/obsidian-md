@@ -99,7 +99,7 @@ CSS 像素具有两个方面的相对性：
 
 在开发的过程中，可以使用下面的 API 来获取屏幕真实的物理像素：
 
-```javascript
+```js
 window.screen.width //获得屏幕水平方向上的像素数
 window.screen.height //获得屏幕垂直方向上的像素数
 ```

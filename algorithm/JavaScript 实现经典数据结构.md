@@ -624,7 +624,7 @@ Map {
 
 - 添加边：addEdge，如下代码：
 
-```javascript
+```js
 addEdge(vertex, node) {
   if (this.AdjList.has(vertex)) {
     if (this.AdjList.has(node)) {

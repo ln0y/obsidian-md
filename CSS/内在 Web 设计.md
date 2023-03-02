@@ -705,7 +705,7 @@ img {
 
 `background-size` 取值为 `cover` 时，背景图片的尺寸计算：
 
-```javascript
+```js
 /**
 * Rimage     » 背景图片内在宽高比 » Rimage = Wimage ÷ Himage
 * Wimage     » 背景图片宽度（原始宽度）
@@ -730,7 +730,7 @@ if (Rimage ≥ Rcontainer) {
 
 它和 `cover` 是惊人的相似，从计算来讲，`contain` 的逻辑和 `cover` 刚好相反：
 
-```javascript
+```js
 /**
 * Rimage     » 背景图片内在宽高比 » Rimage = Wimage ÷ Himage
 * Wimage     » 背景图片宽度（原始宽度）
