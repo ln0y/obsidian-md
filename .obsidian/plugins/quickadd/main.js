@@ -16130,6 +16130,8 @@ function isNestedChoiceCommand(command) {
 }
 function removeIncrementFileName(macros) {
   for (const macro of macros) {
+    if (!Array.isArray(macro.commands))
+      continue;
     for (const command of macro.commands) {
       if (isNestedChoiceCommand(command) && isOldTemplateChoice(command.choice)) {
         command.choice.setFileExistsBehavior = true;
@@ -16178,6 +16180,8 @@ function isNestedChoiceCommand2(command) {
 }
 function migrateSettingsInMacros(macros) {
   for (const macro of macros) {
+    if (!Array.isArray(macro.commands))
+      continue;
     for (const command of macro.commands) {
       if (isNestedChoiceCommand2(command) && isCaptureChoice(command.choice)) {
         if (command.choice.insertAfter.enabled && command.choice.prepend) {
