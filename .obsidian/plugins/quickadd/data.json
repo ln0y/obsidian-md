@@ -144,7 +144,7 @@
       },
       "format": {
         "enabled": true,
-        "format": "> [!INFO]+ {{VALUE:Input Title}}\n> {{MVALUE:Input Content}}\n> <br/>\n"
+        "format": "> [!INFO] {{value:Input Title}}\n> {{mvalue}}\n"
       },
       "insertAfter": {
         "enabled": false,
