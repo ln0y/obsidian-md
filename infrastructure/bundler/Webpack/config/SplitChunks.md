@@ -1,6 +1,6 @@
 ---
 aliases: []
-tags: ['infrastructure/bundler/Webpack/config','date/2023-03','year/2023','month/03']
+tags: ['infrastructure/bundler/Webpack/config', 'date/2023-03', 'year/2023', 'month/03']
 date: 2023-03-07-星期二 15:38:00
 update: 2023-03-07-星期二 15:38:17
 ---
@@ -24,7 +24,7 @@ Chunk 是 Webpack 内部一个非常重要的底层设计，用于组织、管�
 4. 分配完毕后，根据 SplitChunksPlugin 的启发式算法进一步对这些 Chunk 执行 **裁剪、拆分、合并、代码调优**，最终调整成运行性能\(可能\) 更优的形态；
 5. 最后，将这些 Chunk 一个个输出成最终的产物\(Asset\) 文件，编译工作到此结束。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73dad47e4d3e45419a9ad3f7ff746fa0~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/add1ef269b02a7e3f23c9180f6fdfec1_MD5.png]]
 
 可以看出，Chunk 在构建流程中起着承上启下的关键作用 —— 一方面作为 Module 容器，根据一系列默认 **分包策略** 决定哪些模块应该合并在一起打包；另一方面根据 `splitChunks` 设定的 **策略** 优化分包，决定最终输出多少产物文件。
 
@@ -40,11 +40,11 @@ Runtime Chunk 规则比较简单，本文先不关注，但 Initial Chunk 与 As
 
 假如多个 Chunk 同时依赖同一个 Module，那么这个 Module 会被不受限制地重复打包进这些 Chunk，例如对于下面的模块关系：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1481f62edb484224aefd7498bb9b871a~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/78ab2be55f95cc18ffb131ff65b3d81f_MD5.png]]
 
 示例中 `main/index` 入口\(`entry`\) 同时依赖于 `c` 模块，默认情况下 Webpack 不会对此做任何优化处理，只是单纯地将 `c` 模块同时打包进 `main/index` 两个 Chunk：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae729e4dd408433ea242733ae9913d89~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/16f8a082dcc5493e229fbcc93327fae1_MD5.png]]
 
 2. **资源冗余 \& 低效缓存：**
 
@@ -134,7 +134,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       // 设定引用次数超过 2 的模块才进行分包
-      minChunks: 2
+      minChunks: 2,
     },
   },
 }
@@ -144,7 +144,7 @@ module.exports = {
 
 ```js
 // common.js
-export default "common chunk";
+export default 'common chunk'
 
 // async-module.js
 import common from './common'
@@ -155,12 +155,11 @@ import('./async-module')
 
 // entry-b.js
 import common from './common'
-
 ```
 
 上例包含四个模块，形成如下模块关系图：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88d54f6ffcfe44658fddb93c4bd57e95~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/f575c278cee238c49ef8f163f9412e82_MD5.png]]
 
 其中，`entry-a`、`entry-b` 分别被视作 Initial Chunk 处理；`async-module` 被 `entry-a` 以异步方式引入，因此被视作 Async Chunk 处理。那么对于 `common` 模块来说，分别被三个不同的 Chunk 引入，此时引用次数为 3，配合下面的配置：
 
@@ -169,19 +168,17 @@ import common from './common'
 module.exports = {
   entry: {
     entry1: './src/entry-a.js',
-    entry2: './src/entry-b.js'
+    entry2: './src/entry-b.js',
   },
   // ...
   optimization: {
-    splitChunks: {      
+    splitChunks: {
       minChunks: 2,
       //...
-    }
-  }
-};
+    },
+  },
+}
 ```
-
-> 提示：示例已上传到 [小册仓库](https://github1s.com/Tecvan-fe/webpack-book-samples/tree/main/splitchunks-basic)。
 
 `common` 模块命中 `optimization.splitChunks.minChunks = 2` 规则，因此该模块 **可能** 会被单独分包，最终产物：
 
@@ -207,25 +204,25 @@ module.exports = {
 
 举个例子，对于上例所说的模块关系：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a1d537299ed44da947a7dbf03e22a18~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/efaf6472b366387308b08695e2d9d8ce_MD5.png]]
 
 若 `minChunks = 2` ，则 `common` 模块命中 `minChunks` 规则被独立分包，浏览器请求 `entry-a` 时，则需要同时请求 `common` 包，并行请求数为 1 + 1=2。
 
 而对于下述模块关系：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6ddb044d1d649a297ec76000bcad3d6~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/625d3a99cede11670b7b4585b22e327a_MD5.png]]
 
 若 `minChunks = 2` ，则 `common-1` 、`common-2` 同时命中 `minChunks` 规则被分别打包，浏览器请求 `entry-b` 时需要同时请求 `common-1` 、`common-2` 两个分包，并行数为 2 + 1 = 3，此时若 `maxInitialRequest = 2`，则分包数超过阈值，`SplitChunksPlugin` 会 **放弃 `common-1`、`common-2` 中体积较小的分包**。`maxAsyncRequest` 逻辑与此类似，不在赘述。
 
 并行请求数关键逻辑总结如下：
 
-+ Initial Chunk 本身算一个请求；
+- Initial Chunk 本身算一个请求；
 
-+ Async Chunk 不算并行请求；
+- Async Chunk 不算并行请求；
 
-+ 通过 `runtimeChunk` 拆分出的 runtime 不算并行请求；
+- 通过 `runtimeChunk` 拆分出的 runtime 不算并行请求；
 
-+ 如果同时有两个 Chunk 满足拆分规则，但是 `maxInitialRequests`\(或 `maxAsyncRequest`\) 的值只能允许再拆分一个模块，那么体积更大的模块会被优先拆解。
+- 如果同时有两个 Chunk 满足拆分规则，但是 `maxInitialRequests`\(或 `maxAsyncRequest`\) 的值只能允许再拆分一个模块，那么体积更大的模块会被优先拆解。
 
 ## 限制分包体积
 
@@ -244,14 +241,14 @@ module.exports = {
 1. `SplitChunksPlugin` 尝试将命中 `minChunks` 规则的 Module 统一抽到一个额外的 Chunk 对象；
 2. 判断该 Chunk 是否满足 `maxInitialRequests` 阈值，若满足则进行下一步；
 3. 判断该 Chunk 资源的体积是否大于上述配置项 `minSize` 声明的下限阈值；
-    - 如果体积 **小于** `minSize` 则取消这次分包，对应的 Module 依然会被合并入原来的 Chunk
-    - 如果 Chunk 体积 **大于** `minSize` 则判断是否超过 `maxSize`、`maxAsyncSize`、`maxInitialSize` 声明的上限阈值，如果超过则尝试将该 Chunk 继续分割成更小的部分
+   - 如果体积 **小于** `minSize` 则取消这次分包，对应的 Module 依然会被合并入原来的 Chunk
+   - 如果 Chunk 体积 **大于** `minSize` 则判断是否超过 `maxSize`、`maxAsyncSize`、`maxInitialSize` 声明的上限阈值，如果超过则尝试将该 Chunk 继续分割成更小的部分
 
 > 提示：虽然 `maxSize` 等阈值规则会产生更多的包体，但缓存粒度会更小，命中率相对也会更高，配合持久缓存与 HTTP2 的多路复用能力，网络性能反而会有正向收益。
 
 以上述模块关系为例：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8a66c3358fb42e59660a0640210f359~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/2b1f613811906bc1bdfdf958ba91ff0d_MD5.png]]
 
 若此时 Webpack 配置的 `minChunks` 大于 2，且 `maxInitialRequests` 也同样大于 2，如果 `common` 模块的体积大于上述说明的 `minxSize` 配置项则分包成功，`commont` 会被分离为单独的 Chunk，否则会被合并入原来的 3 个 Chunk。
 
@@ -269,14 +266,14 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendors: {
-            test: /[\\/]node_modules[\\/]/,
-            minChunks: 1,
-            minSize: 0
-        }
+          test: /[\\/]node_modules[\\/]/,
+          minChunks: 1,
+          minSize: 0,
+        },
       },
     },
   },
-};
+}
 ```
 
 示例通过 `cacheGroups` 属性设置 `vendors` 缓存组，所有命中 `vendors.test` 规则的模块都会被归类 `vendors` 分组，优先应用该组下的 `minChunks`、`minSize` 等分包配置。
@@ -299,21 +296,21 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         default: {
-          idHint: "",
+          idHint: '',
           reuseExistingChunk: true,
           minChunks: 2,
-          priority: -20
+          priority: -20,
         },
         defaultVendors: {
-          idHint: "vendors",
+          idHint: 'vendors',
           reuseExistingChunk: true,
           test: /[\\/]node_modules[\\/]/i,
-          priority: -10
-        }
+          priority: -10,
+        },
       },
     },
   },
-};
+}
 ```
 
 这两个配置组能帮助我们：
@@ -329,11 +326,11 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        default: false
+        default: false,
       },
     },
   },
-};
+}
 ```
 
 ## 配置项与最佳实践
@@ -353,7 +350,7 @@ module.exports = {
 
 - 针对 `node_modules` 资源：
   - 可以将 `node_modules` 模块打包成单独文件\(通过 `cacheGroups` 实现\)，防止业务代码的变更影响 NPM 包缓存，同时建议通过 `maxSize` 设定阈值，防止 vendor 包体过大；
-  - 更激进的，如果生产环境已经部署 HTTP2/3 一类高性能网络协议，甚至可以考虑将每一个 NPM 包都打包成单独文件，具体实现可查看小册 [示例](https://github1s.com/Tecvan-fe/webpack-book-samples/blob/50c9a47ce3/splitchunks-seperate-npm/webpack.config.js#L19-L20)；
+  - 更激进的，如果生产环境已经部署 HTTP2/3 一类高性能网络协议，甚至可以考虑将每一个 NPM 包都打包成单独文件；
 - 针对业务代码：
   - 设置 `common` 分组，通过 `minChunks` 配置项将使用率较高的资源合并为 Common 资源；
   - 首屏用不上的代码，尽量以异步方式引入；
