@@ -597,7 +597,7 @@ data = {}
 
 > `pitch` 函数调度逻辑
 
-Pitch 翻译成中文是 _ 抛、球场、力度、事物最高点 _ 等，它背后折射的是一整套 Loader 被执行的生命周期概念。
+Pitch 翻译成中文是 _抛、球场、力度、事物最高点_ 等，它背后折射的是一整套 Loader 被执行的生命周期概念。
 
 实现上，Loader 链条执行过程分三个阶段：pitch、解析资源、执行，设计上与 DOM 的事件模型非常相似，pitch 对应到捕获阶段；执行对应到冒泡阶段；而两个阶段之间 Webpack 会执行资源内容的读取、解析操作，对应 DOM 事件模型的 AT_TARGET 阶段：
 
@@ -690,23 +690,6 @@ var content = require('!!css-loader!less-loader!./xxx.less')
 
 所以从 Webpack 的角度看，对同一个文件实际调用了两次 loader 链，第一次在 style-loader 的 pitch 中断，第二次根据 inline loader 的内容跳过了 style-loader。
 
-## 总结
-
-Loader 主要负责将资源内容转换为 Webpack 能够理解的 JavaScript 代码形式，开发时我们可以借助 [Loader Context](https://webpack.js.org/api/loaders/#the-loader-context) 提供的丰富接口实现各种各样的诉求。此外，也需要结合 Loader 的链式调用模型，尽可能设计出复用性更强，更简洁的资源加载器。
-
-下一篇我还会继续沿着 “如何开发 Loader” 这一主题，介绍如何使用 `loader-utils`、`schema-utils` 等辅助工具，以及作为实践案例，深度剖析 `vue-loader` 的实现逻辑。
-
-## 思考题
-
-读完文章后，建议同学们同步看看一些知名 Loader 的源码，包括：`file-loader`、`url-loader`、`style-loader`、`less-loader`、`babel-loader` 等，学习它们的开发模式，巩固对上述各项接口的认识。
-
-在上一篇文章中，我们已经详细了解了开发 Webpack Loader 需要用到的基本技能，包括：Loader 基本形态、如何构建测试环境、如何使用 Loader Context 接口等。接下来我们继续拓展学习一些 Loader 辅助工具，包括：
-
-- 了解 `loader-utils`，并使用 `loader-utils` 拼接文件名；
-- 了解 `schema-tiles`，以及其背后的 `ajv` 库与 JSON-Schema 协议，学习使用 `schema-utils` 实现参数校验。
-
-文章最后还会深入剖析 `vue-loader` 组件源码，通过实战方式帮助大家更深入理解：如何开发一个成熟 Loader。
-
 ## 使用 `schema-utils`
 
 Webpack，以及 Webpack 生态下的诸多 Loader、Plugin 基本上都会提供若干“**配置项**”，供用户调整组件的运行逻辑，这些组件内部通常都会使用 [schema-utils](https://www.npmjs.com/package/schema-utils) 工具库校验用户传入的配置是否满足要求。
@@ -757,8 +740,6 @@ export default function loader(source) {
 }
 ```
 
-> 提示：示例代码已上传到小册 [仓库](https://github1s.com/Tecvan-fe/webpack-book-samples/blob/main/loader-validate/package.json)。
-
 之后，若用户传入不符合 Schema 描述的参数对象，会报类似下面这种错误提示：
 
 ![[_attachment/img/e6c36f2838dc03140fe32fc6edb3e48d_MD5.png]]
@@ -775,7 +756,7 @@ export default function loader(source) {
 
 `schema-utils` 内部使用 `ajv` 的 [JSON-Schema](https://ajv.js.org/json-schema.html) 模式实现参数校验，而 JSON-Schema 是一种以 JSON 格式描述数据结构的 [公共规范](https://json-schema.org/specification.html)，使用时至少需要提供 `type` 参数，如：
 
-```
+```json
 {
   "type": "number"
 }
@@ -803,7 +784,7 @@ export default function loader(source) {
   - `required`：声明哪些属性不可为空，例如 `required = ['name', 'age']` 时，传入的值必须至少提供 `name/age` 属性；
   - `properties`：定义特定属性的 Schema 描述，与 `array` 的 `items` 属性类似，支持嵌套规则，例如：
 
-```js
+```json
 {
   type: "object",
   properties: {
@@ -818,7 +799,7 @@ export default function loader(source) {
 
 - `patternProperties`：同样用于定义对象属性的 Schema，但属性名支持正则表达式形式，例如：
 
-```js
+```json
 {
   type: "object",
   patternProperties: {
@@ -834,7 +815,7 @@ export default function loader(source) {
 
 - `enum`：枚举数组，属性值必须完全等于\(Deep equal\) 这些值之一，例如：
 
-```js
+```json
 // JSON-Schema
 {
   "type": "string",
@@ -852,7 +833,7 @@ export default function loader(source) {
 
 - `const`：静态数值，属性值必须完全等于 `const` 定义，单独看 `const` 似乎作用不大，但配合 [$data](https://ajv.js.org/guide/combining-schemas.html#data-reference) 指令的 [JSON-Pointer](https://datatracker.ietf.org/doc/rfc6901/) 能力，可以实现关联相等的效果，例如：
 
-```js
+```json
 // JSON-Schema
 {
   type: "object",
@@ -883,7 +864,7 @@ export default function loader(source) {
 - [not](https://ajv.js.org/json-schema.html#not)：数值必须不符合该条件，例如：`{type: "number", not: {minimum: 3}}` 时，传入数值必须小于 3；
 - [anyof](https://ajv.js.org/json-schema.html#anyof)：数值必须满足 `anyof` 条件之一，这是一个非常实用的指令，例如在 `css-loader` 中：
 
-```js
+```json
 // css-loader/src/options.json
 {
   "additionalProperties": false,
@@ -909,7 +890,7 @@ export default function loader(source) {
 
 - [oneof](https://ajv.js.org/json-schema.html#oneof)：数值必须满足且只能满足 `oneof` 条件之一，例如：
 
-```js
+```json
 {
   type: "number",
   oneOf: [{maximum: 3}, {type: "integer"}]
@@ -925,7 +906,7 @@ export default function loader(source) {
 
 - [allof](https://ajv.js.org/json-schema.html#allof)：数值必须满足 `allof` 指定的所有条件，例如：
 
-```js
+```json
 {
   type: "number",
   allOf: [{maximum: 3}, {type: "integer"}]
@@ -941,7 +922,7 @@ export default function loader(source) {
 
 - `if/then/else`：这是一个稍显复杂的三元组复合条件，大致逻辑为：若传入的数值满足 `if` 条件，则必须同时满足 `then` 条件；若不满足 `if` 则必须同时满足 `else`，其中 `else` 可选。例如：
 
-```js
+```json
 {
   type: "object",
   if: {properties: {foo: {minimum: 10}}},
@@ -1601,6 +1582,8 @@ module.exports = function selectBlock(descriptor, loaderContext, query, appendEx
 2. 经过 Normal Loader、Pitch Loader 两个阶段后，SFC 内容会被转化为 `import xxx from '!-babel-loader!vue-loader?xxx'` 格式的引用路径，以此复用用户配置。
 
 ## 总结
+
+Loader 主要负责将资源内容转换为 Webpack 能够理解的 JavaScript 代码形式，开发时我们可以借助 [Loader Context](https://webpack.js.org/api/loaders/#the-loader-context) 提供的丰富接口实现各种各样的诉求。此外，也需要结合 Loader 的链式调用模型，尽可能设计出复用性更强，更简洁的资源加载器。
 
 本文主要介绍如何使用 `schema-utils` 与 `loader-utils` 工具实现更多 Loader 进阶特性，并进一步剖析 `vue-loader` 源码，讲解如何构建一个成熟的 Webpack Loader 组件。结合《[Loader 开发基础：从开源项目学到的 Loader 开发技巧](https://juejin.cn/book/7115598540721618944/section/7119035404715556879)》一文，我们可以总结一些常用的开发方法论，包括：
 
