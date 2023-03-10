@@ -786,12 +786,12 @@ export default function loader(source) {
 
 ```json
 {
-  type: "object",
-  properties: {
-    foo: {type: "string"},
-    bar: {
-      type: "number",
-      minimum: 2
+  "type": "object",
+  "properties": {
+    "foo": { "type": "string" },
+    "bar": {
+      "type": "number",
+      "minimum": 2
     }
   }
 }
@@ -801,10 +801,10 @@ export default function loader(source) {
 
 ```json
 {
-  type: "object",
-  patternProperties: {
-    "^fo.*$": {type: "string"},
-    "^ba.*$": {type: "number"}
+  "type": "object",
+  "patternProperties": {
+    "^fo.*$": { "type": "string" },
+    "^ba.*$": { "type": "number" }
   }
 }
 ```
@@ -879,7 +879,7 @@ export default function loader(source) {
           "instanceof": "Function"
         }
       ]
-    },
+    }
     // more properties
   },
   "type": "object"
@@ -924,10 +924,10 @@ export default function loader(source) {
 
 ```json
 {
-  type: "object",
-  if: {properties: {foo: {minimum: 10}}},
-  then: {required: ["bar"]},
-  else: {required: ["baz"]}
+  "type": "object",
+  "if": { "properties": { "foo": { "minimum": 10 } } },
+  "then": { "required": ["bar"] },
+  "else": { "required": ["baz"] }
 }
 ```
 
@@ -1305,28 +1305,25 @@ export * from '-!../../node_modules/mini-css-extract-plugin/dist/loader.js!../..
 
 在运行阶段，根据配置规则， Webpack 首先将原始的 SFC 内容传入 `vue-loader`，例如对于下面的代码：
 
-```js
-// main.js
-import xx from 'index.vue';
-
-// index.vue 代码
+```html
+// main.js import xx from 'index.vue'; // index.vue 代码
 <template>
   <div class="root">hello world</div>
 </template>
 
 <script>
-export default {
-  data() {},
-  mounted() {
-    console.log("hello world");
-  },
-};
+  export default {
+    data() {},
+    mounted() {
+      console.log('hello world')
+    },
+  }
 </script>
 
 <style scoped>
-.root {
-  font-size: 12px;
-}
+  .root {
+    font-size: 12px;
+  }
 </style>
 ```
 
@@ -1585,7 +1582,7 @@ module.exports = function selectBlock(descriptor, loaderContext, query, appendEx
 
 Loader 主要负责将资源内容转换为 Webpack 能够理解的 JavaScript 代码形式，开发时我们可以借助 [Loader Context](https://webpack.js.org/api/loaders/#the-loader-context) 提供的丰富接口实现各种各样的诉求。此外，也需要结合 Loader 的链式调用模型，尽可能设计出复用性更强，更简洁的资源加载器。
 
-本文主要介绍如何使用 `schema-utils` 与 `loader-utils` 工具实现更多 Loader 进阶特性，并进一步剖析 `vue-loader` 源码，讲解如何构建一个成熟的 Webpack Loader 组件。结合《[Loader 开发基础：从开源项目学到的 Loader 开发技巧](https://juejin.cn/book/7115598540721618944/section/7119035404715556879)》一文，我们可以总结一些常用的开发方法论，包括：
+本文主要介绍如何使用 `schema-utils` 与 `loader-utils` 工具实现更多 Loader 进阶特性，并进一步剖析 `vue-loader` 源码，讲解如何构建一个成熟的 Webpack Loader 组件。我们可以总结一些常用的开发方法论，包括：
 
 - Loader 主要负责将资源内容转译为 Webpack 能够理解、处理的标准 JavaScript 形式，所以通常需要做 Loader 内通过 `return`/`this.callback` 方式返回翻译结果；
 - Loader Context 提供了许多实用接口，我们可以借助这些接口读取上下文信息，或改变 Webpack 运行状态\(相当于产生 Side Effect，例如通过 `emitFile` 接口\)；
@@ -1595,7 +1592,3 @@ Loader 主要负责将资源内容转换为 Webpack 能够理解的 JavaScript �
 - 等等。
 
 最后，建议你同步翻阅一些知名 Loader 的源码\(如：css-loader/babel-loader/file-loader 等\)，结合这两篇文章介绍的知识点与方法论，透彻理解 Webpack Loader 的开发方式。
-
-## 思考题
-
-总结一下，`vue-loader` 中的 Pitch Loader 与 Normal Loader 分别做了什么事情？两者是怎么串联协作起来的？
