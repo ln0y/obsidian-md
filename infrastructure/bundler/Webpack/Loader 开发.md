@@ -888,7 +888,7 @@ export default function loader(source) {
 
 这意味着 `css-loader` 的 `url` 配置项只接受 Bool 或函数值。
 
-- [oneof](https://ajv.js.org/json-schema.html#oneof)：数值必须满足且只能满足 `oneof` 条件之一，例如：
+- [oneOf](https://ajv.js.org/json-schema.html#oneof)：数值必须满足且只能满足 `oneOf` 条件之一，例如：
 
 ```json
 {

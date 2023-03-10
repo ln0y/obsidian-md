@@ -2,7 +2,7 @@
 aliases: []
 tags: ['Git', 'date/2022-08', 'year/2022', 'month/08']
 date: 2022-08-19-星期五 15:35:11
-update: 2022-09-02-星期五 17:01:59
+update: 2023-03-10-星期五 11:14:34
 ---
 
 ## 配置用户名和密码
@@ -80,6 +80,8 @@ HostName github.com
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/github_id_rsa
 ```
+
+<https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610>
 
 ## 存储密码
 
