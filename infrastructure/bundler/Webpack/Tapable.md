@@ -1,8 +1,8 @@
 ---
 aliases: []
-tags: ['infrastructure/bundler/Webpack','date/2023-03','year/2023','month/03']
+tags: ['infrastructure/bundler/Webpack', 'date/2023-03', 'year/2023', 'month/03']
 date: 2023-03-10-星期五 18:12:27
-update: 2023-03-10-星期五 18:12:35
+update: 2023-03-12-星期日 15:46:30
 ---
 
 Webpack 之所以能够应对 Web 场景下极度复杂、多样的构建需求，关键就在于其健壮、扩展性极强的插件架构，而插件架构的精髓又在于其灵活多变的 Hook 体系，可以说，只有真正掌握 Hook 底层设计与实现逻辑，深入理解不同 Hook 的运行特性与用法，才能灵活处理各种问题，更快更好地编写出 Webpack 插件。
@@ -26,18 +26,18 @@ Webpack 之所以能够应对 Web 场景下极度复杂、多样的构建需求�
 先简单看看 Tapable 的用法：
 
 ```js
-const { SyncHook } = require("tapable");
+const { SyncHook } = require('tapable')
 
 // 1. 创建钩子实例
-const sleep = new SyncHook();
+const sleep = new SyncHook()
 
 // 2. 调用订阅接口注册回调
-sleep.tap("test", () => {
-  console.log("callback A");
-});
+sleep.tap('test', () => {
+  console.log('callback A')
+})
 
 // 3. 调用发布接口触发回调
-sleep.call();
+sleep.call()
 
 // 运行结果：
 // callback A
@@ -55,87 +55,18 @@ Webpack 内部的钩子大体上都遵循上面三个步骤，只是在某些钩
 
 Tabable 提供如下类型的钩子：
 
-<table data-ace-table-col-widths="231;180;526;" class="ace-table author-6857319138482798593"><colgroup><col width="231"><col width="180"><col width="526"></colgroup><tbody><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1bcem81hueopshd3562hebk3nc1agp71txc14cq5p9uz8ppmklmekzrbekueyfiukp18">名称</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1bcem81hueopshd3562hebk3nc1agp71txc1qhtovo04njlapok94mopi4cu4ro6e645">简介</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1bcem81hueopshd3562hebk3nc1agp71txc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">统计</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1w572whktjb8jifh8qjw4gg0scglciladxc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">SyncHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1w572whktjb8jifh8qjw4gg0scglciladxc1qhtovo04njlapok94mopi4cu4ro6e645">同步钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1w572whktjb8jifh8qjw4gg0scglciladxc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 共出现 71 次，如 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">Compiler.hooks.compilation</code></div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1fqo2khidh6lefyohph22htdcsc8fku8vxc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">SyncBailHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1fqo2khidh6lefyohph22htdcsc8fku8vxc1qhtovo04njlapok94mopi4cu4ro6e645">同步熔断钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1fqo2khidh6lefyohph22htdcsc8fku8vxc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 共出现 66 次，如 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">Compiler.hooks.shouldEmit</code></div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr17yaadu4b084z2jlfo2aas7298khe2m71xc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">SyncWaterfallHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr17yaadu4b084z2jlfo2aas7298khe2m71xc1qhtovo04njlapok94mopi4cu4ro6e645">同步瀑布流钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr17yaadu4b084z2jlfo2aas7298khe2m71xc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 共出现 37 次，如 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">Compilation.hooks.assetPath</code></div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1alqztjrgvrhaw70j93bkdgf8bkw3kgnkxc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">SyncLoopHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1alqztjrgvrhaw70j93bkdgf8bkw3kgnkxc1qhtovo04njlapok94mopi4cu4ro6e645">同步循环钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1alqztjrgvrhaw70j93bkdgf8bkw3kgnkxc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 中未使用</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1qqdbchebq1sc4vv0kqlbeanv2nd8nwqqxc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">AsyncParallelHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1qqdbchebq1sc4vv0kqlbeanv2nd8nwqqxc1qhtovo04njlapok94mopi4cu4ro6e645">异步并行钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1qqdbchebq1sc4vv0kqlbeanv2nd8nwqqxc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 仅出现 1 次：<code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">Compiler.hooks.make</code></div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr19uuej2bj88tdaejgm0u0f4du7ufpdji2xc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">AsyncParallelBailHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr19uuej2bj88tdaejgm0u0f4du7ufpdji2xc1qhtovo04njlapok94mopi4cu4ro6e645">异步并行熔断钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr19uuej2bj88tdaejgm0u0f4du7ufpdji2xc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 中未使用</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1q50uu3lru8bn8gl1hny6tcmbfe5zjc1qxc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">AsyncSeriesHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1q50uu3lru8bn8gl1hny6tcmbfe5zjc1qxc1qhtovo04njlapok94mopi4cu4ro6e645">异步串行钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1q50uu3lru8bn8gl1hny6tcmbfe5zjc1qxc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 共出现 16 次，如 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">Compiler.hooks.done</code></div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1294lhk7hulw9oo9uot4pywnyzo5aici7xc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">AsyncSeriesBailHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1294lhk7hulw9oo9uot4pywnyzo5aici7xc1qhtovo04njlapok94mopi4cu4ro6e645">异步串行熔断钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1294lhk7hulw9oo9uot4pywnyzo5aici7xc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 中未使用</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1ksaliremb7gg7jvwt9lt543d3t2vis6ixc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">AsyncSeriesLoopHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1ksaliremb7gg7jvwt9lt543d3t2vis6ixc1qhtovo04njlapok94mopi4cu4ro6e645">异步串行循环钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1ksaliremb7gg7jvwt9lt543d3t2vis6ixc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 中未使用</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1lalt6m4dmi308e6kwv044oewcp8njeh7xc14cq5p9uz8ppmklmekzrbekueyfiukp18"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">AsyncSeriesWaterfallHook</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1lalt6m4dmi308e6kwv044oewcp8njeh7xc1qhtovo04njlapok94mopi4cu4ro6e645">异步串行瀑布流钩子</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1lalt6m4dmi308e6kwv044oewcp8njeh7xc10bo0cuj91aj9hq75tp6ll4c9ot1vmegq">Webpack 共出现 5 次，如 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">NormalModuleFactory.hooks.beforeResolve</code></div></td></tr></tbody></table>
+| 名称                       | 简介               | 统计                                                               |
+| -------------------------- | ------------------ | ------------------------------------------------------------------ |
+| `SyncHook`                 | 同步钩子           | Webpack 共出现 71 次，如  `Compiler.hooks.compilation`             |
+| `SyncBailHook`             | 同步熔断钩子       | Webpack 共出现 66 次，如  `Compiler.hooks.shouldEmit`              |
+| `SyncWaterfallHook`        | 同步瀑布流钩子     | Webpack 共出现 37 次，如  `Compilation.hooks.assetPath`            |
+| `SyncLoopHook`             | 同步循环钩子       | Webpack 中未使用                                                   |
+| `AsyncParallelHook`        | 异步并行钩子       | Webpack 仅出现 1 次：`Compiler.hooks.make`                         |
+| `AsyncParallelBailHook`    | 异步并行熔断钩子   | Webpack 中未使用                                                   |
+| `AsyncSeriesHook`          | 异步串行钩子       | Webpack 共出现 16 次，如  `Compiler.hooks.done`                    |
+| `AsyncSeriesBailHook`      | 异步串行熔断钩子   | Webpack 中未使用                                                   |
+| `AsyncSeriesLoopHook`      | 异步串行循环钩子   | Webpack 中未使用                                                   |
+| `AsyncSeriesWaterfallHook` | 异步串行瀑布流钩子 | Webpack 共出现 5 次，如  `NormalModuleFactory.hooks.beforeResolve` |
 
 类型虽多，但整体遵循两种分类规则：
 
@@ -158,10 +89,10 @@ Tabable 提供如下类型的钩子：
 
 ```js
 function syncCall() {
-  const callbacks = [fn1, fn2, fn3];
+  const callbacks = [fn1, fn2, fn3]
   for (let i = 0; i < callbacks.length; i++) {
-    const cb = callbacks[i];
-    cb();
+    const cb = callbacks[i]
+    cb()
   }
 }
 ```
@@ -169,34 +100,34 @@ function syncCall() {
 举个例子：
 
 ```js
-const { SyncHook } = require("tapable");
+const { SyncHook } = require('tapable')
 
 class Somebody {
   constructor() {
     this.hooks = {
       sleep: new SyncHook(),
-    };
+    }
   }
   sleep() {
     //   触发回调
-    this.hooks.sleep.call();
+    this.hooks.sleep.call()
   }
 }
 
-const person = new Somebody();
+const person = new Somebody()
 
 // 注册回调
-person.hooks.sleep.tap("test", () => {
-  console.log("callback A");
-});
-person.hooks.sleep.tap("test", () => {
-  console.log("callback B");
-});
-person.hooks.sleep.tap("test", () => {
-  console.log("callback C");
-});
+person.hooks.sleep.tap('test', () => {
+  console.log('callback A')
+})
+person.hooks.sleep.tap('test', () => {
+  console.log('callback B')
+})
+person.hooks.sleep.tap('test', () => {
+  console.log('callback C')
+})
 
-person.sleep();
+person.sleep()
 // 输出结果：
 // callback A
 // callback B
@@ -212,52 +143,52 @@ person.sleep();
 ```js
 // call 风格
 try {
-  this.hooks.sleep.call();
+  this.hooks.sleep.call()
 } catch (e) {
-    // 错误处理逻辑
+  // 错误处理逻辑
 }
 // callAsync 风格
-this.hooks.sleep.callAsync((err) => {
+this.hooks.sleep.callAsync(err => {
   if (err) {
     // 错误处理逻辑
   }
-});
+})
 ```
 
 由于调用方式不会 Hook 本身的规则，所以对使用者来说，无需关心底层到底用的是 `call` 还是 `callAsync`，上面的例子只需要做简单的修改就可以适配 `callAsync` 场景：
 
 ```js
-const { SyncHook } = require("tapable");
+const { SyncHook } = require('tapable')
 
 class Somebody {
   constructor() {
     this.hooks = {
       sleep: new SyncHook(),
-    };
+    }
   }
   sleep() {
     //   触发回调
-    this.hooks.sleep.callAsync((err) => {
+    this.hooks.sleep.callAsync(err => {
       if (err) {
-        console.log(`interrupt with "${err.message}"`);
+        console.log(`interrupt with "${err.message}"`)
       }
-    });
+    })
   }
 }
 
-const person = new Somebody();
+const person = new Somebody()
 
 // 注册回调
-person.hooks.sleep.tap("test", (cb) => {
-  console.log("callback A");
-  throw new Error("我就是要报错");
-});
+person.hooks.sleep.tap('test', cb => {
+  console.log('callback A')
+  throw new Error('我就是要报错')
+})
 // 第一个回调出错后，后续回调不会执行
-person.hooks.sleep.tap("test", () => {
-  console.log("callback B");
-});
+person.hooks.sleep.tap('test', () => {
+  console.log('callback B')
+})
 
-person.sleep();
+person.sleep()
 
 // 输出结果：
 // callback A
@@ -270,57 +201,57 @@ person.sleep();
 
 ```js
 function bailCall() {
-  const callbacks = [fn1, fn2, fn3];
+  const callbacks = [fn1, fn2, fn3]
   for (let i in callbacks) {
-    const cb = callbacks[i];
-    const result = cb(lastResult);
+    const cb = callbacks[i]
+    const result = cb(lastResult)
     // 如果有任意一个回调返回结果，则停止调用剩下的回调
     if (result !== undefined) {
       // 熔断
-      return result;
+      return result
     }
   }
-  return undefined;
+  return undefined
 }
 ```
 
 `SyncBailHook` 的调用顺序与规则都跟 `SyncHook` 相似，主要区别一是 `SyncBailHook` 增加了熔断逻辑，例如：
 
 ```js
-const { SyncBailHook } = require("tapable");
+const { SyncBailHook } = require('tapable')
 
 class Somebody {
   constructor() {
     this.hooks = {
       sleep: new SyncBailHook(),
-    };
+    }
   }
   sleep() {
-    return this.hooks.sleep.call();
+    return this.hooks.sleep.call()
   }
 }
 
-const person = new Somebody();
+const person = new Somebody()
 
 // 注册回调
-person.hooks.sleep.tap("test", () => {
-  console.log("callback A");
+person.hooks.sleep.tap('test', () => {
+  console.log('callback A')
   // 熔断点
   // 返回非 undefined 的任意值都会中断回调队列
-  return '返回值：tecvan'
-});
-person.hooks.sleep.tap("test", () => {
-  console.log("callback B");
-});
+  return '返回值：tony'
+})
+person.hooks.sleep.tap('test', () => {
+  console.log('callback B')
+})
 
-console.log(person.sleep());
+console.log(person.sleep())
 
 // 运行结果：
 // callback A
-// 返回值：tecvan
+// 返回值：tony
 ```
 
-其次，相比于 `SyncHook` ，`SyncBailHook` 运行结束后，会将熔断值返回给 call 函数，例如上例第 20 行， `callback A` 返回的 `返回值：tecvan` 会成为 `this.hooks.sleep.call` 的调用结果。
+其次，相比于 `SyncHook` ，`SyncBailHook` 运行结束后，会将熔断值返回给 call 函数，例如上例第 21 行， `callback A` 返回的 `返回值：tony` 会成为 `this.hooks.sleep.call` 的调用结果。
 
 > 在 Webpack 中被如何使用
 
@@ -335,7 +266,7 @@ class Compiler {
       if (this.hooks.shouldEmit.call(compilation) === false) {
         // ...
       }
-    };
+    }
   }
 }
 ```
@@ -352,14 +283,14 @@ class Compiler {
 
 ```js
 function waterfallCall(arg) {
-  const callbacks = [fn1, fn2, fn3];
-  let lastResult = arg;
+  const callbacks = [fn1, fn2, fn3]
+  let lastResult = arg
   for (let i in callbacks) {
-    const cb = callbacks[i];
+    const cb = callbacks[i]
     // 上次执行结果作为参数传入下一个函数
-    lastResult = cb(lastResult);
+    lastResult = cb(lastResult)
   }
-  return lastResult;
+  return lastResult
 }
 ```
 
@@ -371,46 +302,46 @@ function waterfallCall(arg) {
 例如：
 
 ```js
-const { SyncWaterfallHook } = require("tapable");
+const { SyncWaterfallHook } = require('tapable')
 
 class Somebody {
   constructor() {
     this.hooks = {
-      sleep: new SyncWaterfallHook(["msg"]),
-    };
+      sleep: new SyncWaterfallHook(['msg']),
+    }
   }
   sleep() {
-    return this.hooks.sleep.call("hello");
+    return this.hooks.sleep.call('hello')
   }
 }
 
-const person = new Somebody();
+const person = new Somebody()
 
 // 注册回调
-person.hooks.sleep.tap("test", (arg) => {
-  console.log(`call 调用传入： ${arg}`);
-  return "tecvan";
-});
+person.hooks.sleep.tap('test', arg => {
+  console.log(`call 调用传入： ${arg}`)
+  return 'tony'
+})
 
-person.hooks.sleep.tap("test", (arg) => {
-  console.log(`A 回调返回： ${arg}`);
-  return "world";
-});
+person.hooks.sleep.tap('test', arg => {
+  console.log(`A 回调返回： ${arg}`)
+  return 'world'
+})
 
-console.log("最终结果：" + person.sleep());
+console.log('最终结果：' + person.sleep())
 // 运行结果：
 // call 调用传入： hello
-// A 回调返回： tecvan
+// A 回调返回： tony
 // 最终结果：world
 ```
 
-示例中，`sleep` 钩子为 `SyncWaterfallHook` 类型，之后注册了两个回调，从处理结果可以看到，第一个回调收到的 `arg = hello` ，即第 10 行 call 调用时传入的参数；第二个回调收到的是第一个回调返回的结果 `tecvan`；之后 `call` 调用返回的是第二个回调的结果 `world` 。
+示例中，`sleep` 钩子为 `SyncWaterfallHook` 类型，之后注册了两个回调，从处理结果可以看到，第一个回调收到的 `arg = hello` ，即第 10 行 call 调用时传入的参数；第二个回调收到的是第一个回调返回的结果 `tony`；之后 `call` 调用返回的是第二个回调的结果 `world` 。
 
 使用时，`SyncWaterfallHook` 钩子有一些注意事项：
 
 - 初始化时必须提供参数，例如上例 `new SyncWaterfallHook(["msg"])` 构造函数中，必须传入参数 `["msg"]` ，用于动态编译 `call` 的参数依赖，后面我们会讲到 **动态编译** 的细节；
 - 发布调用 `call` 时，需要传入初始参数。
-
+- [ ] 1
 > 在 Webpack 中被如何使用
 
 `SyncWaterfallHook` 在 Webpack 中总共出现了 50+ 次，其中比较有代表性的例子是 `NormalModuleFactory.hooks.factory` ，在 Webpack 内部实现中，会在这个钩子内根据资源类型 `resolve` 出对应的 `module` 对象：
@@ -419,28 +350,28 @@ console.log("最终结果：" + person.sleep());
 class NormalModuleFactory {
   constructor() {
     this.hooks = {
-      factory: new SyncWaterfallHook(["filename", "data"]),
-    };
+      factory: new SyncWaterfallHook(['filename', 'data']),
+    }
 
-    this.hooks.factory.tap("NormalModuleFactory", () => (result, callback) => {
-      let resolver = this.hooks.resolver.call(null);
+    this.hooks.factory.tap('NormalModuleFactory', () => (result, callback) => {
+      let resolver = this.hooks.resolver.call(null)
 
-      if (!resolver) return callback();
+      if (!resolver) return callback()
 
       resolver(result, (err, data) => {
-        if (err) return callback(err);
+        if (err) return callback(err)
 
         // direct module
-        if (typeof data.source === "function") return callback(null, data);
+        if (typeof data.source === 'function') return callback(null, data)
 
         // ...
-      });
-    });
+      })
+    })
   }
 
   create(data, callback) {
     //   ...
-    const factory = this.hooks.factory.call(null);
+    const factory = this.hooks.factory.call(null)
     // ...
   }
 }
@@ -454,9 +385,9 @@ class NormalModuleFactory {
 
 ```js
 function loopCall() {
-  const callbacks = [fn1, fn2, fn3];
+  const callbacks = [fn1, fn2, fn3]
   for (let i in callbacks) {
-    const cb = callbacks[i];
+    const cb = callbacks[i]
     // 重复执行
     while (cb() !== undefined) {}
   }
@@ -466,36 +397,36 @@ function loopCall() {
 由于 `loop` 钩子循环执行的特性，使用时务必十分注意，避免陷入死循环。示例：
 
 ```js
-const { SyncLoopHook } = require("tapable");
+const { SyncLoopHook } = require('tapable')
 
 class Somebody {
   constructor() {
     this.hooks = {
       sleep: new SyncLoopHook(),
-    };
+    }
   }
   sleep() {
-    return this.hooks.sleep.call();
+    return this.hooks.sleep.call()
   }
 }
 
-const person = new Somebody();
-let times = 0;
+const person = new Somebody()
+let times = 0
 
 // 注册回调
-person.hooks.sleep.tap("test", (arg) => {
-  ++times;
-  console.log(`第 ${times} 次执行回调A`);
+person.hooks.sleep.tap('test', arg => {
+  ++times
+  console.log(`第 ${times} 次执行回调A`)
   if (times < 4) {
-    return times;
+    return times
   }
-});
+})
 
-person.hooks.sleep.tap("test", (arg) => {
-  console.log(`执行回调B`);
-});
+person.hooks.sleep.tap('test', arg => {
+  console.log(`执行回调B`)
+})
 
-person.sleep();
+person.sleep()
 // 运行结果
 // 第 1 次执行回调A
 // 第 2 次执行回调A
@@ -522,52 +453,52 @@ person.sleep();
 
 ```js
 function asyncSeriesCall(callback) {
-  const callbacks = [fn1, fn2, fn3];
+  const callbacks = [fn1, fn2, fn3]
   //   执行回调 1
-  fn1((err1) => {
+  fn1(err1 => {
     if (err1) {
-      callback(err1);
+      callback(err1)
     } else {
       //   执行回调 2
-      fn2((err2) => {
+      fn2(err2 => {
         if (err2) {
-          callback(err2);
+          callback(err2)
         } else {
           //   执行回调 3
-          fn3((err3) => {
+          fn3(err3 => {
             if (err3) {
-              callback(err2);
+              callback(err2)
             }
-          });
+          })
         }
-      });
+      })
     }
-  });
+  })
 }
 ```
 
 先来看一个 `callback` 风格的示例：
 
 ```js
-const { AsyncSeriesHook } = require("tapable");
+const { AsyncSeriesHook } = require('tapable')
 
-const hook = new AsyncSeriesHook();
+const hook = new AsyncSeriesHook()
 
 // 注册回调
-hook.tapAsync("test", (cb) => {
-  console.log("callback A");
+hook.tapAsync('test', cb => {
+  console.log('callback A')
   setTimeout(() => {
-    console.log("callback A 异步操作结束");
+    console.log('callback A 异步操作结束')
     // 回调结束时，调用 cb 通知 tapable 当前回调已结束
-    cb();
-  }, 100);
-});
+    cb()
+  }, 100)
+})
 
-hook.tapAsync("test", () => {
-  console.log("callback B");
-});
+hook.tapAsync('test', () => {
+  console.log('callback B')
+})
 
-hook.callAsync();
+hook.callAsync()
 // 运行结果：
 // callback A
 // callback A 异步操作结束
@@ -579,27 +510,27 @@ hook.callAsync();
 除了 `callback` 风格外，也可以使用 promise 风格调用 `tap/call` 函数，改造上例：
 
 ```js
-const { AsyncSeriesHook } = require("tapable");
+const { AsyncSeriesHook } = require('tapable')
 
-const hook = new AsyncSeriesHook();
+const hook = new AsyncSeriesHook()
 
 // 注册回调
-hook.tapPromise("test", () => {
-  console.log("callback A");
-  return new Promise((resolve) => {
+hook.tapPromise('test', () => {
+  console.log('callback A')
+  return new Promise(resolve => {
     setTimeout(() => {
-      console.log("callback A 异步操作结束");
-      resolve();
-    }, 100);
-  });
-});
+      console.log('callback A 异步操作结束')
+      resolve()
+    }, 100)
+  })
+})
 
-hook.tapPromise("test", () => {
-  console.log("callback B");
-  return Promise.resolve();
-});
+hook.tapPromise('test', () => {
+  console.log('callback B')
+  return Promise.resolve()
+})
 
-hook.promise();
+hook.promise()
 // 运行结果：
 // callback A
 // callback A 异步操作结束
@@ -619,34 +550,34 @@ hook.promise();
 ```js
 class Compiler {
   run(callback) {
-    if (err) return finalCallback(err);
+    if (err) return finalCallback(err)
 
-    this.emitAssets(compilation, (err) => {
-      if (err) return finalCallback(err);
+    this.emitAssets(compilation, err => {
+      if (err) return finalCallback(err)
 
       if (compilation.hooks.needAdditionalPass.call()) {
         // ...
-        this.hooks.done.callAsync(stats, (err) => {
-          if (err) return finalCallback(err);
+        this.hooks.done.callAsync(stats, err => {
+          if (err) return finalCallback(err)
 
-          this.hooks.additionalPass.callAsync((err) => {
-            if (err) return finalCallback(err);
-            this.compile(onCompiled);
-          });
-        });
-        return;
+          this.hooks.additionalPass.callAsync(err => {
+            if (err) return finalCallback(err)
+            this.compile(onCompiled)
+          })
+        })
+        return
       }
 
-      this.emitRecords((err) => {
-        if (err) return finalCallback(err);
+      this.emitRecords(err => {
+        if (err) return finalCallback(err)
 
         // ...
-        this.hooks.done.callAsync(stats, (err) => {
-          if (err) return finalCallback(err);
-          return finalCallback(null, stats);
-        });
-      });
-    });
+        this.hooks.done.callAsync(stats, err => {
+          if (err) return finalCallback(err)
+          return finalCallback(null, stats)
+        })
+      })
+    })
   }
 }
 ```
@@ -657,40 +588,40 @@ class Compiler {
 
 ```js
 function asyncParallelCall(callback) {
-  const callbacks = [fn1, fn2];
+  const callbacks = [fn1, fn2]
   // 内部维护了一个计数器
-  var _counter = 2;
+  var _counter = 2
 
-  var _done = function() {
-    _callback();
-  };
-  if (_counter <= 0) return;
+  var _done = function () {
+    _callback()
+  }
+  if (_counter <= 0) return
   // 按序执行回调
-  var _fn0 = callbacks[0];
-  _fn0(function(_err0) {
+  var _fn0 = callbacks[0]
+  _fn0(function (_err0) {
     if (_err0) {
       if (_counter > 0) {
         // 出错时，忽略后续回调，直接退出
-        _callback(_err0);
-        _counter = 0;
+        _callback(_err0)
+        _counter = 0
       }
     } else {
-      if (--_counter === 0) _done();
+      if (--_counter === 0) _done()
     }
-  });
-  if (_counter <= 0) return;
+  })
+  if (_counter <= 0) return
   // 不需要等待前面回调结束，直接开始执行下一个回调
-  var _fn1 = callbacks[1];
-  _fn1(function(_err1) {
+  var _fn1 = callbacks[1]
+  _fn1(function (_err1) {
     if (_err1) {
       if (_counter > 0) {
-        _callback(_err1);
-        _counter = 0;
+        _callback(_err1)
+        _counter = 0
       }
     } else {
-      if (--_counter === 0) _done();
+      if (--_counter === 0) _done()
     }
-  });
+  })
 }
 ```
 
@@ -734,14 +665,14 @@ function asyncParallelCall(callback) {
 动态编译是一个非常大胆的设计，不同 Hook 所谓的同步、异步、bail、waterfall、loop 等回调规则都是 Tapable 根据 Hook 类型、参数、回调队列等参数，调用 `new Function` 语句动态拼装出一段控制执行流程的 JavaScript 代码实现控制的。例如：
 
 ```js
-const { SyncHook } = require("tapable");
+const { SyncHook } = require('tapable')
 
-const sleep = new SyncHook();
+const sleep = new SyncHook()
 
-sleep.tap("test", () => {
-  console.log("callback A");
-});
-sleep.call();
+sleep.tap('test', () => {
+  console.log('callback A')
+})
+sleep.call()
 ```
 
 调用 `sleep.call` 时，Tapable 内部处理流程大致为：
@@ -757,14 +688,12 @@ sleep.call();
 `SyncHook` （其他钩子类似\)）调用 `call` 后，`Hook` 基类收集上下文信息并调用 `createCall` 及子类传入的 `compiler` 函数；`compiler` 调用 `HookCodeFactory` 进而使用 `new Function` 方法动态拼接出回调执行函数。上面例子对应的生成函数：
 
 ```js
-(function anonymous(
-) {
-"use strict";
-var _context;
-var _x = this._x;
-var _fn0 = _x[0];
-_fn0();
-
+;(function anonymous() {
+  'use strict'
+  var _context
+  var _x = this._x
+  var _fn0 = _x[0]
+  _fn0()
 })
 ```
 
@@ -773,87 +702,87 @@ _fn0();
 这放在 `SyncHook` 这种简单场景确实大可不必，但若是更复杂的 Hook，如 `AsyncSeriesWaterfallHook`：
 
 ```js
-const { AsyncSeriesWaterfallHook } = require("tapable");
+const { AsyncSeriesWaterfallHook } = require('tapable')
 
-const sleep = new AsyncSeriesWaterfallHook(["name"]);
+const sleep = new AsyncSeriesWaterfallHook(['name'])
 
-sleep.tapAsync("test1", (name, cb) => {
-  console.log(`执行 A 回调： 参数 name=${name}`);
+sleep.tapAsync('test1', (name, cb) => {
+  console.log(`执行 A 回调： 参数 name=${name}`)
   setTimeout(() => {
-    cb(undefined, "tecvan2");
-  }, 100);
-});
+    cb(undefined, 'tony2')
+  }, 100)
+})
 
-sleep.tapAsync("test", (name, cb) => {
-  console.log(`执行 B 回调： 参数 name=${name}`);
+sleep.tapAsync('test', (name, cb) => {
+  console.log(`执行 B 回调： 参数 name=${name}`)
   setTimeout(() => {
-    cb(undefined, "tecvan3");
-  }, 100);
-});
+    cb(undefined, 'tony3')
+  }, 100)
+})
 
-sleep.tapAsync("test", (name, cb) => {
-  console.log(`执行 C 回调： 参数 name=${name}`);
+sleep.tapAsync('test', (name, cb) => {
+  console.log(`执行 C 回调： 参数 name=${name}`)
   setTimeout(() => {
-    cb(undefined, "tecvan4");
-  }, 100);
-});
+    cb(undefined, 'tony4')
+  }, 100)
+})
 
-sleep.callAsync("tecvan", (err, name) => {
-  console.log(`回调结束， name=${name}`);
-});
+sleep.callAsync('tony', (err, name) => {
+  console.log(`回调结束， name=${name}`)
+})
 
 // 运行结果：
-// 执行 A 回调： 参数 name=tecvan
-// 执行 B 回调： 参数 name=tecvan2
-// 执行 C 回调： 参数 name=tecvan3
-// 回调结束， name=tecvan4
+// 执行 A 回调： 参数 name=tony
+// 执行 B 回调： 参数 name=tony2
+// 执行 C 回调： 参数 name=tony3
+// 回调结束， name=tony4
 ```
 
 `AsyncSeriesWaterfallHook` 的特点是异步 + 串行 + 前一个回调的返回值会传入下一个回调，对应生成函数：
 
 ```js
-(function anonymous(name, _callback) {
-  "use strict";
-  var _context;
-  var _x = this._x;
+;(function anonymous(name, _callback) {
+  'use strict'
+  var _context
+  var _x = this._x
   function _next1() {
-    var _fn2 = _x[2];
-    _fn2(name, function(_err2, _result2) {
+    var _fn2 = _x[2]
+    _fn2(name, function (_err2, _result2) {
       if (_err2) {
-        _callback(_err2);
+        _callback(_err2)
       } else {
         if (_result2 !== undefined) {
-          name = _result2;
+          name = _result2
         }
-        _callback(null, name);
+        _callback(null, name)
       }
-    });
+    })
   }
   function _next0() {
-    var _fn1 = _x[1];
-    _fn1(name, function(_err1, _result1) {
+    var _fn1 = _x[1]
+    _fn1(name, function (_err1, _result1) {
       if (_err1) {
-        _callback(_err1);
+        _callback(_err1)
       } else {
         if (_result1 !== undefined) {
-          name = _result1;
+          name = _result1
         }
-        _next1();
+        _next1()
       }
-    });
+    })
   }
-  var _fn0 = _x[0];
-  _fn0(name, function(_err0, _result0) {
+  var _fn0 = _x[0]
+  _fn0(name, function (_err0, _result0) {
     if (_err0) {
-      _callback(_err0);
+      _callback(_err0)
     } else {
       if (_result0 !== undefined) {
-        name = _result0;
+        name = _result0
       }
-      _next0();
+      _next0()
     }
-  });
-});
+  })
+})
 ```
 
 核心逻辑：
@@ -876,24 +805,24 @@ Tapable 提供的大多数特性都是基于 `Hook + HookCodeFactory` 实现的�
 除了通常的 `tap/call` 之外，tapable 还提供了简易的中间件机制 —— `intercept` 接口，例如
 
 ```js
-const sleep = new SyncHook();
+const sleep = new SyncHook()
 
 sleep.intercept({
-  name: "test",
+  name: 'test',
   context: true,
   call() {
-    console.log("before call");
+    console.log('before call')
   },
-  loop(){
-    console.log("before loop");
+  loop() {
+    console.log('before loop')
   },
   tap() {
-    console.log("before each callback");
+    console.log('before each callback')
   },
   register() {
-    console.log("every time call tap");
+    console.log('every time call tap')
   },
-});
+})
 ```
 
 `intercept` 支持注册如下类型的中间件：
@@ -963,33 +892,33 @@ sleep.intercept({
 其中 `register` 在每次调用 `tap` 时被调用；其他三种中间件的触发时机大致如下：
 
 ```js
-  var _context;
-  const callbacks = [fn1, fn2];
-  var _interceptors = this.interceptors;
-  // 调用 call 函数，立即触发
-  _interceptors.forEach((intercept) => intercept.call(_context));
-  var _loop;
-  var cursor = 0;
-  do {
-    _loop = false;
-    // 每次循环开始时触发 `loop`
-    _interceptors.forEach((intercept) => intercept.loop(_context));
-    // 触发 `tap`
-    var _fn0 = callbacks[0];
-    _interceptors.forEach((intercept) => intercept.tap(_context, _fn0));
-    var _result0 = _fn0();
-    if (_result0 !== undefined) {
-      _loop = true;
-    } else {
-      var _fn1 = callbacks[1];
-      // 再次触发 `tap`
-      _interceptors.forEach((intercept) => intercept.tap(_context, _fn1));
-      var _result1 = _fn1();
-      if (_result1 !== undefined) {
-        _loop = true;
-      }
+var _context
+const callbacks = [fn1, fn2]
+var _interceptors = this.interceptors
+// 调用 call 函数，立即触发
+_interceptors.forEach(intercept => intercept.call(_context))
+var _loop
+var cursor = 0
+do {
+  _loop = false
+  // 每次循环开始时触发 `loop`
+  _interceptors.forEach(intercept => intercept.loop(_context))
+  // 触发 `tap`
+  var _fn0 = callbacks[0]
+  _interceptors.forEach(intercept => intercept.tap(_context, _fn0))
+  var _result0 = _fn0()
+  if (_result0 !== undefined) {
+    _loop = true
+  } else {
+    var _fn1 = callbacks[1]
+    // 再次触发 `tap`
+    _interceptors.forEach(intercept => intercept.tap(_context, _fn1))
+    var _result1 = _fn1()
+    if (_result1 !== undefined) {
+      _loop = true
     }
-  } while (_loop);
+  }
+} while (_loop)
 ```
 
 `intercept` 特性在 Webpack 内主要被用作进度提示，如 `Webpack/lib/ProgressPlugin.js` 插件中，分别对 `compiler.hooks.emit` 、`compiler.hooks.afterEmit` 钩子应用了记录进度的中间件函数。其他类型的插件应用较少。
@@ -999,17 +928,17 @@ sleep.intercept({
 Tapable 还有一个值得注意的特性 —— `HookMap`，它提供了一种集合操作能力，能够降低创建与使用的复杂度，用法比较简单：
 
 ```js
-const { SyncHook, HookMap } = require("tapable");
+const { SyncHook, HookMap } = require('tapable')
 
-const sleep = new HookMap(() => new SyncHook());
+const sleep = new HookMap(() => new SyncHook())
 
 // 通过 for 函数过滤集合中的特定钩子
-sleep.for("statement").tap("test", () => {
-  console.log("callback for statement");
-});
+sleep.for('statement').tap('test', () => {
+  console.log('callback for statement')
+})
 
 // 触发 statement 类型的钩子
-sleep.get("statement").call();
+sleep.get('statement').call()
 ```
 
 `HookMap` 能够用于实现的动态获取钩子功能，例如在 Webpack 的 `lib/parser.js` 文件中，`parser` 文件主要完成将资源内容解析为 AST 集合，之后遍历 AST 并以 `HookMap` 方式对外通知遍历到的内容。
@@ -1022,28 +951,28 @@ class Parser {
     this.hooks = {
       // 定义钩子
       // 这里用到 HookMap ，所以不需要提前遍历枚举所有 expression 场景
-      expression: new HookMap(() => new SyncBailHook(["expression"])),
-    };
+      expression: new HookMap(() => new SyncBailHook(['expression'])),
+    }
   }
 
   //   不同场景下触发钩子
   walkMemberExpression(expression) {
-    const exprName = this.getNameForExpression(expression);
+    const exprName = this.getNameForExpression(expression)
     if (exprName && exprName.free) {
       // 触发特定类型的钩子
-      const expressionHook = this.hooks.expression.get(exprName.name);
+      const expressionHook = this.hooks.expression.get(exprName.name)
       if (expressionHook !== undefined) {
-        const result = expressionHook.call(expression);
-        if (result === true) return;
+        const result = expressionHook.call(expression)
+        if (result === true) return
       }
     }
     // ...
   }
 
   walkThisExpression(expression) {
-    const expressionHook = this.hooks.expression.get("this");
+    const expressionHook = this.hooks.expression.get('this')
     if (expressionHook !== undefined) {
-      expressionHook.call(expression);
+      expressionHook.call(expression)
     }
   }
 }
@@ -1057,41 +986,41 @@ class Parser {
 class CommonJsStuffPlugin {
   apply(compiler) {
     compiler.hooks.compilation.tap(
-      "CommonJsStuffPlugin",
+      'CommonJsStuffPlugin',
       (compilation, { normalModuleFactory }) => {
         const handler = (parser, parserOptions) => {
           // 通过 for 精确消费钩子
           parser.hooks.expression
-            .for("require.main.require")
+            .for('require.main.require')
             .tap(
-              "CommonJsStuffPlugin",
+              'CommonJsStuffPlugin',
               ParserHelpers.expressionIsUnsupported(
                 parser,
-                "require.main.require is not supported by Webpack."
+                'require.main.require is not supported by Webpack.'
               )
-            );
+            )
           parser.hooks.expression
-            .for("module.parent.require")
+            .for('module.parent.require')
             .tap(
-              "CommonJsStuffPlugin",
+              'CommonJsStuffPlugin',
               ParserHelpers.expressionIsUnsupported(
                 parser,
-                "module.parent.require is not supported by Webpack."
+                'module.parent.require is not supported by Webpack.'
               )
-            );
+            )
           parser.hooks.expression
-            .for("require.main")
+            .for('require.main')
             .tap(
-              "CommonJsStuffPlugin",
+              'CommonJsStuffPlugin',
               ParserHelpers.toConstantDependencyWithWebpackRequire(
                 parser,
-                "__Webpack_require__.c[__Webpack_require__.s]"
+                '__Webpack_require__.c[__Webpack_require__.s]'
               )
-            );
+            )
           // ...
-        };
+        }
       }
-    );
+    )
   }
 }
 ```
