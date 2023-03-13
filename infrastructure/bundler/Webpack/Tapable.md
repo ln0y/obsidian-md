@@ -339,9 +339,9 @@ console.log('最终结果：' + person.sleep())
 
 使用时，`SyncWaterfallHook` 钩子有一些注意事项：
 
-- 初始化时必须提供参数，例如上例 `new SyncWaterfallHook(["msg"])` 构造函数中，必须传入参数 `["msg"]` ，用于动态编译 `call` 的参数依赖，后面我们会讲到 **动态编译** 的细节；
+- 初始化时必须提供参数，例如上例 `new SyncWaterfallHook(["msg"])` 构造函数中，必须传入参数 `["msg"]` ，用于动态编译 `call` 的参数依赖，后面我们会讲到 **[[#Hook 动态编译|动态编译]]** 的细节；
 - 发布调用 `call` 时，需要传入初始参数。
-- [ ] 1
+
 > 在 Webpack 中被如何使用
 
 `SyncWaterfallHook` 在 Webpack 中总共出现了 50+ 次，其中比较有代表性的例子是 `NormalModuleFactory.hooks.factory` ，在 Webpack 内部实现中，会在这个钩子内根据资源类型 `resolve` 出对应的 `module` 对象：
