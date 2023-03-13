@@ -685,7 +685,7 @@ sleep.call()
 - `tapable/lib/Hook.js` ：`SyncHook` 只是一个代理接口，内部实际上调用了 `Hook` 类，由 `Hook` 负责实现钩子的逻辑（其它钩子也是一样的套路）；
 - `tapable/lib/HookCodeFactory.js` ：动态编译出 `call`、`callAsync`、`promise` 函数内容的工厂类，注意，其他钩子也都会用到 `HookCodeFactory` 工厂函数。
 
-`SyncHook` （其他钩子类似\)）调用 `call` 后，`Hook` 基类收集上下文信息并调用 `createCall` 及子类传入的 `compiler` 函数；`compiler` 调用 `HookCodeFactory` 进而使用 `new Function` 方法动态拼接出回调执行函数。上面例子对应的生成函数：
+`SyncHook` （其他钩子类似）调用 `call` 后，`Hook` 基类收集上下文信息并调用 `createCall` 及子类传入的 `compiler` 函数；`compiler` 调用 `HookCodeFactory` 进而使用 `new Function` 方法动态拼接出回调执行函数。上面例子对应的生成函数：
 
 ```js
 ;(function anonymous() {
@@ -827,67 +827,12 @@ sleep.intercept({
 
 `intercept` 支持注册如下类型的中间件：
 
-<table data-ace-table-col-widths="100;286;491;" class="ace-table author-6857319138482798593"><colgroup><col width="100"><col width="286"><col width="491"></colgroup><tbody><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr164cg6rvtu80r9q99ksthu6me5wn1teozxc1ky297uuvvq8ngej65km1c7l8tnsnjwhk"></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr164cg6rvtu80r9q99ksthu6me5wn1teozxc1z6s95brk9fgpv28lg0omkuuw9l32fr3q">签名</div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr164cg6rvtu80r9q99ksthu6me5wn1teozxc16h5t5jijbgu438q5pcluwj3l9v3wv5y7">解释</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1ozy0qlb1wel71mc9lz61rhi0uhg6gg4pxc1ky297uuvvq8ngej65km1c7l8tnsnjwhk"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">call</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1ozy0qlb1wel71mc9lz61rhi0uhg6gg4pxc1z6s95brk9fgpv28lg0omkuuw9l32fr3q"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">(…args) =&gt; void</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1ozy0qlb1wel71mc9lz61rhi0uhg6gg4pxc16h5t5jijbgu438q5pcluwj3l9v3wv5y7">调用 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">call/callAsync/promise</code> 时触发</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr14h2c1lmv77dt7uhy287nuqps2oa47wv9xc1ky297uuvvq8ngej65km1c7l8tnsnjwhk"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">tap</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr14h2c1lmv77dt7uhy287nuqps2oa47wv9xc1z6s95brk9fgpv28lg0omkuuw9l32fr3q"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">(tap: Tap) =&gt; void</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr14h2c1lmv77dt7uhy287nuqps2oa47wv9xc16h5t5jijbgu438q5pcluwj3l9v3wv5y7">调用 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">call</code> 类函数后，每次调用回调之前触发</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1f8t26s9oywoqpj72p19r10y9lcdyeddqxc1ky297uuvvq8ngej65km1c7l8tnsnjwhk"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">loop</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1f8t26s9oywoqpj72p19r10y9lcdyeddqxc1z6s95brk9fgpv28lg0omkuuw9l32fr3q"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">(…args) =&gt; void</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1f8t26s9oywoqpj72p19r10y9lcdyeddqxc16h5t5jijbgu438q5pcluwj3l9v3wv5y7">仅 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">loop</code> 型的钩子有效，在循环开始之前触发</div></td></tr><tr><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1eeopciskpuzdyad2o7bgsod218rmmn6ixc1ky297uuvvq8ngej65km1c7l8tnsnjwhk"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">register</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1eeopciskpuzdyad2o7bgsod218rmmn6ixc1z6s95brk9fgpv28lg0omkuuw9l32fr3q"><code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">(tap: Tap) =&gt; Tap | undefined</code></div></td><td style="border: 1px solid rgb(222, 224, 227);"><div style="white-space: pre;" data-line-index="0" data-zone-id="xr1eeopciskpuzdyad2o7bgsod218rmmn6ixc16h5t5jijbgu438q5pcluwj3l9v3wv5y7">调用 <code style="font-family: SourceCodeProMac;
-      border: 1px solid #dee0e3;
-      background-color: #f5f6f7;
-      border-radius: 4px;
-      margin-left: 2px;
-      margin-right: 2px;">tap/tapAsync/tapPromise</code> 时触发</div></td></tr></tbody></table>
+|            | 签名                            | 解释                                       |
+| ---------- | ------------------------------- | ------------------------------------------ |
+| `call`     | `(…args) => void`               | 调用 `call/callAsync/promise` 时触发       |
+| `tap`      | `(tap: Tap) => void`            | 调用 `call` 类函数后，每次调用回调之前触发 |
+| `loop`     | `(…args) => void`               | 仅 `loop` 型的钩子有效，在循环开始之前触发 |
+| `register` | (tap: Tap) => Tap \| undefined | 调用 `tap/tapAsync/tapPromise` 时触发      |
 
 其中 `register` 在每次调用 `tap` 时被调用；其他三种中间件的触发时机大致如下：
 
@@ -1030,7 +975,3 @@ class CommonJsStuffPlugin {
 ## 总结
 
 为了应对构建场景下各种复杂需求，Webpack 内部使用了多种类型的 Hook，分别用于实现同步、异步、熔断、串行、并行的流程逻辑，开发插件时需要注意识别 Hook 类型，据此做出正确的调用与交互逻辑。
-
-## 思考题
-
-为什么 Webpack 内部需要这些不同类型的流程逻辑？比如，为什么需要 `SyncBailHook` 这种具有熔断特性的钩子？适用于怎么样的场景？在我们日常业务开发中，能否复用这一类流程控制能力？
