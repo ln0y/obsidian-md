@@ -5,7 +5,7 @@ date: 2023-03-15-星期三 10:22:05
 update: 2023-03-15-星期三 10:22:12
 ---
 
-回顾最近几节内容，Webpack 运行过程中首先会根据 `Module` 之间的引用关系构建 `ModuleGraph` 对象；接下来按照若干内置规则将 `Module` 组织进不同 `Chunk` 对象中，形成 `ChunkGraph` 关系图。
+在 Webpack 运行过程中首先会根据 `Module` 之间的引用关系构建 `ModuleGraph` 对象；接下来按照若干内置规则将 `Module` 组织进不同 `Chunk` 对象中，形成 `ChunkGraph` 关系图。
 
 接着，构建流程将来到最后一个重要步骤：生成产物代码，这个过程会将所有 `Module` 内容一一转换为适当的产物代码形态，并以 `Chunk` 为单位合并 `Module` 产物代码，之后根据 `Module` 中出现的特性依赖，补充相应运行时代码，最终构建出我们日常所见的 Webpack Bundle 代码文件。
 
@@ -15,7 +15,7 @@ update: 2023-03-15-星期三 10:22:12
 
 众所周知，Webpack 的打包功能并不是将原始文件代码“复制 - 粘贴”到产物文件那么简单，为了确保代码能在不同环境 —— 多种版本的浏览器、Node、Electron 等正常运行，构建时需要对模块源码适当做一些转换操作，这一点在大多数构建产物的内容中都有所体现，例如：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3276ff5d31014f7d913f07b6bc61e4ab~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/dff9b0b001839551bed1c1d1c85ddca5_MD5.png]]
 
 示例包含 `index.js`、`name.js` 两个 JS 代码模块，经过 Webpack 构建后生成如图右侧所示的产物文件，文件自上而下包含三块内容：
 
@@ -25,7 +25,7 @@ update: 2023-03-15-星期三 10:22:12
 
 其中，`name.js`、`index.js` 对应的产物代码，与源码相比，虽然语义与功能都基本相同，但表现形式发生了较大变化，例如 `index.js` 编译前后的内容：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72e8b113bab844e9acf2e5d682339590~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/dc583f59e64b88bfdc182bab65004399_MD5.png]]
 
 - 整个模块被包裹进 IIFE（立即执行函数）中；
 - 添加 `__webpack_require__.r(__webpack_exports__);` 语句，用于适配 ESM 规范；
@@ -77,7 +77,7 @@ class Compilation {
 
 `codeGeneration` 方法负责生成最终的资产代码，主要流程：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a5888bf286248adaf7b627310aebbd9~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/c3f16e37ccffa6a8a512ad098dc13849_MD5.png]]
 
 有三个关键步骤。
 
@@ -99,7 +99,7 @@ class Compilation {
 
 「**模块转译**」 操作从 `module.codeGeneration` 调用开始，对应到上述流程图的：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f6d0eb4a736b493b86fc8c6945f8534a~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/b093bf71c80ec1d713b263361f4fccd1_MD5.png]]
 
 这个过程首先调用 `JavascriptGenerator.generate` 函数，遍历模块的 `dependencies` 数组，依次调用依赖对象对应的 `Template` 子类 `apply` 方法更新模块内容，说起来有点绕，我将重要步骤抽取为如下伪代码：
 
@@ -148,7 +148,7 @@ const xxxDependency.Template = class xxxDependencyTemplate extends Template {
 
 Webpack 从「构建」\(make\) 阶段开始，就会通过 `Dependency` 子类记录不同情况下模块之间的依赖关系；到「封装」\(seal\) 阶段再通过 `Template` 子类修改 `module` 代码，最终 `Module`、`Template`、 `JavascriptGenerator`、`Dependency` 四个关键类形成如下交互关系：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/683c91eefab04caf8875b859a7f7910c~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/29d745a6c879864978e9d5f998932f55_MD5.png]]
 
 `Template` 对象会通过三种方法影响产物代码：
 
@@ -348,7 +348,7 @@ module.exports = class DemoPlugin {
 
 完成上述操作后，`module` 对象的产物在生成过程就会调用到 `DemoDependencyTemplate.apply` 函数，插入我们定义好的字符串，效果如：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9bb7223e90c4054bb50f95c74191dd8~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/49d7e299e17e07d0a1d7036ab9faaf29_MD5.png]]
 
 感兴趣的同学也可以直接阅读 Webpack 仓库的如下文件，学习更多用例：
 
@@ -373,7 +373,7 @@ console.log(name)
 
 打包结果：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df188ee10e674b068e4bd4ea654aa923~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/778c96087f8d9f10034c80a379a13fbb_MD5.png]]
 
 可以看出，整个 Bundle 被包裹在一个立即执行函数中，函数内部从上到下依次定义：
 
@@ -409,7 +409,7 @@ Webpack 在处理上述代码 AST 时，会相应生成多个依赖对象，比�
 
 本质上，这是一个基于静态代码分析的方式收集依赖的过程。当所有模块处理完毕，收集到所有运行时依赖，进入 `codeGeneration` 函数后，Webpack 会进一步将这些依赖对象挂载到 Chunk 中：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/098592e677784728ba6c4947235b0460~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/a783d2fa2bc57e1c7bfa316db91a4e7d_MD5.png]]
 
 这个过程集中 `compilation.processRuntimeRequirements` 函数，函数中包含三次循环：
 
@@ -421,7 +421,7 @@ Webpack 在处理上述代码 AST 时，会相应生成多个依赖对象，比�
 
 在上述「模块转译主流程」中，我们聊到 `Template.apply` 函数可能修改模块的 `runtimeRequirements` 数组，最终形成如下结构：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ced49e0b3764a4aaf168db7bae8c1cb~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/5c217a92afd96acee63bcc7bb0bf914b_MD5.png]]
 
 这个过程相当于将模块的 Runtime Dependency 都转化为 `__webpack_require__` 等枚举值，并调用 `compilation.processRuntimeRequirements` 进入第一重循环，将上述 `runtimeRequirements` 数组 [挂载](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L3447-L3448) 到 `ChunkGraph` 对象中。
 
@@ -429,7 +429,7 @@ Webpack 在处理上述代码 AST 时，会相应生成多个依赖对象，比�
 
 第一次循环针对 module 收集依赖，第二次循环则遍历 chunk 数组，收集将其对应所有 module 的 runtime 依赖，例如：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1d02df6676942acac39290096af3d4c~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/215641c4c3a0638054ef5bda93a4a321_MD5.png]]
 
 示例图中，`module a` 包含两个运行时依赖；`module b` 包含一个运行时依赖，则经过第二次循环整合后，对应的 `chunk` 会包含两个模块所包含的三个运行时依赖。
 
@@ -447,13 +447,13 @@ Webpack 在处理上述代码 AST 时，会相应生成多个依赖对象，比�
 
 讲完单个模块转译以及运行时模块收集过程后，我们终于来到最后一步：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67a464acdc17450487c13f649c7d9b4f~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/deae124562a12dddee777ad2d877edb2_MD5.png]]
 
 流程图中，`compilation.codeGeneration` 函数执行完毕 —— 也就是模块转译阶段完成后，模块的转译结果会一一保存到 `compilation.codeGenerationResults` 对象中，之后会启动一个新的执行流程 —— **模块合并打包**。
 
 **模块合并打包** 过程会将 chunk 对应的 module 及 runtimeModule 按规则塞进 **模板框架** 中，最终合并输出成完整的 bundle 文件，例如上例中：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37ce17c38d524705b0f4dfbb7f408782~tplv-k3u1fbpfcp-zoom-1.png)
+![[_attachment/img/c37c3420d897555f2cd14ddc2479699c_MD5.png]]
 
 示例右边 bundle 文件中，红框框出来的部分为用户代码文件及运行时模块生成的产物，其余部分撑起了一个 IIFE 形式的运行框架，即为 **模板框架**，也就是：
 
