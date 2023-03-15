@@ -131,7 +131,7 @@ acorn 在语法解析阶段主要完成 AST 的封装以及错误抛出。在这
 
 ## AST 实战演练——实现一个简易 Tree Shaking 脚本
 
-基于 [[Tree Shaking]] 技术的方方面面。下面，我们就基于 AST，来实现一个简单的 DCE（dead code elimination）。
+基于 [[infrastructure/bundler/Tree Shaking]] 技术的方方面面。下面，我们就基于 AST，来实现一个简单的 DCE（dead code elimination）。
 
 目标如下，实现一个 Node.js 脚本 treeShaking.js，执行命令：
 
