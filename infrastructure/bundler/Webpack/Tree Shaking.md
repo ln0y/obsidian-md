@@ -254,7 +254,7 @@ export { bar, foo }
 
 ### 实践：在异步模块中使用 Tree-Shaking
 
-Webpack5 之后，我们还可以用一种特殊的备注语法，实现异步模块的 Tree-Shaking 功能，例如：
+Webpack5 之后，我们还可以用一种[特殊的备注语法](https://webpack.js.org/api/module-methods/#magic-comments)，实现异步模块的 Tree-Shaking 功能，例如：
 
 ```js
 import(/* webpackExports: ["foo", "default"] */ './foo').then(module => {
