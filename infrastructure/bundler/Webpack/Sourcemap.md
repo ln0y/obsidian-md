@@ -2,7 +2,7 @@
 aliases: []
 tags: ['infrastructure/bundler/Webpack', 'date/2023-03', 'year/2023', 'month/03']
 date: 2023-03-16-星期四 15:04:58
-update: 2023-03-16-星期四 15:18:26
+update: 2023-03-16-星期四 18:20:21
 ---
 
 [Sourcemap 协议](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.qz3o9nc69um5) 最初由 Google 设计并率先在 Closure Inspector 实现，它的主要作用就是将经过压缩、混淆、合并的产物代码还原回未打包的原始形态，帮助开发者在生产环境中精确定位问题发生的行列位置，例如：
@@ -13,9 +13,17 @@ update: 2023-03-16-星期四 15:18:26
 
 这个过程真正的难点在于 「如何计算映射关系」，因此本文会展开详细讲解 Sourcemap 映射结构与 VLQ 编码规则，以及 Webpack 提供的 `devtool` 配置项的详细用法。
 
-## Sourcemap 映射结构
+## SourceMap 的属性
 
 Sourcemap 最初版本生成的 `.map` 文件非常大，体积大概为编译产物的 10 倍；V2 之后引入 Base64 编码等算法，将之减少 20\% \~ 30\%；而最新版本 V3 又在 V2 基础上引入 VLQ 算法，体积进一步压缩了 50\%。
+
+- 2009 年，google 介绍他的一个编译器 Cloure Compiler 时，也顺便推出了一个调试插件 Closure Inspector，可以方便调试编译后的代码，这个就是 sourcemap 的雏形
+
+- 2010 年，Closure Compiler Source Map 2.0 中，共同制定了一些标准，已决定使用 base64 编码，但是生成的 map 文件要比现在大很多
+
+- 2011 年，第三代出炉， Source Map Revision 3 Proposal，也就是我们现在用的 sourcemap 的版本，这也就是为什么我们上面 map 文件的 version=3 了，这一版对算法进行了优化，大大缩小了 map 文件的体积
+
+正是因为有了第三代 [Source Map Revision 3 Proposal](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.1ce2c87bpj24) 这个标准，不同的打包工具和浏览器才能使用 sourcemap，github 上的一个根据这个标准生成 sourcemap 的库 <https://github.com/mozilla/source-map>
 
 这一系列进化造就了一个效率极高的 Sourcemap 体系，但伴随而来的则是较为复杂的 `mappings` 编码规则。V3 版本 Sourcemap 文件由三部分组成:
 
@@ -30,11 +38,15 @@ Sourcemap 最初版本生成的 `.map` 文件非常大，体积大概为编译�
 ```json
 {
   "version": 3,
-  "sources": ["webpack:///./src/index.js"],
-  "names": ["name", "console", "log"],
-  "mappings": ";;;;;AAAA,IAAMA,IAAI,GAAG,QAAb;AAEAC,OAAO,CAACC,GAAR,CAAYF,IAAZ,E",
-  "file": "main.js",
-  "sourcesContent": ["const name = 'tecvan';\n\nconsole.log(name)"],
+  "file": "entry1.js",
+  "mappings": ";;;;;AAAA;AACA",
+  "sources": [
+    "webpack://webpack/./index.js"
+  ],
+  "sourcesContent": [
+    "const name = 'tony'\nconsole.log(name)\n"
+  ],
+  "names": [],
   "sourceRoot": ""
 }
 ```
@@ -47,7 +59,9 @@ Sourcemap 最初版本生成的 `.map` 文件非常大，体积大概为编译�
 - `sourcesContent`：字符串数组，原始代码的内容；
 - `sourceRoot`：字符串，源文件根目录；
 - `sources`：字符串数组，原始文件路径名，与 `sourcesContent` 内容一一对应；
-- `mappings`：字符串数组，记录打包产物与原始代码的位置映射关系。
+- `mappings`：字符串数组，记录源码和编译后代码的位置信息的 base64 VLQ 字符串。
+
+## SourceMap 映射结构
 
 使用时，浏览器会按照 `mappings` 记录的数值关系，将产物代码映射回 `sourcesContent` 数组所记录的原始代码文件、行、列位置，这里面最复杂难懂的点就在于 `mappings` 字段的规则。
 
@@ -56,96 +70,154 @@ Sourcemap 最初版本生成的 `.map` 文件非常大，体积大概为编译�
 编译前：
 
 ```js
-const name = 'tecvan'
-
+const name = 'tony'
 console.log(name)
 ```
 
 编译后
 
 ```js
-/******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-var name = 'tecvan';
-console.log(name);
-/******/ })()
-;
+console.log("tony");
 //# sourceMappingURL=main.js.map
 ```
 
-当 `devtool = 'source-map'` 时，Webpack 生成的 `mappings` 字段为：
-
-```
-;;;;;AAAA,IAAMA,IAAI,GAAG,QAAb;AAEAC,OAAO,CAACC,GAAR,CAAYF,IAAZ,E
+```json
+{
+  "version": 3,
+  "file": "main.js",
+  "mappings": "AACAA,QAAQC,IADK",
+  "sources": [
+    "webpack://webpack/./index.js"
+  ],
+  "sourcesContent": [
+    "const name = 'tony'\nconsole.log(name)\n"
+  ],
+  "names": [
+    "console",
+    "log"
+  ],
+  "sourceRoot": ""
+}
 ```
 
 字段内容包含三层结构：
 
-- 以 `;` 分割的 **行映射**，每一个 `;` 对应编译产物每一行到源码的映射，上例经过分割后：
+- 以 `;` 分割的 **行映射**，每一个 `;` 对应编译产物每一行到源码的映射，一个分号代表转换后源码的一行
+- 以 `,` 分割的 **片段映射**，每一个 `,` 对应该行中每一个代码片段到源码的映射，一个逗号对应转换后源码的一个位置
+- 英文字母，每一段由 1，4 或 5 块可变长度的字段组成，记录原始代码的位置信息
 
-```js
-[
-  // 产物第 1-5 行内容为 Webpack 生成的 runtime，不需要记录映射关系
-  '', '', '', '', '', 
-  // 产物第 6 行的映射信息
-  'AAAA,IAAMA,IAAI,GAAG,QAAb', 
-  // 产物第 7 行的映射信息
-  'AAEAC,OAAO,CAACC,GAAR,CAAYF,IAAZ,E'
-]
+举一个简单的例子，当 `devtool = 'source-map'; mode = 'production'` 时，Webpack 生成的 `mappings` 字段为：
+
+```
+AACAA,QAAQC,IADK
 ```
 
-- 以 `,` 分割的 **片段映射**，每一个 `,` 对应该行中每一个代码片段到源码的映射，上例经过分割后：
+没有分号，说明有一行代码（如果有分号，例如： `AACAA;QAAQC,IADM`，分号前 `AACAA` 是第一行，后面 `QAAQC,IADM` 是第二行）
 
-```js
-[
-  // 产物第 1-5 行内容为 Webpack 生成的 runtime，不需要记录映射关系
-  '', '', '', '', '', 
-  // 产物第 6 行的映射信息
-  [
-    // 片段 `var` 到 `const` 的映射
-    'AAAA', 
-    // 片段 `name` 到 `name` 的映射
-    'IAAMA', 
-    // 等等
-    'IAAI', 'GAAG', 'QAAb'], 
-  // 产物第 7 行的映射信息
-  ['AAEAC', 'OAAO', 'CAACC', 'GAAR', 'CAAYF', 'IAAZ', 'E']
-]
+第一行有两个逗号，说明这一行分为三段，`AACAA`、 `QAAQC` 和 `IADK`
+
+分号跟逗号大家应该都没什么疑问，主要就是英文字母这一块的意义位置对应的原理
+
+每一段最多有 5 个部分
+
+- 第一部分，表示这个位置在（转换后的代码的）的第几列
+- 第二部分，表示这个位置属于 sources 属性中的哪一个文件
+- 第三部分，表示这个位置属于转换前代码的第几行
+- 第四部分，表示这个位置属于转换前代码的第几列
+- 第五部分，表示这个位置属于 names 属性中的哪一个变量
+
+### 位置映射
+
+假设现在有 a.js，内容为 feel the force，处理后为 b.js，内容为 the force feel，那么 mapping 应该是多少呢？
+
+![[_attachment/img/335018064b363d80902262f5eb811bf8_MD5.svg]]
+
+上图可以看到，所谓映射，就是指一个字符从一个位置移动到了另一个位置，然后我们将这个位置的变换记录下来。就好比我们在家里打扫卫生，我们要把家具发生移动，同时我们要记住每个家具之前在什么位置，这样等我们打扫完了，就可以还原了。
+
+我们把每个字符的位置移动都写成一种固定的格式，里面包含了之前的位置（输入位置）和移动之后的位置（输出位置），同时还包含输入文件名，为啥要包含输入文件名？因为我们可能把很多文件进行处理输出，如果不写文件名，可能不知道输入位置来自哪个文件。
+
+### 字符串提取
+
+对于字符来说，例如 f,e,e,l 四个字符，其实在处理的时候，是将它们作为一个整体移动的，因为处理是不会改变它们内部的顺序，因此我们可以把相关的字符组成组合进行存储：
+
+![[_attachment/img/df43e78a566deddf767e29d1e246ca94_MD5.svg]]
+
+看看我们现在的存储结构，可以发现有 a.js 和 the 这种字符，我们可以把它们抽离出来放在数组里，然后用下标表示它们，这样可以减少 mapping 的大小：
+
+![[_attachment/img/6f638912d31562f785e6d736c446ab10_MD5.svg]]
+
+sources 中存储的是所有的输入文件名，names 是所有提取的字符组合。需要表示的时候，用下标即可。
+
+### 省去输出行号
+
+很多时候，我们输出的文件都是一行，这样输出的行号就可以省略，因为都是 0，没必要写出来，我们可以把我们的存储单元再缩短一点：
+
+![[_attachment/img/d21455ca6586165364af48fe6e15d4bf_MD5.svg]]
+
+### 使用相对位置
+
+mapping 中的位置记录我们一直用的都是绝对位置，就是这个组合/字符在文件的第几行，第几列，如果文件特别大的话，那么行列就会很大，因此我们可以用相对位置记录行列信息：
+
+![[_attachment/img/3ec96c32c45e4bff2fe8f4179d14702e_MD5.svg]]
+
+第一次记录的输入位置和输出位置是绝对的，往后的输入位置和输出位置都是相对上一次的位置移动了多少，例如 the 的输出位置为 (0,-10),因为 the 在 feel 的左边数 10 下才能到 the 的位置。
+
+到现在为止，我们得到了一个简单的 mappings:
+
+```
+sources:['a.js']
+names:['feel','the','force']
+mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
 ```
 
-- 第三层逻辑为片段映射到源码的具体位置，以上例 `IAAMA` 为例：
-  - 第一位 `I` 代表该代码片段在产物中列数；
-  - 第二位 `A` 代表源码文件的索引，即该片段对标到 `sources` 数组的元素下标；
-  - 第三位 `A` 代表片段在源码文件的行数；
-  - 第四位 `M` 代表片段在源码文件的列数；
-  - 第五位 `A` 代表该片段对应的名称索引，即该片段对标到 `names` 数组的元素下标。
+但是我们看看真正的一个 source map:
 
-上述第 1、2 层逻辑比较简单，唯一需要注意的是片段之间是一种相对偏移关系，例如对于上例第六行映射值：`AAAA,IAAMA,IAAI,GAAG,QAAb`，每一个片段的第一位 —— 即片段列数为 `A,I,I,G,Q`，分别代表：
+```
+"sources":["test.js"],
+"names":["sayHello","name","console","log"],
+"mappings":"AAAA,SAASA,SAASC,MACdC,QAAQC,IAAI,SAAUF"
+```
 
-- `A` ：第 `A` 列；
-- `I` ：第 `A + I` 列；
-- `I` ：第 `A + I + I` 列；
-- `G` ：第 `A + I + I + G` 列；
-- `Q` ：第 `A + I + I + G + Q` 列。
-
-这种相对偏移能减少 Sourcemap 产物的体积，提升整体性能。注意，第三层逻辑中的片段位置映射则用到了一种比较高效数值编码算法 —— VLQ\(Variable-length Quantity\)。
+我们发现很多 AABB 的，和我们竖线分割不一样啊， 这是咋回事呢？其实这是 VLQ 编码，专门用来解决竖线分割数字问题的，毕竟竖线看起来又 low 又浪费空间。
 
 ## VLQ 编码
 
-[VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) 是一种将整数数值转换为 Base64 的编码算法，它先将任意大的整数转换为一系列六位字节码，再按 Base64 规则转换为一串可见字符。VLQ 使用六位比特存储一个编码分组，例如：
+[VLQ](https://en.wikipedia.org/wiki/Variable-length_quantity) 是一种将整数数值转换为 Base64 的编码算法，它先将任意大的整数转换为一系列六位字节码，再按 Base64 规则转换为一串可见字符。
 
-![[_attachment/img/e0636040184ffd4fc7acf5252f3eab7c_MD5.png]]
+我们之前用竖线分割数字，是为了用一个字符串可以存储多个数字，例如:`1|23|456|7`。但是这样每个|会占用一个字符，vlq的思路则是对连续的数字做上某种标记：
 
-数字 7 经过 VLQ 编码后，结果为 `001110`，其中：
+![](http://www.qiutianaimeili.com/html/_page/2019/05/svg/89jrubx1soc_6.svg)
+
+我们可以发现，这种标记只在数字不是结尾的部分才有，如果是123，那么1,2都有标记，最后的3没有标记，没有标记也就意味着完结。
+
+那么这种标记法的具体实现是什么呢？VLQ 使用六位比特存储一个编码分组，其中第一位表示是否连续的标志，最后一位表示正数/负数。中间只有4位，因此一个单元表示的范围为`[-15,15]`，如果超过了就要用连续标识位了。
+
+我们来看几个用vlq表示的数字就明白了：
+
+![](http://www.qiutianaimeili.com/html/_page/2019/05/svg/89jrubx1soc_7.svg)
+
+例如：数字 7 经过 VLQ 编码后，结果为 `001110`，其中：
 
 - 第一位为连续标志位，标识后续分组是否为同一数字；
 - 第六位表示该数字的正负符号，0 为正整数，1 为负整数；
 - 中间第 2-5 为实际数值。
 
 这样一个六位编码分组，就可以按照 Base64 的映射规则转换为 `ABC` 等可见字符，例如上述数字 7 编码结果 `001110`，等于十进制的 14，按 Base64 字码表可映射为字母 `O`。
+
+上面就是利用vlq编码划分的结果，有一些需要注意的点：
+
+1. 如果这个数字在`[-15,15]`内，一个单元就可以表示，例如上面的7，只需要把7的二进制放入中间的四位就好。
+
+2. 如果超过`[-15,15]`，就要用多个单元表示，需要对数字的二进制进行划分，按照..5554的规则划分。把最右边的4位放入第一个单元中，然后每5个放入一个新单元的右边。为啥第一个单元只放4位？因为第一个单元的最后一位是表示正负数的，其他单元的最后一位没必要表示正负了。
+
+3. 如果是负数，我们求的是它正数的二进制，放还是按照之前的规则放，只是把第一个单元的最后一位改成1就好。
+
+最后把划分号的6位变成Base64编码，因为Base64也是6位一单元，和这里一样。下面有一个demo，将输入的内容变成字符码数组，然后用vlq&base64编码：
+
+[source map原理分析&vlq](http://www.qiutianaimeili.com/html/_page/2019/05/source/base64vlq/example.html)(二维码)
+
+上面的demo中有vlq的encode和decode编码实现，想学的朋友可以自行查看。
+
 
 ![[_attachment/img/e01f30e940d4c3b36ae8579fda132d49_MD5.png]]
 
