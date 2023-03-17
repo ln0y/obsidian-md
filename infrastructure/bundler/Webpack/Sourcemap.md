@@ -186,7 +186,7 @@ mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
 
 我们之前用竖线分割数字，是为了用一个字符串可以存储多个数字，例如:`1|23|456|7`。但是这样每个|会占用一个字符，vlq 的思路则是对连续的数字做上某种标记：
 
-![](http://www.qiutianaimeili.com/html/_page/2019/05/svg/89jrubx1soc_6.svg)
+![[_attachment/img/df3a122c9bc5aca8eaacd7d71afebda9_MD5.svg]]
 
 我们可以发现，这种标记只在数字不是结尾的部分才有，如果是 123，那么 1,2 都有标记，最后的 3 没有标记，没有标记也就意味着完结。
 
@@ -194,7 +194,7 @@ mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
 
 我们来看几个用 vlq 表示的数字就明白了：
 
-![](http://www.qiutianaimeili.com/html/_page/2019/05/svg/89jrubx1soc_7.svg)
+![[_attachment/img/f479ced3d7e7774db31008443fbcf384_MD5.svg]]
 
 例如：数字 7 经过 VLQ 编码后，结果为 `001110`，其中：
 
