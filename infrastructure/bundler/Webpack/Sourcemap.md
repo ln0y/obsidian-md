@@ -2,7 +2,7 @@
 aliases: []
 tags: ['infrastructure/bundler/Webpack', 'date/2023-03', 'year/2023', 'month/03']
 date: 2023-03-16-星期四 15:04:58
-update: 2023-03-17-星期五 18:16:18
+update: 2023-03-20-星期一 17:52:09
 ---
 
 [Sourcemap 协议](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.qz3o9nc69um5) 最初由 Google 设计并率先在 Closure Inspector 实现，它的主要作用就是将经过压缩、混淆、合并的产物代码还原回未打包的原始形态，帮助开发者在生产环境中精确定位问题发生的行列位置，例如：
@@ -281,7 +281,9 @@ console.log(name);
 - `AAAA` 解码结果为 `[000000, 000000, 000000, 000000]`，即产物第 6 行 **第** **0** **列** 映射到 `sources[0]` 文件的 **第** **0** **行**，**第** **0** **列**，实际对应 `var` 到 `const` 的位置映射；
 - `IAAMA` 解码结果为 `[001000, 000000, 000000, 001100, 000000]`，即产物第 6 行第 4 列映射到 `sources[0]` 文件的 **第** **0** **行**，**第** **6** **列**，实际对应产物 `name` 到源码 `name` 的位置映射。
 
-可以在 [这个网站](https://link.juejin.cn/?target=https%3A%2F%2Fwww.murzwin.com%2Fbase64vlq.html "https://www.murzwin.com/base64vlq.html") 自己转换测试
+看到有些是 5 位，有些是 4 位，5 位的我们之前已经知道，输出列|输入文件名|输入行|输入列|字符组合，4 位则少了最后的字符组合，一般用来矫正位置
+
+可以在 [这个网站](https://www.murzwin.com/base64vlq.html) 自己转换测试
 
 其它片段以此类推，Webpack 生成 `.map` 文件时，只需要在 `webpack-sources` 中，按照这个编码规则计算好编译前后的代码映射关系即可。
 
