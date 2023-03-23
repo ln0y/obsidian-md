@@ -1,0 +1,175 @@
+{
+  "main": {
+    "id": "4141c8983190ce48",
+    "type": "split",
+    "children": [
+      {
+        "id": "df884c0620fa9808",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca132c8b1fc7fa27",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8ffa28d1b702285b",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "12984d3464bbbbda",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "byCreatedTime"
+          }
+        }
+      },
+      {
+        "id": "0ae2e8788975fd58",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "98ab99c3d1952bce",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "2c2a2f38fb8ec38c",
+        "type": "leaf",
+        "state": {
+          "type": "starred",
+          "state": {}
+        }
+      },
+      {
+        "id": "f1cd10b6a1d5bfd6",
+        "type": "leaf",
+        "state": {
+          "type": "recent-files",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "5fb400ed9f57a051",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "8af458ac645229d5",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "11202d90fc99fa22",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "00fa0f55b3f734f6",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {}
+        }
+      },
+      {
+        "id": "6160a15c3c44e517",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "random-note:开始漫游笔记": false,
+      "workspaces:管理工作区布局": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "f1cd10b6a1d5bfd6",
+  "lastOpenFiles": [
+    "_template/mainTemplate.md",
+    "RegExp/正则表达式.md",
+    "algorithm/复杂度.md",
+    "TypeScript/上下文推断.md",
+    "TypeScript/简单基础类型.md",
+    "JavaScript/IEEE 754 双精度浮点数.md",
+    "TypeScript/TypeScript 4.9.md",
+    "browser/跨域.md",
+    "JavaScript/V8 Promise源码.md",
+    "JavaScript/PromiseA+实现.md",
+    "Security/前端安全：XSS.md",
+    "share/类型体操.md",
+    "TypeScript/函数类型.md",
+    "TypeScript/类型推断.md",
+    "TypeScript/类型收窄.md",
+    "Post/八股文.md",
+    "Network/网络 IO 模型.md",
+    "Post/front end.md",
+    "JavaScript/async & await.md",
+    "JavaScript/作用域.md",
+    "TypeScript/类型拓宽.md",
+    "TypeScript/TypeScript 4.8.md",
+    "HTML/head标签.md",
+    "JavaScript/engine/宏任务 & 微任务.md",
+    "Linux/WSL/安装doker.md",
+    "TypeScript/类型兼容.md"
+  ]
+}
