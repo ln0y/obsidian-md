@@ -66,7 +66,7 @@ Webpack HMR 特性的执行过程并不复杂，核心：
 6. Webpack 运行时触发变更模块的 `module.hot.accept` 回调，执行代码变更逻辑；
 7. done。
 
-![[_attachment/280f71d88dd2f7306e785080686391af_MD5.png]]
+![[280f71d88dd2f7306e785080686391af_MD5.png]]
 
 首先是 **注入 HMR 客户端运行时**：在前面章节《[[Runtime|Runtime：模块编译打包及运行时逻辑]]》中，我们已经详细介绍了 Webpack 运行时概念与底层实现逻辑，在 HMR 场景下，执行 `npx webpack serve` 命令后，`webpack-dev-server` 首先会调用 `HotModuleReplacementPlugin` 插件向应用的主 Chunk 注入一系列 HMR Runtime，包括：
 
@@ -77,7 +77,7 @@ Webpack HMR 特性的执行过程并不复杂，核心：
 
 经过 `HotModuleReplacementPlugin` 处理后，构建产物中即包含了所有运行 HMR 所需的客户端运行时与接口。这些 HMR 运行时会在浏览器执行一套基于 WebSocket 消息的时序框架，如图：
 
-![[_attachment/ddd92b34bc30591dbeff0045bcbc9c06_MD5.png]]
+![[ddd92b34bc30591dbeff0045bcbc9c06_MD5.png]]
 
 **其次，实现增量构建**：除注入客户端代码外，`HotModuleReplacementPlugin` 插件还会借助 Webpack 的 `watch` 能力，在代码文件发生变化后执行增量构建，生成：
 
@@ -92,11 +92,11 @@ Webpack HMR 特性的执行过程并不复杂，核心：
 
 实际效果：
 
-![[_attachment/4ef0bd9c5c64707aaab0e4369efb2e1f_MD5.png]]
+![[4ef0bd9c5c64707aaab0e4369efb2e1f_MD5.png]]
 
 **再次，加载更新**：客户端通过 WebSocket 接收到 `hash` 消息后，首先发出 `manifest` 请求获取本轮热更新涉及的 chunk，如：
 
-![[_attachment/833a9791f72ee1e01b5709f6f6b1db13_MD5.png]]
+![[833a9791f72ee1e01b5709f6f6b1db13_MD5.png]]
 
 > 注意：在 Webpack 4 及之前，热更新文件以模块为单位，即所有发生变化的模块都会生成对应的热更新文件； Webpack 5 之后热更新文件以 chunk 为单位，如上例中，`main` chunk 下任意文件的变化都只会生成 `main.[hash].hot-update.js` 更新文件。
 
@@ -150,7 +150,7 @@ module.hot.accept('./bar.js', function () {
 
 `module.hot.accept` 函数只能捕获当前模块对应子孙模块的更新事件，例如对于下面的模块依赖树：
 
-![[_attachment/1a95d1dd9ac32431cab12ef6b7d42d65_MD5.png]]
+![[1a95d1dd9ac32431cab12ef6b7d42d65_MD5.png]]
 
 示例中，更新事件会沿着模块依赖树自底向上逐级传递，从 `foo` 到 `index` ，从 `bar-1` 到 `bar` 再到 `index`，但不支持反向或跨子树传递，也就是说：
 
@@ -176,7 +176,7 @@ module.hot.accept()
 
 最后，我们来看一个实际案例 —— `vue-loader`，这是一个用于处理 Vue [Single File Component](https://vue-loader.vuejs.org/zh/spec.html#%E7%AE%80%E4%BB%8B) 的 Webpack 加载器，它能够将如下格式的内容转译为可在浏览器运行的等价代码：
 
-![[_attachment/a5017851d1abcc53396c156a3f1fbccf_MD5.png]]
+![[a5017851d1abcc53396c156a3f1fbccf_MD5.png]]
 
 除常规的代码转译外，在 HMR 模式下，`vue-loader` 还会为每一个 Vue 文件注入一段处理模块替换的逻辑，如：
 

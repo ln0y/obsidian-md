@@ -1,11 +1,19 @@
 {
-  "saveAtt": "inFolderBelow",
+  "processCreated": true,
+  "intClip": true,
+  "useCaptions": true,
+  "pathInTags": "fullDirPath",
+  "downUnknown": false,
+  "saveAttE": "inFolderBelow",
   "realTimeUpdate": false,
+  "filesizeLimit": 0,
   "realTimeUpdateInterval": 2,
   "addNameOfFile": true,
   "showNotifications": true,
   "include": ".*\\.md",
-  "mediaRootDirectory": "_attachment\\img",
+  "mediaRootDir": "_attachment/img",
   "useWikilinks": true,
+  "saveAtt": "inFolderBelow",
+  "mediaRootDirectory": "_attachment\\img",
   "saveAttNextToNote": false
 }
