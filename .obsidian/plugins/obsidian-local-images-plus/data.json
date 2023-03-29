@@ -3,7 +3,7 @@
   "intClip": true,
   "useCaptions": true,
   "pathInTags": "fullDirPath",
-  "downUnknown": false,
+  "downUnknown": true,
   "saveAttE": "inFolderBelow",
   "realTimeUpdate": false,
   "filesizeLimit": 0,
