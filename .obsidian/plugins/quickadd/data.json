@@ -237,7 +237,7 @@
   "devMode": false,
   "templateFolderPath": "_template",
   "announceUpdates": true,
-  "version": "0.16.0",
+  "version": "0.19.4",
   "migrations": {
     "migrateToMacroIDFromEmbeddedMacro": true,
     "useQuickAddTemplateFolder": true,
