@@ -2,7 +2,7 @@
 aliases: ['前端网址收藏']
 tags: ['Post','date/2022-04','year/2022','month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2023-04-12-星期三 14:54:57
+update: 2023-04-14-星期五 13:59:49
 ---
 
 ## React
@@ -320,6 +320,8 @@ update: 2023-04-12-星期三 14:54:57
 <https://beta.character.ai/chat?char=mwBfO4Qi28yBAjuguplW4hQjzUErO40QLL_FwknfKto>
 
 <https://www.freecodecamp.org/chinese/news>
+
+<https://www.icourse163.org/channel/2001.htm>
 
 ```toml
 # https://github.com/devblackops/Terminal-Icons
