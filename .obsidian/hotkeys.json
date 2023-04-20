@@ -23,5 +23,13 @@
       "key": "\\"
     }
   ],
-  "obsidian-icons-plugin:open-icons-plugin-modal": []
+  "obsidian-icons-plugin:open-icons-plugin-modal": [],
+  "cmenu-plugin:editor:toggle-code": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ]
 }

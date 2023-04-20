@@ -5002,9 +5002,10 @@ var GenericYesNoPrompt = class extends import_obsidian4.Modal {
     const buttonsDiv = this.contentEl.createDiv({
       cls: "yesNoPromptButtonContainer"
     });
-    new import_obsidian4.ButtonComponent(buttonsDiv).setButtonText("No").onClick(() => this.submit(false));
+    const noButton = new import_obsidian4.ButtonComponent(buttonsDiv).setButtonText("No").onClick(() => this.submit(false));
     const yesButton = new import_obsidian4.ButtonComponent(buttonsDiv).setButtonText("Yes").onClick(() => this.submit(true)).setWarning();
     yesButton.buttonEl.focus();
+    addArrowKeyNavigation([noButton.buttonEl, yesButton.buttonEl]);
   }
   submit(input) {
     this.input = input;
@@ -5019,6 +5020,18 @@ var GenericYesNoPrompt = class extends import_obsidian4.Modal {
       this.resolvePromise(this.input);
   }
 };
+function addArrowKeyNavigation(buttons) {
+  buttons.forEach((button) => {
+    button.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+        const currentIndex = buttons.indexOf(button);
+        const nextIndex = (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length;
+        buttons[nextIndex].focus();
+        event.preventDefault();
+      }
+    });
+  });
+}
 
 // src/gui/choiceList/ChoiceView.svelte
 var import_obsidian29 = require("obsidian");
@@ -6758,6 +6771,7 @@ var VARIABLE_SYNTAX = "{{value:<variable name>}}";
 var FIELD_VAR_SYNTAX = "{{field:<field name>}}";
 var MATH_VALUE_SYNTAX = "{{mvalue}}";
 var LINKCURRENT_SYNTAX = "{{linkcurrent}}";
+var SELECTED_SYNTAX = "{{selected}}";
 var FILE_NAME_FORMAT_SYNTAX = [
   DATE_SYNTAX,
   "{{date:<dateformat>}}",
@@ -6796,6 +6810,7 @@ var INLINE_JAVASCRIPT_REGEX = new RegExp(
 );
 var MATH_VALUE_REGEX = new RegExp(/{{MVALUE}}/i);
 var TITLE_REGEX = new RegExp(/{{TITLE}}/i);
+var SELECTED_REGEX = new RegExp(/{{SELECTED}}/i);
 var FILE_LINK_REGEX = new RegExp(/\[\[([^\]]*)$/);
 var TAG_REGEX = new RegExp(/#([^ ]*)$/);
 var DATE_SYNTAX_SUGGEST_REGEX = new RegExp(
@@ -6830,6 +6845,9 @@ var MATH_VALUE_SYNTAX_SUGGEST_REGEX = new RegExp(
 );
 var TITLE_SYNTAX_SUGGEST_REGEX = new RegExp(
   /{{[T]?[I]?[T]?[L]?[E]?[}]?[}]?/i
+);
+var SELECTED_SYNTAX_SUGGEST_REGEX = new RegExp(
+  /{{[S]?[E]?[L]?[E]?[C]?[T]?[E]?[D]?[}]?[}]?/i
 );
 var fileExistsIncrement = "Increment the file name";
 var fileExistsAppendToBottom = "Append to the bottom of the file";
@@ -8937,39 +8955,46 @@ function isFolder(path) {
 function getMarkdownFilesInFolder(folderPath) {
   return app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(folderPath));
 }
+function getFrontmatterTags(fileCache) {
+  const frontmatter = fileCache.frontmatter;
+  if (!frontmatter)
+    return [];
+  const frontMatterValues = Object.entries(frontmatter);
+  if (!frontMatterValues.length)
+    return [];
+  const tagPairs = frontMatterValues.filter(([key, value]) => {
+    const lowercaseKey = key.toLowerCase();
+    return lowercaseKey === "tags" || lowercaseKey === "tag";
+  });
+  if (!tagPairs)
+    return [];
+  const tags = tagPairs.flatMap(([key, value]) => {
+    if (typeof value === "string") {
+      return value.split(/,|\s+/).map((v) => v.trim());
+    } else if (Array.isArray(value)) {
+      return value;
+    }
+  }).filter((v) => !!v);
+  return tags;
+}
+function getFileTags(file) {
+  const fileCache = app.metadataCache.getFileCache(file);
+  if (!fileCache)
+    return [];
+  const tagsInFile = [];
+  if (fileCache.frontmatter) {
+    tagsInFile.push(...getFrontmatterTags(fileCache));
+  }
+  if (fileCache.tags && Array.isArray(fileCache.tags)) {
+    tagsInFile.push(...fileCache.tags.map((v) => v.tag.replace(/^\#/, "")));
+  }
+  return tagsInFile;
+}
 function getMarkdownFilesWithTag(tag) {
-  const hasTags = (fileCache) => fileCache.tags !== void 0 && Array.isArray(fileCache.tags);
-  const hasFrontmatterTags = (fileCache) => {
-    return fileCache.frontmatter !== void 0 && fileCache.frontmatter.tags !== void 0 && typeof fileCache.frontmatter.tags === "string" && fileCache.frontmatter.tags.length > 0;
-  };
-  const hasFrontmatterTag = (fileCache) => {
-    return fileCache.frontmatter !== void 0 && fileCache.frontmatter.tag !== void 0 && typeof fileCache.frontmatter.tag === "string" && fileCache.frontmatter.tag.length > 0;
-  };
+  const targetTag = tag.replace(/^\#/, "");
   return app.vault.getMarkdownFiles().filter((f) => {
-    const fileCache = app.metadataCache.getFileCache(f);
-    if (!fileCache)
-      return false;
-    if (hasTags(fileCache)) {
-      const tagInTags = fileCache.tags.find((item) => item.tag === tag);
-      if (tagInTags) {
-        return true;
-      }
-    }
-    if (hasFrontmatterTags(fileCache)) {
-      const tagWithoutHash = tag.replace(/^\#/, "");
-      const tagInFrontmatterTags = fileCache.frontmatter.tags.split(" ").find((item) => item === tagWithoutHash);
-      if (tagInFrontmatterTags) {
-        return true;
-      }
-    }
-    if (hasFrontmatterTag(fileCache)) {
-      const tagWithoutHash = tag.replace(/^\#/, "");
-      const tagInFrontmatterTag = fileCache.frontmatter.tag.split(" ").find((item) => item === tagWithoutHash);
-      if (tagInFrontmatterTag) {
-        return true;
-      }
-    }
-    return false;
+    const fileTags = getFileTags(f);
+    return fileTags.includes(targetTag);
   });
 }
 
@@ -9026,6 +9051,14 @@ var Formatter = class {
       if (!this.value)
         this.value = await this.promptForValue();
       output = this.replacer(output, NAME_VALUE_REGEX, this.value);
+    }
+    return output;
+  }
+  async replaceSelectedInString(input) {
+    let output = input;
+    const selectedText = await this.getSelectedText();
+    while (SELECTED_REGEX.test(output)) {
+      output = this.replacer(output, SELECTED_REGEX, selectedText);
     }
     return output;
   }
@@ -9351,6 +9384,9 @@ var FormatSyntaxSuggester = class extends TextInputSuggest {
         9 /* MathValue */,
         MATH_VALUE_SYNTAX
       );
+    const selectedMatch = SELECTED_SYNTAX_SUGGEST_REGEX.exec(input);
+    if (selectedMatch)
+      callback(selectedMatch, 7 /* Macro */, SELECTED_SYNTAX);
     const variableMatch = VARIABLE_SYNTAX_SUGGEST_REGEX.exec(input);
     if (variableMatch)
       callback(variableMatch, 5 /* Variable */, "{{VALUE:}}");
@@ -10009,7 +10045,7 @@ var QuickAddApi = class {
         await choiceExecutor.execute(choice);
         choiceExecutor.variables.clear();
       },
-      format: async (input, variables) => {
+      format: async (input, variables, shouldClearVariables = true) => {
         if (variables) {
           Object.keys(variables).forEach((key) => {
             choiceExecutor.variables.set(key, variables[key]);
@@ -10020,7 +10056,9 @@ var QuickAddApi = class {
           plugin,
           choiceExecutor
         ).formatFileContent(input);
-        choiceExecutor.variables.clear();
+        if (shouldClearVariables) {
+          choiceExecutor.variables.clear();
+        }
         return output;
       },
       utility: {
@@ -11547,6 +11585,7 @@ var CompleteFormatter = class extends Formatter {
     output = await this.replaceTemplateInString(output);
     output = this.replaceDateInString(output);
     output = await this.replaceValueInString(output);
+    output = await this.replaceSelectedInString(output);
     output = await this.replaceDateVariableInString(output);
     output = await this.replaceVariableInString(output);
     output = await this.replaceFieldVarInString(output);
@@ -12085,6 +12124,7 @@ var CaptureChoiceBuilder = class extends ChoiceBuilder {
     formatInput.inputEl.style.width = "100%";
     formatInput.inputEl.style.marginBottom = "8px";
     formatInput.inputEl.style.height = "10rem";
+    formatInput.inputEl.style.minHeight = "10rem";
     formatInput.setValue(this.choice.format.format).setDisabled(!this.choice.format.enabled).onChange(async (value) => {
       this.choice.format.format = value;
       formatDisplay.innerText = await displayFormatter.format(value);
@@ -12859,8 +12899,10 @@ var UserScriptSettingsModal = class extends import_obsidian23.Modal {
       this.command.settings = {};
     if (this.settings.options) {
       for (const setting in this.settings.options) {
-        if (this.command.settings[setting] === void 0 && typeof this.settings.options === "object" && this.settings.options && "setting" in this.settings.options && typeof this.settings.options.setting === "object" && this.settings.options.setting && "defaultValue" in this.settings.options.setting) {
-          this.command.settings[setting] = this.settings.options.setting.defaultValue;
+        const valueIsNotSetAlready = this.command.settings[setting] === void 0;
+        const defaultValueAvailable = "defaultValue" in this.settings.options[setting] && this.settings.options[setting].defaultValue !== void 0;
+        if (valueIsNotSetAlready && defaultValueAvailable) {
+          this.command.settings[setting] = this.settings.options[setting].defaultValue;
         }
       }
     }
@@ -15931,7 +15973,7 @@ var CaptureChoiceEngine = class extends QuickAddChoiceEngine {
       !!targetFilePath && targetFilePath.length > 0,
       `No file selected for capture.`
     );
-    const filePath = targetFilePath.startsWith(`${folderPathSlash}/`) ? targetFilePath : `${folderPathSlash}/${targetFilePath}`;
+    const filePath = targetFilePath.startsWith(`${folderPathSlash}`) ? targetFilePath : `${folderPathSlash}/${targetFilePath}`;
     return await this.formatFilePath(filePath);
   }
   async selectFileWithTag(tag) {
