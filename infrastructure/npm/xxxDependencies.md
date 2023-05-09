@@ -1,19 +1,19 @@
 ---
 aliases: []
 tags: ['infrastructure/npm','date/2022-03','year/2022','month/03']
-date: 2022-03-08-Tuesday 18:37:02
-update: 2022-03-08-Tuesday 18:37:03
+date: 2023-02-13-星期一 13:46:47
+update: 2023-05-09-星期二 11:44:45
 ---
 
 ### 为什么有 xxxDependencies？
 
 npm 设计了以下几种依赖类型声明：
 
-- dependencies 项目依赖
-- devDependencies 开发依赖
-- peerDependencies 同版本依赖
-- bundledDependencies 捆绑依赖
-- optionalDependencies 可选依赖
+- [dependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#dependencies) 项目依赖
+- [devDependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#devdependencies) 开发依赖
+- [peerDependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#peerdependencies) 同版本依赖
+- [bundledDependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#bundledependencies) 捆绑依赖
+- [optionalDependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies) 可选依赖
 
 它们起到的作用和声明意义各不相同。dependencies 表示项目依赖，这些依赖都会成为线上生产环境中的代码组成部分。当它关联的 npm 包被下载时，**dependencies 下的模块也会作为依赖，一起被下载**。
 
