@@ -5,8 +5,6 @@ date: 2023-05-15-星期一 09:55:20
 update: 2023-05-15-星期一 11:35:45
 ---
 
-## json 之 JsonSchema 教程
-
 ## 简介
 
 JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 JSON 数据内容。 JSON Schema 官网地址：[json-schema.org/](http://json-schema.org/)
