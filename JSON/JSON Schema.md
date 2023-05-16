@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-16-星期二 16:59:28
+update: 2023-05-16-星期二 17:54:10
 ---
 
 ## 简介
@@ -13,7 +13,32 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 
 ## JSON Schema 用法
 
-假设我们正在使用 `JSON` 对
+假设我们正在使用 `JSON` 对产品目录进行描述，此目录下的产品具有以下属性：
+
+- id：`productId`
+- 名称：`productName`
+- 价格：`price`
+- 标签：`tags`
+
+例如：
+
+```json
+{
+  "productId": 1,
+  "productName": "A green door",
+  "price": 12.50,
+  "tags": [ "home", "green" ]
+}
+```
+
+这很简单，但是该示例中有一些疑问。
+
+- `productId` 是什么？
+- `productName` 是必须的吗？
+- `price` 可以为 0 吗？
+- 所有的 `tags` 都是字符串吗？
+
+当你谈论数据格式时，你想要有关键的元数据，包括这些键的有效输入。要回答这些问题就需要 `JSON Schema` 了， `JSON Schema` 是一个描述和验证 `JSON` 数据结构的强大工具，我们可以把 `JSON Schema` 看作是一种规范，这个规范中规定了 `JSON` 数据的结构、键的命名、值的类型等等，通过规范可以校验指定的 `JSON` 数据，保证数据的准确。
 
 ## 关键字及其描述
 
