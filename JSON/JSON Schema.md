@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-15-星期一 11:35:45
+update: 2023-05-16-星期二 16:59:28
 ---
 
 ## 简介
@@ -10,6 +10,10 @@ update: 2023-05-15-星期一 11:35:45
 JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 JSON 数据内容。 JSON Schema 官网地址：[json-schema.org/](http://json-schema.org/)
 
 > JsonSchema 类似于 xml 的 schema 和 DTD 的作用，主要是用来规范 json 的格式。
+
+## JSON Schema 用法
+
+假设我们正在使用 `JSON` 对
 
 ## 关键字及其描述
 
@@ -525,3 +529,11 @@ if返回false执行else
 ```
 
 > 官方的参考文档如下： [json-schema.org/latest/json…](http://json-schema.org/latest/json-schema-validation.html) [json-schema.org/implementat…](https://json-schema.org/implementations.html)
+
+## 参考
+
+- [JSON Schema specification](http://json-schema.org/specification.html)
+- [Getting Started Step-By-Step](http://json-schema.org/learn/getting-started-step-by-step.html)
+- [JSON Schema Docs](https://www.learnjsonschema.com/)
+- [JSON Schema 规范（中文版）](https://json-schema.apifox.cn/)
+- <https://github.com/NewFuture/miniprogram-json-schema>
