@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-17-星期三 18:32:07
+update: 2023-05-17-星期三 23:47:10
 ---
 
 ## 简介
@@ -38,11 +38,87 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 - `price` 可以为 0 吗？
 - 所有的 `tags` 都是字符串吗？
 
-当你谈论数据格式时，你想要有关键的元数据，包括这些键的有效输入。要回答这些问题就需要 `JSON Schema` 了， `JSON Schema` 是一个描述和验证 `JSON` 数据结构的强大工具，我们可以把 `JSON Schema` 看作是一种规范，这个规范中规定了 `JSON` 数据的结构、键的命名、值的类型等等，通过规范可以校验指定的 `JSON` 数据，保证数据的准确。
+当你谈论数据格式时，你想要有关键的元数据，包括这些键的有效输入。要回答这些问题就需要 `JSON Schema` 了。
+
+## 什么是 Schema
+
+如果您曾经使用过 XML Schema、RelaxNG 或 ASN.1，您可能已经知道什么是 Schema，并且可以愉快地跳到下一部分。如果这一切对您来说听起来像天书，那么您来对地方了。要定义 JSON Schema 是什么，我们可能应该首先定义 [JSON](https://www.json.org/json-zh.html) 是什么。
+
+JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式。它最初是作为万维网的符号。由于 JavaScript 存在于大多数 Web 浏览器中，并且 JSON 基于 JavaScript，因此很容易支持。然而，它已被证明足够有用且足够简单，以至于它现在被用于许多其他不涉及网上冲浪的环境中。
+
+从本质上讲，JSON 建立在以下数据结构上：
+
+- 对象（object）
+`{ "key1": "value1", "key2": "value2" }`
+
+- 数组（array）
+`[ "first", "second", "third" ]`
+
+- 数字（integer/number）
+`42` `3.1415926`
+
+- 字符串（string）
+`"This is a string"`
+
+- 布尔值（boolean）
+`true` `false`
+
+- null
+`null`
+
+通过这些简单的数据类型，各种结构化数据都可以被表示。然而，这种巨大的灵活性伴随着巨大的责任，因为同一个概念可以以多种方式表示。例如，您可以想象以不同的方式在 JSON 中表示一个人的信息：
+
+```json
+{
+  "name": "George Washington",
+  "birthday": "February 22, 1732",
+  "address": "Mount Vernon, Virginia, United States"
+}
+```
+
+```json
+{
+  "first_name": "George",
+  "last_name": "Washington",
+  "birthday": "1732-02-22",
+  "address": {
+    "street_address": "3200 Mount Vernon Memorial Highway",
+    "city": "Mount Vernon",
+    "state": "Virginia",
+    "country": "United States"
+  }
+}
+```
+
+尽管第二种显然比第一种更正式,但是两种表述同样有效。记录的设计在很大程度上取决于它在应用程序中的预期用途，因此这里没有正确或错误的答案。然而，当应用程序说“给我一个人的 JSON 记录”时，准确地知道该记录应该如何组织是很重要的。例如，我们需要知道哪些字段是预期的，以及这些值是如何表示的。这就是 JSON Schema 的用武之地。以下 JSON Schema 片段描述了上面第二个示例的结构。现在不要太担心细节。它们将在后续章节中进行解释。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "birthday": { "type": "string", "format": "date" },
+    "address": {
+      "type": "object",
+      "properties": {
+        "street_address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type" : "string" }
+      }
+    }
+  }
+}
+```
+
+您可能已经注意到 **`JSON Schema` 本身是用 `JSON` 编写的**。它是数据本身，而不是计算机程序。它只是一种用于“描述其他数据结构”的声明性格式。这既是它的优点也是它的缺点（它与其他类似的模式语言共享）。简明地描述数据的表面结构并根据它自动验证数据很容易。但是，由于 JSON Schema 不能包含任意代码，因此在表达数据元素之间的关系上有所限制。因此，用于足够复杂的数据格式的任何“验证工具”都可能有两个验证阶段：一个在模式（或结构）级别，一个在语义级别。后一种检查可能需要使用更通用的编程语言来实现。
 
 ## 定义 Schema
 
-让我们先定义一个基本的 `JSON Schema`
+接着让我们一步步来完成上述 [[#如何校验 JSON|产品目录]] 的 `JSON Schema`
+
+首先我们先定义一个基本的 `JSON Schema`
 
 ```json
 // product.schema.json
@@ -55,8 +131,8 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 }
 ```
 
-- 关键字 [`$schema`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.1.1) 声明此模式是根据标准的特定草案编写的，并出于多种原因使用，主要是版本控制。
-- 关键字 [`$id`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.2.1) 定义模式的 URI，以及模式中其他 URI 引用所依据的基本 URI。
+- 关键字 [`$schema`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.1.1) 声明此 `Schema` 是根据标准的特定草案编写的，并出于多种原因使用，主要是版本控制。(因为 `JSON Schema` 本身是用 `JSON` 编写的，所以也需要标准“校验”)
+- 关键字 [`$id`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.2.1) 定义 `Schema` 的 URI，以及 `Schema` 中其他 URI 引用所依据的基本 URI。
 - [`title`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-9.1) 和 [`description`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-9.1) 是注释关键字仅用于描述。 它们不会对正在验证的数据添加约束。`Schema` 的意图用这两个关键字来说明。
 - 验证关键字 [`type`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.1.1) 定义了我们 JSON 数据的第一个约束，在这种情况下它必须是一个 JSON 对象。
 
