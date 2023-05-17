@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-17-星期三 10:47:55
+update: 2023-05-17-星期三 18:32:07
 ---
 
 ## 简介
@@ -45,6 +45,7 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 让我们先定义一个基本的 `JSON Schema`
 
 ```json
+// product.schema.json
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://example.com/product.schema.json",
@@ -57,9 +58,268 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 - 关键字 [`$schema`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.1.1) 声明此模式是根据标准的特定草案编写的，并出于多种原因使用，主要是版本控制。
 - 关键字 [`$id`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.2.1) 定义模式的 URI，以及模式中其他 URI 引用所依据的基本 URI。
 - [`title`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-9.1) 和 [`description`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-9.1) 是注释关键字仅用于描述。 它们不会对正在验证的数据添加约束。`Schema` 的意图用这两个关键字来说明。
-- validation 关键字 [`type`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.1.1) 定义了我们 JSON 数据的第一个约束，在这种情况下它必须是一个 JSON 对象。
+- 验证关键字 [`type`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.1.1) 定义了我们 JSON 数据的第一个约束，在这种情况下它必须是一个 JSON 对象。
 
-## 定义 properties
+### 定义 properties
+
+`productId` 是一个数字值，用于唯一地识别一个产品。由于这是一个产品的标准标识符，没有这个标识符的产品就没有意义，所以它是必须的。
+
+接下来我们继续更新 `JSON Schema` 往里添加：
+
+- 验证关键字 [`properties`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-10.3.2.1)。
+- `productId` 关键字。
+    - `description` 注释关键字和 `type` 验证关键字——我们在上一节中介绍了这两个。
+- 验证关键字 [`required`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.5.3) 中添加 `productId`。
+
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product from Acme's catalog",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "The unique identifier for a product",
+      "type": "integer"
+    }
+  },
+  "required": [ "productId" ]
+}
+```
+
+![[_attachment/img/c6155d866c9e8df74813830631ee65cb_MD5.png]]
+
+- `productName` 是一个描述产品名字的字符串值。因为没有名字的产品就没有什么意义，所以它也是必需的。
+- 由于 `required` 验证关键字是一个字符串数组，我们可以根据需要记录多个键；包括 `productName`.
+- `productId` 和 `productName` 之间实际上没有任何区别 ——我们将两者都包括在内是为了完整性，因为计算机通常会注意标识符，而人类通常会注意名称。
+
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product from Acme's catalog",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "The unique identifier for a product",
+      "type": "integer"
+    },
+    "productName": {
+      "description": "Name of the product",
+      "type": "string"
+    }
+  },
+  "required": [ "productId", "productName" ]
+}
+```
+
+![[_attachment/img/1051e1b4b5bd2f80b23b3a7d8d924ddc_MD5.png]]
+
+### 深入 properties
+
+- `price` 关键字下添加了前面介绍的常用 `description` 注释关键字和 `type` 验证关键字。它也被包含在由 `required` 验证关键字定义的键数组中。
+- 我们使用 [`exclusiveMinimum`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.2.5) 验证关键字指定 `price` 的值大于零 。
+  - 如果我们想包含零作为有效值，我们会用 [`minimum`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.2.4) 验证关键字。
+
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product from Acme's catalog",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "The unique identifier for a product",
+      "type": "integer"
+    },
+    "productName": {
+      "description": "Name of the product",
+      "type": "string"
+    },
+    "price": {
+      "description": "The price of the product",
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": [ "productId", "productName", "price" ]
+}
+```
+
+![[_attachment/img/246953fdeed949977bd3f8efae4eacd1_MD5.png]]
+
+接下来，轮到 `tags` 关键字。
+
+要求是这样的：
+
+- 如果有 `tags`，就必须至少有一个标签。
+- 所有标签必须是唯一的；在一个产品中没有重复。
+- 所有标签都必须是文本。
+- 标签很好棒，但不是必须的。
+
+所以：
+
+- `tags` 依旧添加了 `type` 和 `description`。
+- 这次 `type` 验证关键字的值是 `array`。
+- 引入了 `items` 验证关键字，这样我们就可以定义数组中出现的内容。在这个例子中：给 `type` 验证关键字设置为 `string`。
+- 验证关键字 [`minItems`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.4.2) 用于确保数组中至少有几项。
+- 验证关键字 [`uniqueItems`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.4.3) 指出数组中的所有项目必须彼此唯一。
+- 这次我们没有将此键添加到 `required` 验证关键字数组中，因为它是可选的。
+
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product from Acme's catalog",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "The unique identifier for a product",
+      "type": "integer"
+    },
+    "productName": {
+      "description": "Name of the product",
+      "type": "string"
+    },
+    "price": {
+      "description": "The price of the product",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tags": {
+      "description": "Tags for the product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [ "productId", "productName", "price" ]
+}
+```
+
+### 嵌套数据结构
+
+到此为止，我们一直在处理一个非常扁平的模式 -- 只有一个层次。本节展示了嵌套数据结构。
+
+- 我们添加一个 `size` 关键字。由于类型验证关键字是对象，我们可以使用 `properties` 验证关键字来定义一个嵌套数据结构。
+  - 在这个例子中，为了简洁起见，我们省略了描述注解关键字。虽然在这种情况下，通常最好是彻底注释，但结构和键名对大多数开发者来说是相当熟悉的。
+- 你会注意到 `size` 下的 `required` 只适用于当前维度。
+
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product from Acme's catalog",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "The unique identifier for a product",
+      "type": "integer"
+    },
+    "productName": {
+      "description": "Name of the product",
+      "type": "string"
+    },
+    "price": {
+      "description": "The price of the product",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tags": {
+      "description": "Tags for the product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "size": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      },
+      "required": [ "length", "width", "height" ]
+    }
+  },
+  "required": [ "productId", "productName", "price" ]
+}
+```
+
+![[_attachment/img/05e0c22e016e56a8b9742685c6305b0e_MD5.png]]
+
+### Schema 引用
+
+到目前为止，我们的 JSON 模式是完全独立的。为了重用、可读性和可维护性等原因，在许多数据结构之间共享 JSON 模式是很常见的。
+
+对于这个例子，我们引入了一个新的 JSON Schema 资源和其中的两个属性：
+
+- 我们使用 `minimum` 前面提到的验证关键字。
+- 我们添加 [`maximum`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.2.2) 验证关键字。
+- 结合起来，这些给了我们一个用于验证的范围。
+
+```json
+// geographical-location.schema.json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/geographical-location.schema.json",
+  "title": "Longitude and Latitude",
+  "description": "A geographical coordinate on a planet (most commonly Earth).",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "longitude": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    }
+  },
+  "required": ["latitude", "longitude"]
+}
+```
+
+接下来，我们添加对此新 `Schema` 的引用，以便将其合并。
+
+```json
+// product.schema.json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product from Acme's catalog",
+  "type": "object",
+  "properties": {
+    // ...
+    "warehouseLocation": {
+      "description": "Coordinates of the warehouse where the product is located.",
+      "$ref": "https://example.com/geographical-location.schema.json"
+    }
+  },
+  "required": [ "productId", "productName", "price" ]
+}
+```
+
+![[_attachment/img/4b0fbfe7879cf01cbc852247f8584118_MD5.png]]
 
 ## 关键字及其描述
 
