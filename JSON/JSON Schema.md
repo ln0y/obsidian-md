@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-16-星期二 18:27:03
+update: 2023-05-17-星期三 10:47:55
 ---
 
 ## 简介
@@ -11,7 +11,7 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 
 > JsonSchema 类似于 xml 的 schema 和 DTD 的作用，主要是用来规范 json 的格式。
 
-## JSON Schema 用法
+## 如何校验 JSON
 
 假设我们正在使用 `JSON` 对产品目录进行描述，此目录下的产品具有以下属性：
 
@@ -41,6 +41,25 @@ JSON Schema 是基于 JSON 格式，用于定义 JSON 数据结构以及校验 J
 当你谈论数据格式时，你想要有关键的元数据，包括这些键的有效输入。要回答这些问题就需要 `JSON Schema` 了， `JSON Schema` 是一个描述和验证 `JSON` 数据结构的强大工具，我们可以把 `JSON Schema` 看作是一种规范，这个规范中规定了 `JSON` 数据的结构、键的命名、值的类型等等，通过规范可以校验指定的 `JSON` 数据，保证数据的准确。
 
 ## 定义 Schema
+
+让我们先定义一个基本的 `JSON Schema`
+
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product in the catalog",
+  "type": "object"
+}
+```
+
+- 关键字 [`$schema`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.1.1) 声明此模式是根据标准的特定草案编写的，并出于多种原因使用，主要是版本控制。
+- 关键字 [`$id`](https://json-schema.org/draft/2020-12/json-schema-core.html#section-8.2.1) 定义模式的 URI，以及模式中其他 URI 引用所依据的基本 URI。
+- [`title`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-9.1) 和 [`description`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-9.1) 是注释关键字仅用于描述。 它们不会对正在验证的数据添加约束。`Schema` 的意图用这两个关键字来说明。
+- validation 关键字 [`type`](https://json-schema.org/draft/2020-12/json-schema-validation.html#section-6.1.1) 定义了我们 JSON 数据的第一个约束，在这种情况下它必须是一个 JSON 对象。
+
+## 定义 properties
 
 ## 关键字及其描述
 
