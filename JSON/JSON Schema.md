@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-19-星期五 18:20:49
+update: 2023-05-21-星期日 23:49:07
 ---
 
 ## 简介
@@ -513,7 +513,49 @@ JSON Schema 的核心定义了以下基本类型：
 
 ⭐draft 7
 
-`JSON Schema` 有一组关键字来描述和可选地验证存储在 `JSON` 字符串中的非 `JSON` 数据。由于很难为许多媒体类型编写验证器，因此不需要 `JSON` 模式验证器根据这些关键字验证 `JSON` 字符串的内容。但是，这些关键字对于使用经过验证的 JSON 的应用程序仍然有用。
+`JSON Schema` 有一组关键字来描述和可选地验证存储在 `JSON` 字符串中的非 `JSON` 数据。由于很难为许多媒体类型编写验证器，因此不需要 `JSON Schema` 验证器根据这些关键字验证 `JSON` 字符串的内容。但是，这些关键字对于使用经过验证的 `JSON` 的应用程序仍然有用。
+
+##### contentMediaType
+
+`contentMediaType` 关键字指定了字符串内容的 MIME 类型，如 [RFC 2046](https://tools.ietf.org/html/rfc2046) 中所述。有一个由 [IANA 正式注册](https://www.iana.org/assignments/media-types/media-types.xhtml) 的 [MIME 类型列表](https://www.iana.org/assignments/media-types/media-types.xhtml)，但支持的类型集将取决于应用程序和操作系统。Mozilla 开发者网络也维护着一个 [较短的 MIME 类型列表](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)，这些类型对网络来说是很重要的。
+
+##### contentEncoding
+
+`contentEncoding` 关键字指定用于存储内容的编码，如 [RFC 2054 第 6.1 部分](https://tools.ietf.org/html/rfc2045) 和 [RFC 4648 规定](https://datatracker.ietf.org/doc/html/rfc4648)。
+
+接受的值为 `7bit`，`8bit`，`binary`， `quoted-printable`，`base16`，`base32`，和 `base64`。如果未指定，则编码与包含的 JSON 文档相同。
+
+在不深入了解这些编码的底层细节的情况下，实际上只有两个选项对现代用法有用：
+
+- 如果内容的编码与所包含的 JSON 文档相同（在实际应用中，几乎总是 UTF-8），则不指定 `contentEncoding`，并将内容按原样包含在一个字符串中。这包括基于文本的内容类型，如 `text/html` 或 `application/xml`。
+- 如果内容是二进制数据，将 `contentEncoding` 设置为 `base64`，并使用 Base64 对内容进行编码。这将包括许多图像类型，如 `image/png` 或音频类型，如 `audio/mpeg`。
+
+以下模式指示字符串包含一个 HTML 文档，使用与周围文档相同的编码进行编码：
+
+```json
+{
+  "type": "string",
+  "contentMediaType": "text/html"
+}
+
+// ✔️
+"<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\"><head></head></html>"
+```
+
+以下模式指示字符串包含使用 Base64 编码的 PNG 图像：
+
+```json
+{
+  "type": "string",
+  "contentEncoding": "base64",
+  "contentMediaType": "image/png"
+}
+
+// ✔️
+"iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA..."
+```
+
+> 可以在 <https://www.jsonschemavalidator.net/> 中进行测试
 
 ### integer/number
 
@@ -795,6 +837,10 @@ JSON Schema 的核心定义了以下基本类型：
 { "a": 0, "b": 1, "c": 2, "d": 3 } // ❌
 ```
 
+#### 未评估的属性
+
+![[#Unevaluated Properties]]
+
 ### array
 
 数组用于有序元素。在 JSON 中，数组中的每个元素可能是不同的类型。
@@ -878,17 +924,17 @@ JSON 中数组的使用一般有两种方式：
 
 ![[_attachment/img/e20006dc3d23a6496d0d5e9a5aadcaed_MD5.png]]
 
-可以在 <https://www.jsonschemavalidator.net/> 中进行测试
+> 可以在 <https://www.jsonschemavalidator.net/> 中进行测试
 
-> 在 [draft 2020-12](http://json-schema.org/draft/2020-12/release-notes.html#changes-to-items-and-additionalitems) 中元组验证使用 `prefixItems` 代替 `items`
+> 在  [draft 2020-12](http://json-schema.org/draft/2020-12/release-notes.html#changes-to-items-and-additionalitems)  中元组验证使用 `prefixItems` 代替 `items`
 
 #### 附加元素
 
-使用 `additionalItems` 关键字控制如果有超过元组内 `items` 属性定义的附加元素，元组是否有效。`additionalItems` 关键字的值是一个模式，所有其他项目必须通过该模式才能验证关键字。如果 `items` 同一模式中不存在“元组验证”关键字，则忽略此关键字。
+使用 `additionalItems` 关键字控制如果有超过元组内 `items` 属性定义的附加元素，元组是否有效。`additionalItems` 关键字的值是一个模式，所有其他项目必须通过该模式才能验证关键字。如果 `items`  同一模式中不存在“元组验证”关键字，则忽略此关键字。
 
 > 在 Draft 4 中，`additionalItems` 不需要存在“元组验证”`items` 关键字。对任何项目都没有限制，因此所有项目都被视为附加项目。
 
-在这里，我们将重用上面的示例模式，但设置 `additionalItems` 为 `false`，这具有禁止数组中的额外项目的效果。
+在这里，我们将重用上面的示例模式，但设置  `additionalItems` 为 `false`，这具有禁止数组中的额外项目的效果。
 
 ```json
 {
@@ -974,7 +1020,7 @@ JSON 中数组的使用一般有两种方式：
 
 ⭐draft 6
 
-虽然 `items` 模式必须对数组中的每一项都有效，但 `contains` 模式只需要针对数组中的一项或多项进行验证。
+虽然 `items` 模式必须对数组中的每一项都有效，但  `contains` 模式只需要针对数组中的一项或多项进行验证。
 
 ```json
 {
@@ -1044,7 +1090,7 @@ JSON 中数组的使用一般有两种方式：
 
 ### boolean
 
-布尔类型只匹配两个特殊值：`true` 和 `false`。请注意，`Schema` 不接受其他约定为 `true` 或 `false` 的值，例如 1 和 0。
+布尔类型只匹配两个特殊值：`true` 和  `false`。请注意，`Schema` 不接受其他约定为 `true` 或  `false` 的值，例如 1 和 0。
 
 ```json
 { "type": "boolean" }
@@ -1057,7 +1103,7 @@ false // ✔️
 
 ### null
 
-当一个 `Schema` 指定 `type` 为 `null` 时，它只有一个可接受的值：`null`。
+当一个 `Schema` 指定  `type` 为 `null` 时，它只有一个可接受的值：`null`。
 
 ```json
 { "type": "null" }
@@ -1106,6 +1152,507 @@ false // ❌
 { "country": "United States of America" } // ✔️
 { "country": "Canada" } // ❌
 ```
+
+## Schema 组合
+
+`JSON Schema` 包含一些用于将 `Schema` 组合在一起的关键字。请注意，这并不一定意味着将 `Schema` 组合自多个文件或 `JSON` 树 ，尽管这些工具有助于实现这一点，并且在构建复杂 `Schema` 中进行了描述。组合模式可能就像允许同时根据多个标准验证一个值一样简单。
+
+这些关键字对应于众所周知的布尔代数概念，如 `AND`、`OR`、`XOR` 和 `NOT`。您通常可以使用这些关键字来表达无法用标准 `JSON Schema` 关键字表达的复杂约束。
+
+用于组合模式的关键字是：
+
+- allOf : (AND) 必须满足 _所有_ 子模式
+- anyOf : (OR) 必须满足 _任意一个或多个_ 子模式
+- oneOf : (XOR) 必须满足 _其中恰好一个_ 子模式
+
+所有这些关键字都必须设置为一个数组，其中每个项目都是一个 `Schema`。
+
+此外，还有：
+
+- not : (NOT) _不能_ 满足对给定的子模式
+
+### allOf
+
+要验证 `allOf`，给定的数据必须满足所有的 `Subschemas`。
+
+```json
+{
+  "allOf": [
+    { "type": "string" },
+    { "maxLength": 5 }
+  ]
+}
+
+"short" // OK
+"too long"  // not OK，超过最大长度
+```
+
+> 注意：在面向对象继承的意义上， `allOf` 不能用于“扩展” `Schema` 以向其添加更多细节。实例必须对  `allOf` 包含每一个 `Schema` 都有效. 有关更多信息，请参阅有关子模式独立性的部分。
+
+### anyOf
+
+要验证 `anyOf`，数据必须满足任意一个或多个 `Subschemas`。
+
+```json
+{
+  "anyOf": [
+    { "type": "string", "maxLength": 5 },
+    { "type": "number", "minimum": 0 }
+  ]
+}
+
+"short" // OK
+"too long"  // not OK
+12 // OK
+-5  // not OK
+```
+
+### oneOf
+
+要验证 `oneOf`，数据必须满足且只满足一个给定的 `Subschemas`。
+
+```json
+{
+  "oneOf": [
+    { "type": "number", "multipleOf": 5 },
+    { "type": "number", "multipleOf": 3 }
+  ]
+}
+
+10 // OK
+9 // OK
+2  // not OK，不是 5 或 3 的倍数。
+15  // not OK，同时符合两个子模式被拒绝。
+```
+
+### not
+
+要验证 `not`，数据不能满足给定的 `Subschemas`。
+
+例如，下面的 `Schema` 针对任何不是字符串的数据进行验证：
+
+```json
+{ "not": { "type": "string"} }
+
+42 // OK
+{ "key": "value" } // OK
+"I am a string"  // not OK
+```
+
+### 组合属性
+
+#### 不合逻辑的 Schema
+
+请注意，使用这些关键词很容易创建出逻辑上不可能的模式。下面的例子创建了一个不能对任何东西进行验证的模式（因为某些东西不可能同时是一个字符串和一个数字）：
+
+```json
+{
+  "allOf": [
+    { "type": "string" },
+    { "type": "number" }
+  ]
+}
+
+"No way" // ❌
+-1 // ❌
+```
+
+#### 因子分解
+
+请注意，有可能 " 分解 " 出子模式的共同部分。以下两个模式是等价的。
+
+```json
+{
+  "oneOf": [
+    { "type": "number", "multipleOf": 5 },
+    { "type": "number", "multipleOf": 3 }
+  ]
+}
+```
+
+```json
+{
+  "oneOf": [
+    { "type": "number", "multipleOf": 5 },
+    { "type": "number", "multipleOf": 3 }
+  ]
+}
+```
+
+### 扩展封闭 Schema
+
+需要注意的是，`additionalProperties` 只识别在与自己相同的 `Subschemas` 中声明的属性。因此，`additionalProperties` 可以限制你使用诸如 [[#allOf]] 等 `Schema` 组合关键字来 " 扩展 " 一个 `Schema`。在下面的例子中，我们可以看到 `additionalProperties` 是如何导致扩展地址 `Schema` 例子的尝试失败的。
+
+```json
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "street_address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" }
+      },
+      "required": ["street_address", "city", "state"],
+      "additionalProperties": false
+    }
+  ],
+
+  "properties": {
+    "type": { "enum": ["residential", "business"] }
+  },
+  "required": ["type"]
+}
+
+// ❌，不符合additionalProperties，“type”被认为是额外的。
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "city": "Washington",
+  "state": "DC",
+  "type": "business"
+}
+// ❌，不符合required，“type”是必需的。
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "city": "Washington",
+  "state": "DC"
+}
+```
+
+因为 `additionalProperties` 只识别在同一 `Subschemas` 中声明的属性，所以它认为除了 `"street_address"`、`"city"` 和 `"state"` 以外的任何东西都是额外的。用 `allOf` 组合模式并不能改变这一点。你可以使用的变通方法是将 `additionalProperties` 移到扩展 `Schema` 中，并从扩展 `Schema` 中重新声明这些属性。
+
+```json
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "street_address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" }
+      },
+      "required": ["street_address", "city", "state"]
+    }
+  ],
+
+  "properties": {
+    "street_address": true,
+    "city": true,
+    "state": true,
+    "type": { "enum": ["residential", "business"] }
+  },
+  "required": ["type"],
+  "additionalProperties": false
+}
+```
+
+现在，`additionalProperties` 关键字能够识别所有必要的属性，并且 `Schema` 如期工作。看看 `unevaluatedProperties` 关键字如何解决这个问题，而不需要重新声明属性。
+
+#### Unevaluated Properties
+
+⭐draft 2019-09
+
+在上面我们看到了在使用 `Schema` 组合 " 扩展 " 模式时使用 `additionalProperties` 的问题，`unevaluatedProperties` 关键字与 `additionalProperties` 相似，只是它可以识别在子模式中声明的属性。因此，上面的例子可以重写，而不需要重新声明属性。
+
+```json
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "street_address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" }
+      },
+      "required": ["street_address", "city", "state"]
+    }
+  ],
+
+  "properties": {
+    "type": { "enum": ["residential", "business"] }
+  },
+  "required": ["type"],
+  "unevaluatedProperties": false
+}
+
+// ✔️
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "city": "Washington",
+  "state": "DC",
+  "type": "business"
+}
+// ❌
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "city": "Washington",
+  "state": "DC",
+  "type": "business",
+  "something that doesn't belong": "hi!"
+}
+```
+
+`unevaluatedProperties` 的工作方式是收集任何在处理 `Schema` 时被成功验证的属性，并使用这些属性作为允许的属性列表。这允许你做更复杂的事情，比如有条件地添加属性。下面的例子中，只有当 `"type"` 是 `"business"` 时，才允许 `"department"` 属性。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "street_address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" },
+    "type": { "enum": ["residential", "business"] }
+  },
+  "required": ["street_address", "city", "state", "type"],
+
+  "if": {
+    "type": "object",
+    "properties": {
+      "type": { "const": "business" }
+    },
+    "required": ["type"]
+  },
+  "then": {
+    "properties": {
+      "department": { "type": "string" }
+    }
+  },
+  "unevaluatedProperties": false
+}
+
+// ✔️
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "city": "Washington",
+  "state": "DC",
+  "type": "business",
+  "department": "HR"
+}
+// ❌
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "city": "Washington",
+  "state": "DC",
+  "type": "residential",
+  "department": "HR"
+}
+```
+
+![[_attachment/img/6a33824b2257d64ef733ab6df5d70a3b_MD5.png]]
+
+在这个 `Schema` 中，如果 `"type”` 是 `"business"`，那么在 `then` 模式中声明的属性只算作 `"evaluated"` 属性。
+
+## Subschemas 条件验证
+
+### 必要依赖
+
+`dependentRequired` 关键字有条件地要求，如果一个对象存在某个特定的属性，则另一个属性也必须存在。例如，假设我们有一个表示客户的 `Schema`，如果您有他们的信用卡号，您还需要确保您有账单地址。如果您没有他们的信用卡号，则不需要帐单邮寄地址。我们使用 `dependentRequired` 关键字表示一个属性对另一个属性的依赖性。`dependentRequired` 关键字的值是一个对象。对象中的每个条目都从属性的名称 _p_ 映射到一个字符串数组，其中列出了 _p_ 存在时所需的属性。
+
+在下面的例子中，只要提供一个 `"credit_card"` 属性，就必须有一个 `"billing_address"` 属性：
+
+```json
+{
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" },
+    "billing_address": { "type": "string" }
+  },
+
+  "required": ["name"],
+
+  "dependentRequired": {
+    "credit_card": ["billing_address"]
+  }
+}
+
+// OK
+{
+  "name": "John Doe",
+  "credit_card": 5555555555555555,
+  "billing_address": "555 Debtor's Lane"
+}
+
+// not OK，这个实例有一个credit_card，但缺少一个billing_address。
+{
+  "name": "John Doe",
+  "credit_card": 5555555555555555
+}
+
+// OK。这没关系，因为我们既没有credit_carda也没有billing_address。
+{
+  "name": "John Doe"
+}
+
+// OK。请注意，依赖项不是双向的。有一个没有信用卡号的帐单地址是可以的。
+{
+  "name": "John Doe",
+  "billing_address": "555 Debtor's Lane"
+}
+```
+
+要解决上面的最后一个问题（依赖项不是双向的），您当然可以明确定义双向依赖项：
+
+```json
+{
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" },
+    "billing_address": { "type": "string" }
+  },
+
+  "required": ["name"],
+
+  "dependentRequired": {
+    "credit_card": ["billing_address"],
+    "billing_address": ["credit_card"]
+  }
+}
+
+// not OK，这个实例有一个credit_card，但缺少一个billing_address。
+{
+  "name": "John Doe",
+  "credit_card": 5555555555555555
+}
+
+// not OK，这有一个billing_address，但缺少一个credit_card。
+{
+  "name": "John Doe",
+  "billing_address": "555 Debtor's Lane"
+}
+```
+
+### 模式依赖
+
+`dependenciesSchemas` 关键字要求当给定的属性存在时，有条件地应用子模式。这个 `Schema` 的应用方式与 `allOf` 应用 `Schema` 的方式相同。没有任何东西被合并或扩展。两个 `Schema` 都是独立应用的。
+
+```json
+{
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" }
+  },
+
+  "required": ["name"],
+
+  "dependentSchemas": {
+    "credit_card": {
+      "properties": {
+        "billing_address": { "type": "string" }
+      },
+      "required": ["billing_address"]
+    }
+  }
+}
+
+// OK
+{
+  "name": "John Doe",
+  "credit_card": 5555555555555555,
+  "billing_address": "555 Debtor's Lane"
+}
+
+ // not OK，这个实例有一个credit_card，但缺少一个 billing_address：
+{
+  "name": "John Doe",
+  "credit_card": 5555555555555555
+}
+
+// OK。这有一个billing_address，但缺少一个 credit_card。这通过了，因为这里billing_address 看起来像一个附加属性：
+{
+  "name": "John Doe",
+  "billing_address": "555 Debtor's Lane"
+}
+```
+
+> 在 2019-09 草案之前，`dependentRequired` 和 `dependentSchemas` 是一个叫做 `dependencies` 的关键字。如果依赖值是一个数组，它将表现得像 `dependentRequired`，如果依赖值是一个模式，它将表现得像 `dependentSchemas`。
+
+### 条件语句
+
+⭐draft 7
+
+`if`、`then` 和 `else` 关键字允许根据另一个 `Schema` 的结果来应用一个 `Subschema`，这很像传统编程语言中的 `if`/`then`/`else` 结构。
+
+如果 `if` 是有效的，那么 `then` 也必须是有效的（`else` 被忽略）。如果 `if` 是无效的，则 `else` 是有效的（`then` 被忽略）。
+
+如果没有定义 `then` 或 `else`，`if` 的行为就像它们的值为真一样。
+
+如果 `then` 和/或 `else` 出现在一个没有 `if` 的模式中，那么 `then` 和 `else` 将被忽略。
+
+我们可以用真值表的形式来说明，显示 `if`、`then` 和 `else` 何时有效的组合以及整个模式的有效性：
+
+| if  | then | else | whole schema |
+| --- | ---- | ---- | ------------ |
+| T   | T    | n/a  | T            |
+| T   | F    | n/a  | F            |
+| F   | n/a  | T    | T            |
+| F   | n/a  | F    | F            |
+| n/a | n/a  | n/a  | T            |
+
+例如，假设您想编写一个 `Schema` 来处理美国和加拿大的地址。这些国家/地区有不同的邮政编码格式，我们希望根据国家/地区选择要验证的格式。如果地址在美国，则该 `postal_code` 字段是“邮政编码”：五个数字后跟可选的四位后缀。如果地址在加拿大，则该 `postal_code` 字段是一个六位字母数字字符串，其中字母和数字交替出现。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "street_address": {
+      "type": "string"
+    },
+    "country": {
+      "default": "United States of America",
+      "enum": ["United States of America", "Canada"]
+    }
+  },
+  "if": {
+    "properties": { "country": { "const": "United States of America" } }
+  },
+  "then": {
+    "properties": { "postal_code": { "pattern": "[0-9]{5}(-[0-9]{4})?" } }
+  },
+  "else": {
+    "properties": { "postal_code": { "pattern": "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]" } }
+  }
+}
+
+// OK
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "country": "United States of America",
+  "postal_code": "20500"
+}
+
+// OK
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "postal_code": "20500"
+}
+
+// OK
+{
+  "street_address": "24 Sussex Drive",
+  "country": "Canada",
+  "postal_code": "K1M 1M4"
+}
+
+ // not OK
+{
+  "street_address": "24 Sussex Drive",
+  "country": "Canada",
+  "postal_code": "10000"
+}
+// not OK
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "postal_code": "K1M 1M4"
+}
+```
+
+> 在此示例中，“国家/地区”不是必需的属性。因为 `"if"` 模式也不需要 `"country"` 属性，它会 pass 然后应用 `"then"` 模式。因此，如果未定义 `"country"` 属性，则默认行为是将 `"postal_code"` 验证为美国邮政编码。`"default"` 关键字没有效果，但将其包含在模式中，对读者比较友好，可以更容易地识别默认行为。
 
 ## 参考
 
