@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-21-星期日 23:49:07
+update: 2023-05-22-星期一 00:34:59
 ---
 
 ## 简介
@@ -1639,7 +1639,7 @@ false // ❌
   "postal_code": "K1M 1M4"
 }
 
- // not OK
+// not OK
 {
   "street_address": "24 Sussex Drive",
   "country": "Canada",
@@ -1652,7 +1652,96 @@ false // ❌
 }
 ```
 
-> 在此示例中，“国家/地区”不是必需的属性。因为 `"if"` 模式也不需要 `"country"` 属性，它会 pass 然后应用 `"then"` 模式。因此，如果未定义 `"country"` 属性，则默认行为是将 `"postal_code"` 验证为美国邮政编码。`"default"` 关键字没有效果，但将其包含在模式中，对读者比较友好，可以更容易地识别默认行为。
+> 在此示例中，`"country"` 不是必需的属性。因为 `"if"` 模式也不要求 `"country"` 属性，它会通过然后应用 `"then"` 模式。因此，如果没有定义 `"country"` 属性，则默认行为是将 `"postal_code"` 验证为美国邮政编码。`"default"` 关键字没有效果，但将其包含在 `Schema` 中，对读者比较友好，可以更容易地识别默认行为。
+
+不幸的是，上面的方法不能扩展到两个以上的国家。然而，你可以在 `allOf` 里面包裹成对的 `if` 和 `then`，以创建一个可以扩展的内容。在这个例子中，我们将使用美国和加拿大的邮政编码，但也增加了荷兰的邮政编码，它是 4 位数字后加两个字母。读者可以将此扩展到世界上其他的邮政编码，作为一个练习。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "street_address": {
+      "type": "string"
+    },
+    "country": {
+      "default": "United States of America",
+      "enum": ["United States of America", "Canada", "Netherlands"]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "country": { "const": "United States of America" } }
+      },
+      "then": {
+        "properties": { "postal_code": { "pattern": "[0-9]{5}(-[0-9]{4})?" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "country": { "const": "Canada" } },
+        "required": ["country"]
+      },
+      "then": {
+        "properties": { "postal_code": { "pattern": "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "country": { "const": "Netherlands" } },
+        "required": ["country"]
+      },
+      "then": {
+        "properties": { "postal_code": { "pattern": "[0-9]{4} [A-Z]{2}" } }
+      }
+    }
+  ]
+}
+
+// OK
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "country": "United States of America",
+  "postal_code": "20500"
+}
+
+// OK
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "postal_code": "20500"
+}
+
+// OK
+{
+  "street_address": "24 Sussex Drive",
+  "country": "Canada",
+  "postal_code": "K1M 1M4"
+}
+
+// OK
+{
+  "street_address": "Adriaan Goekooplaan",
+  "country": "Netherlands",
+  "postal_code": "2517 JX"
+}
+
+ // not OK
+{
+  "street_address": "24 Sussex Drive",
+  "country": "Canada",
+  "postal_code": "10000"
+}
+
+ // not OK
+{
+  "street_address": "1600 Pennsylvania Avenue NW",
+  "postal_code": "K1M 1M4"
+}
+```
+
+> 在 `"if"` 模式中，`"required"` 关键字是必要的，否则如果没有定义 `"country"`，则它们都将被应用。在 `"United States of America"` 的 `"IF"` 模式中不使用 `"required"`，就可以在没有定义 `"country"` 的情况下有效地将其作为默认值。
+
+> 即使 `"country"` 是必填字段，仍然建议在每个 `"if"` 模式中使用 `"required"` 关键字。验证结果将相同，因为 `"required"` 将失败，但不包括它会增加错误结果的噪音，因为它将针对所有三个 `"then"` 模式验证 `"postal_code"`，导致不相关的错误。
 
 ## 参考
 
