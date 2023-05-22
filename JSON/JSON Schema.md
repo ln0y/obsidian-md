@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-22-星期一 00:34:59
+update: 2023-05-22-星期一 17:20:40
 ---
 
 ## 简介
@@ -813,10 +813,18 @@ JSON Schema 的核心定义了以下基本类型：
 }
 ```
 
-由于对象的键必须总是字符串，这意味着 `propertyNames` 的 `Schema` 总是：
+可以通过 [[#扩展封闭 Schema|additionalProperties]] 来指定类型：
 
 ```json
-{ "type": "string" }
+{
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+  },
+  "additionalProperties": {
+    "type": "boolean"
+  }
+}
 ```
 
 #### 属性数量
@@ -1183,8 +1191,8 @@ false // ❌
   ]
 }
 
-"short" // OK
-"too long"  // not OK，超过最大长度
+"short" //✔️
+"too long"  // ❌，超过最大长度
 ```
 
 > 注意：在面向对象继承的意义上， `allOf` 不能用于“扩展” `Schema` 以向其添加更多细节。实例必须对  `allOf` 包含每一个 `Schema` 都有效. 有关更多信息，请参阅有关子模式独立性的部分。
@@ -1201,10 +1209,10 @@ false // ❌
   ]
 }
 
-"short" // OK
-"too long"  // not OK
-12 // OK
--5  // not OK
+"short" //✔️
+"too long"  // ❌
+12 //✔️
+-5  // ❌
 ```
 
 ### oneOf
@@ -1219,10 +1227,10 @@ false // ❌
   ]
 }
 
-10 // OK
-9 // OK
-2  // not OK，不是 5 或 3 的倍数。
-15  // not OK，同时符合两个子模式被拒绝。
+10 //✔️
+9 //✔️
+2  // ❌，不是 5 或 3 的倍数。
+15  // ❌，同时符合两个子模式被拒绝。
 ```
 
 ### not
@@ -1234,9 +1242,9 @@ false // ❌
 ```json
 { "not": { "type": "string"} }
 
-42 // OK
-{ "key": "value" } // OK
-"I am a string"  // not OK
+42 //✔️
+{ "key": "value" } //✔️
+"I am a string"  // ❌
 ```
 
 ### 组合属性
@@ -1467,25 +1475,25 @@ false // ❌
   }
 }
 
-// OK
+//✔️
 {
   "name": "John Doe",
   "credit_card": 5555555555555555,
   "billing_address": "555 Debtor's Lane"
 }
 
-// not OK，这个实例有一个credit_card，但缺少一个billing_address。
+// ❌，这个实例有一个credit_card，但缺少一个billing_address。
 {
   "name": "John Doe",
   "credit_card": 5555555555555555
 }
 
-// OK。这没关系，因为我们既没有credit_carda也没有billing_address。
+//✔️。这没关系，因为我们既没有credit_carda也没有billing_address。
 {
   "name": "John Doe"
 }
 
-// OK。请注意，依赖项不是双向的。有一个没有信用卡号的帐单地址是可以的。
+//✔️。请注意，依赖项不是双向的。有一个没有信用卡号的帐单地址是可以的。
 {
   "name": "John Doe",
   "billing_address": "555 Debtor's Lane"
@@ -1512,13 +1520,13 @@ false // ❌
   }
 }
 
-// not OK，这个实例有一个credit_card，但缺少一个billing_address。
+// ❌，这个实例有一个credit_card，但缺少一个billing_address。
 {
   "name": "John Doe",
   "credit_card": 5555555555555555
 }
 
-// not OK，这有一个billing_address，但缺少一个credit_card。
+// ❌，这有一个billing_address，但缺少一个credit_card。
 {
   "name": "John Doe",
   "billing_address": "555 Debtor's Lane"
@@ -1550,20 +1558,20 @@ false // ❌
   }
 }
 
-// OK
+//✔️
 {
   "name": "John Doe",
   "credit_card": 5555555555555555,
   "billing_address": "555 Debtor's Lane"
 }
 
- // not OK，这个实例有一个credit_card，但缺少一个 billing_address：
+ // ❌，这个实例有一个credit_card，但缺少一个 billing_address：
 {
   "name": "John Doe",
   "credit_card": 5555555555555555
 }
 
-// OK。这有一个billing_address，但缺少一个 credit_card。这通过了，因为这里billing_address 看起来像一个附加属性：
+//✔️。这有一个billing_address，但缺少一个 credit_card。这通过了，因为这里billing_address 看起来像一个附加属性：
 {
   "name": "John Doe",
   "billing_address": "555 Debtor's Lane"
@@ -1619,40 +1627,40 @@ false // ❌
   }
 }
 
-// OK
+//✔️
 {
   "street_address": "1600 Pennsylvania Avenue NW",
   "country": "United States of America",
   "postal_code": "20500"
 }
 
-// OK
+//✔️
 {
   "street_address": "1600 Pennsylvania Avenue NW",
   "postal_code": "20500"
 }
 
-// OK
+//✔️
 {
   "street_address": "24 Sussex Drive",
   "country": "Canada",
   "postal_code": "K1M 1M4"
 }
 
-// not OK
+// ❌
 {
   "street_address": "24 Sussex Drive",
   "country": "Canada",
   "postal_code": "10000"
 }
-// not OK
+// ❌
 {
   "street_address": "1600 Pennsylvania Avenue NW",
   "postal_code": "K1M 1M4"
 }
 ```
 
-> 在此示例中，`"country"` 不是必需的属性。因为 `"if"` 模式也不要求 `"country"` 属性，它会通过然后应用 `"then"` 模式。因此，如果没有定义 `"country"` 属性，则默认行为是将 `"postal_code"` 验证为美国邮政编码。`"default"` 关键字没有效果，但将其包含在 `Schema` 中，对读者比较友好，可以更容易地识别默认行为。
+> 在此示例中，`"country"` 不是必需的属性。因为 `"if"` 模式也不要求 `"country"` 属性，它会通过，然后应用 `"then"` 模式。因此，如果没有定义 `"country"` 属性，则默认行为是将 `"postal_code"` 验证为美国邮政编码。`"default"` 关键字没有效果，但将其包含在 `Schema` 中，对读者比较友好，可以更容易地识别默认行为。
 
 不幸的是，上面的方法不能扩展到两个以上的国家。然而，你可以在 `allOf` 里面包裹成对的 `if` 和 `then`，以创建一个可以扩展的内容。在这个例子中，我们将使用美国和加拿大的邮政编码，但也增加了荷兰的邮政编码，它是 4 位数字后加两个字母。读者可以将此扩展到世界上其他的邮政编码，作为一个练习。
 
@@ -1698,41 +1706,41 @@ false // ❌
   ]
 }
 
-// OK
+//✔️
 {
   "street_address": "1600 Pennsylvania Avenue NW",
   "country": "United States of America",
   "postal_code": "20500"
 }
 
-// OK
+//✔️
 {
   "street_address": "1600 Pennsylvania Avenue NW",
   "postal_code": "20500"
 }
 
-// OK
+//✔️
 {
   "street_address": "24 Sussex Drive",
   "country": "Canada",
   "postal_code": "K1M 1M4"
 }
 
-// OK
+//✔️
 {
   "street_address": "Adriaan Goekooplaan",
   "country": "Netherlands",
   "postal_code": "2517 JX"
 }
 
- // not OK
+ // ❌
 {
   "street_address": "24 Sussex Drive",
   "country": "Canada",
   "postal_code": "10000"
 }
 
- // not OK
+ // ❌
 {
   "street_address": "1600 Pennsylvania Avenue NW",
   "postal_code": "K1M 1M4"
@@ -1741,7 +1749,409 @@ false // ❌
 
 > 在 `"if"` 模式中，`"required"` 关键字是必要的，否则如果没有定义 `"country"`，则它们都将被应用。在 `"United States of America"` 的 `"IF"` 模式中不使用 `"required"`，就可以在没有定义 `"country"` 的情况下有效地将其作为默认值。
 
-> 即使 `"country"` 是必填字段，仍然建议在每个 `"if"` 模式中使用 `"required"` 关键字。验证结果将相同，因为 `"required"` 将失败，但不包括它会增加错误结果的噪音，因为它将针对所有三个 `"then"` 模式验证 `"postal_code"`，导致不相关的错误。
+> 即使 `"country"` 是必填字段，仍然建议在每个 `"if"` 模式中使用 `"required"` 关键字。验证结果将相同，因为 `"required"` 失败，并且它会增加错误结果的噪音，因为它将针对所有三个 `"then"` 模式验证 `"postal_code"`，导致不相关的错误。
+
+![[_attachment/img/d78af3dbf6b804bcef9306199f031521_MD5.png]]
+
+### 蕴含
+
+在 Draft 7 之前，你可以使用 [[#Schema 组合|Schema Composition]] 关键字和一个叫做 `"implication"` 的布尔代数概念来表达一个 `"if-then"` 的条件。`A->B`（读作，A 隐含 B）意味着如果 A 是真的，那么 B 也一定是真的。它可以表示为 `!A || B`，可以表示为 `JSON Schema`。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "restaurantType": { "enum": ["fast-food", "sit-down"] },
+    "total": { "type": "number" },
+    "tip": { "type": "number" }
+  },
+  "anyOf": [
+    {
+      "not": {
+        "properties": { "restaurantType": { "const": "sit-down" } },
+        "required": ["restaurantType"]
+      }
+    },
+    { "required": ["tip"] }
+  ]
+}
+
+ //✔️
+{
+  "restaurantType": "sit-down",
+  "total": 16.99,
+  "tip": 3.4
+}
+
+ // ❌
+{
+  "restaurantType": "sit-down",
+  "total": 16.99
+}
+
+ //✔️
+{
+  "restaurantType": "fast-food",
+  "total": 6.99
+}
+//✔️
+{ "total": 5.25 }
+```
+
+蕴涵的变化可以用来表达你用 `if `/ `then` / `else` 关键字表达的内容。 `if` / `then` 可表示为 `A -> B`，`if` / `else` 可表示为 `!A -> B`，`if` / `then` / `else` 可表示为 `A -> B AND !A -> C`
+
+等同于：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "restaurantType": { "enum": ["fast-food", "sit-down"] },
+    "total": { "type": "number" },
+    "tip": { "type": "number" }
+  },
+  "if": {
+    "properties": { "restaurantType": { "const": "sit-down" } },
+    "required": ["restaurantType"]
+  },
+  "then": {
+    "required": ["tip"]
+  }
+}
+```
+
+> 由于此 `Schema` 不是很直观，因此建议您将在 `$defs` 中的条件语句与描述性名称一起， 结合 `"allOf": [{ "$ref": "#/$defs/sit-down-restaurant-implies-tip-is-required" }]` 一起 `$ref` 入您的 `Schema` 中。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "restaurantType": { "enum": ["fast-food", "sit-down"] },
+    "total": { "type": "number" },
+    "tip": { "type": "number" }
+  },
+  "allOf": [{ "$ref": "#/$defs/sit-down-restaurant-implies-tip-is-required" }],
+  "$defs": {
+    "sit-down-restaurant-implies-tip-is-required": {
+      "anyOf": [
+        {
+          "not": {
+            "properties": { "restaurantType": { "const": "sit-down" } },
+            "required": ["restaurantType"]
+          }
+        },
+        { "required": ["tip"] }
+      ]
+    }
+  }
+}
+```
+
+## 声明方言
+
+`JSON Schema` 的一个版本称为方言 (`Dialect`)。方言表示可用于评估模式的一组关键字和语义。每个 `JSON Schema` 版本都是 `JSON Schema` 的 新方言。`JSON Schema` 为您提供了一种声明模式符合哪种方言的方法，并提供了描述您自己的自定义方言的方法。
+
+### $schema
+
+该 `$schema` 关键字用于声明模式是针对哪种 JSON 方言编写的。`$schema`  关键字的值也是模式的标识符，可用于根据方言 `$schema`  标识验证模式是否有效。描述另一个模式的模式称为“元模式 (meta-schema)”。
+
+`$schema` 适用于整个文档并且必须在根级别。它不适用于外部引用的 ( `$ref`, `$recursiveRef`) 文档。这些模式需要声明自己的  `$schema`.
+
+如果 `$schema` 未使用，则实现可能允许您在外部指定一个值，或者它可能会假设应该使用哪个规范版本来评估模式。建议所有 `JSON Schema` 都有一个 `$schema` 关键字来与读者和工具进行交流，以了解预期的规范版本。因此，大多数情况下，您会希望在 `Schema` 的根目录下使用它：
+
+```json
+"$schema": "https://json-schema.org/draft-07/schema"
+```
+
+> Draft 4 的标识符是 `https://json-schema.org/draft-04/schema#`。
+>
+> Draft 4 定义了一个没有特定方言 ( `https://json-schema.org/schema#`) 的 $schema，这意味着使用最新的方言。这已被弃用，不应再使用。
+>
+> 您可能会遇到对没有 `JSON Schema` 的 Draft 5 版本的引用。Draft 5 指的是 Draft 4 版本的无变化修订版。它不会添加、删除或更改任何功能。它只更新参考资料、进行澄清和修复错误。Draft 5 描述了 Draft4 版本。如果您来这里寻找有关 Draft 5 的信息，您会在 Draft 4 下找到它。我们不再使用“Draft”术语来指代补丁版本以避免这种混淆。
+
+> Draft 6 的标识符是 `https://json-schema.org/draft-06/schema#`
+
+> Draft 7 的标识符是 `https://json-schema.org/draft-07/schema#`
+
+> Draft 2019-09 的标识符是 `https://json-schema.org/draft/2019-09/schema`
+
+> Draft 2020-12 的标识符是 `https://json-schema.org/draft/2020-12/schema`
+
+## 构建复杂 Schema
+
+在编写中等复杂度的计算机程序时，人们普遍认为，将程序“构建”为可复用的方法比到处复制粘贴重复的代码要好。同样在 `JSON Schema` 中，对于除最琐碎的模式之外，构建在很多地方可以复用的模式非常有用。本章将介绍可用于复用和构建模式的工具以及使用这些工具的一些实例。
+
+### 模式识别
+
+与任何其他代码一样，将模式分解为在必要时相互引用的逻辑单元，则模式更易于维护。为了引用模式，我们需要一种识别模式的方法。模式文档由非相对 URI 所标识。
+
+模式文档不需要有标识符，但如果您想从另一个模式引用一个模式，则需要一个标识符。在本文档中，我们将没有标识符的模式称为“匿名模式”。
+
+在以下部分中，我们将看到如何确定模式的“标识符”。
+
+> URI 术语有时可能不直观。在本文中，使用了以下定义：
+>
+> **URI** 或  **非相对 URI**：含有模式的完整 URI（ `https`）。它可能包含一个 URI 片段 ( `#foo`)。有时本文档会使用“非相对 URI”来明确表示不允许使用相对 URI。
+>
+> **相对引用**：不包含模式 ( `https`) 的部分 URI 。它可能包含一个片段 ( `#foo`)。
+>
+> **URI- 引用**：相对引用或非相对 URI。它可能包含一个 URI 片段 ( `#foo`)。
+>
+> **绝对 URI**：包含模式 ( `https`) 但不包含 URI 片段 ( `#foo`) 的完整 URI 。
+
+> 尽管 `Schema` 是由 URI 识别的，但这些标识符不一定是网络可寻址的。它们只是标识符。通常，实现不会发出 HTTP 请求 ( `https://`) 或从文件系统 ( `file://`) 读取以获取 `Schema`。相反，它们提供了一种将 `Schema` 加载到内部 `Schema` 数据库中的方法。当 `Schema` 被其 URI 标识符引用时，将从内部 `Schema` 数据库中检索该 `Schema`。
+
+#### 基本 URI
+
+使用非相对 URI 可能很麻烦，因此 JSON 模式中使用的任何 URI 都可以是 URI 引用，根据模式的基本 URI 进行解析，从而产生非相对 URI。本节介绍如何确定 `Schema` 的基本 URI。
+
+> 基本 URI 确定和相对引用解析由 [RFC-3986](https://datatracker.ietf.org/doc/html/rfc3986#section-5) 定义。如果您熟悉这在 HTML 中的工作原理，那么本节应该会感到非常熟悉。
+
+#### 检索 URI
+
+用于获取 `Schema` 的 URI 称为“检索 URI”（当前资源的 URI）。通常可以将匿名 `Schema` 传递给实例，在这种情况下，该 `Schema` 将没有检索 URI。
+
+让我们假设使用 URI：`https://example.com/schemas/address` 来引用 `Schema` 并检索以下 `Schema`。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "street_address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" }
+  },
+  "required": ["street_address", "city", "state"]
+}
+```
+
+此 `Schema` 的基本 URI 与检索 URI 相同  `https://example.com/schemas/address`。
+
+简单说就是没有指定基本 URI，那么检索 URI 就是基本 URI。
+
+#### $id
+
+您可以在 `Schema` 根目录中使用 `$id` 关键字来设置基本 URI 。`$id` 的值是一个没有根据 [检索 URI](https://json-schema.apifox.cn/#retrieval-uri) 解析片段的 URI 引用。生成的 URI 是模式的基本 URI。
+
+> 在**Draft 4**  中，`$id` 只是 `id`（没有 $）。
+
+> 在**Draft 4-7**  中，允许在 `$id`（或 Draft4 中的 `id`）中有片段。但是，设置包含 URI 片段的基本 URI 时的行为未定义，不应使用，因为实现可能会以不同方式对待它们。
+
+> 这类似于  [HTML](https://html.spec.whatwg.org/multipage/semantics.html#the-base-element) 中的 `<base>` [标签](https://html.spec.whatwg.org/multipage/semantics.html#the-base-element)。
+
+> 当 `$id` 关键字出现在子模式中时，它的含义略有不同。有关更多信息，请参阅捆绑部分。
+
+让我们假设 URI `https://example.com/schema/address` 和  `https://example.com/schema/billing-address` 两者都指向以下模式。
+
+```json
+{
+  "$id": "/schemas/address",
+  "type": "object",
+  "properties": {
+    "street_address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" }
+  },
+  "required": ["street_address", "city", "state"]
+}
+```
+
+无论使用两个 URI 中的哪一个来访问此 `Schema`，基本 URI 都将是 `https://example.com/schemas/address`，这是 `$id` 针对检索 URI 的 URI 引用解析的结果。
+
+但是，在设置基本 URI 时使用相对引用可能会出现问题。例如，我们不能将此模式用作匿名 `Schema`，因为没有检索 URI 并且您无法解析相对引用。出于这个原因和其他原因，建议您在使用 `$id` 声明基本 URI 时尽量使用绝对 URI.
+
+无论检索 URI 是什么或者它是否用作匿名 `Schema`，以下 `Schema` 的基本 URI 将始终是 `https://example.com/schemas/address` 。
+
+```json
+{
+  "$id": "https://example.com/schemas/address",
+
+  "type": "object",
+  "properties": {
+    "street_address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" }
+  },
+  "required": ["street_address", "city", "state"]
+}
+```
+
+#### JSON 指针
+
+除了标识 `Schema`，您还可以标识 `Subschema`。最常见的方法是在 [指向](https://tools.ietf.org/html/rfc6901) 子模式的 URI 片段中使用 [JSON 指针](https://tools.ietf.org/html/rfc6901)。
+
+JSON 指针描述了一个以斜线分隔的路径来遍历文档中对象中的键。因此， `/properties/street_address` 意味着：
+
+1. 找到键的值  `properties`
+2. 在该对象中，找到键的值  `street_address`
+
+URI `https://example.com/schemas/address#/properties/street_address`  标识以下模式中子模式  `{ "type": "string" }`。
+
+```diff
+{
+  "$id": "https://example.com/schemas/address",
+  "type": "object",
+  "properties": {
++   "street_address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" }
+  },
+  "required": ["street_address", "city", "state"]
+}
+```
+
+#### $anchor
+
+标识 `Subschema` 的一种不太常见的方法是使用 `$anchor` 关键字并在 URI 片段中使用该名称在 `Schema` 中创建命名锚点。锚点必须以字母开头，后跟任意数量的字母、数字、`-`、`_`、`:`、 或 `.`。
+
+> 在 Draft 4 中，您以与 Draft 6-7 中相同的方式声明锚点，`$id` 只是只是 `id`（没有美元符号）。
+
+> 在 Draft 6-7 中，使用 `$id` 仅包含 URI 片段的定义了命名锚点。URI 片段的值是锚点的名称。
+>
+> JSON Schema 没有定义当 `$id` 同时包含片段和非片段 URI 部分时应该如何解析。因此，在设置命名锚点时，不应在 URI 引用中使用非片段 URI 部分。
+
+> 如果一个命名的锚点在定义时不遵循这些命名规则，则它的行为未定义。您的锚点可能在某些实现中起作用，但在其他实现中不起作用。
+
+URI `https://example.com/schemas/address#street_address`  标识以下 `Schema` 的子模式 `{"$anchor": "#street_address", "type": "string"}`
+
+```diff
+{
+  "$id": "https://example.com/schemas/address",
+
+  "type": "object",
+  "properties": {
+    "street_address":
++      {
++       "$anchor": "street_address",
++       "type": "string"
++     },
+    "city": { "type": "string" },
+    "state": { "type": "string" }
+  },
+  "required": ["street_address", "city", "state"]
+}
+```
+
+#### $ref
+
+一个模式可以使用 `$ref` 关键字引用另一个模式。`$ref` 的值是根据模式的 [Base URI](https://json-schema.apifox.cn/#base-uri) 解析的 URI 引用。当获取 `$ref` 的值时，一个实现是使用解析的标识符来检索引用的模式并将该模式应用于实例中。
+
+> 在**Draft 4-7**  中，`$ref` 表现略有不同。当一个对象包含一个 `$ref` 属性时，该对象被认为是一个引用，而不是一个模式。因此，您放入该对象的任何其他属性都不会被视为 JSON 模式关键字，并且会被验证器忽略。`$ref` 只能在需要模式的地方使用。
+
+在这个例子中，假设我们要定义一个客户记录，其中每个客户可能都有一个送货地址和一个账单地址。地址总是相同的结构（有街道地址、城市和州），所以我们不想在存储地址的所有地方都存储同一个模式。这不仅会使模式更加冗长，而且会使将来更新变得更加困难。如果这个公司将来从事国际业务，想为所有地址添加一个国家/地区字段，那么最好在一个地方而不是在使用地址的所有地方进行此操作。
+
+```json
+{
+  "$id": "https://example.com/schemas/customer",
+
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "shipping_address": { "$ref": "/schemas/address" },
+    "billing_address": { "$ref": "/schemas/address" }
+  },
+  "required": ["first_name", "last_name", "shipping_address", "billing_address"]
+}
+```
+
+`$ref` 中的 URI 引用根据模式的 [基本 URI](https://json-schema.apifox.cn/#base-uri) ( `https://example.com/schemas/customer`) 进行解析，结果为  `https://example.com/schemas/address`. 该实现检索该模式并使用它来获取“shipping_address”和“billing_address”属性的值。
+
+> `$ref` 在匿名模式中使用时，相对引用可能无法解析。假设此示例用作匿名模式。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "shipping_address": { "$ref": "https://example.com/schemas/address" },
+    "billing_address": { "$ref": "/schemas/address" }
+  },
+  "required": ["first_name", "last_name", "shipping_address", "billing_address"]
+}
+```
+
+在 `/properties/shipping_address` 的 `$ref` 可以在没有非相对基础 URI 的情况下正常解析，但是在 `/properties/billing_address` 的 `$ref` 不能解析到非相对 URI，因此不能用于检索地址模式。
+
+#### $defs
+
+有时，我们有一小段仅用于当前模式的子模式，将它们定义为单独的模式是没有意义的。虽然我们可以使用 JSON 指针或命名锚点来识别任何子模式，但 `$defs` 关键字为我们提供了一个标准化的位置来保存想在当前模式文档中复用的子模式。
+
+让我们扩展之前的客户模式示例，以使用名称属性的通用架构。为此定义一个新模式没有意义，它只会在这个模式中使用，所以使用 `$defs` 非常合适。
+
+```json
+{
+  "$id": "https://example.com/schemas/customer",
+
+  "type": "object",
+  "properties": {
+    "first_name": { "$ref": "#/$defs/name" },
+    "last_name": { "$ref": "#/$defs/name" },
+    "shipping_address": { "$ref": "/schemas/address" },
+    "billing_address": { "$ref": "/schemas/address" }
+  },
+  "required": ["first_name", "last_name", "shipping_address", "billing_address"],
+
+  "$defs": {
+    "name": { "type": "string" }
+  }
+}
+```
+
+`$ref` 不仅有助于避免重复。它对于编写更易于阅读和维护的模式也很有用。模式的复杂部分可以 `$defs` 用描述性名称定义并在需要的地方引用。这允许模式的读者在深入研究更复杂的部分之前，更快速、更轻松地在高层次上理解模式。
+
+> 引用外部子模式是可能的，但是一般来说，你希望将 `$ref` 限制在引用外部模式或 `$defs` 中定义的内部子模式。
+
+#### 递归
+
+该 `$ref` 关键字可以被用来创建一个自我递归模式。例如，您可能有一个 `person` 模式包含一个 children 的数组，每个 `children` 也是 `person`  的实例。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "children": {
+      "type": "array",
+      "items": { "$ref": "#" }
+    }
+  }
+}
+```
+
+英国王室的家庭树片段例子：
+
+```json
+{
+  "name": "Elizabeth",
+  "children": [
+    {
+      "name": "Charles",
+      "children": [
+        {
+          "name": "William",
+          "children": [{ "name": "George" }, { "name": "Charlotte" }]
+        },
+        {
+          "name": "Harry"
+        }
+      ]
+    }
+  ]
+}
+```
+
+上面，我们创建了一个引用自身的模式，有效地在验证器中创建了一个“循环”，这是合法且有用的。但是请注意，`$ref` 对另一个 `$ref` 的引用可能会导致解析器中的无限循环，这是明确禁止的。
+
+```json
+{
+  "$defs": {
+    "alice": { "$ref": "#/$defs/bob" },
+    "bob": { "$ref": "#/$defs/alice" }
+  }
+}
+```
 
 ## 参考
 
