@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-22-星期一 17:20:40
+update: 2023-05-25-星期四 17:46:15
 ---
 
 ## 简介
@@ -397,7 +397,7 @@ JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式�
 
 ![[_attachment/img/fa7bf5947cf635c5931dc0c08f0cfe51_MD5.png]]
 
-## JSON Schema Validation
+## JSON Schema 规范
 
 ### 数据类型
 
@@ -1124,6 +1124,55 @@ false // ❌
 ```
 
 ### 通用关键字
+
+#### 注释 (annotation)
+
+`JSON Schema` 包含一些关键字，它们并不严格用于验证，而是用于描述 `Schema` 式的一部分。这些“注释”关键字都不是必需的，但鼓励使用为了良好实践，并且可以使您的 `Schema`“自我记录”。
+
+##### title 和 description
+
+`title` 和 `description` 关键字必须是字符串。`title` 最好是简短的，而 `description` 提供 `Schema` 描述的数据因此会有更长的说明。
+
+`default` 关键字指定一个默认值。该值不用于在验证过程中填充缺失值。文档生成器或表单生成器等非验证工具可能会使用此值提示用户如何使用该值。但是，`default` 通常用于表示如果缺少某个值，则该值在语义上与该值与默认值一起存在时的语义相同。default 的值应该根据它所在的 `Schema` 进行验证，但这不是必需的。
+
+##### examples
+
+⭐draft 6
+
+`examples` 关键字是提供一系列针对模式进行验证的示例的地方。这不用于验证，但可能有助于向读者解释模式的效果和目的。每个条目都应该根据它所在的模式进行验证，但这并不是严格要求的。没有必要复制 `examples` 数组中的 `default` 值，因为 `default` 将被视为另一个示例。
+
+##### readOnly & writeOnly
+
+⭐draft 7
+
+布尔类型的关键字 `readOnly` 和 `writeOnly` 通常用于 API 上下文中。`readOnly` 表示该值可读不可改,可用于说明一个更改值的 PUT 请求将得到一个 `400 Bad Request` 的响应。`writeOnly` 表示该值可已修改但是不可以读,可用于说明可通过 PUT 请求来设置值，但通过 GET 请求来检索该记录时不能获取该值 。
+
+##### deprecated
+
+⭐draft 2019-09
+
+`deprecated` 关键字是一个布尔值，表明该关键字应用的实例值不宜使用，并可能在将来被移除。
+
+```json
+{
+  "title": "Match anything",
+  "description": "This is a schema that matches anything.",
+  "default": "Default value",
+  "examples": [
+    "Anything",
+    4035
+  ],
+  "deprecated": true,
+  "readOnly": true,
+  "writeOnly": false
+}
+```
+
+#### 评论
+
+⭐draft 7
+
+`$comment` 关键字严格来说是用来给 `Schema` 添加注释的。它的值必须始终是一个字符串。与注解 `title`、`description` 和 `examples` 不同， `JSON Schema` 的实现不允许给它附加任何意义或行为，甚至可以在任何时候剥离它们。因此，它们对于给 `JSON Schema` 的未来编辑者留下注释是有用的，但不应该用来与 `Schema` 的用户交流。
 
 #### 枚举值
 
@@ -1885,7 +1934,7 @@ false // ❌
 
 与任何其他代码一样，将模式分解为在必要时相互引用的逻辑单元，则模式更易于维护。为了引用模式，我们需要一种识别模式的方法。模式文档由非相对 URI 所标识。
 
-模式文档不需要有标识符，但如果您想从另一个模式引用一个模式，则需要一个标识符。在本文档中，我们将没有标识符的模式称为“匿名模式”。
+模式文档不需要有标识符，但如果您想从另一个模式引用一个模式，则需要一个标识符。在本文档中，我们将**没有标识符的模式称为“匿名模式”**。
 
 在以下部分中，我们将看到如何确定模式的“标识符”。
 
@@ -2000,7 +2049,7 @@ URI `https://example.com/schemas/address#/properties/street_address`  标识�
 }
 ```
 
-#### $anchor
+### $anchor
 
 标识 `Subschema` 的一种不太常见的方法是使用 `$anchor` 关键字并在 URI 片段中使用该名称在 `Schema` 中创建命名锚点。锚点必须以字母开头，后跟任意数量的字母、数字、`-`、`_`、`:`、 或 `.`。
 
@@ -2032,13 +2081,13 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 }
 ```
 
-#### $ref
+### $ref
 
-一个模式可以使用 `$ref` 关键字引用另一个模式。`$ref` 的值是根据模式的 [Base URI](https://json-schema.apifox.cn/#base-uri) 解析的 URI 引用。当获取 `$ref` 的值时，一个实现是使用解析的标识符来检索引用的模式并将该模式应用于实例中。
+一个 `Schema` 可以使用 `$ref` 关键字引用另一个 `Schema` 。`$ref` 的值是根据模式的 [[#基本 URI|Base URI]] 解析的 URI 引用。当获取 `$ref` 的值时，一个实现是使用解析的标识符来检索引用的 `Schema` 并将该模式应用于实例中。
 
-> 在**Draft 4-7**  中，`$ref` 表现略有不同。当一个对象包含一个 `$ref` 属性时，该对象被认为是一个引用，而不是一个模式。因此，您放入该对象的任何其他属性都不会被视为 JSON 模式关键字，并且会被验证器忽略。`$ref` 只能在需要模式的地方使用。
+> 在**Draft 4-7**  中，`$ref` 表现略有不同。当一个对象包含一个 `$ref` 属性时，该对象被认为是一个引用，而不是一个模式。因此，您放入该对象的任何其他属性都不会被视为 `JSON Schema` 关键字，并且会被验证器忽略。`$ref` 只能在需要 `Schema` 的地方使用。
 
-在这个例子中，假设我们要定义一个客户记录，其中每个客户可能都有一个送货地址和一个账单地址。地址总是相同的结构（有街道地址、城市和州），所以我们不想在存储地址的所有地方都存储同一个模式。这不仅会使模式更加冗长，而且会使将来更新变得更加困难。如果这个公司将来从事国际业务，想为所有地址添加一个国家/地区字段，那么最好在一个地方而不是在使用地址的所有地方进行此操作。
+在这个例子中，假设我们要定义一个客户记录，其中每个客户可能都有一个送货地址和一个账单地址。地址总是相同的结构（有街道地址、城市和州），所以我们不想在存储地址的所有地方都存储同一个 `Schema`。这不仅会使 `Schema` 更加冗长，而且会使将来更新变得更加困难。如果这个公司将来从事国际业务，想为所有地址添加一个国家/地区字段，那么最好在一个地方而不是在使用地址的所有地方进行此操作。
 
 ```json
 {
@@ -2055,7 +2104,7 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 }
 ```
 
-`$ref` 中的 URI 引用根据模式的 [基本 URI](https://json-schema.apifox.cn/#base-uri) ( `https://example.com/schemas/customer`) 进行解析，结果为  `https://example.com/schemas/address`. 该实现检索该模式并使用它来获取“shipping_address”和“billing_address”属性的值。
+`$ref` 中的 URI 引用根据模式的 [[#基本 URI]] ( `https://example.com/schemas/customer`) 进行解析，结果为  `https://example.com/schemas/address`. 该实现检索该 `Schema` 并使用它来获取“shipping_address”和“billing_address”属性的值。
 
 > `$ref` 在匿名模式中使用时，相对引用可能无法解析。假设此示例用作匿名模式。
 
@@ -2074,11 +2123,13 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 
 在 `/properties/shipping_address` 的 `$ref` 可以在没有非相对基础 URI 的情况下正常解析，但是在 `/properties/billing_address` 的 `$ref` 不能解析到非相对 URI，因此不能用于检索地址模式。
 
-#### $defs
+### \$dynamicRef / \$dynamicAnchor
 
-有时，我们有一小段仅用于当前模式的子模式，将它们定义为单独的模式是没有意义的。虽然我们可以使用 JSON 指针或命名锚点来识别任何子模式，但 `$defs` 关键字为我们提供了一个标准化的位置来保存想在当前模式文档中复用的子模式。
+### $defs
 
-让我们扩展之前的客户模式示例，以使用名称属性的通用架构。为此定义一个新模式没有意义，它只会在这个模式中使用，所以使用 `$defs` 非常合适。
+有时，我们有一小段仅用于当前 `Schema` 的 `Subschema`，将它们定义为单独的 `Schema` 是没有意义的。虽然我们可以使用 JSON 指针或命名锚点来识别任何 `Subschema`，但 `$defs` 关键字为我们提供了一个标准化的位置来保存想在当前 `Schema` 文档中复用的 `Subschema`。
+
+让我们扩展之前的客户模式示例，以使用名称属性的通用架构。为此定义一个新 `Schema` 没有意义，它只会在这个 `Schema` 中使用，所以使用 `$defs` 非常合适。
 
 ```json
 {
@@ -2099,13 +2150,13 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 }
 ```
 
-`$ref` 不仅有助于避免重复。它对于编写更易于阅读和维护的模式也很有用。模式的复杂部分可以 `$defs` 用描述性名称定义并在需要的地方引用。这允许模式的读者在深入研究更复杂的部分之前，更快速、更轻松地在高层次上理解模式。
+`$ref` 不仅有助于避免重复。它对于编写更易于阅读和维护的 `Schema` 也很有用。`Schema` 的复杂部分可以 `$defs` 用描述性名称定义并在需要的地方引用。这允许 `Schema` 的读者在深入研究更复杂的部分之前，更快速、更轻松地在高层次上理解 `Schema`。
 
-> 引用外部子模式是可能的，但是一般来说，你希望将 `$ref` 限制在引用外部模式或 `$defs` 中定义的内部子模式。
+> 引用外部 `Subschema` 是可能的，但是一般来说，你希望将 `$ref` 限制在引用外部 `Schema` 或 `$defs` 中定义的内部 `Subschema`。
 
-#### 递归
+### 递归
 
-该 `$ref` 关键字可以被用来创建一个自我递归模式。例如，您可能有一个 `person` 模式包含一个 children 的数组，每个 `children` 也是 `person`  的实例。
+该 `$ref` 关键字可以被用来创建一个自我递归 `Schema`。例如，您可能有一个 `person` 模式包含一个 `children` 的数组，每个 `children` 也是 `person`  的实例。
 
 ```json
 {
@@ -2142,7 +2193,7 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 }
 ```
 
-上面，我们创建了一个引用自身的模式，有效地在验证器中创建了一个“循环”，这是合法且有用的。但是请注意，`$ref` 对另一个 `$ref` 的引用可能会导致解析器中的无限循环，这是明确禁止的。
+上面，我们创建了一个引用自身的 `Schema`，有效地在验证器中创建了一个“循环”，这是合法且有用的。但是请注意，`$ref` 对另一个 `$ref` 的引用可能会导致解析器中的无限循环，这是明确禁止的。
 
 ```json
 {
@@ -2152,6 +2203,61 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
   }
 }
 ```
+
+### 捆绑
+
+使用多个 `Schema` 文档工作对于开发来说是很方便的，但是将所有的 `Schema` 捆绑在一个单一的模式文档中，对于发布来说往往更加方便。这可以通过在 `Subschema` 中使用 `$id` 关键字来完成。当 `$id` 在 `Subschema` 中使用时，它表示嵌入式模式。
+
+嵌入式模式的标识符是根据它出现在其中的 `Schema` 的基本 URI 解析的得到的 `$id` 的值。包含嵌入模式的 `Schema` 文档称为复合模式文档，复合架构文档中每个带有 `$id` 的模式称为模式资源。
+
+> 在开发模式时使用嵌入式模式是不常见的。一般来说，最好不要明确地使用这个功能，如果需要的话，可以使用模式捆绑工具来构建捆绑模式。
+
+此示例显示捆绑到复合模式文档中的客户模式示例和地址模式示例。
+
+```json
+{
+  "$id": "https://example.com/schemas/customer",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "shipping_address": { "$ref": "/schemas/address" },
+    "billing_address": { "$ref": "/schemas/address" }
+  },
+  "required": ["first_name", "last_name", "shipping_address", "billing_address"],
+
+  "$defs": {
+    "address": {
+      "$id": "/schemas/address",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+
+      "type": "object",
+      "properties": {
+        "street_address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "$ref": "#/definitions/state" }
+      },
+      "required": ["street_address", "city", "state"],
+
+      "definitions": {
+        "state": { "enum": ["CA", "NY", "... etc ..."] }
+      }
+    }
+  }
+}
+```
+
+无论模式资源是否被捆绑，复合 `Schema` 文档中的所有引用都需要是相同的。请注意，客户 `Schema` 中的 `$ref` 关键字并没有改变。唯一的区别是地址 `Schema` 现在定义在 `/$defs/address` 而不是单独的 `Schema` 文档。您不能使用 `#/$defs/address` 引用地址 `Schema`，因为如果您取消了 `Schema` 的捆绑，这个引用将不再指向地址 `Schema`。
+
+> **Draft 4-7** 中，这两种 URI 都是有效的，因为一个子模式 `$id` 只代表一个基础 URI 的变化，而不是一个嵌入式 `Schema`。然而，即使它被允许，我们仍然强烈建议 JSON 指针不要跨越一个有基础 URI 变化的 `Schema`。
+
+您还应该看到 `"$ref": "#/definitions/state"` 解析为地址 `Schema` 中的 `definitions` 关键字，而不是顶级 `Schema` 中的关键字，就像未使用嵌入式 `Schema` 时那样。
+
+每个 `Schema` 资源都是独立求值的，并且可能使用不同的 `JSON Schema` 方言。上面的示例中， 地址 `Schema` 资源使用了 Draft 7 ，而客户模式资源使用 Draft 2019-09。如果嵌入式 `Schema` 中没有声明 `$schema` ，则默认使用父 `Schema` 的方言。
+
+> **Draft 4-7** 中，子模式 `$id` 只是一个基础 URI 的变化，不被认为是一个独立的模式资源。因为 `$schema` 只允许在模式资源的根部，所有使用子模式 $id 捆绑的模式都必须使用相同的方言。
 
 ## 参考
 
