@@ -16,6 +16,9 @@ git config --global user.email "email"
 
 ```shell
 ssh-keygen -t rsa -C "上面的邮箱"
+
+# Ed25519 算法
+ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
 代码参数含义：
@@ -26,7 +29,7 @@ ssh-keygen -t rsa -C "上面的邮箱"
 
 -f 指定密钥文件存储文件名。
 
-```vbnet
+```shell
 [root@localhost ~]# ssh-keygen -t rsa       <== 建立密钥对，-t代表类型，有RSA和DSA两种
 Generating public/private rsa key pair.
 Enter file in which to save the key (/root/.ssh/id_rsa):   <==密钥文件默认存放位置，按Enter即可
@@ -67,7 +70,7 @@ ssh-keygen -t rsa -C 'xxxxx@email.com' -f ~/.ssh/gitee_id_rsa
 
 在 ~/.ssh 目录下新建一个 config 文件，添加如下内容（其中 Host 和 HostName 填写 git 服务器的域名，IdentityFile 指定私钥的路径）
 
-```txt
+```config
 # gitee
 Host gitee.com
 HostName gitee.com
@@ -82,6 +85,16 @@ IdentityFile ~/.ssh/github_id_rsa
 ```
 
 <https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610>
+
+## 测试是否可以访问
+
+```shell
+$ ssh git@github.com
+
+PTY allocation request failed on channel 0
+Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.
+Connection to github.com closed.
+```
 
 ## 存储密码
 
