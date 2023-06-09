@@ -25,7 +25,7 @@ sudo apt dist-upgrade
 https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#ubuntu-debian--derivatives-windows-10-wsl--native-linux-kernel-with-windows-10-build-1903
 
 ```shell
-apt install zsh
+sudo apt install zsh
 ```
 
 ## 安装 ohmyzsh
