@@ -2,7 +2,7 @@
 aliases: []
 tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
 date: 2023-05-15-星期一 09:55:20
-update: 2023-05-25-星期四 17:46:15
+update: 2023-06-13-星期二 10:51:33
 ---
 
 ## 简介
@@ -2123,7 +2123,44 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 
 在 `/properties/shipping_address` 的 `$ref` 可以在没有非相对基础 URI 的情况下正常解析，但是在 `/properties/billing_address` 的 `$ref` 不能解析到非相对 URI，因此不能用于检索地址模式。
 
-### \$dynamicRef / \$dynamicAnchor
+### \$dynamicRef
+
+`$dynamicRef` 关键字是一个应用程序，它允许将完整的解析延迟到运行时，在计算实例时，每次遇到它都会被解析。
+
+与 `$dynamicAnchor` 一起，`$dynamicRef` 实现了一种协作扩展机制，它主要用于递归模式 (引用自身的模式)。扩展点和运行时确定的扩展目标都是用 `$dynamicAnchor` 定义的，并且只有在使用 `$dynamicRef` 引用时才显示运行时动态行为。
+
+`$dynamicRef` 属性的值必须是一个 URI-Reference 字符串。它根据当前基本 URI 进行解析，生成用作运行时解析起点的 URI。
+
+如果最初解析的起点 URI 包含一个由 `$dynamicAnchor` 关键字创建的片段，则初始 URI 必须被动态作用域中最外层模式资源的 URI(包括片段) 所替换，该资源定义了一个与 `$dynamicAnchor` 同名的片段。
+
+否则，它的行为与 `$ref` 相同，不需要运行时解析。
+
+简单来说，`$dynamicRef` 就是为了运行时递归解析 `$dynamicAnchor` 所定义的模式。
+
+### \$dynamicAnchor
+
+使用 JSON 指针片段需要了解模式的结构。当编写模式文档意图提供可重用的模式时，最好使用不绑定到任何特定结构位置的普通名称片段。这允许重新定位子模式，而不需要更新 JSON 指针引用。
+
+`$anchor` 和 `$dynamicAnchor` 关键字用于指定这样的片段。它们是标识符关键字，只能用于创建普通名称片段，而不是像 `$id` 那样的绝对 uri。
+
+除非需要指定 `$dynamicAnchor`，否则就使用 `$anchor`。
+
+```json
+{
+    "$id": "https://example.net/root.json",
+    "items": {
+        "type": "array",
+        "items": { "$ref": "#item" }
+    },
+    "$defs": {
+        "single": {
+            "$anchor": "item",
+            "type": "object",
+            "additionalProperties": { "$ref": "other.json" }
+        }
+    }
+}
+```
 
 ### $defs
 
@@ -2267,3 +2304,4 @@ URI `https://example.com/schemas/address#street_address`  标识以下 `Schema`
 - [Understanding JSON Schema](http://json-schema.org/understanding-json-schema/)
 - [JSON Schema 规范（中文版）](https://json-schema.apifox.cn/)
 - <https://github.com/NewFuture/miniprogram-json-schema>
+- [Explanation of $dynamicRef $dynamicAnchor in Json Schema (as opposed to $ref and $anchor)](https://stackoverflow.com/questions/69728686/explanation-of-dynamicref-dynamicanchor-in-json-schema-as-opposed-to-ref-and)
