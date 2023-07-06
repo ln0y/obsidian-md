@@ -92,7 +92,7 @@
       "enabled": false
     },
     "auto-correct-common-misspellings": {
-      "enabled": false,
+      "enabled": true,
       "ignore-words": ""
     },
     "convert-bullet-list-markers": {
@@ -106,7 +106,7 @@
       "enabled": true
     },
     "ordered-list-style": {
-      "enabled": false,
+      "enabled": true,
       "number-style": "ascending",
       "list-end-style": "."
     },
@@ -219,6 +219,22 @@
     },
     "remove-multiple-blank-lines-on-paste": {
       "enabled": false
+    },
+    "blockquote-style": {
+      "enabled": false,
+      "style": "space"
+    },
+    "quote-style": {
+      "enabled": false,
+      "single-quote-enabled": true,
+      "single-quote-style": "''",
+      "double-quote-enabled": true,
+      "double-quote-style": "\"\""
+    },
+    "remove-space-before-or-after-characters": {
+      "enabled": false,
+      "characters-to-remove-space-before": ",!?;:).’”]",
+      "characters-to-remove-space-after": "¿¡‘“(["
     }
   },
   "lintOnSave": true,
