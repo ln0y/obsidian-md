@@ -1,8 +1,8 @@
 ---
 aliases: ['前端网址收藏']
-tags: ['Post','date/2022-04','year/2022','month/04']
+tags: ['Post', 'date/2022-04', 'year/2022', 'month/04']
 date: 2022-04-12-星期二 17:48:29
-update: 2023-06-29-星期四 15:38:13
+update: 2023-07-07-星期五 18:08:56
 ---
 
 ## React
@@ -86,6 +86,8 @@ update: 2023-06-29-星期四 15:38:13
 [快速理解 TypeScript 的逆变和协变](https://mp.weixin.qq.com/s/NW37P_vcvSyCKD_3333HGQ)
 
 [什么？函数类型重载还可以动态生成？](https://mp.weixin.qq.com/s/dW9Au8agrxtb7dlByFfHHg)
+
+<http://www.patrickzhong.com/TypeScript/zh/release-notes/typescript-5.0.html>
 
 ### exercises
 
