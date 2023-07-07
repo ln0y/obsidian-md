@@ -1,5 +1,4 @@
 [
-  "calendar",
   "table-editor-obsidian",
   "open-vscode",
   "templater-obsidian",
@@ -17,15 +16,12 @@
   "file-explorer-note-count",
   "obsidian-excalidraw-plugin",
   "obsidian-icons-plugin",
-  "drawio-obsidian",
   "obsidian-kanban",
   "obsidian-emoji-toolbar",
   "recent-files-obsidian",
   "media extended bilibili plugin",
-  "media-extended",
-  "mx-bili-plugin",
   "obsidian-git",
-  "cm-editor-syntax-highlight-obsidian",
   "obsidian-local-images-plus",
-  "oz-clear-unused-images"
+  "oz-clear-unused-images",
+  "execute-code"
 ]
