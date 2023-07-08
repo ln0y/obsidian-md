@@ -1,8 +1,12 @@
 ---
 aliases: []
-tags: ['JSON', 'date/2023-05', 'year/2023', 'month/05']
+tags:
+  - JSON
+  - date/2023-05
+  - year/2023
+  - month/05
 date: 2023-05-15-星期一 09:55:20
-update: 2023-06-13-星期二 10:51:33
+update: 2023-07-08-星期六 18:44:35
 ---
 
 ## 简介
@@ -847,7 +851,7 @@ JSON Schema 的核心定义了以下基本类型：
 
 #### 未评估的属性
 
-![[#Unevaluated Properties]]
+![JSON Schema#Unevaluated Properties](JSON/JSON%20Schema.md#Unevaluated%20Properties)
 
 ### array
 
