@@ -25,7 +25,7 @@ JSONP劫持，实质上算是一种读类型的CSRF，在恶意的网页中构�
 
 没错JSONP劫持类似于[[前端安全：CSRF|CSRF]]漏洞，步骤大概如下图所示：
 
-![[_attachment/img/1666134937.png]]
+![](_attachment/img/1666134937.png)
 
 利用代码如下所示：
 

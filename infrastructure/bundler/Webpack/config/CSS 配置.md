@@ -17,7 +17,7 @@ update: 2023-03-02-星期四 16:44:39
 
 原生 Webpack 并不能识别 CSS 语法，假如不做额外配置直接导入 `.css` 文件，会导致编译失败：
 
-![[_attachment/img/43201187c79335b63e0c6809767c11fc_MD5.png]]
+![](_attachment/img/43201187c79335b63e0c6809767c11fc_MD5.png)
 
 为此，在 Webpack 中处理 CSS 文件，通常需要用到：
 
@@ -29,7 +29,7 @@ update: 2023-03-02-星期四 16:44:39
 
 三种组件各司其职：`css-loader` 让 Webpack 能够正确理解 CSS 代码、分析资源依赖；`style-loader`、`mini-css-extract-plugin` 则通过适当方式将 CSS 插入到页面，对页面样式产生影响：
 
-![[_attachment/img/1db0c45c34c4b546db2f3545dbdf4874_MD5.png]]
+![](_attachment/img/1db0c45c34c4b546db2f3545dbdf4874_MD5.png)
 
 下面我们先从 `css-loader` 聊起，`css-loader` 提供了很多处理 CSS 代码的基础能力，包括 CSS 到 JS 转译、依赖解析、Sourcemap、css-in-module 等，基于这些能力，Webpack 才能像处理 JS 模块一样处理 CSS 模块代码。接入时首先需要安装依赖：
 
@@ -140,7 +140,7 @@ document.body.appendChild(node)
 
 页面运行效果：
 
-![[_attachment/img/e0af99b52cc9f5b965918e8d29ec1e27_MD5.png]]
+![](_attachment/img/e0af99b52cc9f5b965918e8d29ec1e27_MD5.png)
 
 经过 `style-loader` + `css-loader` 处理后，样式代码最终会被写入 Bundle 文件，并在运行时通过 `style` 标签注入到页面。这种将 JS、CSS 代码合并进同一个产物文件的方式有几个问题：
 
@@ -207,11 +207,11 @@ document.body.appendChild(node)
 
 产物 `main.css`：
 
-![[_attachment/img/6ba68cda42618bb44e0c16429d4a02a2_MD5.png]]
+![](_attachment/img/6ba68cda42618bb44e0c16429d4a02a2_MD5.png)
 
 产物 `main.js`：
 
-![[_attachment/img/30562ab1137f825038b4c226552b965f_MD5.png]]
+![](_attachment/img/30562ab1137f825038b4c226552b965f_MD5.png)
 
 产物 `index.html`：
 

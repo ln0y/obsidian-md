@@ -16,7 +16,7 @@ update: 2023-03-03-星期五 10:28:18
 - 与其它微前端方案不同，MF 的应用之间关系平等，没有主应用/子应用之分，每个应用都能导出/导入任意模块；
 - 等等。
 
-![[_attachment/img/185bfdf906092a9653a627dd4a0c3553_MD5.png]]
+![](_attachment/img/185bfdf906092a9653a627dd4a0c3553_MD5.png)
 
 ## 简单示例
 
@@ -161,7 +161,7 @@ module.exports = {
 
 到这里，简单示例就算是搭建完毕了，之后运行页面，打开开发者工具的 Network 面板，可以看到：
 
-![[_attachment/img/ac453594bead6b3df1d460935f0c4b98_MD5.png]]
+![](_attachment/img/ac453594bead6b3df1d460935f0c4b98_MD5.png)
 
 其中：
 
@@ -222,11 +222,11 @@ module.exports = {
 
 添加 `shared` 后：
 
-![[_attachment/img/09c72d6ccf72cbd622da67a2c544baf6_MD5.png]]
+![](_attachment/img/09c72d6ccf72cbd622da67a2c544baf6_MD5.png)
 
 改动前：
 
-![[_attachment/img/15fd126ad7ed55a56e7d4a6af458993e_MD5.png]]
+![](_attachment/img/15fd126ad7ed55a56e7d4a6af458993e_MD5.png)
 
 注意，这里要求两个应用使用 **版本号完全相同** 的依赖才能被复用，假设上例应用 `app-1` 用了 `lodash@4.17.0` ，而 `app-2` 用的是 `lodash@4.17.1`，Webpack 还是会同时加载两份 lodash 代码，我们可以通过 `shared.[lib].requiredVersion` 配置项显式声明应用需要的依赖库版本来解决这个问题：
 
@@ -277,7 +277,7 @@ module.exports = {
 
 - `singletong`：强制约束多个版本之间共用同一个依赖包，如果依赖包不满足版本 `requiredVersion` 版本要求则报警告：
 
-![[_attachment/img/137c668c3fff9ac84048a517a1cf02ba_MD5.png]]
+![](_attachment/img/137c668c3fff9ac84048a517a1cf02ba_MD5.png)
 
 - `version`：声明依赖包版本，缺省默认会从包体的 `package.json` 的 `version` 字段解析；
 - `packageName`：用于从描述文件中确定所需版本的包名称，仅当无法从请求中自动确定包名称时才需要这样做；

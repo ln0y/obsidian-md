@@ -58,7 +58,7 @@ Webpack 中，Tree-shaking 的实现，一是需要先 「**标记**」 出模�
 
 标记的效果就是删除那些没有被其它模块使用的“**导出语句**”，比如：
 
-![[_attachment/img/f9225ab4c6bf7b0ce0544b757b28f039_MD5.png]]
+![](_attachment/img/f9225ab4c6bf7b0ce0544b757b28f039_MD5.png)
 
 示例中，`bar.js` 模块（左二）导出了两个变量：`bar` 与 `foo`，其中 `foo` 没有被其它模块用到，所以经过标记后，构建产物（右一）中 `foo` 变量对应的导出语句就被删除了。作为对比，如果没有启动标记功能（`optimization.usedExports = false` 时），则变量无论有没有被用到，都会保留导出语句，如上图右二的产物代码所示。
 
@@ -90,7 +90,7 @@ export default 'foo-bar'
 
 对应的 `dependencies` 值为：
 
-![[_attachment/img/c8f0729957a561fc4a987a3462844dba_MD5.png]]
+![](_attachment/img/c8f0729957a561fc4a987a3462844dba_MD5.png)
 
 2. 所有模块都编译完毕后，触发 [compilation.hooks.finishModules](https://webpack.js.org/api/compilation-hooks/#finishmodules) 钩子，开始执行 [FlagDependencyExportsPlugin](https://github1s.com/webpack/webpack/blob/HEAD/lib/FlagDependencyExportsPlugin.js) 插件回调；
 3. `FlagDependencyExportsPlugin` 插件 [遍历](https://github1s.com/webpack/webpack/blob/HEAD/lib/FlagDependencyExportsPlugin.js#L51-L53) 所有 `module` 对象；
@@ -121,13 +121,13 @@ _💡 提示：关于模块生成逻辑的更多介绍，可参考 [[Runtime]] �
 
 简单说，这一步的逻辑就是，用前面收集好的 `exportsInfo` 对象为模块的导出值分别生成导出语句。再来看个例子：
 
-![[_attachment/img/159535dad4bc5461f481ffc403af3466_MD5.png]]
+![](_attachment/img/159535dad4bc5461f481ffc403af3466_MD5.png)
 
 重点关注 `bar.js` 文件，同样是导出值，`bar` 被 `index.js` 模块使用，因此对应生成了 `__webpack_require__.d` 调用 `"bar": ()=>(/* binding */ bar)`，作为对比 ，`foo` 则仅仅保留了定义语句，没有在 Bundle 中生成对应的 `export` 语句。
 
 经过前面几步操作之后，模块导出列表中未被使用的值都不会定义在 `__webpack_exports__` 对象中，形成一段不可能被执行的 Dead Code 效果，如上例中的 `foo` 变量：
 
-![[_attachment/img/159535dad4bc5461f481ffc403af3466_MD5.png]]
+![](_attachment/img/159535dad4bc5461f481ffc403af3466_MD5.png)
 
 在此之后，将由 Terser、UglifyJS 等 DCE 工具“摇”掉这部分无效代码，构成完整的 Tree Shaking 操作。
 
@@ -168,11 +168,11 @@ if (process.env.NODE_ENV === 'development') {
 
 使用 Webpack 时，需要有意识规避一些不必要的赋值操作，观察下面这段示例代码：
 
-![[_attachment/img/45835e644018a41f2625d1f5bbab4d2a_MD5.png]]
+![](_attachment/img/45835e644018a41f2625d1f5bbab4d2a_MD5.png)
 
 示例中，`index.js` 模块引用了 `bar.js` 模块的 `foo` 并赋值给 `f` 变量，但后续并没有继续用到 `foo` 或 `f` 变量，这种场景下， `bar.js` 模块导出的 `foo` 值实际上并没有被使用，理应被删除，但 Webpack 的 Tree Shaking 操作并没有生效，产物中依然保留 `foo` 导出：
 
-![[_attachment/img/bafeb3482f99e411bf33e036cfa51a0d_MD5.png]]
+![](_attachment/img/bafeb3482f99e411bf33e036cfa51a0d_MD5.png)
 
 造成这一结果，浅层原因是 Webpack 的 Tree Shaking 逻辑停留在代码静态分析层面，只是浅显地判断：
 
@@ -208,7 +208,7 @@ console.log(count)
 
 与赋值语句类似，JavaScript 中的函数调用语句也可能产生副作用，因此默认情况下 Webpack 并不会对函数调用做 Tree Shaking 操作。不过，开发者可以在调用语句前添加 `/*#__PURE__*/` 备注，明确告诉 Webpack 该次函数调用并不会对上下文环境产生副作用，例如：
 
-![[_attachment/img/c4a7cadc6c93986187e978760cc29167_MD5.png]]
+![](_attachment/img/c4a7cadc6c93986187e978760cc29167_MD5.png)
 
 示例中，`foo('be retained')` 调用没有带上 `/*#__PURE__*/` 备注，代码被保留；作为对比，`foo('be removed')` 带上 Pure 声明后则被 Tree Shaking 删除。
 
@@ -218,7 +218,7 @@ Babel 是一个非常流行的 JavaScript 代码转换器，它能够将高版�
 
 但 Babel 提供的部分功能特性会致使 Tree Shaking 功能失效，例如 Babel 可以将 `import/export` 风格的 ESM 语句等价转译为 CommonJS 风格的模块化语句，但该功能却导致 Webpack 无法对转译后的模块导入导出内容做静态分析，示例：
 
-![[_attachment/img/c1192f5b45687d49dd10ff56f44a13aa_MD5.png]]
+![](_attachment/img/c1192f5b45687d49dd10ff56f44a13aa_MD5.png)
 
 示例使用 `babel-loader` 处理 `*.js` 文件，并设置 Babel 配置项 `modules = 'commonjs'`，将模块化方案从 ESM 转译到 CommonJS，导致转译代码（右图上一）没有正确标记出未被使用的导出值 `foo`。作为对比，右图 2 为 `modules = false` 时打包的结果，此时 `foo` 变量被正确标记为 Dead Code。
 

@@ -15,13 +15,13 @@ TCP 中每个发送的请求都需要响应。如果一个请求没有收到响�
 
 大体的模型，和下图很像。但是如果完全和下图一样，每一个请求收到响应之后，再发送下一个请求，吞吐量会很低。因为这样的设计，会产生网络的空闲时间，说白了，就是浪费带宽。带宽没有用满，意味着可以同时发送更多的请求，接收更多的响应。
 
-![[_attachment/img/CioPOWCCKu-AJ2NHAACe0M3wDME839.png]]
+![](_attachment/img/CioPOWCCKu-AJ2NHAACe0M3wDME839.png)
 
 TCP 请求/响应模型（吞吐量低）
 
 一种改进的方式，就是让发送方有请求就发送出去，而不是等待响应。通过这样的处理方式，发送的数据连在了一起，响应的数据也连在了一起，吞吐量就提升了。
 
-![[_attachment/img/Cgp9HWCCKvWAKGcEAACep0GQbI0182.png]]
+![](_attachment/img/Cgp9HWCCKvWAKGcEAACep0GQbI0182.png)
 
 但是如果可以同时发送的数据真的非常多呢？比如成百上千个 TCP 段都需要发送，这个时候带宽可能会不足。很多个数据封包都需要发送，该如何处理呢？
 
@@ -29,7 +29,7 @@ TCP 请求/响应模型（吞吐量低）
 
 在这种情况下，通常我们会考虑**排队（Queuing）机制**。
 
-![[_attachment/img/CioPOWCCKwuAfBn5AABKdgtX54w997.png]]
+![](_attachment/img/CioPOWCCKwuAfBn5AABKdgtX54w997.png)
 
 考虑这样一个模型，如上图所示，在 TCP 层实现一个队列。新元素从队列的一端（左侧）排队，作为一个未发送的数据封包。开始发送的数据封包，从队列的右侧离开。你可以思考一下，这个模型有什么问题吗？
 
@@ -39,7 +39,7 @@ TCP 请求/响应模型（吞吐量低）
 
 在上面的模型当中，我们之所以觉得算法不好设计，是因为用错了数据结构。有个说法叫作如果程序写复杂了，那就是写错了。这里其实应该用一种叫作**滑动窗口的数据结构**去实现。
 
-![[_attachment/img/Cgp9HWCCKxSAROSpAAA_zThgiBA669.png]]
+![](_attachment/img/Cgp9HWCCKxSAROSpAAA_zThgiBA669.png)
 
 如上图所示：
 
@@ -52,11 +52,11 @@ TCP 请求/响应模型（吞吐量低）
 
 如下图所示，有两个封包的 ACK 到达，因此标记为绿色。
 
-![[_attachment/img/Cgp9HWCCKxuAeVUyAAA_sW29BSM139.png]]
+![](_attachment/img/Cgp9HWCCKxuAeVUyAAA_sW29BSM139.png)
 
 这个时候滑动窗口可以向右滑动，如下图所示：
 
-![[_attachment/img/CioPOWCCKyCAMaA7AAA_zxqi_ig808.png]]
+![](_attachment/img/CioPOWCCKyCAMaA7AAA_zxqi_ig808.png)
 
 ### 重传
 
@@ -64,11 +64,11 @@ TCP 请求/响应模型（吞吐量低）
 
 如果发生下图这样的情况，段 4 迟迟没有收到 ACK。
 
-![[_attachment/img/Cgp9HWCCKyaAcZwMAABGuK2lrZY271.png]]
+![](_attachment/img/Cgp9HWCCKyaAcZwMAABGuK2lrZY271.png)
 
 这个时候滑动窗口只能右移一个位置，如下图所示：
 
-![[_attachment/img/CioPOWCCKyuADL6mAABGoEBZ_2Y287.png]]
+![](_attachment/img/CioPOWCCKyuADL6mAABGoEBZ_2Y287.png)
 
 在这个过程中，如果后来段 4 重传成功（接收到 ACK），那么窗口就会继续右移。如果段 4 发送失败，还是没能收到 ACK，那么接收方也会抛弃段 5、段 6、段 7。这样从段 4 开始之后的数据都需要重发。
 

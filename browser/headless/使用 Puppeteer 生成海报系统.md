@@ -248,21 +248,21 @@ const fs = require('fs');
 
 社区上我们常见生成海报的技术分享。应用场景很多，比如文稿中划线，进行“金句分享”，如下图所示：
 
-![[_attachment/img/CioPOWBURyGAdWWfAAVd4uI0v5k453.png]]
+![](_attachment/img/CioPOWBURyGAdWWfAAVd4uI0v5k453.png)
 
 一般来说，生成海报可以使用[html2canvas](https://github.com/niklasvh/html2canvas?fileGuid=xxQTRXtVcqtHK6j8)这样的类库完成，这里面的技术难点主要有跨域处理、分页处理、页面截图时机处理等。整体来说，并不难实现，但是稳定性一般。另一种生成海报的方式就是使用 Puppeteer，构建一个 Node.js 服务来做页面截图。
 
 下面我们来实现一个名叫 posterMan 的海报服务，整体技术链路如下图：
 
-![[_attachment/img/Cgp9HWBZg66ADjAJAAJBHVTqmKw043.png]]
+![](_attachment/img/Cgp9HWBZg66ADjAJAAJBHVTqmKw043.png)
 
 核心技术无外乎使用 Puppeteer，访问页面并截图，这与前面几个场景是一样的，如下图所示：
 
-![[_attachment/img/CioPOWBZg8GAX2qJAALAFyJ2lc8362.png]]
+![](_attachment/img/CioPOWBZg8GAX2qJAALAFyJ2lc8362.png)
 
 这里需要特别强调的是，为了实现最好的性能，我们**设计了一个链接池来存储 Puppeteer 实例**，以备所需，如下图所示：
 
-![[_attachment/img/Cgp9HWBUR3WAUmueAAEA26Dx-54108.png]]
+![](_attachment/img/Cgp9HWBUR3WAUmueAAEA26Dx-54108.png)
 
 在实现上，我们依赖[generic-pool](https://www.npmjs.com/package/generic-pool?fileGuid=xxQTRXtVcqtHK6j8)库，这个库提供了 Promise 风格的通用池，可以用来对一些高消耗、高成本资源的调用实现**防抖或拒绝服务**能力，一个典型场景是对数据库的连接。这里我们把它用于 Puppeteer 实例的创建，如下代码所示：
 

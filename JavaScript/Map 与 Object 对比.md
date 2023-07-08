@@ -214,23 +214,23 @@ function measureFor(f, duration) {
 
 一般来说，当键为（非数字）字符串时，`Map` 在所有操作上都优于 `Object`。
 
-![[_attachment/img/deletion-speed.png]]
+![](_attachment/img/deletion-speed.png)
 
 但细微之处在于，当数量并不真正多时（低于 `100000`），Map 在插入速度上 是 Object 的两倍，但当规模超过 `100000` 时，性能差距开始缩小。
 
-![[_attachment/img/string-key-line-1.png]]
+![](_attachment/img/string-key-line-1.png)
 
 上图显示了随着条目数的增加（x 轴），插入率如何下降（y 轴）。然而，由于 X 轴扩展得太宽（从 100 到 1000000），很难分辨这两条线之间的差距。
 
 然后用对数比例来处理数据，做出了下面的图表。
 
-![[_attachment/img/string-key-line-2.png]]
+![](_attachment/img/string-key-line-2.png)
 
 可以清楚地看出这两条线正在重合。
 
 这里又做了一张图，画出了在插入速度上 Map 比 Object 快多少。你可以看到 Map 开始时比 Object 快 2 倍左右。然后随着时间的推移，性能差距开始缩小。最终，当大小增长到 `5000000 时`，Map 只快了 30%。
 
-![[_attachment/img/string-key-line-3.png]]
+![](_attachment/img/string-key-line-3.png)
 
 虽然我们中的大多数人永远不会在一个 Object 或 Map 中拥有超过 1 00 万的条数据。对于几百或几千个数据的规模，Map 的性能至少是 Object 的两倍。因此，我们是否应该就此打住，并开始重构我们的代码库，全部采用 Map？
 
@@ -242,19 +242,19 @@ function measureFor(f, duration) {
 
 我们首先尝试在 `[0, 1000]` 范围内的整数键。
 
-![[_attachment/img/integer-key-1.png]]
+![](_attachment/img/integer-key-1.png)
 
 如我所料，Object 这次的表现超过了 Map。它们的插入速度比 Map 快 `65%`，迭代速度快 `16%`。
 
 接着， 扩大范围，使键中的最大整数为 1200。
 
-![[_attachment/img/integer-key-2.png]]
+![](_attachment/img/integer-key-2.png)
 
 似乎现在 Map 的插入速度开始比 Object 快一点，迭代速度快 5 倍。
 
 现在，我们只增加了整数键的范围，而不是 Object 和 Map 的实际大小。让我们加大 size，看看这对性能有什么影响。
 
-![[_attachment/img/integer-key-3.png]]
+![](_attachment/img/integer-key-3.png)
 
 当属性 size 为 1000 时，Object 最终比 Map 的插入速度快 70%，迭代速度慢 2 倍。
 

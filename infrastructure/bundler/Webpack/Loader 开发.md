@@ -179,7 +179,7 @@ module.exports = {
 
 除了作为内容转换器外，Loader 运行过程还可以通过一些 [上下文接口](https://webpack.js.org/api/loaders/#thisaddcontextdependency)，**有限制** 地影响 Webpack 编译过程，从而产生内容转换之外的副作用。上下文接口将在运行 Loader 时以 `this` 方式注入到 Loader 函数：
 
-![[_attachment/img/8d229c42c9a7b99bdcfcef4799870d71_MD5.png]]
+![](_attachment/img/8d229c42c9a7b99bdcfcef4799870d71_MD5.png)
 
 Webpack 官网对 [Loader Context](https://webpack.js.org/api/loaders/#the-loader-context) 已经有比较详细的说明，这里简单介绍几个比较常用的接口：
 
@@ -389,11 +389,11 @@ Webpack Loader 中有多种上报异常信息的方式：
 
 - 使用 `logger.error`，仅输出错误日志，不会打断编译流程，效果：
 
-![[_attachment/img/990422d5e1f59e164b5ddad6f3cc6cd1_MD5.png]]
+![](_attachment/img/990422d5e1f59e164b5ddad6f3cc6cd1_MD5.png)
 
 - 使用 `this.emitError` 接口，同样不会打断编译流程，效果：
 
-![[_attachment/img/cf5445f7d0450c2153a6dff6a77d4eb2_MD5.png]]
+![](_attachment/img/cf5445f7d0450c2153a6dff6a77d4eb2_MD5.png)
 
 与 `logger.error` 相比，`emitError` 不受 `infragstrustureLogging` 规则控制，必然会强干扰到最终用户；其次，`emitError` 会抛出异常的 Loader 文件、代码行、对应模块，更容易帮助定位问题。
 
@@ -409,7 +409,7 @@ export default function loader(source) {
 
 之后，Webpack 会将 `callback` 传递过来的错误信息当做模块内容，打包进产物文件：
 
-![[_attachment/img/89bc565cf03fe1e6638cc5a5b243504a_MD5.png]]
+![](_attachment/img/89bc565cf03fe1e6638cc5a5b243504a_MD5.png)
 
 总的来说，这些方式各自有适用场景，我个人会按如下规则择优选用：
 
@@ -529,7 +529,7 @@ module.exports = {
 - 将 `less-loader` 结果传入 `css-loader`，进一步将 CSS 内容包装成类似 `module.exports = "${css}"` 的 JavaScript 代码片段；
 - 将 `css-loader` 结果传入 `style-loader`，在运行时调用 injectStyle 等函数，将内容注入到页面的 `<style>` 标签。
 
-![[_attachment/img/fb13878962ebd5680a8a6f6e353ba367_MD5.png]]
+![](_attachment/img/fb13878962ebd5680a8a6f6e353ba367_MD5.png)
 
 三个 Loader 分别完成内容转化工作的一部分，形成从右到左的执行链条。链式调用这种设计有两个好处，一是保持单个 Loader 的单一职责，一定程度上降低代码的复杂度；二是细粒度的功能能够被组装成复杂而灵活的处理链条，提升单个 Loader 的可复用性。
 
@@ -601,11 +601,11 @@ Pitch 翻译成中文是 _抛、球场、力度、事物最高点_ 等，它背�
 
 实现上，Loader 链条执行过程分三个阶段：pitch、解析资源、执行，设计上与 DOM 的事件模型非常相似，pitch 对应到捕获阶段；执行对应到冒泡阶段；而两个阶段之间 Webpack 会执行资源内容的读取、解析操作，对应 DOM 事件模型的 AT_TARGET 阶段：
 
-![[_attachment/img/c4af10c537ce3b589f9c304bbb521eb2_MD5.png]]
+![](_attachment/img/c4af10c537ce3b589f9c304bbb521eb2_MD5.png)
 
 `pitch` 阶段按配置顺序从左到右逐个执行 `loader.pitch` 函数\(如果有的话\)，开发者可以在 `pitch` 返回任意值中断后续的链路的执行：
 
-![[_attachment/img/22e5a25e5b34c29b78c7ebdd008082e4_MD5.png]]
+![](_attachment/img/22e5a25e5b34c29b78c7ebdd008082e4_MD5.png)
 
 那么为什么要设计 pitch 这一特性呢？
 
@@ -680,7 +680,7 @@ var content = require('!!css-loader!less-loader!./xxx.less')
 
 注意了，到这里 style-loader 的 pitch 函数返回这一段内容，后续的 Loader 就不会继续执行，当前调用链条中断了：
 
-![[_attachment/img/992cfef3ab10c15d1d044df197f46bca_MD5.png]]
+![](_attachment/img/992cfef3ab10c15d1d044df197f46bca_MD5.png)
 
 之后，Webpack 继续解析、构建 style-loader 返回的结果，遇到 inline loader 语句：
 
@@ -742,11 +742,11 @@ export default function loader(source) {
 
 之后，若用户传入不符合 Schema 描述的参数对象，会报类似下面这种错误提示：
 
-![[_attachment/img/e6c36f2838dc03140fe32fc6edb3e48d_MD5.png]]
+![](_attachment/img/e6c36f2838dc03140fe32fc6edb3e48d_MD5.png)
 
 `schema-utils` 的校验能力很强，能够完美支撑起 Webpack 生态下非常复杂的参数校验需求，但官方文档非常语焉不详，翻阅源码后发现，它底层主要依赖于 [ajv](https://ajv.js.org/guide/getting-started.html) ，这是一个应用广泛、功能强大且性能优异的校验工具：
 
-![[_attachment/img/a87a3af2b490c94603ea87659acc7805_MD5.png]]
+![](_attachment/img/a87a3af2b490c94603ea87659acc7805_MD5.png)
 
 > 提示：`ajv` 在对象校验、JSON 序列化/反序列化方面的性能表现非常突出，许多知名 [开源框架](https://www.npmjs.com/browse/depended/ajv) 如：ESLint、fast-json-stringify、middy、swagger、tailwind 等底层都依赖于 `ajv`，值得我们学习、复用到业务项目中。
 
@@ -1273,7 +1273,7 @@ import script from './index.vue?vue&type=script&lang=js&'
 
 过程大致为：
 
-![[_attachment/img/23613f6d151cdc25ffac44f92942a38c_MD5.png]]
+![](_attachment/img/23613f6d151cdc25ffac44f92942a38c_MD5.png)
 
 举个转换过程的例子：
 

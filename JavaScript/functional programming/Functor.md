@@ -21,13 +21,13 @@ const fruitsWithSugar = fruits.map(fruit => `Super Sweet ${fruit}`)
 
 就这个盒子来说，它盛放的数据是一套水果名称的集合。与此同时，它还实现了 map 方法。整体的结构如下图：
 
-![[_attachment/img/5734f395d4ae961420977098a3a12b5d_MD5.png]]
+![](_attachment/img/5734f395d4ae961420977098a3a12b5d_MD5.png)
 
 通过调用 map 方法，我们可以将盒子盛放的源数据映射为一套新的数据，并且新的数据也盛放在 Array 盒子里。
 
 整个过程如下图，这同样是一个藉由 map 方法创造新“盒子”的过程。
 
-![[_attachment/img/180d80a5785c7d7ce4601c2116c4e8cb_MD5.png]]
+![](_attachment/img/180d80a5785c7d7ce4601c2116c4e8cb_MD5.png)
 
 ## “Box”又名 Identity Functor
 
@@ -148,7 +148,7 @@ console.log(res)
 
 这里我以身试法，让控制台来告诉大家答案：
 
-![[_attachment/img/bf392dc1375e51109cc75c709ceeb2bd_MD5.png]]
+![](_attachment/img/bf392dc1375e51109cc75c709ceeb2bd_MD5.png)
 
 没错，报错是必然的。因为 add8 返回的 undefined 畅通无阻地走进了 toString 的逻辑里，toString 将会尝试去调用 undefined 上的 toString 方法，这显然是违法的。
 

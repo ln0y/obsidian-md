@@ -15,22 +15,22 @@ CSS 的 `display` 属性是 W3C CSS 规范中的一个独立模块，[在该模�
 
 从 CSS 盒模型中可以知道，文档树中的每个元素都是一个矩形框（盒子）。广义上讲，这个“矩形框”由两部分组成。首先，我们有实际的盒子，由 `border`、`padding` 和 `margin` 区域组成；其次，我们有盒子的内容，即内容区域：
 
-![[_attachment/img/7ae85e9d0207195abb5ee237b74f6a80_MD5.png]]
+![](_attachment/img/7ae85e9d0207195abb5ee237b74f6a80_MD5.png)
 
 默认情况之下，浏览器解析任何一个文档时，将会按下图方式来渲染文档流：
 
 - **垂直流** ，也称为块流，一般就是块元素默认流向，在不改变书写模式下，它一般由上往下垂直排列；
 - **水平流** ，也称为内联流，一般就是文档所用语言的书写方式或阅读方式的流向。
 
-![[_attachment/img/639ca4a95d5a56af13dbab5ef6b78d1e_MD5.png]]
+![](_attachment/img/639ca4a95d5a56af13dbab5ef6b78d1e_MD5.png)
 
 我们可以通过 CSS 的 `display` 属性将任何一个文档流做出改变，如下图所示：
 
-![[_attachment/img/f1c4c4d271236d2fa8eb13cd4e290662_MD5.png]]
+![](_attachment/img/f1c4c4d271236d2fa8eb13cd4e290662_MD5.png)
 
 稍微对 CSS 有认识的 Web 开发者都知道，使用 CSS 的 `display` 属性可以改变元素盒子及其后代元素以不同的上下文格式（即，产生不同的视觉格式化模型）在浏览器中渲染。每个格式化上下文都拥有不同的渲染规则，而这些规则是用来决定其子元素如何定位，以及和其他元素的关系。通俗点讲，它就有点像把水倒进不同的器皿中，会有不同的形态：
 
-![[_attachment/img/08023217573c9a67caef26504d9f5c58_MD5.png]]
+![](_attachment/img/08023217573c9a67caef26504d9f5c58_MD5.png)
 
 具体点说，当 `display` 取值为：
 
@@ -94,7 +94,7 @@ p {
 
 你将看到下图这样的效果：
 
-![[_attachment/img/ba00d0b0c5ffcb6156bd6aaa1ae09657_MD5.png]]
+![](_attachment/img/ba00d0b0c5ffcb6156bd6aaa1ae09657_MD5.png)
 
 `section` 元素的各种盒子样式都存在：
 
@@ -114,11 +114,11 @@ section {
 }
 ```
 
-![[_attachment/img/1ad8c3f92ed213d0a41465e6c278ebdb_MD5.gif]]
+![](_attachment/img/1ad8c3f92ed213d0a41465e6c278ebdb_MD5.gif)
 
 你会发现， `section` 元素的 `display` 属性值为 `contents` 时，该元素自身的样式规则就像是被丢失或禁用了：
 
-![[_attachment/img/3134b41ef7104ed30ecbc528e77e051d_MD5.gif]]
+![](_attachment/img/3134b41ef7104ed30ecbc528e77e051d_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/vYrzMvQ>
 
@@ -160,7 +160,7 @@ p {
 }
 ```
 
-![[_attachment/img/d3a6c66c2ef6f4996ffa6e2549755470_MD5.gif]]
+![](_attachment/img/d3a6c66c2ef6f4996ffa6e2549755470_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/OJEoYXP>
 
@@ -207,7 +207,7 @@ p {
 </script>
 ```
 
-![[_attachment/img/7855ef77ac0124527cc6feee9a697d6e_MD5.gif]]
+![](_attachment/img/7855ef77ac0124527cc6feee9a697d6e_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/vYrzwRB>
 
@@ -248,7 +248,7 @@ p {
 }
 ```
 
-![[_attachment/img/3ba347864e44a10020dc971f7dd4614e_MD5.gif]]
+![](_attachment/img/3ba347864e44a10020dc971f7dd4614e_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/mdKGYGe>
 
@@ -276,7 +276,7 @@ p {
 }
 ```
 
-![[_attachment/img/57817898052d4bcd573c83cf5927030b_MD5.gif]]
+![](_attachment/img/57817898052d4bcd573c83cf5927030b_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/NWzLVog>
 
@@ -286,7 +286,7 @@ p {
 
 同样的现象也会发生在一些表单控件上。这是因为，部分表单元素并不是由一个单一的“盒子”组成的，但对于浏览器引擎来说，表单元素是由几个较小的元素组成的。与可替换元素相似，删除盒子也没有意义，因为它们并没有一个盒子。因此，像 `<select>` 、`<input>` 和 `<textarea>` 等表单控件元素，设置 `display` 的 `contents` 和 `none` 效果一样。
 
-![[_attachment/img/817b41a96af7464f4234cd60c509f984_MD5.png]]
+![](_attachment/img/817b41a96af7464f4234cd60c509f984_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/VwdGovM>
 
@@ -334,7 +334,7 @@ header {
 }
 ```
 
-![[_attachment/img/8db09ba945814ebed2be2de3c98ef04b_MD5.png]]
+![](_attachment/img/8db09ba945814ebed2be2de3c98ef04b_MD5.png)
 
 你也看到了，当 `header` 元素的 `display` 值为：
 
@@ -358,11 +358,11 @@ ul {
 }
 ```
 
-![[_attachment/img/98d9b7fa84f8ea55881fec51cdece71e_MD5.png]]
+![](_attachment/img/98d9b7fa84f8ea55881fec51cdece71e_MD5.png)
 
 虽然这样操作，`li` 变成了 Flex 项目或网格项目，但它们与 Flex 容器或网格容器 `header` 没有一点关系，它始终只是 Flex 容器或网格容器 `ul` 的 Flex 项目或网格项目。同时，`ul` 既是 `header` 的 Flex 项目或网格项目，也是 `li` 的 Flex 容器或网格容器。如此一来就产生了嵌套的 Flexbox 或网格。也可以说，Flex 项目或网格项目 `li` 始终无法上升到 Flex 容器或网格容器 `header` 的项目。
 
-![[_attachment/img/98d9b7fa84f8ea55881fec51cdece71e_MD5.png]]
+![](_attachment/img/98d9b7fa84f8ea55881fec51cdece71e_MD5.png)
 
 庆幸的是，如果我们显式把 `ul` 的 `display` 属性值设置为 `contents` ，那么 `li` 就能上升直接变成 Flex 容器或网格容器 `header` 的 Flex 项目或网格项目。
 
@@ -383,7 +383,7 @@ ul {
 
 前面提到过了，当元素（一般是指 HTML 中的普通元素，除可替换元素和表单控件之外的元素）的 `display` 设置为 `contents` 时，就相当于该元素的开始和闭合标签被丢弃。`li` 就相当于变成了 `header` 的子元素了（这只是一种理解方式，并不是真实的变成了 `header` 的子元素），它就顺理成章的变成了 `header` 的项目（Flex 项目或网格项目）：
 
-![[_attachment/img/a0cb954f62aa94574961caf615c24649_MD5.png]]
+![](_attachment/img/a0cb954f62aa94574961caf615c24649_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/PoadMaL>
 
@@ -401,7 +401,7 @@ ul {
 
 如果这段话不易于理解（或者我翻译不够正确）的话，我想用下面这个示例来解释。假设我们要构建像下图这样的一个页头：
 
-![[_attachment/img/9e636988425ed6f832f183a5d05be013_MD5.png]]
+![](_attachment/img/9e636988425ed6f832f183a5d05be013_MD5.png)
 
 就我个人习惯而言，为了让 Web 页面（比如该导航）更具可访问性，我会使用像下面这样的 HTML 结构：
 
@@ -442,7 +442,7 @@ ul {
 
 这样的结构是足够扁平了，也符合结构尽量简洁，能不嵌套就不嵌套的一种说法。但它最大的不足之处是，失去了语义，让你构建的 Web 页面可访问性较差。就算不考虑像屏幕阅读器访问你的 Web 页面，就只是在没有样式（样式失效）的情况下，这两种结构给用户带来的体验就有着很大的差别，前者用户易于访问，后者用户阅读起来还是很痛苦的：
 
-![[_attachment/img/ef7ba1ab7009e84df483247eb2a55e77_MD5.png]]
+![](_attachment/img/ef7ba1ab7009e84df483247eb2a55e77_MD5.png)
 
 与其牺牲有语义化的标签来简化实现符合视觉呈现的过程，比如减少 Flexbox 的嵌套，还不如使用 `display: contents` 。换句话说，在基于第一种我喜欢的模板结构上，使用 `display: contents` 也减少 Flexbox 嵌套的使用，类似达到第二种不好的模板结构的效果。
 
@@ -467,7 +467,7 @@ ul {
 }
 ```
 
-![[_attachment/img/27576c8b0f53db2fa351d5eb97545588_MD5.png]]
+![](_attachment/img/27576c8b0f53db2fa351d5eb97545588_MD5.png)
 
 在 `.logo` 和 `ul` 上设置 `display: contents` 就可以将相关的子元素上升为 `header` 的 Flex 项目，实现相同的视觉效果：
 
@@ -488,7 +488,7 @@ ul {
 }
 ```
 
-![[_attachment/img/41f9955e406e04ea5b50690b60b28bf3_MD5.png]]
+![](_attachment/img/41f9955e406e04ea5b50690b60b28bf3_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/wvXYvOx>
 
@@ -496,11 +496,11 @@ ul {
 
 先来看一个表单方面的案例：
 
-![[_attachment/img/1857824b834e6f441618aeff34c687d7_MD5.png]]
+![](_attachment/img/1857824b834e6f441618aeff34c687d7_MD5.png)
 
 CSS 网格布局中的 `subgrid` （子网格）非常适用于表单中 `<label>` 、`<input>` 和 “验证信息” 几个部分的布局。
 
-![[_attachment/img/732196c7cfe3dba50cb501d10e8f72bb_MD5.png]]
+![](_attachment/img/732196c7cfe3dba50cb501d10e8f72bb_MD5.png)
 
 对于类似这样的布局，也很适用于 `display: contents` ，毕竟 `subgrid` 的支持度还是有一定的不足。也可以这么说吧，你可以把 `display: contents` 当作是 `subgrid` 的降级处理。当然，要不是为了向大家阐述 `display: contents` 作用，个人是不建议使用它来替代 `subgrid` 的。
 
@@ -619,7 +619,7 @@ figure {
 
 你在 Firefox 浏览器将看到的效果如下：
 
-![[_attachment/img/20e1c460e7a14c5593acebc9a626b552_MD5.png]]
+![](_attachment/img/20e1c460e7a14c5593acebc9a626b552_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/oNyaLjN>
 
@@ -659,7 +659,7 @@ figure {
 }
 ```
 
-![[_attachment/img/15c2a3dde4702007e928a0115285e232_MD5.png]]
+![](_attachment/img/15c2a3dde4702007e928a0115285e232_MD5.png)
 
 你可以看到，其中页面标题 `h1` 、登录表单 `.sign-in` 、分割线、注册信息都跨越了两列。这样做的原因之一是，登录表单中 `label` 和 `input` 是水平排列。
 
@@ -688,7 +688,7 @@ figure {
 }
 ```
 
-![[_attachment/img/42708fc72d1b7d7cc8d5c635daed06a1_MD5.png]]
+![](_attachment/img/42708fc72d1b7d7cc8d5c635daed06a1_MD5.png)
 
 但这还没有结束，示例中的 `label` 和 `input` 外面还有一层容器 `div.control` ，要让它们水平排列，还要按类似的方法，将 `div.control` 也定义成一个网格，继承它父网格 `.sign-in` 的列轨道：
 
@@ -704,7 +704,7 @@ figure {
 
 就这个登录表单的案例，如果不想使用 `subgrid` 来实现，又不牺牲语义化标签，那么可以尝试着使用 `display: contents` 来实现。前面介绍过，`display:contents` 可以让网格项目上升到需要的地方。即：
 
-![[_attachment/img/43166c4cf10e34e289561a372abbece9_MD5.png]]
+![](_attachment/img/43166c4cf10e34e289561a372abbece9_MD5.png)
 
 当 `.sign-in` 、`sign-up` 和 `.control` 的 `display` 设置为 `contents` 时，HTML 结构就相当于变成，实际上 HTML 结构不会有任何的改变：
 
@@ -758,7 +758,7 @@ figure {
 
 使用 `grid-area` 把相应元素放置到已命名的网格区域中，并且调整它们各自的对齐方式，就实现了我们所期望的效果：
 
-![[_attachment/img/7919c621cb394c98d2019fb6ba2cc3e2_MD5.png]]
+![](_attachment/img/7919c621cb394c98d2019fb6ba2cc3e2_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/BaVqPap>
 
@@ -826,7 +826,7 @@ button {
 
 使用 `subgrid` 和 `display: contents` 最终效果：
 
-![[_attachment/img/1c609271b5829c2a9df1a0de0cfa00f2_MD5.png]]
+![](_attachment/img/1c609271b5829c2a9df1a0de0cfa00f2_MD5.png)
 
 你可能已经发现了，虽然两者效果差不多，但使用 `display: contents` 时使用的代码量要多得多，你不得不对使用 `grid-area` （或 `grid-row` 和 `grid-column`）明确指定每个网格项目的位置。而且，随着网格项目数量变多，你需要做的事情也多，相应的代码量也将变得更多。
 

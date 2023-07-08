@@ -19,11 +19,11 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 }
 ```
 
-![[_attachment/img/31b7de1d758a362cee078e20fc3dc54f_MD5.png]]
+![](_attachment/img/31b7de1d758a362cee078e20fc3dc54f_MD5.png)
 
 当元素的宽度变窄时，就会出现水平滚动条。
 
-![[_attachment/img/7402fe0cc5361e5a285607f0285f7969_MD5.png]]
+![](_attachment/img/7402fe0cc5361e5a285607f0285f7969_MD5.png)
 
 为了解决这个问题，我们需要允许自动换行。
 
@@ -34,7 +34,7 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 }
 ```
 
-![[_attachment/img/47145e5a3db010a594223274955e1aa3_MD5.png]]
+![](_attachment/img/47145e5a3db010a594223274955e1aa3_MD5.png)
 
 在 flexbox 布局中，允许元素折行是一种很保险的做法，除非你的样式中允许出现滚动。换句话说，使用  `flex-wrap`  可以避免出现预期之外的布局表现（比如，上面例子中的滚动条）
 
@@ -42,11 +42,11 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 
 我们开发者需要考虑不同的内容长度。这意味着，空白间距应该添加到元素上，即使它看起来并不需要。
 
-![[_attachment/img/227fdd91086ab3d338b916a4a217c52c_MD5.png]]
+![](_attachment/img/227fdd91086ab3d338b916a4a217c52c_MD5.png)
 
 在这个例子中，在左边有一个标题，在右边有一个可操作的按钮。目前，它看起来效果还不错。但是让我们看看当标题变长时会发生什么。
 
-![[_attachment/img/9a60f271c87a8999f36470e074d2700e_MD5.png]]
+![](_attachment/img/9a60f271c87a8999f36470e074d2700e_MD5.png)
 
 注意到了吗？文本和按钮之间离得太近了。您可能会考虑将文字折行，折行会在后面的内容中讨论，这里我们只关注间距的问题。
 
@@ -58,7 +58,7 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 }
 ```
 
-![[_attachment/img/0e3a6819265fa2f28376366ba10f75be_MD5.png]]
+![](_attachment/img/0e3a6819265fa2f28376366ba10f75be_MD5.png)
 
 ## 文本内容过长
 
@@ -68,11 +68,11 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 
 这是一份名单，现在看起来很完美。
 
-![[_attachment/img/b6bd7f77ffe0db7f0e8a79e679fd3e41_MD5.png]]
+![](_attachment/img/b6bd7f77ffe0db7f0e8a79e679fd3e41_MD5.png)
 
 然而，由于这些内容是用户生成，需要防止内容太长破坏掉页面布局。如下图所示：
 
-![[_attachment/img/b68917e54bb1b638bc3e609a6dea94cb_MD5.png]]
+![](_attachment/img/b68917e54bb1b638bc3e609a6dea94cb_MD5.png)
 
 在这种布局中，设计的一致性非常重要。为了实现这一点，我们可以使用  `text-overflow`  和它的 “朋友们” 来截断文字。
 
@@ -84,7 +84,7 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 }
 ```
 
-![[_attachment/img/10a154383e0b6fdf7a78adb17f11b32a_MD5.png]]
+![](_attachment/img/10a154383e0b6fdf7a78adb17f11b32a_MD5.png)
 
 ## 防止图像被拉伸或压缩
 
@@ -92,11 +92,11 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 
 在下面的示例中，我们有一个带有照片的卡片组件。看起来不错。
 
-![[_attachment/img/d68b69724f92868319385e8057238ffb_MD5.png]]
+![](_attachment/img/d68b69724f92868319385e8057238ffb_MD5.png)
 
 当用户上传不同大小的图像时，图像将被拉伸。这不好。看看图像是如何拉伸的！
 
-![[_attachment/img/35ac1d6ebfec75e9d03881299592d026_MD5.png]]
+![](_attachment/img/35ac1d6ebfec75e9d03881299592d026_MD5.png)
 
 这个问题可以用 CSS 中的  `object-fit`  来解决。
 
@@ -106,7 +106,7 @@ Flexbox 是 CSS 中经常使用的布局，在父元素中设置  `display: fle
 }
 ```
 
-![[_attachment/img/73df22f56c79efee5568729d080bd06e_MD5.png]]
+![](_attachment/img/73df22f56c79efee5568729d080bd06e_MD5.png)
 
 在项目上，我更喜欢将  `object-fit`  应用到所有图片中，以避免图片被意外的拉伸或压缩。
 
@@ -124,7 +124,7 @@ img {
 
 在下图中，可以看到滚动链接的默认行为：
 
-![[_attachment/img/8db84f8cd8a06a4d1cfab9945084860f_MD5.png]]
+![](_attachment/img/8db84f8cd8a06a4d1cfab9945084860f_MD5.png)
 
 为了避免滚动扩散到其他元素，我们可以将其添加到任何需要滚动的组件中（例如：聊天组件、移动菜单等）。这个属性只有在发生滚动的时候才会产生效果。
 
@@ -135,7 +135,7 @@ img {
 }
 ```
 
-![[_attachment/img/ffc08622ae28bc1c542bc7b6d73e8c15_MD5.png]]
+![](_attachment/img/ffc08622ae28bc1c542bc7b6d73e8c15_MD5.png)
 
 ## 自定义属性备用值
 
@@ -175,7 +175,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/616e7fbbda118a99f50cdbda3270826c_MD5.png]]
+![](_attachment/img/616e7fbbda118a99f50cdbda3270826c_MD5.png)
 
 为了避免内容超出  `.hero`，我们需要使用  `min-height`  而不是  `height`。
 
@@ -185,7 +185,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/054d4150eea641bfd039e670d85642b6_MD5.png]]
+![](_attachment/img/054d4150eea641bfd039e670d85642b6_MD5.png)
 
 这样，当内容变得更大时，布局依旧不会被破坏掉。
 
@@ -201,7 +201,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 如果按钮里面的文字长度超过  `100px`，它将靠近左右边缘。如果再长一些，文本就会超出了按钮。这种体验很差！
 
-![[_attachment/img/8dc1e62105b994f5623c370a40e87942_MD5.png]]
+![](_attachment/img/8dc1e62105b994f5623c370a40e87942_MD5.png)
 
 为了解决这个问题，可以将  `width`  替换为  `min-width`。
 
@@ -217,7 +217,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 由于笔记本电脑的屏幕相对比较小，出现图片重复的概率较小。但在更大的屏幕上，元素的尺寸也随之变大，它的背景图片有可能会重复展示。
 
-![[_attachment/img/41d055d9874b6ec083ed6b6a3b011974_MD5.png]]
+![](_attachment/img/41d055d9874b6ec083ed6b6a3b011974_MD5.png)
 
 为了避免这种情况，我们需要设置  `background-repeat`  属性。
 
@@ -234,11 +234,11 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 比如下面的图中，是一个比较常见的例子。在左侧的侧边栏组件中包含了主导航和下方辅助导航。辅助导航会被固定放在侧边栏组件的底部。开发人员将  `position: sticky`  添加到了辅助导航，这样它就可以固定到了底部（吸底）。如下图所示，主导航和辅助导航看起来都很正常。
 
-![[_attachment/img/ab86c7c0154b7858c8802e784b0f26f1_MD5.png]]
+![](_attachment/img/ab86c7c0154b7858c8802e784b0f26f1_MD5.png)
 
 然而，当浏览器的高度变小时，布局就会发生错乱。如下图所示，两个导航发生了重叠：
 
-![[_attachment/img/7efb9a40efacb0c5498f144e5fa0ffe4_MD5.png]]
+![](_attachment/img/7efb9a40efacb0c5498f144e5fa0ffe4_MD5.png)
 
 使用 CSS 垂直方向的媒体查询，可以避免此问题。
 
@@ -259,13 +259,13 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 看一下下面的例子：
 
-![[_attachment/img/a867fbc5eca57c0d72e30ba688e5ec4e_MD5.png]]
+![](_attachment/img/a867fbc5eca57c0d72e30ba688e5ec4e_MD5.png)
 
 在上图的 flex 容器中，有四个子元素，元素之间的距离并不是由  `gap`  或  `margin`  设置的，而是由  `justify-content: space-between`  作用产生的间距。
 
 让我们来看一下，当元素的数量少于 4 个时，样式效果是什么样子的。
 
-![[_attachment/img/86bb46dafae13372aa17c9a4836207c5_MD5.png]]
+![](_attachment/img/86bb46dafae13372aa17c9a4836207c5_MD5.png)
 
 在一些场景下，这样的效果是不友好的，可以通过以下几种方式进行处理。
 
@@ -287,7 +287,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/02103f443948f57e13a9dfde7804174f_MD5.png]]
+![](_attachment/img/02103f443948f57e13a9dfde7804174f_MD5.png)
 
 ## 图片上的文字
 
@@ -295,11 +295,11 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 比如下面的例子：
 
-![[_attachment/img/05ac5234c63d03246f0b61cf3dcf24f9_MD5.png]]
+![](_attachment/img/05ac5234c63d03246f0b61cf3dcf24f9_MD5.png)
 
 在正常情况下，文字的效果看起来很好；但是当图片加载失败的时候，图片上面的文字效果会受到影响。如下图所示，由于图片加载失败，白色的字体和背景几乎融为一体，用户很难看清楚上面的文字。
 
-![[_attachment/img/013c1f5011ec671054c029eb867bc4c8_MD5.png]]
+![](_attachment/img/013c1f5011ec671054c029eb867bc4c8_MD5.png)
 
 我们可以额外为  `<img>`  元素设置一个背景颜色来处理这个问题。只有当图片加载失败的时候，这个背景颜色才会生效。
 
@@ -309,7 +309,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/1948450ef77070280414b2060a222670_MD5.png]]
+![](_attachment/img/1948450ef77070280414b2060a222670_MD5.png)
 
 ## 要注意 CSS Grid 的固定值
 
@@ -339,7 +339,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 在内容比较长的情况下，可以通过设置  `overflow`  控制滚动条是否显示。但是这里更推荐将  `overflow`  的值设置为  `auto`。比如在下面的示例中  `overflow: scroll`：
 
-![[_attachment/img/8b21f95ac0d4308f00ddb663f925235a_MD5.png]]
+![](_attachment/img/8b21f95ac0d4308f00ddb663f925235a_MD5.png)
 
 当内容比较短的时候，滚动条也显示出来了。这种 UI 效果并不友好，在非必要情况下，滚动条不该展示给用户。
 
@@ -351,13 +351,13 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 `overflow-y: auto`  的效果是，只有在内容足够长的时候，滚动条才会展示出来。除此之外，其他情况并不展示滚动条。
 
-![[_attachment/img/cfe0bd3e6ece634ba99d3b349cec832d_MD5.png]]
+![](_attachment/img/cfe0bd3e6ece634ba99d3b349cec832d_MD5.png)
 
 ## 滚动条的占用空间
 
 关于滚动条的另外一个要注意的地方是 scrollbar gutter，也就是滚动条会占用元素的空间，导致渲染内容的区域变小。比如在前面提到的例子中，当内容变长出现了滚动条的时候，会引起布局发生变化，因为滚动条要占用布局元素的空间。
 
-![[_attachment/img/d5279a030a50503b54c09144d46439a5_MD5.jpg]]
+![](_attachment/img/d5279a030a50503b54c09144d46439a5_MD5.jpg)
 
 仔细对比上图中前后的变化，不难发现滚动条导致白色的内容区变窄了。我们可以设置  `scrollbar-gutter`  属性来避免这个问题。
 
@@ -367,7 +367,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/5c5ed0cd2c91c22bae1bc40c027539e9_MD5.jpg]]
+![](_attachment/img/5c5ed0cd2c91c22bae1bc40c027539e9_MD5.jpg)
 
 ## CSS flexbox 内容的最小尺寸
 
@@ -381,7 +381,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 当这个卡片的标题比较长时，文字并不会发生折行。
 
-![[_attachment/img/c63616f7124d81d404370ec5d5bbe3c6_MD5.jpg]]
+![](_attachment/img/c63616f7124d81d404370ec5d5bbe3c6_MD5.jpg)
 
 即使使用了  `overflow-wrap: break-word`，也不会出现折行。
 
@@ -402,13 +402,13 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 使用 flex 列的折行也可以实现同样的效果，与此同时要设置  `min-height: 0`。
 
-![[_attachment/img/33cbb754bff22de1c36284385007f7b5_MD5.jpg]]
+![](_attachment/img/33cbb754bff22de1c36284385007f7b5_MD5.jpg)
 
 ## CSS grid 内容的最小尺寸
 
 与 flexbox 类似，CSS grid 中的子元素内容的默认最小值为  `auto`。也就是说，如果元素的尺寸超过 grid item，同样会发生溢出样式。
 
-![[_attachment/img/0c6352f39d03cb1eba84a4a8f224d079_MD5.png]]
+![](_attachment/img/0c6352f39d03cb1eba84a4a8f224d079_MD5.png)
 
 在上图的示例中，内容区 (main) 包含了一个具有轮播功能的走马灯 (carousel)。HTML 和 CSS 代码如下所示：
 
@@ -450,7 +450,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/0328d4efc2013eef0d3119a46ec68e88_MD5.png]]
+![](_attachment/img/0328d4efc2013eef0d3119a46ec68e88_MD5.png)
 
 ## auto-fit 与 auto-fill
 
@@ -458,7 +458,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 如果剩余的可用空间的尺寸较大时，在  `minmax()`  函数中， `auto-fit`  会使 grid item 的宽度变大，并占满这些可用空间；而  `auto-fill`  将保留可用空间，grid item 的宽度保持不变。
 
-![[_attachment/img/ba5a6485dffef05fd98ece2f523a211f_MD5.png]]
+![](_attachment/img/ba5a6485dffef05fd98ece2f523a211f_MD5.png)
 
 也就是说，使用  `auto-fit`  可能会导致 grid item 特别的宽，甚至超出了预期。比如，下面这种情况。
 
@@ -472,7 +472,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 
 如果只有一个 grid item 下使用了  `auto-fit`，这个 item 会填满整个容器。
 
-![[_attachment/img/12594aa0714f37ed9e2d7c025a5545da_MD5.png]]
+![](_attachment/img/12594aa0714f37ed9e2d7c025a5545da_MD5.png)
 
 在大部分场景里，这种展示结果并不是我们想要的，所以我认为在这里使用  `auto-fill`  会更合适。
 
@@ -484,7 +484,7 @@ CSS 自定义属性 (变量) 被越来越多的用于网页设计中。为了避
 }
 ```
 
-![[_attachment/img/e84d992bb9094e4f82d8ed1046887f74_MD5.png]]
+![](_attachment/img/e84d992bb9094e4f82d8ed1046887f74_MD5.png)
 
 ## 图片的最大宽度
 
@@ -501,7 +501,7 @@ img {
 
 不知道大家是否尝试过，将 grid 容器中的子元素设置  `position: sticky`。在 grid item 上的默认行为是  stretch。因此在下面的例子中，aside 元素的高度与 main 区域的高度是一样的。
 
-![[_attachment/img/c81e2de24ba8cd571d150c7d75ea34c8_MD5.jpg]]
+![](_attachment/img/c81e2de24ba8cd571d150c7d75ea34c8_MD5.jpg)
 
 为了能够如我们期望的那样展示，在这里还需要设置  `align-self`  属性。
 
@@ -513,7 +513,7 @@ aside {
 }
 ```
 
-![[_attachment/img/5647717f97cf2f190834d04d8e1290ba_MD5.jpg]]
+![](_attachment/img/5647717f97cf2f190834d04d8e1290ba_MD5.jpg)
 
 ## 并集选择器
 

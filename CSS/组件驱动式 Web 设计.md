@@ -13,7 +13,7 @@ update: 2023-02-20-星期一 15:19:42
 
 也就是说，我们又一次见证了响应式设计生态系统的演变，即 **CSS** **新增的特性将直接基于组件而不是基于页面注入样式响应能力**。这种能力被称为 **组件驱动 Web 设计（Component-Driven Web Design）** ，基于组件驱动的开发将会成为一种真正流行的开发模式。
 
-![[_attachment/img/c1c775e9766c8b78b6a574c3388b39d5_MD5.png]]
+![](_attachment/img/c1c775e9766c8b78b6a574c3388b39d5_MD5.png)
 
 为了理解这种开发模式的转变，并为即将到来的变化浪潮做好准备，让我们看看在响应式 Web 设计运动中，我们可以期待的变化。
 
@@ -21,11 +21,11 @@ update: 2023-02-20-星期一 15:19:42
 
 理论上，响应式 Web 页面能够适应不同的终端设备：
 
-![[_attachment/img/d6435a7ac5d9b0226557d29e90a2797d_MD5.png]]
+![](_attachment/img/d6435a7ac5d9b0226557d29e90a2797d_MD5.png)
 
 如果用一句话来描述响应式 Web 设计的话，我觉得这句最经典：“**Content is like water**”，即 “**如果将屏幕看作容器器皿，那么内容就像水一样**”，可以随着器皿的不同成不同的形状：
 
-![[_attachment/img/08023217573c9a67caef26504d9f5c58_MD5.png]]
+![](_attachment/img/08023217573c9a67caef26504d9f5c58_MD5.png)
 
 这也正如 @Ethan Marcotte 所言： “**未来我们应该这样，随着访问网页的设备增加，我们不会为每个设备单独设计，而只会做一份设计，把每个设备作为这份设计要照顾的一个方面** ”。
 
@@ -41,11 +41,11 @@ update: 2023-02-20-星期一 15:19:42
 
 [@Aaron Gustafson](https://twitter.com/AaronGustafson) 有一本书叫《[Adaptive Design](https://adaptivewebdesign.info/)》：
 
-![[_attachment/img/78bcbeac693fa6d3dd7b1d24bd1d3f49_MD5.png]]
+![](_attachment/img/78bcbeac693fa6d3dd7b1d24bd1d3f49_MD5.png)
 
 他认为 AWD 在包括 RWD 的 CSS 媒体查询技术以外，还需要借助 JavaScript 脚本来操作 HTML ，使其更适应移动终端的能力。AWD 有可能会针对移动端用户“**减去内容，减少功能** ”。 AWD 可以在服务端就进行优化，把优化过的内容输送到客户端上。
 
-![[_attachment/img/041bfdd1454c6bf58ded812d18797af1_MD5.png]]
+![](_attachment/img/041bfdd1454c6bf58ded812d18797af1_MD5.png)
 
 如果用一句话来描述 RWD 和 AWD 区别的话：
 
@@ -68,11 +68,11 @@ img {
 }
 ```
 
-![[_attachment/img/c684b02fa677e39e1355a32d7a8fc265_MD5.png]]
+![](_attachment/img/c684b02fa677e39e1355a32d7a8fc265_MD5.png)
 
 如果你在设计软件中（比如 Sketch ）把一张 `375px x 815px` 图片放大（使用软件中的放大镜工具，放大到 `N` 倍），可以看到一个个方块点：
 
-![[_attachment/img/0057f6c09336548928a242a7b7dd1d71_MD5.png]]
+![](_attachment/img/0057f6c09336548928a242a7b7dd1d71_MD5.png)
 
 这些个小方块点具有特定的位置和颜色。正如上图所示，图片（或电子屏幕，比如手机、显示器屏幕等）就是由无数个具有特定颜色和特定位置的小方块拼接而成。
 
@@ -85,7 +85,7 @@ CSS 像素具有两个方面的相对性：
 
 你可能在用浏览器访问一个 Web 页面的时候，会有放大缩小的操作，会引起 CSS 中 `px` 的变化，可能会出现等于、大于或小于的三种情况：
 
-![[_attachment/img/5e4261b721a90f3f75df5014fabc25d0_MD5.png]]
+![](_attachment/img/5e4261b721a90f3f75df5014fabc25d0_MD5.png)
 
 另外，CSS 像素也会受到 “**每英寸像素（PPI）” 和 “设备像素比（DPR）** ” 的影响。
 
@@ -93,7 +93,7 @@ CSS 像素具有两个方面的相对性：
 
 设备像素（Device Pixels，简写 `DP`），又称 **物理像素** ，是设备能控制显示的最小单位，我们可以把它看作显示器上的一个点，即屏幕上可以显示的最小颗粒，在同一设备上，它的物理像素是固定的。我们常说的 `1920 x 1080` 像素分辨率就是用的 **设备像素单位** 。
 
-![[_attachment/img/44d2127ce6e9b4cc2bcf306febf35a77_MD5.png]]
+![](_attachment/img/44d2127ce6e9b4cc2bcf306febf35a77_MD5.png)
 
 我们平时所说的一倍屏、两倍屏和三倍屏，指的是设备以多少物理像素来显示一个 CSS 像素，所用的物理像素越多，一个 CSS 像素清晰度就越高。。
 
@@ -114,11 +114,11 @@ window.screen.height //获得屏幕垂直方向上的像素数
 
 如 MacBook Pro 16″的原始分辨率为 `3072px x 1920px`。就是说屏幕水平方向上有 `3072` 个像素点；在垂直方向有 `1920` 个像素点。屏幕分辨率是机器生产时已经确定好的了，即已经规定好了机器屏幕上是有多少个像素点组合而成。但我们也知道，我们可以修改电脑的屏幕分辨率。
 
-![[_attachment/img/6a03ca61ba8791919820afeba1f2be37_MD5.png]]
+![](_attachment/img/6a03ca61ba8791919820afeba1f2be37_MD5.png)
 
 图片分辨率则是单位英寸中所包含的像素点数，其定义更趋近于分辨率本身的定义。从这个定义上来看很明显，跟 PPI（像素密度）的含义是一样的，所以 PPI 是用来表示图片分辨率的单位，比如，`100ppi` 的图片分辨率，其意思是每英寸中有 `100` 个像素。
 
-![[_attachment/img/2be142f73d5ab4c43c76fd4005876f1d_MD5.png]]
+![](_attachment/img/2be142f73d5ab4c43c76fd4005876f1d_MD5.png)
 
 跟显示分辨率一样，图片分辨率也可以用 `水平像素数 x 垂直像素数` 来表达。其实我们知道 `ppi`，也知道图片的宽高（如英寸为单位），就能算出图片是由多少个像素组成，即 `水平像素数 x 垂直像素数`。
 
@@ -133,13 +133,13 @@ window.screen.height //获得屏幕垂直方向上的像素数
 - 屏幕分辨率比例是指屏幕的宽和高的像素比例；
 - 图片分辨率比例是指图片的宽和高的像素比例。
 
-![[_attachment/img/af18a3bd68ea8671636071c4fd395658_MD5.png]]
+![](_attachment/img/af18a3bd68ea8671636071c4fd395658_MD5.png)
 
 ### 屏幕尺寸
 
 屏幕尺寸指的不是屏幕的宽高，它说的就是屏幕的尺寸。实际上，在介绍产品时常说的，手机屏幕尺寸是 `5.3` 英寸，电脑屏幕多少英寸之类的，不是指屏幕的宽高，而是指屏幕的对角线长度：
 
-![[_attachment/img/b20cfdb0ed6a54d990c9aa15dc8adb33_MD5.png]]
+![](_attachment/img/b20cfdb0ed6a54d990c9aa15dc8adb33_MD5.png)
 
 ### 设备独立像素
 
@@ -147,7 +147,7 @@ window.screen.height //获得屏幕垂直方向上的像素数
 
 在 CSS 规范中，长度单位可以分为绝对单位和相对单位。`px` 是一个 相对单位，相对的是设备像素。比如有些 iPhone 设备（iPhone 12 系列）使用的是视网膜屏幕（Retina），用 `3 x 3` 的设备像素（Device Pixels）代表 `1 x 1` 的 CSS 像素（CSS Pixel）。拿 iPhone 12 Pro Max 来说，它的设备像素是 `1284px x 2778px`，而 CSS 逻辑像素是 `428px x 926px`。
 
-![[_attachment/img/940b754da8e95090702775d5dc7811cc_MD5.png]]
+![](_attachment/img/940b754da8e95090702775d5dc7811cc_MD5.png)
 
 ### 设备像素比（DPR）
 
@@ -170,7 +170,7 @@ DPR = 物理像素数 / 逻辑像素数 = 屏幕物理像素数 / 设备独立�
 
 简单地说，一个逻辑像素（`1pt`）既可以对应一个物理像素点（`1px`），也可以对应 `1.5px`、`2px` 或更多个 `px`。这也是我们常说的几倍屏：
 
-![[_attachment/img/40204edf013887a48e3876ceff6d46c0_MD5.png]]
+![](_attachment/img/40204edf013887a48e3876ceff6d46c0_MD5.png)
 
 也就是说：
 
@@ -181,11 +181,11 @@ DPR = 2,   1pt = 2px
 DPR = 3,   1pt = 3px
 ```
 
-![[_attachment/img/58d1730c2291dd06367ee840d01e28eb_MD5.png]]
+![](_attachment/img/58d1730c2291dd06367ee840d01e28eb_MD5.png)
 
 对于 Web 开发者而言，我们可以使用 `window.devicePixelRatio` 来获取设备的 `dpr`：
 
-![[_attachment/img/b29484254f33a4fbde75319f0deead6a_MD5.png]]
+![](_attachment/img/b29484254f33a4fbde75319f0deead6a_MD5.png)
 
 在 CSS 中可以通过 `@media` 的 `min-device-pixel-ratio` 来区分 `dpr`：
 
@@ -199,7 +199,7 @@ DPR = 3,   1pt = 3px
 
 实际上，设备会自动把 `1242 x 2208` 个像素点塞进 `1080 x 1920` 个物理像素点来渲染，我们不用关心这个过程，而 `1242 x 2208` 被称为屏幕的“设计像素”（我们开发也是以这个设计像素为准）也称为渲染像素：
 
-![[_attachment/img/bdc331a0e777ee2467d8dba4410b4762_MD5.png]]
+![](_attachment/img/bdc331a0e777ee2467d8dba4410b4762_MD5.png)
 
 ### 像素密度（PPI）
 
@@ -207,11 +207,11 @@ DPR = 3,   1pt = 3px
 
 对于一个设备来说，屏幕尺寸指的是屏幕对角线长度，屏幕的分辨率是指屏幕宽高的像素值，那么屏幕的宽高和对角线就形成了一个垂直三角形。利用勾股定理，可以算出对角线的像素值。而知道了对角线的英寸值，那么就可以算出屏幕的 PPI 值。
 
-![[_attachment/img/cd6be35b8cfd501911677349cd8c1477_MD5.png]]
+![](_attachment/img/cd6be35b8cfd501911677349cd8c1477_MD5.png)
 
 比如 iPhone XS Max，根据上面公式可以算出其 `PPI = 458`：
 
-![[_attachment/img/5e9b43da65d25d3fe156c2ef4ba47048_MD5.png]]
+![](_attachment/img/5e9b43da65d25d3fe156c2ef4ba47048_MD5.png)
 
 ### DPI
 
@@ -235,23 +235,23 @@ PPI 和 DPI 经常都会出现混用现象。但是他们所用的领域也存�
 
 构建响应式 Web 布局有三大核心技术：**流体网格（Fluid Grids）** 、**灵活的图片（Flexible Images）** 和 **媒体查询（Media Queries）** 。我们可以使用这三种技术来构建一个适应不同屏幕尺寸或不同移动终端设备的 Web 页面。
 
-![[_attachment/img/cb9801dd84bc3935c20e129761c24111_MD5.gif]]
+![](_attachment/img/cb9801dd84bc3935c20e129761c24111_MD5.gif)
 
 ### 流体网格
 
 响应式 Web 布局中最常见的列结构有 `8`、`12`、`16` 和 `20` 列网格。选择多少列网格，取决于你的设计需求。
 
-![[_attachment/img/0920065e23f456cdcafb56424f0d8f7f_MD5.png]]
+![](_attachment/img/0920065e23f456cdcafb56424f0d8f7f_MD5.png)
 
 其中 `12` 列的结构是最灵活的。它可以进一步分解为在 `4-4-4` 或 `3-3-3` 大小的父容器中对齐内容。
 
 而且，网格的列结构、列宽度、列间距和边距依赖于浏览器视窗的断点。父容器根据不同的断点进行堆叠或缩放，重新调整以获得最佳视图。
 
-![[_attachment/img/0903feccce57e34370221a1c8da9408f_MD5.png]]
+![](_attachment/img/0903feccce57e34370221a1c8da9408f_MD5.png)
 
 在原生 CSS Grid 还没得到主流浏览器支持的时候，响应式 Web 中的流体网格实质上采用的是百分比来构建的单一维度的网格。
 
-![[_attachment/img/1cb6c46656383050960d757ce0494de5_MD5.gif]]
+![](_attachment/img/1cb6c46656383050960d757ce0494de5_MD5.gif)
 
 > 上图是在线流体网格生成器：<http://www.responsivegridsystem.com/calculator/>
 
@@ -375,7 +375,7 @@ img {
 
 庆幸的是，HTML 的 `<img>` 标签元素新增的 `srcset` 、`sizes` 等新属性以及新增的 `<picuture>` 标签元素，让 Web 开发者在构建响应式 Web 布局时，对图片的使用有了更多的选择，可以说真正解决了图片在响应式 Web 布局中的适配痛点，真正达到了“灵活的图片”一原则：
 
-![[_attachment/img/7f4744f7f07bc6d490fcb5cd76cba5f1_MD5.png]]
+![](_attachment/img/7f4744f7f07bc6d490fcb5cd76cba5f1_MD5.png)
 
 > **注意，有关于 `<img>` 的 `srcset` 和 `sizes` 特性以及 `<picture>` 不在这里做过多阐述。感兴趣的同学，可以自己搜索相应关键词进行扩展阅读！**
 
@@ -385,15 +385,15 @@ img {
 
 CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，如下图所示：
 
-![[_attachment/img/bd17e625b4611d51e35a51f47662daac_MD5.png]]
+![](_attachment/img/bd17e625b4611d51e35a51f47662daac_MD5.png)
 
 只不过，构建响应式 Web 的时候，大多数是使用 CSS 媒体查询 的 `@media` 规则，根据指定的 **媒体类型** 、**媒体逻辑运算符** 和 **媒体特性** 给元素指定样式规则：
 
-![[_attachment/img/82b3ca7d9e1607ad2f50861a26b66c22_MD5.png]]
+![](_attachment/img/82b3ca7d9e1607ad2f50861a26b66c22_MD5.png)
 
 简单地说，CSS 媒体查询根据浏览器视窗的断点来给元素设置不同的样式规则：
 
-![[_attachment/img/e078f3b4f72008348d6b3eecf0f76184_MD5.png]]
+![](_attachment/img/e078f3b4f72008348d6b3eecf0f76184_MD5.png)
 
 比如：
 
@@ -439,15 +439,15 @@ CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，�
 
 另外，除了在布局发生显著变化时选择主断点之外，针对微小的变化进行调整时，你可以设置次断点，这样也很有帮助。
 
-![[_attachment/img/8241975c32924073eddbf6f570863151_MD5.png]]
+![](_attachment/img/8241975c32924073eddbf6f570863151_MD5.png)
 
 当然，如果你不想追求极致的话，可以考虑几个常用的断点：
 
-![[_attachment/img/7c6bd2f592c4668d0c6ac4633d84cc9b_MD5.png]]
+![](_attachment/img/7c6bd2f592c4668d0c6ac4633d84cc9b_MD5.png)
 
 虽然说分主，次断点能给响应式 Web 布局带来更极致的体验，但对于 Web 开发者而言，开发成本和维护成本也随断点数量增加而增加。而且，常用断点可以满足大部分场景。比如：
 
-![[_attachment/img/aa8c620905c8ea55e6b074fbac5ebd51_MD5.png]]
+![](_attachment/img/aa8c620905c8ea55e6b074fbac5ebd51_MD5.png)
 
 这里，我们仅向大家展示了 CSS 媒体查询最基本的功能，使用 `min-width` 或 `max-width` 来指定不同断点的条件。假设，你需要在 `480px` 断插入一个断点，请在 CSS 的末尾为布局创建两个媒体查询，一个在浏览器视窗宽度处于 `480px` 及以下时使用，另一个在浏览器宽度大于 `480px` 时使用：
 
@@ -463,11 +463,11 @@ CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，�
 
 最后，请重构 CSS。在 `max-width` 为 `480px` 的媒体查询中添加仅适用于小屏幕的 CSS。在 `min-width` 为 `481px` 的媒体查询中添加适用于更大屏幕的 CSS。
 
-![[_attachment/img/01129f85ebeaa0051076cd81eb2e1a7b_MD5.png]]
+![](_attachment/img/01129f85ebeaa0051076cd81eb2e1a7b_MD5.png)
 
 不知道大家和我是否有同样的感觉，在 `@media` 中使用 `min-width` 或 `max-width` 时，总是傻傻分不清楚，易于搞错。要告诉大家的是，自 [CSS Media Queries Level 4](https://www.w3.org/TR/mediaqueries-4/) 开始，我们可以使用较为熟悉的数学表达式了，在媒体条件中使用 `>` 、`>=` 、`<` 或 `<=` 等数学表达式：
 
-![[_attachment/img/19dd351b51fa27921686e94566d3c565_MD5.png]]
+![](_attachment/img/19dd351b51fa27921686e94566d3c565_MD5.png)
 
 上图中使用 `@media` 语法表达的话，像下面这样：
 
@@ -501,7 +501,7 @@ CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，�
 
 除此之外，[CSS Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/) 引入了一些用户偏好的媒体查询设置：
 
-![[_attachment/img/1ad79d766b8bd6b68d51c412c3e7b2fb_MD5.png]]
+![](_attachment/img/1ad79d766b8bd6b68d51c412c3e7b2fb_MD5.png)
 
 这些媒体查询特性可以用来构建响应用户需求的响应式。这已是下一代响应式 Web 中的一部分，我们稍后会介绍。
 
@@ -513,15 +513,15 @@ CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，�
 
 时至今日，虽然已是移动终端的天下，但如果要给不同终端提供设计稿的话，Web 设计师还是会为不同的设备终端提供不同的设计稿。比如，为不同的设备视窗尺寸（如手机、平板和桌面端）提供不同的设计稿：
 
-![[_attachment/img/8bcc2885a6318e5f715fc213d2d7be61_MD5.png]]
+![](_attachment/img/8bcc2885a6318e5f715fc213d2d7be61_MD5.png)
 
 我们来看下简化后的不同版本的设计线框图，如下所示：
 
-![[_attachment/img/c5b30174ea574903ec36939f81274f16_MD5.png]]
+![](_attachment/img/c5b30174ea574903ec36939f81274f16_MD5.png)
 
 在上图中，设计师为卡片（Card）组件提供了三种不同的 UI 效果。虽然卡片在不同设备视窗下有着不同的 UI 效果，但它们构成的元素是相同，都有卡片容器、卡片缩略图、卡片标题 和 卡片描述等：
 
-![[_attachment/img/b5d8016e92d6458e58c409789993eb5e_MD5.png]]
+![](_attachment/img/b5d8016e92d6458e58c409789993eb5e_MD5.png)
 
 作为 Web 设计师，已经使用了多个版本的布局来展示同一个组件三种不同状态下的 UI 变化。可以说把足够多的信息传递给了 Web 开发者！到这一步，Web 设计师已给 Web 开发者提供了具有响应式的 Web 设计稿。
 
@@ -630,19 +630,19 @@ CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，�
 </style>
 ```
 
-![[_attachment/img/7c51c0b3d0249665ac9e8b0943f21d31_MD5.gif]]
+![](_attachment/img/7c51c0b3d0249665ac9e8b0943f21d31_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/abjZwgw>
 
 这种方式只能适合于 **同一组件独立存在于不同断点下** 。如果同一组件的两种（或多种）效果存在于同一断点下时，上面的示例代码就无法达成所需效果了。
 
-![[_attachment/img/49dc516ce3b7e053d7c76fa8b771ce2e_MD5.gif]]
+![](_attachment/img/49dc516ce3b7e053d7c76fa8b771ce2e_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/bGjerYd>
 
 正如你所看到的，移动端（Mobile）和平板端（Tablet）都能符合设计稿所示的效果，但在桌面端（Desktop）有两种 UI 的卡片存在。上面的示例代码就无法达到设计稿的效果。此时，为了满足该设计效果，我们需要额外添加一些类名，在同一断点下为不同 UI 的卡片组件设置样式：
 
-![[_attachment/img/dded8862c812a890b4d438063dd31ccc_MD5.png]]
+![](_attachment/img/dded8862c812a890b4d438063dd31ccc_MD5.png)
 
 ```css
 /* Mobile */
@@ -786,23 +786,23 @@ CSS 媒体查询也是一个复杂的体系，所涉及到的知识点较多，�
 }
 ```
 
-![[_attachment/img/595a94cd4bb8d0e467280ae501a96c6b_MD5.gif]]
+![](_attachment/img/595a94cd4bb8d0e467280ae501a96c6b_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/rNrLqKo>
 
 看上去是不错，但问题是，只有当视窗宽度大于一个特定的值时（常指的分辨率断点值），相应的组件变体才会生效，比如当视窗宽度大于 `1024px` 时，`.card--feature` 卡片 UI 效果才生效。换句话说，如果在平板端无法看到 `.card--feature` 卡片效果，那是因为它要媒体查询在 `1024px` 或更大的视窗宽度下才会生效。
 
-![[_attachment/img/e217f48d8b7fea1e999a9163faea4c7a_MD5.png]]
+![](_attachment/img/e217f48d8b7fea1e999a9163faea4c7a_MD5.png)
 
 不仅如此，Web 的内容是动态的，有的时候输出的内容可能和设计预定的卡片数量不相符，在这种情况之下，要么会有一个空的空间，要么卡片会扩展以填补容器的剩余（或可用）空间。
 
 比如我们这个示例中，在视窗宽度为 `768px` 或更大的视窗宽度中，`.card--feature` 都有可能出现这样的场景。如果你的卡片容器 `.container` 不是使用 CSS Grid 的 RAM 布局，而是采用的 CSS Flexbox 布局，那卡片 `.card` 还可能出现跨越多列的现象：
 
-![[_attachment/img/b58ebbae02331e1adf47480deb20f617_MD5.png]]
+![](_attachment/img/b58ebbae02331e1adf47480deb20f617_MD5.png)
 
 上图只是 Web 开发者基于 CSS 媒体查询实现的响应式卡片布局效果。但这可能并不是设计师真正的意图，设计师的意图可能是像下图这样：
 
-![[_attachment/img/2053af70dd152046b507af586c136a8b_MD5.png]]
+![](_attachment/img/2053af70dd152046b507af586c136a8b_MD5.png)
 
 在这种场景之下，使用 CSS 媒体查询特性实现起来会比较棘手，但使用 CSS 容器查询特性就会容易得多，我们可以通过查询卡片父容器来决定如何显示卡片去解决这些问题（稍后会介绍）。
 
@@ -858,13 +858,13 @@ Web 设计师现在要克服的挑战是，目前的响应式 Web 设计方法�
 
 这只是 CSS 的 `@media` 最基础的一部分规则，事实上，`@media` 规则大约包含了 `24` 个可供查询的特性，其中大约 `19` 个查询规则得到较好的支持。其中有些新增的查询特性是用来改善用户体验的，比如 [Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#mf-user-preferences) 规范中的第十一部分，能够让你根据用户自身的特定偏好和需求来设计 Web 体验。
 
-![[_attachment/img/3c040d9b22139a709c9048c2edbf0706_MD5.png]]
+![](_attachment/img/3c040d9b22139a709c9048c2edbf0706_MD5.png)
 
 也意味着这些新增的媒体查询特性允许你根据用户的偏好来调整用户的体验。
 
 现在很多设备提供了一些用户偏好的设置。比如在 Mac 电脑上，用户可以根据自己喜好做一些设置：
 
-![[_attachment/img/af4ce497ff6ac12b4480275eda38305c_MD5.png]]
+![](_attachment/img/af4ce497ff6ac12b4480275eda38305c_MD5.png)
 
 CSS 媒体查询提供了一些用户喜好的查询特性，这些特性可以识别出用户在系统上的偏好设置，帮助 Web 开发者构建更加健壮和个性化的 Web 体验，特别是对于那些具有可访问性需求的用户。
 
@@ -872,7 +872,7 @@ CSS 媒体查询提供了一些用户喜好的查询特性，这些特性可以�
 
 Web 页面或应用少不了用一些动效来点缀，但有些用户不喜欢这些动画效果，甚至对于少数用户来说，这些动效会让他们身体不适。这就是为什么现在大多数设备都支持用户根据自己的喜好来做设置。
 
-![[_attachment/img/05bc1b8d97f2364de894abe4f4655c08_MD5.png]]
+![](_attachment/img/05bc1b8d97f2364de894abe4f4655c08_MD5.png)
 
 `prefers-reduced-motion` 媒体查询用于检测用户的系统是否被开启了动画减弱功能。比如下面的这个示例，将会展示一组令人心烦的动画，不过当你开启了系统的“减少运动”后，就能看到动画减弱的效果了。
 
@@ -888,7 +888,7 @@ Web 页面或应用少不了用一些动效来点缀，但有些用户不喜欢�
 }
 ```
 
-![[_attachment/img/bffd12b3fdae7251688635b6e2e846ca_MD5.gif]]
+![](_attachment/img/bffd12b3fdae7251688635b6e2e846ca_MD5.gif)
 
 示例效果演示的是 `prefers-reduced-motion` 媒体特性如何让 `animation` 停止，其实 CSS 的 `transition` 也可以实现动画效果，加上并不是所有设备对动效都有很好的性能支持（毕竟动效是较耗性能的），因此，我们可以像下面这样来写 CSS：
 
@@ -928,7 +928,7 @@ Web 页面或应用少不了用一些动效来点缀，但有些用户不喜欢�
 
 你可能知道了，macOS 系统和 iOS13 之后，苹果设备具备 **Dark Mode 效果** ，就是用户可以根据自己的喜好来选择系统提供的色系：
 
-![[_attachment/img/8118958ab3b95cf573963d7a29f3a70c_MD5.gif]]
+![](_attachment/img/8118958ab3b95cf573963d7a29f3a70c_MD5.gif)
 
 使用 `prefers-color-scheme` 查询特性可以让你对用户是否打开了设备上 Dark Mode 来做出响应。
 
@@ -952,7 +952,7 @@ Web 页面或应用少不了用一些动效来点缀，但有些用户不喜欢�
 }
 ```
 
-![[_attachment/img/88776c94d75aec27438e3c2868417814_MD5.png]]
+![](_attachment/img/88776c94d75aec27438e3c2868417814_MD5.png)
 
 我们来看一个具体的案例：
 
@@ -1043,13 +1043,13 @@ body {
 }
 ```
 
-![[_attachment/img/d4b41d8f167745badad16e73a5ab4fd9_MD5.gif]]
+![](_attachment/img/d4b41d8f167745badad16e73a5ab4fd9_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/rNrLoGw>
 
 使用 `prefers-color-scheme` 来定制不同外观主题时，还可以和 `theme-color` 以及 `color-scheme` 结合起来使用。这将能控制系统应用的（比如浏览器）主题颜色：
 
-![[_attachment/img/5447eabb2eb9d18a395488834627b0fe_MD5.png]]
+![](_attachment/img/5447eabb2eb9d18a395488834627b0fe_MD5.png)
 
 而 `color-scheme` 这个 CSS 属性和 `<meta>` 的 `name` 为 `theme-color` 是相同的。它们都是让开发者更容易根据用户的喜好设置来控制 Web 应用或页面的主题，即 **允许开发者根据用户喜好设置添加特定的主题样式** 。
 
@@ -1094,11 +1094,11 @@ body {
 
 请注意，`<fieldset>` 元素的背景颜色是如何根据是否启用了深色模式而改变的，它遵循了开发者在页面上提供的内联样式表的规则。它要么是 `gainsboro`，要么是 `darkslategray`。
 
-![[_attachment/img/8ae3c2f7d6f80c704ca017ef1b5e22de_MD5.png]]
+![](_attachment/img/8ae3c2f7d6f80c704ca017ef1b5e22de_MD5.png)
 
 上图是亮色模式（`light`）下，由开发者和用户代理指定的样式。根据用户代理的样式表，文本是黑色的，背景是白色的。`<fieldset>` 元素的背景颜色是 `gainsboro`，由开发者在内联的式表中指定颜色。
 
-![[_attachment/img/36656d27626659b066fb7bec96159f9d_MD5.png]]
+![](_attachment/img/36656d27626659b066fb7bec96159f9d_MD5.png)
 
 上图是暗色模式（`dark`）下，由开发者和用户代理指定的样式。根据用户代理的样式表，文本是白色的，背景是黑色的。`<fieldset>` 元素的背景色是 `darkslategray`，由开发者在内联样式表中指定颜色。
 
@@ -1108,21 +1108,21 @@ body {
 
 `border-top-color` 和 `border-bottom-color` 的计算值从 `rgba(0,0,0,.847)`（偏黑）切换到 `rgba(255, 255, 255, .847)`（偏白），因为用户代理根据颜色方案动态地更新 `ButtonFace`，同样适用于 `<button>` 元素的 `color` 属性，它被设置为相应的系统颜色 `ButtonText` 。
 
-![[_attachment/img/c6a2e580f3521de5884007750788b76d_MD5.png]]
+![](_attachment/img/c6a2e580f3521de5884007750788b76d_MD5.png)
 
 看上去不错，但这也引出另一个新的概念，[系统颜色](https://drafts.csswg.org/css-color/#css-system-colors)。
 
-![[_attachment/img/d5080d6127dcb3a8b118402b84dff62c_MD5.png]]
+![](_attachment/img/d5080d6127dcb3a8b118402b84dff62c_MD5.png)
 
 再回过头来看 `theme-color` 的一个示例。它能和一些组件一起实现一些不一样的交互效果。比如和进度条组件（Progress Bar）结合起来，可以实现，在完成不同的步数就改变 `theme-color` 的值：
 
-![[_attachment/img/1414cb537b3f688bb9c192a9c8e899de_MD5.png]]
+![](_attachment/img/1414cb537b3f688bb9c192a9c8e899de_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/poZbqKR>
 
 点击示例中的 “next” 和 “pre” 按钮，就能看到标签栏颜色随之改变：
 
-![[_attachment/img/c0f919f0789f1f7c2e9e7709730b00c2_MD5.png]]
+![](_attachment/img/c0f919f0789f1f7c2e9e7709730b00c2_MD5.png)
 
 #### prefers-reduced-data
 
@@ -1144,7 +1144,7 @@ body {
 
 当用户在设备上开启了 “Low Data Mode”（低数据模式），会加载占流量更低的 `light.avif` 图像，可以帮助 iPhone 上的应用程序减少网络数据的使用：
 
-![[_attachment/img/adbed2e2d10b7c076537f350e3741fc0_MD5.png]]
+![](_attachment/img/adbed2e2d10b7c076537f350e3741fc0_MD5.png)
 
 插个题外话，上面提到的这三个媒体查询特性主要是运用于 CSS 中，但它们还可以和 HTML 的 `<picture>` 元素的 `<source>` 标签元素结合起来使用。可以根据用户对设备的偏好设置来选择不同的图片源：
 
@@ -1195,7 +1195,7 @@ body {
 
 媒体查询主要用于检测用户是否要求系统增加或减少相邻颜色之间的对比度。比如一些喜欢阅读电子书的用户，在阅读与文本背景对比度相差不大的文本时会遇到困难，他们更喜欢较大的对比度，利于阅读。
 
-![[_attachment/img/a1f239eaa4c57e18f0b7f717d52ec069_MD5.png]]
+![](_attachment/img/a1f239eaa4c57e18f0b7f717d52ec069_MD5.png)
 
 比如像下面这个示例：
 
@@ -1346,7 +1346,7 @@ main p {
 }
 ```
 
-![[_attachment/img/c452bf3569e19e0dc93ff9889a3f6620_MD5.webp]]
+![](_attachment/img/c452bf3569e19e0dc93ff9889a3f6620_MD5.webp)
 
 > Demo 地址：<https://codepen.io/airen/full/BaPzvbo>
 
@@ -1360,15 +1360,15 @@ main p {
 
 折叠设备在市场上已经存在多年，你可能已经接触过像下图这样的一些设备：
 
-![[_attachment/img/7f7dd21b39c11cecf6f6660d833b5a8e_MD5.png]]
+![](_attachment/img/7f7dd21b39c11cecf6f6660d833b5a8e_MD5.png)
 
 大致主要分为两种类型，双屏可折叠设备（如 Microsoft Surface Duo）和单屏可折叠设备（如 Huawei Mate XS）：
 
-![[_attachment/img/b186ae719e41a4b4de1206e4c2464a64_MD5.png]]
+![](_attachment/img/b186ae719e41a4b4de1206e4c2464a64_MD5.png)
 
 在多屏幕或可折叠设备上，Web 应用或 Web 页面在这些设备上的打开姿势也将会有所不同，应用可以单屏显示，也可以跨屏显示：
 
-![[_attachment/img/dd9807b0f83ac6f39319d75e8a2c848f_MD5.png]]
+![](_attachment/img/dd9807b0f83ac6f39319d75e8a2c848f_MD5.png)
 
 换句话说，我们的应用或页面要具备这种跨越屏幕的能力，也要具备响应这种跨越的能力，以及还可能需要具备逻辑分隔内容的能力等。
 
@@ -1384,25 +1384,25 @@ main p {
 
 [@argyleink](https://github.com/argyleink) 在 Github 上发起了一个使用 CSS 媒体特性来检测折叠屏的讨论。也就是说，Web 开发者可以使用 `@media` 相关的特性来识别折叠屏，为折叠屏的类型（比如“有缝”和“无缝”）提供相应的媒体查询。 比如，我们可以使用 `screen-spanning` 这个特性可以用来帮助 Web 开发人员检测“根视图”是否跨越多个相邻显示区域，并提供有关这些相邻显示区域配置的详细信息。
 
-![[_attachment/img/c9180a5847e8ba3f270efcd434bc242e_MD5.png]]
+![](_attachment/img/c9180a5847e8ba3f270efcd434bc242e_MD5.png)
 
 也可以使用 `screen-fold-posture` 和 `screen-fold-angle` 两个媒体查询来对无缝设备进行查询：
 
-![[_attachment/img/5237f1a7ec08b00029bed6ea672ecc44_MD5.png]]
+![](_attachment/img/5237f1a7ec08b00029bed6ea672ecc44_MD5.png)
 
 还可以使用 `horizontal-viewport-segments` 和 `vertical-viewport-segments` 查询视口的数量：
 
-![[_attachment/img/d451385b20aef270f8503492446ba72e_MD5.png]]
+![](_attachment/img/d451385b20aef270f8503492446ba72e_MD5.png)
 
 `horizontal-viewport-segments` 和 `vertical-viewport-segments` 是最新的两个查询特性，它们将替代最初的 `screen-spanning` 这个媒体查询特性！
 
 除此之外，还可以通过一些折叠姿势来进行查询：
 
-![[_attachment/img/03171ec34450a394b16d8f4574d6d7f7_MD5.png]]
+![](_attachment/img/03171ec34450a394b16d8f4574d6d7f7_MD5.png)
 
 除了 CSS 媒体查询之外，还引入了六个新的 CSS 环境变量，以帮助开发者计算显示区域的几何形状，计算铰链区域被物理特征遮挡的几何形状：
 
-![[_attachment/img/d84b4599292c0965bee24f5e19cbed61_MD5.webp]]
+![](_attachment/img/d84b4599292c0965bee24f5e19cbed61_MD5.webp)
 
 上图中展示的这六个 CSS 环境变量将替代以前的 `env(fold-top)`、`env(fold-left)`、`env(fold-width)` 和 `env(fold-height)`。
 
@@ -1453,7 +1453,7 @@ main {
 }
 ```
 
-![[_attachment/img/54578c6165e822c32b578ddab1c4e5b0_MD5.gif]]
+![](_attachment/img/54578c6165e822c32b578ddab1c4e5b0_MD5.gif)
 
 @Stephanie 在她的最新博文《[Building Web Layouts For Dual-Screen And Foldable Devices](https://www.smashingmagazine.com/2022/03/building-web-layouts-dual-screen-foldable-devices/)》中也向大家提供了 [一个示例](https://www.stephaniestimac.com/demos/smashing-ds-demo)，演示了按屏幕数量（`horizontal-viewport-segments: 2`）查询的示例：
 
@@ -1510,7 +1510,7 @@ img {
 
 上面是从示例中截取的有关于布局的关键代码。最终效果如下：
 
-![[_attachment/img/91e69bbac78c7bd1654db828620bd4b3_MD5.gif]]
+![](_attachment/img/91e69bbac78c7bd1654db828620bd4b3_MD5.gif)
 
 > Demo 地址：<https://stephaniestimac.com/demos/smashing-ds-demo/>
 
@@ -1526,7 +1526,7 @@ body {
 
 在不同的终端上看到的效果如下（比如 PC 机显示器上，移动设备上和折叠设备）：
 
-![[_attachment/img/fa3b17edf5835b55b34e6a5d46a928db_MD5.png]]
+![](_attachment/img/fa3b17edf5835b55b34e6a5d46a928db_MD5.png)
 
 使用 `@media` 可以在手机上设置一个 `green` 背景色：
 
@@ -1540,7 +1540,7 @@ body {
 
 这个时候，手机上的背景颜色变成了绿色：
 
-![[_attachment/img/e6491ecb2dd89772c5bb67d922edef50_MD5.png]]
+![](_attachment/img/e6491ecb2dd89772c5bb67d922edef50_MD5.png)
 
 如果把 `screen-spanning` 媒体查询加进来，可以给折叠设备设置另一个背景颜色：
 
@@ -1554,7 +1554,7 @@ body {
 
 这个时候，三种不同类型设备 `body` 背景颜色将分别是 `orange`，`green` 和 `yellow`：
 
-![[_attachment/img/978c14de4a8fbc5f06a4258918f75404_MD5.png]]
+![](_attachment/img/978c14de4a8fbc5f06a4258918f75404_MD5.png)
 
 按类似的方式，我们可以使用 CSS 的 Grid、`env()` 和 `screen-spanning` 构建一个更复杂的布局。比如：
 
@@ -1622,7 +1622,7 @@ body {
 
 在浏览器中打开这个页面，看到的效果会像下图这样：
 
-![[_attachment/img/9f84e9747f2c11e539735a26fb1744e0_MD5.png]]
+![](_attachment/img/9f84e9747f2c11e539735a26fb1744e0_MD5.png)
 
 在上面基础上使用 `@media` 给 iPhone 和 iPad 中改变布局：
 
@@ -1662,7 +1662,7 @@ body {
 
 效果如下：
 
-![[_attachment/img/9c883e16f30fa09d7867de3b1d7225c5_MD5.gif]]
+![](_attachment/img/9c883e16f30fa09d7867de3b1d7225c5_MD5.gif)
 
 使用 `screen-spanning`、`env()` 和 `calc()` 给像微软 Surface Due 这样的折叠设备添加样式：
 
@@ -1704,7 +1704,7 @@ body {
 
 你可以在模拟器上看到像下图这样的效果：
 
-![[_attachment/img/9b092382cb937134431dc092f89ef096_MD5.gif]]
+![](_attachment/img/9b092382cb937134431dc092f89ef096_MD5.gif)
 
 如果你感兴趣的话，可以使用折叠屏 API 中提供的 `screen-fold-posture` 或 `screen-fold-angle` 给像三星 Galaxy Fold、三星 Galaxy Flip Z 折叠设备提供不同的布局效果。要是你有华为 Mate x 设备，也可以尝试着改写上面的 Demo，查看效果。
 
@@ -1712,7 +1712,7 @@ body {
 
 虽然现在 VR 和 AR 用于其他行业的场景还很少见，但我们可以预见，在 VR 和 AR 设备越来越成熟和更多的设备发布之后，我们看到 VR 和 AR，就像我们已经看到几十年前的触摸屏设备一样。或许有一天，你设计（或开发）的 Web 页面或应用就能在 VR 和 AR 设备上有一个较好的呈现。
 
-![[_attachment/img/f59c9ac96312f366be95116d30bc734a_MD5.png]]
+![](_attachment/img/f59c9ac96312f366be95116d30bc734a_MD5.png)
 
 > 上图来自于《[UX Case Study: Metaverse Banking VR / AR Design Concept of the Future](https://www.theuxda.com/blog/how-online-banking-design-should-work-ux-case-study)》一文。UXDA 的专业金融用户体验架构师和设计师团队向您介绍第一个混合现实银行概念，包括 VR 和 AR 银行设计、平板电脑、可穿戴设备、桌面和移动银行 UI / UX。
 

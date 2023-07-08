@@ -15,7 +15,7 @@ update: 2023-03-03-星期五 17:42:44
 
 持久化缓存的性能提升效果非常出众！以 Three.js 为例，该项目包含 362 份 JS 文件，合计约 3w 行代码，算得上中大型项目：
 
-![[_attachment/img/fc71e7ae6e84cb1ae1a4e20afb9c9199_MD5.png]]
+![](_attachment/img/fc71e7ae6e84cb1ae1a4e20afb9c9199_MD5.png)
 
 配置 `babel-loader`、`eslint-loader` 后，在我机器上测试，未使用 `cache` 特性时构建耗时大约在 11000ms 到 18000ms 之间；启动 `cache` 功能后，第二次构建耗时降低到 500ms 到 800ms 之间，两者相差接近 **50** 倍！
 
@@ -33,7 +33,7 @@ module.exports = {
 
 执行效果：
 
-![[_attachment/img/d8c653858f25e6ccce83c987e1e1a8cf_MD5.png]]
+![](_attachment/img/d8c653858f25e6ccce83c987e1e1a8cf_MD5.png)
 
 此外，`cache` 还提供了若干用于配置缓存效果、缓存周期的配置项，包括：
 
@@ -69,7 +69,7 @@ module.exports = {
 
 回过头来看看 Webpack 的构建过程，大致上可划分为三个阶段。
 
-![[_attachment/img/42197368778bc33ae0d0ea51d2e05294_MD5.png]]
+![](_attachment/img/42197368778bc33ae0d0ea51d2e05294_MD5.png)
 
 - 初始化，主要是根据配置信息设置内置的各类插件。
 - Make - 构建阶段，从 `entry` 模块开始，执行：
@@ -90,7 +90,7 @@ module.exports = {
 
 而 Webpack5 的持久化缓存功能则将构建结果保存到文件系统中，在下次编译时对比每一个文件的内容哈希或时间戳，未发生变化的文件跳过编译操作，直接使用缓存副本，减少重复计算；发生变更的模块则重新执行编译流程。缓存执行时机如下图：
 
-![[_attachment/img/f945f3fee4fdf7d5dc09a5ec06c2e78f_MD5.png]]
+![](_attachment/img/f945f3fee4fdf7d5dc09a5ec06c2e78f_MD5.png)
 
 如图，Webpack 在首次构建完毕后将 Module、Chunk、ModuleGraph 三类对象的状态序列化并记录到缓存文件中；在下次构建开始时，尝试读入并恢复这些对象的状态，从而跳过执行 Loader 链、解析 AST、解析依赖等耗时操作，提升编译性能。
 
@@ -195,7 +195,7 @@ module.exports = {
 
 首次运行时，`hard-source-webpack-plugin` 会在缓存文件夹 `node_module/.cache` 写入一系列日志文件：
 
-![[_attachment/img/71bf1a1e2b32c2acc24687d143b4cb50_MD5.png]]
+![](_attachment/img/71bf1a1e2b32c2acc24687d143b4cb50_MD5.png)
 
 下次运行时，`hard-source-webpack-plugin` 插件会复用缓存中记录的数据，跳过一系列构建步骤，从而提升构建性能。
 

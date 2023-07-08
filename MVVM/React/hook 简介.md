@@ -419,7 +419,7 @@ const newState = [{
   style="background-color:#fff"></iframe>
 
 ```js
-import { produce } from 'immer'; 
+import { produce } from 'immer';
  const handleAdd = () => {
     setItems(
       produce(items => {
@@ -435,4 +435,4 @@ import { produce } from 'immer';
 
 他们都是通过structing shared的方式保证我们只更新了修改的子state的引用，不会去修改未更改子state的引用，保证整个组件树的缓存不会失效。
 
-![[_attachment/img/6f903961cad9a7f2a0589ed76a193177_MD5.gif]]
+![](_attachment/img/6f903961cad9a7f2a0589ed76a193177_MD5.gif)

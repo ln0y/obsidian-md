@@ -164,7 +164,7 @@ JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式�
 }
 ```
 
-![[_attachment/img/c6155d866c9e8df74813830631ee65cb_MD5.png]]
+![](_attachment/img/c6155d866c9e8df74813830631ee65cb_MD5.png)
 
 - `productName` 是一个描述产品名字的字符串值。因为没有名字的产品就没有什么意义，所以它也是必需的。
 - 由于 `required` 验证关键字是一个字符串数组，我们可以根据需要记录多个键；包括 `productName`.
@@ -191,7 +191,7 @@ JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式�
 }
 ```
 
-![[_attachment/img/1051e1b4b5bd2f80b23b3a7d8d924ddc_MD5.png]]
+![](_attachment/img/1051e1b4b5bd2f80b23b3a7d8d924ddc_MD5.png)
 
 ### 深入 properties
 
@@ -225,7 +225,7 @@ JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式�
 }
 ```
 
-![[_attachment/img/246953fdeed949977bd3f8efae4eacd1_MD5.png]]
+![](_attachment/img/246953fdeed949977bd3f8efae4eacd1_MD5.png)
 
 接下来，轮到 `tags` 关键字。
 
@@ -338,7 +338,7 @@ JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式�
 }
 ```
 
-![[_attachment/img/05e0c22e016e56a8b9742685c6305b0e_MD5.png]]
+![](_attachment/img/05e0c22e016e56a8b9742685c6305b0e_MD5.png)
 
 ### Schema 引用
 
@@ -395,7 +395,7 @@ JSON 代表“JavaScript Object Notation”，一种简单的数据交换格式�
 }
 ```
 
-![[_attachment/img/fa7bf5947cf635c5931dc0c08f0cfe51_MD5.png]]
+![](_attachment/img/fa7bf5947cf635c5931dc0c08f0cfe51_MD5.png)
 
 ## JSON Schema 规范
 
@@ -930,7 +930,7 @@ JSON 中数组的使用一般有两种方式：
 
 经测试 vscode(version 1.78.2) 对元组类型验证不生效，但是枚举是生效的
 
-![[_attachment/img/e20006dc3d23a6496d0d5e9a5aadcaed_MD5.png]]
+![](_attachment/img/e20006dc3d23a6496d0d5e9a5aadcaed_MD5.png)
 
 > 可以在 <https://www.jsonschemavalidator.net/> 中进行测试
 
@@ -1495,7 +1495,7 @@ false // ❌
 }
 ```
 
-![[_attachment/img/6a33824b2257d64ef733ab6df5d70a3b_MD5.png]]
+![](_attachment/img/6a33824b2257d64ef733ab6df5d70a3b_MD5.png)
 
 在这个 `Schema` 中，如果 `"type”` 是 `"business"`，那么在 `then` 模式中声明的属性只算作 `"evaluated"` 属性。
 
@@ -1800,7 +1800,7 @@ false // ❌
 
 > 即使 `"country"` 是必填字段，仍然建议在每个 `"if"` 模式中使用 `"required"` 关键字。验证结果将相同，因为 `"required"` 失败，并且它会增加错误结果的噪音，因为它将针对所有三个 `"then"` 模式验证 `"postal_code"`，导致不相关的错误。
 
-![[_attachment/img/d78af3dbf6b804bcef9306199f031521_MD5.png]]
+![](_attachment/img/d78af3dbf6b804bcef9306199f031521_MD5.png)
 
 ### 蕴含
 

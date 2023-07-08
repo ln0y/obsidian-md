@@ -128,7 +128,7 @@ JSON.stringify(
 
 我们先利用 typeof 把基础数据类型和引用数据类型分开，分开之后再根据不同情况来分别处理不同的情况，按照这个逻辑代码实现如下。
 
-![[_attachment/img/JSON.stringify]]
+![](_attachment/img/JSON.stringify)
 
 手工实现一个 JSON.stringify 方法的基本代码如上面所示，有几个问题你还是需要注意一下：
 

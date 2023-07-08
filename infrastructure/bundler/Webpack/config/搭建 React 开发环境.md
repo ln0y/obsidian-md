@@ -58,7 +58,7 @@ module.exports = {
 
 经过 `babel-loader` 处理后，JSX 将被编译为 JavaScript 格式的 `React.createElement` 函数调用，如：
 
-![[_attachment/img/193d28a134fa87310b40079e3eadbbdc_MD5.png]]
+![](_attachment/img/193d28a134fa87310b40079e3eadbbdc_MD5.png)
 
 此外，JSX 支持新旧两种转换模式，一是上图这种 `React.createElement` 函数，这种模式要求我们在代码中引入 React，如上图的 `import React from "react"`；二是自动帮我们注入运行时代码，此时需要设置 `runtime:automatic`，如：
 
@@ -76,7 +76,7 @@ module.exports = {
 }
 ```
 
-![[_attachment/img/0c5ac66707a076c7a5b36009de489045_MD5.png]]
+![](_attachment/img/0c5ac66707a076c7a5b36009de489045_MD5.png)
 
 这种模式会自动导入 `react/jsx-runtime`，不必开发者手动管理 React 依赖。
 
@@ -84,7 +84,7 @@ module.exports = {
 
 注意，上例 Webpack 配置还无法处理 CSS 代码：
 
-![[_attachment/img/695acefebf879f79cc675f59dc41ca6c_MD5.png]]
+![](_attachment/img/695acefebf879f79cc675f59dc41ca6c_MD5.png)
 
 为此需要添加 CSS 加载器，如 `css-loader/style-loader`，如：
 
@@ -152,7 +152,7 @@ module.exports = {
 
 之后，运行 `npx webpack serve` 命令，即可自动打开带热更功能的页面：
 
-![[_attachment/img/aa7f37959303f3d929e10501ce778863_MD5.gif]]
+![](_attachment/img/aa7f37959303f3d929e10501ce778863_MD5.gif)
 
 ## 复用其它编译工具
 
@@ -479,11 +479,11 @@ export default App
 
 之后，编译并执行 `node ./dist/server.js` 启动 Node 应用，访问页面时服务端将首先返回如下 HTML 内容：
 
-![[_attachment/img/fac2258445f61435caaf28df217b9933_MD5.png]]
+![](_attachment/img/fac2258445f61435caaf28df217b9933_MD5.png)
 
 页面也能正常运行 `App.jsx` 交互效果：
 
-![[_attachment/img/1518f0d52da9eecd0bf605faaeecb35c_MD5.gif]]
+![](_attachment/img/1518f0d52da9eecd0bf605faaeecb35c_MD5.gif)
 
 > 提示：
 >

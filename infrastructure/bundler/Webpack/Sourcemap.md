@@ -7,7 +7,7 @@ update: 2023-03-20-星期一 17:52:09
 
 [Sourcemap 协议](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.qz3o9nc69um5) 最初由 Google 设计并率先在 Closure Inspector 实现，它的主要作用就是将经过压缩、混淆、合并的产物代码还原回未打包的原始形态，帮助开发者在生产环境中精确定位问题发生的行列位置，例如：
 
-![[_attachment/img/84468f1eda7a5bc04f0399e70a52a8fc_MD5.png]]
+![](_attachment/img/84468f1eda7a5bc04f0399e70a52a8fc_MD5.png)
 
 在 Webpack 内部，这段生成 Sourcemap 映射数据的逻辑并不复杂，一句话总结：在 [processAssets](https://webpack.js.org/api/compilation-hooks/#processassets) 钩子遍历产物文件 `assets` 数组，调用 `webpack-sources` 提供的 `map` 方法，最终计算出 `asset` 与源码 `originSource` 之间的映射关系。
 
@@ -130,7 +130,7 @@ AACAA,QAAQC,IADK
 
 假设现在有 a.js，内容为 feel the force，处理后为 b.js，内容为 the force feel，那么 mapping 应该是多少呢？
 
-![[_attachment/img/335018064b363d80902262f5eb811bf8_MD5.svg]]
+![](_attachment/img/335018064b363d80902262f5eb811bf8_MD5.svg)
 
 上图可以看到，所谓映射，就是指一个字符从一个位置移动到了另一个位置，然后我们将这个位置的变换记录下来。就好比我们在家里打扫卫生，我们要把家具发生移动，同时我们要记住每个家具之前在什么位置，这样等我们打扫完了，就可以还原了。
 
@@ -140,11 +140,11 @@ AACAA,QAAQC,IADK
 
 对于字符来说，例如 f,e,e,l 四个字符，其实在处理的时候，是将它们作为一个整体移动的，因为处理是不会改变它们内部的顺序，因此我们可以把相关的字符组成组合进行存储：
 
-![[_attachment/img/df43e78a566deddf767e29d1e246ca94_MD5.svg]]
+![](_attachment/img/df43e78a566deddf767e29d1e246ca94_MD5.svg)
 
 看看我们现在的存储结构，可以发现有 a.js 和 the 这种字符，我们可以把它们抽离出来放在数组里，然后用下标表示它们，这样可以减少 mapping 的大小：
 
-![[_attachment/img/6f638912d31562f785e6d736c446ab10_MD5.svg]]
+![](_attachment/img/6f638912d31562f785e6d736c446ab10_MD5.svg)
 
 sources 中存储的是所有的输入文件名，names 是所有提取的字符组合。需要表示的时候，用下标即可。
 
@@ -152,13 +152,13 @@ sources 中存储的是所有的输入文件名，names 是所有提取的字符
 
 很多时候，我们输出的文件都是一行，这样输出的行号就可以省略，因为都是 0，没必要写出来，我们可以把我们的存储单元再缩短一点：
 
-![[_attachment/img/d21455ca6586165364af48fe6e15d4bf_MD5.svg]]
+![](_attachment/img/d21455ca6586165364af48fe6e15d4bf_MD5.svg)
 
 ### 使用相对位置
 
 mapping 中的位置记录我们一直用的都是绝对位置，就是这个组合/字符在文件的第几行，第几列，如果文件特别大的话，那么行列就会很大，因此我们可以用相对位置记录行列信息：
 
-![[_attachment/img/3ec96c32c45e4bff2fe8f4179d14702e_MD5.svg]]
+![](_attachment/img/3ec96c32c45e4bff2fe8f4179d14702e_MD5.svg)
 
 第一次记录的输入位置和输出位置是绝对的，往后的输入位置和输出位置都是相对上一次的位置移动了多少，例如 the 的输出位置为 (0,-10),因为 the 在 feel 的左边数 10 下才能到 the 的位置。
 
@@ -186,7 +186,7 @@ mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
 
 我们之前用竖线分割数字，是为了用一个字符串可以存储多个数字，例如:`1|23|456|7`。但是这样每个|会占用一个字符，vlq 的思路则是对连续的数字做上某种标记：
 
-![[_attachment/img/df3a122c9bc5aca8eaacd7d71afebda9_MD5.svg]]
+![](_attachment/img/df3a122c9bc5aca8eaacd7d71afebda9_MD5.svg)
 
 我们可以发现，这种标记只在数字不是结尾的部分才有，如果是 123，那么 1,2 都有标记，最后的 3 没有标记，没有标记也就意味着完结。
 
@@ -194,7 +194,7 @@ mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
 
 我们来看几个用 vlq 表示的数字就明白了：
 
-![[_attachment/img/f479ced3d7e7774db31008443fbcf384_MD5.svg]]
+![](_attachment/img/f479ced3d7e7774db31008443fbcf384_MD5.svg)
 
 例如：数字 7 经过 VLQ 编码后，结果为 `001110`，其中：
 
@@ -204,7 +204,7 @@ mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
 
 这样一个六位编码分组，就可以按照 Base64 的映射规则转换为 `ABC` 等可见字符，例如上述数字 7 编码结果 `001110`，等于十进制的 14，按 Base64 字码表可映射为字母 `O`。
 
-![[_attachment/img/e01f30e940d4c3b36ae8579fda132d49_MD5.png]]
+![](_attachment/img/e01f30e940d4c3b36ae8579fda132d49_MD5.png)
 
 上面就是利用 vlq 编码划分的结果，有一些需要注意的点：
 
@@ -372,13 +372,13 @@ eval("var foo = 'bar'\n\n\n//# sourceURL=webpack:///./src/index.ts?")
 
 浏览器映射效果：
 
-![[_attachment/img/bb11c5e7302cfc45c7258f36807105cc_MD5.png]]
+![](_attachment/img/bb11c5e7302cfc45c7258f36807105cc_MD5.png)
 
 虽然 Sourcemap 提供的映射功能可精确定位到文件、行、列粒度，但有时在 **行** 级别已经足够帮助我们达到调试定位的目的，此时可选择使用 `cheap` 关键字，简化 Sourcemap 内容，减少 Sourcemap 文件体积。
 
 4. **`module` 关键字**：`module` 关键字只在 `cheap` 场景下生效，例如 `cheap-module-source-map`、`eval-cheap-module-source-map`。当 `devtool` 包含 `cheap` 时，Webpack 根据 `module` 关键字判断按 loader 联调处理结果作为 source，还是按处理之前的代码作为 source。例如：
 
-![[_attachment/img/7f7ae29e80876dfacdc0f1c5eaabf11a_MD5.png]]
+![](_attachment/img/7f7ae29e80876dfacdc0f1c5eaabf11a_MD5.png)
 
 注意观察上例 `sourcesContent` 字段，左边 `devtool` 带 `module` 关键字，因此此处映射的，是包含 `class Person` 的最原始代码；而右边生成的 `sourcesContent` ，则是经过 babel-loader 编译处理的内容。
 
@@ -439,7 +439,7 @@ var Person = /** @class */ (function () {
 
 两者区别仅在于编译产物最后一行的 `//# sourceMappingURL=` 指令，当你需要 Sourcemap 功能，又不希望浏览器 Devtool 工具自动加载时，可使用此选项。需要打开 Sourcemap 时，可在浏览器中手动加载：
 
-![[_attachment/img/100e5b6e926f6e3746c9e0c8d611d5b9_MD5.gif]]
+![](_attachment/img/100e5b6e926f6e3746c9e0c8d611d5b9_MD5.gif)
 
 总结一下，Webpack 的 `devtool` 值都是由以上七种关键字的一个或多个组成，虽然提供了 27 种候选项，但逻辑上都是由上述规则叠加而成，例如：
 

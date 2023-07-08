@@ -77,13 +77,13 @@ module.exports = {
 
 经过 `vue-loader` 处理后，SFC 各个模块会被等价转译为普通 JavaScript 模块，例如：
 
-![[_attachment/img/86d0665441fbb3418690ba2616366707_MD5.png]]
+![](_attachment/img/86d0665441fbb3418690ba2616366707_MD5.png)
 
 可以看到，`<template>` 内容会被转译为用于构造 [Virtual Dom](https://vuejs.org/guide/extras/rendering-mechanism.html#virtual-dom) 结构的 `render` 函数；`<script>` 标签导出的对象会被转译为 JavaScript 对象字面量形式。
 
 注意，上例 Webpack 配置还无法处理 CSS 代码，若此时添加 `<style>` 模块将导致报错：
 
-![[_attachment/img/68594b322c13d6affa77e7bd2b254b30_MD5.png]]
+![](_attachment/img/68594b322c13d6affa77e7bd2b254b30_MD5.png)
 
 为此需要添加处理 CSS 的规则，完整配置：
 
@@ -106,7 +106,7 @@ module.exports = {
 
 同样的，`<style>` 模块也将被转译为 JavaScript 内容：
 
-![[_attachment/img/34a7712772dacce5a07e0a28573c8dc3_MD5.png]]
+![](_attachment/img/34a7712772dacce5a07e0a28573c8dc3_MD5.png)
 
 ## 运行页面
 
@@ -226,7 +226,7 @@ module.exports = {
 
 之后，运行 `npx webpack serve` 命令，即可自动打开带热更功能的页面：
 
-![[_attachment/img/19e8ca72f44296257c1c7bbaae4c934d_MD5.gif]]
+![](_attachment/img/19e8ca72f44296257c1c7bbaae4c934d_MD5.gif)
 
 ## 复用其它编译工具
 
@@ -385,7 +385,7 @@ module.exports = {
 
 [SSR](https://web.dev/rendering-on-the-web/#server-rendering)\(Server Side Render\) 正是为了解决这些问题而出现的技术。本质上，SSR 是一种在服务端将组件渲染 HTML 字符串并发送到浏览器，最后在浏览器上将这些 HTML 片段“激活”为客户端上可交互的应用技术。
 
-![[_attachment/img/bfc27191c4bc5015aa437831b536b393_MD5.png]]
+![](_attachment/img/bfc27191c4bc5015aa437831b536b393_MD5.png)
 
 在 Vue 场景下，通常可以选择 [Nuxt.js](https://nuxtjs.org/)、[Quasar](https://quasar.dev/)、[`@vue/server-renderer`](https://vuejs.org/guide/scaling-up/ssr.html) 等方案实现 SSR，这些技术的底层逻辑都包含三个大的步骤：
 
@@ -393,7 +393,7 @@ module.exports = {
 - 服务端接收到请求时，调用 Render 工具将组件渲染为 HTML 字符串，并返回给客户端；
 - 客户端运行 HTML，并再次执行组件代码，“激活\(Hydrate\)” 组件。
 
-![[_attachment/img/51596448091603b4c2751802ffd5b003_MD5.png]]
+![](_attachment/img/51596448091603b4c2751802ffd5b003_MD5.png)
 
 接下来，我们使用 Webpack、Vue3、Express、[`@vue/server-renderer`](https://vuejs.org/guide/scaling-up/ssr.html) 框架搭建一套完备的 Vue SSR 引用，示例目录结构 ：
 
@@ -645,11 +645,11 @@ h3 {
 
 之后，编译并执行 `node server.js` 启动 Node 应用，访问页面时服务端将首先返回如下 HTML 内容：
 
-![[_attachment/img/68a82a9dd3deb86e96de37026d24cca3_MD5.png]]
+![](_attachment/img/68a82a9dd3deb86e96de37026d24cca3_MD5.png)
 
 页面也能正常运行 `App.vue` 交互效果：
 
-![[_attachment/img/fc863d062cf8d7e6fad97bace13cd70d_MD5.gif]]
+![](_attachment/img/fc863d062cf8d7e6fad97bace13cd70d_MD5.gif)
 
 > 提示：
 >
@@ -696,7 +696,7 @@ Vue CLI v4.5.15
 
 之后，[Vue CLI](https://cli.vuejs.org/) 会自动安装项目依赖，项目环境就算是搭建完毕了：
 
-![[_attachment/img/c94d7b51c1ef3649216aa44812c85bc7_MD5.gif]]
+![](_attachment/img/c94d7b51c1ef3649216aa44812c85bc7_MD5.gif)
 
 [Vue CLI](https://cli.vuejs.org/) 提供的默认模板已经能够满足一般场景下的开发需求，必要时开发者还可以通过模板生成的 `vue.config.js` 修改工程化配置，例如：
 

@@ -34,7 +34,7 @@ console.log(res.value)
 
 它拉起来的二元运算工作流如下图所示：
 
-![[_attachment/img/6d5278fffc8a960c480cf73c0572398e_MD5.png]]
+![](_attachment/img/6d5278fffc8a960c480cf73c0572398e_MD5.png)
 
 接着我们考虑这样一个 reduce 调用：
 
@@ -49,7 +49,7 @@ console.log(res)
 
 它拉起来的二元运算工作流如下图所示：
 
-![[_attachment/img/e8a4248b66cb0258e22a4f5540e84cec_MD5.png]]
+![](_attachment/img/e8a4248b66cb0258e22a4f5540e84cec_MD5.png)
 
 这两张图不能说是一模一样吧，只能说是十分相似。
 
@@ -235,7 +235,7 @@ const compose = (func1, func2) => arg => func1(func2(arg))
 
 4 个数字相加的过程，需要先把 1 和 2 相加，得到第一个求和结果 3，然后再把这个求和结果 3 和下一个数字 3 相加，得到第二个求和结果 6；然后再把第二个求和结果 6 和下一个数字 4 相加，得到第三个求和结果 10。（如下图所示）
 
-![[_attachment/img/bb1a9f4560ca737f79e46b3ea7b6e9f9_MD5.png]]
+![](_attachment/img/bb1a9f4560ca737f79e46b3ea7b6e9f9_MD5.png)
 
 相似的，”compose(组合)“这个动作，其实也是一个运算符。在数学中，我们用 `f · g` 来描述函数 `f` 和函数 `g` 之间的组合关系。考虑以下 4 个待组合的函数：
 
@@ -245,7 +245,7 @@ const compose = (func1, func2) => arg => func1(func2(arg))
 
 把这 4 个函数组合成一个函数的过程，仍然是一个反复去做二元运算的过程（如下图所示）。
 
-![[_attachment/img/6c27d4b5736a5927befe557185d7b946_MD5.png]]
+![](_attachment/img/6c27d4b5736a5927befe557185d7b946_MD5.png)
 
 “两两组合、循环往复”是 `Monoid.concat()` 的工作流特征。分析至此，我们又意识到，它同时也是 `compose()` 的工作特征。
 

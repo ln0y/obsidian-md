@@ -378,7 +378,7 @@ macro NewPromiseReaction(implicit context: Context)(
 
 > **下图不是 microtask 队列，下图不是 microtask 队列，下图不是 microtask 队列。**
 
-![[_attachment/img/zoom-in-crop-mark.webp]]
+![](_attachment/img/zoom-in-crop-mark.webp)
 
 > 图中使用 onFulfilled 代替 fulfill\_handler 是为了方便理解，onRejected也是如此，且只包含于当前内容相关的字段，不用太过于纠结。
 

@@ -9,11 +9,11 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 
 在这节课程中，我将介绍如何使用 Flexbox 来构建 Web 中的一些经典布局（实践中常使用的 Web 布局）。这些布局在还没有 Flexbox 技术之前就在 Web 中很常见，比如 **等高布局** 、**分屏** （或 **等分列** ）、**水平垂直居中** 、**Sticky Footer** 、**圣杯布局** 和 **Grid Frameworks（简单的网格系统）** 等，只不过我们在使用以往的 Web 布局技术，比如浮动（`float`）、定位（`position`）和内联块（`display:inline-block`）等实现会比较困难，甚至还需要一定的 CSS 黑魔法（Hack 手段），但使用 Flexbox 就会显得容易得多。
 
-![[_attachment/img/e8befe30e9985fed6d6207a268d271a9_MD5.png]]
+![](_attachment/img/e8befe30e9985fed6d6207a268d271a9_MD5.png)
 
 在开始之前，我用一张图来帮助大家回忆一下前面几个有关于 Flexbox 的知识：
 
-![[_attachment/img/7181289aace89ee12f2302563f64bc71_MD5.png]]
+![](_attachment/img/7181289aace89ee12f2302563f64bc71_MD5.png)
 
 ## 水平垂直居中
 
@@ -68,7 +68,7 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 }
 ```
 
-![[_attachment/img/174556716412025b95ec97c7820e4bf9_MD5.gif]]
+![](_attachment/img/174556716412025b95ec97c7820e4bf9_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/rNvpYJW>
 
@@ -99,7 +99,7 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 </div>
 ```
 
-![[_attachment/img/3094e7d8b3843d6bf1ea3bc2cdf02290_MD5.gif]]
+![](_attachment/img/3094e7d8b3843d6bf1ea3bc2cdf02290_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/abGqoqo>
 
@@ -122,7 +122,7 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 }
 ```
 
-![[_attachment/img/6e2e59888d621774d5c996ddfdc8e24a_MD5.gif]]
+![](_attachment/img/6e2e59888d621774d5c996ddfdc8e24a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/bGMLbzK>
 
@@ -140,13 +140,13 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 }
 ```
 
-![[_attachment/img/bd59d78b92c20a7ea09f3c6f003d863b_MD5.gif]]
+![](_attachment/img/bd59d78b92c20a7ea09f3c6f003d863b_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/zYjRYGv>
 
 在特定场景或环境之下，这种方式也适用于多行水平垂直居中，比如 Flex 容器没有足够空间致使 Flex 项目断行：
 
-![[_attachment/img/29ac6d30bd63e1a949309793ff1fa713_MD5.gif]]
+![](_attachment/img/29ac6d30bd63e1a949309793ff1fa713_MD5.gif)
 
 虽然使用一些 Hack 手段可以避免上图这样的现象出现，但这样的 Hack 手段会让 Web 布局失去一定的灵活性，在实际开发的过程中不建议这样使用。除非你能提前预判：
 
@@ -158,7 +158,7 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 }
 ```
 
-![[_attachment/img/a588978d2f807d71fab80ca980ad9d34_MD5.gif]]
+![](_attachment/img/a588978d2f807d71fab80ca980ad9d34_MD5.gif)
 
 > Demo: <https://codepen.io/airen/full/poVaoEM>
 
@@ -184,7 +184,7 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 
 在 Flexbox 布局中，你可以在 Flex 项目上设置 `margin` 的值为 `auto` 来控制 Flex 项目位置：
 
-![[_attachment/img/4ff17f04c8f199c1b4dc4326bd767195_MD5.png]]
+![](_attachment/img/4ff17f04c8f199c1b4dc4326bd767195_MD5.png)
 
 也就是说，如果你只是想控制单个 Flex 项目在 Flex 容器中水平垂直居中的话，使用 `margin:auto` 也是一种不错的选择：
 
@@ -198,29 +198,29 @@ Flexbox 是现代 Web 布局的主流技术之一，它提供了一种有效的�
 }
 ```
 
-![[_attachment/img/93e8eea0372ee49820624287e424dcd9_MD5.gif]]
+![](_attachment/img/93e8eea0372ee49820624287e424dcd9_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/JjvpjLy>
 
 你可以在 Flexbox 布局中使用不同的方式来实现水平垂直居中的效果，至于选择哪一种方案，可以根据实际情况来选择。如果你实在不知道如何选择，还可以借助浏览器调试工具来辅助你快速选择：
 
-![[_attachment/img/ed49f2a82718e972c9d79cd18570ec8f_MD5.png]]
+![](_attachment/img/ed49f2a82718e972c9d79cd18570ec8f_MD5.png)
 
 留个小作业，请使用 Flexbox 来实现 Logo 图标在其容器中水平垂直居中：
 
-![[_attachment/img/107582a3a7853a9c30e8b7c055a02639_MD5.png]]
+![](_attachment/img/107582a3a7853a9c30e8b7c055a02639_MD5.png)
 
 ## 等高布局
 
 Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高布局这样的效果：
 
-![[_attachment/img/5582839292653810deddaf4a3537257b_MD5.png]]
+![](_attachment/img/5582839292653810deddaf4a3537257b_MD5.png)
 
 如上图所示，右侧等高布局看起来总是要比左侧的不等高布局更舒服一些。虽然等高布局在 UI 上会令人感到更舒服，但在以往的布局技术中要实现等高布局还是有点麻烦的。
 
 主要原因是 **我们并不知道元素的高度是多少** ，即使知道了，如果给元素上直接设置一个 `height` 值，很有可能就会造成内容溢出容器，甚至是打破 Web 布局。那么，使用 Flexbox （包括后面要介绍的 Grid）布局技术，实现等高布局就会轻易地多，甚至可以说是没有任何难度可言。比如，我们要实现一个等高布局的卡片组件：
 
-![[_attachment/img/1e64e83a59cd4a357de299e58047f619_MD5.png]]
+![](_attachment/img/1e64e83a59cd4a357de299e58047f619_MD5.png)
 
 上图中的三张卡片排列在一起，它们：
 
@@ -230,7 +230,7 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 
 如果不采用 Flexbox 布局技术方案，当未给卡片设置一个最小高度时，往往实现的效果会像下图这样：
 
-![[_attachment/img/9c299753f3ff535f3de20cf12c950bf3_MD5.png]]
+![](_attachment/img/9c299753f3ff535f3de20cf12c950bf3_MD5.png)
 
 如果使用 Flexbox 布局技术，实现起来就很简单：
 
@@ -269,11 +269,11 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 
 在这个示例中，卡片 `.card` 和其容器 `.cards` 都是 Flex 容器，并且每张卡片的初始化尺寸是 `300px` （即 `flex-basis` 的值为 `300px`），而且容器 `.cards` 无法容纳所有卡片 `.card` 时，它会自动换行，并且最后一个卡片宽度变宽了，这是因为卡片 `.card` 设置了 `flex-grow:1` 。
 
-![[_attachment/img/aa2781fc05dcb6bc4cc0e294c52863c3_MD5.gif]]
+![](_attachment/img/aa2781fc05dcb6bc4cc0e294c52863c3_MD5.gif)
 
 你可能会感到好奇，为什么会这样，又将如何解决？接下来的内容中你会找到答案。我们回到等高布局中来，你可能已经发现了，只要告诉浏览器卡片容器 `.cads` 是一个 Flex 容器，那么所有卡片 `.card` 的高度就相等了，而且会以最高的那张卡片为主：
 
-![[_attachment/img/fba6efd22cb6602689cb1e407da04ecb_MD5.png]]
+![](_attachment/img/fba6efd22cb6602689cb1e407da04ecb_MD5.png)
 
 这是因为，Flex 容器 `.cards` 的 `align-items` 属性的默认值是 `stretch` ，如果没有调整 `align-items` 属性的值，那么该容器中的所有子元素（即 Flex 项目 `.card`）在侧轴方向就会被拉伸，并且等于侧轴尺寸。反之，就会得到一个不等高的卡片，比如，你在 `.cards` 上显式设置了 `align-items` 的值为 `flex-start` ，你将看到的效果如下：
 
@@ -283,13 +283,13 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 }
 ```
 
-![[_attachment/img/02839b862f43a62877a0a5c28fbbb12f_MD5.png]]
+![](_attachment/img/02839b862f43a62877a0a5c28fbbb12f_MD5.png)
 
 也就是说，**默认情况之下，Flex 容器中的所有 Flex 项目都是相等的** ，这也是 Flexbox 实现等高布局很容易的主要原因。
 
 虽然说，将 `.cards` 创建为一个 Flex 容器就实现了卡片等高的效果，但这个效果还不是设计师所期待的，比如第二和第三张卡，因卡片标题和描述内容比第一张卡片更少，造成按钮偏上，卡片底部留下一定的空白空间（设计师期望的是，所有卡片的按钮都能在底部对齐）：
 
-![[_attachment/img/d586b607ee27466bd0ae7a5ed16cfd77_MD5.png]]
+![](_attachment/img/d586b607ee27466bd0ae7a5ed16cfd77_MD5.png)
 
 要实现上图左侧的效果，在 Flexbox 布局中也有多种方式，比如我们这个示例，每张卡片 `.card` 本身就是一个 Flex 容器，你只需要将剩余空间分配给卡片中的 `p` 元素（描述文本）即可，就是将其 `flex-grow` 值设置为 `1` ：
 
@@ -299,7 +299,7 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 }
 ```
 
-![[_attachment/img/35f61e2fdd4cd109035c3f818a08ac3b_MD5.gif]]
+![](_attachment/img/35f61e2fdd4cd109035c3f818a08ac3b_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/VwxQLyj>
 
@@ -311,7 +311,7 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 }
 ```
 
-![[_attachment/img/4ee4768cc00053dca5c83720467ee3ce_MD5.gif]]
+![](_attachment/img/4ee4768cc00053dca5c83720467ee3ce_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/PoeQPVL>
 
@@ -331,19 +331,19 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 
 你将得到下面这样的效果：
 
-![[_attachment/img/9d840cb22ecb8506f330fb663074e110_MD5.png]]
+![](_attachment/img/9d840cb22ecb8506f330fb663074e110_MD5.png)
 
 小作业，请使用 Flexbox 布局技术，实现一个等高布局的 Web 页面：
 
-![[_attachment/img/23e776b09d470add6f33ff317d8d11b6_MD5.png]]
+![](_attachment/img/23e776b09d470add6f33ff317d8d11b6_MD5.png)
 
 简单化一下：
 
-![[_attachment/img/9640ec64aa451fb87c6838a66fa253c2_MD5.png]]
+![](_attachment/img/9640ec64aa451fb87c6838a66fa253c2_MD5.png)
 
 ## 均分列（等分列）布局
 
-![[_attachment/img/e4e03541fef938b488831edffcddfb39_MD5.png]]
+![](_attachment/img/e4e03541fef938b488831edffcddfb39_MD5.png)
 
 正如上图所示，在 Web 中均分列的布局效果很多，尤其是在移动端的开发当中，底部的菜单栏中的列大多都是均分的。
 
@@ -394,7 +394,7 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 
 如果换成 Flexbox 技术来构建的话，开发者就不需要去考虑这些参数了。比如下面这个移动端的底部工具栏的效果：
 
-![[_attachment/img/302b6748c59bbe8202682bcd41598672_MD5.png|400]]
+![](_attachment/img/302b6748c59bbe8202682bcd41598672_MD5.png|400)
 
 构建它的 HTML 结构并不复杂：
 
@@ -424,7 +424,7 @@ Web 设计师为了让页面或组件的 UI 更美观，往往会考虑像等高
 </style>
 ```
 
-![[_attachment/img/760d479814ebc5090b00c59c6823c3d1_MD5.png]]
+![](_attachment/img/760d479814ebc5090b00c59c6823c3d1_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/GRdQZYv>
 
@@ -440,7 +440,7 @@ flex-basis: 0%;
 
 而实际上，在这种情况下，`flex-shrink` 不再做任何事情，因为所有 Flex 项目现在的宽度都是 `0` ，并且正在增长以填补可用空间。只不过， Flex 容器有可能存在没有剩余空间的情况，甚至是有不足空间的情况存在。此时，`flex:1` 也就不能均分 Flex 容器的可用空间。
 
-![[_attachment/img/f76332fbbc8686dab16600432778a33a_MD5.png]]
+![](_attachment/img/f76332fbbc8686dab16600432778a33a_MD5.png)
 
 正如上图所示，最后一个 Flex 项目的宽度要更大，它的 `max-content` 都比其他 Flex 项目大（它有四个汉字宽）。
 
@@ -456,13 +456,13 @@ CSS 中它们的值为 `auto` 时，会被浏览器计算为 `0` 。但在 Flexb
 
 小作业，卡片等宽且等高：
 
-![[_attachment/img/a10f4acd17b6e603929a27571e406734_MD5.png]]
+![](_attachment/img/a10f4acd17b6e603929a27571e406734_MD5.png)
 
 ## 圣杯布局
 
 圣杯布局（Holy Grail Layout）是 Web 中典型的布局模式。它看上去像下图这样：
 
-![[_attachment/img/74f2afa380c2f1b59c72b3afaae3498d_MD5.png]]
+![](_attachment/img/74f2afa380c2f1b59c72b3afaae3498d_MD5.png)
 
 就上图而言，这就是一个非常普通的三列布局。对圣杯布局有一定了解的同学都应该知道，构建圣杯布局时，对 HTML 的结构是有一定的要求，即 **主内容为先** 。早期这样做，是让用户在 Web 页面加载缓慢时，就能先看到主内容。
 
@@ -505,7 +505,7 @@ CSS 中它们的值为 `auto` 时，会被浏览器计算为 `0` 。但在 Flexb
 
 我们来看一个真实的圣杯布局案例：
 
-![[_attachment/img/f3eb683934b4eb1687b71930c0a7eff3_MD5.png]]
+![](_attachment/img/f3eb683934b4eb1687b71930c0a7eff3_MD5.png)
 
 实现该页面，你可能需要的 HTML 结构如下：
 
@@ -541,7 +541,7 @@ CSS 中它们的值为 `auto` 时，会被浏览器计算为 `0` 。但在 Flexb
 
 在没有 CSS 加载的情况之下，你看到的圣杯布局会是下图这样：
 
-![[_attachment/img/897dabf75f802da8e510bf6e357a320a_MD5.png]]
+![](_attachment/img/897dabf75f802da8e510bf6e357a320a_MD5.png)
 
 > **注意，内容先行的原则** ！
 
@@ -610,7 +610,7 @@ footer {
 }
 ```
 
-![[_attachment/img/8c332d204f050548bd294b13411ada41_MD5.gif]]
+![](_attachment/img/8c332d204f050548bd294b13411ada41_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/YzLeRZx>
 
@@ -620,13 +620,13 @@ footer {
 - 侧边栏固定宽度；
 - 页头和页脚高度由内容决定。
 
-![[_attachment/img/2c3c70a8a9cb82821c4a6d01e745a0f1_MD5.png]]
+![](_attachment/img/2c3c70a8a9cb82821c4a6d01e745a0f1_MD5.png)
 
 ## Sticky Footer 布局
 
 首先用下图来解释什么是 Sticky Footer 布局:
 
-![[_attachment/img/0033915258e34a7982654c9b9e8f7502_MD5.png]]
+![](_attachment/img/0033915258e34a7982654c9b9e8f7502_MD5.png)
 
 页脚（Footer）的位置会随着页头（Header）和主内容（Content）高度而变化，但当页头和主内容内容较小，其高度总和小于浏览器视窗高度时，页脚要始终位于浏览器视窗底部。
 
@@ -684,7 +684,7 @@ main {
 }
 ```
 
-![[_attachment/img/e327d0129dce6ea63f6aadaa14abe0fa_MD5.gif]]
+![](_attachment/img/e327d0129dce6ea63f6aadaa14abe0fa_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/XWqZOao>
 
@@ -706,7 +706,7 @@ footer {
 }
 ```
 
-![[_attachment/img/14ca43eec7b7863c3ca80db8b6ad4b3a_MD5.gif]]
+![](_attachment/img/14ca43eec7b7863c3ca80db8b6ad4b3a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/RwyQvJG>
 
@@ -714,7 +714,7 @@ footer {
 
 百分百无滚动布局在 Web 中也是很常见的一种布局，比如下面这样的一个案例（这是一个真实的案例，2019 年双 11 主互动项目中的弹窗）：
 
-![[_attachment/img/559c2cab3c67bd7e850debeefd0bf7f8_MD5.png]]
+![](_attachment/img/559c2cab3c67bd7e850debeefd0bf7f8_MD5.png)
 
 **图中红色虚框中的内容是带有滚动的** 。因为容器的高度是固定的（`100vh`），内容很有可能会超过容器的高度。
 
@@ -732,7 +732,7 @@ footer {
 </modal>
 ```
 
-![[_attachment/img/4073de90c68a78b6036aa0e57e7b3f33_MD5.png]]
+![](_attachment/img/4073de90c68a78b6036aa0e57e7b3f33_MD5.png)
 
 很典型的一个 Flexbox 布局：
 
@@ -755,7 +755,7 @@ modal-content {
 
 看上去似乎没有问题，但实际上我们在 iOS 系统上触发了一个 Flexbox 的 Bug，就是在 **滚动容器上显示设置** **`overflow-y:scroll`** **，滚动依旧失效** 。造成这个 Bug 是因为我们上面的 CSS 代码触发了 Flex 项目的边缘情况。如果要避免这个 Bug 的出现，需要对结构做出一定的调整：
 
-![[_attachment/img/01907854806c0a4caf04c256d79fd496_MD5.png]]
+![](_attachment/img/01907854806c0a4caf04c256d79fd496_MD5.png)
 
 对应上图的 HTML 代码如下：
 
@@ -799,11 +799,11 @@ modal-content {
 }
 ```
 
-![[_attachment/img/c0bf7537a2e0d87839ddd6675010a645_MD5.png]]
+![](_attachment/img/c0bf7537a2e0d87839ddd6675010a645_MD5.png)
 
 来看一个具体 Demo 的效果：
 
-![[_attachment/img/964f7d86722e3c3b2b9818425196dcaa_MD5.gif]]
+![](_attachment/img/964f7d86722e3c3b2b9818425196dcaa_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/JjvpzPY>
 
@@ -811,13 +811,13 @@ modal-content {
 
 小作业，使用 Flexbox 构建一个弹窗（Modal）的布局效果：
 
-![[_attachment/img/7732f8b8bf2d3d06856a99c5f626110b_MD5.png]]
+![](_attachment/img/7732f8b8bf2d3d06856a99c5f626110b_MD5.png)
 
 ## 12 列网格布局
 
 12 列网格布局最早源于 [960gs 网格布局系统](https://960.gs/)，它和 CSS 原生的网格系统不是同一个东西。简单地说，960gs 就是将页面分成 12 列，有列宽和列间距，然后页面的布局划分到具体的列上面，如下图所示：
 
-![[_attachment/img/6d25254507e971055016d92a9619738d_MD5.png]]
+![](_attachment/img/6d25254507e971055016d92a9619738d_MD5.png)
 
 早期的 960gs 都是使用 CSS 的浮动（`float`）来构建的，不过现在很多 CSS 框（CSS Frameworks）中的网格系统都采用 Flexbox 来构建，比如 [Bootstrap 的网格系统](https://getbootstrap.com/docs/5.2/layout/grid/) 现在就是采用 Flexbox 布局构建的。
 
@@ -873,13 +873,13 @@ flex-item {
 }
 ```
 
-![[_attachment/img/a48ae75d9377f6e5032a614861da0f08_MD5.png]]
+![](_attachment/img/a48ae75d9377f6e5032a614861da0f08_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/qBYxwXK>
 
 当然，你也可以根据实际需要，给 Flex 项目指定明确的值，即给 Flex 项目的 `flex-basis` 初始化一个值，同时 `flex-grow` 和 `flex-shrink` 都重置为 `0` ，告诉浏览器，该 Flex 项目不能扩展和收缩：
 
-![[_attachment/img/b5c0ea2b9a2d7ff89f57b009ea3082b9_MD5.png]]
+![](_attachment/img/b5c0ea2b9a2d7ff89f57b009ea3082b9_MD5.png)
 
 比如上图所示：
 
@@ -973,15 +973,15 @@ flex-item {
 
 九宫格简单地说就是一个 `3 × 3` 的网格（三行三列），它也常用于 Web 布局中，而且你可以基于它演变出很多种不同的布局风格：
 
-![[_attachment/img/28108b702aaf2bd3721d7b86316cf6c7_MD5.png]]
+![](_attachment/img/28108b702aaf2bd3721d7b86316cf6c7_MD5.png)
 
 在 Web 布局中，我们把这些布局效果都称为 **九宫格布局** 。它们常被运用于 Web 中展示图片（它有自己的专业术语，称之为 **图片墙** **Image Galler** ）。这样的布局对于图片展示来说，可以更好地突出需要展示的图片。
 
-![[_attachment/img/d1562827286575169d62c597b9421e67_MD5.png]]
+![](_attachment/img/d1562827286575169d62c597b9421e67_MD5.png)
 
 虽然使用 Flexbox 可以构建一个网格布局，但 Flexbox 布局毕竟是一种 **一维布局** ，用它来构建上图这样的九宫格布局效果，还是有一定的局限性，需要通过 HTML 结构强力配合才能实现。比如下面这个示例：
 
-![[_attachment/img/a83a25047ef7d69dcfa2ea4b768b4d19_MD5.png]]
+![](_attachment/img/a83a25047ef7d69dcfa2ea4b768b4d19_MD5.png)
 
 实现上图的布局效果，所需要的 HTML 结构可能会像下面这样：
 
@@ -1074,13 +1074,13 @@ flex-item {
 
 就我们这个示例，是 `2` 列，列间距是 `1rem` ，所以 `flex-basis` 的初始值设置为 `calc((100% - 1rem) / 2 )` 。最终得到的效果如下：
 
-![[_attachment/img/abac6e5fa3493cb3a062818af55b4c79_MD5.png]]
+![](_attachment/img/abac6e5fa3493cb3a062818af55b4c79_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/yLjKzgp>
 
 你甚至可以使用 12 列网格布局的方式来完成九宫格的布局。但很多时候九宫格布局中的每个元素 （Flex 项目）具有一定的宽高比：
 
-![[_attachment/img/9d1eda868b7e6aa38c4e850ac83f2327_MD5.png]]
+![](_attachment/img/9d1eda868b7e6aa38c4e850ac83f2327_MD5.png)
 
 比如上图的布局效果。它是一个由几行组成的布局，而且每行的两张图片都有固定的宽高比。每行的两张图片有相同的高度，并且会填满整行（我们知道每行就是一个 Flex 容器）。图片的宽高比从 `16:9` 到 `3:2` 不等。
 
@@ -1095,7 +1095,7 @@ flex-item {
 
 这样你就可以得到一个宽高比是 `16:9` 的盒子，浏览器会根据元素的 `width` 和宽高比 `aspect-ratio` 的值计算出 `height` 的值：
 
-![[_attachment/img/d2d1355895707841c15cfaa8f2c289fd_MD5.png]]
+![](_attachment/img/d2d1355895707841c15cfaa8f2c289fd_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/oNdqobL>
 
@@ -1142,11 +1142,11 @@ width = height × aspect-ratio = 225 x (16 ÷ 9) = 400
 </style>
 ```
 
-![[_attachment/img/c992dd834cfac1327e7f05d364697ea9_MD5.png]]
+![](_attachment/img/c992dd834cfac1327e7f05d364697ea9_MD5.png)
 
 正如你所见，两个 Flex 项目的宽度相等，但高度不同。你可能会认为将 Flex 项目的高度 `height` 设置为 `100%` 即可，事实并非如你所愿，因为 CSS 的 `height` 取 `%` （百分比）值时，如果父元素（Flex 容器）未显式设置 `height` 的值，那么 Flex 项目即使设置 `height:100%` ，浏览器计算出来的也会是 `0` 。
 
-![[_attachment/img/9bff18c03e51de330746c47a8da72927_MD5.gif]]
+![](_attachment/img/9bff18c03e51de330746c47a8da72927_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/eYrMeWq>
 
@@ -1156,7 +1156,7 @@ width = height × aspect-ratio = 225 x (16 ÷ 9) = 400
 Flex 容器的 aspect-ratio = (4 ÷ 3) + (2 ÷ 3) = 6 ÷ 3 = 6 : 3
 ```
 
-![[_attachment/img/6c50b730700d426aaf63b67244400281_MD5.png]]
+![](_attachment/img/6c50b730700d426aaf63b67244400281_MD5.png)
 
 ```html
 <div class="container grid-row">
@@ -1191,7 +1191,7 @@ Flex 容器的 aspect-ratio = (4 ÷ 3) + (2 ÷ 3) = 6 ÷ 3 = 6 : 3
 
 Flex 容器设置了 `aspect-ratio` 值之后，浏览器就可以计算出它的高度值，此时在 Flex 项目上显式设置 `height: 100%` 才有了意义，保证了同一行的 Flex 项目是相等的，宽度根据各自的 `aspect-ratio` 计算得到。这个时候，你看到的效果如下：
 
-![[_attachment/img/9040ad269718dc11a1871bf46c593b78_MD5.gif]]
+![](_attachment/img/9040ad269718dc11a1871bf46c593b78_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/WNJzdYw>
 
@@ -1311,19 +1311,19 @@ Flex 容器设置了 `aspect-ratio` 值之后，浏览器就可以计算出它�
 }
 ```
 
-![[_attachment/img/09bec242326d9ed808761d1571646c39_MD5.png]]
+![](_attachment/img/09bec242326d9ed808761d1571646c39_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/OJZvQop>
 
 添点料进去（加上 `<img>`），那么具有宽高比的图片墙（九宫格）布局效果就有了：
 
-![[_attachment/img/fca1c9446002ce5f4e954732aca35743_MD5.png]]
+![](_attachment/img/fca1c9446002ce5f4e954732aca35743_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/QWrmmGZ>
 
 小作业，请使用 Flexbox 和 `aspect-ratio` 构建下图这样的布局效果：
 
-![[_attachment/img/9b6156e11acaf02c769a5593f715c098_MD5.png]]
+![](_attachment/img/9b6156e11acaf02c769a5593f715c098_MD5.png)
 
 ## 具有不同对齐方式的导航栏
 
@@ -1331,13 +1331,13 @@ Flex 容器设置了 `aspect-ratio` 值之后，浏览器就可以计算出它�
 
 就导航栏对齐方式来说，很多同学都认为 “使用 Flexbox 的对齐方式” 就足以搞定，事实上呢？并非如此。虽然 Flexbox 的对齐方式很强大，但有些场景我们是不能使用 Flexbox 来布局，或者说使用 Flexbox 布局并不是最合适的。比如下图中，红色框中的导航栏的对齐效果，如果使用 Flexbox 就不太适合：
 
-![[_attachment/img/34b3d30eedafff37413fb3ff1dd978ff_MD5.png]]
+![](_attachment/img/34b3d30eedafff37413fb3ff1dd978ff_MD5.png)
 
 正如你看到的，上图中红色框是不太适合使用 Flexbox 来布局，但蓝色框中的布局效果，使用 Flexbox 就比较适合。
 
 以下图中的导航栏为例：
 
-![[_attachment/img/c587d341312849dc505424633ea3e581_MD5.png]]
+![](_attachment/img/c587d341312849dc505424633ea3e581_MD5.png)
 
 很常见的几种对齐方式：
 
@@ -1393,7 +1393,7 @@ Flex 容器设置了 `aspect-ratio` 值之后，浏览器就可以计算出它�
 
 Flexbox 布局最大的优势之一就是使用该技术构建的布局灵活性，适配性很强。Flex 项目的大小能很好适应它的容器（Flex 容器）。比如下面这个两列布局，左侧栏固定宽度，主内容列能随着它的父容器大小自适应，即父容器变大，它变宽；父容器小，它变窄：
 
-![[_attachment/img/c63efd693b9a7de6e0f6c358abda6e10_MD5.gif]]
+![](_attachment/img/c63efd693b9a7de6e0f6c358abda6e10_MD5.gif)
 
 ```html
 <div class="container">
@@ -1454,7 +1454,7 @@ main {
 }
 ```
 
-![[_attachment/img/76cd26b73348535b06068b13a4f9c6a4_MD5.gif]]
+![](_attachment/img/76cd26b73348535b06068b13a4f9c6a4_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/zYjWaZJ>
 
@@ -1462,7 +1462,7 @@ main {
 
 再来看一个关于 `text-overflow: ellipsis` 在 Flexbox 布局中的实例。比如下面这样的一个场景，在我们平时的开发中也是很常见的：
 
-![[_attachment/img/6531e94abe4b14835ce94b4d74aca2d8_MD5.png]]
+![](_attachment/img/6531e94abe4b14835ce94b4d74aca2d8_MD5.png)
 
 设计师期望的是“徽标过多时，最好提供省略号指示器，并不是直接截断或断行”。对于开发者来说，可能会使用像下面这样的一个 HTML 结构来构建徽标列表：
 
@@ -1488,7 +1488,7 @@ main {
 
 这样的处理方式，最终在浏览器中呈现出来的效果是“溢出容器的徽标被裁剪了”：
 
-![[_attachment/img/02f00892e93e53e3eb3d67a733fec81c_MD5.png]]
+![](_attachment/img/02f00892e93e53e3eb3d67a733fec81c_MD5.png)
 
 如果把 `text-overflow` 相关的样式设置到 `<li>` 标签上：
 
@@ -1502,7 +1502,7 @@ main {
 
 虽然不会像上面一样，把溢出的徽标裁剪掉，但这样做的话，虽然能在容器空间中将徽标罗列出来，但会在每个徽标上添加省略号的指示器，也不符合预期效果：
 
-![[_attachment/img/a672a3aad60565479ed0adfe87f2989c_MD5.png]]
+![](_attachment/img/a672a3aad60565479ed0adfe87f2989c_MD5.png)
 
 如果 `li` 元素是一个 Flex 容器的话，达到上图效果还需要额外添加一个标签来包裹文本：
 
@@ -1516,7 +1516,7 @@ main {
 
 不过，在 CSS 中还是有方案可以达到设计师预期想要的效果的：
 
-![[_attachment/img/1fab19ba0fea93af94c783794bf20768_MD5.png]]
+![](_attachment/img/1fab19ba0fea93af94c783794bf20768_MD5.png)
 
 达到上图的效果，在 CSS 中有两种方式可以实现，先来看第一种，即 **使用 `line-clamp` 替代 `text-overflow`** ：
 
@@ -1552,4 +1552,4 @@ main {
 
 小作业，请使用 Flexbox 和 文本截取等功能，构建下图这样的一个布局效果，列表项标题较长时（文本多）会被截断，并且提供省略号指示符（`…`），反之则不会：
 
-![[_attachment/img/57becb7cc72142d72725b0116035ae13_MD5.png]]
+![](_attachment/img/57becb7cc72142d72725b0116035ae13_MD5.png)

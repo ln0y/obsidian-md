@@ -15,7 +15,7 @@ update: 2023-02-20-星期一 11:40:30
 
 来看一个简单地示例，假设你从设计师手上拿到这样的一张设计稿：
 
-![[_attachment/img/d42bd805bfbf65fe87861827e1dd927f_MD5.png]]
+![](_attachment/img/d42bd805bfbf65fe87861827e1dd927f_MD5.png)
 
 拿示例中的 “View Themes” 按钮为例吧。大部分 Web 开发者拿到设计图，就会测量该按钮的几个视觉重要参数，比如 `width` 、`height` 和 `padding` 之类（如上图所示），然后就会根据设计稿所提供的模板尺寸进行开发：
 
@@ -35,7 +35,7 @@ button {
 
 默认情况之下， Web 开发者还原出来的结果都符合设计稿需求，但突然说输出给按钮的内容不是设计稿模板提供的内容，或者说按钮字号稍微调整。还原出来的结果就不一定符合设计稿的需求了：
 
-![[_attachment/img/c7fdf5914d40405d66e58b0a268b52f4_MD5.png]]
+![](_attachment/img/c7fdf5914d40405d66e58b0a268b52f4_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/dyKENyW>
 
@@ -51,7 +51,7 @@ button {
 }
 ```
 
-![[_attachment/img/daa3278c5089ca6536e9a8e14ce26401_MD5.png]]
+![](_attachment/img/daa3278c5089ca6536e9a8e14ce26401_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/KKeLazj>
 
@@ -65,7 +65,7 @@ button {
 
 就 Web 布局来说，它是继响应式 Web 设计之后又一个布局技术转折点：
 
-![[_attachment/img/6e8c852d3e15c32b9a38a20f166afc91_MD5.png]]
+![](_attachment/img/6e8c852d3e15c32b9a38a20f166afc91_MD5.png)
 
 自从 Web 诞生以来，Web 开发者一直都在使用大量的 Hack 来完成所有与 Web 布局相关的事情，比如使用浮动（`float`）、引用外部第三方 CSS 框架（CSS Frameworks）和库（比如 Bootstrap）。而“内在 Web 设计”可以在“用最少的代码和复杂 Web 设计”之间取得完美的平衡。
 
@@ -79,7 +79,7 @@ button {
 
 换句话说，每一种设计都有自己的关键原则，内在 Web 设计也是如此。Jen 在她的分享中说“内在 Web 设计具有六个关键原则”：
 
-![[_attachment/img/19864219b338cdc97823eac4f9567a29_MD5.png]]
+![](_attachment/img/19864219b338cdc97823eac4f9567a29_MD5.png)
 
 即：
 
@@ -112,11 +112,11 @@ button {
 
 在 CSS 的世界中，任何一个元素都会被视作为一个盒子，就像我们的柜子一样：
 
-![[_attachment/img/23ac75e91bf3273299a542b2e55776f2_MD5.png]]
+![](_attachment/img/23ac75e91bf3273299a542b2e55776f2_MD5.png)
 
 每一个盒子就是一个框，框的大小是由 CSS 的盒模型相关属性决定的。随着 CSS 逻辑属性的出现，CSS 的盒模型也可以分为 物理盒模型 和 逻辑盒模型，两种盒模型都有其对应的 CSS 属性：
 
-![[_attachment/img/f1aff364474d6eccbbfb0e34d28e63df_MD5.png]]
+![](_attachment/img/f1aff364474d6eccbbfb0e34d28e63df_MD5.png)
 
 抛开盒模型中其他属性不说（比如 `border` 和 `padding`，它们也会影响框的大小），其中 `width` 和 `height`（物理属性）；`inline-size` 和 `block-size` （逻辑属性）是用来设置框大小最直接的 CSS 属性。
 
@@ -156,7 +156,7 @@ button {
 }
 ```
 
-![[_attachment/img/d8304dfdf027afdf07e694ddd5e266fb_MD5.gif]]
+![](_attachment/img/d8304dfdf027afdf07e694ddd5e266fb_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/qBKGrEK>
 
@@ -175,11 +175,11 @@ button {
 
 我在 Twitter 上看到 [@stefanjudis](https://twitter.com/stefanjudis) 录制了 [一个视频](https://twitter.com/stefanjudis/status/1329345425640464384)，来展示 `min-content` 、`max-content` 和 `fit-content` 之间的差异，我觉得非常形象：
 
-![[_attachment/img/78b20dcd070989c15c81886f33cfd7df_MD5.gif]]
+![](_attachment/img/78b20dcd070989c15c81886f33cfd7df_MD5.gif)
 
 我们通过下面这个示例来向大家阐述内在尺寸 `min-content` 、`max-content` 和 `fit-content` 之间的差异：
 
-![[_attachment/img/a333e60bdba9f5f50fefa42944832c7a_MD5.gif]]
+![](_attachment/img/a333e60bdba9f5f50fefa42944832c7a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/jOKoBMM>
 
@@ -201,7 +201,7 @@ button {
 
 当 `div` 没有显式设置 `width` 时，它通常会水平扩展到容器允许的宽度。在垂直方向上，它可以根据自己的内容进行折叠。比如下图所示：
 
-![[_attachment/img/9d47b0ba5b2059a4180b1ef8a817ff8c_MD5.png]]
+![](_attachment/img/9d47b0ba5b2059a4180b1ef8a817ff8c_MD5.png)
 
 上图就是 `div` 块元素默认渲染行为。 如果在 `div` 元素上运用 `min-content`：
 
@@ -213,11 +213,11 @@ button {
 
 容器宽度会成为最窄的宽度，其大小适合最宽的子元素。在这个示例中，是 `img` 元素的宽度：
 
-![[_attachment/img/236934a021c3522404ba9dd632ddd674_MD5.png]]
+![](_attachment/img/236934a021c3522404ba9dd632ddd674_MD5.png)
 
 如果我们把 `img` 元素删除，那么宽度将是最长英文单词的宽度和把英文这个段落删除，只留下中文：
 
-![[_attachment/img/6e1ce66160fbadcf7157ede84d9dceb1_MD5.png]]
+![](_attachment/img/6e1ce66160fbadcf7157ede84d9dceb1_MD5.png)
 
 如果把 `div` 的宽度设置为:
 
@@ -237,11 +237,11 @@ p {
 
 `div` 中的内容不会被分解成更小的块，而是完全不考虑容器的大小，直接溢出容器（除非内容总宽度不足容器的宽度之外）：
 
-![[_attachment/img/9ef56e9e8707025f4eb6939fad43cd15_MD5.png]]
+![](_attachment/img/9ef56e9e8707025f4eb6939fad43cd15_MD5.png)
 
 如果把 `div` 的 `width` 设置为 `fit-content`，将会试图容纳最宽的内容，同时仍然尊重它的容器：
 
-![[_attachment/img/5462263ae6261374102c25cc26cae3ba_MD5.png]]
+![](_attachment/img/5462263ae6261374102c25cc26cae3ba_MD5.png)
 
 如果上面这个示例过于复杂，我们来看一个简单示例，分别给 `h1` 的 `width` 设置了 `auto`、`min-content` 、`max-content` 和 `fit-content` ：
 
@@ -263,13 +263,13 @@ h1[data-width='fit-content'] {
 }
 ```
 
-![[_attachment/img/3d8ad023b6625b2619acc71c8e6b164a_MD5.gif]]
+![](_attachment/img/3d8ad023b6625b2619acc71c8e6b164a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/mdKYWjy>
 
 回过头来说，元素 `width` 取值 `<length>` 、`<percentage>` 、`auto` 、`min-content` 和 `max-content` 对于大家来说都易于理解，但当取值为 `fit-content` 时多少会令大家感到困惑。对于 `fit-content` ，它会检查可用空间（**`fill-available`**）与 `max-content` 和 `min-content` 大小，最后决定 `width` 取值：
 
-![[_attachment/img/4a1eae588736fbd1b892f0156204dba6_MD5.png]]
+![](_attachment/img/4a1eae588736fbd1b892f0156204dba6_MD5.png)
 
 另外，从本质上讲，`fit-content` 是以下内容的简写模式：
 
@@ -288,7 +288,7 @@ h1[data-width='fit-content'] {
 
 也就是说，在 CSS 中，我们现在有两种设置大小的方式：**内部尺寸设置** 和 **外部尺寸设置** 。后者是最常见的，这意味着使用固定的元素宽度或高度值。这样做有一个极大的缺陷，**内容断行或内容溢出** ：
 
-![[_attachment/img/88f9dc99c02175463692d53c01b5175d_MD5.png]]
+![](_attachment/img/88f9dc99c02175463692d53c01b5175d_MD5.png)
 
 很多时候我们并不知道容器的内容会是什么，所占宽度是多少，这就会造成上图的现象。所以我们设置元素尺寸大小时，使用 `min-content`、`max-content` 和 `fit-content` 就可以让元素的大小取决于它的内容大小。避免内容溢出或断行等现象。
 
@@ -296,23 +296,23 @@ h1[data-width='fit-content'] {
 
 当 Flex 容器有足够空间时容纳所有 Flex 项目（Flex 项目未显式设置具体的宽度值），那么 Flex 项目的 `flex-basis` 值为 `max-content` 和 `fit-content` 的效果等同于 `auto` ：
 
-![[_attachment/img/f5facbcde3110741c699b89815bb9468_MD5.png]]
+![](_attachment/img/f5facbcde3110741c699b89815bb9468_MD5.png)
 
 当 Flex 容器空间不足时，由于 `flex-shrink` 的默认值为 `1` ，Flex 项目会按照 `flex-shrink` 的[[flex 计算（二）|计算公式]]对 Flex 项目的 `flex-basis` 进行计算，直到 Flex 项目的 `flex-basis` 计算值等于 `min-content` 为止（不再进行收缩）：
 
-![[_attachment/img/62f51a4ab5ced1bebf7a72344f2cdf10_MD5.png]]
+![](_attachment/img/62f51a4ab5ced1bebf7a72344f2cdf10_MD5.png)
 
 只不过要将 `flex-shrink` 的值由 `1` 变成 `0` ，让所有 Flex 项目不可收缩，那么 `flex-basis` 取值 `max-content` 时就会和 Flex 容器有足够的空间表现一样，不同的是 Flex 项目会溢出 Flex 容器：
 
-![[_attachment/img/cc8a5376cc67a0cabd7a0a8234a06fd3_MD5.gif]]
+![](_attachment/img/cc8a5376cc67a0cabd7a0a8234a06fd3_MD5.gif)
 
 `flex-basis` 取值为 `min-content` 时，不管 Flex 容器是否有足够空间容纳 Flex 项目，它们的表现都是相似的，都以最长字符串的单词计算值为最终值：
 
-![[_attachment/img/ba9d76fccd8ac0f67c1c77fa94059f80_MD5.png]]
+![](_attachment/img/ba9d76fccd8ac0f67c1c77fa94059f80_MD5.png)
 
 `flex-basis` 取值为 `min-content` 时，Flex 项目的 `flex-shrink` 的值不管是不是 `1` ，它始终以 `min-content` 为计算值。同样的，Flex 容器足够小，小到无法容纳所有 Flex 项目的 `min-content` 计算值总和时，Flex 项目会溢出 Flex 容器：
 
-![[_attachment/img/9295d2ef0cdcaf8ee49e9f889fbea71b_MD5.gif]]
+![](_attachment/img/9295d2ef0cdcaf8ee49e9f889fbea71b_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/eYKaXEp>
 
@@ -342,17 +342,17 @@ h1[data-width='fit-content'] {
 
 按照对 `auto` 的一般理解，当 `grid-template-columns` 在设置列网格轨道尺寸的值为 `auto` 时，每列的宽度应该是所在列中网格项目内容最多的尺寸。应该内容有多长，列网格轨道尺寸就有多大，相当于 `max-content` ：
 
-![[_attachment/img/f1caab8f3ce74a0aac8e48be80e036ba_MD5.gif]]
+![](_attachment/img/f1caab8f3ce74a0aac8e48be80e036ba_MD5.gif)
 
 需要记住的是，**当网格项目内容相同时，那么** **`auto`** **和** **`1fr`** **具有相同的效果，即平均占用网格容器可用空间。**
 
 就上例而言，如果将所有列网格轨道的尺寸都换成 `min-content` ，它最终的尺寸也像是 Flexbox 布局一样，以最长字符串长度为最终长度：
 
-![[_attachment/img/0d17083f5b99349b1f04fcd1e18dfb25_MD5.png]]
+![](_attachment/img/0d17083f5b99349b1f04fcd1e18dfb25_MD5.png)
 
 当网格列轨道尺寸都设置为 `max-content` 时，要是网格容器空间小于所有网格项目最大尺寸（`max-content`）总和，网格项目会溢出网格容器：
 
-![[_attachment/img/de9a0c4d451f43a4a9d447eda6754f12_MD5.png]]
+![](_attachment/img/de9a0c4d451f43a4a9d447eda6754f12_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/wvXbZmM>
 
@@ -360,7 +360,7 @@ h1[data-width='fit-content'] {
 
 正如前面 [[grid 函数（四）]] 中所述，在 `minmax()` 函数中的最小值和最大值都设置 `min-content` ，也更好地说明了 `min-content` 和 `max-content` 的差异：
 
-![[_attachment/img/a57e57a1b9a87031c7c54f2bf266d315_MD5.gif]]
+![](_attachment/img/a57e57a1b9a87031c7c54f2bf266d315_MD5.gif)
 
 > Demo 地址： <https://codepen.io/hkdc/full/EXRjpJ>
 
@@ -376,13 +376,13 @@ img {
 
 那么当网格轨道的尺寸被设置为 `min-content` 时，那么 `img` 会被视为 `width: 0` ，造成图片不可见：
 
-![[_attachment/img/cb8c2691724e96c4490cf125310eec76_MD5.gif]]
+![](_attachment/img/cb8c2691724e96c4490cf125310eec76_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/NWzVZpe>
 
 避免这种现象出现，最好的办法是使用 `minmax()` 函数，并且将该函数的 `MIN` 值设置一个具体的值，比如 `100px` ，然后将 `MAX` 值设置为 `min-content` ：
 
-![[_attachment/img/f1094454aee92f9118e47adb813549e1_MD5.gif]]
+![](_attachment/img/f1094454aee92f9118e47adb813549e1_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/eYKawep>
 
@@ -443,13 +443,13 @@ figure {
 
 如此一来，如果图像的宽度非常大，它也不会超过视窗宽度：
 
-![[_attachment/img/c63e856bb08a6c909fea944b626766d2_MD5.png]]
+![](_attachment/img/c63e856bb08a6c909fea944b626766d2_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/ZERNdjQ>
 
 接着看一个带有下划线的标题示例：
 
-![[_attachment/img/7da440ecc12a08c93c1d25787ef7bf17_MD5.png]]
+![](_attachment/img/7da440ecc12a08c93c1d25787ef7bf17_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/BaVgoar>
 
@@ -498,13 +498,13 @@ header {
 }
 ```
 
-![[_attachment/img/e9e8146dca865de1568996b792374c40_MD5.png]]
+![](_attachment/img/e9e8146dca865de1568996b792374c40_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/QWxXjKY>
 
 接着来看一个 Todo List App 页面的布局：
 
-![[_attachment/img/e051dfd894b01a259dd870a70d77e135_MD5.png]]
+![](_attachment/img/e051dfd894b01a259dd870a70d77e135_MD5.png)
 
 我们可以使用 CSS Grid 来构建该页面的布局：
 
@@ -515,7 +515,7 @@ header {
 }
 ```
 
-![[_attachment/img/5f7591e8204a8f590b80f9d122ab5bf7_MD5.png]]
+![](_attachment/img/5f7591e8204a8f590b80f9d122ab5bf7_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/WNyqyxj>
 
@@ -536,17 +536,17 @@ header {
 }
 ```
 
-![[_attachment/img/9b0d3f333c269b39317acd22fbed3fb7_MD5.png]]
+![](_attachment/img/9b0d3f333c269b39317acd22fbed3fb7_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/WNyqKvK>
 
 在顶部和底部使用 `min-content` ，那么顶部和底部的高度就不会超过它们各自的内容所占高度！基于该原理，Web 中很多应用程序都可以采用相似的布局技术，比如市面上的一些聊天应用（如微信）：
 
-![[_attachment/img/180ff6a7b345d640c6360b151b415699_MD5.png]]
+![](_attachment/img/180ff6a7b345d640c6360b151b415699_MD5.png)
 
 拿其中一个为例：
 
-![[_attachment/img/6b57cd2367601e97c1abce3d2eec7099_MD5.png]]
+![](_attachment/img/6b57cd2367601e97c1abce3d2eec7099_MD5.png)
 
 构建上图，你可能会需要下面这样的一个 HTML 结构：
 
@@ -584,7 +584,7 @@ header {
 
 同样使用 CSS Grid 来构建布局，我们可以像下图这样来定义网格列轨道和行轨道：
 
-![[_attachment/img/6c9c8989d43b5cf8c6cbe0bea1abc5ad_MD5.png]]
+![](_attachment/img/6c9c8989d43b5cf8c6cbe0bea1abc5ad_MD5.png)
 
 ```css
 .chat {
@@ -620,7 +620,7 @@ main {
 
 初步结果出来了：
 
-![[_attachment/img/117b73c88ca20281e089b06782da0725_MD5.png]]
+![](_attachment/img/117b73c88ca20281e089b06782da0725_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/KKejxRg>
 
@@ -628,7 +628,7 @@ main {
 
 最后再来看一个内在尺寸的用例。下图这种英雄（Hero）区域的设计在 Web 页面上很常见：
 
-![[_attachment/img/543ac0576e4617e5404cab2f09e7d5e3_MD5.png]]
+![](_attachment/img/543ac0576e4617e5404cab2f09e7d5e3_MD5.png)
 
 上图虚线框框起来的部分包含一个“标题”和“描述文本”。如果设计师期望“**描述文本的宽度不要超过标题的宽度**”。以往都是将“标题”和“描述文本”设置同一个宽度值，但这样做有着明显的缺陷，因为内容是动态的，很有可能输出的标题内容宽度会超出所设置的宽度，造成标题断行。严重的甚至会影响设计的美观，这估计是设计师无法接受的。为了满足设计的需求，我想也有不少同学会借助 JavaScript 脚本来实现该设计需求。
 
@@ -657,7 +657,7 @@ main {
 }
 ```
 
-![[_attachment/img/2865e47cb03fcea6e4a3d132998e1a60_MD5.png]]
+![](_attachment/img/2865e47cb03fcea6e4a3d132998e1a60_MD5.png)
 
 看上去很完美了，但在移动端还是要对标题 `.hero__title` 的 `width` 做相应处理的，不然会让页面出现水平滚动条。为此，你可以考虑使用 CSS 媒体查询，调整 `.hero__title` 的 `width` 值，比如：
 
@@ -669,7 +669,7 @@ main {
 }
 ```
 
-![[_attachment/img/b01195610b34989fbea9596b639f12d5_MD5.gif]]
+![](_attachment/img/b01195610b34989fbea9596b639f12d5_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/KKeOMVG>
 
@@ -689,11 +689,11 @@ img {
 
 它能满足大部分的场景。但有的时候会因为图片尺寸小于容器尺寸，造成图片拉伸扭曲：
 
-![[_attachment/img/7cf0a9000a450e4a986dccf449ffb507_MD5.png]]
+![](_attachment/img/7cf0a9000a450e4a986dccf449ffb507_MD5.png)
 
 其实，如果希望做得更好，我们应该利用更现代的 Web 技术来处理图片的适配处理。比如 `img` 图片元素，它新增了 `object-fit` 属性设置 `img` 图片样式：
 
-![[_attachment/img/fc72d6e786611f72e88db4eece04f5c5_MD5.png]]
+![](_attachment/img/fc72d6e786611f72e88db4eece04f5c5_MD5.png)
 
 对于背景图片，也有一个相似的属性 `background-size` ：
 
@@ -701,7 +701,7 @@ img {
 
 大家需要注意的是，`background-size` 、`object-fit` 包括从未介绍过的 `mask-size` 取 `cover` 和 `contain` 值时，它的计算都是复杂的。但是为了满足大家的好奇心，我把 `cover` 和 `contain` 计算所涉及到的公式告诉大家。就拿 `background-size` 为例吧：
 
-![[_attachment/img/39027c6be0f7e524dd9074da29a4046d_MD5.png]]
+![](_attachment/img/39027c6be0f7e524dd9074da29a4046d_MD5.png)
 
 `background-size` 取值为 `cover` 时，背景图片的尺寸计算：
 
@@ -726,7 +726,7 @@ if (Rimage ≥ Rcontainer) {
 
 再来看 `background-size` 取值为 `contain` 的效果：
 
-![[_attachment/img/4ea5c4e832e61d8da8f0befd8057f1ae_MD5.png]]
+![](_attachment/img/4ea5c4e832e61d8da8f0befd8057f1ae_MD5.png)
 
 它和 `cover` 是惊人的相似，从计算来讲，`contain` 的逻辑和 `cover` 刚好相反：
 
@@ -755,7 +755,7 @@ if (Rimage ≥ Rcontainer) {
 | **`Rimage ≥ Rcontainer`** | ` H' = Hcontainer;``W' = H' x Rimage = Hcontainer x Rimage ` | ` W' = Wcontainer;``H' = W' ÷ Rimage = Wcontainer ÷ Rimage ` | 背景图片是横屏的，`width > height` |
 | **`Rimage ≤ Rcontainer`** | ` W' = Wcontainer;``H' = W' ÷ Rimage = Wcontainer ÷ Rimage ` | ` H' = Hcontainer;``W' = H' x Rimage = Hcontainer x Rimage ` | 背景图片是竖屏的，`width < height` |
 
-![[_attachment/img/61d591839688a30ea3f9e0d9296e34e0_MD5.gif]]
+![](_attachment/img/61d591839688a30ea3f9e0d9296e34e0_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/MWXNjGb>
 
@@ -763,7 +763,7 @@ if (Rimage ≥ Rcontainer) {
 
 除了在 CSS 方面为图片适配处理提供了更多属性之外， HTML 也有一定的革新，比如 `<img>` 标签新增了 `srcset` 、`sizes` 等新属性，另外还新增了 `<picture>` 标签元素。让 Web 开发者有了更多的选择：
 
-![[_attachment/img/7f4744f7f07bc6d490fcb5cd76cba5f1_MD5.png]]
+![](_attachment/img/7f4744f7f07bc6d490fcb5cd76cba5f1_MD5.png)
 
 > **注意，有关于 `<img>` 的 `srcset` 和 `sizes` 特性以及 `<picture>` 不在这里做过多阐述。感兴趣的同学，可以自己搜索相应关键词进行扩展阅读！**
 
@@ -771,7 +771,7 @@ if (Rimage ≥ Rcontainer) {
 
 使用一个示例来阐述 IWD 设计中为什么还可以使用固定尺寸的图片，以及它和 RWD 中灵活的图片技术差异。
 
-![[_attachment/img/65b4ef9c9259f5528e1cc624858c89ed_MD5.png]]
+![](_attachment/img/65b4ef9c9259f5528e1cc624858c89ed_MD5.png)
 
 就我个人经验来看，实现上面页头的效果，对于 Logo 图，基本上是在 Logo 外套一个标签元素，并且在该元素上显式设置具体的宽高值，比如：
 
@@ -841,7 +841,7 @@ header {
 
 你可以尝试一下，不管 Logo 尺寸怎么变化，Web 开发者都不需要去做额外的事情，整个导般布局中的 Logo 随时都可以符合设计师所需要的要求：
 
-![[_attachment/img/768b9df9c4cd9655a8876a0a5c239302_MD5.gif]]
+![](_attachment/img/768b9df9c4cd9655a8876a0a5c239302_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ExRqgOo>
 
@@ -861,13 +861,13 @@ header {
 
 这是 CSS Grid 布局技术中最为典型的布局之一。比如下面所示的效果，没有依赖任何 CSS 媒体查询特性，也能让每张卡片的布局适配任何终端：
 
-![[_attachment/img/ca35b8a13a879c4755686df393a88235_MD5.gif]]
+![](_attachment/img/ca35b8a13a879c4755686df393a88235_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/GRGVNPj>
 
 同样的，使用 CSS Flexbox 来布局，在某些情形之下，同样可以不依赖 CSS 媒体查询，可以响应不同环境下的布局效果：
 
-![[_attachment/img/522bd3f39af0156e0d7a283d073bf6fe_MD5.gif]]
+![](_attachment/img/522bd3f39af0156e0d7a283d073bf6fe_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/WNyVRrJ>
 
@@ -899,7 +899,7 @@ header {
 
 在上面示例的基础上，稍微调整样式，就可以实现下图这样的布局效果，同样是不依赖任何 CSS 媒体查询就可以实现：
 
-![[_attachment/img/b8eafaeeab0e748899b1e17af92c50c1_MD5.gif]]
+![](_attachment/img/b8eafaeeab0e748899b1e17af92c50c1_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/KKeOaar>
 
@@ -935,7 +935,7 @@ body {
 }
 ```
 
-![[_attachment/img/42000273b4403e9d89c3aeb362ec4b3a_MD5.png]]
+![](_attachment/img/42000273b4403e9d89c3aeb362ec4b3a_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/yLEmMYN>
 
@@ -1032,7 +1032,7 @@ body {
 
 利用该特性，我们就可以很容易实现类似一些具备条件判断的 UI 效果。比如在窄屏幕下，元素的圆角是 `0px` ，宽屏的时候是 `8px` ：
 
-![[_attachment/img/50651006e89b5cc83eb7ee08fa6aeaef_MD5.png]]
+![](_attachment/img/50651006e89b5cc83eb7ee08fa6aeaef_MD5.png)
 
 ```css
 :root {
@@ -1048,13 +1048,13 @@ body {
 }
 ```
 
-![[_attachment/img/30a9f9f2d3c1bd676ddd70b6c5ed5de3_MD5.gif]]
+![](_attachment/img/30a9f9f2d3c1bd676ddd70b6c5ed5de3_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ExRqmvd>
 
 我们还可以将 `min()` 和 `max()` 函数结合起来，实现等同的效果：
 
-![[_attachment/img/609a4a24d79e2e58bc826410f10f8048_MD5.png]]
+![](_attachment/img/609a4a24d79e2e58bc826410f10f8048_MD5.png)
 
 ```css
 .box {
@@ -1068,19 +1068,19 @@ body {
 }
 ```
 
-![[_attachment/img/dbfd9f0d590704f77b12b7aa48fd194c_MD5.gif]]
+![](_attachment/img/dbfd9f0d590704f77b12b7aa48fd194c_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/VwdobRv>
 
 甚至更为复杂的 UI，我们都可以采用这套技术体系来构建，比如：
 
-![[_attachment/img/f2e19eb95f755fd85c3e7b04f2e6ce21_MD5.gif]]
+![](_attachment/img/f2e19eb95f755fd85c3e7b04f2e6ce21_MD5.gif)
 
 ### CSS 容器查询
 
 内在 Web 设计还有一个可用的 CSS 特性就是 **CSS 容器查询特性** 。该特性一直以来都是 Web 开发者最为期待的特性：
 
-![[_attachment/img/dbedc1f6efd467725fa63b1901a8090f_MD5.png]]
+![](_attachment/img/dbedc1f6efd467725fa63b1901a8090f_MD5.png)
 
 > 自 2019 年开始，每年年底都会有一份关于 CSS 发展状态相关的报告（[2019](https://2019.stateofcss.com/)、[2020](https://2020.stateofcss.com/en-US/) 和 [2021](https://2021.stateofcss.com/en-US/)），其中 CSS 容器查询一直以来位居榜首！
 
@@ -1102,7 +1102,7 @@ body {
 }
 ```
 
-![[_attachment/img/11cbf57644b9862ba006fb86cbeb979b_MD5.gif]]
+![](_attachment/img/11cbf57644b9862ba006fb86cbeb979b_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/wvXVeMp>
 
@@ -1112,15 +1112,15 @@ body {
 
 [@Jen Simmons 在她分享的 PPT](https://talks.jensimmons.com/15TjNW/slides) 中介绍了一些如何使用 CSS Flexbox 和 CSS Grid 布局技术实现内在 Web 设计的案例。你可以从 labs.jensimmons.com 中获取到相关的案例：
 
-![[_attachment/img/c21e59c509ce1886ca5fe716f95f389c_MD5.png]]
+![](_attachment/img/c21e59c509ce1886ca5fe716f95f389c_MD5.png)
 
 另外，你还可以实现类似上图中这种杂志封面的布局效果：
 
-![[_attachment/img/b1db5aad97fa397eec6b929f0a40f970_MD5.png]]
+![](_attachment/img/b1db5aad97fa397eec6b929f0a40f970_MD5.png)
 
 看上去是不是很有挑战性，我想很多 Web 开发者都会认为上图中的效果是很难使用 CSS 技术来实现的。事实上，现在使用 CSS 实现起来已经不是难事了。比如下图这个示例：
 
-![[_attachment/img/c5593feb74c88c7cdaafae518bf26081_MD5.png]]
+![](_attachment/img/c5593feb74c88c7cdaafae518bf26081_MD5.png)
 
 构建上图这种效果，你可能需要一个像下面这样的 HTML 结构：
 
@@ -1173,7 +1173,7 @@ header {
 }
 ```
 
-![[_attachment/img/ff7a9a7d60e027c88b2d82362f8f5936_MD5.png]]
+![](_attachment/img/ff7a9a7d60e027c88b2d82362f8f5936_MD5.png)
 
 使用 `grid-row` 和 `grid-column` 将元素放置到需要的位置：
 
@@ -1194,7 +1194,7 @@ header img {
 }
 ```
 
-![[_attachment/img/532dc3bda3dd37601639134e10e2ccb3_MD5.png]]
+![](_attachment/img/532dc3bda3dd37601639134e10e2ccb3_MD5.png)
 
 现在基本布局已经有了，我们还需要在 `h1.site__name` 上再创建一个网格，使用同样的方式来放置“Graphicdesign” 词中的每个字母：
 
@@ -1283,27 +1283,27 @@ header img {
 }
 ```
 
-![[_attachment/img/8b383a2cc9814bd14e3973c935cafe05_MD5.png]]
+![](_attachment/img/8b383a2cc9814bd14e3973c935cafe05_MD5.png)
 
 再加上一些美化的样式规则，整体效果就出来了：
 
-![[_attachment/img/f3e945405f518c3aa51290f35ebfbe3b_MD5.gif]]
+![](_attachment/img/f3e945405f518c3aa51290f35ebfbe3b_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ExRqMXY>
 
 感兴趣的同学，可以使用同样的方法来实现下图这个效果：
 
-![[_attachment/img/bcc919a3eb598c77fa00cfdc63312f02_MD5.png]]
+![](_attachment/img/bcc919a3eb598c77fa00cfdc63312f02_MD5.png)
 
 > 参考链接： labs.jensimmons.com/2019/01-004.html
 
 可能很多同学会说上面示例实用性不强，那我们再来看一个更趋向于工作中的示例吧。比如类似 [An Event Apart](https://aneventapart.com/) 的 [landing pages](https://aneventapart.com/24ways) 的效果：
 
-![[_attachment/img/53c6cdbdfc51117c05ce31834b28a094_MD5.webp]]
+![](_attachment/img/53c6cdbdfc51117c05ce31834b28a094_MD5.webp)
 
 我在该示例基础上做了一些调整，接下来将要完成的是像下图这样的一个示例：
 
-![[_attachment/img/823aaf9897d0044559092e1e15030000_MD5.png]]
+![](_attachment/img/823aaf9897d0044559092e1e15030000_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/JjZgVoE> （请使用 Firefox 浏览器查看，效果更佳）
 
@@ -1355,7 +1355,7 @@ main {
 }
 ```
 
-![[_attachment/img/658a981498130f6c37203ec5bdf6ce08_MD5.png]]
+![](_attachment/img/658a981498130f6c37203ec5bdf6ce08_MD5.png)
 
 同时在 `header` 定义一个网格（它嵌套 `body` 网格中）：
 
@@ -1367,7 +1367,7 @@ header {
 }
 ```
 
-![[_attachment/img/5781b68963a76dbe3b87a1834f571916_MD5.png]]
+![](_attachment/img/5781b68963a76dbe3b87a1834f571916_MD5.png)
 
 在这个示例中，使用 `header` 的伪元素 `::after` 绘制了一个斑马线效果，并且使用 `grid-row` 指定其放置的位置：
 
@@ -1389,7 +1389,7 @@ header::before {
 }
 ```
 
-![[_attachment/img/80fa2b4627df09ad6c390e0110efbe61_MD5.png]]
+![](_attachment/img/80fa2b4627df09ad6c390e0110efbe61_MD5.png)
 
 这里有一点需要特别注意，每个列表项跨越了 `5` 列，并且相邻的列都有一个单元格是相互重叠的：
 
@@ -1417,11 +1417,11 @@ header::before {
 }
 ```
 
-![[_attachment/img/53d9515113b539d0c4adee644dab6d6a_MD5.png]]
+![](_attachment/img/53d9515113b539d0c4adee644dab6d6a_MD5.png)
 
 这样做的主要目的是，为了避免在每个列表项中使用 `clip-path` 来裁剪列表项时，造成较大的空间：
 
-![[_attachment/img/9dfbe1b8fd652ff9884f36d5e645b0e8_MD5.png]]
+![](_attachment/img/9dfbe1b8fd652ff9884f36d5e645b0e8_MD5.png)
 
 我们真正期望的是 `li` 运用 `clip-path` 达到下图这样的效果，所以需要列与列之间有一个列轨道是相互重叠的：
 
@@ -1431,7 +1431,7 @@ header::before {
 }
 ```
 
-![[_attachment/img/80fa2b4627df09ad6c390e0110efbe61_MD5.png]]
+![](_attachment/img/80fa2b4627df09ad6c390e0110efbe61_MD5.png)
 
 另外，为了更好控制每一列的参数，图片 `picture` 、标题 `h4` 和描述文本 `span` 能更好的对齐。这里还使用了 CSS Grid 布局中的子网格 `subgrid` 特性。即，在 `li` 上定义了一个网格，并且使用 `subgrid` 特性，继承其父网格行网格轨道的相关参数：
 
@@ -1471,11 +1471,11 @@ header::before {
 }
 ```
 
-![[_attachment/img/48a8c92bc5bc379b673fb0290dc2b13e_MD5.png]]
+![](_attachment/img/48a8c92bc5bc379b673fb0290dc2b13e_MD5.png)
 
 到此，基本布局你就已经完成了。再添加一些装饰性的 CSS 规则，你将完成最终的效果：
 
-![[_attachment/img/27e9e87e95706ae03622b16e818737b5_MD5.gif]]
+![](_attachment/img/27e9e87e95706ae03622b16e818737b5_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/JjZgVoE>
 

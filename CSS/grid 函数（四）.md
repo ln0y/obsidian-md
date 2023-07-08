@@ -48,7 +48,7 @@ update: 2023-02-06-星期一 16:53:26
 }
 ```
 
-![[_attachment/img/ea22c378e5ae2fbe011f3a8ef86812f3_MD5.png]]
+![](_attachment/img/ea22c378e5ae2fbe011f3a8ef86812f3_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/xxjNjeL>
 
@@ -65,7 +65,7 @@ update: 2023-02-06-星期一 16:53:26
 
 代码中的 `repeat(3, 1fr 200px)` 意思是 `1fr 200px` 会重复 `3` 次，相当于创建了一个六列的网格：
 
-![[_attachment/img/90d8941ca0f28603ae094bbe8bf3af8d_MD5.png]]
+![](_attachment/img/90d8941ca0f28603ae094bbe8bf3af8d_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/RwymJZO>
 
@@ -82,7 +82,7 @@ update: 2023-02-06-星期一 16:53:26
 
 要是在 `repeat()` 函数中重复网格线名称的话，结束的网格线名称最终会与下一条开始网格线名称共享同一个网格线名称：
 
-![[_attachment/img/6f0acd2f8967d7febbdf3c83642fb443_MD5.png]]
+![](_attachment/img/6f0acd2f8967d7febbdf3c83642fb443_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/WNJBKVg>
 
@@ -133,7 +133,7 @@ update: 2023-02-06-星期一 16:53:26
 
 庆幸的是，`repeat()` 函数的第一个参数除了可以接受一个整数值之外，还可以接受 **`atuto-fit`** 和 **`auto-fill`** 两个关键词。它们会告诉浏览器处理网格轨道的大小和断行（或断列），以便当容器空间不足以容纳元素时，元素会自动换行（或列）而不会造成溢出。但 `auto-fill` 和 `auto-fit` 两者之间还是有一些细微差异的。
 
-![[_attachment/img/ce6849c6f348960633f33ff6c7f042b5_MD5.png]]
+![](_attachment/img/ce6849c6f348960633f33ff6c7f042b5_MD5.png)
 
 - **`auto-fill`** ：在同一行中填充尽可能多的列。因此，只要能容纳新的列，就会自动创建隐式列，因为它试图在同一行中填充尽可能多的列。新添加的列（隐式列）可以是空的，但是它们仍然会在行中占据指定的空间。
 - **`auto-fit`** ：将当前可用的列扩展到空间中，以便它们占用容器可用空间。当容器有可用空间时，浏览器会将可用空间均分给列，让列自动变宽填满整个容器；当容器可用空间为负值时，会另起一行排列。
@@ -142,7 +142,7 @@ update: 2023-02-06-星期一 16:53:26
 
 在实际使用过程中，网格容器中有多个和仅有一个网格项目时，使用 `auto-fill` 与 `auto-fit` 的差异：
 
-![[_attachment/img/4e9497a4f7c62a365ef742b680279994_MD5.png]]
+![](_attachment/img/4e9497a4f7c62a365ef742b680279994_MD5.png)
 
 上面两张图展示了 `auto-fit` 和 `auto-fill` 在网格布局中的差异。那它们两者又是如何工作的呢？我们以一个实例来向大家介绍 `auto-fit` 和 `auto-fill` 是如何工作的。
 
@@ -179,15 +179,15 @@ update: 2023-02-06-星期一 16:53:26
 
 浏览器计算出这个“**`?`** ” 大约会是 `7.66667` ，所以浏览创建了一个七列的网格。不同的是 `auto-fit` 会把空的网格轨道折叠在一起（空网格轨道是指没有放置网格项目的网格轨道）。折叠的轨道尺寸大小会被视为 `0px`。浏览器为了找到自动重复的轨道数，会将轨道尺寸限制为用户代理指定的值（比如 `1px`），来避免被零除。
 
-![[_attachment/img/d6094ab2cc40aeea3d85ea848aaacadb_MD5.png]]
+![](_attachment/img/d6094ab2cc40aeea3d85ea848aaacadb_MD5.png)
 
 `auto-fill` 则不会将创建的空网格轨道折叠在一起：
 
-![[_attachment/img/3fcf6f19d96c818988331f69c891caea_MD5.png]]
+![](_attachment/img/3fcf6f19d96c818988331f69c891caea_MD5.png)
 
 `repeat()` 函数中使用 `auto-fit` 或 `auto-fill` 关键词替代重复的次数时，又被称为 **自动换行** 。当网格容器无法容纳网格轨道时（有网格项目的），就会自动创建新的一行：
 
-![[_attachment/img/ff2ddaff91d8daf5e79cfb0e60373853_MD5.gif]]
+![](_attachment/img/ff2ddaff91d8daf5e79cfb0e60373853_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/PoevxOp>
 
@@ -213,17 +213,17 @@ update: 2023-02-06-星期一 16:53:26
 
 `auto-fit` 时，创建的重复轨道尺寸是 `0` ，网格轨道的尺寸会介于 `120px ~ 1fr` 之间，最小是 `120px` ，最大是 `1fr` ，而且 `1fr` 会根据网格容器可用空间计算出网格轨道尺寸。由于创建的重复轨道尺寸是 `0` ，所以网格容器可用空间更大（`1000px - 10px × 2 - 10px × 3 = 950px`），对应的 `1fr = 1 / 4 = 25% × 950px = 237.5px` ，所以你将看到的网格项目被拉伸了：
 
-![[_attachment/img/9ce439b6459ddf6c5a2264f2ad187133_MD5.png]]
+![](_attachment/img/9ce439b6459ddf6c5a2264f2ad187133_MD5.png)
 
 `auto-fill` 创建的重复轨道尺寸也是 `minmax(120px, 1fr)` ，而且不会被折叠，所以网格容器的可用空间分的等份就更多（因为创建的三个空网格轨道，它位置占着），即 `7` 个 `fr` 。同时网格容器可用空间也更小 （`1000px - 10px × 2 - 10px × 6 = 920px`），对应的 `1fr = 1 / 7 = 14.28% × 920px = 131.43px` ，即网格轨道尺寸是介于 `120px ~ 1fr` （相当于 `120px ~ 131.43px`）之间：
 
-![[_attachment/img/55e9f70d7044cb8dadd6bb33aa1bb3b0_MD5.png]]
+![](_attachment/img/55e9f70d7044cb8dadd6bb33aa1bb3b0_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/mdLZwey>
 
 你要是将 `repeat()` 函数和 `minmax(min,max)`、`1fr` 和 `auto-fill`（或 `auto-fit`）结合起来，可以很容易帮我们实现像下图这样的响应式布局效果：
 
-![[_attachment/img/0649de3f07822d9463e46f66b5ce2efe_MD5.gif]]
+![](_attachment/img/0649de3f07822d9463e46f66b5ce2efe_MD5.gif)
 
 实现上图这样的效果，代码很简单：
 
@@ -235,7 +235,7 @@ update: 2023-02-06-星期一 16:53:26
 }
 ```
 
-![[_attachment/img/eb5012c594c7548daf196ead62785be1_MD5.gif]]
+![](_attachment/img/eb5012c594c7548daf196ead62785be1_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/mdLZMBp>
 
@@ -270,7 +270,7 @@ grid-template-columns: minmax(300px, 50%);
 }
 ```
 
-![[_attachment/img/890de9e7c81692272f2d93b80e339e35_MD5.png]]
+![](_attachment/img/890de9e7c81692272f2d93b80e339e35_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/JjvQrJp>
 
@@ -280,7 +280,7 @@ grid-template-columns: minmax(300px, 50%);
 - 当网格容器宽度调到很小时（比如 `222.5px`），`minmax(100px, 220px)` 返回的值是 `100px`，即第一列的网格轨道宽度是 `100px`（`MIN` 的值）。
 - 另外，`minmax(100px, 220px)` 还会返回一个 `100px ~ 220px` 之间的值，比如当容网格容器宽度是 `300px` 时，`minmax(100px, 220px)` 返回的值就是 `177.34px`。
 
-![[_attachment/img/6ffbedde8400819c72d59fe1c38cc14f_MD5.gif]]
+![](_attachment/img/6ffbedde8400819c72d59fe1c38cc14f_MD5.gif)
 
 正如你所看到的，示例中网格的第二、第三列的收缩和扩展会根据网格容器可用空间变化（因为它们的轨道宽度设置的值是 `1fr`），但第一列网格轨道的宽度总是保持在 `100px` 至 `220px` 之间，最小不小于 `100px` ，最大不大于 `220px` 。
 
@@ -292,7 +292,7 @@ grid-template-columns: minmax(300px, 50%);
 }
 ```
 
-![[_attachment/img/d6ebecb6fb3c5576be2a6856bf43c21a_MD5.png]]
+![](_attachment/img/d6ebecb6fb3c5576be2a6856bf43c21a_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/QWrXOJm>
 
@@ -315,7 +315,7 @@ grid-template-columns: minmax(300px, 50%);
 
 > **`minmax(MIN, MAX)` 函数，如果 `MAX` 小于 `MIN` 时， `MAX`** **将会被忽略，最终** **`minmax(MIN, MAX)`** **函数将会返回** **`MIN`** **的值** 。
 
-![[_attachment/img/4b9e1524bdb13a921b63edf8cd6850af_MD5.png]]
+![](_attachment/img/4b9e1524bdb13a921b63edf8cd6850af_MD5.png)
 
 `minmax(MIN, MAX)` 函数中的两个参数都可以取百分比（`%`）值，比如：
 
@@ -327,7 +327,7 @@ grid-template-columns: minmax(300px, 50%);
 
 但是这样使用，有可能计算出来的值会比网格轨道中网格项目内容（元素）的最小尺寸（`min-content`）还会小，甚至网格列宽会趋于 `0` ，将会造成网格项目溢出网格列轨道：
 
-![[_attachment/img/74561de93bf2f3dcc1563e70af16a3c3_MD5.gif]]
+![](_attachment/img/74561de93bf2f3dcc1563e70af16a3c3_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/BaxXydr>
 
@@ -360,21 +360,21 @@ minmax(min-content, 50%)   /* ~> MIN = min-content   MAX = 50% */
 
 当 `minmax(100px, 1fr)` 取 `MIN` 值时，则返回的是 `100px` ；当它取 `MAX` 值时，则返回的是 `1fr` ，此时 `grid-template-columns` 的值相当于 `1fr  1fr  1fr` 。每个 `fr` 则等于网格容器可用空间的三分之一（因为总共有 `3` 个 `fr` ，即 `1fr + 1fr + 1fr`）。
 
-![[_attachment/img/20b37ad84460143de1314224066a1b28_MD5.png]]
+![](_attachment/img/20b37ad84460143de1314224066a1b28_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/VwxoYor>
 
 当你改变网格容器尺寸时，你会发现，如果网格容器有足够空间，`minmax(100px, 1fr)` 则会取 `1fr` ，反之则会取 `100px`：
 
-![[_attachment/img/58e26d5cb22742490fac91bdfad553e3_MD5.gif]]
+![](_attachment/img/58e26d5cb22742490fac91bdfad553e3_MD5.gif)
 
 不过需要注意的是，`minmax(MIN, MAX)` 函数取 `fr` 单位值时，不能同时给 `MIN` 和 `MAX` 都设置 `fr` 单位的值，因为两个参数值都取 `fr` 单位值，浏览器会视该属性值无效：
 
-![[_attachment/img/9e77ccca0906f7198d11f79ac15ffe1d_MD5.png]]
+![](_attachment/img/9e77ccca0906f7198d11f79ac15ffe1d_MD5.png)
 
 针对这一点，W3C 规范中有做过相应的描述：
 
-![[_attachment/img/52f7e362301b87d33c75bf84a1401834_MD5.png]]
+![](_attachment/img/52f7e362301b87d33c75bf84a1401834_MD5.png)
 
 也就是说，**在** **`minmax(MIN, MAX)`** **函数中使用** **`fr`** **单位值时，只能用于** **`MAX`** **值中** 。换句话说，`minmax(MIN, MAX)` 中 `MAX` 取 `fr` 单位值，可以和其他单位（除 `fr` 之外）类型 `MIN` 值混合使用，比如示例中的 `minmax(100px, 1fr)`。即使是这样，也有可能 `1fr` 计算出来的值会小于 `100px`，要是出现这种现象，`minmax(100px, 1fr)` 并不会无效，它最终会返回 `MIN` 的值（即 `100px` ）。
 
@@ -389,7 +389,7 @@ minmax(min-content, 50%)   /* ~> MIN = min-content   MAX = 50% */
 }
 ```
 
-![[_attachment/img/4e3ad2f1f9e16aeef6aed22396847462_MD5.gif]]
+![](_attachment/img/4e3ad2f1f9e16aeef6aed22396847462_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/xxjvwqQ>
 
@@ -418,7 +418,7 @@ grid-template-columns: minmax(auto, auto) minmax(min-content, min-content) minma
 - 当 `auto` 作为 `MAX` 值（`minmax(100px, auto)`），`auto` 值相当于 `max-content`（`minmax(100px, max-content)`），即 `minmax(100px, auto)` 等同于 `minmax(100px, max-content)`。
 - 当 `auto` 作为 `MIN` 值（`minmax(auto, 1fr)`），它的值由对应网格轨道中内容的最小尺寸指定，`auto` 有时相当于 `min-content` （`minmax(min-content, 1fr)`），即 `minmax(auto, 1fr)` 等同于 `minmax(min-content, 1fr)`，但并非总是如此，因为有时候会受网格项目的 `min-width` （ `min-inline-size`）或 `min-height` （ `min-block-size`）值影响。如果显式指定网格项目的 `min-width` 或 `min-inline-size` ，那么 `min-content` 等于 `min-width` 或 `min-inline-size`。
 
-![[_attachment/img/83d291e138eaa52dbef1747578f7cb34_MD5.gif]]
+![](_attachment/img/83d291e138eaa52dbef1747578f7cb34_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/VwxovVY>
 
@@ -432,7 +432,7 @@ grid-template-columns: minmax(auto, auto) minmax(min-content, min-content) minma
 
 示例中的第一列尺寸始终等于所有列的内容最小尺寸：
 
-![[_attachment/img/6cee3abd02dfdc51930134eac039ef47_MD5.gif]]
+![](_attachment/img/6cee3abd02dfdc51930134eac039ef47_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/oNdKjKX>
 
@@ -441,7 +441,7 @@ grid-template-columns: minmax(auto, auto) minmax(min-content, min-content) minma
 - 当 `minmax(MIN, MAX)` 中的 `MAX` 值为 `min-content` 时，如果 `min-content` 计算出来的值小于 `MIN` ，`minmax(MIN, MAX)` 函数返回的则是 `MIN` 值，反之则返回的是 `MIN` 至 `min-content` 之间的一个范围值。
 - 当 `minmax(MIN, MAX)` 中的 `MIN` 值为 `min-content` 时，如果 `min-content` 计算出来的值大于 `MAX` ，`minmax(MIN, MAX)` 函数返回的是 `min-content`，反之则返回的是 `min-content` 至 `MAX` 之间的一个范围值。
 
-![[_attachment/img/5825288ea3545db87a6fcdb54cce6164_MD5.gif]]
+![](_attachment/img/5825288ea3545db87a6fcdb54cce6164_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/Vwxoejj>
 
@@ -453,7 +453,7 @@ grid-template-columns: minmax(auto, auto) minmax(min-content, min-content) minma
 }
 ```
 
-![[_attachment/img/8e100160553ba9d0aebe48f492ac3fec_MD5.gif]]
+![](_attachment/img/8e100160553ba9d0aebe48f492ac3fec_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/rNvXxvN>
 
@@ -462,7 +462,7 @@ grid-template-columns: minmax(auto, auto) minmax(min-content, min-content) minma
 - 当 `minmax(MIN, MAX)` 函数中的 `MAX` 值为 `max-content` 时，如果 `max-content` 的计算值大于 `MIN` 值时，`minmax(MIN, MAX)` 函数返回的值是一个 `MIN` 至 `max-content` 计算值之间的范围值；反之会忽略 `max-content` ，函数返回的是 `MIN` 值。
 - 当 `minmax(MIN, MAX)` 函数中的 `MIN` 值为 `max-content` 时，如果 `max-content` 的计算值小于 `MAX` 值时，`minmax(MIN, MAX)` 函数返回的值是一个 `max-content` 至 `MAX` 之间的范围值；反之则会返回 `max-content`。
 
-![[_attachment/img/92f5f66cb8109822d205e7dbb7daed0d_MD5.gif]]
+![](_attachment/img/92f5f66cb8109822d205e7dbb7daed0d_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/poVMgxm>
 
@@ -474,13 +474,13 @@ grid-template-columns: minmax(auto, auto) minmax(min-content, min-content) minma
 }
 ```
 
-![[_attachment/img/79d9a29aaaccfe329277c120a7fec2c9_MD5.gif]]
+![](_attachment/img/79d9a29aaaccfe329277c120a7fec2c9_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/zYjgrVq>
 
 我们来看一个真实的 Web 布局案例。使用 `minmax(MIN, MAX)` 函数来构建一个博客文章展示的页面：
 
-![[_attachment/img/99bff94929b1d16fcd41f4eda307e1da_MD5.png]]
+![](_attachment/img/99bff94929b1d16fcd41f4eda307e1da_MD5.png)
 
 实现上图这种带有响应式布局效果，仅仅使用几行 CSS 代码即可：
 
@@ -502,7 +502,7 @@ main {
 }
 ```
 
-![[_attachment/img/990164a672ded1ad42ff602f0b4aec26_MD5.gif]]
+![](_attachment/img/990164a672ded1ad42ff602f0b4aec26_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/BaxXKNv>
 
@@ -520,7 +520,7 @@ main {
 
 虽然效果上看上去不错，但它有一个缺陷存在，当浏览器视窗的宽度小于 `minmax(MIN, MAX)` 中的 `MIN` 值时，浏览器就会出现水平滚动条或溢出内容被裁剪：
 
-![[_attachment/img/ae75396b14e6174faf9e8f6717528f3b_MD5.gif]]
+![](_attachment/img/ae75396b14e6174faf9e8f6717528f3b_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/mdLZMBp>
 
@@ -538,7 +538,7 @@ main {
 
 就该例而言，网格容器的宽度会随着浏览器视窗宽度变小，也就是说，当浏览器视窗宽度小到一个临界值时，`min(100%, 250px)` 返回的值就会小于 `250px` ，此时， `min(100%, 250px)` 函数返回的值就是 `100%` ，这样一来，就可以避免浏览器出现水平滚动条（除非小到无法容纳内容）：
 
-![[_attachment/img/6b7d8cbd930e649aa08f01ed1728819f_MD5.gif]]
+![](_attachment/img/6b7d8cbd930e649aa08f01ed1728819f_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/NWzKwwN>
 
@@ -564,7 +564,7 @@ CSS 网格布局中，这些函数都可以用于设置网格轨道和网格沟�
 
 我们来看一个 CSS 比较函数用于网格轨道尺寸设置的示例。
 
-![[_attachment/img/990164a672ded1ad42ff602f0b4aec26_MD5.gif]]
+![](_attachment/img/990164a672ded1ad42ff602f0b4aec26_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/BaxXKNv>
 
@@ -586,7 +586,7 @@ body {
 }
 ```
 
-![[_attachment/img/aebbf4ec5567bc26db5fb07fb37bf62f_MD5.gif]]
+![](_attachment/img/aebbf4ec5567bc26db5fb07fb37bf62f_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/dyKbZLB>
 
@@ -615,7 +615,7 @@ body {
 
 效果几乎是一样的，但浏览器视窗小于 `320px` 时，将会出现水平滚动条：
 
-![[_attachment/img/7816919296b90102f0fb856e42b99fd0_MD5.gif]]
+![](_attachment/img/7816919296b90102f0fb856e42b99fd0_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/GRGKygZ>
 
@@ -623,7 +623,7 @@ body {
 
 ## fit-content() 函数
 
-![[_attachment/img/757a058cd742e7729b4643d8daa9e5ab_MD5.png]]
+![](_attachment/img/757a058cd742e7729b4643d8daa9e5ab_MD5.png)
 
 上图这样的两列布局是一种很常见的布局，即 **侧边栏固定尺寸，主内容栏能随浏览器视窗尺寸进动调整** 。你可以像下面这样使用 CSS Grid 来构建：
 
@@ -655,7 +655,7 @@ body {
 }
 ```
 
-![[_attachment/img/60561907a053e2577a7dc892740a5b8f_MD5.gif]]
+![](_attachment/img/60561907a053e2577a7dc892740a5b8f_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/PoaYEpp>
 
@@ -672,7 +672,7 @@ body {
 }
 ```
 
-![[_attachment/img/2c54423ee32ec332cb9bc61a72a5c097_MD5.png]]
+![](_attachment/img/2c54423ee32ec332cb9bc61a72a5c097_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/jOKNZXO>
 

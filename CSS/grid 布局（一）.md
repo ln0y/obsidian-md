@@ -19,15 +19,15 @@ CSS 一直被用来给 Web 页面布局，但它一直以来做得都不怎么�
 
 早前在 CSS 中并没有内置的网格系统，但对于 Web 设计师和开发者而言，对网格系统并不会感到陌生。因为设计师和开发者都熟悉（或有使用过）网格系统，比如 960gs 网格系统：
 
-![[_attachment/img/8d92bd98be9bb7ceb57c63c20b14f05e_MD5.gif]]
+![](_attachment/img/8d92bd98be9bb7ceb57c63c20b14f05e_MD5.gif)
 
 从上图中不难发现，一个网格有着它自己独特的特性和具备的属性，比如一个网格通常具有许多的 **列（Column）** 与 **行（Row）** ，以及行与列、列与列之间的间距，也称 **沟槽（Gutter）** 。
 
-![[_attachment/img/c294141c492d11d64849028ebb89e6d7_MD5.png]]
+![](_attachment/img/c294141c492d11d64849028ebb89e6d7_MD5.png)
 
 随着技术不断的革新，CSS 也具有内置的网格系统，也被称为 **原生的 CSS 网格系统** ，要比使用其他各种技术创建的网格状（比如前面课程中所介绍的 Flexbox 创建网格系统）的设计更强。毕竟其他技术只具备一维方向（要么是行，要么是列）能力，而原生网格系统具备二维方向的能力，可以同时是行和列。
 
-![[_attachment/img/16c44874f0e1f975b92c9a0284831417_MD5.png]]
+![](_attachment/img/16c44874f0e1f975b92c9a0284831417_MD5.png)
 
 CSS 内置的网格系统除了是一个具有二维布局的系统之外，还具有以下这些特性。
 
@@ -56,7 +56,7 @@ CSS 内置的网格系统除了是一个具有二维布局的系统之外，还�
 
 行方向的轴与块方向的轴垂直，它的方向和普通文本的方向一致。在 CSS 网格布局中，很多时候也被称为 **行轴（Row）** ，因为这条轴的方向和行轨道是一致的：
 
-![[_attachment/img/ea9acd8246ecceb2df542472500574f8_MD5.png]]
+![](_attachment/img/ea9acd8246ecceb2df542472500574f8_MD5.png)
 
 > 需要注意的是，CSS 中的行轴（Row）和列轴（Column）也会受书写模式和阅读模式的影响。
 
@@ -79,7 +79,7 @@ CSS 内置的网格系统除了是一个具有二维布局的系统之外，还�
 
 示例中的 `.container` 显式设置了 `display` 的值为 `grid` 或 `inline-grid` ，此时它就是一个 Grid 容器，同时也创建了一个网格格式化上下文（Grid Formatting Content，即 GFC）。其子元素 `.item` （也可以是 `.container` 元素的文本节点或其伪元素 `::before` 或 `::after` ）自动就变成了网格项目。
 
-![[_attachment/img/ea9992e3837aefce62053707768fd62f_MD5.png]]
+![](_attachment/img/ea9992e3837aefce62053707768fd62f_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/YzLveVB>
 
@@ -96,7 +96,7 @@ CSS 的网格是一组相交的 **水平（行）** 和 **垂直（列）** 的�
 
 这两组网格线成正交的模式。这两组网格线也是构成网格结构的分界线，可以是水平的，也可以是垂直的。它们可以是位于行或列的任何一边。
 
-![[_attachment/img/2b60983b3b1697600cadbe5270885103_MD5.png]]
+![](_attachment/img/2b60983b3b1697600cadbe5270885103_MD5.png)
 
 CSS 网格布局中的网格线可以用数字索引（如上图中的数字）或开发者指定的名称来表示。比如下面这个示例，左侧的示例使用网格线来定位一个网格项；右侧的示例使用显式命名的网格线来定位一个网格项：
 
@@ -128,13 +128,13 @@ CSS 网格布局中的网格线可以用数字索引（如上图中的数字）�
 }
 ```
 
-![[_attachment/img/8e6a62c7e829e5d36c67818cb7e7f37a_MD5.png]]
+![](_attachment/img/8e6a62c7e829e5d36c67818cb7e7f37a_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/abGKYyr>
 
 正如你所见，网格布局中未显式给网格线命名的情况下，默认是以数字索引号命名，并且从 `1` 开始叠加，同时它的反方向则从 `-1` 开发中命名。其默认索引号会受 CSS 的书写模式 `writing-mode` 影响，但不受 `direction` 属性的影响：
 
-![[_attachment/img/2dc99d53b32ec9fa6b8b097b6fd2e3a3_MD5.png]]
+![](_attachment/img/2dc99d53b32ec9fa6b8b097b6fd2e3a3_MD5.png)
 
 而且，网格线的数量是由网格轨道来决定的：
 
@@ -147,13 +147,13 @@ CSS 网格布局中的网格线可以用数字索引（如上图中的数字）�
 
 网格中 **相邻的两条行和列网格线所围绕着的区域，被称为网格单元格** （有点类似于表格单元格），它是网格中的最基本单位（空间）。网格单元格可以被用来放置网格项目。如下图所示，行网格线 `1` 和 `2` ，列网格线 `1` 和 `2` 相交构建的区域就是一个网格单元格（图中斜线区域）：
 
-![[_attachment/img/fe89625892abf069a052b4ad48babf64_MD5.png]]
+![](_attachment/img/fe89625892abf069a052b4ad48babf64_MD5.png)
 
 ### 网格轨道
 
 网格轨道是 CSS Grid 布局中独有的一种术语，把网格中的列和行统称为网格轨道。换句话说，它是两条相邻网格线之间的空间。每个网格轨道都有一个尺寸，它控制着网格的列宽或行高，从而控制着它的边界网格线（相邻两条网格线）之间的距离，这个网格距离也称为网格轨道尺寸。另外，相邻网格线可以用网格沟槽（即 `gap` 属性）来隔开，但在其他情况下，会被紧紧地贴在一起。
 
-![[_attachment/img/be74a0b78cc8cccf5061735ecccba9a8_MD5.png]]
+![](_attachment/img/be74a0b78cc8cccf5061735ecccba9a8_MD5.png)
 
 Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-template-rows` 属性来指定的，其中：
 
@@ -234,7 +234,7 @@ Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-temp
 }
 ```
 
-![[_attachment/img/ff2e8079c69d1b2e1a243a612b522d9f_MD5.png]]
+![](_attachment/img/ff2e8079c69d1b2e1a243a612b522d9f_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/GRdYrpL>
 
@@ -286,7 +286,7 @@ Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-temp
 
 就该示例而言，此时自动新增了两个行网格轨道，即创建了一个“四行三列”的隐式网格：
 
-![[_attachment/img/d65de1bef21ea9438fd53f0dbcfc8d04_MD5.png]]
+![](_attachment/img/d65de1bef21ea9438fd53f0dbcfc8d04_MD5.png)
 
 另外，该示例的第三个网格项目和第四个网格项目还使用了 `grid-area` 属性，将网格项目放置到显式网格之外：
 
@@ -302,13 +302,13 @@ Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-temp
 
 这样一来，`grid-area` 在原显式网格基础上又新增了两列（隐式的列），最终它们一起创建了一个“三行五列”的隐式网格：
 
-![[_attachment/img/0bbfd610d552b98bfbe26b50ba2f872b_MD5.png]]
+![](_attachment/img/0bbfd610d552b98bfbe26b50ba2f872b_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/eYrPvVX>
 
 事实上呢，示例中提到的仅仅是创建隐式网格最常见的两种方式，除此之外还有其他的一些方式也可能创建隐式网格。如下图所示，图中黑色虚线是显式网格，红色虚线是隐式网格：
 
-![[_attachment/img/d56a80a8364c00c1c53b1f835ccf2880_MD5.png]]
+![](_attachment/img/d56a80a8364c00c1c53b1f835ccf2880_MD5.png)
 
 也就是说，在 CSS 网格布局中，网格容器的 `grid-template-rows` 、`grid-template-columns` 和 `grid-template-areas` 属性，定义了显式网格的固定数量的网格轨道。当网格项目被定位在这些界限之外时，网格容器会通过向网格添加隐式网格线来生成隐式网格轨道。这些网格线与显式网格线一起构建了隐式网格。
 
@@ -342,7 +342,7 @@ Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-temp
 }
 ```
 
-![[_attachment/img/aeee404386b0acf7034b3bbe5e538021_MD5.gif]]
+![](_attachment/img/aeee404386b0acf7034b3bbe5e538021_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/qBYJmex>
 
@@ -384,7 +384,7 @@ Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-temp
 
 在这个示例中，`.grid__container` 是一个网格容器，在其第二个网格项目中（`.grid__container--sub`）包含了几个子元素（`.grid__item--sub`），这几个元素并不是 `.grid__container` 的直接子元素，因此它们不是网格项目，也就不会参与到网格布局当中：
 
-![[_attachment/img/d3c1bc1ef128b1dda30d106e465436f4_MD5.png]]
+![](_attachment/img/d3c1bc1ef128b1dda30d106e465436f4_MD5.png)
 
 如果将 `.grid__container--sub` 设置的 `display: flex` 值更改为 `display: grid` （或 `inline-grid`）。这个时候，`.grid__container--sub` 就从当初的 Flexbox 容器变成了网格容器，其子元素 `.grid__item--sub` 就变成了网格项目（包括 `.grid__container--sub` 的伪元素）：
 
@@ -396,7 +396,7 @@ Grid 布局中的网格轨道尺寸是由 `grid-template-columns` 和 `grid-temp
 }
 ```
 
-![[_attachment/img/f9e15ccfa0fdeba6a84521e8187184d9_MD5.png]]
+![](_attachment/img/f9e15ccfa0fdeba6a84521e8187184d9_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/bGMmRWV>
 
@@ -437,7 +437,7 @@ CSS 子网格（`subgrid`）是指跨越网格区域的网格项目显式地设�
 }
 ```
 
-![[_attachment/img/a3d2d1704f2d802696a6915c250d5f42_MD5.png]]
+![](_attachment/img/a3d2d1704f2d802696a6915c250d5f42_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/oNdawEJ> （请使用 Firefox 浏览器查看）
 
@@ -463,7 +463,7 @@ CSS 子网格（`subgrid`）是指跨越网格区域的网格项目显式地设�
 - 可以定义自己的命名网格区域，并将其添加到父网格的命名网格区域中 ；
 - 可以覆盖继承的网格间距 。
 
-![[_attachment/img/48c71e355021fdfc3b83697b9d87362d_MD5.png]]
+![](_attachment/img/48c71e355021fdfc3b83697b9d87362d_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/Rwyegeb>
 
@@ -471,7 +471,7 @@ CSS 子网格（`subgrid`）是指跨越网格区域的网格项目显式地设�
 
 可用于网格布局中的 CSS 属性可以像 Flexbox 布局一样，分为 **可用于网格容器的属性** 和 **可用于网格项目的属性** 。其中可用于网格容器上的属性较多，如下图所示：
 
-![[_attachment/img/6d09b3fd896d5bbdbdbb6e72e225f0fa_MD5.png]]
+![](_attachment/img/6d09b3fd896d5bbdbdbb6e72e225f0fa_MD5.png)
 
 但总体而言分为两个部分，其中一部分是用来创建（或定义）网格的，比如 `grid-template-*` 和 `grid-auto-*` 等；另外一部分是用来设置网格对齐方式的，比如 `justify-content` 、`align-content` 等。
 
@@ -509,7 +509,7 @@ CSS 子网格（`subgrid`）是指跨越网格区域的网格项目显式地设�
 
 网格容器的高度和宽度类似，只不过没有使用 `grid-template-rows` 属性来显式指定每行的高度，而是由网格项目盒模型自身决定。你将看到的效果如下：
 
-![[_attachment/img/fb62e552cf063a4727bc83c05de8bd40_MD5.gif]]
+![](_attachment/img/fb62e552cf063a4727bc83c05de8bd40_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/vYjVJeK>
 
@@ -531,7 +531,7 @@ CSS 子网格（`subgrid`）是指跨越网格区域的网格项目显式地设�
 }
 ```
 
-![[_attachment/img/acca7ce45f8775d201d926ee735b27ec_MD5.gif]]
+![](_attachment/img/acca7ce45f8775d201d926ee735b27ec_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/wvjYqxp>
 

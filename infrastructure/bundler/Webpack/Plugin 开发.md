@@ -48,11 +48,11 @@ Webpack5 暴露了多达 200+ 个 Hook，基本上覆盖了整个构建流程的
 
 - [Compiler](https://webpack.js.org/api/compiler-hooks/)：全局构建管理器，Webpack 启动后会首先创建 `compiler` 对象，负责管理配置信息、Loader、Plugin 等。从启动构建到结束，`compiler` 大致上会触发如下钩子：
 
-![[_attachment/img/bc6a5e4a913853e318b1170f3fe5dba8_MD5.png]]
+![](_attachment/img/bc6a5e4a913853e318b1170f3fe5dba8_MD5.png)
 
 - [Compilation](https://webpack.js.org/api/compilation-hooks/)：单次构建过程的管理器，负责遍历模块，执行编译操作；当 `watch = true` 时，每次文件变更触发重新编译，都会创建一个新的 `compilation` 对象；`compilation` 生命周期中主要触发如下钩子：
 
-![[_attachment/img/a1493f235165c2dd5f2da379753fa45e_MD5.png]]
+![](_attachment/img/a1493f235165c2dd5f2da379753fa45e_MD5.png)
 
 - 此外，还有 [Module](https://webpack.js.org/api/normalmodulefactory-hooks/)、Resolver、[Parser](https://webpack.js.org/api/parser/)、Generator 等关键类型，也都相应暴露了许多 Hook。
 
@@ -273,7 +273,7 @@ async function processResults() {
 
 代码读取 ESLint 执行结果\(`report` 函数\)，并使用 `compilation` 的 `errors` 与 `warnings` 数组提交错误/警告信息，这种方式只会输出错误信息，不会中断编译流程，运行效果如：
 
-![[_attachment/img/7dccb6835c444126a8c6e5c53ae4c49b_MD5.png]]
+![](_attachment/img/7dccb6835c444126a8c6e5c53ae4c49b_MD5.png)
 
 ## 实例剖析：`DefinePlugin`
 
@@ -404,7 +404,7 @@ const applyDefine = (key, code) => {
 
 之后，Webpack 会借助 Template 接口将上述 `Dependency` 打包进 Chunk 中，替换对应位置\(`loc`\) 代码：
 
-![[_attachment/img/694ae7775ce1847aafe569863bd17ebf_MD5.png]]
+![](_attachment/img/694ae7775ce1847aafe569863bd17ebf_MD5.png)
 
 这是一个功能效果看起来简单，但实现特别复杂的例子，底层需要使用 `Parser` 钩子遍历 AST 结构，之后借助 `Dependency` 声明代码依赖，最后借助 Template 替换代码内容，过程中已经涉及到许多 Webpack 底层对象。
 
@@ -556,7 +556,7 @@ module.exports = FooPlugin
 
 执行效果：
 
-![[_attachment/img/9ffab477b6d04940572fdd29fb43b6b7_MD5.png]]
+![](_attachment/img/9ffab477b6d04940572fdd29fb43b6b7_MD5.png)
 
 这种方法仅记录异常日志，不影响构建流程，构建正常结束后 Webpack 还会将错误信息汇总到 [stats](https://webpack.js.org/api/stats/) 统计对象，方便后续二次处理，使用率极高。例如 [eslint-webpack-plugin](https://github1s.com/webpack-contrib/eslint-webpack-plugin) 就是通过这种方式输出 ESLint 检查出来的代码风格问题。
 
@@ -698,7 +698,7 @@ reportProgress(percentage, ...args)
 
 最终执行效果：
 
-![[_attachment/img/7ad3a12757902229b413bbe3500f8bd1_MD5.gif]]
+![](_attachment/img/7ad3a12757902229b413bbe3500f8bd1_MD5.gif)
 
 > 通过 `stats` 添加统计信息
 

@@ -9,11 +9,11 @@ update: 2023-02-23-星期四 14:21:03
 
 事已至此，让我们重新审视一遍 reduce 的工作流示意：
 
-![[_attachment/img/1a0c2cf5e7028032f54fa657e926b05d_MD5.png]]
+![](_attachment/img/1a0c2cf5e7028032f54fa657e926b05d_MD5.png)
 
 我们可以把 reduce pipeline 里的最小计算单元修改成任意不同的函数，那么这个工作流就会变成下面这样了：
 
-![[_attachment/img/5df9d1a0b4f93645700398da072181ea_MD5.png]]
+![](_attachment/img/5df9d1a0b4f93645700398da072181ea_MD5.png)
 
 这个流程，恰恰就是一个函数组合的 pipeline。
 
@@ -21,7 +21,7 @@ update: 2023-02-23-星期四 14:21:03
 
 大家知道，在整个 reduce 的工作流中，callback 是锁死的，但每次调用 callback 时传入的参数是动态可变的（如下图）。
 
-![[_attachment/img/63189386403de76405e15ddaa96aac74_MD5.png]]
+![](_attachment/img/63189386403de76405e15ddaa96aac74_MD5.png)
 
 这些动态可变的参数，来自 reduce 的宿主数组。
 
@@ -45,11 +45,11 @@ const funcs = [func1, func2, func3]
 
 我想要逐步地组合调用 funcs 数组里的函数，得到一个这样的声明式数据流：
 
-![[_attachment/img/bbede2adb1f73e15e1a8c0543e074c20_MD5.png]]
+![](_attachment/img/bbede2adb1f73e15e1a8c0543e074c20_MD5.png)
 
 如果我借助了 reduce，我得到的数据流乍一看和楼上是有出入的：
 
-![[_attachment/img/0deb9a56e70063b65f79c3f5a5481506_MD5.png]]
+![](_attachment/img/0deb9a56e70063b65f79c3f5a5481506_MD5.png)
 
 如何通过调整 reduce 的调用，使它的工作流和声明式数据流看齐呢？
 
@@ -58,14 +58,14 @@ const funcs = [func1, func2, func3]
 入参明确后，我的 reduce 调用长这样：
 
 ```js
-const funcs = [func1, func2, func3]  
+const funcs = [func1, func2, func3]
 
 funs.reduce(callback, 0)
 ```
 
 接下来重点在于 callback 怎么实现。其实我们只需要把楼上两张图放在一起做个对比，答案就呼之欲出了：
 
-![[_attachment/img/64315fb6ef8703fb31c9fb14d5972fc1_MD5.png]]
+![](_attachment/img/64315fb6ef8703fb31c9fb14d5972fc1_MD5.png)
 
 图中我用红笔对 reduce 流程做了拆分，用蓝笔对目标数据流做了拆分。
 
@@ -90,7 +90,7 @@ callback(input, func) = func(input)
 ```js
 function callback(input, func) {
   func(input)
-}  
+}
 
 funcs.reduce(callback,0)
 ```
@@ -101,7 +101,7 @@ funcs.reduce(callback,0)
 function pipe(funcs) {
   function callback(input, func) {
     return func(input)
-  }  
+  }
 
   return function(param) {
     return funcs.reduce(callback,param)
@@ -118,11 +118,11 @@ function pipe(funcs) {
 ```js
 function add4(num) {
   return num + 4
-}  
+}
 
 function multiply3(num) {
   return num*3
-}  
+}
 
 function divide2(num) {
   return num/2
@@ -153,7 +153,7 @@ console.log(compute(10))
 function pipe(...funcs) {
   function callback(input, func) {
     return func(input)
-  }  
+  }
 
   return function(param) {
     return funcs.reduce(callback,param)
@@ -180,7 +180,7 @@ pipe 用于创建一个正序的函数传送带，而 compose 则用于创建一
 function compose(...funcs) {
   function callback(input, func) {
     return func(input)
-  }  
+  }
 
   return function(param) {
     return funcs.reduceRight(callback,param)
@@ -196,7 +196,7 @@ const compute = compose(divide2, multiply3, add4)
 
 组合后的流水线顺序，和传参的顺序是相反的。也就是说执行 compute 时，函数的执行顺序是这样的：
 
-![[_attachment/img/d36c882546331d6ddac63056384b6ed1_MD5.png]]
+![](_attachment/img/d36c882546331d6ddac63056384b6ed1_MD5.png)
 
 **正序是 pipe，倒序是 compose。**
 

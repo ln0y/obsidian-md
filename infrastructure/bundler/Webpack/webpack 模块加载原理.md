@@ -448,7 +448,7 @@ export default function test2() {}
 
 其中使用 `import` 导入的 `test2.js` 文件在打包时会被单独打包成一个文件，而不是和 `index.js` 一起打包到 `bundle.js`。
 
-![[_attachment/img/99e03d32cedfa7a166e4219ec2f0139e_MD5.webp]]
+![](_attachment/img/99e03d32cedfa7a166e4219ec2f0139e_MD5.webp)
 
 这个 `0.bundle.js` 对应的代码就是动态导入的 `test2.js` 的代码。
 

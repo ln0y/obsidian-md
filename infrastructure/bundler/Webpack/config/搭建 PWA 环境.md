@@ -13,7 +13,7 @@ PWA 全称 Progressive Web Apps \(渐进式 Web 应用\)，原始定义很复杂
 
 - [ServiceWorker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)： 可以理解为一种介于网页与服务器之间的本地代理，主要实现 PWA 应用的离线运行功能。例如 `ServiceWorker` 可以将页面静态资源缓存到本地，用户再次运行页面访问这些资源时，`ServiceWorker` 可拦截这些请求并直接返回缓存副本，即使此时用户处于离线状态也能正常使用页面；
 
-![[_attachment/img/c3961426edabcbfd4754a6f9dfccd7ee_MD5.png]]
+![](_attachment/img/c3961426edabcbfd4754a6f9dfccd7ee_MD5.png)
 
 - [manifest](https://web.dev/add-manifest/?utm_source=devtools) 文件：描述 PWA 应用信息的 JSON 格式文件，用于实现本地安装功能，通常包含应用名、图标、URL 等内容，例如：
 
@@ -100,11 +100,11 @@ module.exports = {
 
 接下来，运行并使用 Chrome 打开页面，打开开发者工具，切换到 `Applicatios > Service Workers` 面板，可以看到：
 
-![[_attachment/img/d6ebdc9dfe90b0d338f7d2b740fc8bd3_MD5.png]]
+![](_attachment/img/d6ebdc9dfe90b0d338f7d2b740fc8bd3_MD5.png)
 
 这表明 Service Worker 已经正常安装到浏览器上。此外，地址栏右方还会出现一个下载图标：
 
-![[_attachment/img/bff7b16e3d77d8902545e67d7c2c94f4_MD5.png]]
+![](_attachment/img/bff7b16e3d77d8902545e67d7c2c94f4_MD5.png)
 
 点击该图标可将应用下载到本地，并在桌面创建应用图标 —— 效果如同安装独立 App 一样。
 

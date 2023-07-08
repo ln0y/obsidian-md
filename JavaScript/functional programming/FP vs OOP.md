@@ -113,7 +113,7 @@ pipe(
 
 用 mock 数据测试一下，结果符合预期：
 
-![[_attachment/img/9d87ee4af43ba0d94c037cddd41c0a46_MD5.png]]
+![](_attachment/img/9d87ee4af43ba0d94c037cddd41c0a46_MD5.png)
 
 这个例子用意何在，我们先按下不表。趁着写代码的手感还在，赶紧去看下一个业务场景。
 

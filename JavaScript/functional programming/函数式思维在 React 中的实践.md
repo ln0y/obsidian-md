@@ -13,7 +13,7 @@ React 是一个用于构建用户界面的 JS 库（严格来说是库，但“�
 
 众所周知，React 的核心特征是“**数据驱动视图**”，这个特征在业内有一个非常有名的函数式来表达：
 
-![[_attachment/img/66e082ded1c30775c74d35d6bf33c374_MD5.png]]
+![](_attachment/img/66e082ded1c30775c74d35d6bf33c374_MD5.png)
 
 这个表达式有很多的版本，一些版本会把入参里的 data 替换成 state，但它们本质上都指向同一个含义，那就是 **React 的视图会随着数据的变化而变化**。
 
@@ -33,7 +33,7 @@ const App = () => {
 
 用 babel 转换一遍这段代码，可以得到下图右侧的结果：
 
-![[_attachment/img/743896c6483bc10e0aa4e3485ad92ccc_MD5.png]]
+![](_attachment/img/743896c6483bc10e0aa4e3485ad92ccc_MD5.png)
 
 图中我将 JSX 的转译结果高亮了出来，这里也是我想给大家划的第一个重点——**JSX 的本质，是** `React.createElement` **这个 JS 调用的语法糖。**
 
@@ -68,7 +68,7 @@ ReactDOM.render(<App />, rootElement)
 
 `f()` 函数则对应的是 React 框架内部的运行机制，结合上文的分析，这套运行机制整体上可以分为两层（如下图所示）：
 
-![[_attachment/img/3b0f9e39cbbb4093c2f1316db09a985e_MD5.png]]
+![](_attachment/img/3b0f9e39cbbb4093c2f1316db09a985e_MD5.png)
 
 - **计算层**：负责根据 state 的变化计算出虚拟 DOM 信息。这是一层较纯的计算逻辑。
 - **副作用层**：根据计算层的结果，将变化应用到真实 DOM 上。这是一层绝对不纯的副作用逻辑。
@@ -189,7 +189,7 @@ UI = FunctionComponent(props, context, state)
 
 而现在，设计一个函数组件，我们关注点则被简化为“**哪些逻辑可以被抽象为纯函数，哪些逻辑可以被抽象为副作用**”（如下图）。
 
-![[_attachment/img/c341ef5883f41604e2c4ebd2abd7405a_MD5.png]]
+![](_attachment/img/c341ef5883f41604e2c4ebd2abd7405a_MD5.png)
 
 我们关注的细节变少了，需要思考的问题变少了，抽象的层次更高了——**React 背靠函数式思想，重构了组件的抽象方式，为我们创造了一种更加声明式的研发体验。**
 
@@ -199,7 +199,7 @@ UI = FunctionComponent(props, context, state)
 
 即便是在 Class 组件占据统治地位的时期，React 官方在代码重用方面的建议也是“要组合，不要继承”（下图截图自 React 官网，传送门 [React 官方文档-核心概念 Part11](https://zh-hans.reactjs.org/docs/composition-vs-inheritance.html#gatsby-focus-wrapper)）：
 
-![[_attachment/img/7d11d5303c9cfcb7fcbe9f49c4720708_MD5.png]]
+![](_attachment/img/7d11d5303c9cfcb7fcbe9f49c4720708_MD5.png)
 
 在组合思想的渗透下，发展出了“React 设计模式”这种东西，经典的 React 设计模式包括但不限于：
 
@@ -516,7 +516,7 @@ const App = () => {
 
 render props 被认为是比 HOC 更加优雅的代码重用解法。这里提及 render props，并不是为了教大家怎么做“HOC vs render props”这道老八股面试题，而是为了给大家看下面这张图：
 
-![[_attachment/img/22daa7acd63ca1eb6659f6289f6ea0a4_MD5.png]]
+![](_attachment/img/22daa7acd63ca1eb6659f6289f6ea0a4_MD5.png)
 
 图中的代码是我基于楼上 HOC 的 `withFetch` 简单改写出的 render props 版本。不熟悉 render props 的家人们可能会对 render 函数中的 `this.props.render()` 感到困惑。这里简单介绍一下：`this.props.render()` 可以是任意的一个函数组件，像这样：
 
@@ -526,7 +526,7 @@ render props 被认为是比 HOC 更加优雅的代码重用解法。这里提�
 
 将这个 `props.render` 代入楼上的 `FetchComponent`，我们看到的代码会更直观一些，如下图：
 
-![[_attachment/img/399c69a1a727f0bd6fcc8b922fdb5f6d_MD5.png]]
+![](_attachment/img/399c69a1a727f0bd6fcc8b922fdb5f6d_MD5.png)
 
 这里我最想要大家关注的是我用红色方框圈出的这两个部分，这也是我认为 render props 最进步的一个点——它区分了两个不同的逻辑层次：上面的红色方框圈住的是“**数据的准备工作**”（充满副作用），下面的红色方框圈住的则是“**数据的渲染工作**”（纯函数）。
 
@@ -536,7 +536,7 @@ render props 被认为是比 HOC 更加优雅的代码重用解法。这里提�
 
 然而，render props 也存在着这样那样的局限性，其中一个最经典的问题莫过于“嵌套地狱”问题了。比如我真的在一些存量项目中见过类似这样的代码（下图已脱敏）：
 
-![[_attachment/img/dd94895c8f177a20d1b07b1b5d7c7eff_MD5.png]]
+![](_attachment/img/dd94895c8f177a20d1b07b1b5d7c7eff_MD5.png)
 
 但整体来说，render props 的进步意义还是非常值得肯定的。
 
@@ -546,7 +546,7 @@ render props 被认为是比 HOC 更加优雅的代码重用解法。这里提�
 
 首先再次声明，Hooks 是无法完全替代 HOC 和 render props 的。关于这个问题，React 官方的 Q&A 说得很清楚（传送门：[Hooks FAQ](https://zh-hans.reactjs.org/docs/hooks-faq.html#do-hooks-replace-render-props-and-higher-order-components)）：
 
-![[_attachment/img/b92844351d759eb729f37b3a21a670bd_MD5.png]]
+![](_attachment/img/b92844351d759eb729f37b3a21a670bd_MD5.png)
 
 图上这个回答中提到的“大部分场景”就包括本文探讨的目标场景：对【**状态相关的逻辑**】 的重用 **。**
 

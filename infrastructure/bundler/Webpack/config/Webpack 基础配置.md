@@ -409,7 +409,7 @@ npx webpack --config=webpack.development.js
 
 基于各种应用场景综合 Webpack 方方面面的应用方法，其中涉及多达上百种配置项，不太可能一一详细讲解，但大致上可以划分下图中展示的几种分类：
 
-![[_attachment/img/ee12fdd99c8c91fda3867b71d2a245d5_MD5.png]]
+![](_attachment/img/ee12fdd99c8c91fda3867b71d2a245d5_MD5.png)
 
 包括：流程配置、性能优化类配置、日志类配置、开发效率类配置等，这里面较常用，需要着重学习的配置有：
 
@@ -487,11 +487,11 @@ module.exports = {
 
 示例中，`foo` 入口的 `dependOn` 属性指向 `main` 入口，此时 Webpack 认为：客户端在加载 `foo` 产物之前必然会加载 `main`，因此可以将重复的模块代码、运行时代码等都放到 `main` 产物，减少不必要的重复，最终打包结果：
 
-![[_attachment/img/48a98d7ee9bdd5b3a76422ad102256dc_MD5.png]]
+![](_attachment/img/48a98d7ee9bdd5b3a76422ad102256dc_MD5.png)
 
 左边为 `main` 产物，包含所有模块、运行时代码，与普通 Bundle 无异；右边为 `foo` 产物，代码结构非常清爽。作为对比，若不指定 `dependOn` 属性，则构建结果：
 
-![[_attachment/img/ff465e2a46ce5b6275253de5291c87b2_MD5.png]]
+![](_attachment/img/ff465e2a46ce5b6275253de5291c87b2_MD5.png)
 
 可以看出两边内容并无差异。
 
@@ -527,7 +527,7 @@ module.exports = {
 
 示例中，`main` 与 `foo` 入口均将 `runtime` 声明为 `common-runtime`，此时 Webpack 会将这两个入口的运行时代码都抽取出来，放在 `common-runtime` Bundle 中，效果：
 
-![[_attachment/img/24847aa267f8ffdbdbeb05053a8c621e_MD5.png]]
+![](_attachment/img/24847aa267f8ffdbdbeb05053a8c621e_MD5.png)
 
 `entry.runtime` 是一种常用的应用性能优化手段，建议大家多做尝试、使用。
 
@@ -599,7 +599,7 @@ module.exports = [
 
 之后，执行构建命令，结果：
 
-![[_attachment/img/48076bbdec77e9c393d26c8511c07a83_MD5.png]]
+![](_attachment/img/48076bbdec77e9c393d26c8511c07a83_MD5.png)
 
 可以看到左边 `web` 版本中需要注入使用 JSONP 异步加载 JS 文件的运行时代码；而右边 `node` 版本则可以直接使用 Node 环境下的 `require` 实现异步加载，因此不需要注入相关运行时。
 

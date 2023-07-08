@@ -19,8 +19,7 @@
       "name": "PDF"
     },
     {
-      "name": "Word (.docx)",
-      "arguments": "-f markdown --resource-path=\"${vaultDir}\" --resource-path=\"${attachmentFolderPath}\" -s -o \"${outputPath}\" -t docx"
+      "name": "Word (.docx)"
     },
     {
       "name": "OpenOffice"
@@ -51,13 +50,9 @@
     }
   ],
   "defaultExportDirectoryMode": "Auto",
-  "openExportedFile": false,
+  "openExportedFile": true,
   "env": {},
-  "lastEditName": "Word (.docx)",
-  "showOverwriteConfirmation": false,
   "lastExportDirectory": {
     "win32": "C:\\Users\\64176\\OneDrive\\桌面"
-  },
-  "lastExportType": "Word (.docx)",
-  "openExportedFileLocation": true
+  }
 }

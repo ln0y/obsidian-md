@@ -134,15 +134,15 @@ npx webpack --json=stats.json
 
 使用上只需要将上一节 `webpack --json=stats.json` 命令生成的 `stats.json` 文件导入页面，就可以看到一些关键统计信息：
 
-![[_attachment/img/ec9951e85d5bd887e3b97db6809c2949_MD5.png]]
+![](_attachment/img/ec9951e85d5bd887e3b97db6809c2949_MD5.png)
 
 点击页面中的 `modules/chunks/assets` 按钮，页面会渲染出对应实体的依赖关系图，例如：
 
-![[_attachment/img/eb896ed4da577ff44d7bb9d810dffc6f_MD5.png]]
+![](_attachment/img/eb896ed4da577ff44d7bb9d810dffc6f_MD5.png)
 
 除 `modules/chunks/assets` 外，右上方菜单栏 **Hints** 还可以查看构建过程各阶段、各模块的处理耗时，可以用于对比分析各个阶段的性能情况：
 
-![[_attachment/img/ece7330f4fe16b1f602baddc44c84b41_MD5.png]]
+![](_attachment/img/ece7330f4fe16b1f602baddc44c84b41_MD5.png)
 
 [Webpack Analysis](https://webpack.github.io/analyse/) 提供了非常齐全的分析视角，信息几乎没有失真，但上手难度稍高，信息噪音比较多，所以社区还提供了一个简化版 [webpack-deps-tree](https://mshustov.github.io/webpack-deps-tree/static/)，功能相似但用法更简单、信息更简洁，大家可以根据实际需要交叉使用。
 
@@ -177,11 +177,11 @@ module.exports = {
 
 之后，运行 `npx webpack` 命令，编译结束后默认打开分析视图：
 
-![[_attachment/img/b2342b1f3658605a36dd4adae786a21a_MD5.png]]
+![](_attachment/img/b2342b1f3658605a36dd4adae786a21a_MD5.png)
 
 可以看到，Statoscope 提供了多种维度的统计信息，包括：Chunk 数量、模块总数、重复模块树、编译耗时、Initial Chunk 体积等；更重要的是，Statoscope 还展示了模块与模块、Chunk、Entry 等维度的依赖关系：
 
-![[_attachment/img/217a1ae7243b553a71a12967be545288_MD5.png]]
+![](_attachment/img/217a1ae7243b553a71a12967be545288_MD5.png)
 
 我们可以据此推断出模块体积、为何需要打包该模块、有哪些模块被重复引用等信息。
 
@@ -209,7 +209,7 @@ module.exports = {
 
 编译结束后，默认自动打开本地视图页面：
 
-![[_attachment/img/8ace887e1b2a8939efdc5a9d4723d206_MD5.png]]
+![](_attachment/img/8ace887e1b2a8939efdc5a9d4723d206_MD5.png)
 
 也可以直接用 Webpack-bundle-analyzer 命令直接打开 `stats` 文件：
 
@@ -255,7 +255,7 @@ module.exports = {
 
 两种方式最终都可以生成如下视图：
 
-![[_attachment/img/a0806b5966dff0a154dd4d9af149b6d4_MD5.png]]
+![](_attachment/img/a0806b5966dff0a154dd4d9af149b6d4_MD5.png)
 
 > 提示：很遗憾，实测发现 [webpack-visualizer-plugin](https://github.com/chrisbateman/webpack-visualizer#plugin-usage) 插件年久失修，只兼容 webpack 1.x ，所以现在几乎没有使用价值了。
 
@@ -295,7 +295,7 @@ npx webpack-dashboard -- node index.js
 
 之后，就可以在命令行看到一个漂亮的可视化界面：
 
-![[_attachment/img/9d73fc883923e008862cd656ef64162a_MD5.png]]
+![](_attachment/img/9d73fc883923e008862cd656ef64162a_MD5.png)
 
 ## Speed Measure Plugin
 
@@ -325,7 +325,7 @@ module.exports = smp.wrap(config)
 
 之后运行打包命令如 `npx webpack` 即可，运行效果：
 
-![[_attachment/img/e2da452ab887b42bdbb09a1042a95927_MD5.png]]
+![](_attachment/img/e2da452ab887b42bdbb09a1042a95927_MD5.png)
 
 ## UnusedWebpackPlugin
 
@@ -347,7 +347,7 @@ module.exports = {
 
 示例中，`directories` 用于指定需要分析的文件目录；`root` 用于指定根路径，与输出有关。配置插件后，webpack 每次运行完毕都会输出 `directories` 目录中，有哪些文件没有被用到：
 
-![[_attachment/img/967f839f2738cf0f9a9dc3a26b3fe3c7_MD5.png]]
+![](_attachment/img/967f839f2738cf0f9a9dc3a26b3fe3c7_MD5.png)
 
 ## 总结
 

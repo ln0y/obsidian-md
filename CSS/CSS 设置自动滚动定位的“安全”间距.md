@@ -26,11 +26,11 @@ update: 2022-11-16-星期三 15:35:20
 
 这样，在点击a标签时会自动定位到与之相对应的内容上，如下
 
-![[_attachment/img/008vxvgGgy1h7m3jb8aurg30xc0ocnpe.gif]]
+![](_attachment/img/008vxvgGgy1h7m3jb8aurg30xc0ocnpe.gif)
 
 但是，这种通过锚点触发的定位默认是**紧贴滚动容器边缘**的，如果一些定位元素，比如`fixed`定位的头部，就会出现被遮挡的情况，如下
 
-![[_attachment/img/008vxvgGgy1h7m3p015hpg30xc0ockjl.gif]]
+![](_attachment/img/008vxvgGgy1h7m3p015hpg30xc0ockjl.gif)
 
 可以看到，“示例”这个标题由于紧贴顶部，导致被`sticky`定位的头部遮住了。
 
@@ -52,15 +52,15 @@ h2{
 
 设置这个属性后，当自动滚动定位到`h2`时，会自动预留`6rm`的间隔（可以防止被头部遮挡），下面是演示（红框表示`6rem`的间隔）
 
-![[_attachment/img/008vxvgGgy1h7m5vd8feeg30xc0ockjm.gif]]
+![](_attachment/img/008vxvgGgy1h7m5vd8feeg30xc0ockjm.gif)
 
 是不是非常简单，最终效果如下
 
-![[_attachment/img/008vxvgGgy1h7m3jb8aurg30xc0ocnpe.gif]]
+![](_attachment/img/008vxvgGgy1h7m3jb8aurg30xc0ocnpe.gif)
 
 其实，MDN官方已经采用了这种方式，经常看看 MDN，会发现有很多非常巧妙的实现，如下
 
-![[_attachment/img/008vxvgGgy1h7m646x2gnj31420u00x9.jpg]]
+![](_attachment/img/008vxvgGgy1h7m646x2gnj31420u00x9.jpg)
 
 ## 二、还有一个 scroll-padding
 
@@ -76,7 +76,7 @@ html {
 
 这种方式也是可以达到相同的效果的
 
-![[_attachment/img/008vxvgGgy1h7m7k1t4slj314c0u0wiz.jpg]]
+![](_attachment/img/008vxvgGgy1h7m7k1t4slj314c0u0wiz.jpg)
 
 一般情况下，两种方式都可以自行选择，如果很清楚滚动容器是哪个，可以直接选择用`scroll-padding`，否则就用`scroll-margin`
 
@@ -94,7 +94,7 @@ element.scrollIntoView();
 
 这个定位和前面的锚点定位一样，默认也是紧贴滚动容器的，如果设置了`scroll-margin`或者`scroll-pading`，也可以实现在滚动定位时自动预留一定间距
 
-![[_attachment/img/008vxvgGgy1h7m7uo2xu7g30xc0ocqv5.gif]]
+![](_attachment/img/008vxvgGgy1h7m7uo2xu7g30xc0ocqv5.gif)
 
 ### 2\. focus 定位
 
@@ -102,21 +102,21 @@ element.scrollIntoView();
 
 如果设置了`scroll-margin`或者`scroll-pading`，这样就**可以避免找不到焦点**的情况，确保一直都能看到焦点，下面是通过`tab`键聚焦的情况
 
-![[_attachment/img/008vxvgGgy1h7m87t3bvhg30xc0oc4qr.gif]]
+![](_attachment/img/008vxvgGgy1h7m87t3bvhg30xc0oc4qr.gif)
 
 ### 3\. Scroll-snap
 
 还有一种情况是滚动捕捉：[scroll-snap-type](https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-snap-type)，这个属性可以让滚动时自动捕捉临界点。正常情况下，滚动临界点是紧贴滚动容器的，像这样
 
-![[_attachment/img/008vxvgGgy1h7m8ga6flig30xc0h3tp0.gif]]
+![](_attachment/img/008vxvgGgy1h7m8ga6flig30xc0h3tp0.gif)
 
 如果希望预留一定的距离如何处理呢？还是这个`scroll-margin`，下面给第二个元素设置了一定的`scroll-margin`，效果如下
 
-![[_attachment/img/008vxvgGgy1h7m8imujlmg30xc0h37nt.gif]]
+![](_attachment/img/008vxvgGgy1h7m8imujlmg30xc0h37nt.gif)
 
 可以看到，在滚动到第2个元素时，提前预留了一定的距离，而且还可以设置负值，这样在滚动到第2个元素时，可以提前看到第3个的部分内容
 
-![[_attachment/img/008vxvgGgy1h7m8m23jsfg30xc0h3njg.gif]]
+![](_attachment/img/008vxvgGgy1h7m8m23jsfg30xc0h3njg.gif)
 
 ## 四、兼容性和总结
 

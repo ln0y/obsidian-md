@@ -136,7 +136,7 @@ person.sleep()
 
 示例中，`Somebody` 初始化时声明了一个 `sleep` 钩子，并在后续调用 `sleep.tap` 函数连续注册三次回调，在调用 `person.sleep()` 语句触发 `sleep.call` 之后，tapable 会按照注册的先后按序执行三个回调。
 
-![[_attachment/img/d24ab773e01a15551844a612e555ae7d_MD5.png]]
+![](_attachment/img/d24ab773e01a15551844a612e555ae7d_MD5.png)
 
 上述示例中，触发回调时用到了钩子的 `call` 函数，我们也可以选择异步风格的 `callAsync` ，选用 `call` 或 `callAsync` 并不会影响回调的执行逻辑：按注册顺序依次执行 + 忽略回调执行结果，两者唯一的区别是 `callAsync` 需要传入 `callback` 函数，用于处理回调队列可能抛出的异常：
 
@@ -637,7 +637,7 @@ function asyncParallelCall(callback) {
 
 例如：对于 [compiler.hooks.done](https://webpack.js.org/api/compiler-hooks/#done) 钩子，官网介绍：
 
-![[_attachment/img/afa696336775511f3d408bbecc8f8603_MD5.png]]
+![](_attachment/img/afa696336775511f3d408bbecc8f8603_MD5.png)
 
 这是一个 `AsyncSeriesHook` 钩子，意味着：
 
@@ -647,7 +647,7 @@ function asyncParallelCall(callback) {
 
 又或者，对于 [compilation.hooks.optimizeChunkModules](https://webpack.js.org/api/compilation-hooks/#optimizemodules) 钩子，官网介绍：
 
-![[_attachment/img/76cc7725d4c777f750280ed455ca554e_MD5.png]]
+![](_attachment/img/76cc7725d4c777f750280ed455ca554e_MD5.png)
 
 这是一个 `SyncBailHook` 钩子，因此：
 
@@ -677,7 +677,7 @@ sleep.call()
 
 调用 `sleep.call` 时，Tapable 内部处理流程大致为：
 
-![[_attachment/img/9e2f01f1b4f62faa4acc79fee8ddfc50_MD5.png]]
+![](_attachment/img/9e2f01f1b4f62faa4acc79fee8ddfc50_MD5.png)
 
 编译过程主要涉及三个实体：
 
@@ -794,11 +794,11 @@ sleep.callAsync('tony', (err, name) => {
 
 Tapable 提供的大多数特性都是基于 `Hook + HookCodeFactory` 实现的，如果大家对此有兴趣，可以在 [tapable/lib/Hook.js](https://github1s.com/webpack/tapable/blob/master/lib/Hook.js#L12) 的 `CALL_DELEGATE/CALL_ASYNC_DELEGATE/PROMISE_DELEGATE` 几个函数打断点：
 
-![[_attachment/img/2341178b8d4b5853619920895c68da2f_MD5.png]]
+![](_attachment/img/2341178b8d4b5853619920895c68da2f_MD5.png)
 
 之后，使用 [ndb](https://github.com/GoogleChromeLabs/ndb) 命令断点调试，查看动态编译出的代码：
 
-![[_attachment/img/aaaca7a0c3db263d419a9b0ba22362bd_MD5.png]]
+![](_attachment/img/aaaca7a0c3db263d419a9b0ba22362bd_MD5.png)
 
 ## 高级特性：Intercept
 

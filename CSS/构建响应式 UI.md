@@ -21,13 +21,13 @@ update: 2023-02-20-星期一 14:35:11
 
 就 Web 开发而言，移动端的 Web 页面（大家常说的 H5 页面）其实要比 PC 端或平板端的页面简单得多，就 UI 组件的还原、页面的布局而言，也要容易得多。但对于移动端的 Web 开发者而言，他们更为痛苦的不是 UI 的还原，页面的布局，而是要面对众多不同的移动端设备：
 
-![[_attachment/img/c435916f0e2d05ffc57100960ac7a3ca_MD5.gif]]
+![](_attachment/img/c435916f0e2d05ffc57100960ac7a3ca_MD5.gif)
 
 在这种环境之下，CSS 的媒体查询已经无法满足我们的需求了。
 
 另外，早期移动端开发，只有 Android 系列存在终端适配问题，因为当时安卓品牌琳琅满目，而且很多设计师常常忽略 Android 适配问题，只出一套 iOS 设计稿。但随着 iPhone6，iPhone6+ 的出现，不仅 Android 系列有终端适配问题了，iOS 系列也进入到多分辨率的时代，也从这个时候起，移动端适配全面进入到“杂屏”时代。
 
-![[_attachment/img/24fbeec9a2a5268802d2ddcdcf351a39_MD5.png]]
+![](_attachment/img/24fbeec9a2a5268802d2ddcdcf351a39_MD5.png)
 
 > 上图来自于 [paintcodeapp.com](http://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
 
@@ -41,13 +41,13 @@ update: 2023-02-20-星期一 14:35:11
 
 还是上一张图吧，一图胜过千言万语：
 
-![[_attachment/img/dbdd6a0f742776c72731486934b850c3_MD5.png]]
+![](_attachment/img/dbdd6a0f742776c72731486934b850c3_MD5.png)
 
 也就是说，**手淘设计师常选择 iPhone6 作为基准设计尺寸，交付给 Web 开发者的设计尺寸是按** **`750px x 1334px`** **为准 (高度会随着内容多少而改变)。 Web 开发者通过一套适配规则自动适配到其他的尺寸** 。
 
 根据上面所说的，设计师给我们的设计图是一个 `750px x 1600px` 的页面：
 
-![[_attachment/img/dfbd60232ae32117dae2eaac6fa6df0d_MD5.png]]
+![](_attachment/img/dfbd60232ae32117dae2eaac6fa6df0d_MD5.png)
 
 ### 移动端适配设计思想
 
@@ -57,7 +57,7 @@ update: 2023-02-20-星期一 14:35:11
 
 就拿视窗为例吧，它又分为： **布局视窗** 、**视觉视窗** 和 **理想视窗** ，它们在屏幕适配中起着非常重要的作用。
 
-![[_attachment/img/48084e150f65f2e0820bbc9e46422cff_MD5.png]]
+![](_attachment/img/48084e150f65f2e0820bbc9e46422cff_MD5.png)
 
 上图展示的是 **布局视窗（Layout Viewport）** 的示意图。是我们可以进行网页布局区域的大小，以 CSS 像素做计量单位。移动设备默认会设置一个较大的视窗尺寸（比如，iOS 一般默认是 `980px`），布局视窗的宽度是大于浏览器可视区域的宽度的。布局视窗的尺寸可以通过下面 API 来获取：
 
@@ -66,7 +66,7 @@ update: 2023-02-20-星期一 14:35:11
 布局视窗高度 = document.documentElement.clientHeight
 ```
 
-![[_attachment/img/607de3c534c3a9c5e6f7934fc77ab561_MD5.png]]
+![](_attachment/img/607de3c534c3a9c5e6f7934fc77ab561_MD5.png)
 
 上图是 **视觉视窗（Visual Viewport）** 的示意图。它就是设备的像素分辨率。视觉视窗的尺寸可以通过下面 API 来获取：
 
@@ -75,7 +75,7 @@ update: 2023-02-20-星期一 14:35:11
  视觉视窗高度 = window.innerHeight
 ```
 
-![[_attachment/img/8d2d8469ae61b2b3c038a92452d445e6_MD5.png]]
+![](_attachment/img/8d2d8469ae61b2b3c038a92452d445e6_MD5.png)
 
 上图所示的就是 **理想视窗（Ideal Viewport）** 了，它是一个能完美适配移动设备的视窗（Viewport）。无论是在何种密度屏幕，何种分辨率下，显示出来的大小都差不多。
 
@@ -88,7 +88,7 @@ update: 2023-02-20-星期一 14:35:11
 
 我们除了要面对不同视窗之外，移动设备还可以被用户随时旋转。当设备旋转之后，屏幕方向也会有变化，所以才会有 **横屏** 和 **竖屏** 之分：
 
-![[_attachment/img/00af74735a1b7f47eb5b10932a01c14d_MD5.png]]
+![](_attachment/img/00af74735a1b7f47eb5b10932a01c14d_MD5.png)
 
 可以使用 `window.orientation` 来判断设备是横屏还是竖屏：
 
@@ -123,7 +123,7 @@ window.addEventListener('resize', () => {
 
 庆幸的是，CSS 中有一种单位，叫 **视窗单位** ，它能自动根据设备的“视觉视窗”的尺寸来计算：
 
-![[_attachment/img/2050ba902fe3cbde516bc1f3d3177be7_MD5.png]]
+![](_attachment/img/2050ba902fe3cbde516bc1f3d3177be7_MD5.png)
 
 例如，如果浏览器的高是 `900px` ，`1vh` 的值就是 `9px`。同理，如果浏览器视窗宽度为 `750px` ，`1vw` 的值就是 `7.5px`。
 
@@ -135,7 +135,7 @@ window.addEventListener('resize', () => {
 
 选择 CSS `rem` 单位来做适配方案设计主要原因是，**任何元素的属性值取** **`rem`** **作为单位的值，它始终都是相对于 HTML 的根元素** **`<html>`** **的** **`font-size`** **来计算** 。即，任何值为 `1rem` 的元素都等于 `16px`，当然，其前提是浏览器默认的 `font-size` 没有被用户重置，或者未显式地给 `html` 元素设置 `font-size` 值；另外，`rem` 可以不管它的父元素的 `font-size` 如何！
 
-![[_attachment/img/fd0cd59a7604b657011b3eb32a832727_MD5.png]]
+![](_attachment/img/fd0cd59a7604b657011b3eb32a832727_MD5.png)
 
 从上图可以看出，就算在 `body` 中显式设置了 `font-size` 的值，也不会影响其子元素 `h3` 的 `font-size`，`h3` 的 `font-size` 始终都是相对于根元素 `<html>` 的 `font-size` 来计算的。
 
@@ -145,7 +145,7 @@ window.addEventListener('resize', () => {
 
 另外一个问题是，Web 开发者拿到的设计稿都是以 `px` 为单位，如何将 `px` 转为 `rem` 单位呢？
 
-![[_attachment/img/3c2e0b908e293cca94ab48ebf34c5497_MD5.png|500]]
+![](_attachment/img/3c2e0b908e293cca94ab48ebf34c5497_MD5.png|500)
 
 REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这样设计的初衷是为了能更好地从 `rem` 过渡到 `vw` ），而每一等份被定义成一个单位 `a`。同时 `1rem` 单位被认定为 `10a`。针对我们这份视觉稿（基于 `750px` 的设计稿）可以计算出：
 
@@ -156,7 +156,7 @@ REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这
 
 那么我们这个示例的稿子就分成了 `10a`，也就是整个宽度为 `10rem` ，即 `750px` ；`<html>` 对应的 `font-size` 为 `75px`：
 
-![[_attachment/img/1cd9c28f6a21f21519bfe893bb0232c8_MD5.png|500]]
+![](_attachment/img/1cd9c28f6a21f21519bfe893bb0232c8_MD5.png|500)
 
 这样一来，对于视觉稿上的元素尺寸换算，只需要原始的 `px` 值除以 `rem` 基准值即可。例如此例视觉稿中的图片，其尺寸是 `176px x 176px`，转换成为 `2.346667rem x 2.346667rem`。
 
@@ -272,31 +272,31 @@ REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这
 }
 ```
 
-![[_attachment/img/c60a807de9fe9f07e6623689b8a995a6_MD5.png]]
+![](_attachment/img/c60a807de9fe9f07e6623689b8a995a6_MD5.png)
 
 但现在的 m.taobao.com 已经取消了最大宽度的限制：
 
-![[_attachment/img/7f990643a471f703d0ef597e832e6637_MD5.png]]
+![](_attachment/img/7f990643a471f703d0ef597e832e6637_MD5.png)
 
 另外在一些大屏幕下（比如，京东），页面的呈现是有一定缺陷的：
 
-![[_attachment/img/c0743db635db3493ae0940123b2b4935_MD5.png]]
+![](_attachment/img/c0743db635db3493ae0940123b2b4935_MD5.png)
 
 这就是 REM 适配布局带来的一定缺陷。
 
 相对而言，VW 比 REM 更易于适配百分百的屏幕，比如：
 
-![[_attachment/img/c1ab07303903234b614db48387a1f56d_MD5.gif]]
+![](_attachment/img/c1ab07303903234b614db48387a1f56d_MD5.gif)
 
 > 上图录制于手淘的金币庄园：<https://pages.tmall.com/wow/z/tmtjb/town/home-wx?spm=a215s.7406091.icons.6>
 
 但 VW 也有很大的缺陷，比如给页面设置一个最大宽度，让页面水平居中，VW 是无法做到的，因为整个页面的元素尺寸大小都是以 `vw` 单位来计算的。如果你在容器上显式设置一个最大值，就会造成页面布局的混乱：
 
-![[_attachment/img/b981f1659599cce595ad99e5bbcc6e5e_MD5.png]]
+![](_attachment/img/b981f1659599cce595ad99e5bbcc6e5e_MD5.png)
 
 即使没有最大宽度的要求，在宽屏的时候，页面上一些组件 UI 也会有一定的缺陷，比如弹框：
 
-![[_attachment/img/56e31e5a67bcf209cae354c196db9ca4_MD5.png]]
+![](_attachment/img/56e31e5a67bcf209cae354c196db9ca4_MD5.png)
 
 正因为它们有一定的缺陷，我们应该有新的布局适配方案，来满足更多的终端设备，甚至是未来不知的设备。正基于此原因，我们需要一个更灵活，更稳定的响应式 UI 布局。
 
@@ -341,7 +341,7 @@ REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这
 }
 ```
 
-![[_attachment/img/b1672dc34eba39829b7cdc99b489c2b6_MD5.png]]
+![](_attachment/img/b1672dc34eba39829b7cdc99b489c2b6_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/VwBLZVG>
 
@@ -359,7 +359,7 @@ REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这
 }
 ```
 
-![[_attachment/img/74722af59b7321b292d72ed41ba7f33f_MD5.gif]]
+![](_attachment/img/74722af59b7321b292d72ed41ba7f33f_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/zYLGYxp>
 
@@ -383,7 +383,7 @@ REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这
 }
 ```
 
-![[_attachment/img/972e6322d718578758409f7f7c72e177_MD5.gif]]
+![](_attachment/img/972e6322d718578758409f7f7c72e177_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/QWBbWNK>
 
@@ -417,7 +417,7 @@ REM 的适配方案会将基于 `750px` 的设计稿分成 `100` 个等份（这
 }
 ```
 
-![[_attachment/img/1e81e7691e5c76a4f963bc3b140c6676_MD5.gif]]
+![](_attachment/img/1e81e7691e5c76a4f963bc3b140c6676_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ZEjGEKa>
 
@@ -548,21 +548,21 @@ clamp(100px, 50vw, 50px) ➜ clamp(100px, 85px, 50px)
 
 上面的样式规则将是无效的：
 
-![[_attachment/img/7ed440ee9f6e2320844dc8b55aa995c1_MD5.png]]
+![](_attachment/img/7ed440ee9f6e2320844dc8b55aa995c1_MD5.png)
 
 ### CSS 比较函数给设计带来的变化
 
 随着 CSS 新特性的出现，不管是对于 Web 设计师还是 Web 开发者都不是件易事，因为要考虑的场景会越来越复杂。CSS 比较函数的到来，Web 设计师估计在提供设计稿的时候也要有一些思想上的变化。比如说，在这之前，Web 设计师可能会根据不同的场景为设计元素提供不同的尺寸：
 
-![[_attachment/img/5a1510d13a17789b38ab0bde85c88ca1_MD5.png]]
+![](_attachment/img/5a1510d13a17789b38ab0bde85c88ca1_MD5.png)
 
 但现在或不久的将来，会像下面这样针对不同的场景来做设计：
 
-![[_attachment/img/0f81bfac3394b61d6d0e6f55bf87673a_MD5.png]]
+![](_attachment/img/0f81bfac3394b61d6d0e6f55bf87673a_MD5.png)
 
 拿实际案例来说吧，在响应式设计中，希望在不同的终端上，文本的字号有所不同，那么就可以像下面这样使用：
 
-![[_attachment/img/1322f5d5da6749842ff5aaf938bc97f0_MD5.png]]
+![](_attachment/img/1322f5d5da6749842ff5aaf938bc97f0_MD5.png)
 
 这和我们前面介绍的 `clamp()` 函数非常匹配：
 
@@ -602,13 +602,13 @@ aside {
 }
 ```
 
-![[_attachment/img/21098d5ceb869b9b5ef902f165bcb456_MD5.gif]]
+![](_attachment/img/21098d5ceb869b9b5ef902f165bcb456_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/zYLGpjg>
 
 再来看另一个两列布局示例，比如：
 
-![[_attachment/img/739263037821def0a61b1899cfadffca_MD5.png]]
+![](_attachment/img/739263037821def0a61b1899cfadffca_MD5.png)
 
 就上图这布局，对于 CSS Flexbox 和 CSS Grid 而言，一点难度都没有。
 
@@ -642,13 +642,13 @@ main {
 
 在 `min-width` 属性上使用 `min()` 函数，给 Flex 项目 `main` 设置一个下限值。根据上下文环境计算，当 `18ch` 长度值小于 `100%`（父容器宽度的 `100%`），`min()` 函数会返回 `18ch`，反之则会返回 `100%`：
 
-![[_attachment/img/ba525f7b33e4d672c52ec214480740d8_MD5.gif]]
+![](_attachment/img/ba525f7b33e4d672c52ec214480740d8_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ZEjGvPd>
 
 不知道你有没有发现，让浏览器视窗宽度小于 `320px` 的时候，页面的布局还是不够完美的。即：
 
-![[_attachment/img/f21b501bf164283d0c11e6d245d1389c_MD5.png]]
+![](_attachment/img/f21b501bf164283d0c11e6d245d1389c_MD5.png)
 
 我们可以在 `aside` 的 `flex-basis` 上使用 `min()` 函数，让它变得更为完善：
 
@@ -658,7 +658,7 @@ aside {
 }
 ```
 
-![[_attachment/img/a20de40a0a85a269288e65d8cc880c30_MD5.gif]]
+![](_attachment/img/a20de40a0a85a269288e65d8cc880c30_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/gOjpvpe>
 
@@ -725,13 +725,13 @@ aside {
 
 能让卡片随容器尺寸做出响应：
 
-![[_attachment/img/fd272cac6b8ee0fc7aa82932ae5068a1_MD5.gif]]
+![](_attachment/img/fd272cac6b8ee0fc7aa82932ae5068a1_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/abjOxBx>
 
 虽然上面的效果已经不错了，但还是没法在指定的视窗断点下显示具体的列数。有意思的是，我们可以使用 `clamp()` 来实现该效果：
 
-![[_attachment/img/68a0a2ac6d7577a692ce349e9746489d_MD5.png]]
+![](_attachment/img/68a0a2ac6d7577a692ce349e9746489d_MD5.png)
 
 上图的意思是，可以随着浏览器视窗宽度来改变排列的列数：
 
@@ -746,7 +746,7 @@ aside {
 初始宽度 = 容器宽度的 100% ÷ 列数 - （列数 - 1） × 列间距 = 100% ÷ P - (P - 1) × gap = 100% ÷ 4 - (4 - 1) × gap
 ```
 
-![[_attachment/img/d95459c39416b4af082951c451a4fe70_MD5.png]]
+![](_attachment/img/d95459c39416b4af082951c451a4fe70_MD5.png)
 
 我们可以使用 CSS 自定义属性来替代上面所描述的参数：
 
@@ -782,7 +782,7 @@ aside {
 }
 ```
 
-![[_attachment/img/cf095c2a3af76b58fcd9f38b7bfd2c81_MD5.gif]]
+![](_attachment/img/cf095c2a3af76b58fcd9f38b7bfd2c81_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/jOpPRoQ>
 
@@ -801,7 +801,7 @@ aside {
 }
 ```
 
-![[_attachment/img/4aaae2c6bcc881616179eeb2762e5365_MD5.gif]]
+![](_attachment/img/4aaae2c6bcc881616179eeb2762e5365_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/MWBwMdQ>
 
@@ -847,7 +847,7 @@ width = 100% ÷ (P + 1) + 0.1%
 }
 ```
 
-![[_attachment/img/71431fa5cfd743294dc7f85f3b3a9115_MD5.gif]]
+![](_attachment/img/71431fa5cfd743294dc7f85f3b3a9115_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/vYaOoGN>
 
@@ -859,7 +859,7 @@ width = 100% ÷ (P + 1) + 0.1%
 
 不过，这个方案运用于 CSS Grid 的轨道尺寸设置时会有一定的缺陷：当网格容器小于 `--ideal-size` 时，网格项目会溢出网格容器：
 
-![[_attachment/img/11d408ebdce426cbf9aa0a7e20a72372_MD5.png]]
+![](_attachment/img/11d408ebdce426cbf9aa0a7e20a72372_MD5.png)
 
 我们可以使用 CSS 比较函数中的 `clamp()` 替换示例中的 `max()` ：
 
@@ -888,7 +888,7 @@ width = clamp(100% / (P + 1) + 0.1%, var(--ideal-size), 100%)
 }
 ```
 
-![[_attachment/img/3ccfe88a2aa2824a3deb68362cbd02f1_MD5.gif]]
+![](_attachment/img/3ccfe88a2aa2824a3deb68362cbd02f1_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/WNKvVJz>
 
@@ -944,7 +944,7 @@ width = clamp( 100% / (P + 1) + 0.1%, (var(--ideal-size) - 100vw) * 1000, 100% /
 }
 ```
 
-![[_attachment/img/d162f612764b702b46e5146eb9c4314f_MD5.gif]]
+![](_attachment/img/d162f612764b702b46e5146eb9c4314f_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/KKBpOOb>
 
@@ -952,7 +952,7 @@ width = clamp( 100% / (P + 1) + 0.1%, (var(--ideal-size) - 100vw) * 1000, 100% /
 
 继续加码。如果期望每行列数从 `P ▶ O ▶ 1` 进行响应。要实现这样的响应，从代码上来看会比前面的复杂，需要引入浏览器视窗的断点值，比如：
 
-![[_attachment/img/9cd922fce9b9108b4910406e329b1e0e_MD5.png]]
+![](_attachment/img/9cd922fce9b9108b4910406e329b1e0e_MD5.png)
 
 - 大于 `W1` 断点时每行保持 `P` 个项目；
 - 大于 `W2` 断点时每行保持 `O` 个项目；
@@ -1003,13 +1003,13 @@ clamp(
 }
 ```
 
-![[_attachment/img/4acf2ba5e3fb8b7e800a1adbb7d5cbd6_MD5.gif]]
+![](_attachment/img/4acf2ba5e3fb8b7e800a1adbb7d5cbd6_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/ExpVgeq>
 
 同样的原理，要实现更多的列响应，只需要新增断点和 `clamp()` 的嵌套，比如前面我们说的 `P ▶ O ▶ N ▶ 1` 的列响应：
 
-![[_attachment/img/68a0a2ac6d7577a692ce349e9746489d_MD5.png]]
+![](_attachment/img/68a0a2ac6d7577a692ce349e9746489d_MD5.png)
 
 ```css
 :root {
@@ -1036,7 +1036,7 @@ clamp(
 }
 ```
 
-![[_attachment/img/4cf3a6a49734baeb5adb5c871d0b8b6a_MD5.gif]]
+![](_attachment/img/4cf3a6a49734baeb5adb5c871d0b8b6a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/eYjpBwd>
 
@@ -1046,7 +1046,7 @@ clamp(
 
 上面的示例都是围绕着 Flex 项目和 Grid 项目尺寸，前者是响应 Flex 项目的 `flex-basis` ，后者是响应 Grid 的列网格轨道。事实上，除此之外，CSS 比较函数还可以用来调整任何元素的 `width` 或 `height`。比如，下面这个示例：
 
-![[_attachment/img/b7803d0c462749bbe30543bbfae46f96_MD5.png]]
+![](_attachment/img/b7803d0c462749bbe30543bbfae46f96_MD5.png)
 
 在以往，我们一般会像下面这样编写 CSS 代码：
 
@@ -1078,7 +1078,7 @@ clamp(
 
 这段代码的意思是，当浏览器视窗宽度大于或等于 `1024px` 时，`.page__wrapper` 宽度是 `1024px`；一旦浏览器视窗宽度小于 `1024px` 时，`.page__wrapper` 的宽度是 `100% - 32px`（这里的 `32px` 是设置了 `padding-left` 和 `padding-right` 的和）。
 
-![[_attachment/img/9a4d60f986316e8b341fc99e17f053ce_MD5.gif]]
+![](_attachment/img/9a4d60f986316e8b341fc99e17f053ce_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ZEjbLee>
 
@@ -1131,7 +1131,7 @@ p {
 
 注意，示例中 `max-height` 并没有设置 `100%`，而是取了一个较大的因定值 `1000px`，主要是因为 `max-height` 取百分比，会致使用例失效（如果其父容器未显式设置 `height` 值，`max-height` 取百分比值会无效）。
 
-![[_attachment/img/cdeda4b18b321526884974935102b3a8_MD5.gif]]
+![](_attachment/img/cdeda4b18b321526884974935102b3a8_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/BaPopOo>
 
@@ -1162,7 +1162,7 @@ p {
 
 注意，示例中 `svg` 的 `width` 和 `height` 设置为 `1em` 很关键，可以让 `svg` 图标的大小相对于 `font-size` 进行计算。你可以尝试改变浏览器视窗的大小，当视窗宽度小于 `600px` 时，文本按钮会自动切换成一个图标按钮：
 
-![[_attachment/img/7da49295abd8959e8ae22fc8ccb25f63_MD5.gif]]
+![](_attachment/img/7da49295abd8959e8ae22fc8ccb25f63_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/gOjazYp>
 
@@ -1211,7 +1211,7 @@ p {
 }
 ```
 
-![[_attachment/img/f11da035d04bf96678332b62994fce2c_MD5.gif]]
+![](_attachment/img/f11da035d04bf96678332b62994fce2c_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/GRBpdpp>
 
@@ -1235,7 +1235,7 @@ p {
 
 在一些设计方案中，有些元素的边框（`border-width`）和圆角半径（`border-radius`）很大，但希望在移动端上更小一些。比如下图这个设计：
 
-![[_attachment/img/ff9975aed376e4bafd41014323a1b6eb_MD5.png]]
+![](_attachment/img/ff9975aed376e4bafd41014323a1b6eb_MD5.png)
 
 桌面端（宽屏）中卡片的圆角 `border-radius` 是 `8px`，移动端（窄屏）是 `0`。以往你可能是这样来写：
 
@@ -1283,13 +1283,13 @@ p {
 }
 ```
 
-![[_attachment/img/e0eba1d943be7f529b320569ba58ccfe_MD5.gif]]
+![](_attachment/img/e0eba1d943be7f529b320569ba58ccfe_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/vYaLYBj>
 
 你也可以将 `min()` 和 `max()` 组合起来一起使用，达到 `clamp()` 相似的功能，即 `clamp(MIN, VAL, MAX)` 等同于 `max(MIN, min(VAL, MAX))` 。
 
-![[_attachment/img/609a4a24d79e2e58bc826410f10f8048_MD5.png]]
+![](_attachment/img/609a4a24d79e2e58bc826410f10f8048_MD5.png)
 
 > **注意，`min()`** **、`max()`** **函数中可以直接进行四则运算，不需要使用** **`calc()`** **函数。**
 
@@ -1305,7 +1305,7 @@ p {
 }
 ```
 
-![[_attachment/img/da11828330a3ae9a31ed77a7fff92035_MD5.gif]]
+![](_attachment/img/da11828330a3ae9a31ed77a7fff92035_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/rNrxNOM>
 
@@ -1337,7 +1337,7 @@ p {
 }
 ```
 
-![[_attachment/img/aae1375e53e4fc719ba206df398726d1_MD5.gif]]
+![](_attachment/img/aae1375e53e4fc719ba206df398726d1_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/xxJZxLp>
 
@@ -1351,7 +1351,7 @@ p {
 
 但很少有同学会留意，上面的渐变效果在不同屏幕（或不同尺寸的元素上）的效果是有一定差异的：
 
-![[_attachment/img/139eb5aeb42f1e5635a0c4eb46ef7b5d_MD5.png]]
+![](_attachment/img/139eb5aeb42f1e5635a0c4eb46ef7b5d_MD5.png)
 
 如果想让渐变的效果在桌面端和移动端上看上去基本一致，一般会使用媒体查询来调整渐变颜色的位置：
 
@@ -1374,7 +1374,7 @@ p {
 }
 ```
 
-![[_attachment/img/483b897b482b225869df3b775ae2ddb3_MD5.png]]
+![](_attachment/img/483b897b482b225869df3b775ae2ddb3_MD5.png)
 
 另外，平时在处理图片上文字效果时，为了增强文本可阅读性，你可能会在文本和图片之间增加一层渐变效果。那么这个时候，使用 `max()` 函数控制渐变中透明颜色位置就会有意义得多：
 
@@ -1384,13 +1384,13 @@ p {
 }
 ```
 
-![[_attachment/img/381a8ac2f4f06cfc35ede2ba70fda317_MD5.png]]
+![](_attachment/img/381a8ac2f4f06cfc35ede2ba70fda317_MD5.png)
 
 ### 流畅的排版
 
 为了实现流畅的排版，[@Mike Riethmeuller 推广了一种技术](https://twitter.com/mikeriethmuller)。该技术使用 `calc()` 函数来设置最小字体大小、最大字体大小，并允许从最小值过渡至最大值。社区也把这种技术称为 **CSS 锁（CSS Locks）** 。
 
-![[_attachment/img/e74d9a790bcb55209dbea5d7056f5138_MD5.png]]
+![](_attachment/img/e74d9a790bcb55209dbea5d7056f5138_MD5.png)
 
 如果用 CSS 来描述的话会像下面这样：
 
@@ -1482,7 +1482,7 @@ html {
 
 开发者可以直接使用 [Adrian Bece 提供的在线工具 Modern Fluid Typography Editor](https://modern-fluid-typography.vercel.app/)：
 
-![[_attachment/img/f956be07c4bac6ea69173838e139c042_MD5.png]]
+![](_attachment/img/f956be07c4bac6ea69173838e139c042_MD5.png)
 
 使用 `clamp()` （或 `max()`）能让我们轻易实现文本大小随视窗宽度（或容器宽度）动态响应（进行缩放），直到达到设定的界限（最大值和最小值），从而实现流畅的排版效果。只不过，该技术对于 Web 可访问性是有一定伤害性的。
 
@@ -1492,7 +1492,7 @@ html {
 
 [@Georgi Nikoloff 在 Codepen 上提供了一个可具缩放的 UI 界面示例](https://codepen.io/gbnikolov/full/oNZRNQR)。以一种方式对下面这样的设计稿进行了完美地缩放，并保留所有文本的行数、边距、图像尺寸等：
 
-![[_attachment/img/337b3081b8c3097697f3a9b6f75cc16c_MD5.png]]
+![](_attachment/img/337b3081b8c3097697f3a9b6f75cc16c_MD5.png)
 
 Web 开发者对上图这样的设计应该很熟悉，特别是对常开发 PC 端产品或大屏幕的同学而言，更没有什么特殊性，也没有什么花哨的东西。
 
@@ -1621,7 +1621,7 @@ width: 828px;
 
 @Georgi Nikoloff 就是采用这种方式对各个元素做了计算，最终看到的效果如下：
 
-![[_attachment/img/f0283118cfdd5ff392b08a89e506cbc6_MD5.gif]]
+![](_attachment/img/f0283118cfdd5ff392b08a89e506cbc6_MD5.gif)
 
 按照前面的介绍，我们可以得到一个像素缩放计算的公式：
 
@@ -1806,7 +1806,7 @@ width: 828px;
 
 现在我们经常开发的都是移动端上的页面，大部分采用的都是 REM 适配 和 VW 适配方案。那么我们来尝试今天介绍的方案，在移动端上会是一个什么样的效果。接下来，我们以下图为例，真正实战一下：
 
-![[_attachment/img/7fb2963a58b06833e3484434b88f0466_MD5.png]]
+![](_attachment/img/7fb2963a58b06833e3484434b88f0466_MD5.png)
 
 我们接下来只会还原上图中蓝色框框起的那张卡片。
 
@@ -1829,7 +1829,7 @@ root {
 
 如果你想给其加把锁，限制缩放在某个范围，可以根据现在主流移动手持设备的屏幕分辨率来做选择：
 
-![[_attachment/img/53de9fab0083227ac09ea5b8a7680dd4_MD5.png]]
+![](_attachment/img/53de9fab0083227ac09ea5b8a7680dd4_MD5.png)
 
 比如说在 `320px ~ 1440px` 范围内，即 `--min-viewport-width` 是 `320px`，`--max-viewport-width` 是 `1440px`：
 
@@ -2032,7 +2032,7 @@ root {
 
 你将看到一个使用 `px` 单位实现的固定尺寸的卡片：
 
-![[_attachment/img/83a0b9e21cd8db429e8b88f0f6f9f0da_MD5.png]]
+![](_attachment/img/83a0b9e21cd8db429e8b88f0f6f9f0da_MD5.png)
 
 目前没有任何可缩放而言。大家不要急，我们先把示例中使用到的固定单位 `px` 单独巴拉出来，为后续实现可缩放性做准备：
 
@@ -2188,13 +2188,13 @@ body {
 
 效果如下：
 
-![[_attachment/img/ca40e2ea55c2838448f08175c35059a6_MD5.gif]]
+![](_attachment/img/ca40e2ea55c2838448f08175c35059a6_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/xxJZGPV>
 
 我们再来验证一下，上面示例在真机上的效果：
 
-![[_attachment/img/c126cce2a33dffea1cafb6c45331b8a5_MD5.png]]
+![](_attachment/img/c126cce2a33dffea1cafb6c45331b8a5_MD5.png)
 
 也就是说，我们在构建 UI 界面时，特别是构建一个响应式 UI 界面时，我们应该将前面所介绍的内容结合在一起。因为我们知道了，在现代 Web 开发中，使用 `min()`、`max()` 、`calc()` 、`clamp()` 以及 CSS 的相对单位（比如，`rem`、`em`、`%`、`vw`、`vh` 等），尤其是 `clamp()` ，CSS 属性的值随着断点变化来动态响应。
 

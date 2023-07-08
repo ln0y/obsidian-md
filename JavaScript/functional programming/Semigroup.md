@@ -316,7 +316,7 @@ Add(1).concat(Add(2)).concat(Add(3))
 
 我们可以用 `Semigroup(x).concat(Semigroup(y))` 来表示一个最小的二元运算单元，一个 Semigroup 盒子的二元运算过程就如图所示：
 
-![[_attachment/img/9b98faa6ba3abc437cfcd904ee3773a8_MD5.png]]
+![](_attachment/img/9b98faa6ba3abc437cfcd904ee3773a8_MD5.png)
 
 `concat()` 函数能够消化任何可能的 Semigroup 运算。我们把加法盒子 `Add` 中的 `concat()` 函数稍作调整，把加号替换为乘号，就能够得到一个乘法运算的 Semigroup 盒子：
 

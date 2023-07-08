@@ -7,17 +7,17 @@ update: 2023-03-13-星期一 14:55:35
 
 Webpack 的功能集非常庞大：模块打包、代码分割、按需加载、Hot Module Replacement、文件监听、Tree-shaking、Sourcemap、Module Federation、Dev Server、DLL、多进程打包、Persistent Cache 等等，但抛开这些花里胡哨的能力，最最核心的功能依然是：**At its core, webpack is a static module bundler for modern** **JavaScript** **applications**，也就是所谓的 **静态模块打包能力**。
 
-![[_attachment/img/a915cff36a411bad81ae0d3016afc236_MD5.png]]
+![](_attachment/img/a915cff36a411bad81ae0d3016afc236_MD5.png)
 
 Webpack 能够将各种类型的资源 —— 包括图片、音视频、CSS、JavaScript 代码等，通通转译、组合、拼接、生成标准的、能够在不同版本浏览器兼容执行的 JavaScript 代码文件，这一特性能够轻易抹平开发 Web 应用时处理不同资源的逻辑差异，使得开发者以一致的心智模型开发、消费这些不同的资源文件。
 
 打包功能的底层实现逻辑很复杂，抛去大多数分支逻辑后，大致包含如下步骤：
 
-![[_attachment/img/4e30e2be521150d8a8319a398132b26e_MD5.png]]
+![](_attachment/img/4e30e2be521150d8a8319a398132b26e_MD5.png)
 
 为了方便理解，我把上述过程划分为三个阶段：
 
-![[_attachment/img/df3094d0133c6e4f98bc953d0cf93c1d_MD5.png]]
+![](_attachment/img/df3094d0133c6e4f98bc953d0cf93c1d_MD5.png)
 
 1. **初始化阶段**：修整配置参数，创建 Compiler、Compilation 等基础对象，并初始化插件及若干内置工厂、工具类，并最终根据 `entry` 配置，找到所有入口模块；
 2. **构建阶段**：从 `entry` 文件开始，调用 `loader` 将模块转译为 JavaScript 代码，调用 [Acorn](https://github.com/acornjs/acorn) 将代码转换为 AST 结构，遍历 AST 从中找出该模块依赖的模块；之后 **递归** 遍历所有依赖模块，找出依赖的依赖，直至遍历所有项目资源后，构建出完整的 **[模块依赖关系图](https://webpack.js.org/concepts/dependency-graph/)**；
@@ -33,7 +33,7 @@ Webpack 能够将各种类型的资源 —— 包括图片、音视频、CSS、J
 
 初始化阶段主要完成三个功能：修整 \& 校验配置对象、运行插件、调用 `compiler.compile` 方法开始执行构建操作，代码比较简单，如下图：
 
-![[_attachment/img/b8a2202bad106327572072b229b8f62a_MD5.png]]
+![](_attachment/img/b8a2202bad106327572072b229b8f62a_MD5.png)
 
 首先，校验用户参数，并合并默认配置对象：
 
@@ -117,7 +117,7 @@ class EntryPlugin {
 
 `addEntry` 之后的执行逻辑：
 
-![[_attachment/img/147170f3a95f13552494a620ade805b2_MD5.png]]
+![](_attachment/img/147170f3a95f13552494a620ade805b2_MD5.png)
 
 1. 调用 [handleModuleCreation](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L1476-L1477)，根据文件类型构建 `module` 子类 —— 一般是 [NormalModule](https://github1s.com/webpack/webpack/blob/HEAD/lib/NormalModule.js)；
 2. 调用 [loader-runner](https://www.npmjs.com/package/loader-runner) 转译 `module` 内容，将各类资源类型转译为 Webpack 能够理解的标准 JavaScript 文本；
@@ -127,7 +127,7 @@ class EntryPlugin {
    2. [HarmonyExportDependencyParserPlugin](https://github1s.com/webpack/webpack/blob/HEAD/lib/dependencies/HarmonyExportDependencyParserPlugin.js#L153-L154) 监听该钩子，将依赖资源添加为 Dependency 对象；
    3. 调用 `module` 对象的 `addDependency`， 将 Dependency 对象转换为 Module 对象并添加到依赖数组中。
 
-![[_attachment/img/9411ba8d703f8cdae7bfe80d83d112ed_MD5.png]]
+![](_attachment/img/9411ba8d703f8cdae7bfe80d83d112ed_MD5.png)
 
 5. AST 遍历完毕后，调用 `module.handleParseResult` 处理模块依赖数组；
 6. 对于 `module` 新增的依赖，调用 `handleModuleCreate`，控制流回到第一步；
@@ -139,27 +139,27 @@ class EntryPlugin {
 
 这个递归处理流程是「**构建阶段**」的精髓，我们来看个例子，假设对于下图这种简单模块依赖关系：
 
-![[_attachment/img/8b22951be04b551d7ac4037e820c5918_MD5.png]]
+![](_attachment/img/8b22951be04b551d7ac4037e820c5918_MD5.png)
 
 其中 `index.js` 为 entry 文件，依赖于 a/b 文件；a 依赖于 c/d 文件。初始化编译环境之后，`EntryPlugin` 根据 `entry` 配置找到 `index.js` 文件，并调用 `compilation.addEntry` 函数将之添加为 Module 对象，触发构建流程，构建完毕后内部会生成这样的数据结构：
 
-![[_attachment/img/e7dc2146025da97433c5cfb750534df9_MD5.png]]
+![](_attachment/img/e7dc2146025da97433c5cfb750534df9_MD5.png)
 
 之后，调用 Acorn 将 `index.js` 代码解析为 AST，并遍历 AST 找到 `index.js` 文件的依赖：
 
-![[_attachment/img/de6aca9b53215ce2c0403731e422e2e5_MD5.png]]
+![](_attachment/img/de6aca9b53215ce2c0403731e422e2e5_MD5.png)
 
 得到两个新的依赖对象：`dependence[a.js]` 与 `dependence[b.js]` ，这是下一步操作的关键线索，紧接着调用 `module[index.js]` 的 `handleParseResult` 函数处理这两个依赖对象，得到 a、b 两个新的 Module 对象：
 
-![[_attachment/img/e35d964e23c60c32b2a1b3d9bb7d58ec_MD5.png]]
+![](_attachment/img/e35d964e23c60c32b2a1b3d9bb7d58ec_MD5.png)
 
 接着，又触发 `module[a/b]` 的 `handleModuleCreation` 方法，从 `a.js` 模块中又解析到 `c.js/d.js` 两个新依赖，于是再继续调用 `module[a]` 的 `handleParseResult`，递归上述流程：
 
-![[_attachment/img/8530a8ef1d4b9be790161baf60a3aa3d_MD5.png]]
+![](_attachment/img/8530a8ef1d4b9be790161baf60a3aa3d_MD5.png)
 
 最终得到 `a/b/c/d` 四个 Module 与对应的 Dependency 对象：
 
-![[_attachment/img/8aedb864cbe60005d9be53f196a1ab5b_MD5.png]]
+![](_attachment/img/8aedb864cbe60005d9be53f196a1ab5b_MD5.png)
 
 > 提示：Dependency、Module、Entry 等都是 Webpack 内部非常重要的基本类型，在后续章节中我们会单独展开这几个类型的基本涵义与相互之间的关系。
 - [ ] 1
@@ -185,7 +185,7 @@ compile(callback) {
 
 也就是说，`compilation.seal` 函数是「生成阶段」的入口函数，`seal` 原意密封、上锁，我个人理解在 Webpack 语境下接近于“将模块装进 Chunk”，核心流程：
 
-![[_attachment/img/afa7043ee21bc309ac712306dabceced_MD5.png]]
+![](_attachment/img/afa7043ee21bc309ac712306dabceced_MD5.png)
 
 1. 创建本次构建的 [ChunkGraph](https://github1s.com/webpack/webpack/blob/HEAD/lib/ChunkGraph.js) 对象。
 2. [遍历](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L2815-L2816) 入口集合 `compilation.entries`：
@@ -197,7 +197,7 @@ compile(callback) {
    1. 遍历每一个 Chunk 的 Module 对象，调用 [\_codeGenerationModule](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L3297-L3298)；
    2. `_codeGenerationModule` 又会继续往下调用 [module.codeGeneration](https://github1s.com/webpack/webpack/blob/HEAD/lib/Module.js#L876-L877) 生成单个 Module 的代码，这里注意不同 Module 子类有不同 `codeGeneration` 实现，对应不同产物代码效果。
 
-![[_attachment/img/049cbace39075d24a67dc35e0aa91936_MD5.png]]
+![](_attachment/img/049cbace39075d24a67dc35e0aa91936_MD5.png)
 
 6. 所有 Module 都执行完 `codeGeneration`，生成模块资产代码后，开始调用 [createChunkAssets](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L4520-L4521) 函数，为每一个 Chunk 生成资产文件。
 7. 调用 [compilation.emitAssets](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L4638-L4639) 函数“**提交**”资产文件，注意这里还只是记录资产文件信息，还未写出磁盘文件。
@@ -223,11 +223,11 @@ module.exports = {
 
 实例配置中有两个入口，对应的文件结构：
 
-![[_attachment/img/da8f1e87ff779500f7fe85ceff6eb1dc_MD5.png]]
+![](_attachment/img/da8f1e87ff779500f7fe85ceff6eb1dc_MD5.png)
 
 a 依赖于 c/e；b 依赖于 c/d；a/b 同时依赖于 c。最终生成的 Chunk 结构为：
 
-![[_attachment/img/ad4bf375c45c183fceaf0794cd1495b0_MD5.png]]
+![](_attachment/img/ad4bf375c45c183fceaf0794cd1495b0_MD5.png)
 
 也就是根据依赖关系，`chunk[a]` 包含了 a/c/e 三个模块，`chunk[b]` 包含了 b/c/d 三个模块。
 
@@ -237,7 +237,7 @@ a 依赖于 c/e；b 依赖于 c/d；a/b 同时依赖于 c。最终生成的 Chun
 
 OK，上面我们已经把逻辑层面的构造主流程梳理完了，最后我们再结合 **资源形态流转** 的角度重新考察整个过程，加深理解：
 
-![[_attachment/img/a20cbc4e7d516cdd39afada4586ff3dd_MD5.png]]
+![](_attachment/img/a20cbc4e7d516cdd39afada4586ff3dd_MD5.png)
 
 - `compiler.make` 阶段：
   - `entry` 文件以 `dependence` 对象形式加入 `compilation` 的依赖列表，`dependence` 对象记录了 `entry` 的类型、路径等信息；

@@ -9,7 +9,7 @@ update: 2023-02-10-星期五 14:58:51
 
 在 Web 布局中，常常会用到卡片组件，子网格来构建卡片组件布局是很有用的。接下来，我们一起来看两种卡片组件的布局。先来看第一种：
 
-![[_attachment/img/80439da6c906ca338239d3e963184abc_MD5.png]]
+![](_attachment/img/80439da6c906ca338239d3e963184abc_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/zYaKmpZ>
 
@@ -56,7 +56,7 @@ update: 2023-02-10-星期五 14:58:51
 
 第一列列轨道设置尺寸是 `minmax(7em, 12em)` ，这样做是让卡片上缩略图的大小控制在 `7em ~ 12em` 之间。由于媒体导航项的内容大小我们并不知，因此这里使用 `max-content` 来控制，最后一列设置 `1fr` ，将可用空间都留给这个列：
 
-![[_attachment/img/3ac8c80225c5c3d0f57da9c818ffa81f_MD5.png]]
+![](_attachment/img/3ac8c80225c5c3d0f57da9c818ffa81f_MD5.png)
 
 每张卡片（`.card`）它跨越五列（`grid-column: 1 / -1` 或 `grid-column: 1 / span 5`），可以在 `.card` 的 `grid-template-columns` 设置 `subgrid` ，继承父网格（`.cards`）的列轨道尺寸。另外在子网格上使用 `grid-template-rows` 重新定义自己的行网格轨道尺寸：
 
@@ -71,7 +71,7 @@ update: 2023-02-10-星期五 14:58:51
 }
 ```
 
-![[_attachment/img/d4a57ec79465afac588eeba076862886_MD5.png]]
+![](_attachment/img/d4a57ec79465afac588eeba076862886_MD5.png)
 
 创建好网格之后，卡片中的标题（`h3` ）、描述文本（`p`）、缩略图（`img`）和导航列表项（`span`）就可以根据子网格（`.card`）的网格线名称放置到指定位置：
 
@@ -91,7 +91,7 @@ img {
 
 另一个卡片组件是像下图这样的，在内联轴方向平铺：
 
-![[_attachment/img/e8026d837b37505095fb1512600dfa3e_MD5.png]]
+![](_attachment/img/e8026d837b37505095fb1512600dfa3e_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/abKmQWj>
 
@@ -134,7 +134,7 @@ img {
 }
 ```
 
-![[_attachment/img/14bc2c430e28c35e211429a5bb77ca24_MD5.png]]
+![](_attachment/img/14bc2c430e28c35e211429a5bb77ca24_MD5.png)
 
 每张卡片 `.card` 是父网格（`.cards`）的一个子网格，跨越父网格五行，并且继承父网格行网格轨道，不同的是重新定义了网格列轨道数量和尺寸，同时为了让卡片中的每个元素更易于放置，使用 `grid-template-areas` 在子网格上显式定义了网格区域名称。并且显式设置 `gap` 值为 `0` ，重置了子网格轨道之间的间距：
 
@@ -155,7 +155,7 @@ img {
 }
 ```
 
-![[_attachment/img/faab493d94ca599ded68a12eb67f91ac_MD5.png]]
+![](_attachment/img/faab493d94ca599ded68a12eb67f91ac_MD5.png)
 
 卡片中的每个网格项目就可以使用 `grid-area` 来指定位置：
 
@@ -196,7 +196,7 @@ h3 {
 }
 ```
 
-![[_attachment/img/7d494f0c2a00e61ccf73fa0c3fd5bc7b_MD5.png]]
+![](_attachment/img/7d494f0c2a00e61ccf73fa0c3fd5bc7b_MD5.png)
 
 在 `.media` 网格中的网格项目也可以使用 `grid-area` 放置到对应的网格区域中，因为我们在 `.media` 中使用 `grid-template-areas` 创建了网格区域：
 
@@ -215,7 +215,7 @@ h3 {
 
 事实上，这种布局技术还可以用于 Web 上其他地方，比如页脚的导航、下拉菜单等：
 
-![[_attachment/img/13ada65615da252ac362e92f351b23e9_MD5.png]]
+![](_attachment/img/13ada65615da252ac362e92f351b23e9_MD5.png)
 
 就拿页脚导航为例吧。构建这样的布局，你可能需要一个像下面这样的 HTML 结构：
 
@@ -237,14 +237,14 @@ h3 {
 
 我们要的是这样的一个效果：
 
-![[_attachment/img/fc89151f4366422e30447d3f13aff6c5_MD5.png]]
+![](_attachment/img/fc89151f4366422e30447d3f13aff6c5_MD5.png)
 
 - 列数能够根据视窗大小自动调整，即自动断行；
 - 导航菜单中，同一行中的区域，其标题与标题对齐，菜单项与菜单项对齐。
 
 实现第一个要求，在 CSS 网格布局中很简单，只需要使用 RAM 布局技术即可。但没有子网格（`subgrid`）的话，第二个要求实现起来就比较难，你得到的效果将会像下图这样：
 
-![[_attachment/img/99f4b7e81513e3f966d4252ce833d3af_MD5.png]]
+![](_attachment/img/99f4b7e81513e3f966d4252ce833d3af_MD5.png)
 
 你可以像上面卡片示例一样，将 `.menu` 和 `.menu__item` 都定义为网格，而且 `.menu__item` 网格是 `.menu` 网格的子网格，在子网格 `.menu__item` 跨越两行，并且设置它的 `grid-template-rows` 值为 `subgrid` 。这样做是让子网格继承父网格的行网格轨道，当子网格行网格轨道尺寸变大时，它的父网格行网格轨道也会变大。你就可以实现第二个要求。
 
@@ -309,19 +309,19 @@ footer {
 
 你最终看到的效果如下：
 
-![[_attachment/img/2a6f9317fc2f7ba700185a87c55ba6fb_MD5.gif]]
+![](_attachment/img/2a6f9317fc2f7ba700185a87c55ba6fb_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/poKNLbE>
 
 感兴趣的同学，可以使用同样的技术（RAM 布局技术和子网格布局）来实现下图中下拉导航的布局：
 
-![[_attachment/img/4ffbc3642d6e58e096fc672329305ae7_MD5.png]]
+![](_attachment/img/4ffbc3642d6e58e096fc672329305ae7_MD5.png)
 
 ## 品牌页（区）布局
 
 在 Web 页面的设计中，常常会有通栏的横幅的设计效果，往往把这种效果称为 **Branding** 。如下图所示：
 
-![[_attachment/img/48a3226f50bfc5bee80a312c3abb91c0_MD5.png]]
+![](_attachment/img/48a3226f50bfc5bee80a312c3abb91c0_MD5.png)
 
 它包含了三个部分：
 
@@ -375,7 +375,7 @@ footer {
 
 假设设计师将整个 Branding 区域 **均分为五列** ，除了“特色功能区域（Featured Section）” 占了三列之外，其他两个区域（Headline 和 Card）只各占一列，如下图所示：
 
-![[_attachment/img/8945b98471ae46d9abe5371b5d93dc8f_MD5.png]]
+![](_attachment/img/8945b98471ae46d9abe5371b5d93dc8f_MD5.png)
 
 使用网格布局很容易就将它均分成五份，使用网格线可以将它们放置到指定的区域：
 
@@ -424,7 +424,7 @@ footer {
 
 内容区域占一列，缩略图占两列：
 
-![[_attachment/img/4505188e525a476807ae451b8ccfa0a7_MD5.png]]
+![](_attachment/img/4505188e525a476807ae451b8ccfa0a7_MD5.png)
 
 ```css
 .featured__content {
@@ -442,7 +442,7 @@ footer {
 
 在这个基础上，你还可以稍微加点内容，改变一下结构，就可以构建出一个 Landing Page 页的布局效果：
 
-![[_attachment/img/086fac0caa545b7289dd436cef7f852c_MD5.png]]
+![](_attachment/img/086fac0caa545b7289dd436cef7f852c_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/abKBLGJ>
 
@@ -476,7 +476,7 @@ footer {
 - 将新增的 `.featured--section` 容器合并三列四行，同时将 `grid-template-rows` 和 `grid-template-columns` 定义为 `subgrid` ，让该子网格继承其父网格 `.landing` 的网格特性。
 - 在 `.featured--section` 的 `.featured` 和 `ul` （列表）也是一个子网格，它们都跨越三列，继承父网格 `.featured--section` 网格轨道。
 
-![[_attachment/img/1097636654804a7a6ed11403e78e8c74_MD5.png]]
+![](_attachment/img/1097636654804a7a6ed11403e78e8c74_MD5.png)
 
 ```css
 .landing {
@@ -573,7 +573,7 @@ button {
 
 在“特色功能区域”中还可以与 CSS 的多列布局结合在一起，构建类似一个简单的报刊类的布局：
 
-![[_attachment/img/e93d5f520954464027651179704d671f_MD5.png]]
+![](_attachment/img/e93d5f520954464027651179704d671f_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/GRGNyVO>
 
@@ -627,7 +627,7 @@ button {
 }
 ```
 
-![[_attachment/img/e2bba9f38b445998432126a96353fba3_MD5.png]]
+![](_attachment/img/e2bba9f38b445998432126a96353fba3_MD5.png)
 
 示例中，在内容区域 `.featured__content` 使用 CSS 多列布局中的 `column-count` 、`column-gap` 和 `column-rule` 将其分成三列布局：
 
@@ -643,11 +643,11 @@ button {
 
 子网格用来构建图片墙也是很有用的，比如下图这样的布局，左侧有一个内容区域，它包含了一个标题和一段描述文本，右侧是九宫的图片展示区：
 
-![[_attachment/img/374f2701d0eacfb572cafc88f036c1fe_MD5.png]]
+![](_attachment/img/374f2701d0eacfb572cafc88f036c1fe_MD5.png)
 
 上图仅是图片墙的一种排列网格，其实右侧你可以根据自己的需要，设计出不同的九宫格网格，甚至是比九宫格风格复杂繁多的宫格，比如下图这些延伸的风格：
 
-![[_attachment/img/97ade87effd64a741f2ee7ecbe110be8_MD5.png]]
+![](_attachment/img/97ade87effd64a741f2ee7ecbe110be8_MD5.png)
 
 当然，你可能会说，不使用子网格也可以构建出所期望的图片墙的布局效果。的确如此，不使用子网格，你需要创建一个复杂的网格。如果使用子网格，你更多的关注点是在右图宫格的布局上，而这种九宫格的布局风格，CSS 网格是有天然优势的。
 
@@ -725,7 +725,7 @@ button {
 }
 ```
 
-![[_attachment/img/0026a2d277e58a6fdf9fdf5db2b6ffab_MD5.png]]
+![](_attachment/img/0026a2d277e58a6fdf9fdf5db2b6ffab_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/eYKggqV>
 
@@ -735,13 +735,13 @@ button {
 
 不知道你平时浏览 Web 页面或 Web 设计，有没有留意到，Web 页面元素相互交叉叠加的布局效果越来越频繁，比如：
 
-![[_attachment/img/fc3ada5dead51da59916323bb1e882e1_MD5.png]]
+![](_attachment/img/fc3ada5dead51da59916323bb1e882e1_MD5.png)
 
 在还没有 CSS 网格布局技术之前，Web 开发者一般都是采用绝对定位来构建。虽然绝对定位可以实现上图中交叉叠加的布局效果，但缺乏灵活性和适配性，无法较好地适配更多的终端设备。不过，使用 CSS 网格布局，尤其是结合子网格特性，就显得要容易得多，而且适配性、灵活性都要比绝对定位强很多。
 
 我们一起来看一个很有创意性的示例，这个示例是 [@Michelle Barker 在 Codepen 上写的](https://codepen.io/michellebarker/full/JjGNdNY)，我觉得很有创意，就拿来和大家一起探讨。示例的效果如下：
 
-![[_attachment/img/6166a290ec2f356c9203142017a47adf_MD5.gif]]
+![](_attachment/img/6166a290ec2f356c9203142017a47adf_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/poKRPxz> 注意，上图这个效果是在 [@Michelle Barker ](https://codepen.io/michellebarker/full/JjGNdNY) 提供的案例上做了改良的 ！
 
@@ -763,7 +763,7 @@ button {
 
 因为 Web 设计预期的效果是 “鼠标悬浮到图片或卡片内容时，才改变相应的样式”（如上图所示）。为了达到这样的交互效果，我们添加了一个空的链接标签 `<a>` ，并且使用其伪元素 `::before` 和 `::after` 来生成一个空白区域，分别遮盖在卡片的图片和内容区域上面：
 
-![[_attachment/img/82c65665ce4f19622fb86bf5fd81ed81_MD5.png]]
+![](_attachment/img/82c65665ce4f19622fb86bf5fd81ed81_MD5.png)
 
 ```css
 .link:hover ~ img,
@@ -778,7 +778,7 @@ button {
 
 类似下图这样的一个效果就实现了：
 
-![[_attachment/img/d1fa38db4cd12f1d94c52e8d96301fe5_MD5.gif]]
+![](_attachment/img/d1fa38db4cd12f1d94c52e8d96301fe5_MD5.gif)
 
 > Demo 地址： <https://codepen.io/shadeed/full/jOOwwpY/66e9c2039b50463d96a2a9832f05ec0f>
 
@@ -871,7 +871,7 @@ body {
 }
 ```
 
-![[_attachment/img/7d9d0536be6ac55bcf5010de56cf0848_MD5.png]]
+![](_attachment/img/7d9d0536be6ac55bcf5010de56cf0848_MD5.png)
 
 我们需要将 `a.link` 的伪元素 `::before` 和 `::after` 分别遮盖在卡片的图片 `.grid__img` 和 `.grid__card` 上面，为了位置和大小能和它们完全相匹配，采用子网格是较好的一种策略。我们需要做的是：
 
@@ -905,7 +905,7 @@ body {
 }
 ```
 
-![[_attachment/img/8250d6e7961f156df86696847dd62a86_MD5.png]]
+![](_attachment/img/8250d6e7961f156df86696847dd62a86_MD5.png)
 
 由于卡片上的缩略图（`.grid__img`）、内容区域（`.grid__card`）、链接伪元素（`.link::before` 和 `.link::after`）会有一定区域的交叉和层叠：
 
@@ -938,11 +938,11 @@ body {
 
 再来看一个运用 `subgrid` 布局的卡片组件：
 
-![[_attachment/img/975b828d12a849fb7019bb360f344b78_MD5.png]]
+![](_attachment/img/975b828d12a849fb7019bb360f344b78_MD5.png)
 
 看上去很普通的一个卡片组件，但它有一个很显著的特征，图片的标注和卡片标题是对齐，并且主内容与图片之间有一定的空白间距：
 
-![[_attachment/img/6252e80ac1d6317a1d88a2ce69f69e9d_MD5.png]]
+![](_attachment/img/6252e80ac1d6317a1d88a2ce69f69e9d_MD5.png)
 
 你可能会说，CSS 实现上图这样的布局效果已经是非常容易的了。这样说并不错，但是在一定的结构限制之下，比如说，为了让 Web 可访问性做得更好一些，对屏幕阅读器更友好一些，构建上图的 HTML 结构可能会是下面这样：
 
@@ -974,7 +974,7 @@ body {
 }
 ```
 
-![[_attachment/img/aff767ee7290af0abdfb8f2c4da3a699_MD5.png]]
+![](_attachment/img/aff767ee7290af0abdfb8f2c4da3a699_MD5.png)
 
 同时 `figure` 跨五列两行：
 
@@ -985,7 +985,7 @@ figure {
 }
 ```
 
-![[_attachment/img/2f6bf5def389441f7d9278538125f479_MD5.png]]
+![](_attachment/img/2f6bf5def389441f7d9278538125f479_MD5.png)
 
 此时，在 `figure` 上使用 `subgrid` ，并将 `img` 和 `figcaption` 按网格线放置到指定位置：
 
@@ -1007,11 +1007,11 @@ figcaption {
 }
 ```
 
-![[_attachment/img/1ee0aabcd2ef220a9acf8a4b13c1f6ca_MD5.png]]
+![](_attachment/img/1ee0aabcd2ef220a9acf8a4b13c1f6ca_MD5.png)
 
 你最终看到的效果如下：
 
-![[_attachment/img/f8ef35bbaa591a204fa609c15b9d862b_MD5.gif]]
+![](_attachment/img/f8ef35bbaa591a204fa609c15b9d862b_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/YzvZKxV>
 
@@ -1019,7 +1019,7 @@ figcaption {
 
 百分百宽度的条纹布局其实是 **Full-Bleed** 布局效果的延伸，它看起来像下面这样：
 
-![[_attachment/img/07f70dba01579418567ca37fabe8f9f7_MD5.png]]
+![](_attachment/img/07f70dba01579418567ca37fabe8f9f7_MD5.png)
 
 上图这种布局效果也是 Web 布局中常见的一种，它有着自己的特色，比如有全屏的、距离左侧或右侧有一定空白空间的。
 
@@ -1072,7 +1072,7 @@ figcaption {
 </style>
 ```
 
-![[_attachment/img/c66641f39f0808a17912bbaf5a3ecd3e_MD5.gif]]
+![](_attachment/img/c66641f39f0808a17912bbaf5a3ecd3e_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/vYrxErN>
 
@@ -1127,7 +1127,7 @@ figcaption {
 
 使用子网格和直接使用网格构建出来的 Full-Bleed 布局效果是一样的：
 
-![[_attachment/img/a85871ffe77cf9cd85d02616c132cd6c_MD5.png]]
+![](_attachment/img/a85871ffe77cf9cd85d02616c132cd6c_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/gOKmbQL>
 
@@ -1169,7 +1169,7 @@ figcaption {
 
 我们可以像下图这样来定义网格：
 
-![[_attachment/img/40e5543b064c0fce9780ca95ba2793da_MD5.png]]
+![](_attachment/img/40e5543b064c0fce9780ca95ba2793da_MD5.png)
 
 正如你所看到的：
 
@@ -1214,7 +1214,7 @@ figcaption {
 }
 ```
 
-![[_attachment/img/aac968c7b0668bf9fe3d56087f7b62fd_MD5.png]]
+![](_attachment/img/aac968c7b0668bf9fe3d56087f7b62fd_MD5.png)
 
 这样，你就可以使用网格线名称，将网格项目放置到相应的位置，完成最终所需要的布局效果：
 
@@ -1255,13 +1255,13 @@ figcaption {
 
 最终效果如下：
 
-![[_attachment/img/b4d953fa08f948cdcc618706d2a80960_MD5.gif]]
+![](_attachment/img/b4d953fa08f948cdcc618706d2a80960_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/ZEReYVq>
 
 注意，你也可以在上面示例基础上进一步加工，实现下图这样的布局效果：
 
-![[_attachment/img/4bf11ca56090cf4373b3da132a73cb6d_MD5.png]]
+![](_attachment/img/4bf11ca56090cf4373b3da132a73cb6d_MD5.png)
 
 就当上图是个小作业，感兴趣的同学不妨试一试，看看你能用多少种布局方案实现上图的布局效果。
 
@@ -1269,7 +1269,7 @@ figcaption {
 
 时间轴卡片组件也是 Web 中常见的一种设计，我们可以在上面的“百分百宽度的条纹布局”技术方案的基础上来构建时间轴卡片组件。
 
-![[_attachment/img/8dc7ff3b4f56b561c09f28f90e501f9e_MD5.png]]
+![](_attachment/img/8dc7ff3b4f56b561c09f28f90e501f9e_MD5.png)
 
 使用网格和子网格，再借助 CSS 媒体查询，你就可以很轻易构建出上图所示的时间轴卡片组件。
 
@@ -1278,7 +1278,7 @@ figcaption {
 
 另外，每张卡片的数字指示器，都能和卡片的标题垂直对齐：
 
-![[_attachment/img/866f22edb9aa7e6f14f34215b0021a12_MD5.gif]]
+![](_attachment/img/866f22edb9aa7e6f14f34215b0021a12_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/KKeWVNq>
 
@@ -1317,7 +1317,7 @@ figcaption {
 
 对于构建上图这样的响应式时间轴卡片组件，我们遵循 **移动端先行** 的原则，即：
 
-![[_attachment/img/e5cf5e6d06b20b272e1e1392444051ad_MD5.png]]
+![](_attachment/img/e5cf5e6d06b20b272e1e1392444051ad_MD5.png)
 
 你已经看到了，时间轴卡片组件的 **轴和卡片的数字指示器** 都在卡片的左侧，这样一来：
 
@@ -1334,7 +1334,7 @@ figcaption {
 }
 ```
 
-![[_attachment/img/5587ea04062e898e3f9894b15775330b_MD5.png]]
+![](_attachment/img/5587ea04062e898e3f9894b15775330b_MD5.png)
 
 按照网格项目放置的方法，将时间轴和卡片放置到指定的位置：
 
@@ -1381,7 +1381,7 @@ figcaption {
 }
 ```
 
-![[_attachment/img/db5f6a5a7d1567976b8f0dd1041df90b_MD5.png]]
+![](_attachment/img/db5f6a5a7d1567976b8f0dd1041df90b_MD5.png)
 
 这样你就可以使用网格线，将卡片数字指示器 `.card--wrapper::before` 和卡片 `.card` 放置到指定的位置：
 
@@ -1463,13 +1463,13 @@ figcaption {
 }
 ```
 
-![[_attachment/img/87fa80af138036a94c54a88fb3e3ee8a_MD5.png]]
+![](_attachment/img/87fa80af138036a94c54a88fb3e3ee8a_MD5.png)
 
 ## 表单布局
 
 表单是 Web 中不可或缺的部分，因为 Web 需要用表单来和用户进行交流，所以将表单布局设计的好就显得尤为重要。比如下面这个登录表单：
 
-![[_attachment/img/36d907514194fdd2da0a4b104c98db8b_MD5.png]]
+![](_attachment/img/36d907514194fdd2da0a4b104c98db8b_MD5.png)
 
 这是一个具有响应式能力的登录表单。暂且抛开其 UI 不谈，就只聊表单控件。在移动端上，布局相对较为简单，表单控件的标签 `<label>` 、表单控件（比如 `<input>`）、验证信息等都是垂直排列的。平板和桌面端，由于空间变大，更好地利用水平方向的空间，会把垂直排列的布局，调整为水平排列的布局，即 表单控件标签居左，表单控件和验证信息居右，甚至有的元素占两列，比如上图中的“登录按钮”。
 
@@ -1556,7 +1556,7 @@ figcaption {
 
 简单地分析一下，基于上面这个 HTML 结构，构建上图表单布局，可能会定义的网格有：
 
-![[_attachment/img/11f4856d6852677c88a4eb751e998d98_MD5.png]]
+![](_attachment/img/11f4856d6852677c88a4eb751e998d98_MD5.png)
 
 - `body` 定义一个网格，主要用于整体的页面布局，构建一个 Full-Bleed 布局；
 - `.form--wrapper` 定义一个网格，是构建表单 UI 主体布局，也是主网格；
@@ -1602,7 +1602,7 @@ body {
 
 `.form` 网格是 `.form--wrapper` 网格的子网格，它继承了其父网格所有参数：
 
-![[_attachment/img/a0501f9eb9375175da71e0e5a48ab860_MD5.png]]
+![](_attachment/img/a0501f9eb9375175da71e0e5a48ab860_MD5.png)
 
 在移动端下，网格项目都层叠在一起，如上图所示，整个表单 `<form>` 堆叠在图片 `<figure>` 之上。这在网格布局中是很容易就能做到的：
 
@@ -1619,7 +1619,7 @@ body {
 
 在平板和桌面端时，使用 CSS 媒体查询特性来调整 `.form` 网格的列轨道，并且将 `<form>` 和 `<figure>` 位置调整为水平排列，不再是堆叠在一起了：
 
-![[_attachment/img/35f48a4bfcce79cdb04383008e95e842_MD5.png]]
+![](_attachment/img/35f48a4bfcce79cdb04383008e95e842_MD5.png)
 
 ```css
 @media only screen and (min-width: 768px) {
@@ -1656,7 +1656,7 @@ form {
 }
 ```
 
-![[_attachment/img/cfbbeea594d0849c5aed1489b27edd32_MD5.png]]
+![](_attachment/img/cfbbeea594d0849c5aed1489b27edd32_MD5.png)
 
 根据网格线，将网格项目放置到指定位置：
 
@@ -1850,7 +1850,7 @@ form h3 {
 
 最终的效果如下图所示：
 
-![[_attachment/img/f949fc2a802290d4147188af341c25f8_MD5.gif]]
+![](_attachment/img/f949fc2a802290d4147188af341c25f8_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/LYrWMwP>
 
@@ -1862,4 +1862,4 @@ form h3 {
 
 心动不如行动，最后给大家布置一个小作业，请使用 CSS 子网格构建下图中天气组件的布局：
 
-![[_attachment/img/60102aba5654e1ebe943c9a92901c22c_MD5.png]]
+![](_attachment/img/60102aba5654e1ebe943c9a92901c22c_MD5.png)

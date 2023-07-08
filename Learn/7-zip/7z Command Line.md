@@ -170,10 +170,10 @@ _前提：分卷是完整的_
 m即是压缩模式，这里展示一下7z的压缩模式，格式`-mxN` N=0~9.
 
 上图：
-![[_attachment/img/Pasted image 20220313164026.png]]
+![](_attachment/img/Pasted image 20220313164026.png)
 
 以上6个级别分别对应着图形界面的：仅存储、极速压缩、快速压缩、标准压缩、最大压缩、极限压缩。
 
 ## 更多请看7z的帮助文档
 
-![[_attachment/img/Pasted image 20220313164302.png]]
+![](_attachment/img/Pasted image 20220313164302.png)

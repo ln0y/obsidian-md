@@ -776,7 +776,7 @@ import { type xyz } from 'xyz'
 
 然而，这在涉及模块互操作性时会产生一些影响。在这个标志下，当你的设置或文件扩展名暗示了不同的模块系统时，ECMAScript 的 `import` 和 `export` 不会被重写为 `require` 调用。相反，你会得到一个错误。如果你需要生成使用 `require` 和 `module.exports` 的代码，你将需要使用 TypeScript 在 ES2015 之前的模块语法：
 
-![[_attachment/img/2f0225603d5e289db5478d5304bced4a_MD5.png]]
+![](_attachment/img/2f0225603d5e289db5478d5304bced4a_MD5.png)
 
 虽然这是一个限制，但它确实有助于使一些问题更加明显。例如，在 --module node16 下忘记在 package.json 中设置 type 字段是非常常见的。结果，开发人员会开始编写 CommonJS 模块，而不知道自己正在使用 ES 模块，这会产生令人惊讶的查找规则和 JavaScript 输出。这个新标志确保你对你正在使用的文件类型有意识，因为语法是有意不同的。
 
@@ -1094,7 +1094,7 @@ TypeScript 现在默认检测大小写敏感性。这意味着 TypeScript 和像
 
 在编写 `switch` 语句时，TypeScript 现在会检测被检查的值是否具有字面类型。如果是，它将提供一个完成列表，以构建每个未覆盖的 `case` 分支。
 
-![[_attachment/img/b3124a83d20155a32d06e11996daa69b_MD5.gif]]
+![](_attachment/img/b3124a83d20155a32d06e11996daa69b_MD5.gif)
 
 ## 速度、内存和包大小优化
 
@@ -1112,9 +1112,9 @@ TypeScript 5.0 包含了许多强大的更改，涉及我们的代码结构、�
 | VS Code 构建时间              | 80%                              |
 | typescript npm 包大小         | 59%                              |
 
-![[_attachment/img/3d48662642a9357c8f1b30c16ace1f7a_MD5.png]]
+![](_attachment/img/3d48662642a9357c8f1b30c16ace1f7a_MD5.png)
 
-![[_attachment/img/ba690b933fae7cef8282d52d955971a9_MD5.png]]
+![](_attachment/img/ba690b933fae7cef8282d52d955971a9_MD5.png)
 
 如何实现这些优化呢？以下是一些值得注意的改进，我们将在未来的博客文章中详细介绍。但我们不会让你等到那篇博客文章。
 

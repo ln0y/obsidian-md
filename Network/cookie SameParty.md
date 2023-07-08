@@ -9,7 +9,7 @@ update: 2022-12-03-星期六 18:13:38
 
 各大主流浏览器正在逐步禁用 `三方Cookie`，但是一个公司或组织往往在不同业务下会有多个不同的域名，例如 `taobao.com`、`tianmao.com`，所以很多正常的业务场景也许要借助 `三方Cookie` 来实现（比如 `单点登录` 和 `consent管理`），直接禁用后可能会给我们的业务带来很大影响，而且之前一直以来都没有很好的解决方案，这也是 Chrome 禁用 `三方Cookie` 进展非常缓慢的原因。
 
-![[_attachment/img/f6824dcf843a494eaa60c833139eb9c9_tplv-k3u1fbpfcp-zoom-1.png]]
+![](_attachment/img/f6824dcf843a494eaa60c833139eb9c9_tplv-k3u1fbpfcp-zoom-1.png)
 
 在 `第一方Cookie` 和 `第三方Cookie` 被区别对待的情况下，Chrome 新推出了一个 `First-Party Sets` 策略，它可以允许由同一实体拥有的不同关域名都被视为第一方。
 
@@ -25,7 +25,7 @@ update: 2022-12-03-星期六 18:13:38
 
 `Chrome` 在之前的版本为 `Cookie` 新增了一个 [[Cookie#SameSite|SameSite]] 属性 来限制三方 `Cookie` 的访问，在 `Chrome 80` 版本后 `SameSite` 的默认值被设定为 `SameSite=Lax`。
 
-![[_attachment/img/0829257206d940d3b6869b27cea05437_tplv-k3u1fbpfcp-zoom-1.png]]
+![](_attachment/img/0829257206d940d3b6869b27cea05437_tplv-k3u1fbpfcp-zoom-1.png)
 
 在 `Strict` 模式下，将阻止所有三方 Cookie 携带，这种设置基本可以阻止所有 CSRF 攻击，然而，它的友好性太差，即使是普通的 GET 请求它也不允许通过。
 
@@ -41,17 +41,17 @@ update: 2022-12-03-星期六 18:13:38
 
 `First-Party Sets` 可以定义跨站点上下文仍然是 `first-party` 的情况。 `Cookie` 可以包含在第一方集合中，也可以排除在第三方上下文中。
 
-![[_attachment/img/cabf7293fd3e4d8c977dd09d0e6d67b2_tplv-k3u1fbpfcp-zoom-1.png]]
+![](_attachment/img/cabf7293fd3e4d8c977dd09d0e6d67b2_tplv-k3u1fbpfcp-zoom-1.png)
 
 `First-Party Sets` 提出了一种明确定义在同一主体下拥有和运营的多个站点关系的方法。比如 `.tmall.com`、`taobao.com` 都可以被定义为同一主体运营 。
 
 > 这个策略来源于浏览器的隐私沙提案中对身份进行分区以防止跨站点跟踪的概念，在站点之间划定界限，限制对可用于识别用户的任何信息的访问。
 
-![[_attachment/img/9bf47315e60345f7b1facb0a199042cd_tplv-k3u1fbpfcp-zoom-1.png]]
+![](_attachment/img/9bf47315e60345f7b1facb0a199042cd_tplv-k3u1fbpfcp-zoom-1.png)
 
 浏览器的默认行为是对同一站点进行分区，上面这个新的策略意味着分区被可以开放为多个站点。
 
-![[_attachment/img/3f578c87a40642f3a09e1b0f8cf6f82a_tplv-k3u1fbpfcp-zoom-1.png]]
+![](_attachment/img/3f578c87a40642f3a09e1b0f8cf6f82a_tplv-k3u1fbpfcp-zoom-1.png)
 
 `First-Party Sets` 策略的一个重要部分是确保跨浏览器的政策防止滥用或误用。例如，`First-Party Sets` 策略不得在不相关的站点之间交换用户信息，或对不属于同一实体的站点进行分组。
 
@@ -106,7 +106,7 @@ Set-Cookie: name=tasty; Secure; SameSite=Lax; SameParty
 
 这时我在 `https://fps-member1.example` 下发送 `https://fps-owner.example` 域名的请求，`Cookie` 也可以被携带了，但是如果我在另外一个网站，例如 `eval.site` 下发送这个请求， `Cookie` 就不会被携带。
 
-![[_attachment/img/bb2c7d9fa26d464fbcb069e026eba8b8_tplv-k3u1fbpfcp-zoom-1.png]]
+![](_attachment/img/bb2c7d9fa26d464fbcb069e026eba8b8_tplv-k3u1fbpfcp-zoom-1.png)
 
 在 `SameParty` 被广泛支持之前，你可以把它和 `SameSite` 属性一起定义来确保 `Cookie` 的行为降级，另外还有一些额外的要求：
 
@@ -119,11 +119,11 @@ SameParty 属性看来有点类似于SameSite=Strict 的延伸版，也有对CSR
 
 `owner.example`拥有这两个网域`member1.example`, `member2.example`，`member1.example`，在设定了SameParty 的情况下，`member1.example`的Cookie 不会传送到非SameParty 的网域。
 
-![[_attachment/img/same_party_table.png]]
+![](_attachment/img/same_party_table.png)
 
 同时，`member1.example`也不会把Cookie 传给`member2.example`
 
-![[_attachment/img/same_party_sop.png]]
+![](_attachment/img/same_party_sop.png)
 
 ## 参考
 

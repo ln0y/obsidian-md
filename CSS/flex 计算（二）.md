@@ -9,7 +9,7 @@ Flexbox 的设计目的是在包含元素（Flex 容器）中沿着行或列分�
 
 一个 Flex 容器会按照各个 Flex 项目的扩展比率分配 Flex 容器剩余空间，也会按照收缩比率来收缩 Flex 项目，以免 Flex 项目溢出 Flex 容器。简单地说，**Flex 项目的大小由 Flexbox 布局算法调整，也只有这种布局才称得上是灵活性的布局。**
 
-![[_attachment/img/78a350bc35e1f7326e68cace27989406_MD5.gif]]
+![](_attachment/img/78a350bc35e1f7326e68cace27989406_MD5.gif)
 
 这种灵活性的布局将会涉及 Flex 项目的计算，那么问题来了，Flexbox 布局中的 Flex 项目是如何计算的呢？它和扩展比率或收缩比率之间又存在些什么关系呢？
 
@@ -65,7 +65,7 @@ Flexbox 布局中的 `flex-basis` 可用来指定 Flex 项目在 Flex 容器主�
 
 当然，在 Flexbox 纵向布局（即 `flex-direction` 取值为 `column` 或 `column-reverse` 时），`flex-basis` 对应的值就和 `height` 相同。而且当书写模式改变时，相应的取值方式也会有所改变。用张图来简单描述一下：
 
-![[_attachment/img/5f40260c050d4ccfd041f036b0e92b1a_MD5.png]]
+![](_attachment/img/5f40260c050d4ccfd041f036b0e92b1a_MD5.png)
 
 ## `flex` 的基础使用 (flex)
 
@@ -89,13 +89,13 @@ Flexbox 布局中的 `flex-basis` 可用来指定 Flex 项目在 Flex 容器主�
 </style>
 ```
 
-![[_attachment/img/4c4d6d1b5c243032b85d6a019fcc8127_MD5.png]]
+![](_attachment/img/4c4d6d1b5c243032b85d6a019fcc8127_MD5.png)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/JjvWgar)
 
 默认情况，浏览器对 Flex 项目计算结果如下：
 
-![[_attachment/img/31ad5e52948b5ed089d4766ebe40cd12_MD5.png]]
+![](_attachment/img/31ad5e52948b5ed089d4766ebe40cd12_MD5.png)
 
 我们在 Flex 容器上显式设置了 `inline-size` 值为 `1000px` ，在所有 Flex 项目上未显式设置任何与尺寸有关的属性（比如 `width` 、 `inline-size` 或 `flex-basis` 等），浏览器在计算如下：
 
@@ -231,7 +231,7 @@ Flexbox 布局中的 `flex-basis` 可用来指定 Flex 项目在 Flex 容器主�
 }
 ```
 
-![[_attachment/img/0ed03bc36a247ab137c9c7c732e2efd7_MD5.gif]]
+![](_attachment/img/0ed03bc36a247ab137c9c7c732e2efd7_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/eYrWOey)
 
@@ -250,7 +250,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 }
 ```
 
-![[_attachment/img/947e516786fb69043553224fdd3b2aa8_MD5.gif]]
+![](_attachment/img/947e516786fb69043553224fdd3b2aa8_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/zYjwYxy)
 
@@ -258,7 +258,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 
 这里有一个误区，**大多数开发者都误认为，只要在 Flex 项目上显式设置了** **`flex:1`** **，所有 Flex 项目的宽度（或高度）就相等。** 事实并非如此，比如上面示例，由于第一个 Flex 项目的内容就要比其他 Flex 项目略宽一点，即使在所有 Flex 项目设置了 `flex:1` ，也没有实现所有 Flex 项目等宽的效果：
 
-![[_attachment/img/8dcf88474cb9f4d34d1a347a0673d794_MD5.png]]
+![](_attachment/img/8dcf88474cb9f4d34d1a347a0673d794_MD5.png)
 
 如果要真的实现所有 Flex 项目宽度相等，除了在 Flex 项目上设置为 `flex:1` 之外，还需要显式设置 `min-width` 值为 `0` ([[flex-basis（三）#Flex 项目的最小值（min-size）|原因]])：
 
@@ -269,7 +269,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 }
 ```
 
-![[_attachment/img/c639377c12d24b7b118669aebc1f17a3_MD5.gif]]
+![](_attachment/img/c639377c12d24b7b118669aebc1f17a3_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/WNJjNod)
 
@@ -286,7 +286,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 }
 ```
 
-![[_attachment/img/55ac2caa2bb2eab3658a213001b6718d_MD5.gif]]
+![](_attachment/img/55ac2caa2bb2eab3658a213001b6718d_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/zYjwOWa)
 
@@ -303,7 +303,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 }
 ```
 
-![[_attachment/img/907db9316e3759382dd661561f656082_MD5.gif]]
+![](_attachment/img/907db9316e3759382dd661561f656082_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/oNdWvJR)
 
@@ -313,7 +313,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 
 - `<flex-basis>` ：定义 Flex 项目的 `flex-basis` 属性的值。若值为 `0` 时，则必须加上单位（`<length>` 或 `<percentage>`），比如 `0px` 或 `0%`，避免被视作伸缩性 `flex-grow` 或 `flex-shrink` 的值。
 
-![[_attachment/img/b5bc44870594f94b91f87812eaefb3e0_MD5.gif]]
+![](_attachment/img/b5bc44870594f94b91f87812eaefb3e0_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/oNdWvVr)
 
@@ -327,7 +327,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 
 - `flex: <positive-number>`（正数）和 `flex: 1 0px` 相同。Flex 项目可伸缩，并将 `flex-basis` 值设置为 `0` （需要带有效的 `<length>` 或 `<percentage>` 单位），导致 Flex 项目会根据设置的比例因子来计算 Flex 容器的剩余空间。Flex 项目按比例扩展或收缩。
 
-![[_attachment/img/f3f4b88e9d66c44e83c8e3a040326ee3_MD5.gif]]
+![](_attachment/img/f3f4b88e9d66c44e83c8e3a040326ee3_MD5.gif)
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/vYjmENe)
 
@@ -374,7 +374,7 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 - Flex 项目 E 的宽度约是 `100.11px` ；
 - Flex 容器的剩余空间约是 `248.08px` 。
 
-![[_attachment/img/31ad5e52948b5ed089d4766ebe40cd12_MD5.png]]
+![](_attachment/img/31ad5e52948b5ed089d4766ebe40cd12_MD5.png)
 
 在此基础上，所有 Flex 项目的 `flex-basis` 都是初始值，即 `auto` ，`width` （或 `inline-size`）也是初始值 `auto` 。
 
@@ -406,13 +406,13 @@ Flexbox 布局中，很多开发者为了强制所有 Flex 项目的大小一致
 
 在此基础上，浏览器会按下面这个公式循环遍历每一个 Flex 项目以确定其灵活性（**flexibility** ）：
 
-![[_attachment/img/d85c07338e3a5ce55f7702f4d328e9a8_MD5.png]]
+![](_attachment/img/d85c07338e3a5ce55f7702f4d328e9a8_MD5.png)
 
 > **注意，这里所说的灵活性（Flexibility）指运用于 Flex 项目的一个弹性值，有可能是加上这个弹性值，也有可能是减去这个弹性值。即可增加或减少的一个弹性量** 。
 
 这个“Flex 项目的灵活性（弹性量）” 并不是 Flex 项目的具体宽度，需要在该计算出来的值基础上，加上 Flex 项目的 `flex-basis` （或 `width` 或 `inline-size`）才是 Flex 项目的最终宽度值：
 
-![[_attachment/img/d9d21a2f72910b36ff0163cd177db99b_MD5.png]]
+![](_attachment/img/d9d21a2f72910b36ff0163cd177db99b_MD5.png)
 
 浏览器会根据该公式循环遍历计算 Flex 项目的灵活性（弹性量）。先根据公式来计算 **Flex 项目** _**A**_ 的灵活性。
 
@@ -454,11 +454,11 @@ Flex 项目 D 计算后的宽度 = ((1000px - 237.56px - 190.61px - 190.61px) ÷
 Flex 项目 E 计算后的宽度 =  ((1000px - 237.56px - 190.61px - 190.61px - 190.61px) ÷ 1 ) × 1 + 0 = 190.61px
 ```
 
-![[_attachment/img/228cfef6b6c8030e480e2bff8ba56338_MD5.png]]
+![](_attachment/img/228cfef6b6c8030e480e2bff8ba56338_MD5.png)
 
 如果你使用的是 Firefox 浏览器，使用开发者调试工具，可以很清楚看到每个 Flex 项目的计算前后的几个重要参数，比如内容宽度 `flex-basis` （未显式设置都是 `0`）、每个 Flex 项目的弹性量（**Flexibility**）和每个 Flex 项目计算后的宽度：
 
-![[_attachment/img/2d6daecb13c4afad8daab53a879f1bf0_MD5.gif]]
+![](_attachment/img/2d6daecb13c4afad8daab53a879f1bf0_MD5.gif)
 
 你可能认为，你已经知道 Flex 项目如何根据 `flex-grow` 来扩展 Flex 项目的尺寸（`width` 或 `inline-size`）了。如果你这么认为，那就太小看 Flex 项目计算了。上面仅仅是其中一种情况，即 `flex-grow:1` 和 `flex-basis: 0%` 且未在 Flex 项目上显式设置任何与尺寸有关的属性（比如 `width` 或 `inline-size` ）。
 
@@ -499,7 +499,7 @@ Flex 项目 D 计算后的宽度 =  ((1000px - 237.56px - 190.61px - 190.61px) -
 Flex 项目 E 计算后的宽度 =  ((1000px - 237.56px - 190.61px - 190.61px - 190.61px) - 160px × 1) ÷ 1 × 1 + 160px = 190.61px
 ```
 
-![[_attachment/img/4eed0f7d385e078ea4acc41a5a3dfe83_MD5.gif]]
+![](_attachment/img/4eed0f7d385e078ea4acc41a5a3dfe83_MD5.gif)
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/NWMjvym)
 
@@ -534,13 +534,13 @@ Flex 项目 E 计算后的宽度（flex-basis） = ((1000px - 200px - 200px - 20
 
 这个示例中和前面只在 Flex 项目上显式设置 `flex:1` 有一点不同之处，那就是显式设置了 Flex 项目的宽度是 `160px` ，所以 Flex 项目 A 的 `flex-basis` 计算出来之后等于 `200px` ，它比 `160px` 大，这个时候浏览器将 `flex-basis` 计算后的值视为其宽度值。
 
-![[_attachment/img/3f41b3a900f168100b78a8f0ee746992_MD5.gif]]
+![](_attachment/img/3f41b3a900f168100b78a8f0ee746992_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/WNJjZao)
 
 如果你将 `width:160px` 换成 `width: 260px` （它已经大于 Flex 项目 A 的 `min-content` 值）。你会发现，Flex 项目 A 的 `flex-basis` 计算出来之后是 `200px` ，但浏览器最终计算出来的 Flex 项目 A 宽度，最终以 Flex 项目 A 的内容的最小尺寸（`min-content` ）为准，大约 `237.52px` 。
 
-![[_attachment/img/fb0c2792e6361fcafba469c0e2ca7114_MD5.png]]
+![](_attachment/img/fb0c2792e6361fcafba469c0e2ca7114_MD5.png)
 
 这两个示例告诉我们，当 Flex 项目显式设置了 `flex:1` 和具体的 `width` 值时，如果浏览器计算出来的 `flex-basis` 大于 Flex 项目的最小内容尺寸（`min-content`） 时，将以 `flex-basis` 计算出来的值作为 Flex 项目的宽度；反之，如果计算出来的 `flex-basis` 小于 Flex 项目的最小内容尺寸（`min-content`）时，浏览器会把 Flex 项目的最小内容尺寸（`min-content`）作为 `flex-basis` 的最终值，也将其作为该 Flex 项目的宽度。
 
@@ -571,7 +571,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = ((1000px - 200px - 200px - 20
 
 最终它的效果和在 Flex 项目上设置 `flex:1` 和 `width: 160px` 是等同的，只是计算出来的弹性量不同，但最终计算出来的 `flex-basis` 是一样的，它们都忽略了 Flex 项目的 `width` 。
 
-![[_attachment/img/afaf0e88fe7339276c1699cc99dfeda2_MD5.gif]]
+![](_attachment/img/afaf0e88fe7339276c1699cc99dfeda2_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/XWqRVZd)
 
@@ -637,7 +637,7 @@ Flex 项目 D 计算后的宽度（flex-basis） = (1000px - 287.18px - 119.88px
 Flex 项目 E 计算后的宽度（flex-basis） = (1000px - 287.18px - 119.88px - 292.92px - 150.31px - 100.11px) ÷ 1 × 1 + 100.11px = 149.73px
 ```
 
-![[_attachment/img/499a73e0570cde03affcf5e5b19ebd9c_MD5.gif]]
+![](_attachment/img/499a73e0570cde03affcf5e5b19ebd9c_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/XWqREWP)
 
@@ -670,13 +670,13 @@ Flex 项目 D 计算后的宽度（flex-basis） = (1000px - 200px - 200px - 200
 Flex 项目 E 计算后的宽度（flex-basis） = (1000px - 200px - 200px - 200px - 200px - 160px × 1) ÷ 1 × 1 + 160px = 200px
 ```
 
-![[_attachment/img/29dd7ce08867946fbe48636215356e77_MD5.gif]]
+![](_attachment/img/29dd7ce08867946fbe48636215356e77_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/poVPLQx)
 
 其实 `flex-grow` 计算，还可以将上面的公式简化一下，但它有一个条件，即 **设置了** **`flex`** **属性的 Flex 项目同时显式设置了** **`width`** **或** **`inline-size`** **，以及** **`flex-basis`** **属性值为** **`auto`** **时，** 可以按下面这个简化公式计算每个 Flex 项目的尺寸：
 
-![[_attachment/img/be38d5d6d8396116d0037b0d504f7213_MD5.png]]
+![](_attachment/img/be38d5d6d8396116d0037b0d504f7213_MD5.png)
 
 前面所提到的 `flex-grow` 计算，都是基于 `flex` 简写属性展开的，它们的计算和单独只在 Flex 项目上显式设置一个 `flex-grow` 属性还是有所不同的。比如：
 
@@ -702,7 +702,7 @@ Flex 项目 E 计算后的宽度（flex-basis） = (1000px - 200px - 200px - 200
 
 **仅在 Flex 项目显式设置** **`flex-grow`** **一个属性时，它的计算方式类似于** **`flex: auto`** ：
 
-![[_attachment/img/69cdebc74decbad4178c6259b4e05d26_MD5.gif]]
+![](_attachment/img/69cdebc74decbad4178c6259b4e05d26_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/ZEoKoJY)
 
@@ -895,13 +895,13 @@ Flex 项目 E 计算后的 flex-basis 值 = 160px + 80px = 240px
 
 两者最大的差异就是 **所有 Flex 项目的** **`flex-grow`** **总和如果小于** **`1`** **，Flex 容器剩余空间还会有余留； `flex-grow`** **大于或等于**`1`**时，Flex 容器的剩余空间不会有余留** ：
 
-![[_attachment/img/8dcf88474cb9f4d34d1a347a0673d794_MD5.png]]
+![](_attachment/img/8dcf88474cb9f4d34d1a347a0673d794_MD5.png)
 
 可能有同学会问，`flex-grow` 取值为小数值时，它又是如何计算呢？
 
 它的计算分两种情况，当所有 Flex 项目 `flex-grow` 值的和小于 `1` 时，将按照下面的公式来计算：
 
-![[_attachment/img/3c3296df3728fc2ab1e0b6dbee3d1340_MD5.png]]
+![](_attachment/img/3c3296df3728fc2ab1e0b6dbee3d1340_MD5.png)
 
 由于 Flex 容器的剩余空间分不完，所以不需要像前面的示例那样去循环遍历每一个 Flex 项目。简单地说，**当所有 Flex 项目的** **`flex-grow`** **属性值的总和小于等于** **`1`** **时， Flex 项目的灵活性（弹性值 Flexibility）会等于 Flex 容器的剩余空间乘以当前 Flex 项目自身的扩展因子** **`flex-grow`** **值**：
 
@@ -926,7 +926,7 @@ Flex 项目 E 的弹性值 =  248.12px × 0.1 = 24.81px
 Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 24.81px = 124.92px
 ```
 
-![[_attachment/img/bac62351cfe20ab5f26c73f87b8b6798_MD5.gif]]
+![](_attachment/img/bac62351cfe20ab5f26c73f87b8b6798_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/eYrRdLN)
 
@@ -977,7 +977,7 @@ Flex 项目 E 的弹性值 =  248.12px × 0.3 = 74.44px
 Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 74.44px = 174.55px
 ```
 
-![[_attachment/img/4c94f03e8a0298c45651b25e2e9c49ee_MD5.gif]]
+![](_attachment/img/4c94f03e8a0298c45651b25e2e9c49ee_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/oNdwBWK)
 
@@ -1029,17 +1029,17 @@ Flex 项目 E 的弹性值 =  (1000px - 254.06px - 103.34px - 292.93px - 166.85p
 Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 82.71px = 182.82px
 ```
 
-![[_attachment/img/b091cb4e97362d2966d28996b718f019_MD5.gif]]
+![](_attachment/img/b091cb4e97362d2966d28996b718f019_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/NWMgdza)
 
 如此一来，Flexbox 布局中的 `flex-grow` 计算公式就分为两个部分：
 
-![[_attachment/img/ab1b42940792ba30ccc5927ac3acd8d2_MD5.png]]
+![](_attachment/img/ab1b42940792ba30ccc5927ac3acd8d2_MD5.png)
 
 再次强调一下，**当所有 Flex 项目的** **`flex-grow`** **属性值总和小于** **`1`** **时，Flex 容器剩余空间是分不完的** :
 
-![[_attachment/img/1858fdab32840e2123cece0d0f83c2af_MD5.png]]
+![](_attachment/img/1858fdab32840e2123cece0d0f83c2af_MD5.png)
 
 #### 小结
 
@@ -1096,15 +1096,15 @@ Flex 项目 E 计算后的 flex-basis 值 = 100.11px + 82.71px = 182.82px
 
 这个时候所有 Flex 项目的 `flex-basis` 值的总和 `1500px` （即 `300px × 5 = 1500px`）大于 Flex 容器的可用空间（它的 `inline-size` ）`1000px` 。按理说，Flex 项目是会溢出 Flex 容器的，但因为 Flex 项目的 `flex-shrink` 初始值是 `1` ，所以浏览器会根据 `flex-shrink` 值对 Flex 项目按照相应的收缩因子进行收缩，让 Flex 项目填充整个 Flex 容器（Flex 项目不会溢出 Flex 容器）：
 
-![[_attachment/img/3cb11cab8a68d02151c89609c1717581_MD5.png]]
+![](_attachment/img/3cb11cab8a68d02151c89609c1717581_MD5.png)
 
 如果我们显式把 `flex-shrink` 属性的默认值 `1` 重置为 `0` 时，你将看到的浏览器不会对 Flex 项目进行收缩，此时 Flex 项目溢出了 Flex 容器，在这个示例中这个溢出部分大约会是 `500px` （即 `1500 - 1000px = 500px`），这个溢出部分也常称为 **Flex 容器不足空间** ：
 
-![[_attachment/img/91a356a461ecd396cdad269fb56736ff_MD5.png]]
+![](_attachment/img/91a356a461ecd396cdad269fb56736ff_MD5.png)
 
 `flex-shrink` 的计算和 `flex-grow` 是相似的，不同的是 **`flex-grow`** **按扩展因子分配 Flex 容器的剩余空间，`flex-shrink` 按收缩因子分配 Flex 容器的不足空间** 。因此，`flex-shrink` 的计算，也可以像 `flex-grow` 一样：
 
-![[_attachment/img/14b5cfa47a1b7dc3d3409705ec62d9bf_MD5.png]]
+![](_attachment/img/14b5cfa47a1b7dc3d3409705ec62d9bf_MD5.png)
 
 就这个示例而言，**Flex 容器的不足空间** 等于 `500px` :
 
@@ -1161,7 +1161,7 @@ Flex 项目 E 的弹性值 = (1000px - 237.52px - 190.62px - 190.62px - 190.62px
 Flex 项目 E 计算后的 flex-basis 值 = -109.38px + 300px = 190.62px
 ```
 
-![[_attachment/img/2024792c42db9254a4c4be45465472bf_MD5.gif]]
+![](_attachment/img/2024792c42db9254a4c4be45465472bf_MD5.gif)
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/oNdwZoZ)
 
@@ -1187,7 +1187,7 @@ Flex 项目 E 计算后的 flex-basis 值 = -109.38px + 300px = 190.62px
 
 > `flex-basis` 取值为 `auto` 时，且该 Flex 项目未显式设置 `width` 或 `inline-size` 属性值（非 `auto` ），那么浏览器将会把 Flex 项目的内容长度作为 `flex-basis` 的值；反之，有显式设置 `width` 或 `inline-size` 属性值（非 `auto`），那么浏览器会把 `width` 或 `inline-size` 属性值作为 `flex-basis` 的值。
 
-![[_attachment/img/eae02fa67eb139bef5e298d0c1dcf6a7_MD5.gif]]
+![](_attachment/img/eae02fa67eb139bef5e298d0c1dcf6a7_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/rNvwgKm)
 
@@ -1212,7 +1212,7 @@ Flex 项目 E 计算后的 flex-basis 值 = -109.38px + 300px = 190.62px
 
 因为 `flex-basis` 属性值 `0%` 替代了 `inline-size` 属性的值作为 Flex 项目的基础尺寸，因为 `flex-basis` 值显式设置了为 `0%` ，这个时候浏览器会将 Flex 项目的内容最小尺寸，即 `min-content`， 作为 Flex 项目的基础尺寸。如此一来，Flex 项目就有可能不会溢出 Flex 容器了：
 
-![[_attachment/img/6ae8086a174aeaf99f9d2e8fac9b9fff_MD5.gif]]
+![](_attachment/img/6ae8086a174aeaf99f9d2e8fac9b9fff_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/WNJOBBw)
 
@@ -1267,13 +1267,13 @@ Flex 项目 E 的弹性量 = (1000px - 300px - 250px - 200px - 150px - 300px) ÷
 Flex 项目 E 计算后的 flex-basis 值 = -200px + 300px = 100px
 ```
 
-![[_attachment/img/11f1174f1350236d665c6b3cd68d6f92_MD5.gif]]
+![](_attachment/img/11f1174f1350236d665c6b3cd68d6f92_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/RwygzZN)
 
 我们多次提到过，浏览器对 Flex 项目尺寸的计算是一种 **循环遍历计算** 模式，因为浏览器无法一次性就知道，在计算 Flex 项目尺寸时就能把所有情况都预判到。比如下面这个示例（在上一个示例的基础上，将 Flex 项目 E 的文本内容“**Eastern**”调整得更长一些，比如“Elonglonglongword” ）。
 
-![[_attachment/img/330435e65b605b504432687d5b7a9d23_MD5.png]]
+![](_attachment/img/330435e65b605b504432687d5b7a9d23_MD5.png)
 
 ```
 Flex 容器不足空间 = Flex 容器可用空间 - 所有Flex项目的尺寸总和（flex-basis 总和）
@@ -1335,7 +1335,7 @@ Flex 项目 C 计算后的 flex-basis 值 = -156.05px + 300px = 143.95px
 
 如果计算出来的 Flex 项目 C 的 `flex-basis` 值还是小于其 `min-content` 的话，浏览器将会进行第四轮的计算，直到符合条件为止。所幸，我们这个示例第三轮计算就符合条件了。
 
-![[_attachment/img/1de527504482ca1086e74d6e4e5ccb59_MD5.gif]]
+![](_attachment/img/1de527504482ca1086e74d6e4e5ccb59_MD5.gif)
 
 > Demo 地址： [codepen.io/airen/full/…](https://codepen.io/airen/full/qBYjeJq)
 
@@ -1354,7 +1354,7 @@ Flex 项目 C 计算后的 flex-basis 值 = -156.05px + 300px = 143.95px
 
 计算公式也是类似的：
 
-![[_attachment/img/5cba3a54efc7a8c1b8fbbcc4f4dd6893_MD5.png]]
+![](_attachment/img/5cba3a54efc7a8c1b8fbbcc4f4dd6893_MD5.png)
 
 ```
 Flex 项目的 flex-shrink 总和 =  (0.1 + 0.1 + 0.1 + 0.1 + 0.1) = 0.5 < 1
@@ -1377,7 +1377,7 @@ Flex 项目 E 的弹性值 =  -500px × 0.1 = -50px
 Flex 项目 E 计算后的 flex-basis 值 = -50px + 300px = 250px
 ```
 
-![[_attachment/img/db6d03bf681e59fc419756dde50de0f5_MD5.gif]]
+![](_attachment/img/db6d03bf681e59fc419756dde50de0f5_MD5.gif)
 
 > Demo 地址：[codepen.io/airen/full/…](https://codepen.io/airen/full/qBYXWQY)
 
@@ -1385,11 +1385,11 @@ Flex 项目 E 计算后的 flex-basis 值 = -50px + 300px = 250px
 
 如此一来，`flex-shrink` 的计算公式也分两种情景：
 
-![[_attachment/img/7e207446ee895feb5dbfdf6564ec50f6_MD5.png]]
+![](_attachment/img/7e207446ee895feb5dbfdf6564ec50f6_MD5.png)
 
 另外，就 `flex-shrink` 计算，当所有 Flex 项目的 `flex-shrink` 值的总和大于 `1` 时，还可以使用下面这个公式来计算:
 
-![[_attachment/img/dd88edb114bc42fbfff02af620dc6e43_MD5.png]]
+![](_attachment/img/dd88edb114bc42fbfff02af620dc6e43_MD5.png)
 
 #### 小结
 
@@ -1410,4 +1410,4 @@ Flex 项目 E 计算后的 flex-basis 值 = -50px + 300px = 250px
 
 具体的我们可以绘制一张这方面的流程图：
 
-![[_attachment/img/7270d5800c5905a285782ea10ec5d127_MD5.png]]
+![](_attachment/img/7270d5800c5905a285782ea10ec5d127_MD5.png)

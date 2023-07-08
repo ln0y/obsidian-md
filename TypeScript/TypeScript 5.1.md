@@ -279,11 +279,11 @@ let x = <a:b prop="hello!" />
 
 TypeScript 现在支持 JSX 标签名称的链接编辑。也就是在编辑开始/结束标签时，会自动修改结束/开始标签。
 
-![[_attachment/img/cc06e98eb94f219bd17e8d23d62a5eea_MD5.gif]]
+![](_attachment/img/cc06e98eb94f219bd17e8d23d62a5eea_MD5.gif)
 
 这项新功能应该适用于 TypeScript 和 JavaScript 文件，并且可以在 Visual Studio Code Insiders 中启用。 在 Visual Studio Code 中，勾选 `Editor: Linked Editing` 选项即可：
 
-![[_attachment/img/1089590dfe6f548f9e6995fa4125fe09_MD5.png]] 或者在 JSON 设置文件中配置 `editor.linkedEditing`：
+![](_attachment/img/1089590dfe6f548f9e6995fa4125fe09_MD5.png) 或者在 JSON 设置文件中配置 `editor.linkedEditing`：
 
 ```json
 {
@@ -298,7 +298,7 @@ Visual Studio 17.7 Preview 1 也将支持此功能。
 
 在 TypeScript 和 JavaScript 文件中输入 `@param` 标签时，TypeScript 现在提供代码补全。
 
-![[_attachment/img/0064905f48baad048bde3740c7be3042_MD5.gif]]
+![](_attachment/img/0064905f48baad048bde3740c7be3042_MD5.gif)
 
 ## 优化
 

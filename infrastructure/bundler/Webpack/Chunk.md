@@ -16,13 +16,13 @@ update: 2023-03-13-星期一 17:35:33
 
 在 [[Webpack 核心流程]] 中，我们已经介绍了 Webpack 底层构建逻辑大体上可以划分为：「**初始化、构建、封装**」三个阶段：
 
-![[_attachment/img/f5ced91471e5ecbf1ec29ea2ee4691ae_MD5.png]]
+![](_attachment/img/f5ced91471e5ecbf1ec29ea2ee4691ae_MD5.png)
 
 其中，「**构建**」阶段负责分析模块间的依赖关系，建立起模块之间的 [依赖关系图](https://webpack.js.org/concepts/dependency-graph/#root)（ModuleGraph）；紧接着，在「**封装**」阶段根据依赖关系图，将模块分开封装进若干 Chunk 对象中，并将 Chunk 之间的父子依赖关系梳理成 ChunkGraph 与若干 ChunkGroup 对象。
 
 「封装」阶段最重要的目标就是根据「构建」阶段收集到的 ModuleGraph 关系图构建 ChunkGraph 关系图，这个过程的逻辑比较复杂：
 
-![[_attachment/img/9003094607564bcbf322ce926b0cac9b_MD5.png]]
+![](_attachment/img/9003094607564bcbf322ce926b0cac9b_MD5.png)
 
 我们简单分析一下这里面几个重要步骤的实现逻辑。
 
@@ -65,17 +65,17 @@ class Compilation {
 
 执行完成后，形成如下数据结构：
 
-![[_attachment/img/6842889238bbde9b8f8c875eee2ad073_MD5.png]]
+![](_attachment/img/6842889238bbde9b8f8c875eee2ad073_MD5.png)
 
 其次，若此时配置了 `entry.runtime`，Webpack 还会在这个阶段为运行时代码 [创建](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L2933-L2934) 相应的 Chunk 并直接 [分配](https://github1s.com/webpack/webpack/blob/HEAD/lib/Compilation.js#L2937-L2938) 给 `entry` 对应的 `ChunkGroup` 对象。一切准备就绪后调用 [buildChunkGraph](https://github1s.com/webpack/webpack/blob/HEAD/lib/buildChunkGraph.js#L1347-L1348) 函数，进入下一步骤。
 
 **第二步：** 在 `buildChunkGraph` 函数内 [调用](https://github1s.com/webpack/webpack/blob/HEAD/lib/buildChunkGraph.js#L1367-L1368) `visitModules` 函数，遍历 ModuleGraph，将所有 Module 按照依赖关系分配给不同 `Chunk` 对象；这个过程中若遇到 [异步模块](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#async-modules)，则为该模块 [创建](https://github1s.com/webpack/webpack/blob/HEAD/lib/buildChunkGraph.js#L740-L742) 新的 `ChunkGroup` 与 `Chunk` 对象，最终形成如下数据结构：
 
-![[_attachment/img/4bf88ce005d8cf4c42dba21008d3835c_MD5.png]]
+![](_attachment/img/4bf88ce005d8cf4c42dba21008d3835c_MD5.png)
 
 **第三步：** 在 `buildChunkGraph` 函数中 [调用](https://github1s.com/webpack/webpack/blob/HEAD/lib/buildChunkGraph.js#L1381-L1382) `connectChunkGroups` 方法，建立 `ChunkGroup` 之间、`Chunk` 之间的依赖关系，生成完整的 `ChunkGraph` 对象，最终形成如下数据结构：
 
-![[_attachment/img/1c4086a4f902b6fb2b368a33ab06a3ef_MD5.png]]
+![](_attachment/img/1c4086a4f902b6fb2b368a33ab06a3ef_MD5.png)
 
 **第四步：** 在 `buildChunkGraph` 函数中 [调用](https://github1s.com/webpack/webpack/blob/HEAD/lib/buildChunkGraph.js#L1397-L1398) `cleanupUnconnectedGroups` 方法，清理无效 `ChunkGroup`，主要起到性能优化作用。
 
@@ -87,15 +87,15 @@ class Compilation {
 
 - `Chunk`：Module 用于读入模块内容，记录模块间依赖等；而 Chunk 则根据模块依赖关系合并多个 Module，输出成资产文件（合并、输出产物的逻辑，我们放到下一章讲解）：
 
-![[_attachment/img/5761f3c8f9d510db63e2a1792ffced9c_MD5.png]]
+![](_attachment/img/5761f3c8f9d510db63e2a1792ffced9c_MD5.png)
 
 - `ChunkGroup`：一个 `ChunkGroup` 内包含一个或多个 `Chunk` 对象；`ChunkGroup` 与 `ChunkGroup` 之间形成父子依赖关系：
 
-![[_attachment/img/56b952eca39793272a1f833a254354fb_MD5.png]]
+![](_attachment/img/56b952eca39793272a1f833a254354fb_MD5.png)
 
 - `ChunkGraph`：最后，Webpack 会将 Chunk 之间、ChunkGroup 之间的依赖关系存储到 `compilation.chunkGraph` 对象中，形成如下类型关系：
 
-![[_attachment/img/c1fe5e3960511e079bc641324850f9fc_MD5.png]]
+![](_attachment/img/c1fe5e3960511e079bc641324850f9fc_MD5.png)
 
 ## 默认分包规则
 
@@ -122,15 +122,15 @@ module.exports = {
 
 遍历 `entry` 对象属性并创建出 `chunk[main]` 、`chunk[home]` 两个对象，此时两个 Chunk 分别包含 `main` 、`home` 模块：
 
-![[_attachment/img/3459db4969e9eed170b3d052eaae9b5f_MD5.png]]
+![](_attachment/img/3459db4969e9eed170b3d052eaae9b5f_MD5.png)
 
 初始化完毕后，Webpack 会根据 `ModuleGraph` 的依赖关系数据，将 `entry` 下所触及的所有 Module 塞入 Chunk （发生在 [visitModules](https://github1s.com/webpack/webpack/blob/HEAD/lib/buildChunkGraph.js#L187-L188) 方法），比如对于如下文件依赖：
 
-![[_attachment/img/f7b98fdab022d58bb8bc86dbccec44de_MD5.png]]
+![](_attachment/img/f7b98fdab022d58bb8bc86dbccec44de_MD5.png)
 
 `main.js` 以同步方式直接或间接引用了 a/b/c/d 四个文件，Webpack 会首先为 `main.js` 模块创建 Chunk 与 EntryPoint 对象，之后将 a/b/c/d 模块逐步添加到 `chunk[main]` 中，最终形成：
 
-![[_attachment/img/4260a543b5e4d7fece700b15bff7a66d_MD5.png]]
+![](_attachment/img/4260a543b5e4d7fece700b15bff7a66d_MD5.png)
 
 ### **Async Chunk:**
 
@@ -149,11 +149,11 @@ import './sync-c.js'
 
 在入口模块 `index.js` 中，以同步方式引入 sync-a、sync-b；以异步方式引入 async-a 模块；同时，在 async-a 中以同步方式引入 `sync-c` 模块，形成如下模块依赖关系图：
 
-![[_attachment/img/b04ee53560c639eb7f92885d0e86f097_MD5.png]]
+![](_attachment/img/b04ee53560c639eb7f92885d0e86f097_MD5.png)
 
 此时，Webpack 会为入口 `index.js`、异步模块 `async-a.js` 分别创建分包，形成如下 Chunk 结构：
 
-![[_attachment/img/1a7aa6c4187a772e025702997c1485f6_MD5.png]]
+![](_attachment/img/1a7aa6c4187a772e025702997c1485f6_MD5.png)
 
 并且 `chunk[index]` 与 `chunk[async-a]` 之间形成了单向依赖关系，Webpack 会将这种依赖关系保存在 `ChunkGroup._parents` 、`ChunkGroup._children` 属性中。
 
@@ -161,7 +161,7 @@ import './sync-c.js'
 
 最后，除了 `entry`、异步模块外，Webpack5 还支持将 Runtime 代码单独抽取为 Chunk。这里说的 Runtime 代码是指一些为了确保打包产物能正常运行，而由 Webpack 注入的一系列基础框架代码，举个例子，常见的 Webpack 打包产物结构如：
 
-![[_attachment/img/4f4e78601ae8e4e57e76cab16e08fd5b_MD5.png]]
+![](_attachment/img/4f4e78601ae8e4e57e76cab16e08fd5b_MD5.png)
 
 上图红框圈出来的一大段代码就是 Webpack 动态生成的运行时代码，编译时，Webpack 会根据业务代码，决定输出哪些支撑特性的运行时代码（基于 `Dependency` 子类），例如：
 
@@ -198,7 +198,7 @@ module.exports = {
 
 入口 `index`、`home` 共享相同的 `runtime` 值，最终生成三个 Chunk，分别为：
 
-![[_attachment/img/c1f9454a1fc61ad3a62ab086b5731455_MD5.png]]
+![](_attachment/img/c1f9454a1fc61ad3a62ab086b5731455_MD5.png)
 
 此时入口 `chunk[index]`、`chunk[home]` 与运行时 `chunk[solid-runtime]` 也会形成父子依赖关系。
 
@@ -206,11 +206,11 @@ module.exports = {
 
 默认分包规则最大的问题是无法解决模块重复，如果多个 Chunk 同时包含同一个 Module，那么这个 Module 会被不受限制地重复打包进这些 Chunk。比如假设我们有两个入口 main/index 同时依赖了同一个模块：
 
-![[_attachment/img/03ab033250bcbe2cace4d76c158f0d13_MD5.png]]
+![](_attachment/img/03ab033250bcbe2cace4d76c158f0d13_MD5.png)
 
 默认情况下，Webpack 不会对此做额外处理，只是单纯地将 c 模块同时打包进 main/index 两个 Chunk，最终形成：
 
-![[_attachment/img/3820d3d328050c3bfad5301a5dae9b2f_MD5.png]]
+![](_attachment/img/3820d3d328050c3bfad5301a5dae9b2f_MD5.png)
 
 可以看到 `chunk` 间互相孤立，模块 c 被重复打包，对最终产物可能造成不必要的性能损耗！
 

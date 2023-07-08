@@ -22,7 +22,7 @@ update: 2023-02-10-星期五 15:29:36
 
 Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元素**”在其父容器中水平垂直居中：
 
-![[_attachment/img/2cf468607173d4757950a088a1b6b9d7_MD5.png]]
+![](_attachment/img/2cf468607173d4757950a088a1b6b9d7_MD5.png)
 
 在 CSS 网格布局中，单个元素和多个元素就分别对应着：
 
@@ -49,7 +49,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 
 这个时候，`div.item` 元素既是行和列网格轨道，也是一个网格项目。
 
-![[_attachment/img/c28de8b92956782eaeccb199bc1abff5_MD5.png]]
+![](_attachment/img/c28de8b92956782eaeccb199bc1abff5_MD5.png)
 
 有了这个认知，选择正确的对齐方式就会容易得多。比如，你可以让网格轨道都居中：
 
@@ -65,7 +65,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/cdb3489bcd92bce7723e213f4fa0a74f_MD5.gif]]
+![](_attachment/img/cdb3489bcd92bce7723e213f4fa0a74f_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/BaVZWje>
 
@@ -88,7 +88,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/6a3b82e8d8b4c7f8e3e38af7494ccef1_MD5.gif]]
+![](_attachment/img/6a3b82e8d8b4c7f8e3e38af7494ccef1_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/wvXeJNM>
 
@@ -108,13 +108,13 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/3141c9a0465d13c8f4f574b9365d25e0_MD5.gif]]
+![](_attachment/img/3141c9a0465d13c8f4f574b9365d25e0_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/gOKRWOa>
 
 通过前面课程的学习，我们知道，在网格项目上设置 `margin` 的值为 `auto` 时，也可以控制网格项目在内联轴和块轴方向的对齐方式：
 
-![[_attachment/img/973e5ac6f310d52f64b8cf36381befa8_MD5.png]]
+![](_attachment/img/973e5ac6f310d52f64b8cf36381befa8_MD5.png)
 
 正如上图所示，当你将网格项目的 `margin` 属性的值设置为 `auto` 时，它就位于网格容器最中心的位置，即水平垂直居中的效果：
 
@@ -132,7 +132,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/2421a24faf2f55530a842e8df23bfa03_MD5.gif]]
+![](_attachment/img/2421a24faf2f55530a842e8df23bfa03_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/xxzrdOM>
 
@@ -148,7 +148,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 
 当网格容器中有多个元素（网格项目）时，它和单个元素（网格项目）有所不同，它会创建一个一列多行的网格，其中行数等同于网格项目的数量：
 
-![[_attachment/img/6b4a928524acf484c778c8ab1c4f21cb_MD5.png]]
+![](_attachment/img/6b4a928524acf484c778c8ab1c4f21cb_MD5.png)
 
 就我们这个示例而言，当 `.container` 定义为一个网格，其中 `grid-template-rows` 和 `grid-template-columns` 属性都未显式设置任何值（取的是它们自己的默认值 `auto`），就创建了一个一列三行的网格。要让它们在网格容器中水平垂直居中，就需要通过控制网格轨道的对齐才能实现。
 
@@ -166,11 +166,11 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 
 但你会发现，即使在网格容器 `.container` 显式设置 `place-content:center` ，可视觉效果上并未实现水平居中：
 
-![[_attachment/img/2f3ab683e8195385535901876d392b6e_MD5.png]]
+![](_attachment/img/2f3ab683e8195385535901876d392b6e_MD5.png)
 
 虽然视觉效果不符合预期，但这并不代表着渲染错误。在 CSS 网格布局中，它的表现行为是正确的，使用浏览器调试工具查看，你会发现整个网格已经实现了水平垂直居中：
 
-![[_attachment/img/7527fa338219d901d03d16fc4001afae_MD5.png]]
+![](_attachment/img/7527fa338219d901d03d16fc4001afae_MD5.png)
 
 造成这种现象的原因是，第二个网格项目（`<h2>`）内容长度大于其他两个网格项目，加上网格轨道尺寸是默认值 `auto` ，浏览器将会以 `auto` 的行为来计算网格轨道尺寸。因此，我们还需要给所有网格项目设置一个 `justify-items` 的值为 `center` ，告诉浏览器，所有网格项目在其所在网格区域中，沿着块轴方向水平居中：
 
@@ -188,7 +188,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/b29e5072f1f00bf3779eb9942362144c_MD5.gif]]
+![](_attachment/img/b29e5072f1f00bf3779eb9942362144c_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/qBKjmVe>
 
@@ -230,7 +230,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/79d8acbf84b46155eefe3dc00dee5975_MD5.png]]
+![](_attachment/img/79d8acbf84b46155eefe3dc00dee5975_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/RwJggvy>
 
@@ -254,7 +254,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/d3848f740454baabe2e11b02d37cd853_MD5.png]]
+![](_attachment/img/d3848f740454baabe2e11b02d37cd853_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/wvXeqqv>
 
@@ -273,7 +273,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/9a5b7f306646efcf30ff2daf3394ec0c_MD5.gif]]
+![](_attachment/img/9a5b7f306646efcf30ff2daf3394ec0c_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/YzvQxoo>
 
@@ -289,7 +289,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/fee798b139812daec8a4b09387feff0d_MD5.gif]]
+![](_attachment/img/fee798b139812daec8a4b09387feff0d_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/jOKwLzr>
 
@@ -298,23 +298,23 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 - 卡片能根据视窗宽度自动断行；
 - 图片在卡片中水平垂直居中。
 
-![[_attachment/img/20c07b0e1b21b5918463b010e3dbd0c6_MD5.png]]
+![](_attachment/img/20c07b0e1b21b5918463b010e3dbd0c6_MD5.png)
 
 ## 等高布局
 
 众所周知，使用 Flexbox 布局技术实现等高布局已经是很容易的一件事情了。只不过使用 Flexbox 布局只能让元素（Flex 项目）等高，但要让 Flex 项目中的其他元素也具备等高的视觉效果，它还是做不到的。比如下图，卡片自身等高，但相邻卡片中的“标题”、“描述内容” 和 “按钮”之类就无法等高：
 
-![[_attachment/img/551fc1ab3d9bc96455a4c44963cb87cd_MD5.png]]
+![](_attachment/img/551fc1ab3d9bc96455a4c44963cb87cd_MD5.png)
 
 从上图中你会发现，每张卡片标题内容高度不一致，导致其他元素无法在同一水平线上对齐，这可能不是设计师所期望的一个效果。设计师可能更期待的效果如下图所示：
 
-![[_attachment/img/78ee5b7ac7a07414c200945d72cbf796_MD5.png]]
+![](_attachment/img/78ee5b7ac7a07414c200945d72cbf796_MD5.png)
 
 虽然 Flexbox 布局技术灵活性很强大了，但它始终还是一种一维布局，无法控制元素两个维度的参数，所以要实现上图的效果，Flexbox 难免会心有余而力不足。不过，要是我们使用 CSS 网格和子网格技术的话，这一切又变得太容易了。
 
 你可以借助 CSS 子网格的特性，让卡片中每一个元素同时在相同的两个维度中。这样一来，无论哪个元素的尺寸变化了，其他卡片相同元素的尺寸也会跟着调整：
 
-![[_attachment/img/897fef9e2078a2c1e3a96ed646b6b8af_MD5.png]]
+![](_attachment/img/897fef9e2078a2c1e3a96ed646b6b8af_MD5.png)
 
 除了让每张卡片自身高度相等之外，卡片中每个元素的高度也会相等。做到真正的等高效果，而且还不用给任何元素设置高度值。
 
@@ -399,21 +399,21 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 
 示例中的 `.cards` 和 `.card` 都是网格，其中 `.card` 网格是 `.cards` 网格的子网格，它的 `grid-template-rows` 显式设置为 `subgrid` 值，将继承了父网格的行网格轨道参数。另外，为了更好地放置卡片中的相关元素（`.card` 网格中的网格项目），在 `.card` 上使用 `grid-template-areas` 给子网格中的网格区域命名。
 
-![[_attachment/img/ffd0fc3a813b9bec961fc86f4dfb604e_MD5.png]]
+![](_attachment/img/ffd0fc3a813b9bec961fc86f4dfb604e_MD5.png)
 
 你在支持 CSS 子网格的现代浏览器中将看到的效果如下：
 
-![[_attachment/img/be238c2604e3254aa2f3927eb7f6bfb5_MD5.gif]]
+![](_attachment/img/be238c2604e3254aa2f3927eb7f6bfb5_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/RwJgXpe>
 
 即使是在不支持子网格的浏览器中，它的效果也不会太差，与 Flexbox 实现的效果等同。
 
-![[_attachment/img/0cce27a2b08d00c476310f53eee87798_MD5.png]]
+![](_attachment/img/0cce27a2b08d00c476310f53eee87798_MD5.png)
 
 **作业** ：使用 CSS 网格构建下图的布局效果：
 
-![[_attachment/img/00a010305afa278a6f8db08bfb756d24_MD5.png]]
+![](_attachment/img/00a010305afa278a6f8db08bfb756d24_MD5.png)
 
 ## 均分列
 
@@ -421,7 +421,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 
 除此之外，还可以将 `fr` 单位值与 `minmax()` 函数结合起来使用，你只需要将网格轨道尺寸设置为 `minmax(0, 1fr)`，也可以达到在网格项目上显式设置 `min-width` 为 `0` 的相同效果。比如下图这个效果：
 
-![[_attachment/img/f2a0ea13171972fef8c20e734ba52c55_MD5.png]]
+![](_attachment/img/f2a0ea13171972fef8c20e734ba52c55_MD5.png)
 
 使用 CSS 网格实现上图布局效果，你可能会使用一个像下面这样的 HTML 结构：
 
@@ -449,7 +449,7 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 
 你将看到的效果如下：
 
-![[_attachment/img/842ff7b6d8ad2b758db0aedb4c234022_MD5.gif]]
+![](_attachment/img/842ff7b6d8ad2b758db0aedb4c234022_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/vYrJNLy>
 
@@ -458,11 +458,11 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 - 定义了网格轨道的尺寸是 `minmax(0, 1fr)` ，最小小到 `0` ，最大大到 `1fr` ，其中每一个 `fr` 相当于把网格容器的可用空间（除去所有列间距总和）均分成四份，每列拿了一个等份。
 - `minmax(0, 1fr)` 等同于将 `1fr` 的默认 `min-width` 从 `min-content` （即 `auto`）重置为 `0` 。这样就允许网格轨道尺寸控制在 `0` 至 `1rf` 范围内（最小小到 `0` ，最大大到 `1fr`），从而创建保持相等的列。
 
-![[_attachment/img/5130b5bfd576ec8fbdfafa5cf8c2a188_MD5.png]]
+![](_attachment/img/5130b5bfd576ec8fbdfafa5cf8c2a188_MD5.png)
 
 但这种布局也是有缺陷的，当网格容器小到一定程度时，比如小于所有网格项目最小内容总和，网格项目就会溢出网格容器，或者会出现水平滚动条：
 
-![[_attachment/img/36e9d213f21e6a3d508eb5a032558ca5_MD5.png]]
+![](_attachment/img/36e9d213f21e6a3d508eb5a032558ca5_MD5.png)
 
 实际上，我们可以采用网格布局中的 RAM 布局技术，实现一个具有 **响应式的均分列** 的效果：
 
@@ -473,29 +473,29 @@ Web 布局中的水平垂直居中分为“**单个元素**”或“**多个元�
 }
 ```
 
-![[_attachment/img/2a3c2c8e48382b7275c25191f95f080a_MD5.gif]]
+![](_attachment/img/2a3c2c8e48382b7275c25191f95f080a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/JjZyGNO>
 
 **作业** ：请使用 CSS 网格实现下图中等宽表格：
 
-![[_attachment/img/b1848cfa9abd8f76b39f9ec2356b2a14_MD5.png]]
+![](_attachment/img/b1848cfa9abd8f76b39f9ec2356b2a14_MD5.png)
 
 ## 圣杯布局
 
 Web 网站开发最经典的设计之一被称为“**圣杯（Holy Grail）**”。它的最大特色就是包含了“页头”、“页脚”和三列，并且以内容先行为设计原则。
 
-![[_attachment/img/5f68873508c786dd75fb4b8573cf0eca_MD5.png]]
+![](_attachment/img/5f68873508c786dd75fb4b8573cf0eca_MD5.png)
 
 随着 Web 布局技术不断演变，尤其是响应式 Web 设计（RWD: Responsive Web Design）理念的提出，被称为经典的“圣杯布局”在视窗的不同断点之下也随之调整，如上图所示。
 
 另外，到现在为止，经典的“圣杯”布局所包含的内容并不总是都一样的，比如 Facebook、Medium 都在标准的“圣杯”(Holy Grail) 布局上做了一个变化，他们去掉了一个突出的页脚。
 
-![[_attachment/img/e15b2faaa0d50929e10348f1bc2a53c0_MD5.png]]
+![](_attachment/img/e15b2faaa0d50929e10348f1bc2a53c0_MD5.png)
 
 _facebook.com_
 
-![[_attachment/img/e6eb43aeee855a859e6c93a0f5a4544b_MD5.png]]
+![](_attachment/img/e6eb43aeee855a859e6c93a0f5a4544b_MD5.png)
 
 _medium.com_
 
@@ -530,7 +530,7 @@ _medium.com_
 
 但在一些终端上，Flexbox 技术实现起来就有不少的难度，比如要在同一 HTML 结构基础上实现平板端（Tablet）的“圣杯”布局效果，Flexbox 就不太可能了：
 
-![[_attachment/img/1f7d5c77bb36e8794ea422d3eef33248_MD5.png]]
+![](_attachment/img/1f7d5c77bb36e8794ea422d3eef33248_MD5.png)
 
 Flexbox 是一种一维布局，要实现类似九宫格的布局，总是需要调整 HTML 结构的。但要是换成 CSS 网格布局技术的话，这一切都不再是问题。也就是说，使用 CSS 网格构建一个响应式的圣杯布局要比 Flexbox 技术容易得多。
 
@@ -570,7 +570,7 @@ body {
 }
 ```
 
-![[_attachment/img/1054edeaa25318c8e051cb148d4737a9_MD5.png]]
+![](_attachment/img/1054edeaa25318c8e051cb148d4737a9_MD5.png)
 
 > 注意，就我们这个示例来说，实现移动端的布局效果时，不显式设置 `grid-row` 的值能达到同等的效果。
 
@@ -585,7 +585,7 @@ body {
 
 这样一来，页面的“页头（`.header`）”、“导航栏（`.nav`）”、“侧边栏（`.sidebar`）”和“页脚（`.footer`）” 都将以自身内容来撑高其高度。网格容器在块轴方向剩余的空间都将给主内容（`.main`）：
 
-![[_attachment/img/ace42ebb6218572aca05a911f6171d77_MD5.png]]
+![](_attachment/img/ace42ebb6218572aca05a911f6171d77_MD5.png)
 
 你还可以在网格容器上设置一个 `gap` 值，让行与行之间有一定的间距，让视觉上看起来更好看一些：
 
@@ -599,7 +599,7 @@ body {
 
 移动端（浏览器视窗宽度小于 `768px`）的效果就出来了：
 
-![[_attachment/img/b89748d9dbf85e06f5b6e9afd8acbae2_MD5.png]]
+![](_attachment/img/b89748d9dbf85e06f5b6e9afd8acbae2_MD5.png)
 
 移动端的布局完成之后，我们就可以来调整平板端的布局了。从示意图中可以知道，平板端的圣杯布局是一个两列布局。它对应的是一个 `2 x 4` 的网格（两列四行）。网格布局中定义行和列的轨道数量以及它的尺寸是通过 `grid-template-rows` 和 `grid-template-columns` 两个属性来完成的。也就是说，我们需要在符合浏览器视窗断点条件下，调整 `body` 的 `grid-template-columns` 和 `grid-template-rows` 值：
 
@@ -612,7 +612,7 @@ body {
 }
 ```
 
-![[_attachment/img/39305aba97637d8d552811dbe98d21a6_MD5.png]]
+![](_attachment/img/39305aba97637d8d552811dbe98d21a6_MD5.png)
 
 示例中将 `grid-template-columns` 的值设置为 `220px  minmax(0, 1fr)` ，它将会告诉浏览器，网格第一列宽度是 `220px` ，第二列的宽度是 `0 ~ 1fr` ，即除去第一列宽度和列间距就是它的宽度了。这样做能实现第一列的宽度是一个固定尺寸，第二列的宽度能跟着浏览器视窗宽度自适应的调整。视窗宽度变大，它也能变宽，视窗宽度变小，它也随之变小。
 
@@ -662,11 +662,11 @@ body {
 }
 ```
 
-![[_attachment/img/3caa8418cb60bdf014871a9da562178c_MD5.png]]
+![](_attachment/img/3caa8418cb60bdf014871a9da562178c_MD5.png)
 
 这样就有了下图的效果，调整浏览器视窗宽度，你可以看到平板端和移动端两个不同断点下，圣杯布局的差异：
 
-![[_attachment/img/53ab690b25a3cf309b5fd4e5a6aee321_MD5.gif]]
+![](_attachment/img/53ab690b25a3cf309b5fd4e5a6aee321_MD5.gif)
 
 按此思路，调整桌面端中 `grid-template-rows` 和 `grid-template-columns` 的值，并且重新放置网格项目即可。
 
@@ -699,11 +699,11 @@ body {
 }
 ```
 
-![[_attachment/img/dcc1b81647f231659847930c17008b75_MD5.png]]
+![](_attachment/img/dcc1b81647f231659847930c17008b75_MD5.png)
 
 这样就完了一个终级版的带有响应式的圣杯布局：
 
-![[_attachment/img/fec16523acd3ecb7ae66954ef8ff54b8_MD5.gif]]
+![](_attachment/img/fec16523acd3ecb7ae66954ef8ff54b8_MD5.gif)
 
 从代码中不难发现，由于不同断点下创建的网格不同，不得不调整每个网格项目的 `grid-area` 值。其实，在网格布局中，有更优的方案来解决。那就是在不同断点下调整网格容器的 `grid-template-areas` 的值（给网格区域显示命名），如此一来，只需要把网格项目的 `grid-area` 值指定为已命名的网格区域名称即可。按这种方案把上面代码优化一下：
 
@@ -757,7 +757,7 @@ body {
 }
 ```
 
-![[_attachment/img/f008c12bc61c8fd2248e987b05978695_MD5.png]]
+![](_attachment/img/f008c12bc61c8fd2248e987b05978695_MD5.png)
 
 最终构建一个具有响应式的圣杯布局所有代码如下所示：
 
@@ -822,17 +822,17 @@ body {
 
 现在你可以往每个网格项目中填充 Web 页面所需的内容。当然，你也可以根据设计稿的需求来调整网格轨道的尺寸，最终构建一个符合自己需求的响应式圣杯布局效果：
 
-![[_attachment/img/f3d40071858a808cf66c00a28587ff60_MD5.gif]]
+![](_attachment/img/f3d40071858a808cf66c00a28587ff60_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/wvXqYjo>
 
 **作业** ：使用网格布局，构建下图的布局效果，去掉页脚区域的圣杯布局：
 
-![[_attachment/img/e15b2faaa0d50929e10348f1bc2a53c0_MD5.png]]
+![](_attachment/img/e15b2faaa0d50929e10348f1bc2a53c0_MD5.png)
 
 ## Sticky Footer 布局
 
-![[_attachment/img/0033915258e34a7982654c9b9e8f7502_MD5.png]]
+![](_attachment/img/0033915258e34a7982654c9b9e8f7502_MD5.png)
 
 使用 CSS 网格来构建 Sticky Footer 布局效果是件很容易的事情。只需要构建一个三行的网格（网格列轨道数量根据实际需要调整），并且让中间的行网格轨道尺寸能根据容器高度自动调整。CSS 网格要做到这一点只需要将网格行轨道的尺寸定义为 `auto minmax(0, 1fr) auto` ：
 
@@ -844,7 +844,7 @@ body {
 }
 ```
 
-![[_attachment/img/6d15b2ab2e55dd5c9a355f7138a4884c_MD5.gif]]
+![](_attachment/img/6d15b2ab2e55dd5c9a355f7138a4884c_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/yLEorWV>
 
@@ -857,7 +857,7 @@ body {
 }
 ```
 
-![[_attachment/img/59957751f2ed8aa6dbd3455e9dff9b1e_MD5.gif]]
+![](_attachment/img/59957751f2ed8aa6dbd3455e9dff9b1e_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/NWzvVab>
 
@@ -889,7 +889,7 @@ CSS 中很多属性的值都可以设置为 `auto` ，不同属性取值为 `aut
 
 按照对 `auto` 的一般理解，当 `grid-template-columns` 在设置列网格轨道尺寸的值为 `auto` 时，每列的宽度应该是所在列中网格项目内容最多的尺寸。应该内容有多长，列网格轨道尺寸就有多大，相当于 `max-content` ：
 
-![[_attachment/img/2bc3ac2b65ea74a951d08c115d2d5182_MD5.png]]
+![](_attachment/img/2bc3ac2b65ea74a951d08c115d2d5182_MD5.png)
 
 但事实上并非如此，最终表现却和 `repeat(5, 1fr)` 相似。它的计算过程大致像下面这样：
 
@@ -899,11 +899,11 @@ CSS 中很多属性的值都可以设置为 `auto` ，不同属性取值为 `aut
 - ④：将网格容器剩余的空间分成五个等份（有点类似于 Flex 项目都设置了 `flex-grow` 值为 `1` 的计算方式），每个等份相当于 `63.062px` （`315.31 ÷ 5 = 63.062`）；
 - ⑤：每列网格轨道尺寸，在原有内容宽度（`max-content` 计算值）基础上分别增加分得的网格容器空间，这样每列列宽就分别是 `79.892px` 、`80.802px` 、`827.832px` 、`82.482px` 和 `80.991px`。
 
-![[_attachment/img/e87797cb38c968672a1833bb3cdc158e_MD5.png]]
+![](_attachment/img/e87797cb38c968672a1833bb3cdc158e_MD5.png)
 
 另外，网格对齐属性对 `auto` 计算值也是有影响的，如下图所示：
 
-![[_attachment/img/26a8d006a288603e38e50519fc46687a_MD5.gif]]
+![](_attachment/img/26a8d006a288603e38e50519fc46687a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/jOKGGjG>
 
@@ -918,11 +918,11 @@ CSS 中很多属性的值都可以设置为 `auto` ，不同属性取值为 `aut
 
 另外就是，当网格项目内容相同时，那么 `auto` 和 `1fr` 具有相同的效果，即 **平均占用网格容器可用空间** ：
 
-![[_attachment/img/d3f35d1fc17d6eaab10332415dac55df_MD5.gif]]
+![](_attachment/img/d3f35d1fc17d6eaab10332415dac55df_MD5.gif)
 
 这就是制作 Sticky Footer 布局时，为什么使用 `auto` 和 `minmax(0, 1f)` 能达到相同的效果。
 
-![[_attachment/img/130a67c5f884d6f250b1e3b60127e579_MD5.png]]
+![](_attachment/img/130a67c5f884d6f250b1e3b60127e579_MD5.png)
 
 你也可以将上图中的 `min-content` 替换成其他的长度值。相当于 `min-content` 是一个根据内容最小尺寸计算出来的一个长度值，它会占用网格容器一定的可用空间。如此一来，网格容器剩余的空间就会给 `auto` 或 `1fr` （也就是 `minmax(0, 1fr)` ）。所以它们最终的结果都是相似的。
 
@@ -968,13 +968,13 @@ body {
 
 它们得到的效果是相同的：
 
-![[_attachment/img/2d58e5ec5dae9b948d945a6480c96be2_MD5.gif]]
+![](_attachment/img/2d58e5ec5dae9b948d945a6480c96be2_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/LYrzeMe>
 
 另一种布局效果拿移动端的页面布局为例：
 
-![[_attachment/img/8b50e7e7116e4b05043c12eb874833d4_MD5.png]]
+![](_attachment/img/8b50e7e7116e4b05043c12eb874833d4_MD5.png)
 
 上图这种移动端页面是很常见的一种布局效果，页头和页脚是固定在页面顶端和底部，中间内容区域占用除页面和页脚之外剩下的空间，并且当内容超出时，会出现垂直滚动条。
 
@@ -1021,7 +1021,7 @@ footer {
 }
 ```
 
-![[_attachment/img/35cc125f3fb4e138843c97ca3282530d_MD5.gif]]
+![](_attachment/img/35cc125f3fb4e138843c97ca3282530d_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/rNKGdLQ>
 
@@ -1047,7 +1047,7 @@ body {
 - 整个弹窗在视窗中水平垂直居中；
 - 弹窗主内容过多时，内容区域自动出现垂直滚动条。
 
-![[_attachment/img/edc83d9a6f895be7df449762e0a56b26_MD5.png]]
+![](_attachment/img/edc83d9a6f895be7df449762e0a56b26_MD5.png)
 
 ## 12 列网格布局
 
@@ -1064,7 +1064,7 @@ body {
 }
 ```
 
-![[_attachment/img/3be4cafb896e06f69840a1028ea1c062_MD5.png]]
+![](_attachment/img/3be4cafb896e06f69840a1028ea1c062_MD5.png)
 
 上图就是一个 12 列的网格，它的特征是：
 
@@ -1140,7 +1140,7 @@ body {
 }
 ```
 
-![[_attachment/img/f93ff0e1aafe72bf0051953c12f469e2_MD5.png]]
+![](_attachment/img/f93ff0e1aafe72bf0051953c12f469e2_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/dyKVmQp>
 
@@ -1148,7 +1148,7 @@ body {
 
 基于该 12 列网格，你可以更容易与设计师的网格系统相匹配，也能更好地基于设计师的网格系统来实现 Web 布局：
 
-![[_attachment/img/13edf5e239d8a3c403baa1bd7d73c681_MD5.png]]
+![](_attachment/img/13edf5e239d8a3c403baa1bd7d73c681_MD5.png)
 
 来看一个简单的用例：
 
@@ -1228,7 +1228,7 @@ footer {
 }
 ```
 
-![[_attachment/img/3f12b8f042c33ba26d030de0abf6c41c_MD5.gif]]
+![](_attachment/img/3f12b8f042c33ba26d030de0abf6c41c_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/gOKGzJq>
 
@@ -1236,11 +1236,11 @@ footer {
 
 **作业** ：使用 CSS 网格技术，并且基于 12 列网格构建下图卡片布局效果：
 
-![[_attachment/img/f7f115af836924539aa1d5aec484bebd_MD5.png]]
+![](_attachment/img/f7f115af836924539aa1d5aec484bebd_MD5.png)
 
 ## 九宫布局
 
-![[_attachment/img/7e60ae98361cf9fa1de883f1f7f4f5cf_MD5.png]]
+![](_attachment/img/7e60ae98361cf9fa1de883f1f7f4f5cf_MD5.png)
 
 虽然 Flexbox 布局技术很强大，但要实现像上图中部分九宫格的布局，还是需要调整 HTML 结构才可以。要是换成 CSS 网格技术的话，它一点难度都没有。
 
@@ -1255,7 +1255,7 @@ footer {
 }
 ```
 
-![[_attachment/img/b4ee1014fd9edd14f2015cebf7476be1_MD5.png]]
+![](_attachment/img/b4ee1014fd9edd14f2015cebf7476be1_MD5.png)
 
 在这个基础上，只需要在网格项目上使用 `grid-area` （或 `grid-column` 或 `grid-row`）指定网格线名称，就能实现不同风格的九宫布局，比如：
 
@@ -1278,27 +1278,27 @@ footer {
 }
 ```
 
-![[_attachment/img/85ff2031f46243776cf79bfcfaca0c8d_MD5.png]]
+![](_attachment/img/85ff2031f46243776cf79bfcfaca0c8d_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/abKLKQR>
 
 简单地说，基于九宫格原理，你只需要调整 `grid-template-columns` 和 `grid-template-rows` 的值，就可以得到任意宫格布局效果：
 
-![[_attachment/img/97ade87effd64a741f2ee7ecbe110be8_MD5.png]]
+![](_attachment/img/97ade87effd64a741f2ee7ecbe110be8_MD5.png)
 
 **作业** ：请使用 CSS 网格构建下图布局：
 
-![[_attachment/img/92dee25973a6bf661718e21ca888149b_MD5.png]]
+![](_attachment/img/92dee25973a6bf661718e21ca888149b_MD5.png)
 
 ## 灵活弹性框
 
 通过前面的示例学习，我们知道在 CSS 网格布局中，可以将 `grid-template-columns` 或 `grid-template-rows` 设置为 `auto minmax(0, 1fr)` 或 `min-content  auto`，就可以得到一个灵活的弹性框。即网格轨道对应的 `minmax(0, 1fr)` 或 `auto` 会根据网格容器的宽度或高度自适应：
 
-![[_attachment/img/c63efd693b9a7de6e0f6c358abda6e10_MD5.gif]]
+![](_attachment/img/c63efd693b9a7de6e0f6c358abda6e10_MD5.gif)
 
 同时，我们也知道 Flexbox 布局中使用 `flex: 1` 也能让 Flex 项目根据 Flex 容器的空间自适应，但是 Flexobx 布局时，Flex 容器小到一定程度时，其他 Flex 项目会因空间不足而受到挤压（Flex 项目被收缩）：
 
-![[_attachment/img/20abbe5558a7435d4dae2b6168ae459f_MD5.png]]
+![](_attachment/img/20abbe5558a7435d4dae2b6168ae459f_MD5.png)
 
 为了达到所需效果，不得不将 Flex 项目的 `flex-shrink` 的值设置为 `0` ：
 
@@ -1347,7 +1347,7 @@ footer {
 </style>
 ```
 
-![[_attachment/img/f614a72598b3fdb633d09b550f6c7e8a_MD5.gif]]
+![](_attachment/img/f614a72598b3fdb633d09b550f6c7e8a_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/poKWOgm>
 
@@ -1393,13 +1393,13 @@ footer {
 }
 ```
 
-![[_attachment/img/492cf13e23a89a9382690192494317b1_MD5.gif]]
+![](_attachment/img/492cf13e23a89a9382690192494317b1_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/oNyGPww>
 
 上面示例是长文截取的一个常见案例，CSS 处理这种场景已有很成熟的解决方案了。除此之外，还有对列表项截取的场景，如下图所示：
 
-![[_attachment/img/494f78d5ef47f096a85897d28f7e32c4_MD5.png]]
+![](_attachment/img/494f78d5ef47f096a85897d28f7e32c4_MD5.png)
 
 设计师期望的效果是，列表项（标题下的“徽标”列表）总是只显示一行，并且当“徽标”项过多时，在最末尾添加省略号指示器（`…`）。
 
@@ -1461,7 +1461,7 @@ footer {
 }
 ```
 
-![[_attachment/img/f8e86e55d3357a314e23b564d1c965b1_MD5.png]]
+![](_attachment/img/f8e86e55d3357a314e23b564d1c965b1_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/YzvEGaE>
 
@@ -1517,13 +1517,13 @@ footer {
 }
 ```
 
-![[_attachment/img/9d5df482a51761b811921d6b75f0213e_MD5.png]]
+![](_attachment/img/9d5df482a51761b811921d6b75f0213e_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/dyKZObm>
 
 ## 宽高比布局
 
-![[_attachment/img/fdfba4dd9676f2b249c674d1f85845fa_MD5.png]]
+![](_attachment/img/fdfba4dd9676f2b249c674d1f85845fa_MD5.png)
 
 按照宽高比的设计风格在 Web 页面中也很常见，但它一直受着技术实现的限制。虽然 CSS 的 `aspect-ratio` 得到大多主流浏览器的支持，但用于 Web 布局时，所受限制还是很大的。因为使用 `aspect-ratio` 总是会影响到元素盒子尺寸：
 
@@ -1532,7 +1532,7 @@ footer {
 
 但 Flexbox 和 Grid 布局中，Flex 项目和 Grid 项目尺寸会受对齐属性的影响。也正因此，在 Flexbox 布局中，一般将 `flex-grow` 和 `aspect-ratio` 设置同等比例，从而实现宽高比的布局效果。
 
-![[_attachment/img/f20045b33923bd38e804055901212029_MD5.png]]
+![](_attachment/img/f20045b33923bd38e804055901212029_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/OJZvQop>
 
@@ -1558,7 +1558,7 @@ footer {
 }
 ```
 
-![[_attachment/img/0f5a6e15a01d8832c3550d1f5bfd2349_MD5.gif]]
+![](_attachment/img/0f5a6e15a01d8832c3550d1f5bfd2349_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/KKeyaKv>
 
@@ -1566,7 +1566,7 @@ footer {
 
 即使行网格轨道尺寸是 `auto` ，但网格项目总有不同的宽高比情况出现。你会发现，网格项目具有不同宽高比时，行网格轨道将会以最高的网格项目尺寸为计算值，这样网格项目之间就会有空白空间出现：
 
-![[_attachment/img/91692e71922f8739ad135d9f7abbb588_MD5.png]]
+![](_attachment/img/91692e71922f8739ad135d9f7abbb588_MD5.png)
 
 你可能会想到，像 Flexbox 布局那样，将每个网格项目计算宽高比例带上 `fr` 单位，当作网格轨道尺寸，比如：
 
@@ -1596,11 +1596,11 @@ footer {
 }
 ```
 
-![[_attachment/img/d76daad8099cd0aa574eb83933cf75bb_MD5.png]]
+![](_attachment/img/d76daad8099cd0aa574eb83933cf75bb_MD5.png)
 
 看上去是不错，网格项目符合宽高比的布局。但网格不可能永远是一行多列的，它也会有多行，这才是我们更需要的网格。可是，当有多行出现，并且网格项目宽高比也不同时，网格又将会被打破：
 
-![[_attachment/img/e09a494431a99cb98e92f609f4bc65d4_MD5.png]]
+![](_attachment/img/e09a494431a99cb98e92f609f4bc65d4_MD5.png)
 
 当然，这是一种思路，只不过我们需要使用嵌套网格来构建，不同内部网格根据使用的网格数量和网格项目来重新定义列网格轨道尺寸。但 **需要保证每个内部网格只有一行** ：
 
@@ -1646,7 +1646,7 @@ footer {
 }
 ```
 
-![[_attachment/img/c677e092f1591c930f825af06152ea2e_MD5.png]]
+![](_attachment/img/c677e092f1591c930f825af06152ea2e_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/YzvEZNQ>
 
@@ -1760,7 +1760,7 @@ footer {
 
 这样就创建了一个四列 `N` 行的网格，而且每个单元格的宽高比都是 `1 : 1` ：
 
-![[_attachment/img/33307dce1a80c6216deb899c33e7d6f0_MD5.png]]
+![](_attachment/img/33307dce1a80c6216deb899c33e7d6f0_MD5.png)
 
 根据需要，在网格项目上使用 `grid-area` （或 `grid-row` 和 `grid-column` ）放置网格项目，可以换作一个方式得到具有不同宽高比的网格项目：
 
@@ -1783,7 +1783,7 @@ footer {
 }
 ```
 
-![[_attachment/img/9a6dea2a4b174c69916776af7de07805_MD5.png]]
+![](_attachment/img/9a6dea2a4b174c69916776af7de07805_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/XWYzRbM>
 
@@ -1854,7 +1854,7 @@ footer {
 
 如此一来，每个网格单元格宽高比都是 `16:9` ：
 
-![[_attachment/img/7218d9b53efcf195be14fa6af894d8b3_MD5.png]]
+![](_attachment/img/7218d9b53efcf195be14fa6af894d8b3_MD5.png)
 
 指定网格项目位置：
 
@@ -1874,7 +1874,7 @@ footer {
 }
 ```
 
-![[_attachment/img/909b764c880f73efc538d1cedc6c66b0_MD5.png]]
+![](_attachment/img/909b764c880f73efc538d1cedc6c66b0_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/rNKYmvG>
 
@@ -1918,7 +1918,7 @@ footer {
 
 **作业** ，请使用 CSS 网格布局，构建下图这个布局效果：
 
-![[_attachment/img/b8794d40a5754cb80b2b9475fca825a7_MD5.png]]
+![](_attachment/img/b8794d40a5754cb80b2b9475fca825a7_MD5.png)
 
 ## 小结
 
@@ -1928,4 +1928,4 @@ footer {
 
 **CSS Grid CheatSheet （CSS 网格备忘图）** ，你可以点击查看大图：
 
-![[_attachment/img/5308316deaf55803316dfbc3740e134a_MD5.png]]
+![](_attachment/img/5308316deaf55803316dfbc3740e134a_MD5.png)

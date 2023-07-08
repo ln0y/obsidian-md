@@ -11,7 +11,7 @@ update: 2023-02-20-星期一 10:10:50
 
 在 CSS 中，我们可以通过 `letter-spacing` 属性来给英文字母间增加间距（它也被称为 **活版印刷跟踪** ）。比如下图所示：
 
-![[_attachment/img/3050fc8517c718d3c0df852321440f71_MD5.png]]
+![](_attachment/img/3050fc8517c718d3c0df852321440f71_MD5.png)
 
 上图中的第二行使用了 `letter-spacing` 给字母间增加了间距，它看起来是正常的。但是，如果将相同的 `letter-spacing` 样式添加到阿拉伯语系的内容中，效果看起来就会非常的奇怪。比如下面这个示例：
 
@@ -21,7 +21,7 @@ update: 2023-02-20-星期一 10:10:50
 }
 ```
 
-![[_attachment/img/82073d5ae25004479bd2fe80a02889ed_MD5.png]]
+![](_attachment/img/82073d5ae25004479bd2fe80a02889ed_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/wvXOQjB>
 
@@ -36,7 +36,7 @@ update: 2023-02-20-星期一 10:10:50
 }
 ```
 
-![[_attachment/img/592eaeefd679029003f874cf9f65fb2f_MD5.png]]
+![](_attachment/img/592eaeefd679029003f874cf9f65fb2f_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/oNyVQJQ>
 
@@ -46,13 +46,13 @@ update: 2023-02-20-星期一 10:10:50
 
 在 Web 开发中，给文本增加一定的透明度是很常见的一种行为。这在拉丁语体系（比如英语）和汉语体系（比如中文）都是可行的。然而，当内容是阿拉伯语体系（比如阿拉伯文）时，渲染出来的文本会给人一种怪怪的感觉：
 
-![[_attachment/img/28da0252be88b8b42bbd18653bf82bff_MD5.png]]
+![](_attachment/img/28da0252be88b8b42bbd18653bf82bff_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/eYKXbJM>
 
 你会发现字母之间有一些不同颜色的区域。看上去是有层叠区域造成的颜色不一致：
 
-![[_attachment/img/f29f4f5f1c67a11594e1a85b481453b3_MD5.png]]
+![](_attachment/img/f29f4f5f1c67a11594e1a85b481453b3_MD5.png)
 
 在这个例子中，字母间距没有调整，所以这个问题与字母间距无关。解决方案很简单，**设置不带透明度的颜色值，也不给文本设置透明度** 。
 
@@ -60,7 +60,7 @@ update: 2023-02-20-星期一 10:10:50
 
 不同语言中的字大小是有一定差异的。比如说英文翻译成阿拉伯文后，有些单词就会变大或变小，因此元素的大小也会发生变化（内容容器）。比如：
 
-![[_attachment/img/d85e5a73a4c019b07166fad12482f908_MD5.png]]
+![](_attachment/img/d85e5a73a4c019b07166fad12482f908_MD5.png)
 
 正如上图所示，当英文网站翻译成阿拉伯语时，由于翻译后一些单词变大或变小，元素的大小也会发生变化。比如说：
 
@@ -69,28 +69,28 @@ update: 2023-02-20-星期一 10:10:50
 
 事实上，这种差异不只存在于拉丁语体系与阿拉伯语体系之间，它们也同样存在于汉语体系中。有些单词在不同语系中宽度有些相同，有些更大，也有一些更小：
 
-![[_attachment/img/ada6a2d667fadf54c47728f26ac3673f_MD5.png]]
+![](_attachment/img/ada6a2d667fadf54c47728f26ac3673f_MD5.png)
 
 在这种因语言不同，内容长度（大小）不同，要是在容器上显式设置宽度，就会造成内容被溢出，或断行；如果容器被设置了 `overflow: hidden`，还会造成内容被裁剪等现象。来看一个真实案例，比如 [Facebook 的登录页中的“新建帐户”按钮](https://zh-cn.facebook.com/)：
 
-![[_attachment/img/3d5c8da7da6040a7eb14140262b29969_MD5.png]]
+![](_attachment/img/3d5c8da7da6040a7eb14140262b29969_MD5.png)
 
 不管是给按钮设置宽度为 `104px` 或 `219px` 都不是最佳的。
 
 - 如果设置最小值 `104px` ，其他语言版本就会内容溢出；
 - 如果设置最大值 `219px` ，其他语言版本就有可能会有很大的空白空间。
 
-![[_attachment/img/03a5b8df4dfbb5f83567720f15578e77_MD5.png]]
+![](_attachment/img/03a5b8df4dfbb5f83567720f15578e77_MD5.png)
 
 针对这样的场景，更好的做法是，使用 CSS 的内在尺寸来定义元素容器的大小，比如可以将按钮设置的宽度为 `auto` 、`min-content` 或 `max-content` ，这样使不同版本语言下都有一个较好的宽度：
 
-![[_attachment/img/87acec165bee5a9ec49ea8fae4878fd5_MD5.png]]
+![](_attachment/img/87acec165bee5a9ec49ea8fae4878fd5_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/ExRMrMN>
 
 面对多语言的 Web 布局时，给元素设置尺寸大小，使用 `auto` 、`min-content` 和 `max-content` 要比具体尺寸更为合适。但有的场景也会让你的 UI 看上去不太完美。就拿下图为例：
 
-![[_attachment/img/169f495bc83745f629e7f51a41ca9cc2_MD5.png]]
+![](_attachment/img/169f495bc83745f629e7f51a41ca9cc2_MD5.png)
 
 英文版本“Done”按钮，在英文版本下，它视觉上，甚至可点击区域都是符合 Web 设计的，但它一到阿拉伯语言版本中，“Done”被翻译成“إنجاز”，不管是 UI 视觉还是按钮可点击区域都变小了，有可能它不符合 Web 设计需求，比如按钮可点击区域要求是 `44px x 44px` 。因此，除了给按钮设置宽度为 `auto` 或 `min-content` 或 `max-content` 时，最好也同时给按钮设置一个 `min-width` 值，比如上图中的 “Done”按钮：
 
@@ -106,7 +106,7 @@ update: 2023-02-20-星期一 10:10:50
 }
 ```
 
-![[_attachment/img/2aa2e37fd045c13775380fdbe721552e_MD5.png]]
+![](_attachment/img/2aa2e37fd045c13775380fdbe721552e_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/gOKEEXJ>
 
@@ -133,17 +133,17 @@ update: 2023-02-20-星期一 10:10:50
 }
 ```
 
-![[_attachment/img/c6000797f4e349062dbedcb05a036415_MD5.png]]
+![](_attachment/img/c6000797f4e349062dbedcb05a036415_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/wvXObbN>
 
 上面的效果应该是符合我们预期的。如果不慎在拉丁语体系和汉语体系中设置了 `dir="rtl"` 时，效果和我们阅读习惯就不同了，甚至是一种错误的表现行为：
 
-![[_attachment/img/677d52022e002557c7c7563273380b70_MD5.png]]
+![](_attachment/img/677d52022e002557c7c7563273380b70_MD5.png)
 
 正如上图所示，英文和中文文本的截断不正确。它应该在元素的末尾，而不是开头。要解决这个问题，`dir` 需要根据语言的正确阅读方式来设置正确的值。如果你不清楚语言的阅读方式或者无法预判用户会将应用切换到何种语言的话，建议将 `dir` 的值设置为 `auto`。这样一来，浏览器会自动根据语言的阅读方式来处理文本截取的效果：
 
-![[_attachment/img/e9f24f3b995a31e9f2f7990666344cce_MD5.png]]
+![](_attachment/img/e9f24f3b995a31e9f2f7990666344cce_MD5.png)
 
 当然，这种情况一般会发生在混合排版中，比如：
 
@@ -189,7 +189,7 @@ update: 2023-02-20-星期一 10:10:50
 
 对于大部分 Web 开发者，在开发多语言 Web 网站或应用时，很少会根据语言版本来选择不同的字体，为了避免麻烦，习惯性地选择系统默认字体。但事实上，这并不是一种较好的选择，尤其是 RTL 版本的设计，还是需要精心选择对应的字体，这样才能确保它具有良好的可读性。就拿 “Twitter” 这个词为例：
 
-![[_attachment/img/c2db6576b2659420f97fae00a038c4f9_MD5.png]]
+![](_attachment/img/c2db6576b2659420f97fae00a038c4f9_MD5.png)
 
 英文版本和阿拉伯语版本选择同一字体，但对于使用阿拉伯语的用户而言，“تغريد”这个词很难，原因如下:
 
@@ -199,13 +199,13 @@ update: 2023-02-20-星期一 10:10:50
 
 针对这种情形，应该为阿拉伯语（LTR 版本）选择一个更为适合的字体。比如：
 
-![[_attachment/img/f1415557fb01924855a1564700fd3b4c_MD5.png]]
+![](_attachment/img/f1415557fb01924855a1564700fd3b4c_MD5.png)
 
 ## 不宜设置相同的 line-height
 
 如果需要更好的阅读体验，可能会为不同的语言（LTR 或 RTL）设置不同的布局。但是 LTR 和 RTL 排版设置相同的 `line-height` 的话，阅读体验就有可能达不到你预期的效果。比如给英文和阿拉伯文设置相同的 `line-height` ，在阿拉伯文中看上去行与行的间距要更小：
 
-![[_attachment/img/68e5e5f883234d6205c5c22e341efe8f_MD5.png]]
+![](_attachment/img/68e5e5f883234d6205c5c22e341efe8f_MD5.png)
 
 如果想改变这样的现象，需要考虑为阿拉伯语的内容提供一个更适合的 `line-height`。比如：
 
@@ -221,33 +221,33 @@ update: 2023-02-20-星期一 10:10:50
 }
 ```
 
-![[_attachment/img/27822b6b517b55e83ba312cf4b7ce96c_MD5.png]]
+![](_attachment/img/27822b6b517b55e83ba312cf4b7ce96c_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/NWzJZzG>
 
 另外建议 `line-height` 不要使用固定单位的值，这样在一些语言的切换状态下很容易造成文本展示不全（类似被截）。比如下图的效果：
 
-![[_attachment/img/65fd20958e0da4d630d32f0a978581ce_MD5.png]]
+![](_attachment/img/65fd20958e0da4d630d32f0a978581ce_MD5.png)
 
 ## 不采用默认的文本下划线
 
 有些文本会带有默认下划线的效果，比如 `<a>` 链接。在阿拉伯语言的文本中，默认的文本下划线会让阅读变得很困难。这种现象的产生，与阿拉伯语单词和字母的书写方式有关。如下图所示：
 
-![[_attachment/img/8c02e5e5552d7639c3385722ebd25308_MD5.png]]
+![](_attachment/img/8c02e5e5552d7639c3385722ebd25308_MD5.png)
 
 你会发现，文本下划线会和一些文本重叠，比如单词中的一些点：
 
-![[_attachment/img/786cad51d7c279f5f398f7dee8c37d96_MD5.png]]
+![](_attachment/img/786cad51d7c279f5f398f7dee8c37d96_MD5.png)
 
 另外，采用默认的文本下划线，不同的浏览器渲染出的效果也会有所差异：
 
-![[_attachment/img/437c2aa8444bd45c0065a239ac459c76_MD5.png]]
+![](_attachment/img/437c2aa8444bd45c0065a239ac459c76_MD5.png)
 
 很明显，Chrome 和 Firefox 浏览器不会出现我们上面所说的现象（在这方面可能做了一定的优化），但是在 Safari 浏览器中，就出现了上面所描述的现象。另外可能在一些 UI 效果上趋向于风格的统一。所以在给文本加下划线的时候，更建议采用自定义的下划线风格。
 
 在 CSS 中有很多种不同的方案来实现自定义下划线的效果，比如 `border-bottom`、`box-shadow`、`background-image` 等，还可以给文本添加 SVG 的下划线。除此之外，[CSS Text Decoration Module Level 4](https://drafts.csswg.org/css-text-decor-4/) 提供的一系列 `text-decoration-*` 属性也可以实现一些个性化的下划线效果：
 
-![[_attachment/img/3167b7b8218a69ec9b966702a94534a1_MD5.png]]
+![](_attachment/img/3167b7b8218a69ec9b966702a94534a1_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/dyKrxYL>
 
@@ -265,7 +265,7 @@ a:hover {
 }
 ```
 
-![[_attachment/img/b96c82ff34105a38a710e97ec7ef6d62_MD5.png]]
+![](_attachment/img/b96c82ff34105a38a710e97ec7ef6d62_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/Yzvgomb>
 
@@ -273,7 +273,7 @@ a:hover {
 
 如果使用断行处理的相关样式，比如 `word-break`，那么在阿拉伯语的应用中需要进行单独的测试，因为它可能会破坏阿拉伯语单词。如下图所示：
 
-![[_attachment/img/e6d6f40f6060d22633af36e287f94894_MD5.png]]
+![](_attachment/img/e6d6f40f6060d22633af36e287f94894_MD5.png)
 
 上图中圈出的部分是由于断句带来的影响。**在阿拉伯语中，没有断字这回事** 。一个单词的字母是相互联系的，所以不可能打破一个单词。
 
@@ -281,7 +281,7 @@ a:hover {
 
 在大多数 RTL 语言（比如阿拉伯语）的应用中，应该尽量避免使用粗体（`font-weight`）和斜体（`font-style: italic`）。因为大多数 RTL 语言中，粗体文本会让应用的可读性变得更为困难，而斜体几乎是不被使用。同样的，在 RTL 语言中，几乎会忽略大写字母。
 
-![[_attachment/img/ca136e2c42c81c0c6dc6ad5e1689ce2e_MD5.png]]
+![](_attachment/img/ca136e2c42c81c0c6dc6ad5e1689ce2e_MD5.png)
 
 ## 双向语言的最佳用户体验
 
@@ -289,7 +289,7 @@ a:hover {
 
 事实上除了开发者，对于设计师以及用户体验，双向语言都会有很多细节需要我们注意，或者说有很多问题需要我们一起面对。如果仅从 UI 布局上来看，**双向语言（LTR 和 RTL）的 UI 布局是一种镜向的布局效果**。
 
-![[_attachment/img/9347d686242ba428d1e7bba021a5216c_MD5.png]]
+![](_attachment/img/9347d686242ba428d1e7bba021a5216c_MD5.png)
 
 表面看上去是一种反向的切换，但事实上，这里面有很多细节是需要我们注意或者单独处理的。接下来，我们来看看需要注意的一些细节（主要围绕着 UX 来展开）。
 
@@ -303,13 +303,13 @@ a:hover {
 
 Web 中的图标有些是没有方向性的，有些是带有方向性。比如下图所示的图标，图标中心线左右两侧是对称的，可以说是没有任何方向性：
 
-![[_attachment/img/5c9efaeee3471edac2a45e14b51f0065_MD5.png]]
+![](_attachment/img/5c9efaeee3471edac2a45e14b51f0065_MD5.png)
 
 像上述这种对称性的图标，用在双向语言中，你不需要对这些图标做任何的处理（比如翻转）。
 
 在双向语言系统中有些图标是具有方向性的。也就是说在 LTR 和 RTL 中要改变它们的方向，而且这一点对于用户来说是非常重要的，可以更清楚地理解图标的含义。比如：
 
-![[_attachment/img/d8eef78c3621ebf0e7db332546b3955b_MD5.png]]
+![](_attachment/img/d8eef78c3621ebf0e7db332546b3955b_MD5.png)
 
 对于需要镜像的图标，仅仅使用 `dir` (或 `direction` ) 无法达到所要的效果：
 
@@ -336,7 +336,7 @@ Web 中的图标有些是没有方向性的，有些是带有方向性。比如�
 </style>
 ```
 
-![[_attachment/img/f436c104bb5c986102a9174ee5282bb1_MD5.png]]
+![](_attachment/img/f436c104bb5c986102a9174ee5282bb1_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/mdKgMEb>
 
@@ -350,21 +350,21 @@ Web 中的图标有些是没有方向性的，有些是带有方向性。比如�
 }
 ```
 
-![[_attachment/img/f4b393735bd6efcb3b83406ccd02542b_MD5.gif]]
+![](_attachment/img/f4b393735bd6efcb3b83406ccd02542b_MD5.gif)
 
 > Demo 地址：<https://codepen.io/airen/full/ZERZJLr>
 
 也就是说，我们在 LTR 和 RTL 版本中使用图标时，应该尽可能像下图这样来使用：
 
-![[_attachment/img/af1e71deaf3ed1e5da18e4ae0179444a_MD5.png]]
+![](_attachment/img/af1e71deaf3ed1e5da18e4ae0179444a_MD5.png)
 
 然而，总是有例外的。根据 [Material Design 指南](https://m2.material.io/design/usability/bidirectionality.html)，如果一个图标代表一个可以用右手拿着的对象，那么它不需要翻转。例如，搜索图标的手柄通常位于右下角，因为大多数用户都是右撇子。在使用 RTL 语言的国家，大多数用户也是右撇子，所以这样的图标不应该被镜像。
 
-![[_attachment/img/43da4959039927f9285f3135c7a9dbe9_MD5.png]]
+![](_attachment/img/43da4959039927f9285f3135c7a9dbe9_MD5.png)
 
 还有一些图标是通用的，也不需要翻转它们。例如，播放器上的一些图标，它代表的是磁带播放的方向，而不是时间方向，所以不必要对它们做翻转。下图是 Spotify 应用程序的英语和阿拉伯语版本:
 
-![[_attachment/img/05391c7f8fbaf58d0d525024ea50d6cf_MD5.png]]
+![](_attachment/img/05391c7f8fbaf58d0d525024ea50d6cf_MD5.png)
 
 所以说，在 LTR 和 RTL 下使用图标时，需要根据实际环境做出最合适的选择。
 
@@ -372,37 +372,37 @@ Web 中的图标有些是没有方向性的，有些是带有方向性。比如�
 
 通常有些按钮会带上相应的 Icon 图标。在这种情况下，在 RTL 布局中，图标的位置也需要进行翻转：
 
-![[_attachment/img/9a1d1a27cac7c4ff68e8358274b6ae92_MD5.png]]
+![](_attachment/img/9a1d1a27cac7c4ff68e8358274b6ae92_MD5.png)
 
 对于表单控件也是如此，特别是对于输入型的 `input` 表单控件，还应该保持输入的方向性：
 
-![[_attachment/img/abb2c9f4f67382ea269279641cccbc01_MD5.png]]
+![](_attachment/img/abb2c9f4f67382ea269279641cccbc01_MD5.png)
 
 在 RTL 中，有些表单输入应该保持左对齐，例如电子邮件和手机号码。值得注意的是，如果占位符内容是阿拉伯语或其他 RTL 语言，那么占位符应该向右对齐。一旦输入框获得焦点，用户开始输入，对齐方式将翻转到左侧。
 
-![[_attachment/img/b45e3ec5d203b2a0f8b64ff157122fa4_MD5.png]]
+![](_attachment/img/b45e3ec5d203b2a0f8b64ff157122fa4_MD5.png)
 
 ### 导航菜单和面包屑
 
 对于导航菜单以及页头，还有面包屑等 UI 的设计在双向语言中是 UI 的镜像。
 
-![[_attachment/img/67b99b19a627687c9a6e6425a2331609_MD5.png]]
+![](_attachment/img/67b99b19a627687c9a6e6425a2331609_MD5.png)
 
 ### 数字顺序
 
 在双向语言中，对于数字的顺序（比如电话号码、门牌号等），不需要做镜像的处理。但要是带有图标的话，对应的图标还是需要做镜像处理的。
 
-![[_attachment/img/2df62fbf48f0de8b08e08411b8573c9e_MD5.png]]
+![](_attachment/img/2df62fbf48f0de8b08e08411b8573c9e_MD5.png)
 
 ### 组件的翻转
 
 在处理一些组件时，我需要一种快速翻转它们的方法。在 Sketch 应用中，我将复制一个组件，然后用 “flip” 命令翻转它。同样的功能也可以在 Adobe XD 和 Figma 中使用。
 
-![[_attachment/img/3708f4bf761f098e0c98d2ae4a09f6d5_MD5.png]]
+![](_attachment/img/3708f4bf761f098e0c98d2ae4a09f6d5_MD5.png)
 
 而我们在 Web 中构建 Web 组件时，大部分通过 HTML 的 `dir` 或 CSS 的 `direction` 就可以实现水平翻转的效果：
 
-![[_attachment/img/5c637398ca76cdb0617123068d334e28_MD5.png]]
+![](_attachment/img/5c637398ca76cdb0617123068d334e28_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/LYrvzPE>
 
@@ -447,7 +447,7 @@ header a:hover {
 
 先来看一个简单示例，看看 LTR 和 RTL 两个版本的 Web 布局要如何处理。
 
-![[_attachment/img/139557c2b1ec73d210a547a01eb05e2d_MD5.png]]
+![](_attachment/img/139557c2b1ec73d210a547a01eb05e2d_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/ZERZXwE>
 
@@ -479,7 +479,7 @@ header a:hover {
 
 先来看页头 `header` 的布局，它主要包含了 `.logo` 、`.nav` 和 `.user--profile` 三个部分：
 
-![[_attachment/img/b59d1ccc497bb5bad860befe531d668b_MD5.png]]
+![](_attachment/img/b59d1ccc497bb5bad860befe531d668b_MD5.png)
 
 我们在 `header` 中使用 CSS Flexbox 布局，它可以自动适配 LTR 和 RTL 的布局：
 
@@ -504,7 +504,7 @@ header {
 
 第二部分 `.sub__title` 和 `header` 采用的是相同的布局方式：
 
-![[_attachment/img/a49248f76d715b6f87444238f4b950bf_MD5.png]]
+![](_attachment/img/a49248f76d715b6f87444238f4b950bf_MD5.png)
 
 ```css
 .sub__title {
@@ -519,7 +519,7 @@ header {
 
 对于主内容区域 `main` 中的卡片，我在这里使用了 CSS Grid 中的 RAM 布局技术，它也能很好匹配 LTR 和 RTL ：
 
-![[_attachment/img/7b7b3a42fe1a923b531c8f8329895913_MD5.png]]
+![](_attachment/img/7b7b3a42fe1a923b531c8f8329895913_MD5.png)
 
 ```css
 main {
@@ -530,7 +530,7 @@ main {
 
 对于单张卡片，在这个示例中没有使用 CSS Grid 中的 `subgrid` 来构建布局，选择的还是 CSS Flexbox 来布局：
 
-![[_attachment/img/d488289df25aacd5465948752b1ca0aa_MD5.png]]
+![](_attachment/img/d488289df25aacd5465948752b1ca0aa_MD5.png)
 
 ```css
 .media {
@@ -557,7 +557,7 @@ main {
 
 在我们这个示例中，很好地利用了 CSS Flexbox 和 CSS Grid 中的 `gap` 属性，来设置元素之间的间距：
 
-![[_attachment/img/78e12130a9fc1fb02f6baa793d63b6c1_MD5.png]]
+![](_attachment/img/78e12130a9fc1fb02f6baa793d63b6c1_MD5.png)
 
 如果不使用 `gap` 属性，很有可能需要使用到 `margin` 对应的逻辑属性，比如：
 
@@ -577,7 +577,7 @@ main {
 
 其实到这，LTR 和 RTL 布局基本上已经完成。不过，我还对示例中的图标做了些处理，比如：
 
-![[_attachment/img/62e3dd17833ee8eda76073d862cc5628_MD5.png]]
+![](_attachment/img/62e3dd17833ee8eda76073d862cc5628_MD5.png)
 
 ```css
 [dir='rtl'] .sub__title a svg,
@@ -588,7 +588,7 @@ main {
 
 这是一个关于 LTR 和 RTL 最基本的示例。你可能会说这是一个不真实的示例，那接下来，就以 [Facebook 的登录页](https://zh-cn.facebook.com/) 为例：
 
-![[_attachment/img/ac3e5f7e39c14db80896b3c5d10dc007_MD5.png]]
+![](_attachment/img/ac3e5f7e39c14db80896b3c5d10dc007_MD5.png)
 
 构建一个这样的登录页，你可能需要的 HTML 结构：
 
@@ -761,7 +761,7 @@ body > * {
 }
 ```
 
-![[_attachment/img/48392ffaf006a44154803a7c0d01cd5a_MD5.png]]
+![](_attachment/img/48392ffaf006a44154803a7c0d01cd5a_MD5.png)
 
 对于页面的口号（Sloga）和登录表单两个部分自动换行，这里在它的容器 `section` 中使用 CSS Grid 的 RAM 布局技术，并限制了每个部分的最小宽度（`min-inline-size`）：
 
@@ -836,7 +836,7 @@ section > * {
 
 这个时候，你将看到基本布局效果就出来了，而且能很好匹配 LTR 和 RTL 语言版本：
 
-![[_attachment/img/17f777d8bfddee1f2a452b5d7a7705bb_MD5.gif]]
+![](_attachment/img/17f777d8bfddee1f2a452b5d7a7705bb_MD5.gif)
 
 当然，在开发 LTR 和 RTL （多语言版本）的 Web 网站或应用时，应该尽可能避免使用 CSS 的物理属性，我们这个示例中尽可能使用 CSS 的逻辑属性来替代其对应的物理属性：
 
@@ -960,15 +960,15 @@ section > * {
 
 对于开发者来说是件不易的事情，因为一些物理属性和逻辑属性是易于记忆的，像 `margin` 、`padding` 之类，但有一些是不易于记忆的，比如 `border` 和 `border-radius` 。就拿 `border-radius` 为例吧，与之对应的逻辑属性，在 `dir` 或 `direction` 和 `writing-mode` 下工作如下图所示：
 
-![[_attachment/img/e16f74f67cbffe843f4c1c979dedf515_MD5.png]]
+![](_attachment/img/e16f74f67cbffe843f4c1c979dedf515_MD5.png)
 
 这里我把以前整理的 `width` 、`height` 、`border` 、`padding` 、`top` 、`left` 、`bottom` 和 `right` 对应逻辑属性在 `dir` 、`direction` 和 `writing-mode` 下的工作情形用图来展示，希望有利于大家更好理解：
 
-![[_attachment/img/930129c1128ec2a356e6e0c6bdc4286b_MD5.png]]
+![](_attachment/img/930129c1128ec2a356e6e0c6bdc4286b_MD5.png)
 
 最后，要是你对 CSS 逻辑属性和物理属性之间的对应关系记不住，也不要紧，查看下图的即可：
 
-![[_attachment/img/f8f750c839b8fdfa086503f1ad7fce71_MD5.png]]
+![](_attachment/img/f8f750c839b8fdfa086503f1ad7fce71_MD5.png)
 
 另外，需要注意的是，我们的示例在媒体查询中并没有使用 CSS 的逻辑属性，比如 `min-inline-size` ，那是因为到目前为止，它还不能作为媒体查询中的媒体条件。比如，下面这段代码是无法正常工作的：
 
@@ -1010,13 +1010,13 @@ section[dir='ltr'] {
 
 最终你看到的效果如下：
 
-![[_attachment/img/d46406fedc1ae17ec7415a97484fc061_MD5.png]]
+![](_attachment/img/d46406fedc1ae17ec7415a97484fc061_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/poKBGzK>
 
 再来看一个 [@Alaa Abd El-Rahim 在 Codepen 分享的一个示例](https://codepen.io/Alaa_AbdElrahim/full/XWaBBoq)，我在他的基础上 Fork 了一份，并在该示例的“英文”、“日文”、“阿拉伯文”的基础上新增了“中文”。这样就构建了一个四国语言的 Web 页面：
 
-![[_attachment/img/438c29512ef75557d0cf4096bc947dfa_MD5.png]]
+![](_attachment/img/438c29512ef75557d0cf4096bc947dfa_MD5.png)
 
 > Demo 地址：<https://codepen.io/airen/full/qBKwwdM>
 
@@ -1127,7 +1127,7 @@ html[dir='rtl'] .hero__social > div {
 </style>
 ```
 
-![[_attachment/img/7be755682e10adc83109e801f2dc05de_MD5.png]]
+![](_attachment/img/7be755682e10adc83109e801f2dc05de_MD5.png)
 
 > Demo 地址： <https://codepen.io/airen/full/mdKgYOR>
 
@@ -1167,7 +1167,7 @@ html:lang(zh) .about__text {
 }
 ```
 
-![[_attachment/img/a0e72100d9254a52e984dae590acf668_MD5.png]]
+![](_attachment/img/a0e72100d9254a52e984dae590acf668_MD5.png)
 
 示例中还使用到了前面没有介绍过的 CSS 知识。就是在伪元素 `::before` 或 `::after` 使用 `attr()` 函数，根据 HTML 标签元素的属性值生成伪元素的内容：
 
@@ -1222,7 +1222,7 @@ html:lang(zh) .about__text {
 }
 ```
 
-![[_attachment/img/20524167e7f8c2b02be0592f712b6ad7_MD5.png]]
+![](_attachment/img/20524167e7f8c2b02be0592f712b6ad7_MD5.png)
 
 需要注意的是，`[dir="…"]` 、`[lang="…"]` 和 `:lang(…)` 除了可以选中显式设置了 `dir` 和 `lang` 属性的元素之外，也可以利用 CSS 的选择器组合功能选择与其相邻的元素，它的子元素以及它的后代元素，比如：
 
@@ -1457,7 +1457,7 @@ html[dir='ltr'] {
 
 比如示例中圆角的使用：
 
-![[_attachment/img/c42013f8419e055768d40d2bad7144ec_MD5.png]]
+![](_attachment/img/c42013f8419e055768d40d2bad7144ec_MD5.png)
 
 ```css
 .cta__text {
@@ -1471,7 +1471,7 @@ html[dir='ltr'] {
 
 你可能已经猜到了，整个页面的布局都是以 CSS Flexbox 和 CSS Grid 来构建的，所以不用太多担心 LTR 和 RTL 两种版本下因为布局会产生异常。具体原因在上一个示例中已经阐述过了。**CSS Flexbox 和 CSS Grid 都是基于文档书写模式而设计的** 。比如下图：
 
-![[_attachment/img/9e3c46ff86fbfd3ff178216b80667399_MD5.png]]
+![](_attachment/img/9e3c46ff86fbfd3ff178216b80667399_MD5.png)
 
 ```css
 .d-xl-flex {
@@ -1496,7 +1496,7 @@ html[dir='ltr'] {
 
 再比如示例中卡片展示区域，使用 CSS Grid 构建的布局，也能很好适配 LTR 和 RTL 版本，即使卡片由三个增加到四个，它也能很好地展示：
 
-![[_attachment/img/18a96ac508abdd5f4ad4b8d3fb8c01f1_MD5.png]]
+![](_attachment/img/18a96ac508abdd5f4ad4b8d3fb8c01f1_MD5.png)
 
 ```css
 .offers__content {
@@ -1510,11 +1510,11 @@ html[dir='ltr'] {
 
 你可能已经发现了，在原作者的示例中，有些地方细节做得还是略有缺陷，比如示例中的按钮，因为不同版本语言，翻译出来的内容长度有所不同，有的按钮看上去较小：
 
-![[_attachment/img/99c96d77d294f833c54dc18297a1545b_MD5.png]]
+![](_attachment/img/99c96d77d294f833c54dc18297a1545b_MD5.png)
 
 我在 Fork 的示例基础上对按钮做了一个最小尺寸的设置，这样做的主要原因是，在不同语言版本时，不会让有的语言版本下视觉看上去不美观，也避免按钮不好点击：
 
-![[_attachment/img/ad4b7d6668beb2e4ca77b200577a27f2_MD5.gif]]
+![](_attachment/img/ad4b7d6668beb2e4ca77b200577a27f2_MD5.gif)
 
 这个示例还使用 CSS 自定义构建了 Dark Mode （暗黑模式）的效果：
 
@@ -1570,7 +1570,7 @@ Dark Mode 的切换还是使用了一点点 JavaScript 脚本的：
 
 你切换模式的时候，能看到下图这样的效果：
 
-![[_attachment/img/22f8a6533da68625d65d6e7487ee61e0_MD5.gif]]
+![](_attachment/img/22f8a6533da68625d65d6e7487ee61e0_MD5.gif)
 
 > Demo 地址： <https://codepen.io/airen/full/qBKwwdM>
 

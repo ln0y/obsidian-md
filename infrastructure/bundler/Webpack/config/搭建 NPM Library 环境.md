@@ -114,7 +114,7 @@ module.exports = {
 
 修改前后对应的产物内容如下：
 
-![[_attachment/img/6a998b1f821966c5630c579424f92b4b_MD5.png]]
+![](_attachment/img/6a998b1f821966c5630c579424f92b4b_MD5.png)
 
 可以看到，修改前\(对应上图左半部分\) 代码会被包装成一个 IIFE ；而使用 `output.library` 后，代码被包装成 UMD\(Universal Module Definition\) 模式：
 
@@ -165,7 +165,7 @@ export const max = _.max;
 
 此时执行编译命令 `npx webpack`，我们会发现产物文件的体积非常大：
 
-![[_attachment/img/22e0d5f76a90c94c620d74347addc140_MD5.png]]
+![](_attachment/img/22e0d5f76a90c94c620d74347addc140_MD5.png)
 
 这是因为 Webpack 默认会将所有第三方依赖都打包进产物中，这种逻辑能满足 Web 应用资源合并需求，但在开发 NPM 库时则很可能导致代码冗余。以 `test-lib` 为例，若使用者在业务项目中已经安装并使用了 `lodash`，那么最终产物必然会包含两份 `lodash` 代码！
 
@@ -194,7 +194,7 @@ module.exports = {
 
 改造后，再次执行 `npx webpack`，编译结果如下：
 
-![[_attachment/img/3441152d875ced487e915977b03a5d88_MD5.png]]
+![](_attachment/img/3441152d875ced487e915977b03a5d88_MD5.png)
 
 改造后，主要发生了两个变化：
 
@@ -235,7 +235,7 @@ module.exports = {
 为此，需要在前文基础上添加如下配置：
 
 ```js
-module.exports = {  
+module.exports = {
   // ...
 + module: {
 +   rules: [
@@ -259,7 +259,7 @@ Sourcemap 是一种代码映射协议，它能够将经过压缩、混淆、合�
 
 ```js
 // webpack.config.js
-module.exports = {  
+module.exports = {
   // ...
 + devtool: 'source-map'
 };

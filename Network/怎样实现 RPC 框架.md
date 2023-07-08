@@ -19,7 +19,7 @@ var result = rpc.invoke("greetings", arg1, arg2, ...)
 
 这段程序将本地看作 一个 RPC 的客户端，将远程看作一个 RPC 的服务端。如下图所示：
 
-![[_attachment/img/Cgp9HWCjgYmAH8UHAAFonM-fpzM453.png]]
+![](_attachment/img/Cgp9HWCjgYmAH8UHAAFonM-fpzM453.png)
 
 服务 A 发起远程方法调用，RPC 客户端通过某种协议将请求发送给服务 B，服务 B 解析请求，进行本地方法的调用，将结果返回到服务 B 的 RPC 服务端，最终返回到服务 A。对服务 A 来说，调用的是一个函数，从接口到返回值的设计，和调用本地函数并没有太大的差别。当然，程序员不能完全忽略这是一次远程方法调用，因为远程调用的开销较大。如果程序员没有意识到调用远程方法有网络开销，就可能会写出下面这段程序：
 
@@ -37,17 +37,17 @@ for(int i = 0; i < 1000000; i++) {
 
 在具体实现多路复用的时候，也会有不同的策略。假设我们要发送数据 A、B、C、D，那么一种方式是建立一个连接，依次将 A、B、C、D 发过去，就像下图这样：
 
-![[_attachment/img/CioPOWCjgaOAUlOMAABy4il5v8s683.png]]
+![](_attachment/img/CioPOWCjgaOAUlOMAABy4il5v8s683.png)
 
 在这种结构中，利用一个连接顺序发送 A、B、C、D 将多个请求放入一个连接的方式，节省了多次握手、挥手的时间，但是由于 ABCD 不是真的并行发送，而是顺序发送，当其中某个请求的体积较大时，容易阻塞其他请求。比如下图这种情况：
 
-![[_attachment/img/Cgp9HWCjgb-AbjPcAAB4uqNKiqI048.png]]
+![](_attachment/img/Cgp9HWCjgb-AbjPcAAB4uqNKiqI048.png)
 
 在 A 较大的时候，B，C，D 就只能等 A 完全传送完成才能发生传送。这样的模型对于 RPC 请求／响应大小不平均的网络不太友好，体积小的请求／响应可能会因为一些大体积的请求／响应而延迟。
 
 因此还有另一种常见的多路复用方案，就是将 Ａ、Ｂ、Ｃ、Ｄ 切片一起传输，如下图所示：
 
-![[_attachment/img/Cgp9HWCjgguARpfEAAENqpybwLU268.png]]
+![](_attachment/img/Cgp9HWCjgguARpfEAAENqpybwLU268.png)
 
 上图中，我们用不同颜色代表不同的传输任务。采用顺序传输方案将 A、B、C、Ｄ 用一个连接传输节省了握手、挥手的成本。切片传输的方案在这之上，将数据切片可以保证大、小任务并行，不会因为大任务阻塞小任务。
 

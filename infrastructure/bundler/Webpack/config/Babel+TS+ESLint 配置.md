@@ -99,7 +99,7 @@ module.exports = {
 
 其中，TypeScript 借鉴 C# 语言，在 JavaScript 基础上提供了一系列类型约束特性，例如：
 
-![[_attachment/img/eb91eba293a1b051c697006a3c6320c0_MD5.png]]
+![](_attachment/img/eb91eba293a1b051c697006a3c6320c0_MD5.png)
 
 示例中，用一个数字类型的变量 `num` 减去字符串类型的变量 `str`，这在 TypeScript 的代码编译过程就能提前发现问题，而 JavaScript 环境下则需要到启动运行后才报错。这种类型检查特性虽然一定程度上损失了语言本身的灵活性，但能够让问题在编译阶段提前暴露，确保运行阶段的类型安全性，**特别适合用于构建多人协作的大型 JavaScript 项目**，也因此，时至今日 TypeScript 依然是一项应用广泛的 JavaScript 超集语言。
 
@@ -222,7 +222,7 @@ module.exports = {
 
 ESLint 报错：
 
-![[_attachment/img/111ad8c8892aeeff2633d1f0745a9c5f_MD5.png]]
+![](_attachment/img/111ad8c8892aeeff2633d1f0745a9c5f_MD5.png)
 
 这里先忽略 ESLint 配置的具体规则，样例源码存在诸多风格不统一的地方，例如 1、2 行以 `;` 结尾，而第 3 行没有 `;`；第一行变量以 `const` 声明，第二行变量以 `let` 声明，等等。ESLint 会找出这些风格不一致的地方，并予以告警，甚至自动修复，生成如上表右上角的代码。
 
@@ -280,7 +280,7 @@ npx webpack
 
 配置完毕后，就可以在 Webpack 编译过程实时看到代码风格错误提示：
 
-![[_attachment/img/b194456fb1dfe94a52ba465e8b70bd9f_MD5.png]]
+![](_attachment/img/b194456fb1dfe94a52ba465e8b70bd9f_MD5.png)
 
 除常规 JavaScript 代码风格检查外，我们还可以使用适当的 ESLint 插件、配置集实现更丰富的检查、格式化功能，这里推荐几种使用率较高第三方扩展，建议读者跟进学习：
 
@@ -361,7 +361,7 @@ const say = (statements: string) => {
 // @ts-ignore
 say("Tecvan");
 ```
-  
+
 编译结果:
 
 ```js
@@ -380,6 +380,6 @@ say("Tecvan");
 ;
 ```
 
-![[_attachment/img/0dc24f1034e5564294760310124eeb11_MD5.png]]
+![](_attachment/img/0dc24f1034e5564294760310124eeb11_MD5.png)
 
 至此，我们就搭建了一个支持 Babel + TypeScript + ESLint 的开发环境，读者可在此基础上修改各项工具配置，定制适合自己项目的开发环境。
