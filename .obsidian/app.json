@@ -23,5 +23,7 @@
     "_script/",
     "_template/"
   ],
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute"
 }
