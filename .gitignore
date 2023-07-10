@@ -9,3 +9,6 @@ _attachment/
 .trash/
 .DS_Store
 .history
+
+
+private/
