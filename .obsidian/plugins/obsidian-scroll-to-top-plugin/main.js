@@ -214,13 +214,31 @@ var injectSurfingComponent = (top = true) => {
 
 // main.ts
 var ROOT_WORKSPACE_CLASS = ".mod-vertical.mod-root";
+var globalMarkdownView = null;
 var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
   constructor() {
     super(...arguments);
     this.windowSet = /* @__PURE__ */ new Set();
+    this.scrollToBottom = async () => {
+      const markdownView = this.getCurrentViewOfType();
+      if (markdownView) {
+        const file = this.app.workspace.getActiveFile();
+        const content = await this.app.vault.cachedRead(file);
+        const lines = content.split("\n");
+        let numberOfLines = lines.length;
+        if (markdownView.getMode() === "preview") {
+          while (numberOfLines > 0 && lines[numberOfLines - 1].trim() === "") {
+            numberOfLines--;
+          }
+        }
+        markdownView.currentMode.applyScroll(numberOfLines - 1);
+      } else if (isContainSurfingWebview(this.settings)) {
+        injectSurfingComponent(false);
+      }
+    };
   }
   scrollToCursor() {
-    const markdownView = this.getActiveViewOfType();
+    const markdownView = this.getCurrentViewOfType();
     if (markdownView) {
       const editor = markdownView.editor;
       const anchor = editor.getCursor("anchor");
@@ -240,7 +258,7 @@ var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
     }
   }
   scrollToTop() {
-    const markdownView = this.getActiveViewOfType();
+    const markdownView = this.getCurrentViewOfType();
     if (markdownView) {
       const preview = markdownView.previewMode;
       if (isSource(markdownView)) {
@@ -259,50 +277,19 @@ var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
       injectSurfingComponent(true);
     }
   }
-  scrollToBottom() {
-    const markdownView = this.getActiveViewOfType();
-    if (markdownView) {
-      const preview = markdownView.previewMode;
-      if (isSource(markdownView)) {
-        const editor = markdownView.editor;
-        const lastLine = editor.lastLine();
-        const lastLineChar = editor.getLine(lastLine).length;
-        setTimeout(async () => {
-          editor.setCursor(lastLine, lastLineChar);
-        }, 200);
-        editor.scrollIntoView({
-          from: { line: lastLine, ch: 0 },
-          to: { line: lastLine, ch: 0 }
-        }, true);
-        this.app.workspace.setActiveLeaf(markdownView.leaf, {
-          focus: true
-        });
-      } else {
-        let timer = setInterval(() => {
-          const prevScroll = preview.getScroll();
-          preview.applyScroll(preview.getScroll() + 10);
-          if (prevScroll >= preview.getScroll()) {
-            clearInterval(timer);
-          }
-        });
-      }
-    } else if (isContainSurfingWebview(this.settings)) {
-      injectSurfingComponent(false);
-    }
-  }
   createScrollElement(config, fn) {
     var _a;
     let topWidget = createEl("div");
     topWidget.setAttribute("class", `div-${config.className}`);
     topWidget.setAttribute("id", config.id);
-    document.documentElement.style.setProperty("--size-ratio", this.settings.resizeButton.toString());
+    document.body.style.setProperty("--size-ratio", this.settings.resizeButton.toString());
     let button = new import_obsidian2.ButtonComponent(topWidget);
     button.setIcon(config.icon).setClass("buttonItem").onClick(fn);
     if (config.tooltipConfig.showTooltip) {
       button.setTooltip(config.tooltipConfig.tooltipText);
     }
     let curWindow = config.curWindow || window;
-    const markdownView = this.getActiveViewOfType();
+    const markdownView = this.getCurrentViewOfType();
     (_a = curWindow.document.body.querySelector(ROOT_WORKSPACE_CLASS)) == null ? void 0 : _a.insertAdjacentElement("afterbegin", topWidget);
     if (!markdownView && !isContainSurfingWebview(this.settings)) {
       topWidget.style.visibility = "hidden";
@@ -315,8 +302,17 @@ var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
       element.remove();
     }
   }
-  getActiveViewOfType() {
-    return this.app.workspace.getActiveViewOfType(import_obsidian2.MarkdownView);
+  getCurrentViewOfType() {
+    let markdownView = this.app.workspace.getActiveViewOfType(import_obsidian2.MarkdownView);
+    let currentView = this.app.workspace.getActiveViewOfType(import_obsidian2.View);
+    if (markdownView !== null) {
+      globalMarkdownView = markdownView;
+    } else {
+      if (currentView == null || currentView.file.extension == "md") {
+        markdownView = globalMarkdownView;
+      }
+    }
+    return markdownView;
   }
   createButton(window2) {
     const {
@@ -372,7 +368,7 @@ var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
     let BottomButton = activeDocument.querySelector(".div-scrollToBottom");
     let TopButton = activeDocument.querySelector(".div-scrollToTop");
     let CursorButton = activeDocument.querySelector(".div-scrollToCursor");
-    const markdownView = this.getActiveViewOfType();
+    const markdownView = this.getCurrentViewOfType();
     if (!markdownView && !isContainSurfingWebview(this.settings)) {
       if (BottomButton)
         BottomButton.style.visibility = "hidden";
@@ -385,8 +381,7 @@ var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
         BottomButton.style.visibility = "visible";
       if (TopButton)
         TopButton.style.visibility = "visible";
-      const markdownView2 = this.getActiveViewOfType();
-      if (markdownView2 && isSource(markdownView2)) {
+      if (markdownView && isSource(markdownView)) {
         if (CursorButton)
           CursorButton.style.visibility = "visible";
       } else {
@@ -403,21 +398,21 @@ var ScrollToTopPlugin = class extends import_obsidian2.Plugin {
       this.registerEvent(this.app.workspace.on("file-open", () => {
         this.toggleIconView();
       }));
+      this.registerEvent(this.app.workspace.on("window-open", (win, window2) => {
+        this.windowSet.add(window2);
+        this.createButton(window2);
+        this.toggleIconView();
+      }));
+      this.registerEvent(this.app.workspace.on("window-close", (win, window2) => {
+        this.windowSet.delete(window2);
+      }));
+      this.registerEvent(this.app.workspace.on("layout-change", () => {
+        this.toggleIconView();
+      }));
     });
     addPluginCommand(this, "scroll-to-top", "Scroll to Top", this.scrollToTop.bind(this));
     addPluginCommand(this, "scroll-to-bottom", "Scroll to Bottom", this.scrollToBottom.bind(this));
     addPluginCommand(this, "scroll-to-cursor", "Scroll to Cursor", this.scrollToCursor.bind(this));
-    this.app.workspace.on("window-open", (win, window2) => {
-      this.windowSet.add(window2);
-      this.createButton(window2);
-      this.toggleIconView();
-    });
-    this.app.workspace.on("window-close", (win, window2) => {
-      this.windowSet.delete(window2);
-    });
-    this.app.workspace.on("layout-change", () => {
-      this.toggleIconView();
-    });
     setTimeout(() => {
       this.app.workspace.trigger("css-change");
     }, 300);

@@ -5,10 +5,7 @@
   "foldIndent": true,
   "showLineNumber": true,
   "spellcheck": false,
-  "spellcheckLanguages": [
-    "zh-CN",
-    "en-US"
-  ],
+  "spellcheckLanguages": null,
   "useTab": false,
   "alwaysUpdateLinks": true,
   "showUnsupportedFiles": true,
