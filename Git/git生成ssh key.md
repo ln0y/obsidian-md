@@ -8,8 +8,8 @@ update: 2023-03-10-星期五 11:14:34
 ## 配置用户名和密码
 
 ```shell
-git config --global user.name "name"
-git config --global user.email "email"
+git config --global user.name "ln0y"
+git config --global user.email "ln0y@outlook.com"
 ```
 
 ## 生成密钥
@@ -18,7 +18,7 @@ git config --global user.email "email"
 ssh-keygen -t rsa -C "上面的邮箱"
 
 # Ed25519 算法
-ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-keygen -t ed25519 -C "ln0y@outlook.com"
 ```
 
 代码参数含义：
