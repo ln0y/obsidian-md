@@ -2,7 +2,7 @@
 aliases: []
 tags: ['infrastructure/bundler/Webpack', 'date/2023-03', 'year/2023', 'month/03']
 date: 2023-03-16-星期四 15:04:58
-update: 2023-03-20-星期一 17:52:09
+update: 2023-08-27-星期日 17:00:15
 ---
 
 [Sourcemap 协议](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.qz3o9nc69um5) 最初由 Google 设计并率先在 Closure Inspector 实现，它的主要作用就是将经过压缩、混淆、合并的产物代码还原回未打包的原始形态，帮助开发者在生产环境中精确定位问题发生的行列位置，例如：
@@ -334,7 +334,7 @@ eval("var foo = 'bar'\n\n\n//# sourceURL=webpack:///./src/index.ts?")
 
 `eval` 模式编译速度通常比较快，但产物中直接包含了 Sourcemap 信息，因此只推荐在开发环境中使用。
 
-2. **`source-map` 关键字**：当 `devtool` 包含 `source-map` 时，Webpack 才会生成 Sourcemap 内容。例如，对于 `devtool = 'source-map'`，产物会额外生成 `.map` 文件，形如：
+1. **`source-map` 关键字**：当 `devtool` 包含 `source-map` 时，Webpack 才会生成 Sourcemap 内容。例如，对于 `devtool = 'source-map'`，产物会额外生成 `.map` 文件，形如：
 
 ```json
 {
@@ -350,7 +350,7 @@ eval("var foo = 'bar'\n\n\n//# sourceURL=webpack:///./src/index.ts?")
 
 实际上，除 `eval` 之外的其它枚举值都包含该字段。
 
-3. **`cheap` 关键字**：当 `devtool` 包含 `cheap` 时，生成的 Sourcemap 内容会抛弃 **列** 维度的信息，这就意味着浏览器只能映射到代码行维度。例如 `devtool = 'cheap-source-map'` 时，产物：
+1. **`cheap` 关键字**：当 `devtool` 包含 `cheap` 时，生成的 Sourcemap 内容会抛弃 **列** 维度的信息，这就意味着浏览器只能映射到代码行维度。例如 `devtool = 'cheap-source-map'` 时，产物：
 
 ```json
 {
@@ -376,13 +376,13 @@ eval("var foo = 'bar'\n\n\n//# sourceURL=webpack:///./src/index.ts?")
 
 虽然 Sourcemap 提供的映射功能可精确定位到文件、行、列粒度，但有时在 **行** 级别已经足够帮助我们达到调试定位的目的，此时可选择使用 `cheap` 关键字，简化 Sourcemap 内容，减少 Sourcemap 文件体积。
 
-4. **`module` 关键字**：`module` 关键字只在 `cheap` 场景下生效，例如 `cheap-module-source-map`、`eval-cheap-module-source-map`。当 `devtool` 包含 `cheap` 时，Webpack 根据 `module` 关键字判断按 loader 联调处理结果作为 source，还是按处理之前的代码作为 source。例如：
+1. **`module` 关键字**：`module` 关键字只在 `cheap` 场景下生效，例如 `cheap-module-source-map`、`eval-cheap-module-source-map`。当 `devtool` 包含 `cheap` 时，Webpack 根据 `module` 关键字判断按 loader 联调处理结果作为 source，还是按处理之前的代码作为 source。例如：
 
 ![](_attachment/img/7f7ae29e80876dfacdc0f1c5eaabf11a_MD5.png)
 
 注意观察上例 `sourcesContent` 字段，左边 `devtool` 带 `module` 关键字，因此此处映射的，是包含 `class Person` 的最原始代码；而右边生成的 `sourcesContent` ，则是经过 babel-loader 编译处理的内容。
 
-5. **`nosources` 关键字**：当 `devtool` 包含 `nosources` 时，生成的 Sourcemap 内容中不包含源码内容 —— 即 `sourcesContent` 字段。例如 `devtool = 'nosources-source-map'` 时，产物：
+1. **`nosources` 关键字**：当 `devtool` 包含 `nosources` 时，生成的 Sourcemap 内容中不包含源码内容 —— 即 `sourcesContent` 字段。例如 `devtool = 'nosources-source-map'` 时，产物：
 
 ```json
 {
@@ -397,7 +397,7 @@ eval("var foo = 'bar'\n\n\n//# sourceURL=webpack:///./src/index.ts?")
 
 虽然没有带上源码，但 `.map` 产物中还带有文件名、 `mappings` 字段、变量名等信息，依然能够帮助开发者定位到代码对应的原始位置，配合 `sentry` 等工具提供的源码映射功能，可在异地还原诸如错误堆栈之类的信息。
 
-6. **`inline` 关键字**：当 `devtool` 包含 `inline` 时，Webpack 会将 Sourcemap 内容编码为 Base64 DataURL，直接追加到产物文件中。例如对于 `devtool = 'inline-source-map'`，产物：
+1. **`inline` 关键字**：当 `devtool` 包含 `inline` 时，Webpack 会将 Sourcemap 内容编码为 Base64 DataURL，直接追加到产物文件中。例如对于 `devtool = 'inline-source-map'`，产物：
 
 ```js
 console.log("bar");
@@ -406,7 +406,7 @@ console.log("bar");
 
 `inline` 模式编译速度较慢，且产物体积非常大，只适合开发环境使用。
 
-7. **`hidden` 关键字**：通常，产物中必须携带 `//# sourceMappingURL=` 指令，浏览器才能正确找到 Sourcemap 文件，当 `devtool` 包含 `hidden` 时，编译产物中不包含 `//# sourceMappingURL=` 指令。例如：
+1. **`hidden` 关键字**：通常，产物中必须携带 `//# sourceMappingURL=` 指令，浏览器才能正确找到 Sourcemap 文件，当 `devtool` 包含 `hidden` 时，编译产物中不包含 `//# sourceMappingURL=` 指令。例如：
 
 `devtool = 'hidden-source-map'`：
 
@@ -489,3 +489,9 @@ module.exports = {
 综上，Sourcemap 是一种高效的位置映射算法，它将产物到源码之间的位置关系表达为 `mappings` 分层设计与 VLQ 编码，再通过 Chrome、Safari、VS Code、Sentry 等工具异地还原为接近开发状态的源码形式。
 
 在 Webpack 中，通常只需要选择适当的 `devtool` 短语即可满足大多数场景需求，特殊情况下也可以直接使用 `SourceMapDevToolPlugin` 做更深度的定制化。
+
+## 参考
+
+[Source Maps under the hood – VLQ, Base64 and Yoda](https://learn.microsoft.com/zh-tw/archive/blogs/davidni/source-maps-under-the-hood-vlq-base64-and-yoda#comment-626)
+
+[Source Map Revision 3 Proposal](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.1ce2c87bpj24)
