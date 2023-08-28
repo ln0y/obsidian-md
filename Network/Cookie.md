@@ -377,7 +377,7 @@ const people = JSON.parse(decodeURIComponent(peopleCookie))
 
 ### CSRF 攻击
 
-跨站请求伪造（`Cross-Site Request Forgery`，简称 `CSRF`）是指：
+跨站请求伪造（`Cross-Site Request Forgery`，简称 [CSRF](Security/前端安全：CSRF.md)）是指：
 
 攻击者可能利用网页中的恶意代码强迫受害者浏览器向被攻击的 `Web` 站点发送伪造的请求，篡夺受害者的认证 `Cookie` 等身份信息，从而假冒受害者对目标站点执行指定的操作。
 
