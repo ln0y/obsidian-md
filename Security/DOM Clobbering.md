@@ -11,7 +11,7 @@ update: 2022-11-09-星期三 15:17:25
 
 在正式开始之前，先给大家一个趣味题目小试身手。
 
-假设你有一段程式码，有一个按钮以及一段 script，如下所示：
+假设你有一段代码，有一个按钮以及一段 script，如下所示：
 
 ```html
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ update: 2022-11-09-星期三 15:17:25
 </html>
 ```
 
-现在请你尝试用「最短的程式码」，实作出「点下按钮时会跳出 alert(1)」这个功能。
+现在请你尝试用「最短的代码」，实现出「点下按钮时会跳出 alert(1)」这个功能。
 
 举例来说，这样写可以达成目标：
 
@@ -41,7 +41,7 @@ document.getElementById('btn')
   })
 ```
 
-那如果要讓程式碼最短，你的答案會是什麼？
+那如果要讓程序碼最短，你的答案會是什麼？
 
 大家可以在往下看以前先想一下這個問題，想好以後就讓我們正式開始吧！
 
@@ -188,7 +188,7 @@ btn.onclick = () => alert(1)
 
 再来我们可以用 `<a id="TEST_SCRIPT_SRC" href="my_evil_script"></a>`，来让 `window.TEST_SCRIPT_SRC` 转成字串之后变成我们想要的字。
 
-在大多数的状况中，只是把一个变数覆盖成 HTML 元素是不够的，例如说你把上面那段程式码当中的 `window.TEST_MODE` 转成字串印出来：
+在大多数的状况中，只是把一个变数覆盖成 HTML 元素是不够的，例如说你把上面那段代码当中的 `window.TEST_MODE` 转成字串印出来：
 
 ```js
 // <div id="TEST_MODE" />
@@ -234,7 +234,7 @@ console.log(window.TEST_MODE + '')
 
 ## 多层级的 DOM Clobbering
 
-在前面的范例中，我们用 DOM 把 `window.TEST_MODE` 盖掉，创造出未预期的行为。那如果要盖掉的对象是个物件，有机会吗？
+在前面的范例中，我们用 DOM 把 `window.TEST_MODE` 盖掉，创造出未预期的行为。那如果要盖掉的对象是个对象，有机会吗？
 
 例如说 `window.config.isTest`，这样也可以用 DOM clobbering 盖掉吗？
 
@@ -460,7 +460,7 @@ console.log(window.TEST_MODE + '')
 
 简单来说呢，在 Gmail 里面你可以使用部分 AMP 的功能，然后 Google 针对这个格式的 validator 很严谨，所以没有办法透过一般的方法 XSS。
 
-但是有人发现可以在 HTML 元素上面设置 id，又发现当他设置了一个 `<a id="AMP_MODE">` 之后，console 突然出现一个载入 script 的错误，而且网址中的其中一段是 undefined。仔细去研究程式码之后，有一段程式码大概是这样的：
+但是有人发现可以在 HTML 元素上面设置 id，又发现当他设置了一个 `<a id="AMP_MODE">` 之后，console 突然出现一个载入 script 的错误，而且网址中的其中一段是 undefined。仔细去研究代码之后，有一段代码大概是这样的：
 
 ```js
 var script = window.document.createElement("script");
