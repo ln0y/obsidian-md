@@ -184,7 +184,7 @@ Cookie 的大小
 
 `SameSite cookies` 是相对较新的一个字段，所有主流浏览器都已经得到支持。下面是例子：
 
-```
+```http
 Set-Cookie: key=value; SameSite=Strict
 ```
 

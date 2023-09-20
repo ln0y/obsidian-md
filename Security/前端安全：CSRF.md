@@ -225,7 +225,7 @@ CSRF 通常从第三方网站发起，被攻击的网站无法防止攻击发生
 
 且慢！当一个请求是页面请求（比如网站的主页），而来源是搜索引擎的链接（例如百度的搜索结果），也会被当成疑似 CSRF 攻击。所以在判断的时候需要过滤掉页面请求情况，通常 Header 符合以下情况：
 
-```
+```http
 Accept: text/html
 Method: GET
 ```
@@ -234,7 +234,7 @@ Method: GET
 
 例如，下面的页面请求：
 
-```
+```http
 GET https://example.com/addComment?comment=XXX&dest=orderId
 ```
 
@@ -465,7 +465,7 @@ Token 是一个比较有效的 CSRF 防护方法，只要页面没有 XSS 漏洞
 
 这种称为严格模式，表明这个 Cookie 在任何情况下都不可能作为第三方 Cookie，绝无例外。比如说 b.com 设置了如下 Cookie：
 
-```
+```http
 Set-Cookie: foo=1; Samesite=Strict
 Set-Cookie: bar=2; Samesite=Lax
 Set-Cookie: baz=3
@@ -477,7 +477,7 @@ Set-Cookie: baz=3
 
 这种称为宽松模式，比 Strict 放宽了点限制：假如这个请求是这种请求（改变了当前页面或者打开了新页面）且同时是个 GET 请求，则这个 Cookie 可以作为第三方 Cookie。比如说 b.com 设置了如下 Cookie：
 
-```
+```http
 Set-Cookie: foo=1; Samesite=Strict
 Set-Cookie: bar=2; Samesite=Lax
 Set-Cookie: baz=3
