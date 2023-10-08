@@ -11,8 +11,13 @@
             "id": "ca132c8b1fc7fa27",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/byhand/Function.prototype.bind.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -97,13 +102,14 @@
         "state": {
           "type": "backlink",
           "state": {
-            "collapseAll": false,
+            "file": "JavaScript/byhand/Function.prototype.bind.md",
+            "collapseAll": true,
             "extraContext": false,
             "sortOrder": "alphabetical",
             "showSearch": false,
             "searchQuery": "",
             "backlinkCollapsed": false,
-            "unlinkedCollapsed": true
+            "unlinkedCollapsed": false
           }
         }
       },
@@ -113,6 +119,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "JavaScript/byhand/Function.prototype.bind.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -123,7 +130,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "JavaScript/byhand/Function.prototype.bind.md"
+          }
         }
       },
       {
@@ -135,7 +144,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 2
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -151,8 +160,30 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "f1cd10b6a1d5bfd6",
+  "active": "12984d3464bbbbda",
   "lastOpenFiles": [
+    "browser/DevTools/5.Chrome DevTools - Performance.md",
+    "Network/信任链.md",
+    "JSON/JSON Schema.md",
+    "JavaScript/byhand/Object.create.md",
+    "TODO看板.md",
+    "RegExp/glob 模式匹配.md",
+    "_attachment/img/5283118e6cb87a26bb864fed92e3de9b_MD5.png",
+    "_attachment/img/c40a231cc62ecfc63887427f6ad74a31_MD5.png",
+    "_attachment/img/cce081bc5a3c79291b1deabb323955b4_MD5.png",
+    "_attachment/img/69f80ec0e3c55f7a3d6e74374d1cc4a5_MD5.png",
+    "_attachment/img/b736eed4aed7f3a7190c0ea86ae0989f_MD5.png",
+    "_attachment/img/aafc1541d08013f94c65302383e26ae4_MD5.png",
+    "_attachment/img/c59c6bbafd893b82bf939f1ab6e97410_MD5.png",
+    "_attachment/img/3b29786b50838b38421dc7824d9b396b_MD5.png",
+    "_attachment/img/31cd56937e3440c4971cc74b5fd8f8f0_MD5.png",
+    "_attachment/img/80e7beedd5ae701b5afef27fdb1dc9ae_MD5.png",
+    "browser/cache/8.熟悉而又陌生的 Memory Cache 与 Disk Cache.md",
+    "browser/DevTools/3.Chrome DevTools - Sources.md",
+    "browser/DevTools/1.Chrome DevTools - Elements.md",
+    "browser/cache/11.Chrome 浏览器 Application 面板剖析.md",
+    "browser/cache/10.存储型缓存的道与术.md",
+    "browser/cache/9.强大而又难以驾驭的 Service Worker.md",
     "_template/mainTemplate.md",
     "RegExp/正则表达式.md",
     "algorithm/复杂度.md",
@@ -166,18 +197,6 @@
     "Security/前端安全：XSS.md",
     "share/类型体操.md",
     "TypeScript/函数类型.md",
-    "TypeScript/类型推断.md",
-    "TypeScript/类型收窄.md",
-    "Post/八股文.md",
-    "Network/网络 IO 模型.md",
-    "Post/front end.md",
-    "JavaScript/async & await.md",
-    "JavaScript/作用域.md",
-    "TypeScript/类型拓宽.md",
-    "TypeScript/TypeScript 4.8.md",
-    "HTML/head标签.md",
-    "JavaScript/engine/宏任务 & 微任务.md",
-    "Linux/WSL/安装doker.md",
-    "TypeScript/类型兼容.md"
+    "TypeScript/类型推断.md"
   ]
 }
