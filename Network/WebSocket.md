@@ -467,7 +467,7 @@ let opcode = byte1 & 0x0f //截取第一个字节的后4位，即opcode码, 等�
 
 ![](_attachment/img/6b7c7a641af660444bcd82af6b09a686_MD5.png)
 
-第一位是 mask(面具) 标志位，后 7 位是 payload 长度。
+第一位是 mask 标志位，后 7 位是 payload 长度。
 
 可以这样取：
 
@@ -480,7 +480,7 @@ let payloadLength = parseInt(str2.substring(1), 2) // 获取第二个字节除�
 
 还是用 buffer.readUInt8 读取一个字节的内容。
 
-先转成二进制字符串，这时第一位就是 mask(面具)，然后再截取后 7 位的子串，parseInt 成数字，这就是 payload 长度了。
+先转成二进制字符串，这时第一位就是 mask，然后再截取后 7 位的子串，parseInt 成数字，这就是 payload 长度了。
 
 这样前两个字节的协议内容就解析完了。
 
@@ -526,11 +526,11 @@ if (payloadLength === 126) {
 
 这样就拿到了 payload 的长度，然后再用这个长度去截取内容就好了。
 
-但在读取数据之前，还有个 mask(面具) 要处理，这个是用来给内容解密的：
+但在读取数据之前，还有个 mask 要处理，这个是用来给内容解密的：
 
 ![](_attachment/img/ada40d89f80900d8e62b3ce4bc67cbe0_MD5.png)
 
-读 4 个字节，就是 mask(面具) key。
+读 4 个字节，就是 mask key。
 
 再后面的就可以根据 payload 长度读出来。
 
@@ -548,9 +548,9 @@ if (MASK) {
 }
 ```
 
-然后用 mask(面具) key 来解密数据。
+然后用 mask key 来解密数据。
 
-这个算法也是固定的，用每个字节的 mask(面具) key 和数据的每一位做按位异或就好了：
+这个算法也是固定的，用每个字节的 mask key 和数据的每一位做按位异或就好了：
 
 ```js
 function handleMask(maskBytes, data) {
@@ -677,9 +677,9 @@ function encodeMessage(opcode, payload) {
 
 ![](_attachment/img/6284bf44539643d79345677e187604c8_MD5.png)
 
-服务端给客户端回消息不需要 mask(面具)，所以第二个字节就是 payload 长度。
+服务端给客户端回消息不需要 mask，所以第二个字节就是 payload 长度。
 
-分别把这前两个字节的数据写到 buffer 里，指定不同的 offset(抵消)：
+分别把这前两个字节的数据写到 buffer 里，指定不同的 offset：
 
 ```js
 bufferData.writeUInt8(byte1, 0)
