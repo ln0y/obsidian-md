@@ -2,7 +2,7 @@
 aliases: []
 tags: ['browser', 'date/2023-10', 'year/2023', 'month/10']
 date: 2023-10-11-星期三 21:29:03
-update: 2023-10-11-星期三 22:30:27
+update: 2023-10-11-星期三 23:07:14
 ---
 
 ## 概述
@@ -194,8 +194,17 @@ request.onupgradeneeded = function (event) {
 ```js
 function add() {
   var request = db
+    /*
+     *新建事务
+     *@params 数据仓库的数组
+     *@params 写入模式
+     */
     .transaction(['person'], 'readwrite')
     .objectStore('person')
+    /*
+     *add方法添加数据
+     *@params 需要添加的数据信息
+     */
     .add({ id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' })
 
   request.onsuccess = function (event) {
@@ -222,6 +231,10 @@ add()
 function read() {
   var transaction = db.transaction(['person'])
   var objectStore = transaction.objectStore('person')
+  /*
+   *get方法获取数据
+   *@params 数据的主键
+   */
   var request = objectStore.get(1)
 
   request.onerror = function (event) {
@@ -279,8 +292,12 @@ readAll()
 ```js
 function update() {
   var request = db
-    .transaction(['person'], 'readwrite')
+    .transaction(['person'], 'readwrite') // 未加 readwrite, 会抛错，修改数据失败，默认是 readonly
     .objectStore('person')
+    /*
+     *put方法根据主键更新数据
+     *@params 数据的主键
+     */
     .put({ id: 1, name: '李四', age: 35, email: 'lisi@example.com' })
 
   request.onsuccess = function (event) {
@@ -303,10 +320,21 @@ update()
 
 ```js
 function remove() {
-  var request = db.transaction(['person'], 'readwrite').objectStore('person').delete(1)
+  var request = db
+    .transaction(['person'], 'readwrite')
+    .objectStore('person')
+    /*
+     *delete方法删除数据
+     *@params 数据的主键
+     */
+    .delete(1)
 
   request.onsuccess = function (event) {
     console.log('数据删除成功')
+  }
+
+  request.onerror = function (event) {
+    console.log('数据删除失败')
   }
 }
 
@@ -328,6 +356,11 @@ objectStore.createIndex('name', 'name', { unique: false })
 ```js
 var transaction = db.transaction(['person'], 'readonly')
 var store = transaction.objectStore('person')
+/*
+ *index方法获取索引对象
+ *get方法获取数据
+ *@params 数据的索引
+ */
 var index = store.index('name')
 var request = index.get('李四')
 
@@ -338,6 +371,10 @@ request.onsuccess = function (e) {
   } else {
     // ...
   }
+}
+
+request.onerror = function (event) {
+  console.log('通过索引获取数据失败')
 }
 ```
 
@@ -502,6 +539,8 @@ IDBDatabase 对象有以下方法。
 - `IDBDatabase.deleteObjectStore()`：删除指定的对象仓库。该方法只能在 `versionchange` 事件监听函数中调用。
 - `IDBDatabase.transaction()`：返回一个 IDBTransaction 事务对象。
 
+#### IDBDatabase.createObjectStore()
+
 **下面是 `createObjectStore()` 方法的例子。**
 
 ```js
@@ -531,6 +570,8 @@ db.createObjectStore('test2', { autoIncrement: true })
 
 上面代码中，`keyPath` 属性表示主键（由于主键的值不能重复，所以上例存入之前，必须保证数据的 `email` 属性值都是不一样的），默认值为 `null`；`autoIncrement` 属性表示，是否使用自动递增的整数作为主键（第一个数据记录为 1，第二个数据记录为 2，以此类推），默认为 `false`。一般来说，`keyPath` 和 `autoIncrement` 属性只要使用一个就够了，如果两个同时使用，表示主键为递增的整数，且对象不得缺少 `keyPath` 指定的属性。
 
+#### IDBDatabase.deleteObjectStore()
+
 **下面是 `deleteObjectStore()` 方法的例子。**
 
 ```js
@@ -552,6 +593,8 @@ request.onupgradeneeded = function (e) {
   // ...
 }
 ```
+
+#### IDBDatabase.transaction()
 
 **下面是 `transaction()` 方法的例子**
 
@@ -1090,3 +1133,4 @@ keyRangeValue.includes('W') // false
 - Tiffany Brown, [An Introduction to IndexedDB](http://dev.opera.com/articles/introduction-to-indexeddb/)
 - David Fahlander, [Breaking the Borders of IndexedDB](https://hacks.mozilla.org/2014/06/breaking-the-borders-of-indexeddb/)
 - TutorialsPoint, [HTML5 - IndexedDB](https://www.tutorialspoint.com/html5/html5_indexeddb.htm)
+- [wangdoc IndexedDB API](https://wangdoc.com/javascript/bom/indexeddb)
