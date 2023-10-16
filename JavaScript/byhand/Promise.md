@@ -110,6 +110,10 @@ class MyPromise {
     return promise2
   }
 
+  catch(onRejected) {
+    return this.then(null, onRejected)
+  }
+
   finally(callback) {
     return this.then(
       value => {

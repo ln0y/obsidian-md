@@ -1,8 +1,8 @@
 ---
 aliases: []
-tags: ['js/Promise','JavaScript','date/2022-03','year/2022','month/03']
-date: 2022-03-01-Tuesday 18:18:28
-update: 2022-03-02-Wednesday 13:50:23
+tags: ['js/Promise', 'JavaScript', 'date/2022-03', 'year/2022', 'month/03']
+date: 2023-02-13-星期一 13:46:47
+update: 2023-10-16-星期一 23:51:00
 ---
 
 ## Promise 的基本介绍
@@ -12,7 +12,7 @@ update: 2022-03-02-Wednesday 13:50:23
 Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。我们来简单看一下 Promise 实现的链式调用代码，如下所示。
 
 ```js
-function read (url) {
+function read(url) {
   return new Promise((resolve, reject) => {
     fs.readFile(url, 'utf8', (err, data) => {
       if (err) reject(err)
@@ -20,26 +20,30 @@ function read (url) {
     })
   })
 }
-read(A).then(data => {
-  return read(B)
-}).then(data => {
-  return read(C)
-}).then(data => {
-  return read(D)
-}).catch(reason => {
-  console.log(reason)
-})
+read(A)
+  .then(data => {
+    return read(B)
+  })
+  .then(data => {
+    return read(C)
+  })
+  .then(data => {
+    return read(D)
+  })
+  .catch(reason => {
+    console.log(reason)
+  })
 ```
 
-结合上面的代码，我们一起来分析一下 Promise 内部的状态流转情况，Promise 对象在被创建出来时是待定的状态，它让你能够把异步操作返回最终的成功值或者失败原因，和相应的处理程序关联起来。
+结合上面的代码，我们一起来分析一下 Promise 内部的状态流转情况，Promise  对象在被创建出来时是待定的状态，它让你能够把异步操作返回最终的成功值或者失败原因，和相应的处理程序关联起来。
 
-一般 Promise 在执行过程中，必然会处于以下几种状态之一。
+一般  Promise  在执行过程中，必然会处于以下几种状态之一。
 
 1. 待定（pending）：初始状态，既没有被完成，也没有被拒绝。
 2. 已完成（fulfilled）：操作成功完成。
 3. 已拒绝（rejected）：操作失败。
 
-待定状态的 Promise 对象执行的话，最后要么会通过一个值完成，要么会通过一个原因被拒绝。当其中一种情况发生时，我们用 Promise 的 then 方法排列起来的相关处理程序就会被调用。因为最后 Promise.prototype.then 和 Promise.prototype.catch 方法返回的是一个 Promise， 所以它们可以继续被链式调用。
+待定状态的 Promise 对象执行的话，最后要么会通过一个值完成，要么会通过一个原因被拒绝。当其中一种情况发生时，我们用 Promise 的 then 方法排列起来的相关处理程序就会被调用。因为最后  Promise.prototype.then 和  Promise.prototype.catch  方法返回的是一个 Promise， 所以它们可以继续被链式调用。
 
 关于 Promise 的状态流转情况，有一点值得注意的是，**内部状态改变之后不可逆**，你需要在编程过程中加以注意。文字描述比较晦涩，我们直接通过一张图就能很清晰地看出 Promise 内部状态流转的情况，如下所示。
 
@@ -79,7 +83,7 @@ readFilePromise('1.json').then(data => {
 
 ```js
 let x = readFilePromise('1.json').then(data => {
-  return readFilePromise('2.json')  //这是返回的Promise
+  return readFilePromise('2.json') //这是返回的Promise
 })
 x.then(/* 内部逻辑省略 */)
 ```
@@ -87,13 +91,16 @@ x.then(/* 内部逻辑省略 */)
 我们根据 then 中回调函数的传入值创建不同类型的 Promise，然后把返回的 Promise 穿透到外层，以供后续的调用。这里的 x 指的就是内部返回的 Promise，然后在 x 后面可以依次完成链式调用。这便是返回值穿透的效果，这两种技术一起作用便可以将深层的嵌套回调写成下面的形式。
 
 ```js
-readFilePromise('1.json').then(data => {
-  return readFilePromise('2.json')
-}).then(data => {
-  return readFilePromise('3.json')
-}).then(data => {
-  return readFilePromise('4.json')
-})
+readFilePromise('1.json')
+  .then(data => {
+    return readFilePromise('2.json')
+  })
+  .then(data => {
+    return readFilePromise('3.json')
+  })
+  .then(data => {
+    return readFilePromise('4.json')
+  })
 ```
 
 这样就显得清爽了许多，更重要的是，它更符合人的线性思维模式，开发体验也更好，两种技术结合产生了链式调用的效果。
@@ -101,18 +108,128 @@ readFilePromise('1.json').then(data => {
 这样解决了多层嵌套的问题，那另外一个问题，即每次任务执行结束后分别处理成功和失败的情况怎么解决的呢？Promise 采用了错误冒泡的方式。其实很容易理解，我们来看看效果。
 
 ```js
-readFilePromise('1.json').then(data => {
-  return readFilePromise('2.json')
-}).then(data => {
-  return readFilePromise('3.json')
-}).then(data => {
-  return readFilePromise('4.json')
-}).catch(err => {
-  // xxx
-})
+readFilePromise('1.json')
+  .then(data => {
+    return readFilePromise('2.json')
+  })
+  .then(data => {
+    return readFilePromise('3.json')
+  })
+  .then(data => {
+    return readFilePromise('4.json')
+  })
+  .catch(err => {
+    // xxx
+  })
 ```
 
 这样前面产生的错误会一直向后传递，被 catch 接收到，就不用频繁地检查错误了。从上面的这些代码中可以看到，Promise 解决效果也比较明显：实现链式调用，解决多层嵌套问题；实现错误冒泡后一站式处理，解决每次任务中判断错误、增加代码混乱度的问题。
+
+## Promise 中的 then 第二个参数和 catch 有什么区别？
+
+首页我们先要区分几个概念，第一，reject 是用来抛出异常的，catch 是用来处理异常的；第二：reject 是 Promise 的方法，而 then 和 catch 是 Promise 实例的方法（Promise.prototype.then 和 Promise.prototype.catch）。
+
+### 1\. 区别
+
+主要区别就是，如果在 then 的第一个函数里抛出了异常，后面的 catch 能捕获到，而 then 的第二个函数捕获不到。
+
+catch 只是一个语法糖而己 还是通过 then 来处理的，大概如下所示
+
+```js
+Promise.prototype.catch = function (fn) {
+  return this.then(null, fn)
+}
+```
+
+then 的第二个参数和 catch 捕获错误信息的时候会就近原则，如果是 promise 内部报错，reject 抛出错误后，then 的第二个参数和 catch 方法都存在的情况下，只有 then 的第二个参数能捕获到，如果 then 的第二个参数不存在，则 catch 方法会捕获到。
+
+```js
+const promise = new Promise((resolve, rejected) => {
+  throw new Error('test')
+})
+
+//此时只有then的第二个参数可以捕获到错误信息
+promise
+  .then(
+    res => {
+      //
+    },
+    err => {
+      console.log(err)
+    }
+  )
+  .catch(err1 => {
+    console.log(err1)
+  })
+
+//此时catch方法可以捕获到错误信息
+promise
+  .then(res => {
+    //
+  })
+  .catch(err1 => {
+    console.log(err1)
+  })
+
+//此时只有then的第二个参数可以捕获到Promise内部抛出的错误信息
+promise
+  .then(
+    res => {
+      throw new Error('hello')
+    },
+    err => {
+      console.log(err)
+    }
+  )
+  .catch(err1 => {
+    console.log(err1)
+  })
+
+//此时只有then的第二个参数可以捕获到Promise内部抛出的错误信息
+promise.then(
+  res => {
+    throw new Error('hello')
+  },
+  err => {
+    console.log(err)
+  }
+)
+
+//此时catch可以捕获到Promise内部抛出的错误信息
+promise
+  .then(res => {
+    throw new Error('hello')
+  })
+  .catch(err1 => {
+    console.log(err1)
+  })
+```
+
+### 2\. 两个捕获方法的比较
+
+```js
+// bad
+promise.then(
+  function (data) {
+    // success
+  },
+  function (err) {
+    // error
+  }
+)
+
+// good
+promise
+  .then(function (data) {
+    //cb
+    // success
+  })
+  .catch(function (err) {
+    // error
+  })
+```
+
+上面代码中，第二种写法要好于第一种写法，理由是第二种写法可以捕获前面 then 方法执行中的错误，也更接近同步的写法（try/catch）。因此，建议总是使用 catch 方法，而不使用 then 方法的第二个参数。
 
 ## Promise 的静态方法
 
@@ -131,7 +248,7 @@ readFilePromise('1.json').then(data => {
 
 ```js
 //1.获取轮播数据列表
-function getBannerList () {
+function getBannerList() {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
       resolve('轮播数据')
@@ -139,7 +256,7 @@ function getBannerList () {
   })
 }
 //2.获取店铺列表
-function getStoreList () {
+function getStoreList() {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
       resolve('店铺数据')
@@ -147,18 +264,19 @@ function getStoreList () {
   })
 }
 //3.获取分类列表
-function getCategoryList () {
+function getCategoryList() {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
       resolve('分类数据')
     }, 700)
   })
 }
-function initLoad () {
+function initLoad() {
   Promise.all([getBannerList(), getStoreList(), getCategoryList()])
     .then(res => {
       console.log(res)
-    }).catch(err => {
+    })
+    .catch(err => {
       console.log(err)
     })
 }
@@ -224,18 +342,22 @@ anyPromise.then(function (results) {
 
 ```js
 //请求某个图片资源
-function requestImg () {
+function requestImg() {
   var p = new Promise(function (resolve, reject) {
     var img = new Image()
-    img.onload = function () { resolve(img) }
+    img.onload = function () {
+      resolve(img)
+    }
     img.src = 'http://www.baidu.com/img/flexible/logo/pc/result.png'
   })
   return p
 }
 //延时函数，用于给请求计时
-function timeout () {
+function timeout() {
   var p = new Promise(function (resolve, reject) {
-    setTimeout(function () { reject('图片请求超时') }, 5000)
+    setTimeout(function () {
+      reject('图片请求超时')
+    }, 5000)
   })
   return p
 }
@@ -252,9 +374,9 @@ Promise.race([requestImg(), timeout()])
 
 ### 总结
 
- | Promise方法 |                     简单总结                     |
- |:-----------:|:------------------------------------------------:|
- |     all     |           参数所有返回结果为成功才返回           |
- | allSettled  | 参数不论返回结果是否成功，都返回每个参数执行状态 |
- |     any     |   参数中只要有一个成功，就返回该成功的执行结果   |
- |    race     |       返回最先返回执行成功的参数的执行结果       |
+| Promise 方法 |                     简单总结                     |
+| :----------: | :----------------------------------------------: |
+|     all      |           primose所有返回结果为成功才返回           |
+|  allSettled  | primose不论返回结果是否成功，都返回每个参数执行状态 |
+|     any      |   primose中只要有一个成功，就返回该成功的执行结果   |
+|     race     |       返回最先执行完成的primose的执行结果       |
