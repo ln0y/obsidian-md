@@ -40,7 +40,7 @@ HTTP 协议是无状态的，这意味着在同一个 TCP 连接中，先后发�
 
 >新版 chrome cookies 会保存在 `%LocalAppData%\Google\Chrome\User Data\Default\Network\Cookies` 文件，是一个 SQLite 数据库文件
 
-![](_attachment/img/Pasted image 20221202112620.png)
+![](_attachment/img/Pasted%20image%2020221202112620.png)
 
 通常，它用于告知服务端两个请求是否来自同一浏览器，或者用来保存一些状态信息，`Cookie` 使基于无状态的 `HTTP` 协议记录稳定的状态信息成为了可能。常用的有以下方面：
 
@@ -323,7 +323,7 @@ document.cookie = `people=${peopleCookie};expires=${expires}`
 
 设置完成后，在浏览器查看：
 
-![](_attachment/img/Pasted image 20221205111636.png)
+![](_attachment/img/Pasted%20image%2020221205111636.png)
 
 那要怎么才能读取到这次设置的 `Cookie` 呢？方法如下：
 
@@ -342,7 +342,7 @@ const people = JSON.parse(decodeURIComponent(peopleCookie))
 
 读取到的结果如下：
 
-![](_attachment/img/Pasted image 20221205112307.png)
+![](_attachment/img/Pasted%20image%2020221205112307.png)
 
 > `document.cookie` 一次只能写入一个 `Cookie`，而且写入并不是覆盖，而是添加。
 

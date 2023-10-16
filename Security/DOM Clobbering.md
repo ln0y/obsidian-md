@@ -98,7 +98,7 @@ btn.onclick = () => alert(1)
 
 而这个行为是有明确定义在 spec 上的，在 [7.3.3 Named access on the Window object](https://html.spec.whatwg.org/multipage/window-object.html#named-access-on-the-window-object)：
 
-![](_attachment/img/Pasted image 20221108184725.png)
+![](_attachment/img/Pasted%20image%2020221108184725.png)
 
 帮大家节录两个重点：
 
@@ -199,7 +199,7 @@ console.log(window.TEST_MODE + '')
 
 把一个 HTML 元素转成字串就是这样，会变成这种形式，如果是这样的话那基本上没办法利用。但幸好在 HTML 里面有两个元素在 toString 的时候会做特殊处理：`<base>` 跟 `<a>`：
 
-![](_attachment/img/Pasted image 20221109143255.png)
+![](_attachment/img/Pasted%20image%2020221109143255.png)
 
 来源：[4.6.3 API for a and area elements](https://html.spec.whatwg.org/#api-for-a-and-area-elements)
 
@@ -242,7 +242,7 @@ console.log(window.TEST_MODE + '')
 
 在 HTML 的 [spec](https://www.w3.org/TR/html52/sec-forms.html) 中有这样一段：
 
-![](_attachment/img/Pasted image 20221109143517.png)
+![](_attachment/img/Pasted%20image%2020221109143517.png)
 
 可以利用 `form[name]` 或是 `form[id]` 去拿它底下的元素，例如说：
 
@@ -287,7 +287,7 @@ console.log(window.TEST_MODE + '')
 
 在我们稍早看到的关于 `Named access on the Window object` 的 spec 当中，决定值是什么的段落是这样写的：
 
-![](_attachment/img/Pasted image 20221109144207.png)
+![](_attachment/img/Pasted%20image%2020221109144207.png)
 
 如果要回传的东西有多个，就回传 HTMLCollection。
 
@@ -306,7 +306,7 @@ console.log(window.TEST_MODE + '')
 
 那有了 HTMLCollection 之后可以做什么呢？在 [4.2.10.2. Interface HTMLCollection](https://dom.spec.whatwg.org/#interface-htmlcollection) 中有写到，可以利用 name 或是 id 去拿 HTMLCollection 里面的元素。
 
-![](_attachment/img/Pasted image 20221109144517.png)
+![](_attachment/img/Pasted%20image%2020221109144517.png)
 
 像是这样：
 
