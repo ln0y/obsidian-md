@@ -2,7 +2,7 @@
 _attachment/
 
 # exclude workspace cache
-.obsidian/workspace.json
+.obsidian/workspace*.json
 .obsidian/plugins/recent-files-obsidian/data.json
 
 # Add below lines to exclude OS settings and caches

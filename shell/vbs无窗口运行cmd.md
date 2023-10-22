@@ -1,6 +1,6 @@
 ---
 aliases: []
-tags: ['batch_script','date/2023-02','year/2023','month/02']
+tags: ['shell','date/2023-02','year/2023','month/02']
 date: 2023-02-19-星期日 18:03:36
 update: 2023-02-19-星期日 18:04:31
 ---
