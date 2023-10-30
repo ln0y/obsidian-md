@@ -1,8 +1,8 @@
 ---
 aliases: []
-tags: ['JavaScript/engine','date/2022-03','year/2022','month/03']
-date: 2022-03-02-Wednesday 17:43:57
-update: 2022-03-02-Wednesday 17:54:50
+tags: ['JavaScript/engine', 'date/2022-03', 'year/2022', 'month/03']
+date: 2023-10-18-星期三 12:26:45
+update: 2023-10-29-星期日 18:56:45
 ---
 
 ## 浏览器的 Eventloop
@@ -44,7 +44,7 @@ process.nextTick, Promises, Object.observe, MutationObserver
 
 ## Node.js 的 Eventloop
 
-关于在 Node.js 服务端 Eventloop，[Node.js 官网](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)是这么描述的：
+关于在 Node.js 服务端 Eventloop，[Node.js 官网](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/) 是这么描述的：
 
 > _When Node.js starts, it initializes the event loop, processes the provided input script (or drops into the REPL, which is not covered in this document) which may make async API calls, schedule timers, or call process.nextTick(), then begins processing the event loop._
 
@@ -57,12 +57,75 @@ process.nextTick, Promises, Object.observe, MutationObserver
 - **Timers 阶段**：这个阶段执行 setTimeout 和 setInterval。
 - **I/O callbacks 阶段**：这个阶段主要执行系统级别的回调函数，比如 TCP 连接失败的回调。
 - **idle，prepare 阶段**：只是 Node.js 内部闲置、准备，可以忽略。
-- **poll 阶段**：poll 阶段是一个重要且复杂的阶段，几乎所有 I/O 相关的回调，都在这个阶段执行（除了setTimeout、setInterval、setImmediate 以及一些因为 exception 意外关闭产生的回调），这个阶段的主要流程如下图所示。
+- **poll 阶段**：poll 阶段是一个重要且复杂的阶段，几乎所有 I/O 相关的回调，都在这个阶段执行（除了 setTimeout、setInterval、setImmediate 以及一些因为 exception 意外关闭产生的回调），这个阶段的主要流程如下图所示。
 ![](_attachment/img/CioPOWBHawOAK71oAAFclaJ2RLA602.png)
 - **check 阶段**：执行 setImmediate() 设定的 callbacks。
-- **close callbacks 阶段**：执行关闭请求的回调函数，比如 socket.on('close', ...)。
+- **close callbacks 阶段**：执行关闭请求的回调函数，比如 socket.on('close', …)。
 
-除了把 Eventloop 的宏任务细分到不同阶段外。node 还引入了一个新的任务队列 Process.nextTick()。根据[官方文档的解释](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#process-nexttick)：
+### 每个循环阶段内容详解
+
+**timers 阶段：**
+
+一个 timer 指定一个下限时间而不是准确时间，在达到这个下限时间后执行回调。在指定时间过后，timers 会尽可能早地执行回调，但系统调度或者其它回调的执行可能会延迟它们。
+
+- 注意：技术上来说，poll 阶段控制 timers 什么时候执行。
+- 注意：这个下限时间有个范围：\[1, 2147483647\]，如果设定的时间不在这个范围，将被设置为 1。
+- 此外, libuv 为了防止某个阶段任务太多, 导致后续的 阶段 发生饥饿的现象, 所以消息循环的每一个迭代 (iterate) 中, 每个阶段执行回调都有个最大数量. 如果超过数量的话也会强行结束当前阶段而进入下一个阶段. 这一条规则适用于消息循环中的每一个阶段.
+
+**I/O callbacks 阶段：**
+
+这个阶段执行一些系统操作的回调。比如 TCP 错误，如一个 TCP socket 在想要连接时收到 ECONNREFUSED, 类 unix 系统会等待以报告错误，这就会放到 I/O callbacks 阶段的队列执行. 名字会让人误解为执行 I/O 回调处理程序, 实际上 I/O 回调会由 poll 阶段处理.
+
+**idle, prepare**
+
+据说是内部使用, 所以我们也不在这里过多讨论.
+
+**poll 阶段**
+
+这是整个消息循环中最重要的一个阶段, 作用是等待异步请求和数据，获取 I/O 事件回调, 例如操作读取文件等等，适当的条件下 node 将阻塞在这里; 该阶段有两个情况：
+
+- 如果 poll 队列不空，event loop 会遍历队列并同步执行回调，直到队列清空或执行的回调数到达系统上限；
+- 如果 poll 队列为空，则发生以下两件事之一：
+- 如果代码已经被 setImmediate() 设定了回调, event loop 将结束 poll 阶段进入 check 阶段来执行 check 队列（里面的回调 callback）。
+- 如果代码没有被 setImmediate() 设定回调，event loop 将阻塞在该阶段等待回调被加入 poll 队列，并立即执行。
+- 但是，当 event loop 进入 poll 阶段，**并且 有设定的 timers，** 一旦 poll 队列为空（poll 阶段空闲状态）： event loop 将检查 timers,如果有 1 个或多个 timers 的下限时间已经到达，event loop 将绕回 timers 阶段，并执行 timer 队列。
+
+**check 阶段：**
+
+这个阶段允许在 poll 阶段结束后立即执行回调。如果 poll 阶段空闲，并且有被 setImmediate() 设定的回调，event loop 会转到 check 阶段而不是继续等待。
+
+- setImmediate() 实际上是一个特殊的 timer，跑在 event loop 中一个独立的阶段。它使用 libuv 的 API 来设定在 poll 阶段结束后立即执行回调。
+- 通常上来讲，随着代码执行，event loop 终将进入 poll 阶段，在这个阶段等待 incoming connection, request 等等。但是，只要有被 setImmediate() 设定了回调，一旦 poll 阶段空闲，那么程序将结束 poll 阶段并进入 check 阶段，而不是继续等待 poll 事件们 （poll events）。
+
+**close callbacks 阶段：**
+
+如果一个 socket 或 handle 被突然关掉（比如 socket.destroy()），close 事件将在这个阶段被触发，否则将通过 process.nextTick() 触发**小测试：**
+
+```js
+console.log('同步');
+
+process.nextTick(()=>{
+  console.log('nextTick');
+});
+
+Promise.resolve().then(()=>{
+  console.log('微任务');
+});
+
+// 到达可执行条件才会执行，与
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
+
+// poll之后会立即检查是否有setImmediate，如果存在就立即执行
+setImmediate(()=>{
+  console.log('setImmediate');
+})
+```
+
+打印结果为：同步 - nextTick - 微任务 - setTimeout - setImmediate
+
+除了把 Eventloop 的宏任务细分到不同阶段外。node 还引入了一个新的任务队列 Process.nextTick()。根据 [官方文档的解释](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#process-nexttick)：
 
 > process.nextTick()is not technically part of the event loop. Instead, thenextTickQueuewill be processed after the current operation is completed, regardless of the current phase of the event loop. Here, an operation is defined as a transition from the underlying C/C++ handler, and handling the JavaScript that needs to be executed.
 

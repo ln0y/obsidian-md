@@ -11,13 +11,8 @@
             "id": "ca132c8b1fc7fa27",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript/byhand/Function.prototype.bind.md",
-                "mode": "preview",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -102,7 +97,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "JavaScript/byhand/Function.prototype.bind.md",
             "collapseAll": true,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -119,7 +113,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "JavaScript/byhand/Function.prototype.bind.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -130,9 +123,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "JavaScript/byhand/Function.prototype.bind.md"
-          }
+          "state": {}
         }
       },
       {
@@ -148,9 +139,9 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -162,22 +153,23 @@
   },
   "active": "12984d3464bbbbda",
   "lastOpenFiles": [
+    "_attachment/img/24fbeec9a2a5268802d2ddcdcf351a39_MD5.png",
+    "_attachment/img/CioPOWB87jeAG0OeAADy6IPqiP8527.png",
+    "_attachment/img/ba00d0b0c5ffcb6156bd6aaa1ae09657_MD5.png",
+    "_attachment/img/15640408725976.png",
+    "_attachment/img/7e9756dc7b34f38921816369ded7f7e4_MD5.gif",
+    "_attachment/img/499a73e0570cde03affcf5e5b19ebd9c_MD5.gif",
+    "_attachment/img/00af74735a1b7f47eb5b10932a01c14d_MD5.png",
+    "_attachment/img/dfbd60232ae32117dae2eaac6fa6df0d_MD5.png",
+    "_attachment/img/4c94f03e8a0298c45651b25e2e9c49ee_MD5.gif",
+    "_attachment/img/Cgp9HWCCKxuAeVUyAAA_sW29BSM139.png",
+    "_attachment/img/1857824b834e6f441618aeff34c687d7_MD5.png",
     "browser/DevTools/5.Chrome DevTools - Performance.md",
     "Network/信任链.md",
     "JSON/JSON Schema.md",
     "JavaScript/byhand/Object.create.md",
     "TODO看板.md",
     "RegExp/glob 模式匹配.md",
-    "_attachment/img/5283118e6cb87a26bb864fed92e3de9b_MD5.png",
-    "_attachment/img/c40a231cc62ecfc63887427f6ad74a31_MD5.png",
-    "_attachment/img/cce081bc5a3c79291b1deabb323955b4_MD5.png",
-    "_attachment/img/69f80ec0e3c55f7a3d6e74374d1cc4a5_MD5.png",
-    "_attachment/img/b736eed4aed7f3a7190c0ea86ae0989f_MD5.png",
-    "_attachment/img/aafc1541d08013f94c65302383e26ae4_MD5.png",
-    "_attachment/img/c59c6bbafd893b82bf939f1ab6e97410_MD5.png",
-    "_attachment/img/3b29786b50838b38421dc7824d9b396b_MD5.png",
-    "_attachment/img/31cd56937e3440c4971cc74b5fd8f8f0_MD5.png",
-    "_attachment/img/80e7beedd5ae701b5afef27fdb1dc9ae_MD5.png",
     "browser/cache/8.熟悉而又陌生的 Memory Cache 与 Disk Cache.md",
     "browser/DevTools/3.Chrome DevTools - Sources.md",
     "browser/DevTools/1.Chrome DevTools - Elements.md",
@@ -196,7 +188,6 @@
     "JavaScript/PromiseA+实现.md",
     "Security/前端安全：XSS.md",
     "share/类型体操.md",
-    "TypeScript/函数类型.md",
-    "TypeScript/类型推断.md"
+    "TypeScript/函数类型.md"
   ]
 }
