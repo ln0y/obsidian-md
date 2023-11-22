@@ -13,7 +13,7 @@
   "promptDelete": false,
   "attachmentFolderPath": "_attachment",
   "showFrontmatter": false,
-  "defaultViewMode": "preview",
+  "defaultViewMode": "source",
   "fileSortOrder": "byCreatedTime",
   "tabSize": 2,
   "userIgnoreFilters": [

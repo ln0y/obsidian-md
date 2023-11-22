@@ -11,8 +11,13 @@
             "id": "ca132c8b1fc7fa27",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Post/常见js手写题.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -97,6 +102,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Post/常见js手写题.md",
             "collapseAll": true,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -113,6 +119,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Post/常见js手写题.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -123,7 +130,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Post/常见js手写题.md"
+          }
         }
       },
       {
@@ -151,7 +160,7 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "12984d3464bbbbda",
+  "active": "ca132c8b1fc7fa27",
   "lastOpenFiles": [
     "_attachment/img/24fbeec9a2a5268802d2ddcdcf351a39_MD5.png",
     "_attachment/img/CioPOWB87jeAG0OeAADy6IPqiP8527.png",
