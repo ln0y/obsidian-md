@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Post/常见js手写题.md",
+                "file": "Network/CDN.md",
                 "mode": "preview",
                 "backlinks": true,
                 "source": false
@@ -88,6 +88,16 @@
           "type": "bookmarks",
           "state": {}
         }
+      },
+      {
+        "id": "ff781a9d645eb5ff",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency"
+          }
+        }
       }
     ],
     "currentTab": 0
@@ -102,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Post/常见js手写题.md",
+            "file": "Network/CDN.md",
             "collapseAll": true,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -119,7 +129,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Post/常见js手写题.md",
+            "file": "Network/CDN.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -131,7 +141,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Post/常见js手写题.md"
+            "file": "Network/CDN.md"
           }
         }
       },
@@ -160,8 +170,11 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "ca132c8b1fc7fa27",
+  "active": "12984d3464bbbbda",
   "lastOpenFiles": [
+    "Network/DNS.md",
+    "algorithm/二分查找.md",
+    "Post/常见js手写题.md",
     "_attachment/img/24fbeec9a2a5268802d2ddcdcf351a39_MD5.png",
     "_attachment/img/CioPOWB87jeAG0OeAADy6IPqiP8527.png",
     "_attachment/img/ba00d0b0c5ffcb6156bd6aaa1ae09657_MD5.png",
@@ -172,7 +185,6 @@
     "_attachment/img/dfbd60232ae32117dae2eaac6fa6df0d_MD5.png",
     "_attachment/img/4c94f03e8a0298c45651b25e2e9c49ee_MD5.gif",
     "_attachment/img/Cgp9HWCCKxuAeVUyAAA_sW29BSM139.png",
-    "_attachment/img/1857824b834e6f441618aeff34c687d7_MD5.png",
     "browser/DevTools/5.Chrome DevTools - Performance.md",
     "Network/信任链.md",
     "JSON/JSON Schema.md",
@@ -195,8 +207,6 @@
     "browser/跨域.md",
     "JavaScript/V8 Promise源码.md",
     "JavaScript/PromiseA+实现.md",
-    "Security/前端安全：XSS.md",
-    "share/类型体操.md",
-    "TypeScript/函数类型.md"
+    "Security/前端安全：XSS.md"
   ]
 }
