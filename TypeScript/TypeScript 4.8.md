@@ -5,6 +5,8 @@ date: 2022-08-31-星期三 10:48:18
 update: 2022-08-31-星期三 14:08:25
 ---
 
+>英文原味版请临幸 [Announcing TypeScript 4.8](https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/)。
+
 就在上周微软发布了 TypeScript 4.8 新版本，一起来看看都有哪些新的功能：
 
 - [改进的交叉类型、联合兼容性和类型收窄](https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/#smarter-type-narrowing-and-simplifications 'https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/#smarter-type-narrowing-and-simplifications')

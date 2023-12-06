@@ -5,7 +5,8 @@ date: 2023-04-20-星期四 14:12:48
 update: 2023-04-20-星期四 16:55:56
 ---
 
-> _原文地址：_[Announcing TypeScript 5.0](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/)
+>英文原味版请临幸 [Announcing TypeScript 5.0](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/)。
+
 
 今天我们很高兴地发布 TypeScript 5.0。
 

@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network/CDN.md",
-                "mode": "preview",
+                "file": "TypeScript/TypeScript 5.1.md",
+                "mode": "source",
                 "backlinks": true,
                 "source": false
               }
@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Network/CDN.md",
+            "file": "TypeScript/TypeScript 5.1.md",
             "collapseAll": true,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -129,7 +129,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Network/CDN.md",
+            "file": "TypeScript/TypeScript 5.1.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -141,7 +141,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Network/CDN.md"
+            "file": "TypeScript/TypeScript 5.1.md"
           }
         }
       },
@@ -170,8 +170,9 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "12984d3464bbbbda",
+  "active": "ca132c8b1fc7fa27",
   "lastOpenFiles": [
+    "Network/CDN.md",
     "Network/DNS.md",
     "algorithm/二分查找.md",
     "Post/常见js手写题.md",
@@ -206,7 +207,6 @@
     "TypeScript/TypeScript 4.9.md",
     "browser/跨域.md",
     "JavaScript/V8 Promise源码.md",
-    "JavaScript/PromiseA+实现.md",
-    "Security/前端安全：XSS.md"
+    "JavaScript/PromiseA+实现.md"
   ]
 }

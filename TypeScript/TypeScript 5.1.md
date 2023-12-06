@@ -2,8 +2,10 @@
 aliases: []
 tags: ['TypeScript', 'date/2023-06', 'year/2023', 'month/06']
 date: 2023-06-09-星期五 11:06:35
-update: 2023-06-09-星期五 11:09:04
+update: 2023-12-04-星期一 17:40:32
 ---
+
+>英文原味版请临幸 [Announcing TypeScript 5.1](https://devblogs.microsoft.com/typescript/announcing-typescript-5-1)。
 
 6 月 1 日，TypeScript 5.1 正式发布。以下是该版本中新增的功能：
 

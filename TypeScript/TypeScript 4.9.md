@@ -1,15 +1,15 @@
 ---
 aliases: []
-tags: ['TypeScript','date/2022-11','year/2022','month/11']
+tags: ['TypeScript', 'date/2022-11', 'year/2022', 'month/11']
 date: 2022-11-30-星期三 14:23:15
-update: 2022-11-30-星期三 15:36:18
+update: 2023-12-04-星期一 17:41:52
 ---
 
-原文链接： https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/
+>英文原味版请临幸 [Announcing TypeScript 4.9](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/)。
 
 这里是 TypeScript 4.9 更新的内容
 
-- satifies 操作符
+- satisfies 操作符
 - in 操作符中未列举的属性收束
 - Class 的 Auto-Accessor
 - 对于 NaN 进行检查
@@ -21,7 +21,7 @@ update: 2022-11-30-星期三 15:36:18
 
 ## 从 Beta 和 RC 版本依赖的更新
 
-相比 [RC](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9-rc/) 版本，没有更多的变化加入到 TypeScript 4.9。Beta 版本本来包括 Class 的 Auto-Accessor 和性能改进的部分，但是没有列出在[文档](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9-beta/)上。
+相比 [RC](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9-rc/) 版本，没有更多的变化加入到 TypeScript 4.9。Beta 版本本来包括 Class 的 Auto-Accessor 和性能改进的部分，但是没有列出在 [文档](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9-beta/) 上。
 
 ## satisfies 操作符
 
@@ -190,7 +190,7 @@ function tryGetPackageName(context: Context) {
 }
 ```
 
-这里会报错是因为，在之前的版本，虽然 unkown 被收束为 object，但是之后的收束并没有生效，TypeScript 依然认为 packageJSON 只是一个 object，而不知道有 name 这个字段。
+这里会报错是因为，在之前的版本，虽然 unknown 被收束为 object，但是之后的收束并没有生效，TypeScript 依然认为 packageJSON 只是一个 object，而不知道有 name 这个字段。
 
 TypeScript 4.9 会更智能，在通过 in 操作符以后，会给类型添加上断言添加的类型 Record<"property-key-being-checked", unknown>。
 
@@ -222,7 +222,7 @@ TypeScript 也会对 in 操作符两端做检查，确保左边是 string | numb
 
 ## **Auto-Accessors in Classes**
 
-TypeScript 支持了 ECMAScript 的新功能 auto-accessors。auto-accessors 就和 class 的属性一样，只是它们是用`accessor`关键字声明的
+TypeScript 支持了 ECMAScript 的新功能 auto-accessors。auto-accessors 就和 class 的属性一样，只是它们是用 `accessor` 关键字声明的
 
 ```ts
 class Person {
@@ -300,17 +300,17 @@ function validate(someValue: number) {
 
 在早期的版本里，TypeScript 非常依赖轮询来检测单个文件。使用轮询的机制表示，TypeScript 需要周期的检查一个文件。在 Node.js 里， fs.watchFIle 时内置的获取轮询文件检测器的内置方法。因为轮询的机制在不同的平台和文件系统中是比较确定的，它会时不时中断 CPU 来看这个文件的状态，即便这个文件啥也没做，也要发生中断。如果文件不多，这个机制是合适的。但是如果文件特别多，比如 node\_modules 里的那么多文件，这种机制会造成一些资源占用浪费。
 
-通常来说，比较好的方法是通过文件系统事件来实现上面的机制。不再使用轮询的机制，我们可以关注关心的文件，然后通过事件触发的回调来实现。绝大部分现代平台提供了`CreateIoCompletionPort`, `kqueue`, `epoll`, 和 `inotify`。Node.js 提供了[fs.watch](https://nodejs.org/docs/latest-v18.x/api/fs.html#fswatchfilename-options-listener) ，这个接口抽象了这些实现方式。使用 `fs.watch` 接口来使用文件系统事件通常工作很好，但是也有一些[缺陷](https://nodejs.org/docs/latest-v18.x/api/fs.html#Caveats)。观察者要小心考虑 [inode watching](https://nodejs.org/docs/latest-v18.x/api/fs.html#inodes)，在一[些文件系统不可用](https://nodejs.org/docs/latest-v18.x/api/fs.html#availability)（比如网络文件系统）。是否有递归文件检测是可用的，文件夹改名是否触发事件， 还有文件检测者耗尽的问题。换句话说，使用这个机制，需要考虑非常多的问题，尤其是在跨平台使用时。
+通常来说，比较好的方法是通过文件系统事件来实现上面的机制。不再使用轮询的机制，我们可以关注关心的文件，然后通过事件触发的回调来实现。绝大部分现代平台提供了 `CreateIoCompletionPort`, `kqueue`, `epoll`, 和 `inotify`。Node.js 提供了 [fs.watch](https://nodejs.org/docs/latest-v18.x/api/fs.html#fswatchfilename-options-listener) ，这个接口抽象了这些实现方式。使用 `fs.watch` 接口来使用文件系统事件通常工作很好，但是也有一些 [缺陷](https://nodejs.org/docs/latest-v18.x/api/fs.html#Caveats)。观察者要小心考虑 [inode watching](https://nodejs.org/docs/latest-v18.x/api/fs.html#inodes)，在一 [些文件系统不可用](https://nodejs.org/docs/latest-v18.x/api/fs.html#availability)（比如网络文件系统）。是否有递归文件检测是可用的，文件夹改名是否触发事件， 还有文件检测者耗尽的问题。换句话说，使用这个机制，需要考虑非常多的问题，尤其是在跨平台使用时。
 
 所以目前的解决方案时，我们默认的方法是在绝大部分时间使用轮询。
 
-随着时间发展，我们会提供其他的[文件检测机制](https://www.typescriptlang.org/docs/handbook/configuring-watch.html)。这让我们可以更多地获得关于跨平台碰到相关问题的反馈。因为 TypeScript 的项目会扩展为非常大的代码库，我们认为切换到基于文件事件的机制是值得投资的事情。
+随着时间发展，我们会提供其他的 [文件检测机制](https://www.typescriptlang.org/docs/handbook/configuring-watch.html)。这让我们可以更多地获得关于跨平台碰到相关问题的反馈。因为 TypeScript 的项目会扩展为非常大的代码库，我们认为切换到基于文件事件的机制是值得投资的事情。
 
 在 TypeScript 4.9， 文件检测默认使用文件系统事件，只有在设置事件检测者失败时回退成轮询的机制。对于绝大部份开发者，使用 —watch 模式可以消耗更少的资源，在使用 TypeScript 强化的编辑器例如 Visual Studio 或者 VS Code 时也会使用更少的资源。
 
-使用 [watchOptions](https://www.typescriptlang.org/docs/handbook/configuring-watch.html) 可以改变这个机制。[VS Code 也提供了改变这个](https://code.visualstudio.com/docs/getstarted/settings#:~:text=typescript%2etsserver%2ewatchOptions)参数的方法。如果开发者使用网络文件系统（例如 NFS 和 SMB），需要把这个参数回退成轮询的机制，当然直接在服务器端使用 TypeScript 也是一个不错的选择，这样就是使用本地文件系统了。VS Code 有很多关于远程[开发的插件](https://marketplace.visualstudio.com/search?term=remote&target=VSCode&category=All%20categories&sortBy=Relevance)来帮助这个过程。
+使用 [watchOptions](https://www.typescriptlang.org/docs/handbook/configuring-watch.html) 可以改变这个机制。[VS Code 也提供了改变这个](https://code.visualstudio.com/docs/getstarted/settings#:~:text=typescript%2etsserver%2ewatchOptions) 参数的方法。如果开发者使用网络文件系统（例如 NFS 和 SMB），需要把这个参数回退成轮询的机制，当然直接在服务器端使用 TypeScript 也是一个不错的选择，这样就是使用本地文件系统了。VS Code 有很多关于远程 [开发的插件](https://marketplace.visualstudio.com/search?term=remote&target=VSCode&category=All%20categories&sortBy=Relevance) 来帮助这个过程。
 
-你可以在这篇[文章](https://github.com/microsoft/TypeScript/pull/50366)看到关于这个问题更多的信息。
+你可以在这篇 [文章](https://github.com/microsoft/TypeScript/pull/50366) 看到关于这个问题更多的信息。
 
 ## 编辑器增强：“Remove Unused Imports” 和 “Sort Imports”
 
@@ -354,7 +354,7 @@ let x: Moose | HoneyBadger = foo();
 
 这个功能对于全部编辑器可用，但是注意 Visual Studio Code（1.73 和之后）会支持内置的可以在命令面板调用的这些功能。用户如果想更细粒度地控制这个行为，可以混合调用 “Remove Unused Imports”、“Sort Imports” 和 “Organize Imports”。
 
-更详细的[文档](https://github.com/microsoft/TypeScript/pull/50931)请参考。
+更详细的 [文档](https://github.com/microsoft/TypeScript/pull/50931) 请参考。
 
 ## 编辑器增强：对于 return 关键字的 Go-to-Definition
 
@@ -362,7 +362,7 @@ let x: Moose | HoneyBadger = foo();
 
 我们期望 TypeScript 可以扩展这个行为到更多的关键字，比如 [await 和 yield](https://github.com/microsoft/TypeScript/issues/51223)，[switch、case 和 default](https://github.com/microsoft/TypeScript/issues/51225)。
 
-感谢 [Oleksandr Tarasiuk](https://github.com/a-tarasyuk) 提供了这个[实现](https://github.com/microsoft/TypeScript/pull/51227)。
+感谢 [Oleksandr Tarasiuk](https://github.com/a-tarasyuk) 提供了这个 [实现](https://github.com/microsoft/TypeScript/pull/51227)。
 
 ## 性能增强
 
@@ -372,7 +372,7 @@ TypeScript 有了一些小但是值得注意的性能增强。
 
 当我们最终发现这个优化对于 forEachChild 的实现很有效果，我们在 visitEachChild（这个函数在编译器和语言服务器中进行转换节点的工作）也做一样的优化。这样大概提升了 visitEachChild 3% 的性能。
 
-最开始对于 forEachChild 优化的启发是来自[Artemis Everfree](https://artemis.sh/) 的[博客](https://artemis.sh/2022/08/07/emulating-calculators-fast-in-js.html)。虽然我们认为目前速度的问题更多是函数的大小和复杂性有关，并不是博文中指出的问题，但是我们对于从这个经验中找到这个优化方法是非常感激的。
+最开始对于 forEachChild 优化的启发是来自 [Artemis Everfree](https://artemis.sh/) 的 [博客](https://artemis.sh/2022/08/07/emulating-calculators-fast-in-js.html)。虽然我们认为目前速度的问题更多是函数的大小和复杂性有关，并不是博文中指出的问题，但是我们对于从这个经验中找到这个优化方法是非常感激的。
 
 最后，对于 TypeScript 在条件分支中保留类型信息做了一些优化，对于类型
 
@@ -384,7 +384,7 @@ interface Zoo<T extends Animal> {
 type MakeZoo<A> = A extends Animal ? Zoo<A> : never;
 ```
 
-TypeScript 在检查 `Zoo<A>` 是合法时需要知道 A 是一个 Animal。在之前的版本，TypeScript总是立即做了这件事，目前看是不必要的。并且，一些我们的类型检查器中的错误代码让我们无法简化这个过程。TypeScript 现在推迟到必须知道这个类型时再去检查类型。对于使用条件类型非常多的代码库，能看到非常大的性能提升，对于常规情况，我们看到 3% 的类型检查时间提升。
+TypeScript 在检查 `Zoo<A>` 是合法时需要知道 A 是一个 Animal。在之前的版本，TypeScript 总是立即做了这件事，目前看是不必要的。并且，一些我们的类型检查器中的错误代码让我们无法简化这个过程。TypeScript 现在推迟到必须知道这个类型时再去检查类型。对于使用条件类型非常多的代码库，能看到非常大的性能提升，对于常规情况，我们看到 3% 的类型检查时间提升。
 
 你可以阅读下面的 PR 来了解更详细的信息
 
@@ -400,9 +400,9 @@ TypeScript 在检查 `Zoo<A>` 是合法时需要知道 A 是一个 Animal。在�
 
 ### 对于 Promise.resolve 的类型增强
 
-Promise.resolve 现在使用 Awaited 类型来对 Proimse-like 的类型进行解包。这意味着现在更多返回正确的 Promise 的类型，而不是 any 或者 unknown。更与这个变更更多请[参考](https://github.com/microsoft/TypeScript/pull/33074)。
+Promise.resolve 现在使用 Awaited 类型来对 Proimse-like 的类型进行解包。这意味着现在更多返回正确的 Promise 的类型，而不是 any 或者 unknown。更与这个变更更多请 [参考](https://github.com/microsoft/TypeScript/pull/33074)。
 
-### JavaScript不再触发省略 import
+### JavaScript 不再触发省略 import
 
 当 TypeScript 编译器开始支持 JavaScript 的类型检查和编译时，TypeScript 引入了一些机制，例如省略 import。这个功能的意思是，如果编译器发现一个引入的东西不作为值，则会在最终生成的文件省略这个 import。
 
@@ -428,7 +428,7 @@ import { someValue, SomeClass } from "some-module";
 let val = someValue;
 ```
 
-更多关于这个内容的信息[参考](https://github.com/microsoft/TypeScript/pull/50404)。
+更多关于这个内容的信息 [参考](https://github.com/microsoft/TypeScript/pull/50404)。
 
 ### exports 优先级高于 typesVersions
 
@@ -452,7 +452,7 @@ let val = someValue;
   }
 ```
 
-更多信息[参考](https://github.com/microsoft/TypeScript/pull/50890)。
+更多信息 [参考](https://github.com/microsoft/TypeScript/pull/50890)。
 
 ### **对于 `SubstitutionType` 的 `substitute` 替换为 `constraint`**
 

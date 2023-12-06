@@ -2,8 +2,10 @@
 aliases: []
 tags: ['TypeScript', 'date/2023-12', 'year/2023', 'month/12']
 date: 2023-12-04-星期一 16:43:04
-update: 2023-12-04-星期一 17:11:34
+update: 2023-12-04-星期一 17:39:54
 ---
+
+>英文原味版请临幸 [Announcing TypeScript 5.2](https://devblogs.microsoft.com/typescript/announcing-typescript-5-2)。
 
 今天，我们“普大喜奔” —— TS 5.2 正式发布！
 
