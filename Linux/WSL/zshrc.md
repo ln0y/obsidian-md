@@ -141,6 +141,4 @@ alias szsh="source ~/.zshrc"
 export PATH="/home/lin/.local/share/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 
-zinit light ntnyq/omz-plugin-pnpm
-
 ```
