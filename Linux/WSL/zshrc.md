@@ -5,7 +5,7 @@ date: 2022-09-09-星期五 09:44:59
 update: 2022-09-09-星期五 09:45:10
 ---
 
-```txt
+```sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -87,15 +87,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  pip
   npm
+  pnpm
+  node
   yarn
   vscode
   sudo
-  alias-finder
-  minikube
-  web-search
-  docker
+  dirhistory
+  you-should-use
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -129,28 +128,19 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias cdc="cd /mnt/c"
-alias cdh="cd /mnt/h"
-alias cde="cd /mnt/e"
-alias cdew="cd /mnt/e/workspace"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 alias ep="explorer.exe"
 alias updg="sudo apt update && sudo apt upgrade -y"
-alias rmnode="rm -rf ./node_modules"
+alias rmnode="find . -type d -name node_modules -prune -exec rm -rf {} \;"
+alias czsh="code ~/.zshrc"
+alias szsh="source ~/.zshrc"
 
-## 获取主机 IP
-## 主机 IP 保存在 /etc/resolv.conf 中
-export hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
-export all_proxy="socks5://${hostip}:64399"
-export https_proxy="http://${hostip}:64399"
-export http_proxy="http://${hostip}:64399"
-# alias setss='export https_proxy="http://${hostip}:64399";export http_proxy="http://${hostip}:64399";export all_proxy="socks5://${hostip}:64399";'
-# alias unsetss='unset all_proxy'
+# fnm
+export PATH="/home/lin/.local/share/fnm:$PATH"
+eval "$(fnm env --use-on-cd)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# To customize prompt, run `p10k configure` or edit /tmp/vscode-zsh/.p10k.zsh.
-[[ ! -f /tmp/vscode-zsh/.p10k.zsh ]] || source /tmp/vscode-zsh/.p10k.zsh
+zinit light ntnyq/omz-plugin-pnpm
 
 ```
