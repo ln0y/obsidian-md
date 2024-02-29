@@ -136,9 +136,26 @@ alias updg="sudo apt update && sudo apt upgrade -y"
 alias rmnode="find . -type d -name node_modules -prune -exec rm -rf {} \;"
 alias czsh="code ~/.zshrc"
 alias szsh="source ~/.zshrc"
+alias cls="clear"
+
+export EDITOR=code
+
+alias pi="pnpm install"
+alias pin="pnpm init"
+alias pbw="pnpm build:watch"
 
 # fnm
-export PATH="/home/lin/.local/share/fnm:$PATH"
+export PATH="/home/ln0y/.local/share/fnm:$PATH"
+eval "`fnm env`"
 eval "$(fnm env --use-on-cd)"
+
+# java
+JAVA_HOME='/usr/lib/jvm/java-21-openjdk-amd64'
+PATH="$JAVA_HOME/bin:$PATH"
+# mvn
+M2_HOME='/opt/apache-maven-3.9.6'
+PATH="$M2_HOME/bin:$PATH"
+
+export PATH
 
 ```

@@ -31,6 +31,8 @@ update: 2022-03-13-Sunday 15:43:53
 - [ ] 简易模板引擎 @{2023-06-14}
 - [ ] reflect metadata @{2023-08-03}
 - [ ] SSE @{2023-10-12}
+- [ ] package.json sideEffects @{2024-02-18}
+- [ ] qiankun 沙箱 @{2024-02-22}
 
 
 ## ⏳Working
