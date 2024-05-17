@@ -1,13 +1,15 @@
 {
   "items": [
     {
-      "name": "Markdown"
+      "name": "Markdown",
+      "arguments": "-f ${fromFormat} --resource-path=\"${currentDir}\" --resource-path=\"${vaultDir}\" --lua-filter=\"${luaDir}/markdown.lua\" -s -o \"${outputPath}\" -t commonmark_x-attributes"
     },
     {
       "name": "Markdown (Hugo)"
     },
     {
-      "name": "Html"
+      "name": "Html",
+      "arguments": "-f ${fromFormat} --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --resource-path=\"${vaultDir}\" --lua-filter=\"${luaDir}/math_block.lua\" --embed-resources --standalone --metadata title=\"${currentFileName}\" -s -o \"${outputPath}\" -t html"
     },
     {
       "name": "TextBundle"
@@ -52,9 +54,10 @@
   "defaultExportDirectoryMode": "Auto",
   "openExportedFile": true,
   "env": {},
+  "showExportProgressBar": true,
   "lastExportDirectory": {
-    "win32": "C:\\Users\\64176\\OneDrive\\桌面"
+    "win32": "C:\\Users\\linouyang\\OneDrive - Etekcity\\文档\\doc"
   },
   "lastExportType": "Html",
-  "lastEditName": "Word (.docx)"
+  "lastEditName": "Markdown"
 }
