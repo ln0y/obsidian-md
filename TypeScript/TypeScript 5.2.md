@@ -7,8 +7,6 @@ update: 2023-12-04-星期一 17:39:54
 
 >英文原味版请临幸 [Announcing TypeScript 5.2](https://devblogs.microsoft.com/typescript/announcing-typescript-5-2)。
 
-今天，我们“普大喜奔” —— TS 5.2 正式发布！
-
 以下是 TS 5.2 新特性速览：
 
 - JS（JavaScript）新特性
