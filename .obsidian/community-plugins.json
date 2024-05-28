@@ -1,5 +1,4 @@
 [
-  "table-editor-obsidian",
   "open-vscode",
   "templater-obsidian",
   "obsidian-linter",
@@ -12,7 +11,6 @@
   "obsidian-dictionary-plugin",
   "cmenu-plugin",
   "obsidian-image-toolkit",
-  "table-extended",
   "file-explorer-note-count",
   "obsidian-excalidraw-plugin",
   "obsidian-icons-plugin",
